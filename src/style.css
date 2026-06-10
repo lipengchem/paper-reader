@@ -127,18 +127,21 @@ button:disabled {
   padding: 0 10px;
 }
 
-.segmented {
+.segmented,
+.sort-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 6px;
 }
 
-.segmented button {
+.segmented button,
+.sort-row button {
   padding: 0 6px;
   font-size: 13px;
 }
 
 .segmented button.active,
+.sort-row button.active,
 .toolbar button.active {
   border-color: #3e8d89;
   background: #e7f4f2;

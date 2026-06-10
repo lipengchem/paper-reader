@@ -101,6 +101,8 @@ export default function App() {
   const [journalFilter, setJournalFilter] = useState("all");
   const [dateFilter, setDateFilter] = useState("all");
   const [tagFilter, setTagFilter] = useState("all");
+  const [sortKey, setSortKey] = useState<"date" | "title" | "rating">("date");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [states, setStates] = useState<Record<string, ReaderState>>({});
   const [noteDraft, setNoteDraft] = useState("");
   const [tagDraft, setTagDraft] = useState("");
@@ -157,7 +159,7 @@ export default function App() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return papers.filter((paper) => {
+    const result = papers.filter((paper) => {
       const local = states[paper.slug] || {};
       const isRead = !!local.read || !!local.rating;
       const searchable = [paper.title, paper.journal, paper.date, ...(paper.collections || [])]
@@ -172,7 +174,25 @@ export default function App() {
       if (readFilter === "unread") return !isRead;
       return true;
     });
-  }, [dateFilter, journalFilter, papers, query, readFilter, states, tagFilter]);
+    return result.sort((a, b) => {
+      const stateA = states[a.slug] || {};
+      const stateB = states[b.slug] || {};
+      let value = 0;
+      if (sortKey === "date") value = a.date.localeCompare(b.date);
+      if (sortKey === "title") value = a.title.localeCompare(b.title);
+      if (sortKey === "rating") value = (stateA.rating || 0) - (stateB.rating || 0);
+      return sortDirection === "asc" ? value : -value;
+    });
+  }, [dateFilter, journalFilter, papers, query, readFilter, sortDirection, sortKey, states, tagFilter]);
+
+  const changeSort = (nextKey: typeof sortKey) => {
+    if (nextKey === sortKey) {
+      setSortDirection((direction) => (direction === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(nextKey);
+      setSortDirection("asc");
+    }
+  };
 
   const setRating = (slug: string, rating: number) => {
     const current = states[slug]?.rating || 0;
@@ -255,7 +275,7 @@ export default function App() {
             </div>
             <div className="filter-row">
               <select className="select" value={journalFilter} onChange={(event) => setJournalFilter(event.target.value)}>
-                <option value="all">全部期刊</option>
+                <option value="all">期刊</option>
                 {journals.map((journal) => (
                   <option key={journal} value={journal}>
                     {journal}
@@ -263,7 +283,7 @@ export default function App() {
                 ))}
               </select>
               <select className="select" value={dateFilter} onChange={(event) => setDateFilter(event.target.value)}>
-                <option value="all">全部日期</option>
+                <option value="all">日期</option>
                 {dates.map((date) => (
                   <option key={date} value={date}>
                     {date}
@@ -272,13 +292,29 @@ export default function App() {
               </select>
             </div>
             <select className="select" value={tagFilter} onChange={(event) => setTagFilter(event.target.value)}>
-              <option value="all">全部标签</option>
+              <option value="all">标签</option>
               {tags.map((tag) => (
                 <option key={tag} value={tag}>
                   {tag}
                 </option>
               ))}
             </select>
+            <div className="sort-row" aria-label="排序">
+              {[
+                ["date", "日期"],
+                ["title", "首字母"],
+                ["rating", "星级"],
+              ].map(([key, label]) => (
+                <button
+                  key={key}
+                  className={sortKey === key ? "active" : ""}
+                  onClick={() => changeSort(key as typeof sortKey)}
+                >
+                  {label}
+                  {sortKey === key ? (sortDirection === "asc" ? " ↑" : " ↓") : ""}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="paper-list">
