@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import {
+  Bot,
   BookOpen,
   ChevronDown,
   FileText,
@@ -10,6 +11,8 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   RefreshCw,
+  Send,
+  Trash2,
 } from "lucide-react";
 
 type PaperItem = {
@@ -41,16 +44,33 @@ type ReaderState = {
   updatedAt?: string;
 };
 
+type AiMessage = {
+  role: "user" | "assistant";
+  content: string;
+  createdAt: string;
+};
+
+type AuthState = {
+  authenticated: boolean;
+  login?: string;
+  isOwner?: boolean;
+};
+
 const baseUrl = import.meta.env.BASE_URL;
 const libraryBase = `${baseUrl}library/`;
+const aiApiBase = (import.meta.env.VITE_AI_API_URL || "").replace(/\/$/, "");
+const aiAccessCodeKey = "paper-reader:ai-access-code";
+const aiModelKey = "paper-reader:ai-model";
+const aiModels = [
+  { id: "gpt-5.5", label: "GPT-5.5" },
+  { id: "gpt-4.1", label: "GPT-4.1" },
+  { id: "gpt-4.1-mini", label: "GPT-4.1 mini" },
+  { id: "gpt-4o", label: "GPT-4o" },
+];
 
 function normalizeAssetPath(slug: string, src = "") {
   if (/^(https?:|data:|\/)/.test(src)) return src;
   return `${libraryBase}${slug}/${src.replace(/^\.\//, "")}`;
-}
-
-function stateKey(slug: string) {
-  return `paper-reader:${slug}`;
 }
 
 const splitStateKey = "paper-reader:pane-split";
@@ -58,21 +78,6 @@ const giscusRepo = "lipengchem/paper-reader";
 const giscusRepoId = "R_kgDOS2FmKw";
 const giscusCategory = "General";
 const giscusCategoryId = "DIC_kwDOS2FmK84C-3sx";
-
-function readLocalState(slug: string): ReaderState {
-  try {
-    return JSON.parse(localStorage.getItem(stateKey(slug)) || "{}");
-  } catch {
-    return {};
-  }
-}
-
-function writeLocalState(slug: string, value: ReaderState) {
-  localStorage.setItem(
-    stateKey(slug),
-    JSON.stringify({ ...value, updatedAt: new Date().toISOString() }),
-  );
-}
 
 function uniq(values: Array<string | undefined>) {
   return Array.from(new Set(values.filter(Boolean) as string[])).sort((a, b) =>
@@ -148,6 +153,15 @@ export default function App() {
   const [noteDraft, setNoteDraft] = useState("");
   const [tagDraft, setTagDraft] = useState("");
   const [metaOpen, setMetaOpen] = useState(false);
+  const [aiOpen, setAiOpen] = useState(false);
+  const [aiAccessCode, setAiAccessCode] = useState(() => localStorage.getItem(aiAccessCodeKey) || "");
+  const [aiModel, setAiModel] = useState(() => localStorage.getItem(aiModelKey) || aiModels[0].id);
+  const [aiInput, setAiInput] = useState("");
+  const [aiMessages, setAiMessages] = useState<AiMessage[]>([]);
+  const [aiBusy, setAiBusy] = useState(false);
+  const [aiError, setAiError] = useState("");
+  const [auth, setAuth] = useState<AuthState>({ authenticated: false });
+  const [syncError, setSyncError] = useState("");
   const [sortOpen, setSortOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [splitPct, setSplitPct] = useState(() => {
@@ -170,11 +184,10 @@ export default function App() {
         const fromUrl = params.get("paper");
         setViewMode(params.get("view") === "related" ? "related" : "reader");
         setActiveSlug(items.some((paper) => paper.slug === fromUrl) ? fromUrl || "" : items[0]?.slug || "");
-        const loaded: Record<string, ReaderState> = {};
-        for (const item of items) loaded[item.slug] = readLocalState(item.slug);
-        setStates(loaded);
+        setStates({});
       })
       .catch((err) => setError(`无法加载文献索引：${err.message}`));
+    checkAuth();
   }, []);
 
   const active = useMemo(
@@ -196,6 +209,114 @@ export default function App() {
       .then(setMarkdown)
       .catch((err) => setMarkdown(`# 加载失败\n\n${err.message}`));
   }, [active, states, viewMode]);
+
+  useEffect(() => {
+    if (auth.authenticated) {
+      loadReaderStates();
+    }
+  }, [auth.authenticated]);
+
+  useEffect(() => {
+    if (!active) return;
+    setAiMessages([]);
+    setAiError("");
+  }, [active?.slug]);
+
+  const aiHeaders = () => ({
+    "Content-Type": "application/json",
+    "X-Access-Code": aiAccessCode.trim(),
+  });
+
+  const loginWithGitHub = () => {
+    if (!aiApiBase) {
+      setSyncError("后端还没有配置 VITE_AI_API_URL。");
+      return;
+    }
+    window.location.href = `${aiApiBase}/auth/github/start?returnTo=${encodeURIComponent(window.location.href)}`;
+  };
+
+  const checkAuth = async () => {
+    if (!aiApiBase) return;
+    try {
+      const res = await fetch(`${aiApiBase}/me`, { credentials: "include" });
+      const data = await res.json().catch(() => ({}));
+      setAuth({ authenticated: !!data.authenticated, login: data.login, isOwner: !!data.isOwner });
+    } catch {
+      setAuth({ authenticated: false });
+    }
+  };
+
+  const loadReaderStates = async () => {
+    if (!aiApiBase || !auth.authenticated) return;
+    try {
+      const res = await fetch(`${aiApiBase}/states`, { credentials: "include" });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `个人状态加载失败：${res.status}`);
+      setStates(data.states || {});
+      setSyncError("");
+    } catch (err) {
+      setSyncError(err instanceof Error ? err.message : "个人状态加载失败。");
+    }
+  };
+
+  const saveReaderState = async (slug: string, state: ReaderState) => {
+    if (!aiApiBase || !auth.authenticated) return;
+    try {
+      const res = await fetch(`${aiApiBase}/state`, {
+        method: "PUT",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ paperSlug: slug, state }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `保存失败：${res.status}`);
+      setStates((prev) => ({ ...prev, [slug]: data.state || state }));
+      setSyncError("");
+    } catch (err) {
+      setSyncError(err instanceof Error ? err.message : "个人状态保存失败。");
+    }
+  };
+
+  const loadAiSession = async () => {
+    if (!active || !aiApiBase) return;
+    if (!aiAccessCode.trim()) {
+      setAiError("请先输入访问码。");
+      return;
+    }
+    localStorage.setItem(aiAccessCodeKey, aiAccessCode.trim());
+    localStorage.setItem(aiModelKey, aiModel);
+    setAiBusy(true);
+    setAiError("");
+    try {
+      const me = await fetch(`${aiApiBase}/me`, {
+        credentials: "include",
+      });
+      const meData = await me.json().catch(() => ({}));
+      setAuth({ authenticated: !!meData.authenticated, login: meData.login, isOwner: !!meData.isOwner });
+      if (!me.ok) throw new Error(meData.error || `认证检查失败：${me.status}`);
+      if (!meData.authenticated) {
+        setAiError("请先登录 GitHub。");
+        return;
+      }
+      const history = await fetch(`${aiApiBase}/history?paperSlug=${encodeURIComponent(active.slug)}`, {
+        credentials: "include",
+        headers: { "X-Access-Code": aiAccessCode.trim() },
+      });
+      const historyData = await history.json().catch(() => ({}));
+      if (!history.ok) throw new Error(historyData.error || `聊天记录加载失败：${history.status}`);
+      setAiMessages(Array.isArray(historyData.messages) ? historyData.messages : []);
+    } catch (err) {
+      setAiError(err instanceof Error ? err.message : "AI 会话加载失败。");
+    } finally {
+      setAiBusy(false);
+    }
+  };
+
+  useEffect(() => {
+    if (aiOpen && active && aiAccessCode.trim()) {
+      loadAiSession();
+    }
+  }, [aiOpen, active?.slug]);
 
   const journals = useMemo(() => uniq(papers.map((paper) => paper.journal)), [papers]);
   const dates = useMemo(() => uniq(papers.map((paper) => monthFromDate(paper.date))).reverse(), [papers]);
@@ -245,22 +366,103 @@ export default function App() {
     const current = states[slug]?.rating || 0;
     const nextRating = current === rating ? 0 : rating;
     const next = { ...(states[slug] || {}), rating: nextRating, read: nextRating > 0 };
-    writeLocalState(slug, next);
     setStates((prev) => ({ ...prev, [slug]: next }));
+    saveReaderState(slug, next);
   };
 
   const saveNote = () => {
     if (!active) return;
     const next = { ...(states[active.slug] || {}), note: noteDraft };
-    writeLocalState(active.slug, next);
     setStates((prev) => ({ ...prev, [active.slug]: next }));
+    saveReaderState(active.slug, next);
   };
 
   const saveTags = () => {
     if (!active) return;
     const next = { ...(states[active.slug] || {}), tags: parseTags(tagDraft) };
-    writeLocalState(active.slug, next);
     setStates((prev) => ({ ...prev, [active.slug]: next }));
+    saveReaderState(active.slug, next);
+  };
+
+  const sendAiQuestion = async () => {
+    if (!active || aiBusy) return;
+    const question = aiInput.trim();
+    if (!question) return;
+    if (!aiApiBase) {
+      setAiError("AI 后端还没有配置 VITE_AI_API_URL。");
+      return;
+    }
+    if (!aiAccessCode.trim()) {
+      setAiError("请先输入访问码。");
+      return;
+    }
+
+    const userMessage: AiMessage = {
+      role: "user",
+      content: question,
+      createdAt: new Date().toISOString(),
+    };
+    const nextMessages = [...aiMessages, userMessage];
+    setAiMessages(nextMessages);
+    setAiInput("");
+    setAiBusy(true);
+    setAiError("");
+    localStorage.setItem(aiAccessCodeKey, aiAccessCode.trim());
+    localStorage.setItem(aiModelKey, aiModel);
+
+    try {
+      const res = await fetch(`${aiApiBase}/chat`, {
+        method: "POST",
+        credentials: "include",
+        headers: aiHeaders(),
+        body: JSON.stringify({
+          model: aiModel,
+          paper: {
+            slug: active.slug,
+            title: active.title,
+            journal: active.journal,
+            date: active.date,
+            pdfPath: active.pdfPath,
+            markdownPath: active.markdownPath,
+            relatedReadingPath: active.relatedReading ? `library/${active.slug}/related_reading.md` : "",
+          },
+          pageContext: {
+            viewMode,
+            paneMode,
+            currentMarkdown: markdown.slice(0, 16000),
+          },
+          messages: nextMessages.slice(-12),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `AI 请求失败：${res.status}`);
+      setAiMessages(Array.isArray(data.messages) ? data.messages : nextMessages);
+    } catch (err) {
+      setAiError(err instanceof Error ? err.message : "AI 请求失败。");
+      setAiMessages(nextMessages);
+    } finally {
+      setAiBusy(false);
+    }
+  };
+
+  const clearAiHistory = () => {
+    if (!active) return;
+    if (!aiApiBase || !aiAccessCode.trim()) {
+      setAiMessages([]);
+      setAiError("");
+      return;
+    }
+    fetch(`${aiApiBase}/history?paperSlug=${encodeURIComponent(active.slug)}`, {
+      method: "DELETE",
+      credentials: "include",
+      headers: { "X-Access-Code": aiAccessCode.trim() },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(`清空失败：${res.status}`);
+        setAiMessages([]);
+        setAiError("");
+      })
+      .catch((err) => setAiError(err instanceof Error ? err.message : "清空失败。"));
   };
 
   const startPaneResize = (event: ReactPointerEvent<HTMLDivElement>) => {
@@ -476,8 +678,16 @@ export default function App() {
                   <span>{active.journal || "Unknown journal"}</span>
                   <span>{active.date}</span>
                 </div>
+                {syncError && <p className="sync-error">{syncError}</p>}
               </div>
               <div className="toolbar">
+                <button onClick={auth.authenticated ? loadReaderStates : loginWithGitHub}>
+                  {auth.authenticated ? auth.login : "登录"}
+                </button>
+                <button className={aiOpen ? "active" : ""} onClick={() => setAiOpen((open) => !open)}>
+                  <Bot size={16} />
+                  AI
+                </button>
                 <div className="meta-menu">
                   <button className={metaOpen ? "active" : ""} onClick={() => setMetaOpen((open) => !open)}>
                     <Highlighter size={16} />
@@ -496,6 +706,9 @@ export default function App() {
                         placeholder="例如：AI, 光催化, 电催化"
                       />
                       <label htmlFor="note">本地批注</label>
+                      {!auth.authenticated && (
+                        <p className="sync-hint">登录后，星级、标签和批注会按账号跨设备保存。</p>
+                      )}
                       <textarea
                         id="note"
                         className="notes-box"
@@ -529,6 +742,82 @@ export default function App() {
                   刷新
                 </button>
               </div>
+              {aiOpen && (
+                <section className="ai-drawer" aria-label="AI 文献助手">
+                  <div className="ai-header">
+                    <div>
+                      <h3>AI 文献助手</h3>
+                      <p>{active.title}</p>
+                    </div>
+                    <button className="icon-button" onClick={() => setAiOpen(false)} title="关闭 AI">
+                      ×
+                    </button>
+                  </div>
+                  <div className="ai-controls">
+                    <input
+                      className="ai-access"
+                      type="password"
+                      value={aiAccessCode}
+                      onChange={(event) => setAiAccessCode(event.target.value)}
+                      placeholder="访问码"
+                    />
+                    <select className="select" value={aiModel} onChange={(event) => setAiModel(event.target.value)}>
+                      {aiModels.map((model) => (
+                        <option key={model.id} value={model.id}>
+                          {model.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="ai-auth-row">
+                    <span>
+                      {auth.authenticated
+                        ? `已登录：${auth.login}，AI 还需要访问码`
+                        : "需要 GitHub 登录 + 访问码"}
+                    </span>
+                    <div>
+                      <button onClick={loginWithGitHub}>
+                        登录 GitHub
+                      </button>
+                      <button onClick={loadAiSession} disabled={aiBusy}>
+                        验证/同步
+                      </button>
+                    </div>
+                  </div>
+                  <div className="ai-messages">
+                    {!aiMessages.length && (
+                      <p className="ai-empty">可以直接问当前文章、译文、图注或相关阅读。回答会尽量引用段落 ID 和页码。</p>
+                    )}
+                    {aiMessages.map((message, index) => (
+                      <div key={`${message.createdAt}-${index}`} className={`ai-message ${message.role}`}>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.content}</ReactMarkdown>
+                      </div>
+                    ))}
+                    {aiBusy && <p className="ai-empty">正在回答...</p>}
+                  </div>
+                  {aiError && <p className="ai-error">{aiError}</p>}
+                  <div className="ai-compose">
+                    <textarea
+                      value={aiInput}
+                      onChange={(event) => setAiInput(event.target.value)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) sendAiQuestion();
+                      }}
+                      placeholder="问这篇文章里的任何问题。Ctrl/⌘ + Enter 发送。"
+                    />
+                    <div className="ai-actions">
+                      <button onClick={clearAiHistory} title="清空当前文章聊天记录">
+                        <Trash2 size={16} />
+                        清空
+                      </button>
+                      <button onClick={sendAiQuestion} disabled={aiBusy}>
+                        <Send size={16} />
+                        发送
+                      </button>
+                    </div>
+                  </div>
+                </section>
+              )}
             </header>
 
             <section

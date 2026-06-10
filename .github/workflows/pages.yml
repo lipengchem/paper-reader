@@ -32,6 +32,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_AI_API_URL: ${{ vars.PAPER_READER_AI_URL }}
         run: npm run build
 
       - name: Upload artifact
