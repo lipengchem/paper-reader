@@ -62,9 +62,7 @@ type AuthState = {
 const baseUrl = import.meta.env.BASE_URL;
 const libraryBase = `${baseUrl}library/`;
 const aiApiBase = (import.meta.env.VITE_AI_API_URL || "").replace(/\/$/, "");
-const aiAccessCodeKey = "paper-reader:ai-access-code";
 const aiModelKey = "paper-reader:ai-model";
-const aiProviderKey = "paper-reader:ai-provider";
 const aiEndpointKey = "paper-reader:ai-endpoint";
 const aiCustomBaseUrlKey = "paper-reader:ai-custom-base-url";
 const aiApiModeKey = "paper-reader:ai-api-mode";
@@ -195,10 +193,6 @@ export default function App() {
   const [metaOpen, setMetaOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
-  const [aiAccessCode, setAiAccessCode] = useState(() => localStorage.getItem(aiAccessCodeKey) || "");
-  const [aiProvider, setAiProvider] = useState<"access" | "own">(
-    () => (localStorage.getItem(aiProviderKey) === "own" ? "own" : "access"),
-  );
   const [ownApiKey, setOwnApiKey] = useState("");
   const [aiReady, setAiReady] = useState(false);
   const [aiModel, setAiModel] = useState(() => localStorage.getItem(aiModelKey) || aiModels[0].id);
@@ -278,15 +272,11 @@ export default function App() {
 
   const aiHeaders = () => {
     const headers: Record<string, string> = { "Content-Type": "application/json" };
-    if (aiProvider === "own") {
-      const preset = aiEndpointPresets.find((item) => item.id === aiEndpoint) || aiEndpointPresets[1];
-      const baseUrl = aiEndpoint === "custom" ? aiCustomBaseUrl.trim() : preset.baseUrl;
-      headers["X-OpenAI-Key"] = ownApiKey.trim();
-      headers["X-OpenAI-Base-URL"] = baseUrl;
-      headers["X-OpenAI-Mode"] = aiEndpoint === "custom" ? aiApiMode : preset.mode;
-    } else {
-      headers["X-Access-Code"] = aiAccessCode.trim();
-    }
+    const preset = aiEndpointPresets.find((item) => item.id === aiEndpoint) || aiEndpointPresets[1];
+    const baseUrl = aiEndpoint === "custom" ? aiCustomBaseUrl.trim() : preset.baseUrl;
+    headers["X-OpenAI-Key"] = ownApiKey.trim();
+    headers["X-OpenAI-Base-URL"] = baseUrl;
+    headers["X-OpenAI-Mode"] = aiEndpoint === "custom" ? aiApiMode : preset.mode;
     return headers;
   };
 
@@ -331,13 +321,6 @@ export default function App() {
     }
   };
 
-  const switchAiCredentialMode = (provider: "access" | "own") => {
-    setAiProvider(provider);
-    localStorage.setItem(aiProviderKey, provider);
-    setAiReady(false);
-    setAiError("");
-  };
-
   const loadReaderStates = async () => {
     if (!aiApiBase || !auth.authenticated) return;
     try {
@@ -371,21 +354,15 @@ export default function App() {
 
   const loadAiSession = async () => {
     if (!active || !aiApiBase) return;
-    if (aiProvider === "access" && !aiAccessCode.trim()) {
-      setAiError("请先输入访问码。");
+    if (!ownApiKey.trim()) {
+      setAiError("请先输入你的 API Key。");
       return;
     }
-    if (aiProvider === "own" && !ownApiKey.trim()) {
-      setAiError("请先输入你自己的 OpenAI API Key。");
-      return;
-    }
-    if (aiProvider === "own" && aiEndpoint === "custom" && !aiCustomBaseUrl.trim()) {
+    if (aiEndpoint === "custom" && !aiCustomBaseUrl.trim()) {
       setAiError("请先输入自定义 API Base URL。");
       return;
     }
-    localStorage.setItem(aiAccessCodeKey, aiAccessCode.trim());
     localStorage.setItem(aiModelKey, aiModel);
-    localStorage.setItem(aiProviderKey, aiProvider);
     localStorage.setItem(aiEndpointKey, aiEndpoint);
     localStorage.setItem(aiCustomBaseUrlKey, aiCustomBaseUrl.trim());
     localStorage.setItem(aiApiModeKey, aiApiMode);
@@ -429,8 +406,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    const hasCredential = aiProvider === "own" ? ownApiKey.trim() : aiAccessCode.trim();
-    if (aiOpen && active && hasCredential && auth.authenticated) {
+    if (aiOpen && active && ownApiKey.trim() && auth.authenticated) {
       loadAiSession();
     }
   }, [aiOpen, active?.slug, auth.authenticated]);
@@ -513,15 +489,11 @@ export default function App() {
       setAiError("请先登录 GitHub。");
       return;
     }
-    if (aiProvider === "access" && !aiAccessCode.trim()) {
-      setAiError("请先输入访问码。");
+    if (!ownApiKey.trim()) {
+      setAiError("请先输入你的 API Key。");
       return;
     }
-    if (aiProvider === "own" && !ownApiKey.trim()) {
-      setAiError("请先输入你自己的 OpenAI API Key。");
-      return;
-    }
-    if (aiProvider === "own" && aiEndpoint === "custom" && !aiCustomBaseUrl.trim()) {
+    if (aiEndpoint === "custom" && !aiCustomBaseUrl.trim()) {
       setAiError("请先输入自定义 API Base URL。");
       return;
     }
@@ -536,9 +508,7 @@ export default function App() {
     setAiInput("");
     setAiBusy(true);
     setAiError("");
-    localStorage.setItem(aiAccessCodeKey, aiAccessCode.trim());
     localStorage.setItem(aiModelKey, aiModel);
-    localStorage.setItem(aiProviderKey, aiProvider);
     localStorage.setItem(aiEndpointKey, aiEndpoint);
     localStorage.setItem(aiCustomBaseUrlKey, aiCustomBaseUrl.trim());
     localStorage.setItem(aiApiModeKey, aiApiMode);
@@ -687,7 +657,7 @@ export default function App() {
     );
   }
 
-  const hasAiCredential = aiProvider === "own" ? !!ownApiKey.trim() : !!aiAccessCode.trim();
+  const hasAiCredential = !!ownApiKey.trim();
 
   return (
     <div className="shell">
@@ -976,51 +946,21 @@ export default function App() {
                     </div>
                   ) : !aiReady ? (
                     <div className="ai-gate">
-                      <p>已登录：{auth.login}。请选择 AI 使用方式。</p>
-                      <div className="ai-provider-tabs">
-                        <button
-                          className={aiProvider === "access" ? "active" : ""}
-                          onClick={() => switchAiCredentialMode("access")}
-                        >
-                          访问码
-                        </button>
-                        <button
-                          className={aiProvider === "own" ? "active" : ""}
-                          onClick={() => switchAiCredentialMode("own")}
-                        >
-                          自备 API Key
-                        </button>
-                      </div>
+                      <p>已登录：{auth.login}。填写任意 OpenAI 兼容 API，即可使用 AI。</p>
                       <div className="ai-controls">
-                        {aiProvider === "access" ? (
-                          <input
-                            className="ai-access"
-                            type="password"
-                            value={aiAccessCode}
-                            onChange={(event) => {
-                              setAiAccessCode(event.target.value);
-                              setAiReady(false);
-                            }}
-                            onKeyDown={(event) => {
-                              if (event.key === "Enter") loadAiSession();
-                            }}
-                            placeholder="输入访问码，按 Enter 进入"
-                          />
-                        ) : (
-                          <input
-                            className="ai-access"
-                            type="password"
-                            value={ownApiKey}
-                            onChange={(event) => {
-                              setOwnApiKey(event.target.value);
-                              setAiReady(false);
-                            }}
-                            onKeyDown={(event) => {
-                              if (event.key === "Enter") loadAiSession();
-                            }}
-                            placeholder="输入你自己的 OpenAI API Key，按 Enter 进入"
-                          />
-                        )}
+                        <input
+                          className="ai-access"
+                          type="password"
+                          value={ownApiKey}
+                          onChange={(event) => {
+                            setOwnApiKey(event.target.value);
+                            setAiReady(false);
+                          }}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter") loadAiSession();
+                          }}
+                          placeholder="输入 API Key，按 Enter 进入"
+                        />
                         <input
                           className="ai-model-input"
                           list="ai-model-options"
@@ -1036,67 +976,63 @@ export default function App() {
                           </option>
                         ))}
                       </datalist>
-                      {aiProvider === "own" && (
-                        <div className="ai-endpoint-grid">
-                          <label>
-                            API 平台
-                            <select
-                              className="select"
-                              value={aiEndpoint}
-                              onChange={(event) => {
-                                const next = event.target.value;
-                                setAiEndpoint(next);
-                                const preset = aiEndpointPresets.find((item) => item.id === next);
-                                if (preset) setAiApiMode(preset.mode as "chat" | "responses");
-                                setAiReady(false);
-                                setAiError("");
-                              }}
-                            >
-                              {aiEndpointPresets.map((preset) => (
-                                <option key={preset.id} value={preset.id}>
-                                  {preset.label}
-                                </option>
-                              ))}
-                            </select>
-                          </label>
-                          <label>
-                            API 格式
-                            <select
-                              className="select"
-                              value={aiEndpoint === "custom" ? aiApiMode : (aiEndpointPresets.find((item) => item.id === aiEndpoint)?.mode || "chat")}
-                              onChange={(event) => setAiApiMode(event.target.value as "chat" | "responses")}
-                              disabled={aiEndpoint !== "custom"}
-                            >
-                              <option value="chat">chat/completions</option>
-                              <option value="responses">responses</option>
-                            </select>
-                          </label>
-                          <label className="ai-endpoint-wide">
-                            Base URL
-                            <input
-                              className="ai-access"
-                              value={aiEndpoint === "custom" ? aiCustomBaseUrl : (aiEndpointPresets.find((item) => item.id === aiEndpoint)?.baseUrl || "")}
-                              onChange={(event) => {
-                                setAiCustomBaseUrl(event.target.value);
-                                setAiReady(false);
-                              }}
-                              disabled={aiEndpoint !== "custom"}
-                              placeholder="https://api.example.com/v1"
-                            />
-                          </label>
-                        </div>
-                      )}
+                      <div className="ai-endpoint-grid">
+                        <label>
+                          API 平台
+                          <select
+                            className="select"
+                            value={aiEndpoint}
+                            onChange={(event) => {
+                              const next = event.target.value;
+                              setAiEndpoint(next);
+                              const preset = aiEndpointPresets.find((item) => item.id === next);
+                              if (preset) setAiApiMode(preset.mode as "chat" | "responses");
+                              setAiReady(false);
+                              setAiError("");
+                            }}
+                          >
+                            {aiEndpointPresets.map((preset) => (
+                              <option key={preset.id} value={preset.id}>
+                                {preset.label}
+                              </option>
+                            ))}
+                          </select>
+                        </label>
+                        <label>
+                          API 格式
+                          <select
+                            className="select"
+                            value={aiEndpoint === "custom" ? aiApiMode : (aiEndpointPresets.find((item) => item.id === aiEndpoint)?.mode || "chat")}
+                            onChange={(event) => setAiApiMode(event.target.value as "chat" | "responses")}
+                            disabled={aiEndpoint !== "custom"}
+                          >
+                            <option value="chat">chat/completions</option>
+                            <option value="responses">responses</option>
+                          </select>
+                        </label>
+                        <label className="ai-endpoint-wide">
+                          Base URL
+                          <input
+                            className="ai-access"
+                            value={aiEndpoint === "custom" ? aiCustomBaseUrl : (aiEndpointPresets.find((item) => item.id === aiEndpoint)?.baseUrl || "")}
+                            onChange={(event) => {
+                              setAiCustomBaseUrl(event.target.value);
+                              setAiReady(false);
+                            }}
+                            disabled={aiEndpoint !== "custom"}
+                            placeholder="https://api.example.com/v1"
+                          />
+                        </label>
+                      </div>
                       <button onClick={loadAiSession} disabled={aiBusy || !hasAiCredential}>
                         {aiBusy ? "正在进入..." : "进入 AI"}
                       </button>
-                      {aiProvider === "own" && (
-                        <p className="ai-note">自备 API Key 只用于当前浏览器本次请求转发，不会写入数据库或网页文件。</p>
-                      )}
+                      <p className="ai-note">API Key 只用于当前浏览器本次请求转发，不会写入数据库或网页文件。GitHub 只用于保存你的阅读状态和聊天记录。</p>
                     </div>
                   ) : (
                     <>
                       <div className="ai-session-bar">
-                        <span>{aiProvider === "own" ? "自备 API Key" : "访问码"} · {auth.login}</span>
+                        <span>{aiEndpointPresets.find((item) => item.id === aiEndpoint)?.label || "自定义接口"} · {auth.login}</span>
                         <input
                           className="ai-model-input"
                           list="ai-model-options"
@@ -1151,11 +1087,7 @@ export default function App() {
                     <div className="ai-error">
                       <p>{aiError}</p>
                       <div className="ai-error-actions">
-                        {aiProvider === "access" ? (
-                          <button onClick={() => switchAiCredentialMode("own")}>改用自备 API Key</button>
-                        ) : (
-                          <button onClick={() => switchAiCredentialMode("access")}>改用访问码</button>
-                        )}
+                        <button onClick={() => setAiReady(false)}>切换 API 配置</button>
                       </div>
                     </div>
                   )}

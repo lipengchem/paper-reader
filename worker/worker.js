@@ -16,7 +16,7 @@ function json(data, status = 200, headers = {}) {
 function publicOpenAIError(message = "", status = 502) {
   const redacted = String(message).replace(/sk-[A-Za-z0-9_-]+/g, "sk-***");
   if (/incorrect api key|invalid api key/i.test(redacted)) {
-    return "OpenAI API Key 无效。请检查当前使用的是访问码模式，还是自备 API Key 模式；如果是访问码模式，需要更新站点后端的 OPENAI_API_KEY。";
+    return "API Key 无效。请检查 API Key、API 平台、Base URL 和 API 格式是否匹配。";
   }
   if (/exceeded.*quota|quota|billing/i.test(redacted)) {
     return "OpenAI API 额度不足或账单未启用。请在 OpenAI Platform 检查 Billing/Usage，或改用一个有额度的自备 API Key。";
@@ -144,8 +144,8 @@ async function requireAiAccess(request, env) {
 
   const ownApiKey = request.headers.get("X-OpenAI-Key") || "";
   if (ownApiKey.trim()) {
-    if (!ownApiKey.trim().startsWith("sk-")) {
-      return { error: json({ authenticated: true, authorized: false, login: session.login, error: "OpenAI API Key 格式不正确。" }, 403, corsHeaders(request, env)) };
+    if (ownApiKey.trim().length < 8) {
+      return { error: json({ authenticated: true, authorized: false, login: session.login, error: "API Key 格式不正确。" }, 403, corsHeaders(request, env)) };
     }
     const requestedBaseUrl = request.headers.get("X-OpenAI-Base-URL") || "";
     let baseUrl = "";
