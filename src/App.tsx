@@ -303,7 +303,8 @@ export default function App() {
               </select>
               <div className="sort-menu">
                 <button className={sortOpen ? "select sort-trigger active" : "select sort-trigger"} onClick={() => setSortOpen((open) => !open)}>
-                  排序
+                  <span>排序</span>
+                  <ChevronDown size={14} className={sortOpen ? "chevron open" : "chevron"} />
                 </button>
                 {sortOpen && (
                   <div className="sort-popover">
