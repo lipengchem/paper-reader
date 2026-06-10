@@ -18,6 +18,9 @@ function publicOpenAIError(message = "", status = 502) {
   if (/incorrect api key|invalid api key/i.test(redacted)) {
     return "OpenAI API Key 无效。请检查当前使用的是访问码模式，还是自备 API Key 模式；如果是访问码模式，需要更新站点后端的 OPENAI_API_KEY。";
   }
+  if (/exceeded.*quota|quota|billing/i.test(redacted)) {
+    return "OpenAI API 额度不足或账单未启用。请在 OpenAI Platform 检查 Billing/Usage，或改用一个有额度的自备 API Key。";
+  }
   if (/model.*not.*found|does not exist|access.*model/i.test(redacted)) {
     return "当前 API Key 没有所选模型权限，请换一个可用模型或更换 API Key。";
   }
