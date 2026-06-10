@@ -86,6 +86,24 @@ function libraryUrl(env, path) {
   return `${(env.LIBRARY_BASE_URL || "https://lipengchem.github.io/paper-reader/").replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
 }
 
+function slugify(value) {
+  return String(value || "paper")
+    .toLowerCase()
+    .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || "paper";
+}
+
+function fileType(file) {
+  const name = String(file?.name || "").toLowerCase();
+  if (name.endsWith(".pdf") || file?.type === "application/pdf") return "pdf";
+  return "markdown";
+}
+
+function extensionFor(file) {
+  return fileType(file) === "pdf" ? "pdf" : "md";
+}
+
 function openAIBaseUrl(env, access = {}) {
   return (access.baseUrl || env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/+$/, "");
 }
@@ -345,14 +363,16 @@ async function handleStates(request, env) {
   const session = await requireSession(request, env);
   if (session.error) return session.error;
   const rows = await env.DB.prepare(
-    "SELECT paper_slug as paperSlug, read, rating, tags_json as tagsJson, note, scroll_top as scrollTop, updated_at as updatedAt FROM user_states WHERE login = ?",
+    "SELECT paper_slug as paperSlug, read, rating, categories_json as categoriesJson, tags_json as tagsJson, hidden, note, scroll_top as scrollTop, updated_at as updatedAt FROM user_states WHERE login = ?",
   ).bind(session.login).all();
   const states = {};
   for (const row of rows.results || []) {
     states[row.paperSlug] = {
       read: !!row.read,
       rating: row.rating || 0,
+      categories: JSON.parse(row.categoriesJson || "[]"),
       tags: JSON.parse(row.tagsJson || "[]"),
+      hidden: !!row.hidden,
       note: row.note || "",
       scrollTop: row.scrollTop || 0,
       updatedAt: row.updatedAt,
@@ -370,25 +390,167 @@ async function handleState(request, env) {
   const state = body.state || {};
   const rating = Math.max(0, Math.min(5, Number(state.rating || 0)));
   const read = state.read || rating > 0 ? 1 : 0;
+  const categories = Array.isArray(state.categories) ? state.categories.map((category) => String(category).trim()).filter(Boolean).slice(0, 40) : [];
   const tags = Array.isArray(state.tags) ? state.tags.map((tag) => String(tag).trim()).filter(Boolean).slice(0, 40) : [];
+  const hidden = state.hidden ? 1 : 0;
   const note = String(state.note || "").slice(0, 20000);
   const scrollTop = Math.max(0, Number(state.scrollTop || 0));
   const updatedAt = new Date().toISOString();
   await env.DB.prepare(
-    `INSERT INTO user_states (login, paper_slug, read, rating, tags_json, note, scroll_top, updated_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `INSERT INTO user_states (login, paper_slug, read, rating, categories_json, tags_json, hidden, note, scroll_top, updated_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
      ON CONFLICT(login, paper_slug) DO UPDATE SET
        read = excluded.read,
        rating = excluded.rating,
+       categories_json = excluded.categories_json,
        tags_json = excluded.tags_json,
+       hidden = excluded.hidden,
        note = excluded.note,
        scroll_top = excluded.scroll_top,
        updated_at = excluded.updated_at`,
-  ).bind(session.login, paperSlug, read, rating, JSON.stringify(tags), note, scrollTop, updatedAt).run();
+  ).bind(session.login, paperSlug, read, rating, JSON.stringify(categories), JSON.stringify(tags), hidden, note, scrollTop, updatedAt).run();
   return json({
     paperSlug,
-    state: { read: !!read, rating, tags, note, scrollTop, updatedAt },
+    state: { read: !!read, rating, categories, tags, hidden: !!hidden, note, scrollTop, updatedAt },
   }, 200, corsHeaders(request, env));
+}
+
+async function handleFriends(request, env) {
+  const session = await requireSession(request, env);
+  if (session.error) return session.error;
+
+  if (request.method === "POST") {
+    const body = await request.json().catch(() => ({}));
+    const friendLogin = String(body.login || "").trim();
+    if (!/^[A-Za-z0-9-]{1,39}$/.test(friendLogin)) {
+      return json({ error: "GitHub 用户名格式不正确。" }, 400, corsHeaders(request, env));
+    }
+    await env.DB.prepare(
+      `INSERT INTO friends (login, friend_login, created_at)
+       VALUES (?, ?, ?)
+       ON CONFLICT(login, friend_login) DO UPDATE SET created_at = excluded.created_at`,
+    ).bind(session.login, friendLogin, new Date().toISOString()).run();
+  }
+
+  const rows = await env.DB.prepare(
+    "SELECT friend_login as login, created_at as createdAt FROM friends WHERE login = ? ORDER BY friend_login ASC",
+  ).bind(session.login).all();
+  return json({ friends: rows.results || [] }, 200, corsHeaders(request, env));
+}
+
+async function canViewPersonalLibrary(env, viewer, owner) {
+  if (!viewer || !owner) return false;
+  if (viewer === owner) return true;
+  const row = await env.DB.prepare(
+    "SELECT 1 FROM friends WHERE login = ? AND friend_login = ?",
+  ).bind(viewer, owner).first();
+  return !!row;
+}
+
+async function handlePersonalPapers(request, env) {
+  const session = await requireSession(request, env);
+  if (session.error) return session.error;
+
+  if (request.method === "POST") {
+    if (!env.PAPER_FILES) return json({ error: "R2 bucket PAPER_FILES 尚未配置。" }, 500, corsHeaders(request, env));
+    const form = await request.formData();
+    const original = form.get("original");
+    const translation = form.get("translation");
+    const related = form.get("related");
+    if (!(original instanceof File) || !(translation instanceof File)) {
+      return json({ error: "请至少上传原文和译文文件。" }, 400, corsHeaders(request, env));
+    }
+    const title = String(form.get("title") || original.name.replace(/\.[^.]+$/, "")).trim().slice(0, 300) || "Untitled paper";
+    const journal = String(form.get("journal") || "").trim().slice(0, 200);
+    const date = String(form.get("date") || new Date().toISOString().slice(0, 10)).trim().slice(0, 20);
+    const slug = `${session.login}-${Date.now()}-${slugify(title)}`;
+    const baseKey = `personal/${session.login}/${slug}`;
+    const originalType = fileType(original);
+    const translationType = fileType(translation);
+    const originalPath = `${baseKey}/paper.${extensionFor(original)}`;
+    const translationPath = `${baseKey}/translation.${extensionFor(translation)}`;
+    await env.PAPER_FILES.put(originalPath, original.stream(), { httpMetadata: { contentType: original.type || "application/octet-stream" } });
+    await env.PAPER_FILES.put(translationPath, translation.stream(), { httpMetadata: { contentType: translation.type || "text/markdown; charset=utf-8" } });
+    let relatedPath = "";
+    let relatedType = "markdown";
+    if (related instanceof File && related.size > 0) {
+      relatedType = fileType(related);
+      relatedPath = `${baseKey}/related_reading.${extensionFor(related)}`;
+      await env.PAPER_FILES.put(relatedPath, related.stream(), { httpMetadata: { contentType: related.type || "text/markdown; charset=utf-8" } });
+    }
+    const now = new Date().toISOString();
+    await env.DB.prepare(
+      `INSERT INTO personal_papers
+       (slug, owner_login, title, date, journal, pdf_path, markdown_path, related_reading_path, original_type, translation_type, related_reading_type, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    ).bind(session.login === "" ? slug : slug, session.login, title, date, journal, `/file/${originalPath}`, `/file/${translationPath}`, relatedPath ? `/file/${relatedPath}` : "", originalType, translationType, relatedType, now).run();
+    return json({
+      item: {
+        slug,
+        ownerLogin: session.login,
+        personal: true,
+        title,
+        date,
+        journal,
+        pdfPath: `${aiApiOrigin(request)}/file/${originalPath}`,
+        markdownPath: `${aiApiOrigin(request)}/file/${translationPath}`,
+        relatedReadingPath: relatedPath ? `${aiApiOrigin(request)}/file/${relatedPath}` : "",
+        relatedReading: !!relatedPath,
+        originalType,
+        translationType,
+        relatedReadingType: relatedType,
+      },
+    }, 200, corsHeaders(request, env));
+  }
+
+  const url = new URL(request.url);
+  const owner = url.searchParams.get("owner") || session.login;
+  if (!(await canViewPersonalLibrary(env, session.login, owner))) {
+    return json({ error: "没有权限查看该用户的个人文献库。" }, 403, corsHeaders(request, env));
+  }
+  const rows = await env.DB.prepare(
+    `SELECT slug, owner_login as ownerLogin, title, date, journal, pdf_path as pdfPath, markdown_path as markdownPath,
+            related_reading_path as relatedReadingPath, original_type as originalType,
+            translation_type as translationType, related_reading_type as relatedReadingType, created_at as createdAt
+     FROM personal_papers WHERE owner_login = ? ORDER BY created_at DESC`,
+  ).bind(owner).all();
+  const origin = aiApiOrigin(request);
+  const items = (rows.results || []).map((row) => ({
+    ...row,
+    personal: true,
+    pdfPath: `${origin}${row.pdfPath}`,
+    markdownPath: `${origin}${row.markdownPath}`,
+    relatedReadingPath: row.relatedReadingPath ? `${origin}${row.relatedReadingPath}` : "",
+    relatedReading: !!row.relatedReadingPath,
+  }));
+  return json({ owner, items }, 200, corsHeaders(request, env));
+}
+
+function aiApiOrigin(request) {
+  const url = new URL(request.url);
+  return `${url.protocol}//${url.host}`;
+}
+
+async function handleFile(request, env) {
+  const session = await requireSession(request, env);
+  if (session.error) return session.error;
+  if (!env.PAPER_FILES) return json({ error: "R2 bucket PAPER_FILES 尚未配置。" }, 500, corsHeaders(request, env));
+  const url = new URL(request.url);
+  const key = decodeURIComponent(url.pathname.replace(/^\/file\//, ""));
+  if (!key.startsWith("personal/")) return json({ error: "Not found" }, 404, corsHeaders(request, env));
+  const owner = key.split("/")[1] || "";
+  if (!(await canViewPersonalLibrary(env, session.login, owner))) {
+    return json({ error: "没有权限查看该文件。" }, 403, corsHeaders(request, env));
+  }
+  const object = await env.PAPER_FILES.get(key);
+  if (!object) return json({ error: "Not found" }, 404, corsHeaders(request, env));
+  return new Response(object.body, {
+    headers: {
+      ...corsHeaders(request, env),
+      "Content-Type": object.httpMetadata?.contentType || "application/octet-stream",
+      "Cache-Control": "private, max-age=60",
+    },
+  });
 }
 
 async function handleChat(request, env) {
@@ -413,7 +575,7 @@ async function handleChat(request, env) {
     "If the provided context is insufficient, say so instead of guessing.",
     `Paper: ${paper.title}`,
     `Journal/date: ${paper.journal || ""} ${paper.date || ""}`,
-    `Current view: ${body.pageContext?.viewMode || ""}, panes: ${body.pageContext?.paneMode || ""}`,
+    `Current view: ${body.pageContext?.viewMode || ""}, panes: ${(body.pageContext?.visiblePanes || []).join(", ")}`,
     "Relevant source-map blocks:",
     JSON.stringify(context.blocks).slice(0, 30000),
     "Current loaded markdown excerpt:",
@@ -429,6 +591,10 @@ async function handleChat(request, env) {
 
   const { res, data, answer } = await callOpenAI(env, access, model, input);
   if (!res.ok) return json({ error: publicOpenAIError(data.error?.message, res.status) }, 502, corsHeaders(request, env));
+
+  if (body.transient) {
+    return json({ answer, messages: [...messages, { role: "assistant", content: answer, createdAt: new Date().toISOString() }] }, 200, corsHeaders(request, env));
+  }
 
   const now = new Date().toISOString();
   await env.DB.prepare("INSERT INTO messages (login, paper_slug, role, content, model, created_at) VALUES (?, ?, ?, ?, ?, ?)")
@@ -454,6 +620,9 @@ export default {
       if (url.pathname === "/ai/verify") return handleAiVerify(request, env);
       if (url.pathname === "/states" && request.method === "GET") return handleStates(request, env);
       if (url.pathname === "/state" && request.method === "PUT") return handleState(request, env);
+      if (url.pathname === "/friends" && (request.method === "GET" || request.method === "POST")) return handleFriends(request, env);
+      if (url.pathname === "/personal-papers" && (request.method === "GET" || request.method === "POST")) return handlePersonalPapers(request, env);
+      if (url.pathname.startsWith("/file/") && request.method === "GET") return handleFile(request, env);
       if (url.pathname === "/history") return handleHistory(request, env);
       if (url.pathname === "/chat" && request.method === "POST") return handleChat(request, env);
       return json({ error: "Not found" }, 404, corsHeaders(request, env));
