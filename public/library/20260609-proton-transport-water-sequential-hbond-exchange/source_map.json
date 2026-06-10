@@ -1,0 +1,209 @@
+{
+  "paper": "Neural-network-based molecular dynamics simulations reveal that proton transport in water is doubly gated by sequential hydrogen-bond exchange",
+  "zotero_item_key": "FTDJFF56",
+  "zotero_attachment_key": "4BNFIHFL",
+  "doi": "10.1038/s41557-024-01593-y",
+  "source_pdf": "D:\\codex\\文献阅读\\自动化文献阅读\\20260609-proton-transport-water-sequential-hbond-exchange\\paper.pdf",
+  "entries": [
+    {
+      "id": "S001",
+      "page": "p.1",
+      "type": "text",
+      "section": "Metadata And Abstract",
+      "original": "Neural-network-based molecular dynamics simulations reveal that proton transport in water is doubly gated by sequential hydrogen-bond exchange. Axel Gomez, Ward H. Thompson and Damien Laage. Nature Chemistry 16, 1838-1844 (2024), published online 20 August 2024.",
+      "translation": "题目是《基于神经网络势的分子动力学模拟揭示：水中的质子传输由顺序发生的氢键交换进行双重门控》。作者为 Axel Gomez、Ward H. Thompson 和 Damien Laage，发表于 Nature Chemistry 2024 年第 16 卷 1838-1844 页，在线发表日期为 2024 年 8 月 20 日。",
+      "reading_order": 1,
+      "confidence": "high"
+    },
+    {
+      "id": "S002",
+      "page": "p.1",
+      "type": "text",
+      "section": "Abstract",
+      "original": "The paper combines vibrational spectroscopy calculations with neural-network-based molecular dynamics including nuclear quantum effects. It finds that the hydrated excess proton alternates between two stable proton-localized environments with Eigen-like and Zundel-like hydrogen-bond motifs. Proton transport is not a single concerted event but a three-step process: a first hydrogen-bond exchange lowers the proton-acceptor coordination, proton transfer then occurs, and a second hydrogen-bond exchange on the former donor prevents rapid back-transfer. This mechanism explains both the low diffusion activation energy and the long-lived vibrational signatures.",
+      "translation": "这篇文章把振动光谱计算与显式包含核量子效应的神经网络势分子动力学结合起来。作者发现，水合过量质子并不是只在单一稳定构型附近波动，而是在两类都稳定、但氢键图样不同的局域环境之间平衡：一种更接近 Eigen-like，另一种更接近 Zundel-like。质子传输也不是一步协同完成，而是三步过程：先发生第一次氢键交换，降低受体侧配位；随后质子转移；最后在原供体侧发生第二次氢键交换，把“门”关上，阻止快速回跳。这个机制同时解释了质子扩散活化能为何很低，以及为什么超快振动光谱会看到寿命较长的中间态特征。",
+      "reading_order": 2,
+      "confidence": "high"
+    },
+    {
+      "id": "S003",
+      "page": "p.1",
+      "type": "text",
+      "section": "Introduction",
+      "original": "The long-standing controversy is twofold. First, does the excess proton mainly adopt an Eigen structure, with Zundel only as an unstable transition state, or are Zundel-like motifs themselves stable? Second, what is the rate-limiting step: a concerted rearrangement of several hydrogen bonds or something more sequential? Recent nonlinear vibrational spectroscopy suggested long-lived distorted Zundel-like species, while older simulation pictures favored an Eigen basin plus a fleeting Zundel crossing.",
+      "translation": "文章聚焦于两个长期悬而未决的核心争议。第一，过量质子在水中的平衡结构究竟主要是 Eigen 形式，Zundel 只是瞬时过渡态，还是说类 Zundel 图样本身也可以稳定存在？第二，真正的限速步骤到底是多个氢键的协同重排，还是一个更顺序化的过程？近年的非线性振动光谱实验指向“寿命较长的类 Zundel 中间态”，而较早的模拟图景则更倾向“稳定 Eigen 盆地 + 转瞬即逝的 Zundel 过渡态”。",
+      "reading_order": 3,
+      "confidence": "high"
+    },
+    {
+      "id": "S004",
+      "page": "p.2",
+      "type": "text",
+      "section": "Simulation Setup And Validation",
+      "original": "To address this, the authors train deep neural network potentials at the revPBE0-D3 hybrid DFT level and run thermostatted ring-polymer molecular dynamics for an excess proton in water. This setup is designed to satisfy three requirements simultaneously: accurate reactive electronic structure, explicit nuclear quantum effects for all atoms, and trajectories long enough to resolve subtle free-energy differences. The method reproduces the anomalously fast proton diffusion coefficient, the water/proton diffusion ratio, and the infrared spectral fingerprints of acidic water.",
+      "translation": "为了解决这个问题，作者在 revPBE0-D3 杂化 DFT 水平上训练深度神经网络势，并对含过量质子的水体系开展 TRPMD 模拟。这套设置同时满足三件事：反应性电子结构要足够准、所有原子的核量子效应要显式保留、轨迹还要足够长，才能分辨细微但关键的自由能差异。结果表明，该方法不仅重现实验中的异常快速质子扩散，还能给出合理的水/质子扩散系数比和酸性水红外谱特征，因此其后续机制分析有比较坚实的基础。",
+      "reading_order": 4,
+      "confidence": "high"
+    },
+    {
+      "id": "S005",
+      "page": "p.2-3",
+      "type": "text",
+      "section": "Key Coordinates",
+      "original": "A major methodological contribution is the choice of two coordinates. The first is the proton potential asymmetry ΔE, built from the energy difference between two reference proton positions on donor and acceptor sides, which distinguishes true transfer propensity from transient OH stretching. The second is a periodic hydrogen-bond coordinate that tracks whether donor and acceptor oxygens are three- or four-coordinated by stable hydrogen-bond partners.",
+      "translation": "本文一个很关键的方法学贡献，是把质子传输问题压缩进两个真正有物理意义的坐标。第一个是质子势能不对称坐标 ΔE，它通过把质子放到供体侧和受体侧的参考位置来比较势能高低，从而区分“真的要发生转移”与“只是 OH 键瞬时拉长”这两种情况。第二个是一个周期性的氢键坐标，用来追踪供体氧和受体氧周围稳定氢键伙伴数是三配位还是四配位。",
+      "reading_order": 5,
+      "confidence": "high"
+    },
+    {
+      "id": "S006",
+      "page": "p.3",
+      "type": "text",
+      "section": "Stable Proton Structures",
+      "original": "The resulting two-dimensional free-energy surface overturns the one-basin picture. While the proton remains covalently localized on one water molecule, the surrounding hydrogen-bond environment switches between two stable arrangements: an Eigen-like state where the acceptor remains four-coordinated and a Zundel-like state where both donor and acceptor are undercoordinated. Thus, the paper argues that the equilibrium proton structure is dual in solvation pattern but still largely localized in covalent bonding.",
+      "translation": "沿着这两个坐标构建出来的二维自由能面，直接推翻了“只有一个稳定盆地”的简单图景。即使在共价键意义上，质子仍主要局域在某一个水分子上，它周围的氢键环境却会在两类都稳定的构型之间切换：一种是更像 Eigen 的状态，此时受体侧仍保持四配位；另一种是更像 Zundel 的状态，此时供体和受体都处于欠配位状态。换句话说，本文给出的结论不是“质子完全离域了”，而是“共价键仍偏局域，但溶剂化图样存在双稳态平衡”。",
+      "reading_order": 6,
+      "confidence": "high"
+    },
+    {
+      "id": "S007",
+      "page": "p.4",
+      "type": "text",
+      "section": "Sequential Mechanism",
+      "original": "The minimum free-energy path yields a sequential three-step mechanism. Starting from an Eigen-like hydrogen-bond arrangement, the first event is hydrogen-bond breaking on the proton acceptor, which opens the gate and creates a Zundel-like coordination shell. A rapid proton transfer over a mostly entropic barrier follows, and only then does a second hydrogen-bond exchange reform coordination on the former donor and stabilize the hop.",
+      "translation": "沿最小自由能路径得到的，不是过去常说的一步协同跃迁，而是一个清晰的三步顺序机制。体系先从 Eigen-like 氢键环境出发，第一步是在受体侧断开一个稳定氢键，相当于把质子前方的“门”打开，并形成类 Zundel 的配位环境。接着，质子跨越一个较低且主要带有熵性质的势垒完成转移。最后，原供体侧再通过第二次氢键交换恢复配位，把后方的“门”关上，从而把这次跃迁真正固定下来。",
+      "reading_order": 7,
+      "confidence": "high"
+    },
+    {
+      "id": "S008",
+      "page": "p.4-5",
+      "type": "text",
+      "section": "Why This Differs From Older Models",
+      "original": "This picture differs from earlier presolvation or concerted models in an important way: the first hydrogen-bond rearrangement is necessary but not rate-limiting. The decisive slow step is the hydrogen-bond reformation on the former donor, because without it the proton simply rattles back and forth between the same pair of water molecules. The paper therefore reframes proton diffusion as a doubly gated pull-push process rather than a symmetric collective crossing.",
+      "translation": "这套图景与早期的预溶剂化模型或多氢键协同模型最大的不同，在于第一步受体侧氢键重排虽然必要，却不是最后真正卡住扩散的限速步骤。真正慢、也真正决定质子能不能留下来的，是原供体侧氢键重新形成这一步；否则质子只会在同一对水分子之间来回“抖动式”回跳。因此，作者把质子扩散重新表述为一个“双重门控的 pull-push 过程”，而不是一个对称的集体跨越。",
+      "reading_order": 8,
+      "confidence": "high"
+    },
+    {
+      "id": "S009",
+      "page": "p.5",
+      "type": "text",
+      "section": "Spectroscopy Interpretation",
+      "original": "The spectroscopy section is central because it closes the loop with experiment. The simulations explain why ultrafast vibrational spectroscopy detects long-lived Zundel-like signatures: the observed species corresponds to a stable Zundel-like hydrogen-bond arrangement, not necessarily to a fully delocalized proton. Different hydrogen-bond arrangements produce different proton-transfer mode frequencies and recover on the timescale of hydrogen-bond rearrangement, matching the observed long-lived structural heterogeneity.",
+      "translation": "光谱部分非常关键，因为它把模拟和实验真正闭环起来。作者说明，超快振动光谱之所以能看到寿命较长的类 Zundel 信号，并不意味着质子一定处于完全离域的理想 Zundel 结构，而是因为这里确实存在一个稳定的类 Zundel 氢键环境。不同氢键环境对应不同的质子转移振动频率分布，而这些分布恢复到平衡所需的时间，正好落在氢键重排的皮秒尺度上，这就解释了实验中观察到的长寿命结构异质性。",
+      "reading_order": 9,
+      "confidence": "high"
+    },
+    {
+      "id": "S010",
+      "page": "p.5-6",
+      "type": "text",
+      "section": "Transport Statistics",
+      "original": "When the authors focus only on stable hops rather than transient rattling, multiple-hop bursts disappear and the hopping statistics become Poisson-like. This supports a random-walk picture with independent single hops plus a smaller vehicular diffusion contribution. The resulting model reproduces the simulated diffusion coefficient and its changes with isotope substitution, nuclear quantum effects and electronic-structure level.",
+      "translation": "当作者把分析对象限定为“稳定跃迁”而不是瞬时回跳时，所谓多步爆发式跳跃现象就不再成立，统计分布反而更像泊松过程。这支持了一个更朴素、但也更干净的图景：质子扩散主要可以看成相互独立的单步跳跃随机游走，再加上一小部分载体式扩散贡献。这个模型不仅重现了模拟得到的扩散系数，还能合理解释同位素替换、核量子效应以及电子结构水平变化带来的差异。",
+      "reading_order": 10,
+      "confidence": "high"
+    },
+    {
+      "id": "S011",
+      "page": "p.6",
+      "type": "text",
+      "section": "Activation Energy And Conclusion",
+      "original": "The low activation energy of proton diffusion follows naturally from the sequential mechanism. Because the rate-determining event is hydrogen-bond formation on the donor rather than simultaneous crossing of several barriers, the effective barrier remains below that of water self-diffusion. The final conclusion is that proton transport in water is a multistep process controlled by two successive stable hydrogen-bond exchanges, with the second one being the crucial gate that locks in the transport event.",
+      "translation": "质子扩散活化能为什么比水自扩散还低，本文也给出了一个自然解释。由于限速步骤不是多个势垒的同步跨越，而是原供体侧氢键重新形成这件事，所以整体有效势垒会保持在比较低的水平。文章最后把核心结论压缩得很明确：水中的质子传输是一个多步过程，由两次连续且稳定的氢键交换控制，而真正决定“这次传输能否被锁定下来”的，是第二道门。",
+      "reading_order": 11,
+      "confidence": "high"
+    },
+    {
+      "id": "S012",
+      "page": "p.8",
+      "type": "text",
+      "section": "Methods - NNP Training",
+      "original": "The methods section shows that the neural network potential is not a black-box add-on but the technical backbone of the work. The authors train DeePMD-kit models for O and H using hybrid DFT reference data, with concurrent learning and query-by-committee active selection. They verify on unseen configurations that the force errors remain below 0.1 eV/Å and that the model stays close to hybrid-DFT quality.",
+      "translation": "Methods 部分说明，神经网络势在这里不是一个装饰性的“加速器”，而是整篇工作的技术骨架。作者使用 DeePMD-kit 为 O 和 H 训练势函数，参考数据来自杂化 DFT，并通过 concurrent learning 与 query-by-committee 的主动学习流程迭代扩充训练集。在未见过的构型上，力误差保持在 0.1 eV/Å 以内，说明这套势函数确实接近杂化 DFT 质量，而不是只在训练集附近拟合得好看。",
+      "reading_order": 12,
+      "confidence": "high"
+    },
+    {
+      "id": "S013",
+      "page": "p.8",
+      "type": "text",
+      "section": "Methods - Dynamics",
+      "original": "For dynamics, the authors run TRPMD with 32 beads per atom for systems containing one excess proton and 192 waters. They analyze 20 independent 200 ps trajectories for each DFT level and isotope, add classical-nuclei controls, and also run constrained simulations where the hydronium covalent bonds are frozen to isolate vehicular diffusion. This is a carefully controlled simulation campaign rather than a single showcase trajectory.",
+      "translation": "在动力学设置上，作者对每个原子使用 32 beads 的 TRPMD，并模拟一个过量质子加 192 个水分子的体系。他们对每个 DFT 水平和同位素体系都分析了 20 条独立的 200 ps 轨迹，还补充了经典原子核对照，以及把水合氢离子内部共价键冻结的受限模拟，专门分离载体式扩散贡献。这说明本文不是只拿一条漂亮轨迹讲故事，而是做了一套控制变量相当完整的模拟方案。",
+      "reading_order": 13,
+      "confidence": "high"
+    },
+    {
+      "id": "S014",
+      "page": "p.8-9",
+      "type": "text",
+      "section": "Methods - Spectra And Quantization",
+      "original": "The infrared spectra are computed from trajectory dipoles obtained with a deep Wannier neural network. For the proton-transfer mode, the authors quantize the transferred-proton vibration a posteriori along the donor-acceptor axis while keeping the remaining atoms fixed at centroid positions. This gives a direct link between local structure, proton potential asymmetry and vibrational observables such as ω01 and ω12.",
+      "translation": "红外谱不是简单从经验参数估出来的，而是先用 deep Wannier 神经网络重建轨迹中每一帧的偶极，再计算相关函数得到。对于质子转移模，作者在事后分析中沿着供体-受体轴对被转移质子的振动进行量子化，同时把其余原子固定在质心位置。这样就能把局部结构、ΔE 势能不对称以及 ω01、ω12 这类振动态观测量直接联系起来。",
+      "reading_order": 14,
+      "confidence": "high"
+    },
+    {
+      "id": "S015",
+      "page": "p.9",
+      "type": "text",
+      "section": "Methods - Coordinates And Diffusion Model",
+      "original": "The paper defines explicit formulas for ΔE, for the hydrogen-bond coordinate, for side-side correlation-function-based hopping times, and for the final random-walk diffusion model. This matters because the mechanism is not just a narrative interpretation of trajectories: it is operationalized into measurable coordinates, basin definitions and transport timescales that can be reproduced or challenged.",
+      "translation": "作者不仅给出定性图像，还把 ΔE、氢键坐标、稳定跃迁时间以及最终随机游走扩散模型都写成了明确公式。这一点很重要，因为这意味着文章的机制并不只是“看轨迹后的主观解读”，而是被落实成可操作、可复现、也可被他人检验的坐标定义、状态划分和时间尺度。",
+      "reading_order": 15,
+      "confidence": "high"
+    },
+    {
+      "id": "S016",
+      "page": "p.9-15",
+      "type": "text",
+      "section": "Data Availability And End Matter",
+      "original": "Training configurations, energies, forces and deep-Wannier data are deposited on Zenodo, and source data accompany the paper. The acknowledgements note support from the French Ministry of Higher Education and Research, GENCI-IDRIS and the US Department of Energy. The article declares no competing interests, and the extended data figures further document isotope effects, temperature dependence, the random-walk model and the proton-transfer enthalpy surface.",
+      "translation": "训练所需的分子构型、能量、力以及 deep-Wannier 相关数据被公开存放在 Zenodo，上游 source data 也随论文提供。致谢部分注明了法国高等教育与研究部、GENCI-IDRIS 以及美国能源部的资助来源；作者声明不存在竞争性利益。此外，Extended Data 还补充了同位素效应、温度依赖、随机游走建模细节以及质子转移焓面，这些内容有助于后续复核和方法迁移。",
+      "reading_order": 16,
+      "confidence": "high"
+    },
+    {
+      "id": "F001",
+      "page": 2,
+      "type": "figure",
+      "file": "assets/fig1_diffusion_ir.png",
+      "caption": "Fig. 1 validates the simulation setup. It compares mean-squared displacements for excess protons, constrained vehicular diffusion and water, and shows that the computed infrared and difference spectra reproduce experimental acidic-water signatures.",
+      "caption_translation": "图 1 用来验证模拟方案是否可靠。它比较了过量质子、受限载体式扩散和水分子的均方位移，并展示计算得到的红外谱与差谱能够重现实验中的酸性水特征。",
+      "placed_near": "p.2 S004",
+      "confidence": "medium"
+    },
+    {
+      "id": "F002",
+      "page": 3,
+      "type": "figure",
+      "file": "assets/fig2_transfer_mechanism.png",
+      "caption": "Fig. 2 defines the ΔE coordinate and the periodic hydrogen-bond coordinate, maps the free-energy surface, and summarizes the sequential mechanism from gate opening to proton transfer and gate closing.",
+      "caption_translation": "图 2 给出了 ΔE 坐标和周期性氢键坐标的定义，展示二维自由能面，并把“开门-转移-关门”的顺序机制浓缩成一个清晰示意图。",
+      "placed_near": "p.3-4 S006",
+      "confidence": "medium"
+    },
+    {
+      "id": "F003",
+      "page": 4,
+      "type": "figure",
+      "file": "assets/fig3_vibrational_fingerprints.png",
+      "caption": "Fig. 3 links structure to spectroscopy. It correlates proton-transfer vibrational levels, compares Eigen-like and Zundel-like spectral distributions, and explains why long-lived Zundel-like signatures can arise without full proton delocalization.",
+      "caption_translation": "图 3 负责把结构与光谱联系起来。它关联质子转移振动态、比较类 Eigen 与类 Zundel 状态下的频率分布，并解释为什么即使质子没有完全离域，也会出现长寿命类 Zundel 光谱特征。",
+      "placed_near": "p.4-5 S009",
+      "confidence": "medium"
+    },
+    {
+      "id": "F004",
+      "page": 5,
+      "type": "figure",
+      "file": "assets/fig4_transport_statistics.png",
+      "caption": "Fig. 4 shows that stable hops obey Poisson-like statistics, that a random-walk model reproduces the simulated diffusion coefficient, and that the temperature dependence yields a lower activation energy for proton diffusion than for water self-diffusion.",
+      "caption_translation": "图 4 表明稳定跃迁服从近似泊松统计，随机游走模型可以重现实测的模拟扩散系数，并且温度依赖分析给出低于水自扩散的质子扩散活化能。",
+      "placed_near": "p.5-6 S010",
+      "confidence": "medium"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-06-10T05:36:11.853Z",
+  "items": [
+    {
+      "slug": "20260611-band-matching-sulfur-electrocatalysts",
+      "title": "A Band-Matching Descriptor Breaks Scaling Relations for Sulfur Electrocatalysts",
+      "date": "2026-05-13",
+      "taskDate": "2026-06-11",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "EHSLLWP7",
+      "collections": [
+        "06Recommendation"
+      ],
+      "pdfPath": "library/20260611-band-matching-sulfur-electrocatalysts/paper.pdf",
+      "markdownPath": "library/20260611-band-matching-sulfur-electrocatalysts/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 27,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260603-mattergen-inorganic-materials-design",
+      "title": "A generative model for inorganic materials design",
+      "date": "2025-03",
+      "taskDate": "2026-06-03",
+      "journal": "Nature",
+      "zoteroKey": "DBBM9ACZ",
+      "collections": [
+        "03AI4S/Machine Learning"
+      ],
+      "pdfPath": "library/20260603-mattergen-inorganic-materials-design/paper.pdf",
+      "markdownPath": "library/20260603-mattergen-inorganic-materials-design/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 41,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260604-ml-potentials-heterogeneous-catalysis",
+      "title": "Machine Learning Potentials for Heterogeneous Catalysis",
+      "date": "2025-02-07",
+      "taskDate": "2026-06-04",
+      "journal": "ACS Catalysis",
+      "zoteroKey": "B597ITY7",
+      "collections": [
+        "03AI4S/Machine Learning"
+      ],
+      "pdfPath": "library/20260604-ml-potentials-heterogeneous-catalysis/paper.pdf",
+      "markdownPath": "library/20260604-ml-potentials-heterogeneous-catalysis/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 32,
+      "figureCount": 2
+    },
+    {
+      "slug": "20260605-metal-support-interaction-oxide-supports",
+      "title": "Nature of metal-support interaction for metal catalysts on oxide supports",
+      "date": "2024-11-22",
+      "taskDate": "2026-06-05",
+      "journal": "Science",
+      "zoteroKey": "FPFCDLGA",
+      "collections": [
+        "03AI4S/Machine Learning"
+      ],
+      "pdfPath": "library/20260605-metal-support-interaction-oxide-supports/paper.pdf",
+      "markdownPath": "library/20260605-metal-support-interaction-oxide-supports/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 15,
+      "figureCount": 3
+    },
+    {
+      "slug": "20260609-proton-transport-water-sequential-hbond-exchange",
+      "title": "Neural-network-based molecular dynamics simulations reveal that proton transport in water is doubly gated by sequential hydrogen-bond exchange",
+      "date": "2024-11",
+      "taskDate": "2026-06-09",
+      "journal": "Nature Chemistry",
+      "zoteroKey": "FTDJFF56",
+      "collections": [
+        "02课题/质子转移"
+      ],
+      "pdfPath": "library/20260609-proton-transport-water-sequential-hbond-exchange/paper.pdf",
+      "markdownPath": "library/20260609-proton-transport-water-sequential-hbond-exchange/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 22,
+      "figureCount": 4
+    }
+  ]
+}
