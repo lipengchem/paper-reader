@@ -26,7 +26,7 @@ function corsHeaders(request, env) {
   return {
     "Access-Control-Allow-Origin": allowedOrigin(request, env),
     "Access-Control-Allow-Credentials": "true",
-    "Access-Control-Allow-Headers": "Content-Type, X-Access-Code",
+    "Access-Control-Allow-Headers": "Content-Type, X-Access-Code, X-OpenAI-Key",
     "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
     "Vary": "Origin",
   };
@@ -79,17 +79,25 @@ async function requireSession(request, env) {
   }
   const tokenHash = await sha256(sessionToken);
   const row = await env.DB.prepare(
-    "SELECT login, expires_at FROM sessions WHERE token_hash = ? AND expires_at > datetime('now')",
+    "SELECT login, avatar_url as avatarUrl, expires_at FROM sessions WHERE token_hash = ? AND expires_at > datetime('now')",
   ).bind(tokenHash).first();
   if (!row) {
     return { error: json({ authenticated: false, error: "登录已过期，请重新登录 GitHub。" }, 401, corsHeaders(request, env)) };
   }
-  return { login: row.login };
+  return { login: row.login, avatarUrl: row.avatarUrl || "" };
 }
 
 async function requireAiAccess(request, env) {
   const session = await requireSession(request, env);
   if (session.error) return session;
+
+  const ownApiKey = request.headers.get("X-OpenAI-Key") || "";
+  if (ownApiKey.trim()) {
+    if (!ownApiKey.trim().startsWith("sk-")) {
+      return { error: json({ authenticated: true, authorized: false, login: session.login, error: "OpenAI API Key 格式不正确。" }, 403, corsHeaders(request, env)) };
+    }
+    return { ...session, apiKey: ownApiKey.trim(), apiKeySource: "user" };
+  }
 
   const provided = request.headers.get("X-Access-Code") || "";
   if (!env.AI_ACCESS_CODE || provided !== env.AI_ACCESS_CODE) {
@@ -103,7 +111,7 @@ async function requireAiAccess(request, env) {
   if (allowed.length && !allowed.includes(session.login)) {
     return { error: json({ authenticated: true, authorized: false, login: session.login, error: "当前 GitHub 账户没有 AI 使用权限。" }, 403, corsHeaders(request, env)) };
   }
-  return session;
+  return { ...session, apiKey: env.OPENAI_API_KEY, apiKeySource: "site" };
 }
 
 async function githubJson(url, init = {}) {
@@ -209,8 +217,8 @@ async function handleGitHubCallback(request, env) {
   const sessionToken = randomToken();
   const tokenHash = await sha256(sessionToken);
   await env.DB.prepare(
-    "INSERT INTO sessions (token_hash, login, created_at, expires_at) VALUES (?, ?, datetime('now'), datetime('now', '+30 days'))",
-  ).bind(tokenHash, user.login).run();
+    "INSERT INTO sessions (token_hash, login, avatar_url, created_at, expires_at) VALUES (?, ?, ?, datetime('now'), datetime('now', '+30 days'))",
+  ).bind(tokenHash, user.login, user.avatar_url || "").run();
 
   const headers = new Headers({ "Location": saved.returnTo || siteUrl(env) });
   headers.append("Set-Cookie", cookie(COOKIE_NAME, sessionToken, { maxAge: 60 * 60 * 24 * 30 }));
@@ -224,24 +232,47 @@ async function handleGitHubCallback(request, env) {
 async function handleMe(request, env) {
   const session = await requireSession(request, env);
   if (session.error) return json({ authenticated: false }, 200, corsHeaders(request, env));
-  return json({ authenticated: true, login: session.login, isOwner: session.login === (env.ALLOWED_GITHUB_LOGIN || "lipengchem") }, 200, corsHeaders(request, env));
+  return json({
+    authenticated: true,
+    login: session.login,
+    avatarUrl: session.avatarUrl,
+    isOwner: session.login === (env.ALLOWED_GITHUB_LOGIN || "lipengchem"),
+  }, 200, corsHeaders(request, env));
+}
+
+async function handleLogout(request, env) {
+  const sessionToken = parseCookies(request)[COOKIE_NAME];
+  if (sessionToken) {
+    const tokenHash = await sha256(sessionToken);
+    await env.DB.prepare("DELETE FROM sessions WHERE token_hash = ?").bind(tokenHash).run();
+  }
+  return json({ ok: true }, 200, {
+    ...corsHeaders(request, env),
+    "Set-Cookie": cookie(COOKIE_NAME, "", { maxAge: 1 }),
+  });
+}
+
+async function handleAiVerify(request, env) {
+  const access = await requireAiAccess(request, env);
+  if (access.error) return access.error;
+  return json({ authenticated: true, authorized: true, login: access.login, source: access.apiKeySource }, 200, corsHeaders(request, env));
 }
 
 async function handleHistory(request, env) {
-  const access = await requireAiAccess(request, env);
-  if (access.error) return access.error;
+  const session = await requireSession(request, env);
+  if (session.error) return session.error;
   const url = new URL(request.url);
   const paperSlug = url.searchParams.get("paperSlug") || "";
   if (!paperSlug) return json({ error: "Missing paperSlug" }, 400, corsHeaders(request, env));
 
   if (request.method === "DELETE") {
-    await env.DB.prepare("DELETE FROM messages WHERE login = ? AND paper_slug = ?").bind(access.login, paperSlug).run();
+    await env.DB.prepare("DELETE FROM messages WHERE login = ? AND paper_slug = ?").bind(session.login, paperSlug).run();
     return json({ ok: true, messages: [] }, 200, corsHeaders(request, env));
   }
 
   const rows = await env.DB.prepare(
     "SELECT role, content, created_at as createdAt FROM messages WHERE login = ? AND paper_slug = ? ORDER BY id ASC LIMIT 200",
-  ).bind(access.login, paperSlug).all();
+  ).bind(session.login, paperSlug).all();
   return json({ messages: rows.results || [] }, 200, corsHeaders(request, env));
 }
 
@@ -331,7 +362,7 @@ async function handleChat(request, env) {
   const res = await fetch("https://api.openai.com/v1/responses", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${env.OPENAI_API_KEY}`,
+      "Authorization": `Bearer ${access.apiKey}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ model, input }),
@@ -359,7 +390,9 @@ export default {
     try {
       if (url.pathname === "/auth/github/start") return handleGitHubStart(request, env);
       if (url.pathname === "/auth/github/callback") return handleGitHubCallback(request, env);
+      if (url.pathname === "/auth/logout" && request.method === "POST") return handleLogout(request, env);
       if (url.pathname === "/me") return handleMe(request, env);
+      if (url.pathname === "/ai/verify") return handleAiVerify(request, env);
       if (url.pathname === "/states" && request.method === "GET") return handleStates(request, env);
       if (url.pathname === "/state" && request.method === "PUT") return handleState(request, env);
       if (url.pathname === "/history") return handleHistory(request, env);

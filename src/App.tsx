@@ -8,11 +8,13 @@ import {
   ChevronDown,
   FileText,
   Highlighter,
+  LogOut,
   PanelLeftClose,
   PanelLeftOpen,
   RefreshCw,
   Send,
   Trash2,
+  User,
 } from "lucide-react";
 
 type PaperItem = {
@@ -54,6 +56,7 @@ type AuthState = {
   authenticated: boolean;
   login?: string;
   isOwner?: boolean;
+  avatarUrl?: string;
 };
 
 const baseUrl = import.meta.env.BASE_URL;
@@ -61,12 +64,33 @@ const libraryBase = `${baseUrl}library/`;
 const aiApiBase = (import.meta.env.VITE_AI_API_URL || "").replace(/\/$/, "");
 const aiAccessCodeKey = "paper-reader:ai-access-code";
 const aiModelKey = "paper-reader:ai-model";
+const aiProviderKey = "paper-reader:ai-provider";
+const aiPanelPosKey = "paper-reader:ai-panel-pos";
 const aiModels = [
   { id: "gpt-5.5", label: "GPT-5.5" },
   { id: "gpt-4.1", label: "GPT-4.1" },
   { id: "gpt-4.1-mini", label: "GPT-4.1 mini" },
   { id: "gpt-4o", label: "GPT-4o" },
 ];
+
+function initialAiPanelPosition() {
+  if (typeof window === "undefined") return { x: 680, y: 96 };
+  const stored = localStorage.getItem(aiPanelPosKey);
+  if (stored) {
+    try {
+      const parsed = JSON.parse(stored) as { x?: number; y?: number };
+      if (Number.isFinite(parsed.x) && Number.isFinite(parsed.y)) {
+        return {
+          x: Math.min(Math.max(12, parsed.x || 12), Math.max(12, window.innerWidth - 360)),
+          y: Math.min(Math.max(12, parsed.y || 12), Math.max(12, window.innerHeight - 260)),
+        };
+      }
+    } catch {
+      // Ignore corrupt local UI state.
+    }
+  }
+  return { x: Math.max(12, window.innerWidth - 650), y: 88 };
+}
 
 function normalizeAssetPath(slug: string, src = "") {
   if (/^(https?:|data:|\/)/.test(src)) return src;
@@ -153,8 +177,14 @@ export default function App() {
   const [noteDraft, setNoteDraft] = useState("");
   const [tagDraft, setTagDraft] = useState("");
   const [metaOpen, setMetaOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
   const [aiOpen, setAiOpen] = useState(false);
   const [aiAccessCode, setAiAccessCode] = useState(() => localStorage.getItem(aiAccessCodeKey) || "");
+  const [aiProvider, setAiProvider] = useState<"access" | "own">(
+    () => (localStorage.getItem(aiProviderKey) === "own" ? "own" : "access"),
+  );
+  const [ownApiKey, setOwnApiKey] = useState("");
+  const [aiReady, setAiReady] = useState(false);
   const [aiModel, setAiModel] = useState(() => localStorage.getItem(aiModelKey) || aiModels[0].id);
   const [aiInput, setAiInput] = useState("");
   const [aiMessages, setAiMessages] = useState<AiMessage[]>([]);
@@ -168,6 +198,7 @@ export default function App() {
     const stored = Number(localStorage.getItem(splitStateKey));
     return Number.isFinite(stored) && stored >= 25 && stored <= 75 ? stored : 50;
   });
+  const [aiPanelPos, setAiPanelPos] = useState(initialAiPanelPosition);
   const lastDividerPointerAt = useRef(0);
   const [error, setError] = useState("");
 
@@ -214,18 +245,25 @@ export default function App() {
     if (auth.authenticated) {
       loadReaderStates();
     }
+    setAccountOpen(false);
   }, [auth.authenticated]);
 
   useEffect(() => {
     if (!active) return;
     setAiMessages([]);
     setAiError("");
+    setAiReady(false);
   }, [active?.slug]);
 
-  const aiHeaders = () => ({
-    "Content-Type": "application/json",
-    "X-Access-Code": aiAccessCode.trim(),
-  });
+  const aiHeaders = () => {
+    const headers: Record<string, string> = { "Content-Type": "application/json" };
+    if (aiProvider === "own") {
+      headers["X-OpenAI-Key"] = ownApiKey.trim();
+    } else {
+      headers["X-Access-Code"] = aiAccessCode.trim();
+    }
+    return headers;
+  };
 
   const loginWithGitHub = () => {
     if (!aiApiBase) {
@@ -240,9 +278,31 @@ export default function App() {
     try {
       const res = await fetch(`${aiApiBase}/me`, { credentials: "include" });
       const data = await res.json().catch(() => ({}));
-      setAuth({ authenticated: !!data.authenticated, login: data.login, isOwner: !!data.isOwner });
+      setAuth({
+        authenticated: !!data.authenticated,
+        login: data.login,
+        avatarUrl: data.avatarUrl,
+        isOwner: !!data.isOwner,
+      });
     } catch {
       setAuth({ authenticated: false });
+    }
+  };
+
+  const logout = async () => {
+    if (!aiApiBase) return;
+    try {
+      await fetch(`${aiApiBase}/auth/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+    } finally {
+      setAuth({ authenticated: false });
+      setStates({});
+      setAiReady(false);
+      setAiMessages([]);
+      setAiError("");
+      setSyncError("");
     }
   };
 
@@ -279,12 +339,17 @@ export default function App() {
 
   const loadAiSession = async () => {
     if (!active || !aiApiBase) return;
-    if (!aiAccessCode.trim()) {
+    if (aiProvider === "access" && !aiAccessCode.trim()) {
       setAiError("请先输入访问码。");
+      return;
+    }
+    if (aiProvider === "own" && !ownApiKey.trim()) {
+      setAiError("请先输入你自己的 OpenAI API Key。");
       return;
     }
     localStorage.setItem(aiAccessCodeKey, aiAccessCode.trim());
     localStorage.setItem(aiModelKey, aiModel);
+    localStorage.setItem(aiProviderKey, aiProvider);
     setAiBusy(true);
     setAiError("");
     try {
@@ -292,20 +357,32 @@ export default function App() {
         credentials: "include",
       });
       const meData = await me.json().catch(() => ({}));
-      setAuth({ authenticated: !!meData.authenticated, login: meData.login, isOwner: !!meData.isOwner });
+      setAuth({
+        authenticated: !!meData.authenticated,
+        login: meData.login,
+        avatarUrl: meData.avatarUrl,
+        isOwner: !!meData.isOwner,
+      });
       if (!me.ok) throw new Error(meData.error || `认证检查失败：${me.status}`);
       if (!meData.authenticated) {
         setAiError("请先登录 GitHub。");
         return;
       }
+      const verify = await fetch(`${aiApiBase}/ai/verify`, {
+        credentials: "include",
+        headers: aiHeaders(),
+      });
+      const verifyData = await verify.json().catch(() => ({}));
+      if (!verify.ok) throw new Error(verifyData.error || `AI 凭证验证失败：${verify.status}`);
       const history = await fetch(`${aiApiBase}/history?paperSlug=${encodeURIComponent(active.slug)}`, {
         credentials: "include",
-        headers: { "X-Access-Code": aiAccessCode.trim() },
       });
       const historyData = await history.json().catch(() => ({}));
       if (!history.ok) throw new Error(historyData.error || `聊天记录加载失败：${history.status}`);
       setAiMessages(Array.isArray(historyData.messages) ? historyData.messages : []);
+      setAiReady(true);
     } catch (err) {
+      setAiReady(false);
       setAiError(err instanceof Error ? err.message : "AI 会话加载失败。");
     } finally {
       setAiBusy(false);
@@ -313,10 +390,11 @@ export default function App() {
   };
 
   useEffect(() => {
-    if (aiOpen && active && aiAccessCode.trim()) {
+    const hasCredential = aiProvider === "own" ? ownApiKey.trim() : aiAccessCode.trim();
+    if (aiOpen && active && hasCredential && auth.authenticated) {
       loadAiSession();
     }
-  }, [aiOpen, active?.slug]);
+  }, [aiOpen, active?.slug, auth.authenticated]);
 
   const journals = useMemo(() => uniq(papers.map((paper) => paper.journal)), [papers]);
   const dates = useMemo(() => uniq(papers.map((paper) => monthFromDate(paper.date))).reverse(), [papers]);
@@ -392,8 +470,16 @@ export default function App() {
       setAiError("AI 后端还没有配置 VITE_AI_API_URL。");
       return;
     }
-    if (!aiAccessCode.trim()) {
+    if (!auth.authenticated) {
+      setAiError("请先登录 GitHub。");
+      return;
+    }
+    if (aiProvider === "access" && !aiAccessCode.trim()) {
       setAiError("请先输入访问码。");
+      return;
+    }
+    if (aiProvider === "own" && !ownApiKey.trim()) {
+      setAiError("请先输入你自己的 OpenAI API Key。");
       return;
     }
 
@@ -409,6 +495,7 @@ export default function App() {
     setAiError("");
     localStorage.setItem(aiAccessCodeKey, aiAccessCode.trim());
     localStorage.setItem(aiModelKey, aiModel);
+    localStorage.setItem(aiProviderKey, aiProvider);
 
     try {
       const res = await fetch(`${aiApiBase}/chat`, {
@@ -447,7 +534,7 @@ export default function App() {
 
   const clearAiHistory = () => {
     if (!active) return;
-    if (!aiApiBase || !aiAccessCode.trim()) {
+    if (!aiApiBase || !auth.authenticated) {
       setAiMessages([]);
       setAiError("");
       return;
@@ -455,7 +542,6 @@ export default function App() {
     fetch(`${aiApiBase}/history?paperSlug=${encodeURIComponent(active.slug)}`, {
       method: "DELETE",
       credentials: "include",
-      headers: { "X-Access-Code": aiAccessCode.trim() },
     })
       .then((res) => {
         if (!res.ok) throw new Error(`清空失败：${res.status}`);
@@ -463,6 +549,39 @@ export default function App() {
         setAiError("");
       })
       .catch((err) => setAiError(err instanceof Error ? err.message : "清空失败。"));
+  };
+
+  const startAiPanelDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLElement;
+    if (target.closest("button,input,select,textarea,a")) return;
+    event.preventDefault();
+    const panel = event.currentTarget.closest(".ai-drawer") as HTMLElement | null;
+    const rect = panel?.getBoundingClientRect();
+    if (!rect) return;
+    const offsetX = event.clientX - rect.left;
+    const offsetY = event.clientY - rect.top;
+
+    const updatePosition = (clientX: number, clientY: number) => {
+      const maxX = Math.max(12, window.innerWidth - 220);
+      const maxY = Math.max(12, window.innerHeight - 120);
+      const next = {
+        x: Math.min(Math.max(12, clientX - offsetX), maxX),
+        y: Math.min(Math.max(12, clientY - offsetY), maxY),
+      };
+      setAiPanelPos(next);
+      localStorage.setItem(aiPanelPosKey, JSON.stringify(next));
+    };
+
+    const onPointerMove = (moveEvent: PointerEvent) => updatePosition(moveEvent.clientX, moveEvent.clientY);
+    const onPointerUp = () => {
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+      document.body.classList.remove("is-dragging-ai");
+    };
+
+    document.body.classList.add("is-dragging-ai");
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
   };
 
   const startPaneResize = (event: ReactPointerEvent<HTMLDivElement>) => {
@@ -521,6 +640,8 @@ export default function App() {
       </div>
     );
   }
+
+  const hasAiCredential = aiProvider === "own" ? !!ownApiKey.trim() : !!aiAccessCode.trim();
 
   return (
     <div className="shell">
@@ -681,70 +802,119 @@ export default function App() {
                 {syncError && <p className="sync-error">{syncError}</p>}
               </div>
               <div className="toolbar">
-                <button onClick={auth.authenticated ? loadReaderStates : loginWithGitHub}>
-                  {auth.authenticated ? auth.login : "登录"}
-                </button>
-                <button className={aiOpen ? "active" : ""} onClick={() => setAiOpen((open) => !open)}>
-                  <Bot size={16} />
-                  AI
-                </button>
-                <div className="meta-menu">
-                  <button className={metaOpen ? "active" : ""} onClick={() => setMetaOpen((open) => !open)}>
-                    <Highlighter size={16} />
-                    标签/批注
-                    <ChevronDown size={14} />
-                  </button>
-                  {metaOpen && (
-                    <div className="meta-popover">
-                      <label htmlFor="tags">标签</label>
-                      <input
-                        id="tags"
-                        className="tag-input"
-                        value={tagDraft}
-                        onChange={(event) => setTagDraft(event.target.value)}
-                        onBlur={saveTags}
-                        placeholder="例如：AI, 光催化, 电催化"
-                      />
-                      <label htmlFor="note">本地批注</label>
-                      {!auth.authenticated && (
-                        <p className="sync-hint">登录后，星级、标签和批注会按账号跨设备保存。</p>
-                      )}
-                      <textarea
-                        id="note"
-                        className="notes-box"
-                        value={noteDraft}
-                        onChange={(event) => setNoteDraft(event.target.value)}
-                        onBlur={saveNote}
-                        placeholder="记录你的理解、疑问或后续想法。内容只保存在当前浏览器。"
-                      />
-                    </div>
+                <div className="toolbar-row toolbar-row-top">
+                  <div className="meta-menu">
+                    <button className={metaOpen ? "active" : ""} onClick={() => setMetaOpen((open) => !open)}>
+                      <Highlighter size={16} />
+                      标签/批注
+                      <ChevronDown size={14} />
+                    </button>
+                    {metaOpen && (
+                      <div className="meta-popover">
+                        <label htmlFor="tags">标签</label>
+                        <input
+                          id="tags"
+                          className="tag-input"
+                          value={tagDraft}
+                          onChange={(event) => setTagDraft(event.target.value)}
+                          onBlur={saveTags}
+                          placeholder="例如：AI, 光催化, 电催化"
+                        />
+                        <label htmlFor="note">本地批注</label>
+                        {!auth.authenticated && (
+                          <p className="sync-hint">登录后，星级、标签和批注会按账号跨设备保存。</p>
+                        )}
+                        <textarea
+                          id="note"
+                          className="notes-box"
+                          value={noteDraft}
+                          onChange={(event) => setNoteDraft(event.target.value)}
+                          onBlur={saveNote}
+                          placeholder="记录你的理解、疑问或后续想法。内容只保存在当前浏览器。"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  {active.relatedReading && (
+                    <button className={viewMode === "related" ? "active" : ""} onClick={openRelatedView}>
+                      <BookOpen size={16} />
+                      相关阅读
+                    </button>
                   )}
-                </div>
-                {active.relatedReading && (
-                  <button className={viewMode === "related" ? "active" : ""} onClick={openRelatedView}>
-                    <BookOpen size={16} />
-                    相关阅读
-                  </button>
-                )}
-                <div className="layout-control" aria-label="阅读区域显示模式">
-                  <button className={paneMode === "both" ? "active" : ""} onClick={() => setPaneMode("both")}>
-                    双栏
-                  </button>
-                  <button className={paneMode === "pdf" ? "active" : ""} onClick={() => setPaneMode("pdf")}>
-                    原文
-                  </button>
-                  <button className={paneMode === "text" ? "active" : ""} onClick={() => setPaneMode("text")}>
-                    译文
+                  <button onClick={() => location.reload()}>
+                    <RefreshCw size={16} />
+                    刷新
                   </button>
                 </div>
-                <button onClick={() => location.reload()}>
-                  <RefreshCw size={16} />
-                  刷新
-                </button>
+                <div className="toolbar-row toolbar-row-bottom">
+                  <div className="layout-control" aria-label="阅读区域显示模式">
+                    <button className={paneMode === "both" ? "active" : ""} onClick={() => setPaneMode("both")}>
+                      双栏
+                    </button>
+                    <button className={paneMode === "pdf" ? "active" : ""} onClick={() => setPaneMode("pdf")}>
+                      原文
+                    </button>
+                    <button className={paneMode === "text" ? "active" : ""} onClick={() => setPaneMode("text")}>
+                      译文
+                    </button>
+                  </div>
+                  <div className="toolbar-account-group">
+                    <button className={aiOpen ? "active" : ""} onClick={() => setAiOpen((open) => !open)}>
+                      <Bot size={16} />
+                      AI
+                    </button>
+                    {auth.authenticated ? (
+                      <div className="account-menu">
+                        <button
+                          className="account-trigger"
+                          onClick={() => setAccountOpen((open) => !open)}
+                          title={auth.login}
+                        >
+                          {auth.avatarUrl ? (
+                            <img src={auth.avatarUrl} alt="" />
+                          ) : (
+                            <span className="avatar-fallback">{auth.login?.slice(0, 1).toUpperCase()}</span>
+                          )}
+                          <ChevronDown size={14} className={accountOpen ? "chevron open" : "chevron"} />
+                        </button>
+                        {accountOpen && (
+                          <div className="account-popover">
+                            <div className="account-name">{auth.login}</div>
+                            <button onClick={loadReaderStates}>同步</button>
+                            <button onClick={logout}>
+                              <LogOut size={15} />
+                              退出
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="account-menu">
+                        <button
+                          className="account-trigger"
+                          onClick={() => setAccountOpen((open) => !open)}
+                          title="账号"
+                        >
+                          <User size={24} />
+                          <ChevronDown size={14} className={accountOpen ? "chevron open" : "chevron"} />
+                        </button>
+                        {accountOpen && (
+                          <div className="account-popover">
+                            <button onClick={loginWithGitHub}>登录</button>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
               {aiOpen && (
-                <section className="ai-drawer" aria-label="AI 文献助手">
-                  <div className="ai-header">
+                <section
+                  className="ai-drawer"
+                  aria-label="AI 文献助手"
+                  style={{ left: aiPanelPos.x, top: aiPanelPos.y }}
+                >
+                  <div className="ai-header" onPointerDown={startAiPanelDrag}>
                     <div>
                       <h3>AI 文献助手</h3>
                       <p>{active.title}</p>
@@ -753,69 +923,136 @@ export default function App() {
                       ×
                     </button>
                   </div>
-                  <div className="ai-controls">
-                    <input
-                      className="ai-access"
-                      type="password"
-                      value={aiAccessCode}
-                      onChange={(event) => setAiAccessCode(event.target.value)}
-                      placeholder="访问码"
-                    />
-                    <select className="select" value={aiModel} onChange={(event) => setAiModel(event.target.value)}>
-                      {aiModels.map((model) => (
-                        <option key={model.id} value={model.id}>
-                          {model.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="ai-auth-row">
-                    <span>
-                      {auth.authenticated
-                        ? `已登录：${auth.login}，AI 还需要访问码`
-                        : "需要 GitHub 登录 + 访问码"}
-                    </span>
-                    <div>
-                      <button onClick={loginWithGitHub}>
-                        登录 GitHub
-                      </button>
-                      <button onClick={loadAiSession} disabled={aiBusy}>
-                        验证/同步
-                      </button>
+                  {!auth.authenticated ? (
+                    <div className="ai-gate">
+                      <p>请先登录 GitHub。登录后，AI 对话记录会按你的账号保存，其他人看不到。</p>
+                      <button onClick={loginWithGitHub}>登录 GitHub</button>
                     </div>
-                  </div>
-                  <div className="ai-messages">
-                    {!aiMessages.length && (
-                      <p className="ai-empty">可以直接问当前文章、译文、图注或相关阅读。回答会尽量引用段落 ID 和页码。</p>
-                    )}
-                    {aiMessages.map((message, index) => (
-                      <div key={`${message.createdAt}-${index}`} className={`ai-message ${message.role}`}>
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.content}</ReactMarkdown>
+                  ) : !aiReady ? (
+                    <div className="ai-gate">
+                      <p>已登录：{auth.login}。请选择 AI 使用方式。</p>
+                      <div className="ai-provider-tabs">
+                        <button
+                          className={aiProvider === "access" ? "active" : ""}
+                          onClick={() => {
+                            setAiProvider("access");
+                            setAiReady(false);
+                            setAiError("");
+                          }}
+                        >
+                          访问码
+                        </button>
+                        <button
+                          className={aiProvider === "own" ? "active" : ""}
+                          onClick={() => {
+                            setAiProvider("own");
+                            setAiReady(false);
+                            setAiError("");
+                          }}
+                        >
+                          自备 API Key
+                        </button>
                       </div>
-                    ))}
-                    {aiBusy && <p className="ai-empty">正在回答...</p>}
-                  </div>
-                  {aiError && <p className="ai-error">{aiError}</p>}
-                  <div className="ai-compose">
-                    <textarea
-                      value={aiInput}
-                      onChange={(event) => setAiInput(event.target.value)}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) sendAiQuestion();
-                      }}
-                      placeholder="问这篇文章里的任何问题。Ctrl/⌘ + Enter 发送。"
-                    />
-                    <div className="ai-actions">
-                      <button onClick={clearAiHistory} title="清空当前文章聊天记录">
-                        <Trash2 size={16} />
-                        清空
+                      <div className="ai-controls">
+                        {aiProvider === "access" ? (
+                          <input
+                            className="ai-access"
+                            type="password"
+                            value={aiAccessCode}
+                            onChange={(event) => {
+                              setAiAccessCode(event.target.value);
+                              setAiReady(false);
+                            }}
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter") loadAiSession();
+                            }}
+                            placeholder="输入访问码，按 Enter 进入"
+                          />
+                        ) : (
+                          <input
+                            className="ai-access"
+                            type="password"
+                            value={ownApiKey}
+                            onChange={(event) => {
+                              setOwnApiKey(event.target.value);
+                              setAiReady(false);
+                            }}
+                            onKeyDown={(event) => {
+                              if (event.key === "Enter") loadAiSession();
+                            }}
+                            placeholder="输入你自己的 OpenAI API Key，按 Enter 进入"
+                          />
+                        )}
+                        <select className="select" value={aiModel} onChange={(event) => setAiModel(event.target.value)}>
+                          {aiModels.map((model) => (
+                            <option key={model.id} value={model.id}>
+                              {model.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <button onClick={loadAiSession} disabled={aiBusy || !hasAiCredential}>
+                        {aiBusy ? "正在进入..." : "进入 AI"}
                       </button>
-                      <button onClick={sendAiQuestion} disabled={aiBusy}>
-                        <Send size={16} />
-                        发送
-                      </button>
+                      {aiProvider === "own" && (
+                        <p className="ai-note">自备 API Key 只用于当前浏览器本次请求转发，不会写入数据库或网页文件。</p>
+                      )}
                     </div>
-                  </div>
+                  ) : (
+                    <>
+                      <div className="ai-session-bar">
+                        <span>{aiProvider === "own" ? "自备 API Key" : "访问码"} · {auth.login}</span>
+                        <select className="select" value={aiModel} onChange={(event) => setAiModel(event.target.value)}>
+                          {aiModels.map((model) => (
+                            <option key={model.id} value={model.id}>
+                              {model.label}
+                            </option>
+                          ))}
+                        </select>
+                        <button
+                          onClick={() => {
+                            setAiReady(false);
+                            setAiMessages([]);
+                            setAiError("");
+                          }}
+                        >
+                          切换
+                        </button>
+                      </div>
+                      <div className="ai-messages">
+                        {!aiMessages.length && (
+                          <p className="ai-empty">可以直接问当前文章、译文、图注或相关阅读。回答会尽量引用段落 ID 和页码。</p>
+                        )}
+                        {aiMessages.map((message, index) => (
+                          <div key={`${message.createdAt}-${index}`} className={`ai-message ${message.role}`}>
+                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.content}</ReactMarkdown>
+                          </div>
+                        ))}
+                        {aiBusy && <p className="ai-empty">正在回答...</p>}
+                      </div>
+                      <div className="ai-compose">
+                        <textarea
+                          value={aiInput}
+                          onChange={(event) => setAiInput(event.target.value)}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) sendAiQuestion();
+                          }}
+                          placeholder="问这篇文章里的任何问题。Ctrl/⌘ + Enter 发送。"
+                        />
+                        <div className="ai-actions">
+                          <button onClick={clearAiHistory} title="清空当前文章聊天记录">
+                            <Trash2 size={16} />
+                            清空
+                          </button>
+                          <button onClick={sendAiQuestion} disabled={aiBusy}>
+                            <Send size={16} />
+                            发送
+                          </button>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                  {aiError && <p className="ai-error">{aiError}</p>}
                 </section>
               )}
             </header>

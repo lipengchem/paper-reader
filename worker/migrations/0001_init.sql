@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS sessions (
   token_hash TEXT PRIMARY KEY,
   login TEXT NOT NULL,
+  avatar_url TEXT,
   created_at TEXT NOT NULL,
   expires_at TEXT NOT NULL
 );
