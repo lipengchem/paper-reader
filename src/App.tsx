@@ -381,7 +381,7 @@ export default function App() {
                 {active.relatedReading && (
                   <button className={viewMode === "related" ? "active" : ""} onClick={openRelatedView}>
                     <BookOpen size={16} />
-                    相关必读
+                    相关阅读
                   </button>
                 )}
                 <div className="layout-control" aria-label="阅读区域显示模式">
