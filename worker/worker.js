@@ -13,6 +13,17 @@ function json(data, status = 200, headers = {}) {
   });
 }
 
+function publicOpenAIError(message = "", status = 502) {
+  const redacted = String(message).replace(/sk-[A-Za-z0-9_-]+/g, "sk-***");
+  if (/incorrect api key|invalid api key/i.test(redacted)) {
+    return "OpenAI API Key 无效。请检查当前使用的是访问码模式，还是自备 API Key 模式；如果是访问码模式，需要更新站点后端的 OPENAI_API_KEY。";
+  }
+  if (/model.*not.*found|does not exist|access.*model/i.test(redacted)) {
+    return "当前 API Key 没有所选模型权限，请换一个可用模型或更换 API Key。";
+  }
+  return redacted || `OpenAI request failed: ${status}`;
+}
+
 function allowedOrigin(request, env) {
   const origin = request.headers.get("Origin") || "";
   const allowed = (env.ALLOWED_ORIGINS || "https://lipengchem.github.io,http://127.0.0.1:5173,http://localhost:5173")
@@ -27,7 +38,7 @@ function corsHeaders(request, env) {
     "Access-Control-Allow-Origin": allowedOrigin(request, env),
     "Access-Control-Allow-Credentials": "true",
     "Access-Control-Allow-Headers": "Content-Type, X-Access-Code, X-OpenAI-Key",
-    "Access-Control-Allow-Methods": "GET, POST, DELETE, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
     "Vary": "Origin",
   };
 }
@@ -368,7 +379,7 @@ async function handleChat(request, env) {
     body: JSON.stringify({ model, input }),
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) return json({ error: data.error?.message || `OpenAI request failed: ${res.status}` }, 502, corsHeaders(request, env));
+  if (!res.ok) return json({ error: publicOpenAIError(data.error?.message, res.status) }, 502, corsHeaders(request, env));
   const answer = data.output_text || data.output?.flatMap((item) => item.content || []).map((part) => part.text || "").join("\n") || "";
 
   const now = new Date().toISOString();

@@ -306,6 +306,13 @@ export default function App() {
     }
   };
 
+  const switchAiCredentialMode = (provider: "access" | "own") => {
+    setAiProvider(provider);
+    localStorage.setItem(aiProviderKey, provider);
+    setAiReady(false);
+    setAiError("");
+  };
+
   const loadReaderStates = async () => {
     if (!aiApiBase || !auth.authenticated) return;
     try {
@@ -934,21 +941,13 @@ export default function App() {
                       <div className="ai-provider-tabs">
                         <button
                           className={aiProvider === "access" ? "active" : ""}
-                          onClick={() => {
-                            setAiProvider("access");
-                            setAiReady(false);
-                            setAiError("");
-                          }}
+                          onClick={() => switchAiCredentialMode("access")}
                         >
                           访问码
                         </button>
                         <button
                           className={aiProvider === "own" ? "active" : ""}
-                          onClick={() => {
-                            setAiProvider("own");
-                            setAiReady(false);
-                            setAiError("");
-                          }}
+                          onClick={() => switchAiCredentialMode("own")}
                         >
                           自备 API Key
                         </button>
@@ -1052,7 +1051,18 @@ export default function App() {
                       </div>
                     </>
                   )}
-                  {aiError && <p className="ai-error">{aiError}</p>}
+                  {aiError && (
+                    <div className="ai-error">
+                      <p>{aiError}</p>
+                      <div className="ai-error-actions">
+                        {aiProvider === "access" ? (
+                          <button onClick={() => switchAiCredentialMode("own")}>改用自备 API Key</button>
+                        ) : (
+                          <button onClick={() => switchAiCredentialMode("access")}>改用访问码</button>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </section>
               )}
             </header>
