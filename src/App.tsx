@@ -12,7 +12,6 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Send,
-  Languages,
   Trash2,
   User,
 } from "lucide-react";
@@ -68,15 +67,6 @@ type AuthState = {
 };
 
 type PaneKey = "pdf" | "text" | "ai";
-
-type TranslationPopup = {
-  text: string;
-  result: string;
-  x: number;
-  y: number;
-  loading: boolean;
-  error?: string;
-};
 
 type FriendItem = {
   login: string;
@@ -238,8 +228,6 @@ export default function App() {
   const [syncError, setSyncError] = useState("");
   const [sortOpen, setSortOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [translateMode, setTranslateMode] = useState(false);
-  const [translationPopup, setTranslationPopup] = useState<TranslationPopup | null>(null);
   const [hasNotifications, setHasNotifications] = useState(false);
   const [paneVisibility, setPaneVisibility] = useState<Record<PaneKey, boolean>>({
     pdf: true,
@@ -571,7 +559,7 @@ export default function App() {
     }
   }, [paneVisibility.ai, active?.slug, auth.authenticated]);
 
-  const visibleLibraryPapers = libraryScope.type === "public" ? papers : personalPapers;
+  const visibleLibraryPapers = libraryScope.type === "public" ? papers : allPapers;
   const journals = useMemo(() => uniq(visibleLibraryPapers.map((paper) => paper.journal)), [visibleLibraryPapers]);
   const dates = useMemo(() => uniq(visibleLibraryPapers.map((paper) => monthFromDate(paper.date))).reverse(), [visibleLibraryPapers]);
   const categories = useMemo(
@@ -583,7 +571,7 @@ export default function App() {
     const q = query.trim().toLowerCase();
     const result = visibleLibraryPapers.filter((paper) => {
       const local = states[paper.slug] || {};
-      if (local.hidden) return false;
+      if (libraryScope.type !== "public" && local.hidden) return false;
       const isRead = !!local.read || !!local.rating;
       const searchable = [paper.title, paper.journal, paper.date, ...(paper.collections || [])]
         .filter(Boolean)
@@ -606,7 +594,7 @@ export default function App() {
       if (sortKey === "rating") value = (stateA.rating || 0) - (stateB.rating || 0);
       return sortDirection === "asc" ? value : -value;
     });
-  }, [categoryFilter, dateFilter, journalFilter, query, readFilter, sortDirection, sortKey, states, visibleLibraryPapers]);
+  }, [categoryFilter, dateFilter, journalFilter, libraryScope.type, query, readFilter, sortDirection, sortKey, states, visibleLibraryPapers]);
 
   useEffect(() => {
     if (!visibleLibraryPapers.length) {
@@ -737,79 +725,6 @@ export default function App() {
       setAiBusy(false);
     }
   };
-
-  const translateSelection = async (text: string, x: number, y: number) => {
-    if (!active || !text) return;
-    setTranslationPopup({ text, result: "", x, y, loading: true });
-    if (!aiApiBase) {
-      setTranslationPopup({ text, result: "", x, y, loading: false, error: "AI 后端还没有配置。" });
-      return;
-    }
-    if (!auth.authenticated) {
-      setTranslationPopup({ text, result: "", x, y, loading: false, error: "请先登录 GitHub。" });
-      return;
-    }
-    if (!ownApiKey.trim()) {
-      setTranslationPopup({ text, result: "", x, y, loading: false, error: "请先在 AI 栏输入 API Key。" });
-      return;
-    }
-    try {
-      const res = await fetch(`${aiApiBase}/chat`, {
-        method: "POST",
-        credentials: "include",
-        headers: aiHeaders(),
-        body: JSON.stringify({
-          transient: true,
-          model: aiModel,
-          paper: {
-            slug: active.slug,
-            title: active.title,
-            journal: active.journal,
-            date: active.date,
-            pdfPath: active.pdfPath,
-            markdownPath: active.markdownPath,
-            relatedReadingPath: active.relatedReading ? `library/${active.slug}/related_reading.md` : "",
-          },
-          pageContext: {
-            viewMode,
-            visiblePanes: visiblePaneKeys,
-            currentMarkdown: markdown.slice(0, 8000),
-          },
-          messages: [
-            {
-              role: "user",
-              content: `请把下面选中的学术文本准确翻译成中文；如果是单词或术语，请给出中文含义和一句很短的领域解释。只回答翻译结果，不要展开聊天。\n\n${text}`,
-            },
-          ],
-        }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.error || `翻译失败：${res.status}`);
-      setTranslationPopup({ text, result: data.answer || "", x, y, loading: false });
-    } catch (err) {
-      setTranslationPopup({
-        text,
-        result: "",
-        x,
-        y,
-        loading: false,
-        error: err instanceof Error ? err.message : "翻译失败。",
-      });
-    }
-  };
-
-  useEffect(() => {
-    if (!translateMode) return;
-    const onMouseUp = (event: MouseEvent) => {
-      window.setTimeout(() => {
-        const text = window.getSelection()?.toString().trim().replace(/\s+/g, " ") || "";
-        if (text.length < 2) return;
-        translateSelection(text.slice(0, 1200), event.clientX, event.clientY);
-      }, 0);
-    };
-    document.addEventListener("mouseup", onMouseUp);
-    return () => document.removeEventListener("mouseup", onMouseUp);
-  }, [translateMode, active?.slug, auth.authenticated, ownApiKey, aiModel, aiEndpoint, aiCustomBaseUrl, aiApiMode, markdown, viewMode, paneWeights]);
 
   const clearAiHistory = () => {
     if (!active) return;
@@ -1197,10 +1112,6 @@ export default function App() {
                       相关阅读
                     </button>
                   )}
-                  <button className={translateMode ? "active" : ""} onClick={() => setTranslateMode((mode) => !mode)}>
-                    <Languages size={16} />
-                    翻译
-                  </button>
                 </div>
                 <div className="toolbar-row toolbar-row-bottom">
                   <div className="layout-control" aria-label="阅读区域显示模式">
@@ -1251,6 +1162,24 @@ export default function App() {
                                   placeholder="GitHub 用户名"
                                 />
                                 <button onClick={addFriend}>添加</button>
+                                <div className="friend-list">
+                                  {friends.length ? (
+                                    friends.map((friend) => (
+                                      <button
+                                        key={friend.login}
+                                        className={libraryScope.type === "friend" && libraryScope.owner === friend.login ? "active" : ""}
+                                        onClick={() => {
+                                          setLibraryScope({ type: "friend", owner: friend.login });
+                                          setAccountOpen(false);
+                                        }}
+                                      >
+                                        {friend.login}
+                                      </button>
+                                    ))
+                                  ) : (
+                                    <span>还没有好友</span>
+                                  )}
+                                </div>
                               </div>
                             )}
                             <button onClick={loadReaderStates}>同步</button>
@@ -1525,26 +1454,6 @@ export default function App() {
                 </div>
               ))}
             </section>
-            {translationPopup && translateMode && (
-              <div
-                className="translation-popover"
-                style={{
-                  left: Math.min(Math.max(14, translationPopup.x + 12), Math.max(14, window.innerWidth - 360)),
-                  top: Math.min(Math.max(14, translationPopup.y + 12), Math.max(14, window.innerHeight - 220)),
-                }}
-              >
-                <div className="translation-head">
-                  <strong>快速翻译</strong>
-                  <button className="icon-button" onClick={() => setTranslationPopup(null)} title="关闭">
-                    ×
-                  </button>
-                </div>
-                <p className="translation-source">{translationPopup.text}</p>
-                {translationPopup.loading && <p className="translation-result">正在翻译...</p>}
-                {translationPopup.error && <p className="translation-error">{translationPopup.error}</p>}
-                {translationPopup.result && <p className="translation-result">{translationPopup.result}</p>}
-              </div>
-            )}
             {viewMode === "reader" && <GiscusComments paper={active} />}
           </>
         )}

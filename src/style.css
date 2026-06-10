@@ -468,17 +468,18 @@ button:disabled {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: flex-end;
   justify-self: end;
-  gap: 8px;
-  width: min(620px, 100%);
-  max-width: 620px;
+  gap: 7px;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .toolbar-row,
 .toolbar-account-group {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px;
 }
 
@@ -487,7 +488,7 @@ button:disabled {
 }
 
 .toolbar-row-bottom {
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .toolbar-account-group {
@@ -586,6 +587,25 @@ button:disabled {
 
 .account-popover button:hover {
   background: #f1f7f6;
+}
+
+.friend-list {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid #e5eeee;
+  margin-top: 4px;
+  padding-top: 4px;
+}
+
+.friend-list button {
+  min-height: 30px;
+}
+
+.friend-list span {
+  padding: 6px 10px;
+  color: #829397;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .account-name {
@@ -1055,46 +1075,6 @@ button:disabled {
 
 .meta-popover .notes-box {
   min-height: 108px;
-}
-
-.translation-popover {
-  position: fixed;
-  z-index: 45;
-  width: min(340px, calc(100vw - 28px));
-  max-height: 300px;
-  overflow: auto;
-  border: 1px solid #cbdad8;
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 16px 40px rgba(19, 43, 45, 0.18);
-  padding: 10px;
-  resize: both;
-}
-
-.translation-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.translation-source {
-  margin: 0 0 8px;
-  color: #607175;
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.translation-result,
-.translation-error {
-  margin: 0;
-  white-space: pre-wrap;
-  line-height: 1.6;
-}
-
-.translation-error {
-  color: #9b1c1c;
 }
 
 .empty-state {
