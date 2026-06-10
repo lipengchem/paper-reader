@@ -107,6 +107,7 @@ export default function App() {
   const [noteDraft, setNoteDraft] = useState("");
   const [tagDraft, setTagDraft] = useState("");
   const [metaOpen, setMetaOpen] = useState(false);
+  const [sortOpen, setSortOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [error, setError] = useState("");
 
@@ -291,29 +292,38 @@ export default function App() {
                 ))}
               </select>
             </div>
-            <select className="select" value={tagFilter} onChange={(event) => setTagFilter(event.target.value)}>
-              <option value="all">标签</option>
-              {tags.map((tag) => (
-                <option key={tag} value={tag}>
-                  {tag}
-                </option>
-              ))}
-            </select>
-            <div className="sort-row" aria-label="排序">
-              {[
-                ["date", "日期"],
-                ["title", "首字母"],
-                ["rating", "星级"],
-              ].map(([key, label]) => (
-                <button
-                  key={key}
-                  className={sortKey === key ? "active" : ""}
-                  onClick={() => changeSort(key as typeof sortKey)}
-                >
-                  {label}
-                  {sortKey === key ? (sortDirection === "asc" ? " ↑" : " ↓") : ""}
+            <div className="filter-row">
+              <select className="select" value={tagFilter} onChange={(event) => setTagFilter(event.target.value)}>
+                <option value="all">标签</option>
+                {tags.map((tag) => (
+                  <option key={tag} value={tag}>
+                    {tag}
+                  </option>
+                ))}
+              </select>
+              <div className="sort-menu">
+                <button className={sortOpen ? "select sort-trigger active" : "select sort-trigger"} onClick={() => setSortOpen((open) => !open)}>
+                  排序
                 </button>
-              ))}
+                {sortOpen && (
+                  <div className="sort-popover">
+                    {[
+                      ["date", "日期"],
+                      ["title", "首字母"],
+                      ["rating", "星级"],
+                    ].map(([key, label]) => (
+                      <button
+                        key={key}
+                        className={sortKey === key ? "active" : ""}
+                        onClick={() => changeSort(key as typeof sortKey)}
+                      >
+                        {label}
+                        {sortKey === key ? (sortDirection === "asc" ? " ↑" : " ↓") : ""}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -327,7 +337,6 @@ export default function App() {
                   className={`paper-item ${paper.slug === activeSlug ? "active" : ""}`}
                 >
                   <button className="paper-select" onClick={() => setActiveSlug(paper.slug)}>
-                    <span className="pdf-badge">PDF</span>
                     <span>
                       <strong>{paper.title}</strong>
                       <small>{paper.journal || "Unknown journal"} · {paper.date}</small>

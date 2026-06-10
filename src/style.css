@@ -127,22 +127,66 @@ button:disabled {
   padding: 0 10px;
 }
 
-.segmented,
-.sort-row {
+.segmented {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 6px;
 }
 
-.segmented button,
-.sort-row button {
+.segmented button {
   padding: 0 6px;
   font-size: 13px;
 }
 
 .segmented button.active,
-.sort-row button.active,
 .toolbar button.active {
+  border-color: #3e8d89;
+  background: #e7f4f2;
+  color: #0f5d58;
+  font-weight: 700;
+}
+
+.sort-menu {
+  position: relative;
+  min-width: 0;
+}
+
+.sort-trigger {
+  display: block;
+  min-height: 36px;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.sort-trigger.active {
+  border-color: #3e8d89;
+  background: #e7f4f2;
+  color: #0f5d58;
+  font-weight: 700;
+}
+
+.sort-popover {
+  position: absolute;
+  z-index: 25;
+  top: calc(100% + 6px);
+  right: 0;
+  display: grid;
+  width: 150px;
+  gap: 6px;
+  border: 1px solid #cbdad8;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(19, 43, 45, 0.14);
+  padding: 8px;
+}
+
+.sort-popover button {
+  min-height: 32px;
+  padding: 0 9px;
+  text-align: left;
+}
+
+.sort-popover button.active {
   border-color: #3e8d89;
   background: #e7f4f2;
   color: #0f5d58;
@@ -174,7 +218,7 @@ button:disabled {
 
 .paper-select {
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr) 14px;
+  grid-template-columns: minmax(0, 1fr) 14px;
   align-items: center;
   gap: 10px;
   width: 100%;
@@ -187,6 +231,10 @@ button:disabled {
 
 .paper-select:hover {
   border-color: transparent;
+}
+
+.paper-select > span {
+  min-width: 0;
 }
 
 .paper-item strong,
@@ -211,7 +259,6 @@ button:disabled {
 .rating-row {
   display: flex;
   gap: 2px;
-  margin-left: 44px;
   margin-top: 4px;
 }
 
@@ -237,7 +284,6 @@ button:disabled {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  margin-left: 44px;
   margin-top: 4px;
 }
 
@@ -249,17 +295,6 @@ button:disabled {
   font-size: 11px;
   line-height: 1.5;
   padding: 0 7px;
-}
-
-.pdf-badge {
-  display: inline-grid;
-  place-items: center;
-  height: 28px;
-  border-radius: 6px;
-  background: #eef2f2;
-  color: #3e5357;
-  font-size: 11px;
-  font-weight: 800;
 }
 
 .status-dot {
