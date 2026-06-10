@@ -420,7 +420,7 @@ button:disabled {
 
 .reader-grid {
   display: grid;
-  grid-template-columns: minmax(320px, 1fr) minmax(380px, 1.05fr);
+  grid-template-columns: minmax(320px, 1fr) 10px minmax(380px, 1.05fr);
   gap: 14px;
   height: calc(100vh - 76px);
   padding: 14px;
@@ -430,6 +430,32 @@ button:disabled {
 .reader-grid.pane-pdf,
 .reader-grid.pane-text {
   grid-template-columns: minmax(0, 1fr);
+}
+
+.pane-divider {
+  align-self: stretch;
+  width: 10px;
+  border: 0;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, transparent 0 4px, #c7d6d4 4px 6px, transparent 6px 10px);
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.pane-divider:hover,
+.pane-divider:focus-visible {
+  background:
+    linear-gradient(90deg, transparent 0 3px, #177c79 3px 7px, transparent 7px 10px);
+}
+
+.is-resizing-reader {
+  cursor: col-resize;
+  user-select: none;
+}
+
+.is-resizing-reader iframe {
+  pointer-events: none;
 }
 
 .panel {

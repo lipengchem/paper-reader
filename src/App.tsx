@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type PointerEvent as ReactPointerEvent } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -52,6 +52,8 @@ function normalizeAssetPath(slug: string, src = "") {
 function stateKey(slug: string) {
   return `paper-reader:${slug}`;
 }
+
+const splitStateKey = "paper-reader:pane-split";
 
 function readLocalState(slug: string): ReaderState {
   try {
@@ -109,6 +111,10 @@ export default function App() {
   const [metaOpen, setMetaOpen] = useState(false);
   const [sortOpen, setSortOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [splitPct, setSplitPct] = useState(() => {
+    const stored = Number(localStorage.getItem(splitStateKey));
+    return Number.isFinite(stored) && stored >= 25 && stored <= 75 ? stored : 50;
+  });
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -215,6 +221,37 @@ export default function App() {
     const next = { ...(states[active.slug] || {}), tags: parseTags(tagDraft) };
     writeLocalState(active.slug, next);
     setStates((prev) => ({ ...prev, [active.slug]: next }));
+  };
+
+  const startPaneResize = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (paneMode !== "both") return;
+    event.preventDefault();
+    const grid = event.currentTarget.closest(".reader-grid") as HTMLElement | null;
+    const rect = grid?.getBoundingClientRect();
+    if (!rect) return;
+
+    const updateSplit = (clientX: number) => {
+      const next = ((clientX - rect.left) / rect.width) * 100;
+      const clamped = Math.min(75, Math.max(25, next));
+      setSplitPct(clamped);
+      localStorage.setItem(splitStateKey, clamped.toFixed(1));
+    };
+    const onPointerMove = (moveEvent: PointerEvent) => updateSplit(moveEvent.clientX);
+    const onPointerUp = () => {
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+      document.body.classList.remove("is-resizing-reader");
+    };
+
+    document.body.classList.add("is-resizing-reader");
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
+    updateSplit(event.clientX);
+  };
+
+  const resetPaneSplit = () => {
+    setSplitPct(50);
+    localStorage.setItem(splitStateKey, "50");
   };
 
   const openRelatedView = () => {
@@ -448,7 +485,14 @@ export default function App() {
               </div>
             </header>
 
-            <section className={`reader-grid pane-${paneMode}`}>
+            <section
+              className={`reader-grid pane-${paneMode}`}
+              style={
+                paneMode === "both"
+                  ? { gridTemplateColumns: `minmax(260px, ${splitPct}fr) 10px minmax(300px, ${100 - splitPct}fr)` }
+                  : undefined
+              }
+            >
               {paneMode !== "text" && (
               <section className="panel pdf-panel">
                 <div className="panel-header">
@@ -457,6 +501,17 @@ export default function App() {
                 </div>
                 <iframe className="pdf-frame" src={`${baseUrl}${active.pdfPath}`} title={`${active.title} PDF`} />
               </section>
+              )}
+
+              {paneMode === "both" && (
+                <div
+                  className="pane-divider"
+                  role="separator"
+                  aria-label="调整原文和译文宽度"
+                  aria-orientation="vertical"
+                  onPointerDown={startPaneResize}
+                  onDoubleClick={resetPaneSplit}
+                />
               )}
 
               {paneMode !== "pdf" && (
