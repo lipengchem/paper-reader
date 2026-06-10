@@ -275,6 +275,12 @@ export default function App() {
   );
 
   const allPapers = useMemo(() => [...papers, ...personalPapers], [papers, personalPapers]);
+  const canEditReaderState = auth.authenticated && libraryScope.type !== "friend";
+  const viewedOwner = libraryScope.type === "friend" ? libraryScope.owner || "" : auth.login || "";
+
+  useEffect(() => {
+    if (!canEditReaderState) setMetaOpen(false);
+  }, [canEditReaderState]);
 
   useEffect(() => {
     if (!active) return;
@@ -310,7 +316,6 @@ export default function App() {
 
   useEffect(() => {
     if (auth.authenticated) {
-      loadReaderStates();
       loadFriends();
       setLibraryScope((prev) => (prev.type === "public" ? { type: "mine" } : prev));
     }
@@ -318,13 +323,19 @@ export default function App() {
   }, [auth.authenticated]);
 
   useEffect(() => {
-    if (!auth.authenticated || libraryScope.type === "public") {
+    setSyncError("");
+    if (!auth.authenticated) {
+      setPersonalPapers([]);
+      setStates({});
+      return;
+    }
+    loadReaderStates(libraryScope.type === "friend" ? viewedOwner : undefined);
+    if (libraryScope.type === "public") {
       setPersonalPapers([]);
       return;
     }
-    const owner = libraryScope.type === "mine" ? auth.login || "" : libraryScope.owner || "";
-    loadPersonalPapers(owner);
-  }, [auth.authenticated, auth.login, libraryScope]);
+    loadPersonalPapers(viewedOwner);
+  }, [auth.authenticated, auth.login, libraryScope, viewedOwner]);
 
   useEffect(() => {
     if (!active) return;
@@ -384,10 +395,11 @@ export default function App() {
     }
   };
 
-  const loadReaderStates = async () => {
+  const loadReaderStates = async (ownerLogin?: string) => {
     if (!aiApiBase || !auth.authenticated) return;
     try {
-      const res = await fetch(`${aiApiBase}/states`, { credentials: "include" });
+      const suffix = ownerLogin ? `?owner=${encodeURIComponent(ownerLogin)}` : "";
+      const res = await fetch(`${aiApiBase}/states${suffix}`, { credentials: "include" });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || `个人状态加载失败：${res.status}`);
       setStates(data.states || {});
@@ -438,6 +450,7 @@ export default function App() {
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || `个人文献库加载失败：${res.status}`);
       setPersonalPapers(Array.isArray(data.items) ? data.items : []);
+      setSyncError("");
     } catch (err) {
       setPersonalPapers([]);
       setSyncError(err instanceof Error ? err.message : "个人文献库加载失败。");
@@ -476,7 +489,8 @@ export default function App() {
       await loadPersonalPapers(auth.login || "");
       if (data.item?.slug) setActiveSlug(data.item.slug);
     } catch (err) {
-      setSyncError(err instanceof Error ? err.message : "上传失败。");
+      const message = err instanceof Error ? err.message : "上传失败。";
+      setSyncError(message.includes("PAPER_FILES") ? "个人上传需要先在 Cloudflare 开通 R2 并配置 PAPER_FILES；公共库不受影响。" : message);
     } finally {
       setUploadBusy(false);
     }
@@ -616,6 +630,7 @@ export default function App() {
   };
 
   const setRating = (slug: string, rating: number) => {
+    if (!canEditReaderState) return;
     const current = states[slug]?.rating || 0;
     const nextRating = current === rating ? 0 : rating;
     const next = { ...(states[slug] || {}), rating: nextRating, read: nextRating > 0 };
@@ -624,27 +639,28 @@ export default function App() {
   };
 
   const saveNote = () => {
-    if (!active) return;
+    if (!active || !canEditReaderState) return;
     const next = { ...(states[active.slug] || {}), note: noteDraft };
     setStates((prev) => ({ ...prev, [active.slug]: next }));
     saveReaderState(active.slug, next);
   };
 
   const saveCategories = () => {
-    if (!active) return;
+    if (!active || !canEditReaderState) return;
     const next = { ...(states[active.slug] || {}), categories: parseTags(categoryDraft) };
     setStates((prev) => ({ ...prev, [active.slug]: next }));
     saveReaderState(active.slug, next);
   };
 
   const saveTags = () => {
-    if (!active) return;
+    if (!active || !canEditReaderState) return;
     const next = { ...(states[active.slug] || {}), tags: parseTags(tagDraft) };
     setStates((prev) => ({ ...prev, [active.slug]: next }));
     saveReaderState(active.slug, next);
   };
 
   const hidePaper = (slug: string) => {
+    if (!canEditReaderState) return;
     if (!window.confirm("从你的文献列表里隐藏这篇文章？这只影响当前登录账号，不会删除网站文件。")) return;
     const next = { ...(states[slug] || {}), hidden: true };
     setStates((prev) => ({ ...prev, [slug]: next }));
@@ -1005,25 +1021,30 @@ export default function App() {
                     </span>
                     <span className={`status-dot ${isRead ? "read" : ""}`} />
                   </button>
-                  <button
-                    className="paper-delete"
-                    onClick={() => hidePaper(paper.slug)}
-                    title="从我的列表隐藏"
-                  >
-                    ×
-                  </button>
-                  <div className="rating-row" aria-label={`${paper.title} 评分`}>
-                    {[1, 2, 3, 4, 5].map((rating) => (
-                      <button
-                        key={rating}
-                        className={rating <= (local.rating || 0) ? "star active" : "star"}
-                        onClick={() => setRating(paper.slug, rating)}
-                        title={`${rating} 星`}
-                      >
-                        {rating <= (local.rating || 0) ? "★" : "☆"}
-                      </button>
-                    ))}
-                  </div>
+                  {canEditReaderState && (
+                    <button
+                      className="paper-delete"
+                      onClick={() => hidePaper(paper.slug)}
+                      title="从我的列表隐藏"
+                    >
+                      ×
+                    </button>
+                  )}
+                  {(canEditReaderState || local.rating) && (
+                    <div className="rating-row" aria-label={`${paper.title} 评分`}>
+                      {[1, 2, 3, 4, 5].map((rating) => (
+                        <button
+                          key={rating}
+                          className={rating <= (local.rating || 0) ? "star active" : "star"}
+                          onClick={() => canEditReaderState && setRating(paper.slug, rating)}
+                          disabled={!canEditReaderState}
+                          title={`${rating} 星`}
+                        >
+                          {rating <= (local.rating || 0) ? "★" : "☆"}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                   {!!local.tags?.length && (
                     <div className="tag-row">
                       {local.tags.map((tag) => (
@@ -1065,47 +1086,49 @@ export default function App() {
               </div>
               <div className="toolbar">
                 <div className="toolbar-row toolbar-row-top">
-                  <div className="meta-menu">
-                    <button className={metaOpen ? "active" : ""} onClick={() => setMetaOpen((open) => !open)}>
-                      <Highlighter size={16} />
-                      编辑
-                      <ChevronDown size={14} />
-                    </button>
-                    {metaOpen && (
-                      <div className="meta-popover">
-                        <label htmlFor="categories">分类</label>
-                        <input
-                          id="categories"
-                          className="tag-input"
-                          value={categoryDraft}
-                          onChange={(event) => setCategoryDraft(event.target.value)}
-                          onBlur={saveCategories}
-                          placeholder="例如：DFT, 实验, AI"
-                        />
-                        <label htmlFor="tags">标签</label>
-                        <input
-                          id="tags"
-                          className="tag-input"
-                          value={tagDraft}
-                          onChange={(event) => setTagDraft(event.target.value)}
-                          onBlur={saveTags}
-                          placeholder="例如：扩散模型, SSW, HHI"
-                        />
-                        <label htmlFor="note">本地批注</label>
-                        {!auth.authenticated && (
-                          <p className="sync-hint">登录后，星级、分类、标签和批注会按账号跨设备保存。</p>
-                        )}
-                        <textarea
-                          id="note"
-                          className="notes-box"
-                          value={noteDraft}
-                          onChange={(event) => setNoteDraft(event.target.value)}
-                          onBlur={saveNote}
-                          placeholder="记录你的理解、疑问或后续想法。内容只保存在当前浏览器。"
-                        />
-                      </div>
-                    )}
-                  </div>
+                  {canEditReaderState && (
+                    <div className="meta-menu">
+                      <button className={metaOpen ? "active" : ""} onClick={() => setMetaOpen((open) => !open)}>
+                        <Highlighter size={16} />
+                        编辑
+                        <ChevronDown size={14} />
+                      </button>
+                      {metaOpen && (
+                        <div className="meta-popover">
+                          <label htmlFor="categories">分类</label>
+                          <input
+                            id="categories"
+                            className="tag-input"
+                            value={categoryDraft}
+                            onChange={(event) => setCategoryDraft(event.target.value)}
+                            onBlur={saveCategories}
+                            placeholder="例如：DFT, 实验, AI"
+                          />
+                          <label htmlFor="tags">标签</label>
+                          <input
+                            id="tags"
+                            className="tag-input"
+                            value={tagDraft}
+                            onChange={(event) => setTagDraft(event.target.value)}
+                            onBlur={saveTags}
+                            placeholder="例如：扩散模型, SSW, HHI"
+                          />
+                          <label htmlFor="note">本地批注</label>
+                          {!auth.authenticated && (
+                            <p className="sync-hint">登录后，星级、分类、标签和批注会按账号跨设备保存。</p>
+                          )}
+                          <textarea
+                            id="note"
+                            className="notes-box"
+                            value={noteDraft}
+                            onChange={(event) => setNoteDraft(event.target.value)}
+                            onBlur={saveNote}
+                            placeholder="记录你的理解、疑问或后续想法。内容只保存在当前浏览器。"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
                   {active.relatedReading && (
                     <button className={viewMode === "related" ? "active" : ""} onClick={openRelatedView}>
                       <BookOpen size={16} />
@@ -1152,16 +1175,6 @@ export default function App() {
                             <button onClick={() => setFriendOpen((open) => !open)}>好友</button>
                             {friendOpen && (
                               <div className="friend-box">
-                                <input
-                                  className="tag-input"
-                                  value={friendLoginDraft}
-                                  onChange={(event) => setFriendLoginDraft(event.target.value)}
-                                  onKeyDown={(event) => {
-                                    if (event.key === "Enter") addFriend();
-                                  }}
-                                  placeholder="GitHub 用户名"
-                                />
-                                <button onClick={addFriend}>添加</button>
                                 <div className="friend-list">
                                   {friends.length ? (
                                     friends.map((friend) => (
@@ -1180,9 +1193,21 @@ export default function App() {
                                     <span>还没有好友</span>
                                   )}
                                 </div>
+                                <div className="friend-add">
+                                  <input
+                                    className="tag-input"
+                                    value={friendLoginDraft}
+                                    onChange={(event) => setFriendLoginDraft(event.target.value)}
+                                    onKeyDown={(event) => {
+                                      if (event.key === "Enter") addFriend();
+                                    }}
+                                    placeholder="GitHub 用户名"
+                                  />
+                                  <button onClick={addFriend}>添加</button>
+                                </div>
                               </div>
                             )}
-                            <button onClick={loadReaderStates}>同步</button>
+                            <button onClick={() => loadReaderStates(libraryScope.type === "friend" ? viewedOwner : undefined)}>同步</button>
                             <button onClick={logout}>
                               <LogOut size={15} />
                               退出

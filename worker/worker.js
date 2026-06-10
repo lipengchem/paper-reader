@@ -362,9 +362,14 @@ async function handleHistory(request, env) {
 async function handleStates(request, env) {
   const session = await requireSession(request, env);
   if (session.error) return session.error;
+  const url = new URL(request.url);
+  const owner = url.searchParams.get("owner") || session.login;
+  if (!(await canViewPersonalLibrary(env, session.login, owner))) {
+    return json({ error: "没有权限查看该用户的阅读状态。" }, 403, corsHeaders(request, env));
+  }
   const rows = await env.DB.prepare(
     "SELECT paper_slug as paperSlug, read, rating, categories_json as categoriesJson, tags_json as tagsJson, hidden, note, scroll_top as scrollTop, updated_at as updatedAt FROM user_states WHERE login = ?",
-  ).bind(session.login).all();
+  ).bind(owner).all();
   const states = {};
   for (const row of rows.results || []) {
     states[row.paperSlug] = {
@@ -378,7 +383,7 @@ async function handleStates(request, env) {
       updatedAt: row.updatedAt,
     };
   }
-  return json({ login: session.login, states }, 200, corsHeaders(request, env));
+  return json({ login: owner, states }, 200, corsHeaders(request, env));
 }
 
 async function handleState(request, env) {

@@ -396,6 +396,19 @@ button:disabled {
   color: #d39a18;
 }
 
+.star:disabled {
+  cursor: default;
+}
+
+.star:disabled:hover {
+  color: #9bacad;
+}
+
+.star.active:disabled,
+.star.active:disabled:hover {
+  color: #d39a18;
+}
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -592,9 +605,14 @@ button:disabled {
 .friend-list {
   display: grid;
   gap: 4px;
+}
+
+.friend-add {
+  display: grid;
+  gap: 5px;
   border-top: 1px solid #e5eeee;
   margin-top: 4px;
-  padding-top: 4px;
+  padding-top: 8px;
 }
 
 .friend-list button {
