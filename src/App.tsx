@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -54,6 +54,10 @@ function stateKey(slug: string) {
 }
 
 const splitStateKey = "paper-reader:pane-split";
+const giscusRepo = "lipengchem/paper-reader";
+const giscusRepoId = "R_kgDOS2FmKw";
+const giscusCategory = "General";
+const giscusCategoryId = "DIC_kwDOS2FmK84C-3sx";
 
 function readLocalState(slug: string): ReaderState {
   try {
@@ -92,6 +96,41 @@ function parseTags(value: string) {
   );
 }
 
+function GiscusComments({ paper }: { paper: PaperItem }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    container.innerHTML = "";
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.setAttribute("data-repo", giscusRepo);
+    script.setAttribute("data-repo-id", giscusRepoId);
+    script.setAttribute("data-category", giscusCategory);
+    script.setAttribute("data-category-id", giscusCategoryId);
+    script.setAttribute("data-mapping", "specific");
+    script.setAttribute("data-term", `${paper.slug}: ${paper.title}`);
+    script.setAttribute("data-strict", "1");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", "light");
+    script.setAttribute("data-lang", "zh-CN");
+    script.setAttribute("data-loading", "lazy");
+    container.appendChild(script);
+  }, [paper.slug, paper.title]);
+
+  return (
+    <section className="comments-section">
+      <h2>评论区</h2>
+      <div ref={containerRef} />
+    </section>
+  );
+}
+
 export default function App() {
   const [papers, setPapers] = useState<PaperItem[]>([]);
   const [activeSlug, setActiveSlug] = useState("");
@@ -115,6 +154,7 @@ export default function App() {
     const stored = Number(localStorage.getItem(splitStateKey));
     return Number.isFinite(stored) && stored >= 25 && stored <= 75 ? stored : 50;
   });
+  const lastDividerPointerAt = useRef(0);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -225,6 +265,13 @@ export default function App() {
 
   const startPaneResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (paneMode !== "both") return;
+    const now = window.performance.now();
+    if (now - lastDividerPointerAt.current < 350) {
+      lastDividerPointerAt.current = 0;
+      resetPaneSplit();
+      return;
+    }
+    lastDividerPointerAt.current = now;
     event.preventDefault();
     const grid = event.currentTarget.closest(".reader-grid") as HTMLElement | null;
     const rect = grid?.getBoundingClientRect();
@@ -246,7 +293,6 @@ export default function App() {
     document.body.classList.add("is-resizing-reader");
     document.addEventListener("pointermove", onPointerMove);
     document.addEventListener("pointerup", onPointerUp);
-    updateSplit(event.clientX);
   };
 
   const resetPaneSplit = () => {
@@ -510,7 +556,6 @@ export default function App() {
                   aria-label="调整原文和译文宽度"
                   aria-orientation="vertical"
                   onPointerDown={startPaneResize}
-                  onDoubleClick={resetPaneSplit}
                 />
               )}
 
@@ -545,6 +590,7 @@ export default function App() {
               </section>
               )}
             </section>
+            {viewMode === "reader" && <GiscusComments paper={active} />}
           </>
         )}
       </main>

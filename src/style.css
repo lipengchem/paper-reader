@@ -504,6 +504,19 @@ button:disabled {
   padding: 28px 34px 72px;
 }
 
+.comments-section {
+  margin: 0 14px 32px;
+  border: 1px solid #dbe4e3;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 24px 28px 28px;
+}
+
+.comments-section h2 {
+  margin: 0 0 18px;
+  font-size: 24px;
+}
+
 .markdown-pane h1 {
   margin-top: 0;
   font-size: 34px;
