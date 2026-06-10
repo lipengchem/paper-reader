@@ -618,20 +618,42 @@ button:disabled {
   font-size: 13px;
 }
 
-.ai-session-bar .select {
-  width: 150px;
-}
-
 .ai-note {
   color: #7b8a8e;
   font-size: 12px;
 }
 
-.ai-access {
+.ai-access,
+.ai-model-input {
+  width: 100%;
   min-height: 36px;
   border: 1px solid #ccd8d7;
   border-radius: 6px;
   padding: 0 10px;
+  background: #ffffff;
+  color: #172126;
+}
+
+.ai-endpoint-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+}
+
+.ai-endpoint-grid label {
+  display: grid;
+  gap: 4px;
+  color: #40565a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ai-endpoint-wide {
+  grid-column: 1 / -1;
+}
+
+.ai-session-bar .ai-model-input {
+  width: 170px;
 }
 
 .ai-messages {

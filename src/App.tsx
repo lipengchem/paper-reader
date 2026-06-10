@@ -65,12 +65,28 @@ const aiApiBase = (import.meta.env.VITE_AI_API_URL || "").replace(/\/$/, "");
 const aiAccessCodeKey = "paper-reader:ai-access-code";
 const aiModelKey = "paper-reader:ai-model";
 const aiProviderKey = "paper-reader:ai-provider";
+const aiEndpointKey = "paper-reader:ai-endpoint";
+const aiCustomBaseUrlKey = "paper-reader:ai-custom-base-url";
+const aiApiModeKey = "paper-reader:ai-api-mode";
 const aiPanelPosKey = "paper-reader:ai-panel-pos";
 const aiModels = [
   { id: "gpt-5.5", label: "GPT-5.5" },
+  { id: "gpt-4o-mini", label: "GPT-4o mini" },
+  { id: "gpt-4o", label: "GPT-4o" },
   { id: "gpt-4.1", label: "GPT-4.1" },
   { id: "gpt-4.1-mini", label: "GPT-4.1 mini" },
-  { id: "gpt-4o", label: "GPT-4o" },
+  { id: "deepseek-v4", label: "DeepSeek V4" },
+  { id: "deepseek-chat", label: "DeepSeek Chat" },
+  { id: "qwen-plus", label: "Qwen Plus" },
+  { id: "glm-4-plus", label: "GLM-4 Plus" },
+  { id: "claude-opus-4-7", label: "Claude Opus 4.7" },
+  { id: "claude-sonnet-4", label: "Claude Sonnet 4" },
+  { id: "gemini-2.5-pro", label: "Gemini 2.5 Pro" },
+];
+const aiEndpointPresets = [
+  { id: "openai", label: "OpenAI 官方", baseUrl: "https://api.openai.com/v1", mode: "responses" },
+  { id: "zhizengzeng", label: "智增增", baseUrl: "https://api.zhizengzeng.com/v1", mode: "chat" },
+  { id: "custom", label: "自定义兼容接口", baseUrl: "", mode: "chat" },
 ];
 
 function initialAiPanelPosition() {
@@ -186,6 +202,11 @@ export default function App() {
   const [ownApiKey, setOwnApiKey] = useState("");
   const [aiReady, setAiReady] = useState(false);
   const [aiModel, setAiModel] = useState(() => localStorage.getItem(aiModelKey) || aiModels[0].id);
+  const [aiEndpoint, setAiEndpoint] = useState(() => localStorage.getItem(aiEndpointKey) || "zhizengzeng");
+  const [aiCustomBaseUrl, setAiCustomBaseUrl] = useState(() => localStorage.getItem(aiCustomBaseUrlKey) || "");
+  const [aiApiMode, setAiApiMode] = useState<"chat" | "responses">(
+    () => (localStorage.getItem(aiApiModeKey) === "responses" ? "responses" : "chat"),
+  );
   const [aiInput, setAiInput] = useState("");
   const [aiMessages, setAiMessages] = useState<AiMessage[]>([]);
   const [aiBusy, setAiBusy] = useState(false);
@@ -258,7 +279,11 @@ export default function App() {
   const aiHeaders = () => {
     const headers: Record<string, string> = { "Content-Type": "application/json" };
     if (aiProvider === "own") {
+      const preset = aiEndpointPresets.find((item) => item.id === aiEndpoint) || aiEndpointPresets[1];
+      const baseUrl = aiEndpoint === "custom" ? aiCustomBaseUrl.trim() : preset.baseUrl;
       headers["X-OpenAI-Key"] = ownApiKey.trim();
+      headers["X-OpenAI-Base-URL"] = baseUrl;
+      headers["X-OpenAI-Mode"] = aiEndpoint === "custom" ? aiApiMode : preset.mode;
     } else {
       headers["X-Access-Code"] = aiAccessCode.trim();
     }
@@ -354,9 +379,16 @@ export default function App() {
       setAiError("请先输入你自己的 OpenAI API Key。");
       return;
     }
+    if (aiProvider === "own" && aiEndpoint === "custom" && !aiCustomBaseUrl.trim()) {
+      setAiError("请先输入自定义 API Base URL。");
+      return;
+    }
     localStorage.setItem(aiAccessCodeKey, aiAccessCode.trim());
     localStorage.setItem(aiModelKey, aiModel);
     localStorage.setItem(aiProviderKey, aiProvider);
+    localStorage.setItem(aiEndpointKey, aiEndpoint);
+    localStorage.setItem(aiCustomBaseUrlKey, aiCustomBaseUrl.trim());
+    localStorage.setItem(aiApiModeKey, aiApiMode);
     setAiBusy(true);
     setAiError("");
     try {
@@ -489,6 +521,10 @@ export default function App() {
       setAiError("请先输入你自己的 OpenAI API Key。");
       return;
     }
+    if (aiProvider === "own" && aiEndpoint === "custom" && !aiCustomBaseUrl.trim()) {
+      setAiError("请先输入自定义 API Base URL。");
+      return;
+    }
 
     const userMessage: AiMessage = {
       role: "user",
@@ -503,6 +539,9 @@ export default function App() {
     localStorage.setItem(aiAccessCodeKey, aiAccessCode.trim());
     localStorage.setItem(aiModelKey, aiModel);
     localStorage.setItem(aiProviderKey, aiProvider);
+    localStorage.setItem(aiEndpointKey, aiEndpoint);
+    localStorage.setItem(aiCustomBaseUrlKey, aiCustomBaseUrl.trim());
+    localStorage.setItem(aiApiModeKey, aiApiMode);
 
     try {
       const res = await fetch(`${aiApiBase}/chat`, {
@@ -982,14 +1021,71 @@ export default function App() {
                             placeholder="输入你自己的 OpenAI API Key，按 Enter 进入"
                           />
                         )}
-                        <select className="select" value={aiModel} onChange={(event) => setAiModel(event.target.value)}>
-                          {aiModels.map((model) => (
-                            <option key={model.id} value={model.id}>
-                              {model.label}
-                            </option>
-                          ))}
-                        </select>
+                        <input
+                          className="ai-model-input"
+                          list="ai-model-options"
+                          value={aiModel}
+                          onChange={(event) => setAiModel(event.target.value)}
+                          placeholder="模型名"
+                        />
                       </div>
+                      <datalist id="ai-model-options">
+                        {aiModels.map((model) => (
+                          <option key={model.id} value={model.id}>
+                            {model.label}
+                          </option>
+                        ))}
+                      </datalist>
+                      {aiProvider === "own" && (
+                        <div className="ai-endpoint-grid">
+                          <label>
+                            API 平台
+                            <select
+                              className="select"
+                              value={aiEndpoint}
+                              onChange={(event) => {
+                                const next = event.target.value;
+                                setAiEndpoint(next);
+                                const preset = aiEndpointPresets.find((item) => item.id === next);
+                                if (preset) setAiApiMode(preset.mode as "chat" | "responses");
+                                setAiReady(false);
+                                setAiError("");
+                              }}
+                            >
+                              {aiEndpointPresets.map((preset) => (
+                                <option key={preset.id} value={preset.id}>
+                                  {preset.label}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                          <label>
+                            API 格式
+                            <select
+                              className="select"
+                              value={aiEndpoint === "custom" ? aiApiMode : (aiEndpointPresets.find((item) => item.id === aiEndpoint)?.mode || "chat")}
+                              onChange={(event) => setAiApiMode(event.target.value as "chat" | "responses")}
+                              disabled={aiEndpoint !== "custom"}
+                            >
+                              <option value="chat">chat/completions</option>
+                              <option value="responses">responses</option>
+                            </select>
+                          </label>
+                          <label className="ai-endpoint-wide">
+                            Base URL
+                            <input
+                              className="ai-access"
+                              value={aiEndpoint === "custom" ? aiCustomBaseUrl : (aiEndpointPresets.find((item) => item.id === aiEndpoint)?.baseUrl || "")}
+                              onChange={(event) => {
+                                setAiCustomBaseUrl(event.target.value);
+                                setAiReady(false);
+                              }}
+                              disabled={aiEndpoint !== "custom"}
+                              placeholder="https://api.example.com/v1"
+                            />
+                          </label>
+                        </div>
+                      )}
                       <button onClick={loadAiSession} disabled={aiBusy || !hasAiCredential}>
                         {aiBusy ? "正在进入..." : "进入 AI"}
                       </button>
@@ -1001,13 +1097,13 @@ export default function App() {
                     <>
                       <div className="ai-session-bar">
                         <span>{aiProvider === "own" ? "自备 API Key" : "访问码"} · {auth.login}</span>
-                        <select className="select" value={aiModel} onChange={(event) => setAiModel(event.target.value)}>
-                          {aiModels.map((model) => (
-                            <option key={model.id} value={model.id}>
-                              {model.label}
-                            </option>
-                          ))}
-                        </select>
+                        <input
+                          className="ai-model-input"
+                          list="ai-model-options"
+                          value={aiModel}
+                          onChange={(event) => setAiModel(event.target.value)}
+                          title="模型名"
+                        />
                         <button
                           onClick={() => {
                             setAiReady(false);

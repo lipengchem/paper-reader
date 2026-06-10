@@ -7,7 +7,9 @@ ALLOWED_GITHUB_LOGIN = "lipengchem"
 ALLOWED_ORIGINS = "https://lipengchem.github.io,http://127.0.0.1:5173,http://localhost:5173"
 SITE_ORIGIN = "https://lipengchem.github.io/paper-reader"
 LIBRARY_BASE_URL = "https://lipengchem.github.io/paper-reader/"
-ALLOWED_MODELS = "gpt-5.5,gpt-4.1,gpt-4.1-mini,gpt-4o"
+ALLOWED_MODELS = "gpt-5.5,gpt-4o-mini,gpt-4o,gpt-4.1,gpt-4.1-mini,deepseek-v4,deepseek-chat,qwen-plus,glm-4-plus,claude-opus-4-7,claude-sonnet-4,gemini-2.5-pro"
+OPENAI_BASE_URL = "https://api.zhizengzeng.com/v1"
+OPENAI_API_MODE = "chat"
 
 [[d1_databases]]
 binding = "DB"

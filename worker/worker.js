@@ -40,7 +40,7 @@ function corsHeaders(request, env) {
   return {
     "Access-Control-Allow-Origin": allowedOrigin(request, env),
     "Access-Control-Allow-Credentials": "true",
-    "Access-Control-Allow-Headers": "Content-Type, X-Access-Code, X-OpenAI-Key",
+    "Access-Control-Allow-Headers": "Content-Type, X-Access-Code, X-OpenAI-Key, X-OpenAI-Base-URL, X-OpenAI-Mode",
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
     "Vary": "Origin",
   };
@@ -86,6 +86,43 @@ function libraryUrl(env, path) {
   return `${(env.LIBRARY_BASE_URL || "https://lipengchem.github.io/paper-reader/").replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
 }
 
+function openAIBaseUrl(env, access = {}) {
+  return (access.baseUrl || env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/+$/, "");
+}
+
+async function callOpenAI(env, access, model, input) {
+  const baseUrl = openAIBaseUrl(env, access);
+  const mode = (access.mode || env.OPENAI_API_MODE || (baseUrl.includes("api.openai.com") ? "responses" : "chat")).toLowerCase();
+  const headers = {
+    "Authorization": `Bearer ${access.apiKey}`,
+    "Content-Type": "application/json",
+  };
+
+  if (mode === "chat") {
+    const chatMessages = input.map((message) => ({
+      role: message.role === "system" ? "system" : message.role === "assistant" ? "assistant" : "user",
+      content: String(message.content || ""),
+    }));
+    const res = await fetch(`${baseUrl}/chat/completions`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ model, messages: chatMessages }),
+    });
+    const data = await res.json().catch(() => ({}));
+    const answer = data.choices?.[0]?.message?.content || "";
+    return { res, data, answer };
+  }
+
+  const res = await fetch(`${baseUrl}/responses`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ model, input }),
+  });
+  const data = await res.json().catch(() => ({}));
+  const answer = data.output_text || data.output?.flatMap((item) => item.content || []).map((part) => part.text || "").join("\n") || "";
+  return { res, data, answer };
+}
+
 async function requireSession(request, env) {
   const sessionToken = parseCookies(request)[COOKIE_NAME];
   if (!sessionToken) {
@@ -110,7 +147,21 @@ async function requireAiAccess(request, env) {
     if (!ownApiKey.trim().startsWith("sk-")) {
       return { error: json({ authenticated: true, authorized: false, login: session.login, error: "OpenAI API Key 格式不正确。" }, 403, corsHeaders(request, env)) };
     }
-    return { ...session, apiKey: ownApiKey.trim(), apiKeySource: "user" };
+    const requestedBaseUrl = request.headers.get("X-OpenAI-Base-URL") || "";
+    let baseUrl = "";
+    if (requestedBaseUrl.trim()) {
+      try {
+        const parsed = new URL(requestedBaseUrl.trim());
+        if (parsed.protocol !== "https:") {
+          return { error: json({ authenticated: true, authorized: false, login: session.login, error: "API Base URL 必须是 https 地址。" }, 403, corsHeaders(request, env)) };
+        }
+        baseUrl = parsed.toString().replace(/\/+$/, "");
+      } catch {
+        return { error: json({ authenticated: true, authorized: false, login: session.login, error: "API Base URL 格式不正确。" }, 403, corsHeaders(request, env)) };
+      }
+    }
+    const mode = (request.headers.get("X-OpenAI-Mode") || "").toLowerCase() === "responses" ? "responses" : "chat";
+    return { ...session, apiKey: ownApiKey.trim(), apiKeySource: "user", baseUrl, mode };
   }
 
   const provided = request.headers.get("X-Access-Code") || "";
@@ -349,8 +400,11 @@ async function handleChat(request, env) {
   const question = messages.at(-1)?.content || "";
   if (!paper.slug || !question) return json({ error: "Missing paper or question." }, 400, corsHeaders(request, env));
 
-  const allowedModels = (env.ALLOWED_MODELS || DEFAULT_MODELS.join(",")).split(",").map((item) => item.trim());
-  const model = allowedModels.includes(body.model) ? body.model : allowedModels[0];
+  const allowedModels = (env.ALLOWED_MODELS || DEFAULT_MODELS.join(",")).split(",").map((item) => item.trim()).filter(Boolean);
+  const requestedModel = String(body.model || "").trim().slice(0, 120);
+  const model = access.apiKeySource === "user"
+    ? requestedModel || allowedModels[0]
+    : allowedModels.includes(requestedModel) ? requestedModel : allowedModels[0];
   const context = await loadPaperContext(env, paper, question);
   const prompt = [
     "You are an AI literature-reading assistant for a computational chemistry graduate student.",
@@ -373,17 +427,8 @@ async function handleChat(request, env) {
     ...messages.slice(-10).map((message) => ({ role: message.role, content: message.content })),
   ];
 
-  const res = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${access.apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ model, input }),
-  });
-  const data = await res.json().catch(() => ({}));
+  const { res, data, answer } = await callOpenAI(env, access, model, input);
   if (!res.ok) return json({ error: publicOpenAIError(data.error?.message, res.status) }, 502, corsHeaders(request, env));
-  const answer = data.output_text || data.output?.flatMap((item) => item.content || []).map((part) => part.text || "").join("\n") || "";
 
   const now = new Date().toISOString();
   await env.DB.prepare("INSERT INTO messages (login, paper_slug, role, content, model, created_at) VALUES (?, ?, ?, ?, ?, ?)")
