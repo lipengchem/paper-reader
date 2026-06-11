@@ -470,7 +470,7 @@ async function handleCommentNotifications(request, env) {
             title
             url
             updatedAt
-            comments(last: 1) {
+            comments(last: 10) {
               totalCount
               nodes {
                 body
@@ -478,6 +478,17 @@ async function handleCommentNotifications(request, env) {
                 url
                 author {
                   login
+                }
+                replies(last: 1) {
+                  totalCount
+                  nodes {
+                    body
+                    createdAt
+                    url
+                    author {
+                      login
+                    }
+                  }
                 }
               }
             }
@@ -489,7 +500,15 @@ async function handleCommentNotifications(request, env) {
   const notifications = (data.repository?.discussions?.nodes || [])
     .filter((node) => (node.comments?.totalCount || 0) > 0)
     .map((node) => {
-      const latest = node.comments?.nodes?.[0] || {};
+      const candidates = [];
+      for (const comment of node.comments?.nodes || []) {
+        candidates.push(comment);
+        const reply = comment.replies?.nodes?.[0];
+        if (reply) candidates.push(reply);
+      }
+      const latest = candidates
+        .filter((item) => item?.createdAt)
+        .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)))[0] || {};
       const latestAuthor = latest.author?.login || "";
       const latestTime = latest.createdAt || node.updatedAt;
       return {
