@@ -83,7 +83,7 @@ function siteUrl(env, path = "") {
 }
 
 function libraryUrl(env, path) {
-  return `${(env.LIBRARY_BASE_URL || "https://lipengchem.github.io/paper-reader/").replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
+  return `${(env.LIBRARY_BASE_URL || "https://lipengchem.github.io/paper-reader-files/").replace(/\/$/, "")}/${path.replace(/^\//, "")}`;
 }
 
 function slugify(value) {
@@ -107,7 +107,7 @@ function extensionFor(file) {
 function siteFileUrl(env, path) {
   if (/^https?:/.test(path)) return path;
   if (path.startsWith("/file/")) return path;
-  return `${(env.SITE_ORIGIN || "https://lipengchem.github.io/paper-reader").replace(/\/$/, "")}/${path.replace(/^\/+/, "")}`;
+  return `${(env.FILE_SITE_ORIGIN || "https://lipengchem.github.io/paper-reader-files").replace(/\/$/, "")}/${path.replace(/^\/+/, "")}`;
 }
 
 function githubRepo(env) {
@@ -505,7 +505,39 @@ async function handlePersonalPapers(request, env) {
   const session = await requireSession(request, env);
   if (session.error) return session.error;
 
+  const url = new URL(request.url);
+
   if (request.method === "POST") {
+    if (url.pathname === "/personal-papers/copy") {
+      const body = await request.json().catch(() => ({}));
+      const sourceOwner = String(body.owner || "").trim();
+      const sourceSlug = String(body.slug || "").trim();
+      if (!sourceOwner || !sourceSlug) return json({ error: "Missing source owner or slug." }, 400, corsHeaders(request, env));
+      if (sourceOwner === session.login) return json({ error: "这篇已经在你的文献库里。" }, 400, corsHeaders(request, env));
+      if (!(await canViewPersonalLibrary(env, session.login, sourceOwner))) {
+        return json({ error: "没有权限查看该用户的文献库。" }, 403, corsHeaders(request, env));
+      }
+      const source = await env.DB.prepare(
+        `SELECT slug, owner_login as ownerLogin, title, date, journal, pdf_path as pdfPath, markdown_path as markdownPath,
+                related_reading_path as relatedReadingPath, original_type as originalType,
+                translation_type as translationType, related_reading_type as relatedReadingType
+         FROM personal_papers WHERE owner_login = ? AND slug = ?`,
+      ).bind(sourceOwner, sourceSlug).first();
+      if (!source) return json({ error: "Source paper not found." }, 404, corsHeaders(request, env));
+      const exists = await env.DB.prepare(
+        "SELECT slug FROM personal_papers WHERE owner_login = ? AND (pdf_path = ? OR markdown_path = ?) LIMIT 1",
+      ).bind(session.login, source.pdfPath, source.markdownPath).first();
+      if (exists) return json({ error: "你的文献库里已经有这篇了。" }, 409, corsHeaders(request, env));
+      const now = new Date().toISOString();
+      const copiedSlug = `${session.login}-${Date.now()}-${slugify(source.title)}`;
+      await env.DB.prepare(
+        `INSERT INTO personal_papers
+         (slug, owner_login, title, date, journal, pdf_path, markdown_path, related_reading_path, original_type, translation_type, related_reading_type, created_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      ).bind(copiedSlug, session.login, source.title, source.date, source.journal || "", source.pdfPath, source.markdownPath, source.relatedReadingPath || "", source.originalType || "pdf", source.translationType || "markdown", source.relatedReadingType || "markdown", now).run();
+      return json({ ok: true, slug: copiedSlug }, 200, corsHeaders(request, env));
+    }
+
     const form = await request.formData();
     const original = form.get("original");
     const translation = form.get("translation");
@@ -557,7 +589,6 @@ async function handlePersonalPapers(request, env) {
     }, 200, corsHeaders(request, env));
   }
 
-  const url = new URL(request.url);
   const owner = url.searchParams.get("owner") || session.login;
   if (!(await canViewPersonalLibrary(env, session.login, owner))) {
     return json({ error: "没有权限查看该用户的个人文献库。" }, 403, corsHeaders(request, env));
@@ -678,7 +709,7 @@ export default {
       if (url.pathname === "/states" && request.method === "GET") return handleStates(request, env);
       if (url.pathname === "/state" && request.method === "PUT") return handleState(request, env);
       if (url.pathname === "/friends" && (request.method === "GET" || request.method === "POST")) return handleFriends(request, env);
-      if (url.pathname === "/personal-papers" && (request.method === "GET" || request.method === "POST")) return handlePersonalPapers(request, env);
+      if ((url.pathname === "/personal-papers" || url.pathname === "/personal-papers/copy") && (request.method === "GET" || request.method === "POST")) return handlePersonalPapers(request, env);
       if (url.pathname.startsWith("/file/") && request.method === "GET") return handleFile(request, env);
       if (url.pathname === "/history") return handleHistory(request, env);
       if (url.pathname === "/chat" && request.method === "POST") return handleChat(request, env);

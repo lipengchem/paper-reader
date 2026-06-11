@@ -4,9 +4,11 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
+const defaultFilesRepoRoot = "D:\\codex\\paper-reader-files";
 const defaultSourceRoot = "D:\\codex\\文献阅读\\自动化文献阅读";
 const sourceRoot = path.resolve(process.env.PAPER_READER_SOURCE || defaultSourceRoot);
-const libraryRoot = path.resolve(process.env.PAPER_READER_LIBRARY || path.join(repoRoot, "public", "library"));
+const filesRepoRoot = path.resolve(process.env.PAPER_READER_FILES_REPO || defaultFilesRepoRoot);
+const libraryRoot = path.resolve(process.env.PAPER_READER_LIBRARY || path.join(filesRepoRoot, "public", "library"));
 const processedPath = path.join(sourceRoot, "processed_zotero_items.json");
 const dateSlugPattern = /^\d{8}-[a-z0-9]+[a-z0-9-]*$/i;
 

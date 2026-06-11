@@ -74,12 +74,13 @@ type FriendItem = {
 };
 
 type LibraryScope = {
-  type: "public" | "mine" | "friend";
+  type: "mine" | "friend";
   owner?: string;
 };
 
 const baseUrl = import.meta.env.BASE_URL;
-const libraryBase = `${baseUrl}library/`;
+const fileBase = (import.meta.env.VITE_FILE_BASE_URL || `${baseUrl}`).replace(/\/$/, "");
+const libraryBase = `${fileBase}/library/`;
 const aiApiBase = (import.meta.env.VITE_AI_API_URL || "").replace(/\/$/, "");
 const aiModelKey = "paper-reader:ai-model";
 const aiEndpointKey = "paper-reader:ai-endpoint";
@@ -112,7 +113,7 @@ function normalizeAssetPath(slug: string, src = "") {
 
 function resolveFileUrl(path = "") {
   if (/^https?:/.test(path)) return path;
-  return `${baseUrl}${path}`;
+  return `${fileBase}/${path.replace(/^\/+/, "")}`;
 }
 
 const paneWeightsKey = "paper-reader:pane-weights";
@@ -182,6 +183,7 @@ function GiscusComments({ paper }: { paper: PaperItem }) {
 export default function App() {
   const [papers, setPapers] = useState<PaperItem[]>([]);
   const [personalPapers, setPersonalPapers] = useState<PaperItem[]>([]);
+  const [myPapers, setMyPapers] = useState<PaperItem[]>([]);
   const [activeSlug, setActiveSlug] = useState("");
   const [markdown, setMarkdown] = useState("");
   const [originalMarkdown, setOriginalMarkdown] = useState("");
@@ -204,7 +206,7 @@ export default function App() {
   const [uploadOpen, setUploadOpen] = useState(false);
   const [friends, setFriends] = useState<FriendItem[]>([]);
   const [friendLoginDraft, setFriendLoginDraft] = useState("");
-  const [libraryScope, setLibraryScope] = useState<LibraryScope>({ type: "public" });
+  const [libraryScope, setLibraryScope] = useState<LibraryScope>({ type: "mine" });
   const [uploadTitle, setUploadTitle] = useState("");
   const [uploadJournal, setUploadJournal] = useState("");
   const [uploadDate, setUploadDate] = useState("");
@@ -212,6 +214,7 @@ export default function App() {
   const [uploadTranslation, setUploadTranslation] = useState<File | null>(null);
   const [uploadRelated, setUploadRelated] = useState<File | null>(null);
   const [uploadBusy, setUploadBusy] = useState(false);
+  const [copyBusy, setCopyBusy] = useState(false);
   const [ownApiKey, setOwnApiKey] = useState("");
   const [aiReady, setAiReady] = useState(false);
   const [aiModel, setAiModel] = useState(() => localStorage.getItem(aiModelKey) || aiModels[0].id);
@@ -275,7 +278,7 @@ export default function App() {
   );
 
   const allPapers = useMemo(() => [...papers, ...personalPapers], [papers, personalPapers]);
-  const canEditReaderState = auth.authenticated && libraryScope.type !== "friend";
+  const canEditReaderState = auth.authenticated && libraryScope.type === "mine";
   const viewedOwner = libraryScope.type === "friend" ? libraryScope.owner || "" : auth.login || "";
 
   useEffect(() => {
@@ -317,7 +320,6 @@ export default function App() {
   useEffect(() => {
     if (auth.authenticated) {
       loadFriends();
-      setLibraryScope((prev) => (prev.type === "public" ? { type: "mine" } : prev));
     }
     setAccountOpen(false);
   }, [auth.authenticated]);
@@ -326,14 +328,12 @@ export default function App() {
     setSyncError("");
     if (!auth.authenticated) {
       setPersonalPapers([]);
+      setMyPapers([]);
       setStates({});
       return;
     }
     loadReaderStates(libraryScope.type === "friend" ? viewedOwner : undefined);
-    if (libraryScope.type === "public") {
-      setPersonalPapers([]);
-      return;
-    }
+    loadMyPapers();
     loadPersonalPapers(viewedOwner);
   }, [auth.authenticated, auth.login, libraryScope, viewedOwner]);
 
@@ -457,6 +457,20 @@ export default function App() {
     }
   };
 
+  const loadMyPapers = async () => {
+    if (!aiApiBase || !auth.authenticated || !auth.login) return;
+    try {
+      const res = await fetch(`${aiApiBase}/personal-papers?owner=${encodeURIComponent(auth.login)}`, {
+        credentials: "include",
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `我的文献库加载失败：${res.status}`);
+      setMyPapers(Array.isArray(data.items) ? data.items : []);
+    } catch (err) {
+      setSyncError(err instanceof Error ? err.message : "我的文献库加载失败。");
+    }
+  };
+
   const uploadPersonalPaper = async () => {
     if (!aiApiBase || !auth.authenticated || !uploadOriginal || !uploadTranslation) {
       setSyncError("请先登录，并至少选择原文和译文文件。");
@@ -487,12 +501,43 @@ export default function App() {
       setUploadRelated(null);
       setLibraryScope({ type: "mine" });
       await loadPersonalPapers(auth.login || "");
+      await loadMyPapers();
       if (data.item?.slug) setActiveSlug(data.item.slug);
     } catch (err) {
       const message = err instanceof Error ? err.message : "上传失败。";
       setSyncError(message.includes("GITHUB_CONTENT_TOKEN") ? "个人上传需要先配置 GitHub 写入 token；公共库不受影响。" : message);
     } finally {
       setUploadBusy(false);
+    }
+  };
+
+  const paperInMyLibrary = (paper?: PaperItem) => {
+    if (!paper) return false;
+    return myPapers.some((item) =>
+      item.slug === paper.slug ||
+      item.pdfPath === paper.pdfPath ||
+      item.markdownPath === paper.markdownPath,
+    );
+  };
+
+  const copyFriendPaperToMine = async () => {
+    if (!active || !active.ownerLogin || !aiApiBase || !auth.authenticated || libraryScope.type !== "friend") return;
+    setCopyBusy(true);
+    try {
+      const res = await fetch(`${aiApiBase}/personal-papers/copy`, {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ owner: active.ownerLogin, slug: active.slug }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `加入失败：${res.status}`);
+      await loadMyPapers();
+      setSyncError("已加入我的文献库。");
+    } catch (err) {
+      setSyncError(err instanceof Error ? err.message : "加入我的文献库失败。");
+    } finally {
+      setCopyBusy(false);
     }
   };
 
@@ -573,7 +618,7 @@ export default function App() {
     }
   }, [paneVisibility.ai, active?.slug, auth.authenticated]);
 
-  const visibleLibraryPapers = libraryScope.type === "public" ? papers : allPapers;
+  const visibleLibraryPapers = allPapers;
   const journals = useMemo(() => uniq(visibleLibraryPapers.map((paper) => paper.journal)), [visibleLibraryPapers]);
   const dates = useMemo(() => uniq(visibleLibraryPapers.map((paper) => monthFromDate(paper.date))).reverse(), [visibleLibraryPapers]);
   const categories = useMemo(
@@ -585,7 +630,7 @@ export default function App() {
     const q = query.trim().toLowerCase();
     const result = visibleLibraryPapers.filter((paper) => {
       const local = states[paper.slug] || {};
-      if (libraryScope.type !== "public" && local.hidden) return false;
+      if (local.hidden) return false;
       const isRead = !!local.read || !!local.rating;
       const searchable = [paper.title, paper.journal, paper.date, ...(paper.collections || [])]
         .filter(Boolean)
@@ -851,15 +896,6 @@ export default function App() {
               <p>{visibleLibraryPapers.length} 篇文件</p>
               {libraryMenuOpen && (
                 <div className="library-popover">
-                  <button
-                    className={libraryScope.type === "public" ? "active" : ""}
-                    onClick={() => {
-                      setLibraryScope({ type: "public" });
-                      setLibraryMenuOpen(false);
-                    }}
-                  >
-                    公共文献库
-                  </button>
                   {auth.authenticated && (
                     <button
                       className={libraryScope.type === "mine" ? "active" : ""}
@@ -1128,6 +1164,15 @@ export default function App() {
                         </div>
                       )}
                     </div>
+                  )}
+                  {libraryScope.type === "friend" && active.personal && active.ownerLogin && (
+                    <button
+                      disabled={copyBusy || paperInMyLibrary(active)}
+                      onClick={copyFriendPaperToMine}
+                      title={paperInMyLibrary(active) ? "我的文献库已有这篇" : "同步到我的文献库"}
+                    >
+                      {paperInMyLibrary(active) ? "已在我的库" : copyBusy ? "加入中..." : "加入我的文献库"}
+                    </button>
                   )}
                   {active.relatedReading && (
                     <button className={viewMode === "related" ? "active" : ""} onClick={openRelatedView}>
