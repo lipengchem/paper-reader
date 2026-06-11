@@ -78,6 +78,17 @@ type LibraryScope = {
   owner?: string;
 };
 
+type CommentNotification = {
+  id: string;
+  title: string;
+  url: string;
+  updatedAt: string;
+  commentCount: number;
+  latestAuthor?: string;
+  latestBody?: string;
+  unread?: boolean;
+};
+
 const baseUrl = import.meta.env.BASE_URL;
 const fileBase = (import.meta.env.VITE_FILE_BASE_URL || `${baseUrl}`).replace(/\/$/, "");
 const libraryBase = `${fileBase}/library/`;
@@ -145,8 +156,21 @@ function parseTags(value: string) {
   );
 }
 
+function formatShortTime(value = "") {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toLocaleString("zh-CN", {
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 function GiscusComments({ paper }: { paper: PaperItem }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const discussionSearchUrl = `https://github.com/${giscusRepo}/discussions?discussions_q=${encodeURIComponent(paper.slug)}`;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -174,7 +198,12 @@ function GiscusComments({ paper }: { paper: PaperItem }) {
 
   return (
     <section className="comments-section">
-      <h2>评论区</h2>
+      <div className="comments-heading">
+        <h2>评论区</h2>
+        <a href={discussionSearchUrl} target="_blank" rel="noreferrer">
+          打开讨论页回复
+        </a>
+      </div>
       <div ref={containerRef} />
     </section>
   );
@@ -231,7 +260,8 @@ export default function App() {
   const [syncError, setSyncError] = useState("");
   const [sortOpen, setSortOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [hasNotifications, setHasNotifications] = useState(false);
+  const [notifications, setNotifications] = useState<CommentNotification[]>([]);
+  const [notificationOpen, setNotificationOpen] = useState(false);
   const [paneVisibility, setPaneVisibility] = useState<Record<PaneKey, boolean>>({
     pdf: true,
     text: true,
@@ -320,9 +350,20 @@ export default function App() {
   useEffect(() => {
     if (auth.authenticated) {
       loadFriends();
+      loadNotifications();
     }
     setAccountOpen(false);
   }, [auth.authenticated]);
+
+  useEffect(() => {
+    if (!auth.authenticated) {
+      setNotifications([]);
+      return;
+    }
+    loadNotifications();
+    const timer = window.setInterval(loadNotifications, 1000 * 60 * 3);
+    return () => window.clearInterval(timer);
+  }, [auth.authenticated, auth.login]);
 
   useEffect(() => {
     setSyncError("");
@@ -418,6 +459,34 @@ export default function App() {
       setFriends(Array.isArray(data.friends) ? data.friends : []);
     } catch (err) {
       setSyncError(err instanceof Error ? err.message : "好友加载失败。");
+    }
+  };
+
+  const loadNotifications = async () => {
+    if (!aiApiBase || !auth.authenticated) {
+      setNotifications([]);
+      return;
+    }
+    try {
+      const res = await fetch(`${aiApiBase}/notifications/comments`, { credentials: "include" });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `评论通知加载失败：${res.status}`);
+      setNotifications(Array.isArray(data.notifications) ? data.notifications : []);
+    } catch (err) {
+      setSyncError(err instanceof Error ? err.message : "评论通知加载失败。");
+    }
+  };
+
+  const markNotificationsRead = async () => {
+    if (!aiApiBase || !auth.authenticated) return;
+    setNotifications((items) => items.map((item) => ({ ...item, unread: false })));
+    try {
+      await fetch(`${aiApiBase}/notifications/comments/read`, {
+        method: "POST",
+        credentials: "include",
+      });
+    } catch {
+      // The next refresh will restore unread state if the write failed.
     }
   };
 
@@ -618,7 +687,10 @@ export default function App() {
     }
   }, [paneVisibility.ai, active?.slug, auth.authenticated]);
 
-  const visibleLibraryPapers = allPapers;
+  const visibleLibraryPapers = useMemo(
+    () => allPapers.filter((paper) => !states[paper.slug]?.hidden),
+    [allPapers, states],
+  );
   const journals = useMemo(() => uniq(visibleLibraryPapers.map((paper) => paper.journal)), [visibleLibraryPapers]);
   const dates = useMemo(() => uniq(visibleLibraryPapers.map((paper) => monthFromDate(paper.date))).reverse(), [visibleLibraryPapers]);
   const categories = useMemo(
@@ -630,7 +702,6 @@ export default function App() {
     const q = query.trim().toLowerCase();
     const result = visibleLibraryPapers.filter((paper) => {
       const local = states[paper.slug] || {};
-      if (local.hidden) return false;
       const isRead = !!local.read || !!local.rating;
       const searchable = [paper.title, paper.journal, paper.date, ...(paper.collections || [])]
         .filter(Boolean)
@@ -882,6 +953,8 @@ export default function App() {
   }
 
   const hasAiCredential = !!ownApiKey.trim();
+  const unreadNotificationCount = notifications.filter((item) => item.unread).length;
+  const hasNotifications = unreadNotificationCount > 0;
 
   return (
     <div className="shell">
@@ -1213,10 +1286,39 @@ export default function App() {
                         {accountOpen && (
                           <div className="account-popover">
                             <div className="account-name">{auth.login}</div>
-                            <button onClick={() => setHasNotifications(false)}>
+                            <button
+                              onClick={() => {
+                                setNotificationOpen((open) => !open);
+                                if (!notificationOpen) markNotificationsRead();
+                              }}
+                            >
                               通知
                               {hasNotifications && <span className="menu-dot" />}
                             </button>
+                            {notificationOpen && (
+                              <div className="notification-box">
+                                {notifications.length ? (
+                                  notifications.map((item) => (
+                                    <a
+                                      key={item.id}
+                                      href={item.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className={item.unread ? "unread" : ""}
+                                    >
+                                      <strong>{item.title}</strong>
+                                      <span>
+                                        {item.latestAuthor ? `${item.latestAuthor} · ` : ""}
+                                        {formatShortTime(item.updatedAt)} · {item.commentCount} 条评论
+                                      </span>
+                                      {item.latestBody && <small>{item.latestBody}</small>}
+                                    </a>
+                                  ))
+                                ) : (
+                                  <span className="notification-empty">暂无新评论</span>
+                                )}
+                              </div>
+                            )}
                             <button onClick={() => setFriendOpen((open) => !open)}>好友</button>
                             {friendOpen && (
                               <div className="friend-box">
@@ -1273,10 +1375,15 @@ export default function App() {
                         </button>
                         {accountOpen && (
                           <div className="account-popover">
-                            <button onClick={() => setHasNotifications(false)}>
+                            <button onClick={() => setNotificationOpen((open) => !open)}>
                               通知
                               {hasNotifications && <span className="menu-dot" />}
                             </button>
+                            {notificationOpen && (
+                              <div className="notification-box">
+                                <span className="notification-empty">登录后查看评论通知</span>
+                              </div>
+                            )}
                             <button onClick={loginWithGitHub}>登录</button>
                           </div>
                         )}

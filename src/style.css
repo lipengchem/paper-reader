@@ -582,7 +582,7 @@ button:disabled {
   z-index: 30;
   top: calc(100% + 8px);
   right: 0;
-  min-width: 112px;
+  min-width: 168px;
   border: 1px solid #d7e1e0;
   border-radius: 6px;
   background: #ffffff;
@@ -636,6 +636,62 @@ button:disabled {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 13px;
+}
+
+.notification-box {
+  display: grid;
+  gap: 6px;
+  width: min(340px, 78vw);
+  max-height: 340px;
+  overflow: auto;
+  border-top: 1px solid #e5eeee;
+  margin-top: 4px;
+  padding-top: 6px;
+}
+
+.notification-box a {
+  display: grid;
+  gap: 3px;
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.notification-box a:hover {
+  background: #f1f7f6;
+}
+
+.notification-box a.unread strong::before {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #d93636;
+  margin-right: 7px;
+  content: "";
+  vertical-align: middle;
+}
+
+.notification-box strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.notification-box span,
+.notification-box small,
+.notification-empty {
+  color: #6d7c80;
+  font-size: 12px;
+}
+
+.notification-box small {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .meta-menu {
@@ -981,9 +1037,32 @@ button:disabled {
   padding: 24px 28px 28px;
 }
 
+.comments-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
 .comments-section h2 {
   margin: 0 0 18px;
   font-size: 24px;
+}
+
+.comments-heading h2 {
+  margin: 0;
+}
+
+.comments-heading a {
+  border: 1px solid #c9d8d7;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #0f5d58;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .markdown-pane h1 {

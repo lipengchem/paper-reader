@@ -260,6 +260,37 @@ async function githubJson(url, init = {}) {
   return data;
 }
 
+async function githubGraphql(env, query, variables = {}) {
+  const token = env.GITHUB_CONTENT_TOKEN || env.GITHUB_TOKEN;
+  if (!token) throw new Error("GitHub token 尚未配置，无法读取评论通知。");
+  const res = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      "Accept": "application/vnd.github+json",
+      "Authorization": `Bearer ${token}`,
+      "Content-Type": "application/json",
+      "User-Agent": "paper-reader-ai",
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || data.errors?.length) {
+    throw new Error(data.errors?.[0]?.message || data.message || `GitHub GraphQL request failed: ${res.status}`);
+  }
+  return data.data;
+}
+
+async function ensureNotificationTables(env) {
+  await env.DB.prepare(
+    `CREATE TABLE IF NOT EXISTS notification_reads (
+      login TEXT NOT NULL,
+      channel TEXT NOT NULL,
+      seen_at TEXT NOT NULL,
+      PRIMARY KEY (login, channel)
+    )`,
+  ).run();
+}
+
 function compactSourceMap(sourceMap) {
   const blocks = Array.isArray(sourceMap) ? sourceMap : sourceMap.blocks || sourceMap.items || [];
   return blocks
@@ -406,6 +437,73 @@ async function handleHistory(request, env) {
     "SELECT role, content, created_at as createdAt FROM messages WHERE login = ? AND paper_slug = ? ORDER BY id ASC LIMIT 200",
   ).bind(session.login, paperSlug).all();
   return json({ messages: rows.results || [] }, 200, corsHeaders(request, env));
+}
+
+async function handleCommentNotifications(request, env) {
+  const session = await requireSession(request, env);
+  if (session.error) return session.error;
+  await ensureNotificationTables(env);
+
+  const channel = "giscus-comments";
+  if (request.method === "POST") {
+    const now = new Date().toISOString();
+    await env.DB.prepare(
+      `INSERT INTO notification_reads (login, channel, seen_at)
+       VALUES (?, ?, ?)
+       ON CONFLICT(login, channel) DO UPDATE SET seen_at = excluded.seen_at`,
+    ).bind(session.login, channel, now).run();
+    return json({ ok: true, seenAt: now }, 200, corsHeaders(request, env));
+  }
+
+  const seen = await env.DB.prepare(
+    "SELECT seen_at as seenAt FROM notification_reads WHERE login = ? AND channel = ?",
+  ).bind(session.login, channel).first();
+  const seenAt = seen?.seenAt || "1970-01-01T00:00:00.000Z";
+  const [owner, repo] = (env.GISCUS_REPO || "lipengchem/paper-reader").split("/");
+  const categoryId = env.GISCUS_CATEGORY_ID || "DIC_kwDOS2FmK84C-3sx";
+  const data = await githubGraphql(env, `
+    query PaperReaderDiscussions($owner: String!, $repo: String!, $categoryId: ID!) {
+      repository(owner: $owner, name: $repo) {
+        discussions(first: 25, categoryId: $categoryId, orderBy: {field: UPDATED_AT, direction: DESC}) {
+          nodes {
+            id
+            title
+            url
+            updatedAt
+            comments(last: 1) {
+              totalCount
+              nodes {
+                body
+                createdAt
+                url
+                author {
+                  login
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `, { owner, repo, categoryId });
+  const notifications = (data.repository?.discussions?.nodes || [])
+    .filter((node) => (node.comments?.totalCount || 0) > 0)
+    .map((node) => {
+      const latest = node.comments?.nodes?.[0] || {};
+      const latestAuthor = latest.author?.login || "";
+      const latestTime = latest.createdAt || node.updatedAt;
+      return {
+        id: node.id,
+        title: node.title,
+        url: latest.url || node.url,
+        updatedAt: latestTime,
+        commentCount: node.comments?.totalCount || 0,
+        latestAuthor,
+        latestBody: String(latest.body || "").replace(/\s+/g, " ").slice(0, 160),
+        unread: latestAuthor !== session.login && latestTime > seenAt,
+      };
+    });
+  return json({ seenAt, notifications }, 200, corsHeaders(request, env));
 }
 
 async function handleStates(request, env) {
@@ -706,6 +804,8 @@ export default {
       if (url.pathname === "/auth/logout" && request.method === "POST") return handleLogout(request, env);
       if (url.pathname === "/me") return handleMe(request, env);
       if (url.pathname === "/ai/verify") return handleAiVerify(request, env);
+      if (url.pathname === "/notifications/comments" && request.method === "GET") return handleCommentNotifications(request, env);
+      if (url.pathname === "/notifications/comments/read" && request.method === "POST") return handleCommentNotifications(request, env);
       if (url.pathname === "/states" && request.method === "GET") return handleStates(request, env);
       if (url.pathname === "/state" && request.method === "PUT") return handleState(request, env);
       if (url.pathname === "/friends" && (request.method === "GET" || request.method === "POST")) return handleFriends(request, env);
