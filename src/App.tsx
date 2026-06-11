@@ -490,7 +490,7 @@ export default function App() {
       if (data.item?.slug) setActiveSlug(data.item.slug);
     } catch (err) {
       const message = err instanceof Error ? err.message : "上传失败。";
-      setSyncError(message.includes("PAPER_FILES") ? "个人上传需要先在 Cloudflare 开通 R2 并配置 PAPER_FILES；公共库不受影响。" : message);
+      setSyncError(message.includes("GITHUB_CONTENT_TOKEN") ? "个人上传需要先配置 GitHub 写入 token；公共库不受影响。" : message);
     } finally {
       setUploadBusy(false);
     }

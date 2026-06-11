@@ -104,6 +104,55 @@ function extensionFor(file) {
   return fileType(file) === "pdf" ? "pdf" : "md";
 }
 
+function siteFileUrl(env, path) {
+  if (/^https?:/.test(path)) return path;
+  if (path.startsWith("/file/")) return path;
+  return `${(env.SITE_ORIGIN || "https://lipengchem.github.io/paper-reader").replace(/\/$/, "")}/${path.replace(/^\/+/, "")}`;
+}
+
+function githubRepo(env) {
+  const full = env.GITHUB_CONTENT_REPO || "lipengchem/paper-reader";
+  const [owner, repo] = full.split("/");
+  return { owner, repo, branch: env.GITHUB_CONTENT_BRANCH || "main" };
+}
+
+function arrayBufferToBase64(buffer) {
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  const chunkSize = 0x8000;
+  for (let index = 0; index < bytes.length; index += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize));
+  }
+  return btoa(binary);
+}
+
+async function githubPutFile(env, path, file, message) {
+  if (!env.GITHUB_CONTENT_TOKEN) {
+    throw new Error("GitHub 存储尚未配置：需要设置 GITHUB_CONTENT_TOKEN。");
+  }
+  const { owner, repo, branch } = githubRepo(env);
+  if (!owner || !repo) throw new Error("GITHUB_CONTENT_REPO 格式应为 owner/repo。");
+  const content = arrayBufferToBase64(await file.arrayBuffer());
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path).replaceAll("%2F", "/")}`, {
+    method: "PUT",
+    headers: {
+      "Accept": "application/vnd.github+json",
+      "Authorization": `Bearer ${env.GITHUB_CONTENT_TOKEN}`,
+      "Content-Type": "application/json",
+      "User-Agent": "paper-reader-ai",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+    body: JSON.stringify({
+      message,
+      content,
+      branch,
+    }),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data.message || `GitHub 文件写入失败：${res.status}`);
+  return data;
+}
+
 function openAIBaseUrl(env, access = {}) {
   return (access.baseUrl || env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/+$/, "");
 }
@@ -457,7 +506,6 @@ async function handlePersonalPapers(request, env) {
   if (session.error) return session.error;
 
   if (request.method === "POST") {
-    if (!env.PAPER_FILES) return json({ error: "R2 bucket PAPER_FILES 尚未配置。" }, 500, corsHeaders(request, env));
     const form = await request.formData();
     const original = form.get("original");
     const translation = form.get("translation");
@@ -469,26 +517,27 @@ async function handlePersonalPapers(request, env) {
     const journal = String(form.get("journal") || "").trim().slice(0, 200);
     const date = String(form.get("date") || new Date().toISOString().slice(0, 10)).trim().slice(0, 20);
     const slug = `${session.login}-${Date.now()}-${slugify(title)}`;
-    const baseKey = `personal/${session.login}/${slug}`;
+    const siteBasePath = `user-library/${session.login}/${slug}`;
     const originalType = fileType(original);
     const translationType = fileType(translation);
-    const originalPath = `${baseKey}/paper.${extensionFor(original)}`;
-    const translationPath = `${baseKey}/translation.${extensionFor(translation)}`;
-    await env.PAPER_FILES.put(originalPath, original.stream(), { httpMetadata: { contentType: original.type || "application/octet-stream" } });
-    await env.PAPER_FILES.put(translationPath, translation.stream(), { httpMetadata: { contentType: translation.type || "text/markdown; charset=utf-8" } });
+    const originalPath = `${siteBasePath}/paper.${extensionFor(original)}`;
+    const translationPath = `${siteBasePath}/translation.${extensionFor(translation)}`;
+    const commitPrefix = `Add personal paper: ${title.slice(0, 80)}`;
+    await githubPutFile(env, `public/${originalPath}`, original, `${commitPrefix} original`);
+    await githubPutFile(env, `public/${translationPath}`, translation, `${commitPrefix} translation`);
     let relatedPath = "";
     let relatedType = "markdown";
     if (related instanceof File && related.size > 0) {
       relatedType = fileType(related);
-      relatedPath = `${baseKey}/related_reading.${extensionFor(related)}`;
-      await env.PAPER_FILES.put(relatedPath, related.stream(), { httpMetadata: { contentType: related.type || "text/markdown; charset=utf-8" } });
+      relatedPath = `${siteBasePath}/related_reading.${extensionFor(related)}`;
+      await githubPutFile(env, `public/${relatedPath}`, related, `${commitPrefix} related reading`);
     }
     const now = new Date().toISOString();
     await env.DB.prepare(
       `INSERT INTO personal_papers
        (slug, owner_login, title, date, journal, pdf_path, markdown_path, related_reading_path, original_type, translation_type, related_reading_type, created_at)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    ).bind(session.login === "" ? slug : slug, session.login, title, date, journal, `/file/${originalPath}`, `/file/${translationPath}`, relatedPath ? `/file/${relatedPath}` : "", originalType, translationType, relatedType, now).run();
+    ).bind(slug, session.login, title, date, journal, originalPath, translationPath, relatedPath, originalType, translationType, relatedType, now).run();
     return json({
       item: {
         slug,
@@ -497,9 +546,9 @@ async function handlePersonalPapers(request, env) {
         title,
         date,
         journal,
-        pdfPath: `${aiApiOrigin(request)}/file/${originalPath}`,
-        markdownPath: `${aiApiOrigin(request)}/file/${translationPath}`,
-        relatedReadingPath: relatedPath ? `${aiApiOrigin(request)}/file/${relatedPath}` : "",
+        pdfPath: siteFileUrl(env, originalPath),
+        markdownPath: siteFileUrl(env, translationPath),
+        relatedReadingPath: relatedPath ? siteFileUrl(env, relatedPath) : "",
         relatedReading: !!relatedPath,
         originalType,
         translationType,
@@ -519,13 +568,16 @@ async function handlePersonalPapers(request, env) {
             translation_type as translationType, related_reading_type as relatedReadingType, created_at as createdAt
      FROM personal_papers WHERE owner_login = ? ORDER BY created_at DESC`,
   ).bind(owner).all();
-  const origin = aiApiOrigin(request);
   const items = (rows.results || []).map((row) => ({
     ...row,
     personal: true,
-    pdfPath: `${origin}${row.pdfPath}`,
-    markdownPath: `${origin}${row.markdownPath}`,
-    relatedReadingPath: row.relatedReadingPath ? `${origin}${row.relatedReadingPath}` : "",
+    pdfPath: row.pdfPath?.startsWith("/file/") ? `${aiApiOrigin(request)}${row.pdfPath}` : siteFileUrl(env, row.pdfPath),
+    markdownPath: row.markdownPath?.startsWith("/file/") ? `${aiApiOrigin(request)}${row.markdownPath}` : siteFileUrl(env, row.markdownPath),
+    relatedReadingPath: row.relatedReadingPath
+      ? row.relatedReadingPath.startsWith("/file/")
+        ? `${aiApiOrigin(request)}${row.relatedReadingPath}`
+        : siteFileUrl(env, row.relatedReadingPath)
+      : "",
     relatedReading: !!row.relatedReadingPath,
   }));
   return json({ owner, items }, 200, corsHeaders(request, env));
