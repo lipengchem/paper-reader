@@ -33,6 +33,7 @@ type PaperItem = {
   relatedReadingType?: "markdown" | "pdf";
   ownerLogin?: string;
   personal?: boolean;
+  createdAt?: string;
   paragraphCount?: number;
   figureCount?: number;
 };
@@ -80,6 +81,7 @@ type LibraryScope = {
 
 type CommentNotification = {
   id: string;
+  paperSlug?: string;
   title: string;
   url: string;
   updatedAt: string;
@@ -125,6 +127,12 @@ function normalizeAssetPath(slug: string, src = "") {
 function resolveFileUrl(path = "") {
   if (/^https?:/.test(path)) return path;
   return `${fileBase}/${path.replace(/^\/+/, "")}`;
+}
+
+function resolvePdfUrl(path = "") {
+  const url = resolveFileUrl(path);
+  const separator = url.includes("#") ? "&" : "#";
+  return `${url}${separator}view=FitH&zoom=page-width`;
 }
 
 const paneWeightsKey = "paper-reader:pane-weights";
@@ -197,7 +205,7 @@ function GiscusComments({ paper }: { paper: PaperItem }) {
   }, [paper.slug, paper.title]);
 
   return (
-    <section className="comments-section">
+    <section className="comments-section" id="paper-comments">
       <div className="comments-heading">
         <h2>评论区</h2>
         <a href={discussionSearchUrl} target="_blank" rel="noreferrer">
@@ -217,12 +225,13 @@ export default function App() {
   const [markdown, setMarkdown] = useState("");
   const [originalMarkdown, setOriginalMarkdown] = useState("");
   const [viewMode, setViewMode] = useState<"reader" | "related">("reader");
+  const [pendingCommentScroll, setPendingCommentScroll] = useState(false);
   const [query, setQuery] = useState("");
   const [readFilter, setReadFilter] = useState<"all" | "unread" | "read">("all");
   const [journalFilter, setJournalFilter] = useState("all");
   const [dateFilter, setDateFilter] = useState("all");
   const [categoryFilter, setCategoryFilter] = useState("all");
-  const [sortKey, setSortKey] = useState<"date" | "title" | "rating">("date");
+  const [sortKey, setSortKey] = useState<"date" | "uploaded" | "title" | "rating">("date");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [states, setStates] = useState<Record<string, ReaderState>>({});
   const [noteDraft, setNoteDraft] = useState("");
@@ -385,6 +394,15 @@ export default function App() {
     setAiReady(false);
   }, [active?.slug]);
 
+  useEffect(() => {
+    if (!pendingCommentScroll || viewMode !== "reader" || !active) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById("paper-comments")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setPendingCommentScroll(false);
+    }, 260);
+    return () => window.clearTimeout(timer);
+  }, [pendingCommentScroll, viewMode, active?.slug]);
+
   const aiHeaders = () => {
     const headers: Record<string, string> = { "Content-Type": "application/json" };
     const preset = aiEndpointPresets.find((item) => item.id === aiEndpoint) || aiEndpointPresets[1];
@@ -479,7 +497,7 @@ export default function App() {
 
   const markNotificationsRead = async () => {
     if (!aiApiBase || !auth.authenticated) return;
-    setNotifications((items) => items.map((item) => ({ ...item, unread: false })));
+    setNotifications([]);
     try {
       await fetch(`${aiApiBase}/notifications/comments/read`, {
         method: "POST",
@@ -488,6 +506,22 @@ export default function App() {
     } catch {
       // The next refresh will restore unread state if the write failed.
     }
+  };
+
+  const openNotification = (item: CommentNotification) => {
+    const slug = item.paperSlug || item.title.split(":")[0];
+    const target = allPapers.find((paper) => paper.slug === slug);
+    markNotificationsRead();
+    setNotificationOpen(false);
+    setAccountOpen(false);
+    if (target) {
+      setActiveSlug(target.slug);
+      setViewMode("reader");
+      setPendingCommentScroll(true);
+      history.replaceState(null, "", `${baseUrl}?paper=${target.slug}`);
+      return;
+    }
+    window.open(item.url, "_blank", "noopener,noreferrer");
   };
 
   const addFriend = async () => {
@@ -720,6 +754,7 @@ export default function App() {
       const stateB = states[b.slug] || {};
       let value = 0;
       if (sortKey === "date") value = a.date.localeCompare(b.date);
+      if (sortKey === "uploaded") value = (a.createdAt || a.taskDate || "").localeCompare(b.createdAt || b.taskDate || "");
       if (sortKey === "title") value = a.title.localeCompare(b.title);
       if (sortKey === "rating") value = (stateA.rating || 0) - (stateB.rating || 0);
       return sortDirection === "asc" ? value : -value;
@@ -1096,6 +1131,7 @@ export default function App() {
                   <div className="sort-popover">
                     {[
                       ["date", "日期"],
+                      ["uploaded", "上传日期"],
                       ["title", "首字母"],
                       ["rating", "星级"],
                     ].map(([key, label]) => (
@@ -1299,12 +1335,11 @@ export default function App() {
                               <div className="notification-box">
                                 {notifications.length ? (
                                   notifications.map((item) => (
-                                    <a
+                                    <button
                                       key={item.id}
-                                      href={item.url}
-                                      target="_blank"
-                                      rel="noreferrer"
+                                      type="button"
                                       className={item.unread ? "unread" : ""}
+                                      onClick={() => openNotification(item)}
                                     >
                                       <strong>{item.title}</strong>
                                       <span>
@@ -1312,7 +1347,7 @@ export default function App() {
                                         {formatShortTime(item.updatedAt)} · {item.commentCount} 条评论
                                       </span>
                                       {item.latestBody && <small>{item.latestBody}</small>}
-                                    </a>
+                                    </button>
                                   ))
                                 ) : (
                                   <span className="notification-empty">暂无新评论</span>
@@ -1411,7 +1446,7 @@ export default function App() {
                           </ReactMarkdown>
                         </article>
                       ) : (
-                        <iframe className="pdf-frame" src={resolveFileUrl(active.pdfPath)} title={`${active.title} PDF`} />
+                        <iframe className="pdf-frame" src={resolvePdfUrl(active.pdfPath)} title={`${active.title} PDF`} />
                       )}
                     </section>
                   )}
@@ -1428,7 +1463,7 @@ export default function App() {
                       {((viewMode === "related" ? active.relatedReadingType : active.translationType) || "markdown") === "pdf" ? (
                         <iframe
                           className="pdf-frame"
-                          src={resolveFileUrl(viewMode === "related" ? active.relatedReadingPath || "" : active.markdownPath)}
+                          src={resolvePdfUrl(viewMode === "related" ? active.relatedReadingPath || "" : active.markdownPath)}
                           title={`${active.title} ${viewMode === "related" ? "related reading" : "translation"}`}
                         />
                       ) : (

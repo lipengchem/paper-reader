@@ -511,17 +511,20 @@ async function handleCommentNotifications(request, env) {
         .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)))[0] || {};
       const latestAuthor = latest.author?.login || "";
       const latestTime = latest.createdAt || node.updatedAt;
+      const unread = latestAuthor !== session.login && latestTime > seenAt;
       return {
         id: node.id,
+        paperSlug: String(node.title || "").split(":")[0],
         title: node.title,
         url: latest.url || node.url,
         updatedAt: latestTime,
         commentCount: node.comments?.totalCount || 0,
         latestAuthor,
         latestBody: String(latest.body || "").replace(/\s+/g, " ").slice(0, 160),
-        unread: latestAuthor !== session.login && latestTime > seenAt,
+        unread,
       };
-    });
+    })
+    .filter((item) => item.unread);
   return json({ seenAt, notifications }, 200, corsHeaders(request, env));
 }
 

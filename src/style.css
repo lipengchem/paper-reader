@@ -649,20 +649,24 @@ button:disabled {
   padding-top: 6px;
 }
 
-.notification-box a {
+.notification-box button {
   display: grid;
   gap: 3px;
   border-radius: 5px;
   padding: 8px 10px;
+  border: 0;
+  min-height: 0;
+  background: transparent;
   color: inherit;
+  text-align: left;
   text-decoration: none;
 }
 
-.notification-box a:hover {
+.notification-box button:hover {
   background: #f1f7f6;
 }
 
-.notification-box a.unread strong::before {
+.notification-box button.unread strong::before {
   display: inline-block;
   width: 7px;
   height: 7px;
