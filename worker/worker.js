@@ -705,6 +705,8 @@ async function handlePersonalPapers(request, env) {
         originalType,
         translationType,
         relatedReadingType: relatedType,
+        createdAt: now,
+        uploadedAt: now,
       },
     }, 200, corsHeaders(request, env));
   }
@@ -721,6 +723,7 @@ async function handlePersonalPapers(request, env) {
   ).bind(owner).all();
   const items = (rows.results || []).map((row) => ({
     ...row,
+    uploadedAt: row.createdAt,
     personal: true,
     pdfPath: row.pdfPath?.startsWith("/file/") ? `${aiApiOrigin(request)}${row.pdfPath}` : siteFileUrl(env, row.pdfPath),
     markdownPath: row.markdownPath?.startsWith("/file/") ? `${aiApiOrigin(request)}${row.markdownPath}` : siteFileUrl(env, row.markdownPath),

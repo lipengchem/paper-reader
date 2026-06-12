@@ -34,6 +34,7 @@ type PaperItem = {
   ownerLogin?: string;
   personal?: boolean;
   createdAt?: string;
+  uploadedAt?: string;
   paragraphCount?: number;
   figureCount?: number;
 };
@@ -754,7 +755,7 @@ export default function App() {
       const stateB = states[b.slug] || {};
       let value = 0;
       if (sortKey === "date") value = a.date.localeCompare(b.date);
-      if (sortKey === "uploaded") value = (a.createdAt || a.taskDate || "").localeCompare(b.createdAt || b.taskDate || "");
+      if (sortKey === "uploaded") value = (a.uploadedAt || a.createdAt || "").localeCompare(b.uploadedAt || b.createdAt || "");
       if (sortKey === "title") value = a.title.localeCompare(b.title);
       if (sortKey === "rating") value = (stateA.rating || 0) - (stateB.rating || 0);
       return sortDirection === "asc" ? value : -value;

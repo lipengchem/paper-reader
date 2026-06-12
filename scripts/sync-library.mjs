@@ -94,7 +94,7 @@ async function copyIfPresent(source, target) {
   return true;
 }
 
-async function syncPaperFolder(entry, processedLookup) {
+async function syncPaperFolder(entry, processedLookup, existingLookup, syncStartedAt) {
   const slug = entry.name;
   const sourceFolder = path.join(sourceRoot, slug);
   const targetFolder = path.join(libraryRoot, slug);
@@ -122,6 +122,7 @@ async function syncPaperFolder(entry, processedLookup) {
   const markdown = await readTextMaybe(mdSource);
   const sourceMap = await readJsonMaybe(path.join(sourceFolder, "source_map.json"), {});
   const record = processedLookup.get(slug) || {};
+  const existing = existingLookup.get(slug) || {};
   const collections = record.collection_path || record.collections || record.collection || [];
   const collectionList = Array.isArray(collections) ? collections : [collections].filter(Boolean);
 
@@ -130,6 +131,7 @@ async function syncPaperFolder(entry, processedLookup) {
     title: record.title || sourceMap?.title || titleFromSlug(slug),
     date: record.date || sourceMap?.date || dateFromSlug(slug),
     taskDate: record.task_date || dateFromSlug(slug),
+    uploadedAt: existing.uploadedAt || existing.createdAt || syncStartedAt,
     journal: record.journal_publicationTitle || record.journal || sourceMap?.journal || "Unknown journal",
     zoteroKey: record.zotero_item_key || record.item_key || record.zotero_key || record.zoteroKey || "",
     collections: collectionList,
@@ -143,6 +145,13 @@ async function syncPaperFolder(entry, processedLookup) {
 
 async function main() {
   await mkdir(libraryRoot, { recursive: true });
+  const syncStartedAt = new Date().toISOString();
+  const existingIndex = await readJsonMaybe(path.join(libraryRoot, "index.json"), {});
+  const existingLookup = new Map(
+    (Array.isArray(existingIndex?.items) ? existingIndex.items : [])
+      .filter((item) => item?.slug)
+      .map((item) => [item.slug, item]),
+  );
   const processed = await readJsonMaybe(processedPath, []);
   const processedLookup = loadProcessedLookup(processed);
   const entries = await readdir(sourceRoot, { withFileTypes: true });
@@ -152,14 +161,14 @@ async function main() {
 
   const items = [];
   for (const folder of folders) {
-    const synced = await syncPaperFolder(folder, processedLookup);
+    const synced = await syncPaperFolder(folder, processedLookup, existingLookup, syncStartedAt);
     if (synced) items.push(synced);
   }
 
   items.sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
   await writeFile(
     path.join(libraryRoot, "index.json"),
-    `${JSON.stringify({ generatedAt: new Date().toISOString(), items }, null, 2)}\n`,
+    `${JSON.stringify({ generatedAt: syncStartedAt, items }, null, 2)}\n`,
     "utf8",
   );
 
