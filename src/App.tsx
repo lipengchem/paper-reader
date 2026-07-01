@@ -139,7 +139,18 @@ function resolvePdfUrl(path = "") {
 }
 
 const paneWeightsKey = "paper-reader:pane-weights";
+const sidebarWidthKey = "paper-reader:sidebar-width";
+const overviewColumnWidthsKey = "paper-reader:overview-column-widths";
 const defaultPaneWeights: Record<PaneKey, number> = { pdf: 42, text: 42, ai: 22 };
+const defaultSidebarWidth = 300;
+const defaultOverviewColumnWidths: Record<SortKey, number> = {
+  title: 560,
+  journal: 250,
+  date: 130,
+  rating: 130,
+  category: 150,
+  uploaded: 150,
+};
 const giscusRepo = "lipengchem/paper-reader";
 const giscusRepoId = "R_kgDOS2FmKw";
 const giscusCategory = "General";
@@ -177,6 +188,30 @@ function formatShortTime(value = "") {
     hour: "2-digit",
     minute: "2-digit",
   });
+}
+
+function displayJournalName(journal = "") {
+  if (!journal) return "Unknown journal";
+  const normalized = journal.replace(/[.&]/g, " ").replace(/\s+/g, " ").trim();
+  const words = normalized.split(" ").filter(Boolean);
+  if (words.length < 3) return journal;
+  const known: Record<string, string> = {
+    "journal of the american chemical society": "JACS",
+    "journal of physical chemistry c": "J. Phys. Chem. C",
+    "journal of chemical theory and computation": "JCTC",
+    "advanced intelligent discovery": "Adv. Intell. Discov.",
+    "nature machine intelligence": "Nat. Mach. Intell.",
+    "nature computational science": "Nat. Comput. Sci.",
+    "nature communications": "Nature Communications",
+  };
+  const key = normalized.toLowerCase();
+  if (known[key]) return known[key];
+  const ignored = new Set(["of", "the", "and", "for", "in", "on", "a", "an"]);
+  const abbreviation = words
+    .filter((word, index) => index === 0 || !ignored.has(word.toLowerCase()))
+    .map((word) => word[0]?.toUpperCase() || "")
+    .join("");
+  return abbreviation || journal;
 }
 
 function GiscusComments({ paper }: { paper: PaperItem }) {
@@ -272,6 +307,10 @@ export default function App() {
   const [syncError, setSyncError] = useState("");
   const [sortOpen, setSortOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarWidth, setSidebarWidth] = useState(() => {
+    const stored = Number(localStorage.getItem(sidebarWidthKey));
+    return Number.isFinite(stored) && stored >= 220 ? stored : defaultSidebarWidth;
+  });
   const [notifications, setNotifications] = useState<CommentNotification[]>([]);
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [paneVisibility, setPaneVisibility] = useState<Record<PaneKey, boolean>>({
@@ -291,6 +330,23 @@ export default function App() {
       };
     } catch {
       return defaultPaneWeights;
+    }
+  });
+  const [overviewColumnWidths, setOverviewColumnWidths] = useState<Record<SortKey, number>>(() => {
+    const stored = localStorage.getItem(overviewColumnWidthsKey);
+    if (!stored) return defaultOverviewColumnWidths;
+    try {
+      const parsed = JSON.parse(stored) as Partial<Record<SortKey, number>>;
+      return {
+        title: Number.isFinite(parsed.title) ? Math.max(220, parsed.title || defaultOverviewColumnWidths.title) : defaultOverviewColumnWidths.title,
+        journal: Number.isFinite(parsed.journal) ? Math.max(120, parsed.journal || defaultOverviewColumnWidths.journal) : defaultOverviewColumnWidths.journal,
+        date: Number.isFinite(parsed.date) ? Math.max(100, parsed.date || defaultOverviewColumnWidths.date) : defaultOverviewColumnWidths.date,
+        rating: Number.isFinite(parsed.rating) ? Math.max(100, parsed.rating || defaultOverviewColumnWidths.rating) : defaultOverviewColumnWidths.rating,
+        category: Number.isFinite(parsed.category) ? Math.max(110, parsed.category || defaultOverviewColumnWidths.category) : defaultOverviewColumnWidths.category,
+        uploaded: Number.isFinite(parsed.uploaded) ? Math.max(120, parsed.uploaded || defaultOverviewColumnWidths.uploaded) : defaultOverviewColumnWidths.uploaded,
+      };
+    } catch {
+      return defaultOverviewColumnWidths;
     }
   });
   const [error, setError] = useState("");
@@ -931,6 +987,10 @@ export default function App() {
         ])
         .join(" ")
     : "1fr";
+  const shellGridTemplate = sidebarOpen
+    ? `${sidebarWidth}px 10px minmax(0, 1fr)`
+    : "62px minmax(0, 1fr)";
+  const overviewTableWidth = Object.values(overviewColumnWidths).reduce((sum, width) => sum + width, 0);
 
   const openPaperFromOverview = (slug: string) => {
     setActiveSlug(slug);
@@ -984,6 +1044,66 @@ export default function App() {
     localStorage.setItem(paneWeightsKey, JSON.stringify(defaultPaneWeights));
   };
 
+  const startSidebarResize = (event: ReactPointerEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const startX = event.clientX;
+    const startWidth = sidebarWidth;
+
+    const updateWidth = (clientX: number) => {
+      const next = Math.min(520, Math.max(220, startWidth + clientX - startX));
+      setSidebarWidth(next);
+      localStorage.setItem(sidebarWidthKey, String(next));
+    };
+    const onPointerMove = (moveEvent: PointerEvent) => updateWidth(moveEvent.clientX);
+    const onPointerUp = () => {
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+      document.body.classList.remove("is-resizing-reader");
+    };
+
+    document.body.classList.add("is-resizing-reader");
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
+  };
+
+  const resetSidebarWidth = () => {
+    setSidebarWidth(defaultSidebarWidth);
+    localStorage.setItem(sidebarWidthKey, String(defaultSidebarWidth));
+  };
+
+  const startOverviewColumnResize = (event: ReactPointerEvent<HTMLDivElement>, key: SortKey) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const startX = event.clientX;
+    const startWidth = overviewColumnWidths[key];
+
+    const updateWidth = (clientX: number) => {
+      const minWidth = key === "title" ? 220 : 90;
+      const next = {
+        ...overviewColumnWidths,
+        [key]: Math.min(820, Math.max(minWidth, startWidth + clientX - startX)),
+      };
+      setOverviewColumnWidths(next);
+      localStorage.setItem(overviewColumnWidthsKey, JSON.stringify(next));
+    };
+    const onPointerMove = (moveEvent: PointerEvent) => updateWidth(moveEvent.clientX);
+    const onPointerUp = () => {
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+      document.body.classList.remove("is-resizing-reader");
+    };
+
+    document.body.classList.add("is-resizing-reader");
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
+  };
+
+  const resetOverviewColumnWidth = (key: SortKey) => {
+    const next = { ...overviewColumnWidths, [key]: defaultOverviewColumnWidths[key] };
+    setOverviewColumnWidths(next);
+    localStorage.setItem(overviewColumnWidthsKey, JSON.stringify(next));
+  };
+
   const openRelatedView = () => {
     if (!active) return;
     if (viewMode === "related") {
@@ -1009,15 +1129,15 @@ export default function App() {
   const hasNotifications = unreadNotificationCount > 0;
   const overviewColumns: Array<{ key: SortKey; label: string; className?: string }> = [
     { key: "title", label: "Title", className: "title-col" },
-    { key: "journal", label: "Publication" },
-    { key: "date", label: "Date" },
-    { key: "rating", label: "Rating" },
-    { key: "category", label: "Category" },
-    { key: "uploaded", label: "Date Added" },
+    { key: "journal", label: "Publication", className: "journal-col" },
+    { key: "date", label: "Date", className: "date-col" },
+    { key: "rating", label: "Rating", className: "rating-col" },
+    { key: "category", label: "Category", className: "category-col" },
+    { key: "uploaded", label: "Date Added", className: "uploaded-col" },
   ];
 
   return (
-    <div className={isOverviewMode ? "shell overview-shell" : "shell"}>
+    <div className={isOverviewMode ? "shell overview-shell" : "shell"} style={{ gridTemplateColumns: shellGridTemplate }}>
       {sidebarOpen ? (
         <aside className="sidebar">
           <div className="brand">
@@ -1189,7 +1309,7 @@ export default function App() {
                   <button className="paper-select" onClick={() => isOverviewMode ? openPaperFromOverview(paper.slug) : setActiveSlug(paper.slug)}>
                     <span>
                       <strong>{paper.title}</strong>
-                      <small>{paper.journal || "Unknown journal"} · {paper.date}</small>
+                      <small title={paper.journal || "Unknown journal"}>{displayJournalName(paper.journal)} · {paper.date}</small>
                     </span>
                     <span className={`status-dot ${isRead ? "read" : ""}`} />
                   </button>
@@ -1245,6 +1365,17 @@ export default function App() {
         </aside>
       )}
 
+      {sidebarOpen && (
+        <div
+          className="shell-divider"
+          role="separator"
+          aria-label="调整文献列表宽度"
+          aria-orientation="vertical"
+          onPointerDown={startSidebarResize}
+          onDoubleClick={resetSidebarWidth}
+        />
+      )}
+
       <main className="main">
         {error && (
           <div className="empty-state">
@@ -1258,7 +1389,7 @@ export default function App() {
               <div className="title-row">
                 <h2>{active.title}</h2>
                 <div className="meta-line">
-                  <span>{active.journal || "Unknown journal"}</span>
+                  <span title={active.journal || "Unknown journal"}>{displayJournalName(active.journal)}</span>
                   <span>{active.date}</span>
                 </div>
                 {syncError && <p className="sync-error">{syncError}</p>}
@@ -1465,21 +1596,36 @@ export default function App() {
 
             {isOverviewMode ? (
               <section className="overview-table-wrap" aria-label="paper overview">
-                <table className="overview-table">
+                <table className="overview-table" style={{ width: `${overviewTableWidth}px`, minWidth: "100%" }}>
+                  <colgroup>
+                    {overviewColumns.map((column) => (
+                      <col key={column.key} style={{ width: `${overviewColumnWidths[column.key]}px` }} />
+                    ))}
+                  </colgroup>
                   <thead>
                     <tr>
                       {overviewColumns.map((column) => (
                         <th key={column.key} className={column.className}>
-                          <button
-                            className={sortKey === column.key ? "overview-sort active" : "overview-sort"}
-                            onClick={() => changeSort(column.key)}
-                            title={`Sort by ${column.label}`}
-                          >
-                            <span>{column.label}</span>
-                            <span className="sort-mark">
-                              {sortKey === column.key ? (sortDirection === "asc" ? "\u2191" : "\u2193") : ""}
-                            </span>
-                          </button>
+                          <div className="overview-header-cell">
+                            <button
+                              className={sortKey === column.key ? "overview-sort active" : "overview-sort"}
+                              onClick={() => changeSort(column.key)}
+                              title={`Sort by ${column.label}`}
+                            >
+                              <span>{column.label}</span>
+                              <span className="sort-mark">
+                                {sortKey === column.key ? (sortDirection === "asc" ? "\u2191" : "\u2193") : ""}
+                              </span>
+                            </button>
+                            <div
+                              className="column-resizer"
+                              role="separator"
+                              aria-label={`Resize ${column.label}`}
+                              aria-orientation="vertical"
+                              onPointerDown={(event) => startOverviewColumnResize(event, column.key)}
+                              onDoubleClick={() => resetOverviewColumnWidth(column.key)}
+                            />
+                          </div>
                         </th>
                       ))}
                     </tr>
@@ -1500,7 +1646,7 @@ export default function App() {
                             <FileText size={16} />
                             <span>{paper.title}</span>
                           </td>
-                          <td>{paper.journal || "Unknown journal"}</td>
+                          <td title={paper.journal || "Unknown journal"}>{displayJournalName(paper.journal)}</td>
                           <td>{paper.date || "-"}</td>
                           <td className="overview-stars" aria-label={`${rating} stars`}>
                             {[1, 2, 3, 4, 5].map((star) => (
@@ -1509,8 +1655,8 @@ export default function App() {
                               </span>
                             ))}
                           </td>
-                          <td className="overview-tags">
-                            {categories.length ? categories.map((category) => <span key={category}>{category}</span>) : <span className="muted">-</span>}
+                          <td className="overview-category" title={categories.join(", ")}>
+                            {categories.length ? categories.join(", ") : <span className="muted">-</span>}
                           </td>
                           <td>{added ? formatShortTime(added) : "-"}</td>
                         </tr>
