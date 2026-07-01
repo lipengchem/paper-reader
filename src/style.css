@@ -1262,14 +1262,40 @@ button:disabled {
 }
 
 .comments-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  max-height: calc(100vh - 110px);
   margin: 0 14px 32px;
   border: 1px solid #dbe4e3;
   border-radius: 8px;
   background: #ffffff;
   padding: 24px 28px 28px;
+  overflow: hidden;
+  resize: vertical;
+}
+
+.comments-resizer {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 12px;
+  cursor: row-resize;
+  touch-action: none;
+  background:
+    linear-gradient(180deg, transparent 0 5px, #d2dfde 5px 7px, transparent 7px 12px);
+}
+
+.comments-resizer:hover,
+.comments-resizer:focus-visible {
+  background:
+    linear-gradient(180deg, transparent 0 4px, #177c79 4px 8px, transparent 8px 12px);
 }
 
 .comments-heading {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1295,6 +1321,18 @@ button:disabled {
   white-space: nowrap;
   font-size: 14px;
   font-weight: 700;
+}
+
+.giscus-container {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.is-resizing-comments {
+  cursor: row-resize;
+  user-select: none;
 }
 
 .markdown-pane h1 {

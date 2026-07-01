@@ -141,8 +141,10 @@ function resolvePdfUrl(path = "") {
 const paneWeightsKey = "paper-reader:pane-weights";
 const sidebarWidthKey = "paper-reader:sidebar-width";
 const overviewColumnWidthsKey = "paper-reader:overview-column-widths";
+const commentsHeightKey = "paper-reader:comments-height";
 const defaultPaneWeights: Record<PaneKey, number> = { pdf: 42, text: 42, ai: 22 };
 const defaultSidebarWidth = 300;
+const defaultCommentsHeight = 520;
 const defaultOverviewColumnWidths: Record<SortKey, number> = {
   title: 560,
   journal: 250,
@@ -217,6 +219,37 @@ function displayJournalName(journal = "") {
 function GiscusComments({ paper }: { paper: PaperItem }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const discussionSearchUrl = `https://github.com/${giscusRepo}/discussions?discussions_q=${encodeURIComponent(paper.slug)}`;
+  const [commentsHeight, setCommentsHeight] = useState(() => {
+    const stored = Number(localStorage.getItem(commentsHeightKey));
+    return Number.isFinite(stored) && stored >= 260 ? stored : defaultCommentsHeight;
+  });
+
+  const startCommentsResize = (event: ReactPointerEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const startY = event.clientY;
+    const startHeight = commentsHeight;
+
+    const updateHeight = (clientY: number) => {
+      const next = Math.min(1000, Math.max(260, startHeight + clientY - startY));
+      setCommentsHeight(next);
+      localStorage.setItem(commentsHeightKey, String(next));
+    };
+    const onPointerMove = (moveEvent: PointerEvent) => updateHeight(moveEvent.clientY);
+    const onPointerUp = () => {
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+      document.body.classList.remove("is-resizing-comments");
+    };
+
+    document.body.classList.add("is-resizing-comments");
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
+  };
+
+  const resetCommentsHeight = () => {
+    setCommentsHeight(defaultCommentsHeight);
+    localStorage.setItem(commentsHeightKey, String(defaultCommentsHeight));
+  };
 
   useEffect(() => {
     const container = containerRef.current;
@@ -243,14 +276,22 @@ function GiscusComments({ paper }: { paper: PaperItem }) {
   }, [paper.slug, paper.title]);
 
   return (
-    <section className="comments-section" id="paper-comments">
+    <section className="comments-section" id="paper-comments" style={{ height: commentsHeight }}>
+      <div
+        className="comments-resizer"
+        role="separator"
+        aria-label="调整评论区高度"
+        aria-orientation="horizontal"
+        onPointerDown={startCommentsResize}
+        onDoubleClick={resetCommentsHeight}
+      />
       <div className="comments-heading">
         <h2>评论区</h2>
         <a href={discussionSearchUrl} target="_blank" rel="noreferrer">
           打开讨论页回复
         </a>
       </div>
-      <div ref={containerRef} />
+      <div className="giscus-container" ref={containerRef} />
     </section>
   );
 }
