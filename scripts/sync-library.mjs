@@ -100,13 +100,16 @@ async function syncPaperFolder(entry, processedLookup, existingLookup, syncStart
   const targetFolder = path.join(libraryRoot, slug);
   const pdfSource = path.join(sourceFolder, "paper.pdf");
   const mdSource = path.join(sourceFolder, "paper.md");
+  const record = processedLookup.get(slug) || {};
+  const originalPdfSource = record.original_pdf_path || record.originalPdfPath || "";
+  const preferredPdfSource = originalPdfSource && (await exists(originalPdfSource)) ? originalPdfSource : pdfSource;
 
-  if (!(await exists(pdfSource)) || !(await exists(mdSource))) return null;
+  if (!(await exists(preferredPdfSource)) || !(await exists(mdSource))) return null;
 
   await rm(targetFolder, { recursive: true, force: true });
   await mkdir(targetFolder, { recursive: true });
 
-  await copyFile(pdfSource, path.join(targetFolder, "paper.pdf"));
+  await copyFile(preferredPdfSource, path.join(targetFolder, "paper.pdf"));
   await copyFile(mdSource, path.join(targetFolder, "paper.md"));
   await copyIfPresent(path.join(sourceFolder, "source_map.json"), path.join(targetFolder, "source_map.json"));
   await copyIfPresent(path.join(sourceFolder, "translation_notes.md"), path.join(targetFolder, "translation_notes.md"));
@@ -121,7 +124,6 @@ async function syncPaperFolder(entry, processedLookup, existingLookup, syncStart
 
   const markdown = await readTextMaybe(mdSource);
   const sourceMap = await readJsonMaybe(path.join(sourceFolder, "source_map.json"), {});
-  const record = processedLookup.get(slug) || {};
   const existing = existingLookup.get(slug) || {};
   const collections = record.collection_path || record.collections || record.collection || [];
   const collectionList = Array.isArray(collections) ? collections : [collections].filter(Boolean);
