@@ -1320,7 +1320,16 @@ button:disabled {
 }
 
 .giscus-container {
+  width: 100%;
+  max-width: 100%;
   padding-right: 4px;
+}
+
+.giscus-container .giscus,
+.giscus-container .giscus-frame {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .is-resizing-comments {
