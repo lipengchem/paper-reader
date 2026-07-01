@@ -1263,17 +1263,13 @@ button:disabled {
 
 .comments-section {
   position: relative;
-  display: flex;
-  flex-direction: column;
   min-height: 260px;
-  max-height: calc(100vh - 110px);
   margin: 0 14px 32px;
   border: 1px solid #dbe4e3;
   border-radius: 8px;
   background: #ffffff;
   padding: 24px 28px 28px;
-  overflow: hidden;
-  resize: vertical;
+  overflow: visible;
 }
 
 .comments-resizer {
@@ -1295,7 +1291,6 @@ button:disabled {
 }
 
 .comments-heading {
-  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1324,9 +1319,6 @@ button:disabled {
 }
 
 .giscus-container {
-  flex: 1;
-  min-height: 0;
-  overflow: auto;
   padding-right: 4px;
 }
 

@@ -276,7 +276,7 @@ function GiscusComments({ paper }: { paper: PaperItem }) {
   }, [paper.slug, paper.title]);
 
   return (
-    <section className="comments-section" id="paper-comments" style={{ height: commentsHeight }}>
+    <section className="comments-section" id="paper-comments" style={{ minHeight: commentsHeight }}>
       <div
         className="comments-resizer"
         role="separator"
