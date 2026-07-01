@@ -80,6 +80,8 @@ type LibraryScope = {
   owner?: string;
 };
 
+type SortKey = "date" | "uploaded" | "title" | "rating" | "journal" | "category";
+
 type CommentNotification = {
   id: string;
   paperSlug?: string;
@@ -232,7 +234,7 @@ export default function App() {
   const [journalFilter, setJournalFilter] = useState("all");
   const [dateFilter, setDateFilter] = useState("all");
   const [categoryFilter, setCategoryFilter] = useState("all");
-  const [sortKey, setSortKey] = useState<"date" | "uploaded" | "title" | "rating">("date");
+  const [sortKey, setSortKey] = useState<SortKey>("date");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [states, setStates] = useState<Record<string, ReaderState>>({});
   const [noteDraft, setNoteDraft] = useState("");
@@ -757,7 +759,13 @@ export default function App() {
       if (sortKey === "date") value = a.date.localeCompare(b.date);
       if (sortKey === "uploaded") value = (a.uploadedAt || a.createdAt || "").localeCompare(b.uploadedAt || b.createdAt || "");
       if (sortKey === "title") value = a.title.localeCompare(b.title);
+      if (sortKey === "journal") value = (a.journal || "").localeCompare(b.journal || "");
       if (sortKey === "rating") value = (stateA.rating || 0) - (stateB.rating || 0);
+      if (sortKey === "category") {
+        const categoryA = (stateA.categories || []).join(" ");
+        const categoryB = (stateB.categories || []).join(" ");
+        value = categoryA.localeCompare(categoryB);
+      }
       return sortDirection === "asc" ? value : -value;
     });
   }, [categoryFilter, dateFilter, journalFilter, libraryScope.type, query, readFilter, sortDirection, sortKey, states, visibleLibraryPapers]);
@@ -914,6 +922,7 @@ export default function App() {
   };
 
   const visiblePaneKeys = (["pdf", "text", "ai"] as PaneKey[]).filter((key) => paneVisibility[key]);
+  const isOverviewMode = !paneVisibility.pdf && !paneVisibility.text;
   const readerGridTemplate = visiblePaneKeys.length
     ? visiblePaneKeys
         .flatMap((key, index) => [
@@ -922,6 +931,13 @@ export default function App() {
         ])
         .join(" ")
     : "1fr";
+
+  const openPaperFromOverview = (slug: string) => {
+    setActiveSlug(slug);
+    setViewMode("reader");
+    setPaneVisibility((prev) => ({ ...prev, pdf: true, text: true }));
+    history.replaceState(null, "", `${baseUrl}?paper=${slug}`);
+  };
 
   const togglePane = (key: PaneKey) => {
     setPaneVisibility((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -991,9 +1007,17 @@ export default function App() {
   const hasAiCredential = !!ownApiKey.trim();
   const unreadNotificationCount = notifications.filter((item) => item.unread).length;
   const hasNotifications = unreadNotificationCount > 0;
+  const overviewColumns: Array<{ key: SortKey; label: string; className?: string }> = [
+    { key: "title", label: "Title", className: "title-col" },
+    { key: "journal", label: "Publication" },
+    { key: "date", label: "Date" },
+    { key: "rating", label: "Rating" },
+    { key: "category", label: "Category" },
+    { key: "uploaded", label: "Date Added" },
+  ];
 
   return (
-    <div className="shell">
+    <div className={isOverviewMode ? "shell overview-shell" : "shell"}>
       {sidebarOpen ? (
         <aside className="sidebar">
           <div className="brand">
@@ -1133,8 +1157,10 @@ export default function App() {
                     {[
                       ["date", "日期"],
                       ["uploaded", "上传日期"],
+                      ["journal", "期刊"],
                       ["title", "首字母"],
                       ["rating", "星级"],
+                      ["category", "类别"],
                     ].map(([key, label]) => (
                       <button
                         key={key}
@@ -1151,7 +1177,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="paper-list">
+          <div className={isOverviewMode ? "paper-list compact" : "paper-list"}>
             {filtered.map((paper) => {
               const local = states[paper.slug] || {};
               const isRead = !!local.read || !!local.rating;
@@ -1160,7 +1186,7 @@ export default function App() {
                   key={paper.slug}
                   className={`paper-item ${paper.slug === activeSlug ? "active" : ""}`}
                 >
-                  <button className="paper-select" onClick={() => setActiveSlug(paper.slug)}>
+                  <button className="paper-select" onClick={() => isOverviewMode ? openPaperFromOverview(paper.slug) : setActiveSlug(paper.slug)}>
                     <span>
                       <strong>{paper.title}</strong>
                       <small>{paper.journal || "Unknown journal"} · {paper.date}</small>
@@ -1176,25 +1202,32 @@ export default function App() {
                       ×
                     </button>
                   )}
-                  {(canEditReaderState || local.rating) && (
-                    <div className="rating-row" aria-label={`${paper.title} 评分`}>
+                  {(canEditReaderState || local.rating || !!local.categories?.length) && (
+                    <div className="rating-row" aria-label={`${paper.title} rating and categories`}>
                       {[1, 2, 3, 4, 5].map((rating) => (
                         <button
                           key={rating}
                           className={rating <= (local.rating || 0) ? "star active" : "star"}
                           onClick={() => canEditReaderState && setRating(paper.slug, rating)}
                           disabled={!canEditReaderState}
-                          title={`${rating} 星`}
+                          title={`${rating} stars`}
                         >
-                          {rating <= (local.rating || 0) ? "★" : "☆"}
+                          {rating <= (local.rating || 0) ? "\u2605" : "\u2606"}
                         </button>
                       ))}
+                      {!!local.categories?.length && (
+                        <span className="inline-chip-row">
+                          {local.categories.map((category) => (
+                            <span className="category-chip" key={category}>{category}</span>
+                          ))}
+                        </span>
+                      )}
                     </div>
                   )}
                   {!!local.tags?.length && (
                     <div className="tag-row">
                       {local.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
+                        <span className="tag-chip" key={tag}>{tag}</span>
                       ))}
                     </div>
                   )}
@@ -1430,7 +1463,64 @@ export default function App() {
               </div>
             </header>
 
-            <section className="reader-grid" style={{ gridTemplateColumns: readerGridTemplate }}>
+            {isOverviewMode ? (
+              <section className="overview-table-wrap" aria-label="paper overview">
+                <table className="overview-table">
+                  <thead>
+                    <tr>
+                      {overviewColumns.map((column) => (
+                        <th key={column.key} className={column.className}>
+                          <button
+                            className={sortKey === column.key ? "overview-sort active" : "overview-sort"}
+                            onClick={() => changeSort(column.key)}
+                            title={`Sort by ${column.label}`}
+                          >
+                            <span>{column.label}</span>
+                            <span className="sort-mark">
+                              {sortKey === column.key ? (sortDirection === "asc" ? "\u2191" : "\u2193") : ""}
+                            </span>
+                          </button>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filtered.map((paper) => {
+                      const local = states[paper.slug] || {};
+                      const rating = local.rating || 0;
+                      const categories = local.categories || [];
+                      const added = paper.uploadedAt || paper.createdAt || paper.taskDate || "";
+                      return (
+                        <tr
+                          key={paper.slug}
+                          className={paper.slug === activeSlug ? "active" : ""}
+                          onClick={() => openPaperFromOverview(paper.slug)}
+                        >
+                          <td className="title-cell">
+                            <FileText size={16} />
+                            <span>{paper.title}</span>
+                          </td>
+                          <td>{paper.journal || "Unknown journal"}</td>
+                          <td>{paper.date || "-"}</td>
+                          <td className="overview-stars" aria-label={`${rating} stars`}>
+                            {[1, 2, 3, 4, 5].map((star) => (
+                              <span key={star} className={star <= rating ? "active" : ""}>
+                                {star <= rating ? "\u2605" : "\u2606"}
+                              </span>
+                            ))}
+                          </td>
+                          <td className="overview-tags">
+                            {categories.length ? categories.map((category) => <span key={category}>{category}</span>) : <span className="muted">-</span>}
+                          </td>
+                          <td>{added ? formatShortTime(added) : "-"}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </section>
+            ) : (
+              <section className="reader-grid" style={{ gridTemplateColumns: readerGridTemplate }}>
               {!visiblePaneKeys.length && <div className="reader-empty">当前没有显示的阅读栏。</div>}
               {visiblePaneKeys.map((pane, index) => (
                 <div className="pane-slot" key={pane}>
@@ -1666,8 +1756,9 @@ export default function App() {
                   )}
                 </div>
               ))}
-            </section>
-            {viewMode === "reader" && <GiscusComments paper={active} />}
+              </section>
+            )}
+            {!isOverviewMode && viewMode === "reader" && <GiscusComments paper={active} />}
           </>
         )}
       </main>
