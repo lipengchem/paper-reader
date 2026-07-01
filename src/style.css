@@ -1031,6 +1031,7 @@ button:disabled {
 .reader-grid {
   display: grid;
   gap: 14px;
+  flex: 0 0 calc(100vh - 56px);
   height: calc(100vh - 56px);
   padding: 14px;
   min-height: 0;
@@ -1451,6 +1452,7 @@ button:disabled {
 
   .reader-grid {
     grid-template-columns: 1fr;
+    flex: 0 0 auto;
     height: auto;
   }
 
