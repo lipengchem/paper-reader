@@ -180,6 +180,56 @@ function parseTags(value: string) {
   );
 }
 
+type ParsedSearchQuery = {
+  mode: "all" | "category" | "tag";
+  value: string;
+};
+
+function parseSearchQuery(value: string): ParsedSearchQuery {
+  const trimmed = value.trim().toLowerCase();
+  const prefixMatch = trimmed.match(/^(tag|tags|标签|label|cat|category|类别|分类)\s*[:：]\s*(.+)$/);
+  if (!prefixMatch) return { mode: "all", value: trimmed };
+  const prefix = prefixMatch[1];
+  const mode = ["tag", "tags", "标签", "label"].includes(prefix) ? "tag" : "category";
+  return { mode, value: prefixMatch[2].trim() };
+}
+
+function searchTokens(value = "") {
+  return value
+    .toLowerCase()
+    .split(/[\s,;:()[\]{}'"，。；：、/\\._-]+/)
+    .map((token) => token.trim())
+    .filter(Boolean);
+}
+
+function matchesSearchField(value: string | undefined, query: string) {
+  if (!query) return true;
+  const normalized = (value || "").toLowerCase();
+  if (!normalized) return false;
+  const tokens = searchTokens(normalized);
+  if (tokens.some((token) => token.startsWith(query))) return true;
+  return query.length >= 3 && normalized.includes(query);
+}
+
+function matchSearchList(values: string[] | undefined, query: string) {
+  return (values || []).some((value) => matchesSearchField(value, query));
+}
+
+function searchRank(paper: PaperItem, local: ReaderState, parsed: ParsedSearchQuery) {
+  const q = parsed.value;
+  if (!q) return 0;
+  const categoryMatch = matchSearchList(local.categories, q);
+  const tagMatch = matchSearchList(local.tags, q);
+  const metadataMatch = [paper.title, paper.journal, paper.date, ...(paper.collections || [])].some((value) =>
+    matchesSearchField(value, q),
+  );
+  if (parsed.mode === "category") return categoryMatch ? 0 : Number.POSITIVE_INFINITY;
+  if (parsed.mode === "tag") return tagMatch ? 0 : Number.POSITIVE_INFINITY;
+  if (categoryMatch || tagMatch) return 0;
+  if (metadataMatch) return 1;
+  return Number.POSITIVE_INFINITY;
+}
+
 function formatShortTime(value = "") {
   if (!value) return "";
   const date = new Date(value);
@@ -833,15 +883,11 @@ export default function App() {
   );
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
+    const parsedQuery = parseSearchQuery(query);
     const result = visibleLibraryPapers.filter((paper) => {
       const local = states[paper.slug] || {};
       const isRead = !!local.read || !!local.rating;
-      const searchable = [paper.title, paper.journal, paper.date, ...(paper.collections || [])]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
-      if (q && !searchable.includes(q)) return false;
+      if (!Number.isFinite(searchRank(paper, local, parsedQuery))) return false;
       if (journalFilter !== "all" && paper.journal !== journalFilter) return false;
       if (dateFilter !== "all" && monthFromDate(paper.date) !== dateFilter) return false;
       if (categoryFilter !== "all" && !(local.categories || []).includes(categoryFilter)) return false;
@@ -852,6 +898,9 @@ export default function App() {
     return result.sort((a, b) => {
       const stateA = states[a.slug] || {};
       const stateB = states[b.slug] || {};
+      const rankA = searchRank(a, stateA, parsedQuery);
+      const rankB = searchRank(b, stateB, parsedQuery);
+      if (rankA !== rankB) return rankA - rankB;
       let value = 0;
       if (sortKey === "date") value = a.date.localeCompare(b.date);
       if (sortKey === "uploaded") value = (a.uploadedAt || a.createdAt || "").localeCompare(b.uploadedAt || b.createdAt || "");
@@ -1225,7 +1274,7 @@ export default function App() {
             className="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="搜索标题、期刊、日期、集合"
+            placeholder="搜索标题、期刊、日期、集合、类别、标签"
           />
 
           {auth.authenticated && libraryScope.type === "mine" && (
