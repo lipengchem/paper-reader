@@ -78,6 +78,59 @@ function randomToken() {
   return btoa(String.fromCharCode(...bytes)).replaceAll("+", "-").replaceAll("/", "_").replaceAll("=", "");
 }
 
+function parseJsonArray(value) {
+  try {
+    const parsed = JSON.parse(value || "[]");
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function clampPercent(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return 0;
+  return Math.max(0, Math.min(100, number));
+}
+
+function normalizePdfAnnotations(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .slice(0, 1000)
+    .map((item) => {
+      const rects = Array.isArray(item?.rects)
+        ? item.rects
+            .slice(0, 30)
+            .map((rect) => ({
+              x: clampPercent(rect?.x),
+              y: clampPercent(rect?.y),
+              width: clampPercent(rect?.width),
+              height: clampPercent(rect?.height),
+            }))
+            .filter((rect) => rect.width > 0 && rect.height > 0)
+        : [];
+      return {
+        id: String(item?.id || randomToken()).slice(0, 80),
+        page: Math.max(1, Math.floor(Number(item?.page || 1))),
+        kind: item?.kind === "underline" ? "underline" : "highlight",
+        rects,
+        color: String(item?.color || "").slice(0, 32),
+        createdAt: String(item?.createdAt || "").slice(0, 40),
+      };
+    })
+    .filter((item) => item.rects.length);
+}
+
+async function ensureUserStateAnnotationColumn(env) {
+  if (!env.DB) return;
+  try {
+    await env.DB.prepare("ALTER TABLE user_states ADD COLUMN pdf_annotations_json TEXT NOT NULL DEFAULT '[]'").run();
+  } catch (error) {
+    const message = String(error?.message || error);
+    if (!/duplicate column|already exists/i.test(message)) throw error;
+  }
+}
+
 function siteUrl(env, path = "") {
   return `${(env.SITE_ORIGIN || "https://lipengchem.github.io/paper-reader").replace(/\/$/, "")}${path}`;
 }
@@ -531,21 +584,23 @@ async function handleCommentNotifications(request, env) {
 async function handleStates(request, env) {
   const session = await requireSession(request, env);
   if (session.error) return session.error;
+  await ensureUserStateAnnotationColumn(env);
   const url = new URL(request.url);
   const owner = url.searchParams.get("owner") || session.login;
   if (!(await canViewPersonalLibrary(env, session.login, owner))) {
     return json({ error: "没有权限查看该用户的阅读状态。" }, 403, corsHeaders(request, env));
   }
   const rows = await env.DB.prepare(
-    "SELECT paper_slug as paperSlug, read, rating, categories_json as categoriesJson, tags_json as tagsJson, hidden, note, scroll_top as scrollTop, updated_at as updatedAt FROM user_states WHERE login = ?",
+    "SELECT paper_slug as paperSlug, read, rating, categories_json as categoriesJson, tags_json as tagsJson, pdf_annotations_json as pdfAnnotationsJson, hidden, note, scroll_top as scrollTop, updated_at as updatedAt FROM user_states WHERE login = ?",
   ).bind(owner).all();
   const states = {};
   for (const row of rows.results || []) {
     states[row.paperSlug] = {
       read: !!row.read,
       rating: row.rating || 0,
-      categories: JSON.parse(row.categoriesJson || "[]"),
-      tags: JSON.parse(row.tagsJson || "[]"),
+      categories: parseJsonArray(row.categoriesJson),
+      tags: parseJsonArray(row.tagsJson),
+      pdfAnnotations: normalizePdfAnnotations(parseJsonArray(row.pdfAnnotationsJson)),
       hidden: !!row.hidden,
       note: row.note || "",
       scrollTop: row.scrollTop || 0,
@@ -558,6 +613,7 @@ async function handleStates(request, env) {
 async function handleState(request, env) {
   const session = await requireSession(request, env);
   if (session.error) return session.error;
+  await ensureUserStateAnnotationColumn(env);
   const body = await request.json();
   const paperSlug = body.paperSlug || "";
   if (!paperSlug) return json({ error: "Missing paperSlug" }, 400, corsHeaders(request, env));
@@ -566,26 +622,28 @@ async function handleState(request, env) {
   const read = state.read || rating > 0 ? 1 : 0;
   const categories = Array.isArray(state.categories) ? state.categories.map((category) => String(category).trim()).filter(Boolean).slice(0, 40) : [];
   const tags = Array.isArray(state.tags) ? state.tags.map((tag) => String(tag).trim()).filter(Boolean).slice(0, 40) : [];
+  const pdfAnnotations = normalizePdfAnnotations(state.pdfAnnotations);
   const hidden = state.hidden ? 1 : 0;
   const note = String(state.note || "").slice(0, 20000);
   const scrollTop = Math.max(0, Number(state.scrollTop || 0));
   const updatedAt = new Date().toISOString();
   await env.DB.prepare(
-    `INSERT INTO user_states (login, paper_slug, read, rating, categories_json, tags_json, hidden, note, scroll_top, updated_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `INSERT INTO user_states (login, paper_slug, read, rating, categories_json, tags_json, pdf_annotations_json, hidden, note, scroll_top, updated_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
      ON CONFLICT(login, paper_slug) DO UPDATE SET
        read = excluded.read,
        rating = excluded.rating,
        categories_json = excluded.categories_json,
        tags_json = excluded.tags_json,
+       pdf_annotations_json = excluded.pdf_annotations_json,
        hidden = excluded.hidden,
        note = excluded.note,
        scroll_top = excluded.scroll_top,
        updated_at = excluded.updated_at`,
-  ).bind(session.login, paperSlug, read, rating, JSON.stringify(categories), JSON.stringify(tags), hidden, note, scrollTop, updatedAt).run();
+  ).bind(session.login, paperSlug, read, rating, JSON.stringify(categories), JSON.stringify(tags), JSON.stringify(pdfAnnotations), hidden, note, scrollTop, updatedAt).run();
   return json({
     paperSlug,
-    state: { read: !!read, rating, categories, tags, hidden: !!hidden, note, scrollTop, updatedAt },
+    state: { read: !!read, rating, categories, tags, pdfAnnotations, hidden: !!hidden, note, scrollTop, updatedAt },
   }, 200, corsHeaders(request, env));
 }
 

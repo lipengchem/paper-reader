@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import * as pdfjsLib from "pdfjs-dist";
+import pdfWorkerSrc from "pdfjs-dist/build/pdf.worker.mjs?url";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -6,15 +8,20 @@ import {
   Bot,
   BookOpen,
   ChevronDown,
+  Eraser,
   FileText,
   Highlighter,
   LogOut,
+  MousePointer2,
   PanelLeftClose,
   PanelLeftOpen,
   Send,
   Trash2,
+  Underline,
   User,
 } from "lucide-react";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerSrc;
 
 type PaperItem = {
   slug: string;
@@ -49,10 +56,22 @@ type ReaderState = {
   rating?: number;
   categories?: string[];
   tags?: string[];
+  pdfAnnotations?: PdfAnnotation[];
   hidden?: boolean;
   note?: string;
   scrollTop?: number;
   updatedAt?: string;
+};
+
+type PdfAnnotationKind = "highlight" | "underline";
+
+type PdfAnnotation = {
+  id: string;
+  page: number;
+  kind: PdfAnnotationKind;
+  rects: Array<{ x: number; y: number; width: number; height: number }>;
+  color?: string;
+  createdAt?: string;
 };
 
 type AiMessage = {
@@ -264,6 +283,322 @@ function displayJournalName(journal = "") {
     .map((word) => word[0]?.toUpperCase() || "")
     .join("");
   return abbreviation || journal;
+}
+
+function createAnnotationId() {
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 9)}`;
+}
+
+function clampPercent(value: number) {
+  if (!Number.isFinite(value)) return 0;
+  return Math.max(0, Math.min(100, value));
+}
+
+function normalizePdfAnnotations(value: unknown): PdfAnnotation[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .slice(0, 1000)
+    .map((item: any) => {
+      const rects = Array.isArray(item?.rects)
+        ? item.rects
+            .slice(0, 30)
+            .map((rect: any) => ({
+              x: clampPercent(Number(rect?.x)),
+              y: clampPercent(Number(rect?.y)),
+              width: clampPercent(Number(rect?.width)),
+              height: clampPercent(Number(rect?.height)),
+            }))
+            .filter((rect: { width: number; height: number }) => rect.width > 0 && rect.height > 0)
+        : [];
+      return {
+        id: String(item?.id || createAnnotationId()).slice(0, 80),
+        page: Math.max(1, Math.floor(Number(item?.page || 1))),
+        kind: item?.kind === "underline" ? "underline" : "highlight",
+        rects,
+        color: String(item?.color || "").slice(0, 32),
+        createdAt: String(item?.createdAt || "").slice(0, 40),
+      } as PdfAnnotation;
+    })
+    .filter((item) => item.rects.length);
+}
+
+function rectsFromSelection(range: Range, container: HTMLElement) {
+  const containerRect = container.getBoundingClientRect();
+  if (!containerRect.width || !containerRect.height) return [];
+  return Array.from(range.getClientRects())
+    .map((rect) => {
+      const left = Math.max(rect.left, containerRect.left);
+      const top = Math.max(rect.top, containerRect.top);
+      const right = Math.min(rect.right, containerRect.right);
+      const bottom = Math.min(rect.bottom, containerRect.bottom);
+      const width = right - left;
+      const height = bottom - top;
+      if (width < 2 || height < 2) return null;
+      return {
+        x: ((left - containerRect.left) / containerRect.width) * 100,
+        y: ((top - containerRect.top) / containerRect.height) * 100,
+        width: (width / containerRect.width) * 100,
+        height: (height / containerRect.height) * 100,
+      };
+    })
+    .filter(Boolean) as PdfAnnotation["rects"];
+}
+
+function PdfPageView({
+  page,
+  pageNumber,
+  annotations,
+  mode,
+  canEdit,
+  onAdd,
+  onDelete,
+}: {
+  page: any;
+  pageNumber: number;
+  annotations: PdfAnnotation[];
+  mode: PdfAnnotationKind | "select" | "erase";
+  canEdit: boolean;
+  onAdd: (annotation: PdfAnnotation) => void;
+  onDelete: (id: string) => void;
+}) {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const textLayerRef = useRef<HTMLDivElement | null>(null);
+  const pageRef = useRef<HTMLDivElement | null>(null);
+  const [pageSize, setPageSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    let cancelled = false;
+    let renderTask: any;
+
+    async function renderPage() {
+      const canvas = canvasRef.current;
+      const textLayer = textLayerRef.current;
+      if (!canvas || !textLayer) return;
+      const viewport = page.getViewport({ scale: 1.35 });
+      const dpr = window.devicePixelRatio || 1;
+      setPageSize({ width: viewport.width, height: viewport.height });
+      canvas.width = Math.floor(viewport.width * dpr);
+      canvas.height = Math.floor(viewport.height * dpr);
+      canvas.style.width = `${viewport.width}px`;
+      canvas.style.height = `${viewport.height}px`;
+      const context = canvas.getContext("2d");
+      if (!context) return;
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+      renderTask = page.render({ canvasContext: context, viewport });
+      await renderTask.promise;
+      if (cancelled) return;
+
+      const textContent = await page.getTextContent();
+      if (cancelled) return;
+      textLayer.innerHTML = "";
+      textLayer.style.width = `${viewport.width}px`;
+      textLayer.style.height = `${viewport.height}px`;
+      for (const item of textContent.items || []) {
+        if (!item.str) continue;
+        const span = document.createElement("span");
+        const transform = pdfjsLib.Util.transform(viewport.transform, item.transform);
+        const fontHeight = Math.hypot(transform[2], transform[3]) || 10;
+        const angle = Math.atan2(transform[1], transform[0]);
+        span.textContent = item.str;
+        span.style.left = `${transform[4]}px`;
+        span.style.top = `${transform[5] - fontHeight}px`;
+        span.style.fontSize = `${fontHeight}px`;
+        span.style.fontFamily = "serif";
+        span.style.transform = `rotate(${angle}rad)`;
+        textLayer.appendChild(span);
+      }
+    }
+
+    renderPage().catch(() => {
+      if (textLayerRef.current) textLayerRef.current.textContent = "PDF 页面渲染失败";
+    });
+
+    return () => {
+      cancelled = true;
+      try {
+        renderTask?.cancel?.();
+      } catch {
+        // Ignore render cancellation races.
+      }
+    };
+  }, [page]);
+
+  const addAnnotationFromSelection = () => {
+    if (!canEdit || (mode !== "highlight" && mode !== "underline")) return;
+    const selection = window.getSelection();
+    const pageEl = pageRef.current;
+    const textLayer = textLayerRef.current;
+    if (!selection || !pageEl || !textLayer || selection.rangeCount === 0 || selection.isCollapsed) return;
+    const range = selection.getRangeAt(0);
+    const startNode = range.startContainer.nodeType === Node.TEXT_NODE ? range.startContainer.parentElement : range.startContainer;
+    const endNode = range.endContainer.nodeType === Node.TEXT_NODE ? range.endContainer.parentElement : range.endContainer;
+    if (!(startNode instanceof Node) || !(endNode instanceof Node)) return;
+    if (!textLayer.contains(startNode) || !textLayer.contains(endNode)) return;
+    const rects = rectsFromSelection(range, pageEl);
+    selection.removeAllRanges();
+    if (!rects.length) return;
+    onAdd({
+      id: createAnnotationId(),
+      page: pageNumber,
+      kind: mode,
+      rects,
+      createdAt: new Date().toISOString(),
+    });
+  };
+
+  return (
+    <div className="pdf-page-shell" style={{ width: pageSize.width, height: pageSize.height }}>
+      <div
+        ref={pageRef}
+        className={`pdf-page ${mode !== "select" ? `pdf-mode-${mode}` : ""}`}
+        onPointerUp={addAnnotationFromSelection}
+      >
+        <canvas ref={canvasRef} className="pdf-canvas" />
+        <div ref={textLayerRef} className="pdf-text-layer" />
+        <div className="pdf-annotation-layer" aria-hidden="true">
+          {annotations.map((annotation) =>
+            annotation.rects.map((rect, index) => (
+              <button
+                key={`${annotation.id}-${index}`}
+                className={`pdf-annotation pdf-annotation-${annotation.kind}`}
+                style={{
+                  left: `${rect.x}%`,
+                  top: `${rect.y}%`,
+                  width: `${rect.width}%`,
+                  height: `${rect.height}%`,
+                }}
+                type="button"
+                title={canEdit && mode === "erase" ? "删除这个标注" : "PDF 标注"}
+                onClick={(event) => {
+                  if (!canEdit || mode !== "erase") return;
+                  event.preventDefault();
+                  event.stopPropagation();
+                  onDelete(annotation.id);
+                }}
+              />
+            )),
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PdfReader({
+  src,
+  title,
+  annotations,
+  canEdit,
+  onChange,
+}: {
+  src: string;
+  title: string;
+  annotations: PdfAnnotation[];
+  canEdit: boolean;
+  onChange: (next: PdfAnnotation[]) => void;
+}) {
+  const [pdfDoc, setPdfDoc] = useState<any>(null);
+  const [pages, setPages] = useState<any[]>([]);
+  const [mode, setMode] = useState<PdfAnnotationKind | "select" | "erase">("select");
+  const [error, setError] = useState("");
+  const normalizedAnnotations = useMemo(() => normalizePdfAnnotations(annotations), [annotations]);
+
+  useEffect(() => {
+    let cancelled = false;
+    setPdfDoc(null);
+    setPages([]);
+    setError("");
+    const task = pdfjsLib.getDocument({ url: src });
+    task.promise
+      .then(async (doc) => {
+        if (cancelled) return;
+        setPdfDoc(doc);
+        const loadedPages = await Promise.all(
+          Array.from({ length: doc.numPages }, (_, index) => doc.getPage(index + 1)),
+        );
+        if (!cancelled) setPages(loadedPages);
+      })
+      .catch((err) => {
+        if (!cancelled) setError(err instanceof Error ? err.message : "PDF 加载失败");
+      });
+    return () => {
+      cancelled = true;
+      try {
+        task.destroy();
+      } catch {
+        // Ignore cleanup races.
+      }
+    };
+  }, [src]);
+
+  const addAnnotation = (annotation: PdfAnnotation) => {
+    onChange(normalizePdfAnnotations([...normalizedAnnotations, annotation]));
+  };
+
+  const deleteAnnotation = (id: string) => {
+    onChange(normalizedAnnotations.filter((annotation) => annotation.id !== id));
+  };
+
+  return (
+    <div className="pdf-reader">
+      <div className="pdf-annotation-toolbar">
+        <button className={mode === "select" ? "active" : ""} onClick={() => setMode("select")} title="普通选择">
+          <MousePointer2 size={15} />
+          选择
+        </button>
+        <button
+          className={mode === "highlight" ? "active" : ""}
+          onClick={() => setMode("highlight")}
+          disabled={!canEdit}
+          title={canEdit ? "选中文字后保存高亮" : "好友文献库只读"}
+        >
+          <Highlighter size={15} />
+          高亮
+        </button>
+        <button
+          className={mode === "underline" ? "active" : ""}
+          onClick={() => setMode("underline")}
+          disabled={!canEdit}
+          title={canEdit ? "选中文字后保存下划线" : "好友文献库只读"}
+        >
+          <Underline size={15} />
+          下划线
+        </button>
+        <button
+          className={mode === "erase" ? "active" : ""}
+          onClick={() => setMode("erase")}
+          disabled={!canEdit || !normalizedAnnotations.length}
+          title="点击已有标注删除"
+        >
+          <Eraser size={15} />
+          删除
+        </button>
+        <span className="pdf-annotation-hint">
+          {canEdit ? "高亮/下划线会保存到你的账号" : "当前文献库只读"}
+        </span>
+      </div>
+      {error ? (
+        <div className="pdf-reader-error">{error}</div>
+      ) : !pdfDoc || !pages.length ? (
+        <div className="pdf-reader-loading">正在加载 PDF...</div>
+      ) : (
+        <div className="pdf-reader-pages" aria-label={`${title} PDF`}>
+          {pages.map((page, index) => (
+            <PdfPageView
+              key={index}
+              page={page}
+              pageNumber={index + 1}
+              annotations={normalizedAnnotations.filter((annotation) => annotation.page === index + 1)}
+              mode={mode}
+              canEdit={canEdit}
+              onAdd={addAnnotation}
+              onDelete={deleteAnnotation}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 function GiscusComments({ paper }: { paper: PaperItem }) {
@@ -810,6 +1145,16 @@ export default function App() {
     } catch (err) {
       setSyncError(err instanceof Error ? err.message : "个人状态保存失败。");
     }
+  };
+
+  const savePdfAnnotations = (nextAnnotations: PdfAnnotation[]) => {
+    if (!active || !canEditReaderState) return;
+    const nextState: ReaderState = {
+      ...(states[active.slug] || {}),
+      pdfAnnotations: normalizePdfAnnotations(nextAnnotations),
+    };
+    setStates((prev) => ({ ...prev, [active.slug]: nextState }));
+    saveReaderState(active.slug, nextState);
   };
 
   const loadAiSession = async () => {
@@ -1773,7 +2118,13 @@ export default function App() {
                           </ReactMarkdown>
                         </article>
                       ) : (
-                        <iframe className="pdf-frame" src={resolvePdfUrl(active.pdfPath)} title={`${active.title} PDF`} />
+                        <PdfReader
+                          src={resolveFileUrl(active.pdfPath)}
+                          title={active.title}
+                          annotations={states[active.slug]?.pdfAnnotations || []}
+                          canEdit={canEditReaderState}
+                          onChange={savePdfAnnotations}
+                        />
                       )}
                     </section>
                   )}

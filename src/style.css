@@ -1255,6 +1255,153 @@ button:disabled {
   background: #eef2f2;
 }
 
+.pdf-reader {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  background: #eef2f2;
+}
+
+.pdf-annotation-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  border-bottom: 1px solid #d7e2e1;
+  padding: 8px 10px;
+  background: #f8fbfb;
+}
+
+.pdf-annotation-toolbar button {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  border: 1px solid #cbdad8;
+  border-radius: 6px;
+  padding: 5px 8px;
+  background: #ffffff;
+  color: #123238;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pdf-annotation-toolbar button.active {
+  border-color: #62b7ad;
+  background: #e4f4f1;
+  color: #006a62;
+  font-weight: 700;
+}
+
+.pdf-annotation-toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.pdf-annotation-hint {
+  margin-left: auto;
+  color: #6a7d82;
+  font-size: 12px;
+}
+
+.pdf-reader-pages {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+  padding: 18px;
+}
+
+.pdf-page-shell {
+  position: relative;
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid #d7e2e1;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(21, 44, 49, 0.08);
+}
+
+.pdf-page {
+  position: relative;
+  width: fit-content;
+  min-width: 100%;
+}
+
+.pdf-canvas {
+  display: block;
+  background: #ffffff;
+}
+
+.pdf-text-layer,
+.pdf-annotation-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.pdf-text-layer {
+  overflow: hidden;
+  line-height: 1;
+}
+
+.pdf-text-layer span {
+  position: absolute;
+  transform-origin: 0 0;
+  white-space: pre;
+  color: transparent;
+  user-select: text;
+  cursor: text;
+}
+
+.pdf-mode-highlight .pdf-text-layer span,
+.pdf-mode-underline .pdf-text-layer span {
+  cursor: crosshair;
+}
+
+.pdf-annotation-layer {
+  pointer-events: none;
+}
+
+.pdf-annotation {
+  position: absolute;
+  z-index: 2;
+  border: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+
+.pdf-annotation-highlight {
+  border-radius: 2px;
+  background: rgba(255, 218, 72, 0.42);
+}
+
+.pdf-annotation-underline {
+  border-radius: 0;
+  border-bottom: 2px solid rgba(218, 135, 0, 0.95);
+  background: transparent;
+}
+
+.pdf-mode-erase .pdf-annotation {
+  cursor: not-allowed;
+  outline: 1px dashed rgba(184, 73, 73, 0.85);
+}
+
+.pdf-reader-loading,
+.pdf-reader-error {
+  display: grid;
+  flex: 1;
+  min-height: 180px;
+  place-items: center;
+  padding: 24px;
+  color: #53686d;
+}
+
+.pdf-reader-error {
+  color: #a31818;
+}
+
 .markdown-pane {
   flex: 1;
   min-height: 0;
