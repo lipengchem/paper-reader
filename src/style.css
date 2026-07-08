@@ -56,7 +56,7 @@ button:disabled {
 .shell {
   position: relative;
   display: grid;
-  grid-template-columns: 300px 10px minmax(0, 1fr);
+  grid-template-columns: 300px 18px minmax(0, 1fr);
   height: 100vh;
   min-height: 0;
   overflow: hidden;
@@ -87,11 +87,13 @@ button:disabled {
 }
 
 .shell-divider {
+  position: relative;
   align-self: stretch;
-  width: 10px;
+  width: 18px;
   border: 0;
+  border-radius: 0;
   background:
-    linear-gradient(90deg, transparent 0 4px, #d2dfde 4px 6px, transparent 6px 10px);
+    linear-gradient(90deg, transparent 0 7px, #d2dfde 7px 11px, transparent 11px 18px);
   cursor: col-resize;
   touch-action: none;
 }
@@ -99,7 +101,24 @@ button:disabled {
 .shell-divider:hover,
 .shell-divider:focus-visible {
   background:
-    linear-gradient(90deg, transparent 0 3px, #177c79 3px 7px, transparent 7px 10px);
+    linear-gradient(90deg, transparent 0 6px, #177c79 6px 12px, transparent 12px 18px);
+}
+
+.shell-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 54px;
+  border-radius: 999px;
+  background: #9eb8b6;
+  transform: translate(-50%, -50%);
+}
+
+.shell-divider:hover::after,
+.shell-divider:focus-visible::after {
+  background: #177c79;
 }
 
 .brand {
@@ -1051,11 +1070,13 @@ button:disabled {
 }
 
 .reader-height-resizer {
-  height: 14px;
+  position: relative;
+  height: 22px;
   margin: 0 14px;
   border: 0;
+  border-radius: 999px;
   background:
-    linear-gradient(180deg, transparent 0 5px, #d2dfde 5px 8px, transparent 8px 14px);
+    linear-gradient(180deg, transparent 0 9px, #d2dfde 9px 13px, transparent 13px 22px);
   cursor: row-resize;
   touch-action: none;
 }
@@ -1063,7 +1084,30 @@ button:disabled {
 .reader-height-resizer:hover,
 .reader-height-resizer:focus-visible {
   background:
-    linear-gradient(180deg, transparent 0 4px, #177c79 4px 9px, transparent 9px 14px);
+    linear-gradient(180deg, transparent 0 8px, #177c79 8px 14px, transparent 14px 22px);
+}
+
+.reader-height-resizer::after {
+  content: "拖动调整上方阅读区高度，双击恢复";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #c9d8d7;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #607175;
+  padding: 2px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.12s ease;
+}
+
+.reader-height-resizer:hover::after,
+.reader-height-resizer:focus-visible::after {
+  opacity: 1;
 }
 
 .pane-slot {
@@ -1587,26 +1631,26 @@ button:disabled {
   border: 1px solid #dbe4e3;
   border-radius: 8px;
   background: #ffffff;
-  padding: 24px 28px 28px;
+  padding: 24px 28px 38px;
   overflow: visible;
 }
 
 .comments-resizer {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 16px;
   right: 16px;
-  height: 12px;
+  height: 18px;
   cursor: row-resize;
   touch-action: none;
   background:
-    linear-gradient(180deg, transparent 0 5px, #d2dfde 5px 7px, transparent 7px 12px);
+    linear-gradient(180deg, transparent 0 7px, #d2dfde 7px 11px, transparent 11px 18px);
 }
 
 .comments-resizer:hover,
 .comments-resizer:focus-visible {
   background:
-    linear-gradient(180deg, transparent 0 4px, #177c79 4px 8px, transparent 8px 12px);
+    linear-gradient(180deg, transparent 0 6px, #177c79 6px 12px, transparent 12px 18px);
 }
 
 .comments-heading {

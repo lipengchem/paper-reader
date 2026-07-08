@@ -1348,7 +1348,7 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [sidebarWidth, setSidebarWidth] = useState(() => {
     const stored = Number(localStorage.getItem(sidebarWidthKey));
-    return Number.isFinite(stored) && stored >= 220 ? stored : defaultSidebarWidth;
+    return Number.isFinite(stored) ? Math.min(640, Math.max(220, stored)) : defaultSidebarWidth;
   });
   const [readerHeight, setReaderHeight] = useState(() => {
     const stored = Number(localStorage.getItem(readerHeightKey));
@@ -2147,7 +2147,7 @@ export default function App() {
         .join(" ")
     : "1fr";
   const shellGridTemplate = sidebarOpen
-    ? `${sidebarWidth}px 10px minmax(0, 1fr)`
+    ? `${sidebarWidth}px 18px minmax(0, 1fr)`
     : "minmax(0, 1fr)";
   const overviewTableWidth = Object.values(overviewColumnWidths).reduce((sum, width) => sum + width, 0);
 
@@ -2237,7 +2237,7 @@ export default function App() {
     const startWidth = sidebarWidth;
 
     const updateWidth = (clientX: number) => {
-      const next = Math.min(520, Math.max(220, startWidth + clientX - startX));
+      const next = Math.min(640, Math.max(220, startWidth + clientX - startX));
       setSidebarWidth(next);
       localStorage.setItem(sidebarWidthKey, String(next));
     };
