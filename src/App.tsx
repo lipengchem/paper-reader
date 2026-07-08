@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { PDFDocument, rgb } from "pdf-lib";
 import * as pdfjsLib from "pdfjs-dist";
 import pdfWorkerSrc from "pdfjs-dist/build/pdf.worker.mjs?url";
 import ReactMarkdown from "react-markdown";
@@ -16,6 +17,7 @@ import {
   MousePointer2,
   PanelLeftClose,
   PanelLeftOpen,
+  Save,
   Send,
   Trash2,
   Underline,
@@ -270,7 +272,12 @@ function displayJournalName(journal = "") {
   if (words.length < 3) return journal;
   const known: Record<string, string> = {
     "journal of the american chemical society": "JACS",
+    "the journal of physical chemistry b": "JPCB",
+    "journal of physical chemistry b": "JPCB",
+    "the journal of physical chemistry c": "JPCC",
     "journal of physical chemistry c": "J. Phys. Chem. C",
+    "the journal of physical chemistry letters": "JPCL",
+    "journal of physical chemistry letters": "JPCL",
     "journal of chemical theory and computation": "JCTC",
     "advanced intelligent discovery": "Adv. Intell. Discov.",
     "nature machine intelligence": "Nat. Mach. Intell.",
@@ -281,7 +288,7 @@ function displayJournalName(journal = "") {
   if (known[key]) return known[key];
   const ignored = new Set(["of", "the", "and", "for", "in", "on", "a", "an"]);
   const abbreviation = words
-    .filter((word, index) => index === 0 || !ignored.has(word.toLowerCase()))
+    .filter((word) => !ignored.has(word.toLowerCase()))
     .map((word) => word[0]?.toUpperCase() || "")
     .join("");
   return abbreviation || journal;
@@ -546,6 +553,128 @@ function PdfReader({
   const deleteAnnotation = (id: string) => {
     onChange(normalizedAnnotations.filter((annotation) => annotation.id !== id));
   };
+
+  const saveAnnotatedPdf = async () => {
+    if (!canEdit || uploadBusy) return;
+    if (!normalizedAnnotations.length) {
+      setError("先添加高亮或下划线，再保存批注版 PDF。");
+      return;
+    }
+    try {
+      setError("");
+      const res = await fetch(src, { cache: "no-store" });
+      if (!res.ok) throw new Error(`PDF 下载失败：${res.status}`);
+      const pdf = await PDFDocument.load(await res.arrayBuffer());
+      const pdfPages = pdf.getPages();
+      for (const annotation of normalizedAnnotations) {
+        const page = pdfPages[annotation.page - 1];
+        if (!page) continue;
+        const { width: pageWidth, height: pageHeight } = page.getSize();
+        for (const rect of annotation.rects) {
+          const x = (rect.x / 100) * pageWidth;
+          const y = pageHeight - ((rect.y + rect.height) / 100) * pageHeight;
+          const width = (rect.width / 100) * pageWidth;
+          const height = (rect.height / 100) * pageHeight;
+          if (width <= 0 || height <= 0) continue;
+          if (annotation.kind === "highlight") {
+            page.drawRectangle({
+              x,
+              y,
+              width,
+              height,
+              color: rgb(1, 0.82, 0.18),
+              opacity: 0.36,
+              borderOpacity: 0,
+            });
+          } else {
+            const lineY = y + Math.max(1, height * 0.12);
+            page.drawLine({
+              start: { x, y: lineY },
+              end: { x: x + width, y: lineY },
+              thickness: Math.max(0.9, pageHeight * 0.0012),
+              color: rgb(0.9, 0.48, 0),
+              opacity: 0.95,
+            });
+          }
+        }
+      }
+      const bytes = await pdf.save();
+      const pdfBuffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) as ArrayBuffer;
+      const safeTitle = title.replace(/[\\/:*?"<>|]+/g, "-").slice(0, 120) || "paper";
+      await onUploadAnnotatedPdf(new File([pdfBuffer], `${safeTitle}-annotated.pdf`, { type: "application/pdf" }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "批注版 PDF 保存失败。");
+    }
+  };
+
+  return (
+    <div className="pdf-reader">
+      <div className="pdf-annotation-toolbar">
+        <button className={mode === "select" ? "active" : ""} onClick={() => setMode("select")} title="普通选择">
+          <MousePointer2 size={15} />
+          选择
+        </button>
+        <button
+          className={mode === "highlight" ? "active" : ""}
+          onClick={() => setMode("highlight")}
+          disabled={!canEdit}
+          title={canEdit ? "选中文字后添加高亮" : "好友文献库只读"}
+        >
+          <Highlighter size={15} />
+          高亮
+        </button>
+        <button
+          className={mode === "underline" ? "active" : ""}
+          onClick={() => setMode("underline")}
+          disabled={!canEdit}
+          title={canEdit ? "选中文字后添加下划线" : "好友文献库只读"}
+        >
+          <Underline size={15} />
+          下划线
+        </button>
+        <button
+          className={mode === "erase" ? "active" : ""}
+          onClick={() => setMode("erase")}
+          disabled={!canEdit || !normalizedAnnotations.length}
+          title="点击已有标注删除"
+        >
+          <Eraser size={15} />
+          删除
+        </button>
+        <button
+          onClick={saveAnnotatedPdf}
+          disabled={!canEdit || uploadBusy || !normalizedAnnotations.length}
+          title="生成带批注的 PDF 并保存到我的文献库"
+        >
+          <Save size={15} />
+          {uploadBusy ? "保存中..." : "保存批注版"}
+        </button>
+        <span className="pdf-annotation-hint">
+          {canEdit ? "在这里标注，点保存批注版后会自动上传到我的文献库。" : "当前文献库只读。"}
+        </span>
+      </div>
+      {error ? (
+        <div className="pdf-reader-error">{error}</div>
+      ) : !pdfDoc || !pages.length ? (
+        <div className="pdf-reader-loading">正在加载 PDF...</div>
+      ) : (
+        <div className="pdf-reader-pages" aria-label={`${title} PDF`}>
+          {pages.map((page, index) => (
+            <PdfPageView
+              key={index}
+              page={page}
+              pageNumber={index + 1}
+              annotations={normalizedAnnotations.filter((annotation) => annotation.page === index + 1)}
+              mode={mode}
+              canEdit={canEdit}
+              onAdd={addAnnotation}
+              onDelete={deleteAnnotation}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <div className="pdf-reader">
