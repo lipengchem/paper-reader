@@ -587,7 +587,7 @@ function PdfJsEditor({
   const [tool, setTool] = useState<PdfJsEditorTool>("select");
   const [pageNumber, setPageNumber] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-  const [scaleText, setScaleText] = useState("适应宽度");
+  const [scaleText, setScaleText] = useState("适应界面");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [saveMessage, setSaveMessage] = useState("");
@@ -606,6 +606,13 @@ function PdfJsEditor({
     HIGHLIGHT_FREE: 33,
     INK_COLOR_AND_OPACITY: 24,
     INK_THICKNESS: 22,
+  };
+
+  const fitToPane = () => {
+    const viewer = pdfViewerRef.current;
+    if (!viewer) return;
+    viewer.currentScaleValue = "page-fit";
+    setScaleText("适应界面");
   };
 
   const applyTool = (nextTool: PdfJsEditorTool) => {
@@ -627,7 +634,7 @@ function PdfJsEditor({
           ? annotationEditorType.FREETEXT
           : nextTool === "ink"
             ? annotationEditorType.INK
-            : annotationEditorType.HIGHLIGHT;
+            : annotationEditorType.NONE;
     pdfViewer.annotationEditorMode = { mode };
   };
 
@@ -693,12 +700,11 @@ function PdfJsEditor({
         linkService.setViewer(pdfViewer);
 
         eventBus.on("pagesinit", () => {
-          pdfViewer.currentScaleValue = "page-width";
+          pdfViewer.currentScaleValue = "page-fit";
           setPageCount(pdfViewer.pagesCount || pdfDocRef.current?.numPages || 0);
-          setScaleText("适应宽度");
-          if (canEdit) {
-            pdfViewer.annotationEditorMode = { mode: annotationEditorType.HIGHLIGHT };
-          }
+          setScaleText("适应界面");
+          window.setTimeout(fitToPane, 50);
+          pdfViewer.annotationEditorMode = { mode: annotationEditorType.NONE };
           dispatchEditorParam(annotationEditorParamsType.HIGHLIGHT_COLOR, "#ffe066");
           dispatchEditorParam(annotationEditorParamsType.HIGHLIGHT_FREE, false);
           dispatchEditorParam(annotationEditorParamsType.FREETEXT_COLOR, "#0f3b3b");
@@ -710,7 +716,13 @@ function PdfJsEditor({
           setPageNumber(nextPage);
         });
         eventBus.on("scalechanging", ({ scale, presetValue }: { scale: number; presetValue?: string }) => {
-          setScaleText(presetValue === "page-width" ? "适应宽度" : `${Math.round(scale * 100)}%`);
+          setScaleText(
+            presetValue === "page-fit"
+              ? "适应界面"
+              : presetValue === "page-width"
+                ? "适应宽度"
+                : `${Math.round(scale * 100)}%`,
+          );
         });
 
         loadingTask = pdfjsLib.getDocument({ url: src, enableXfa: true });
@@ -776,12 +788,7 @@ function PdfJsEditor({
     viewer.currentScale = Math.max(0.25, Math.min(4, viewer.currentScale * factor));
   };
 
-  const fitWidth = () => {
-    const viewer = pdfViewerRef.current;
-    if (!viewer) return;
-    viewer.currentScaleValue = "page-width";
-    setScaleText("适应宽度");
-  };
+  const fitWidth = () => fitToPane();
 
   const saveEditedPdf = async () => {
     const pdfDoc = pdfDocRef.current;
@@ -853,7 +860,7 @@ function PdfJsEditor({
           <button type="button" onClick={() => zoomBy(0.9)} title="缩小">
             <ZoomOut size={15} />
           </button>
-          <button type="button" onDoubleClick={fitWidth} onClick={fitWidth} className="pdfjs-scale-button" title="适应宽度">
+          <button type="button" onDoubleClick={fitWidth} onClick={fitWidth} className="pdfjs-scale-button" title="适应界面">
             {scaleText}
           </button>
           <button type="button" onClick={() => zoomBy(1.1)} title="放大">
@@ -2147,7 +2154,7 @@ export default function App() {
         .join(" ")
     : "1fr";
   const shellGridTemplate = sidebarOpen
-    ? `${sidebarWidth}px 18px minmax(0, 1fr)`
+    ? `${sidebarWidth}px minmax(0, 1fr)`
     : "minmax(0, 1fr)";
   const overviewTableWidth = Object.values(overviewColumnWidths).reduce((sum, width) => sum + width, 0);
 
@@ -2555,6 +2562,7 @@ export default function App() {
       {sidebarOpen && (
         <div
           className="shell-divider"
+          style={{ left: sidebarWidth - 9 }}
           role="separator"
           aria-label="调整文献列表宽度"
           aria-orientation="vertical"
