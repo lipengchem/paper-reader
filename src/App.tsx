@@ -23,6 +23,7 @@ import {
   Send,
   Trash2,
   Underline,
+  Undo2,
   Upload,
   Type,
   User,
@@ -581,6 +582,16 @@ function PdfJsEditor({
     });
   };
 
+  const runEditingAction = (name: "undo" | "delete") => {
+    const eventBus = eventBusRef.current;
+    const pdfViewer = pdfViewerRef.current;
+    if (!eventBus || !pdfViewer) return;
+    eventBus.dispatch("editingaction", {
+      source: pdfViewer,
+      name,
+    });
+  };
+
   useEffect(() => {
     let cancelled = false;
     let loadingTask: any = null;
@@ -761,6 +772,16 @@ function PdfJsEditor({
           >
             <Pencil size={15} />
             画笔
+          </button>
+        </div>
+        <div className="pdfjs-tool-group">
+          <button type="button" onClick={() => runEditingAction("undo")} disabled={!canEdit} title="撤销上一步 PDF 批注操作">
+            <Undo2 size={15} />
+            撤销
+          </button>
+          <button type="button" onClick={() => runEditingAction("delete")} disabled={!canEdit} title="先点选一个批注，再删除">
+            <Trash2 size={15} />
+            删除
           </button>
         </div>
         <div className="pdfjs-tool-group">
@@ -1993,7 +2014,7 @@ export default function App() {
     : "1fr";
   const shellGridTemplate = sidebarOpen
     ? `${sidebarWidth}px 10px minmax(0, 1fr)`
-    : "62px minmax(0, 1fr)";
+    : "minmax(0, 1fr)";
   const overviewTableWidth = Object.values(overviewColumnWidths).reduce((sum, width) => sum + width, 0);
 
   const openPaperFromOverview = (slug: string) => {
@@ -2362,11 +2383,11 @@ export default function App() {
           </div>
         </aside>
       ) : (
-        <aside className="sidebar" style={{ width: 62 }}>
-          <button className="icon-button" onClick={() => setSidebarOpen(true)} title="展开侧栏">
+        <div className="sidebar-collapsed-anchor">
+          <button className="icon-button sidebar-restore" onClick={() => setSidebarOpen(true)} title="展开侧栏">
             <PanelLeftOpen size={18} />
           </button>
-        </aside>
+        </div>
       )}
 
       {sidebarOpen && (

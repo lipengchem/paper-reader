@@ -54,11 +54,25 @@ button:disabled {
 }
 
 .shell {
+  position: relative;
   display: grid;
   grid-template-columns: 300px 10px minmax(0, 1fr);
   height: 100vh;
   min-height: 0;
   overflow: hidden;
+}
+
+.sidebar-collapsed-anchor {
+  position: absolute;
+  z-index: 50;
+  top: 14px;
+  left: 14px;
+}
+
+.sidebar-restore {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 22px rgba(19, 43, 45, 0.12);
+  backdrop-filter: blur(8px);
 }
 
 .sidebar {
