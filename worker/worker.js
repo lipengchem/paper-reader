@@ -694,10 +694,10 @@ async function handlePersonalPapers(request, env) {
       }
 
       const sourceSlug = String(form.get("paperSlug") || "").trim();
-      const sourceOwner = String(form.get("sourceOwner") || "").trim();
       const title = String(form.get("title") || pdf.name.replace(/\.[^.]+$/, "")).trim().slice(0, 300) || "Untitled paper";
       const journal = String(form.get("journal") || "").trim().slice(0, 200);
       const date = String(form.get("date") || new Date().toISOString().slice(0, 10)).trim().slice(0, 20);
+      const sourcePdfPath = String(form.get("pdfPath") || "").trim();
       const markdownPath = String(form.get("markdownPath") || "").trim();
       const relatedReadingPath = String(form.get("relatedReadingPath") || "").trim();
       const translationType = String(form.get("translationType") || "markdown").trim() || "markdown";
@@ -705,7 +705,7 @@ async function handlePersonalPapers(request, env) {
       const now = new Date().toISOString();
 
       let existing = null;
-      if (sourceOwner === session.login && sourceSlug) {
+      if (sourceSlug) {
         existing = await env.DB.prepare(
           "SELECT slug FROM personal_papers WHERE owner_login = ? AND slug = ? LIMIT 1",
         ).bind(session.login, sourceSlug).first();
@@ -714,6 +714,21 @@ async function handlePersonalPapers(request, env) {
         existing = await env.DB.prepare(
           "SELECT slug FROM personal_papers WHERE owner_login = ? AND markdown_path = ? LIMIT 1",
         ).bind(session.login, markdownPath).first();
+      }
+      if (!existing && sourcePdfPath) {
+        existing = await env.DB.prepare(
+          "SELECT slug FROM personal_papers WHERE owner_login = ? AND pdf_path = ? LIMIT 1",
+        ).bind(session.login, sourcePdfPath).first();
+      }
+      if (!existing && title) {
+        existing = await env.DB.prepare(
+          `SELECT slug FROM personal_papers
+           WHERE owner_login = ?
+             AND lower(title) = lower(?)
+             AND lower(coalesce(journal, '')) = lower(?)
+             AND coalesce(date, '') = ?
+           LIMIT 1`,
+        ).bind(session.login, title, journal, date).first();
       }
 
       const slug = existing?.slug || `${session.login}-${Date.now()}-${slugify(title)}`;

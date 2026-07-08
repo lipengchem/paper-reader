@@ -178,6 +178,67 @@ function fileIdentity(path = "") {
   }
 }
 
+function compareKey(value = "") {
+  return String(value || "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function isAnnotatedPdfPath(path = "") {
+  return /annotated/i.test(fileIdentity(path));
+}
+
+function paperIdentityKey(paper: PaperItem) {
+  const markdownIdentity = fileIdentity(paper.markdownPath || "");
+  if (markdownIdentity) return `md:${markdownIdentity.toLowerCase()}`;
+  return `meta:${compareKey(paper.title)}|${compareKey(paper.journal)}|${compareKey(paper.date)}`;
+}
+
+function paperTimestamp(paper: PaperItem) {
+  const value = paper.uploadedAt || paper.createdAt || paper.taskDate || "";
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function mergeDuplicatePapers(items: PaperItem[], states: Record<string, ReaderState>) {
+  const merged = new Map<string, PaperItem>();
+  for (const item of items) {
+    const key = paperIdentityKey(item);
+    const existing = merged.get(key);
+    if (!existing) {
+      merged.set(key, item);
+      continue;
+    }
+
+    const existingHasState = !!states[existing.slug] && Object.keys(states[existing.slug]).length > 0;
+    const itemHasState = !!states[item.slug] && Object.keys(states[item.slug]).length > 0;
+    const keepItemShell = !existingHasState && itemHasState;
+    const shell = keepItemShell ? item : existing;
+    const other = keepItemShell ? existing : item;
+    const useItemPdf =
+      isAnnotatedPdfPath(item.pdfPath) ||
+      (!isAnnotatedPdfPath(existing.pdfPath) && paperTimestamp(item) > paperTimestamp(existing));
+
+    merged.set(key, {
+      ...other,
+      ...shell,
+      pdfPath: useItemPdf ? item.pdfPath : existing.pdfPath || item.pdfPath,
+      markdownPath: shell.markdownPath || other.markdownPath,
+      relatedReadingPath: shell.relatedReadingPath || other.relatedReadingPath,
+      relatedReading: !!(shell.relatedReading || other.relatedReading || shell.relatedReadingPath || other.relatedReadingPath),
+      originalType: useItemPdf ? item.originalType || "pdf" : shell.originalType || other.originalType,
+      translationType: shell.translationType || other.translationType,
+      relatedReadingType: shell.relatedReadingType || other.relatedReadingType,
+      ownerLogin: shell.ownerLogin || other.ownerLogin,
+      personal: !!(shell.personal || other.personal),
+      createdAt: shell.createdAt || other.createdAt,
+      uploadedAt:
+        paperTimestamp(item) > paperTimestamp(existing)
+          ? item.uploadedAt || item.createdAt || shell.uploadedAt
+          : shell.uploadedAt || other.uploadedAt,
+    });
+  }
+  return Array.from(merged.values());
+}
+
 function paperLocation(slug: string, view: "reader" | "related" = "reader", scope?: LibraryScope) {
   const params = new URLSearchParams();
   if (slug) params.set("paper", slug);
@@ -205,7 +266,7 @@ const readerHeightKey = "paper-reader:reader-height";
 const defaultPaneWeights: Record<PaneKey, number> = { pdf: 42, text: 42, ai: 22 };
 const defaultSidebarWidth = 300;
 const defaultCommentsHeight = 520;
-const defaultReaderHeight = () => Math.max(620, window.innerHeight - 150);
+const defaultReaderHeight = () => Math.max(680, window.innerHeight - 96);
 const defaultOverviewColumnWidths: Record<SortKey, number> = {
   title: 560,
   journal: 250,
@@ -620,6 +681,11 @@ function PdfJsEditor({
     const eventBus = eventBusRef.current;
     const pdfViewer = pdfViewerRef.current;
     if (!eventBus || !pdfViewer) return;
+    if (nextTool === "select") {
+      pdfViewer.annotationEditorMode = { mode: annotationEditorType.NONE };
+      dispatchEditorParam(annotationEditorParamsType.HIGHLIGHT_FREE, false);
+      return;
+    }
     if (nextTool === "highlight" && !window.getSelection()?.isCollapsed) {
       eventBus.dispatch("editingaction", {
         source: pdfViewer,
@@ -691,7 +757,7 @@ function PdfJsEditor({
           annotationMode: annotationMode.ENABLE_STORAGE ?? annotationMode.ENABLE,
           annotationEditorMode: annotationEditorType.NONE,
           annotationEditorHighlightColors: "yellow=#ffe066,green=#b9f6ca,blue=#bbdefb,pink=#f8bbd0",
-          enableHighlightFloatingButton: true,
+          enableHighlightFloatingButton: false,
           removePageBorders: false,
         });
 
@@ -1355,11 +1421,12 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [sidebarWidth, setSidebarWidth] = useState(() => {
     const stored = Number(localStorage.getItem(sidebarWidthKey));
-    return Number.isFinite(stored) ? Math.min(640, Math.max(220, stored)) : defaultSidebarWidth;
+    return Number.isFinite(stored) ? Math.min(760, Math.max(220, stored)) : defaultSidebarWidth;
   });
   const [readerHeight, setReaderHeight] = useState(() => {
     const stored = Number(localStorage.getItem(readerHeightKey));
-    return Number.isFinite(stored) && stored >= 420 ? stored : defaultReaderHeight();
+    const minimum = defaultReaderHeight();
+    return Number.isFinite(stored) ? Math.max(minimum, stored) : minimum;
   });
   const [notifications, setNotifications] = useState<CommentNotification[]>([]);
   const [notificationOpen, setNotificationOpen] = useState(false);
@@ -1427,12 +1494,15 @@ export default function App() {
     checkAuth();
   }, []);
 
-  const active = useMemo(
-    () => [...papers, ...personalPapers].find((paper) => paper.slug === activeSlug),
-    [papers, personalPapers, activeSlug],
+  const allPapers = useMemo(
+    () => mergeDuplicatePapers([...papers, ...personalPapers], states),
+    [papers, personalPapers, states],
   );
 
-  const allPapers = useMemo(() => [...papers, ...personalPapers], [papers, personalPapers]);
+  const active = useMemo(
+    () => allPapers.find((paper) => paper.slug === activeSlug) || allPapers[0],
+    [allPapers, activeSlug],
+  );
   const canEditReaderState = auth.authenticated && libraryScope.type === "mine";
   const viewedOwner = libraryScope.type === "friend" ? libraryScope.owner || "" : auth.login || "";
 
@@ -1774,6 +1844,7 @@ export default function App() {
     formData.set("originalType", "pdf");
     formData.set("translationType", active.translationType || "markdown");
     formData.set("relatedReadingType", active.relatedReadingType || "markdown");
+    const currentSlug = active.slug;
     setAnnotatedPdfBusy(true);
     try {
       const res = await fetch(`${aiApiBase}/personal-papers/annotated-pdf`, {
@@ -1788,13 +1859,14 @@ export default function App() {
         setSyncError("批注版 PDF 已保存，正在等待 GitHub Pages 发布...");
         await waitForPublicFile(uploadedAnnotatedPdfPath);
       }
+      if (data.item) {
+        setPersonalPapers((prev) => mergeDuplicatePapers([data.item, ...prev], states));
+      }
       setLibraryScope({ type: "mine" });
       await loadPersonalPapers(auth.login || "");
       await loadMyPapers();
-      if (data.item?.slug) {
-        setActiveSlug(data.item.slug);
-        history.replaceState(null, "", paperLocation(data.item.slug, "reader", { type: "mine" }));
-      }
+      setActiveSlug(currentSlug);
+      history.replaceState(null, "", paperLocation(currentSlug, "reader", { type: "mine" }));
       setSyncError("已保存批注版 PDF 到我的文献库。");
     } catch (err) {
       const message = err instanceof Error ? err.message : "上传批注版 PDF 失败。";
@@ -2154,7 +2226,7 @@ export default function App() {
         .join(" ")
     : "1fr";
   const shellGridTemplate = sidebarOpen
-    ? `${sidebarWidth}px minmax(0, 1fr)`
+    ? `${sidebarWidth}px 18px minmax(0, 1fr)`
     : "minmax(0, 1fr)";
   const overviewTableWidth = Object.values(overviewColumnWidths).reduce((sum, width) => sum + width, 0);
 
@@ -2212,11 +2284,12 @@ export default function App() {
 
   const startReaderHeightResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     event.preventDefault();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
     const startY = event.clientY;
     const startHeight = readerHeight;
 
     const updateHeight = (clientY: number) => {
-      const next = Math.min(Math.max(520, window.innerHeight * 1.8), Math.max(420, startHeight + clientY - startY));
+      const next = Math.min(Math.max(760, window.innerHeight * 1.9), Math.max(520, startHeight + clientY - startY));
       setReaderHeight(next);
       localStorage.setItem(readerHeightKey, String(next));
     };
@@ -2240,11 +2313,13 @@ export default function App() {
 
   const startSidebarResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     event.preventDefault();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
     const startX = event.clientX;
     const startWidth = sidebarWidth;
 
     const updateWidth = (clientX: number) => {
-      const next = Math.min(640, Math.max(220, startWidth + clientX - startX));
+      const maxWidth = Math.min(760, Math.max(360, window.innerWidth * 0.45));
+      const next = Math.min(maxWidth, Math.max(220, startWidth + clientX - startX));
       setSidebarWidth(next);
       localStorage.setItem(sidebarWidthKey, String(next));
     };
@@ -2562,7 +2637,6 @@ export default function App() {
       {sidebarOpen && (
         <div
           className="shell-divider"
-          style={{ left: sidebarWidth - 9 }}
           role="separator"
           aria-label="调整文献列表宽度"
           aria-orientation="vertical"
