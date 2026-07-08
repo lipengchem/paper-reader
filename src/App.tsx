@@ -553,7 +553,15 @@ function PdfJsEditor({
   const applyTool = (nextTool: PdfJsEditorTool) => {
     setTool(nextTool);
     const eventBus = eventBusRef.current;
-    if (!eventBus) return;
+    const pdfViewer = pdfViewerRef.current;
+    if (!eventBus || !pdfViewer) return;
+    if (nextTool === "highlight" && !window.getSelection()?.isCollapsed) {
+      eventBus.dispatch("editingaction", {
+        source: pdfViewer,
+        name: "highlightSelection",
+      });
+      return;
+    }
     const mode =
       nextTool === "highlight"
         ? annotationEditorType.HIGHLIGHT
@@ -562,10 +570,7 @@ function PdfJsEditor({
           : nextTool === "ink"
             ? annotationEditorType.INK
             : annotationEditorType.NONE;
-    eventBus.dispatch("switchannotationeditormode", {
-      source: pdfViewerRef.current,
-      mode,
-    });
+    pdfViewer.annotationEditorMode = { mode };
   };
 
   const dispatchEditorParam = (type: number, value: unknown) => {
@@ -721,7 +726,7 @@ function PdfJsEditor({
 
   return (
     <div ref={shellRef} className="pdf-reader pdfjs-editor">
-      <div className="pdfjs-editor-toolbar">
+      <div className="pdfjs-editor-toolbar" onMouseDown={(event) => event.preventDefault()}>
         <div className="pdfjs-tool-group">
           <button className={tool === "select" ? "active" : ""} type="button" onClick={() => applyTool("select")}>
             <MousePointer2 size={15} />
