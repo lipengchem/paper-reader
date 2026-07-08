@@ -209,6 +209,31 @@ function parseTags(value: string) {
   );
 }
 
+function sleep(ms: number) {
+  return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+async function waitForPublicFile(url: string, timeoutMs = 120000) {
+  if (!url) return;
+  const deadline = Date.now() + timeoutMs;
+  let lastStatus = "";
+  while (Date.now() < deadline) {
+    try {
+      const separator = url.includes("?") ? "&" : "?";
+      const res = await fetch(`${url}${separator}ready=${Date.now()}`, {
+        method: "HEAD",
+        cache: "no-store",
+      });
+      if (res.ok) return;
+      lastStatus = String(res.status);
+    } catch (err) {
+      lastStatus = err instanceof Error ? err.message : "network error";
+    }
+    await sleep(3000);
+  }
+  throw new Error(`PDF 已保存，但 GitHub Pages 还没有发布完成，请稍后刷新。最后检查状态：${lastStatus || "timeout"}`);
+}
+
 type ParsedSearchQuery = {
   mode: "all" | "category" | "tag";
   value: string;
@@ -1633,6 +1658,11 @@ export default function App() {
       setUploadOriginal(null);
       setUploadTranslation(null);
       setUploadRelated(null);
+      const uploadedPdfPath = String(data.item?.pdfPath || "");
+      if (uploadedPdfPath) {
+        setSyncError("批注版 PDF 已保存，正在等待 GitHub Pages 发布...");
+        await waitForPublicFile(uploadedPdfPath);
+      }
       setLibraryScope({ type: "mine" });
       await loadPersonalPapers(auth.login || "");
       await loadMyPapers();
@@ -1676,6 +1706,11 @@ export default function App() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || `上传批注版 PDF 失败：${res.status}`);
+      const uploadedAnnotatedPdfPath = String(data.item?.pdfPath || "");
+      if (uploadedAnnotatedPdfPath) {
+        setSyncError("批注版 PDF 已保存，正在等待 GitHub Pages 发布...");
+        await waitForPublicFile(uploadedAnnotatedPdfPath);
+      }
       setLibraryScope({ type: "mine" });
       await loadPersonalPapers(auth.login || "");
       await loadMyPapers();
