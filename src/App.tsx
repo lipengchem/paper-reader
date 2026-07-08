@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointer
 import { PDFDocument, rgb } from "pdf-lib";
 import * as pdfjsLib from "pdfjs-dist";
 import pdfWorkerSrc from "pdfjs-dist/build/pdf.worker.mjs?url";
+import "pdfjs-dist/web/pdf_viewer.css";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
@@ -17,12 +18,16 @@ import {
   MousePointer2,
   PanelLeftClose,
   PanelLeftOpen,
+  Pencil,
   Save,
   Send,
   Trash2,
   Underline,
   Upload,
+  Type,
   User,
+  ZoomIn,
+  ZoomOut,
 } from "lucide-react";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerSrc;
@@ -493,6 +498,297 @@ function PdfPageView({
   );
 }
 
+type PdfJsEditorTool = "select" | "highlight" | "text" | "ink";
+
+type PdfJsViewerRuntime = {
+  EventBus: new () => any;
+  PDFLinkService: new (options: any) => any;
+  PDFFindController: new (options: any) => any;
+  PDFViewer: new (options: any) => any;
+};
+
+function PdfJsEditor({
+  src,
+  title,
+  canEdit,
+  onUploadAnnotatedPdf,
+  uploadBusy,
+}: {
+  src: string;
+  title: string;
+  canEdit: boolean;
+  onUploadAnnotatedPdf: (file: File) => void;
+  uploadBusy?: boolean;
+}) {
+  const shellRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const viewerRef = useRef<HTMLDivElement | null>(null);
+  const eventBusRef = useRef<any>(null);
+  const pdfViewerRef = useRef<any>(null);
+  const pdfDocRef = useRef<any>(null);
+  const [tool, setTool] = useState<PdfJsEditorTool>("select");
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
+  const [scaleText, setScaleText] = useState("适应宽度");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [saveMessage, setSaveMessage] = useState("");
+
+  const annotationEditorType = (pdfjsLib as any).AnnotationEditorType || {
+    NONE: 0,
+    FREETEXT: 3,
+    HIGHLIGHT: 9,
+    INK: 15,
+  };
+  const annotationMode = (pdfjsLib as any).AnnotationMode || { ENABLE_STORAGE: 3, ENABLE: 1 };
+  const annotationEditorParamsType = (pdfjsLib as any).AnnotationEditorParamsType || {
+    FREETEXT_COLOR: 12,
+    FREETEXT_SIZE: 11,
+    HIGHLIGHT_COLOR: 31,
+    HIGHLIGHT_FREE: 33,
+    INK_COLOR_AND_OPACITY: 24,
+    INK_THICKNESS: 22,
+  };
+
+  const applyTool = (nextTool: PdfJsEditorTool) => {
+    setTool(nextTool);
+    const eventBus = eventBusRef.current;
+    if (!eventBus) return;
+    const mode =
+      nextTool === "highlight"
+        ? annotationEditorType.HIGHLIGHT
+        : nextTool === "text"
+          ? annotationEditorType.FREETEXT
+          : nextTool === "ink"
+            ? annotationEditorType.INK
+            : annotationEditorType.NONE;
+    eventBus.dispatch("switchannotationeditormode", {
+      source: pdfViewerRef.current,
+      mode,
+    });
+  };
+
+  const dispatchEditorParam = (type: number, value: unknown) => {
+    eventBusRef.current?.dispatch("switchannotationeditorparams", {
+      source: pdfViewerRef.current,
+      type,
+      value,
+    });
+  };
+
+  useEffect(() => {
+    let cancelled = false;
+    let loadingTask: any = null;
+
+    async function loadPdf() {
+      const shell = shellRef.current;
+      const container = containerRef.current;
+      const viewerElement = viewerRef.current;
+      if (!shell || !container || !viewerElement) return;
+      setLoading(true);
+      setError("");
+      setSaveMessage("");
+      viewerElement.innerHTML = "";
+
+      try {
+        (globalThis as any).pdfjsLib = pdfjsLib;
+        const viewerRuntime = (await import("pdfjs-dist/web/pdf_viewer.mjs")) as PdfJsViewerRuntime;
+        if (cancelled) return;
+
+        const eventBus = new viewerRuntime.EventBus();
+        const linkService = new viewerRuntime.PDFLinkService({ eventBus });
+        const findController = new viewerRuntime.PDFFindController({ eventBus, linkService });
+        const pdfViewer = new viewerRuntime.PDFViewer({
+          container,
+          viewer: viewerElement,
+          eventBus,
+          linkService,
+          findController,
+          annotationMode: annotationMode.ENABLE_STORAGE ?? annotationMode.ENABLE,
+          annotationEditorMode: annotationEditorType.NONE,
+          annotationEditorHighlightColors: "yellow=#ffe066,green=#b9f6ca,blue=#bbdefb,pink=#f8bbd0",
+          enableHighlightFloatingButton: true,
+          removePageBorders: false,
+        });
+
+        eventBusRef.current = eventBus;
+        pdfViewerRef.current = pdfViewer;
+        linkService.setViewer(pdfViewer);
+
+        eventBus.on("pagesinit", () => {
+          pdfViewer.currentScaleValue = "page-width";
+          setPageCount(pdfViewer.pagesCount || pdfDocRef.current?.numPages || 0);
+          setScaleText("适应宽度");
+          dispatchEditorParam(annotationEditorParamsType.HIGHLIGHT_COLOR, "#ffe066");
+          dispatchEditorParam(annotationEditorParamsType.HIGHLIGHT_FREE, false);
+          dispatchEditorParam(annotationEditorParamsType.FREETEXT_COLOR, "#0f3b3b");
+          dispatchEditorParam(annotationEditorParamsType.FREETEXT_SIZE, 14);
+          dispatchEditorParam(annotationEditorParamsType.INK_COLOR_AND_OPACITY, { color: "#d97706", opacity: 1 });
+          dispatchEditorParam(annotationEditorParamsType.INK_THICKNESS, 2);
+        });
+        eventBus.on("pagechanging", ({ pageNumber: nextPage }: { pageNumber: number }) => {
+          setPageNumber(nextPage);
+        });
+        eventBus.on("scalechanging", ({ scale, presetValue }: { scale: number; presetValue?: string }) => {
+          setScaleText(presetValue === "page-width" ? "适应宽度" : `${Math.round(scale * 100)}%`);
+        });
+
+        loadingTask = pdfjsLib.getDocument({ url: src, enableXfa: true });
+        const pdfDoc = await loadingTask.promise;
+        if (cancelled) {
+          pdfDoc.destroy?.();
+          return;
+        }
+        pdfDocRef.current = pdfDoc;
+        pdfViewer.setDocument(pdfDoc);
+        linkService.setDocument(pdfDoc, null);
+        setPageCount(pdfDoc.numPages || 0);
+        setTool("select");
+        setLoading(false);
+      } catch (err) {
+        if (!cancelled) {
+          setError(err instanceof Error ? err.message : "PDF.js 编辑器加载失败。");
+          setLoading(false);
+        }
+      }
+    }
+
+    loadPdf();
+
+    return () => {
+      cancelled = true;
+      try {
+        pdfViewerRef.current?.setDocument?.(null);
+      } catch {
+        // Ignore viewer cleanup races.
+      }
+      try {
+        loadingTask?.destroy?.();
+      } catch {
+        // Ignore loading cleanup races.
+      }
+      try {
+        pdfDocRef.current?.destroy?.();
+      } catch {
+        // Ignore document cleanup races.
+      }
+      eventBusRef.current = null;
+      pdfViewerRef.current = null;
+      pdfDocRef.current = null;
+    };
+  }, [
+    annotationEditorParamsType.FREETEXT_COLOR,
+    annotationEditorParamsType.FREETEXT_SIZE,
+    annotationEditorParamsType.HIGHLIGHT_COLOR,
+    annotationEditorParamsType.HIGHLIGHT_FREE,
+    annotationEditorParamsType.INK_COLOR_AND_OPACITY,
+    annotationEditorParamsType.INK_THICKNESS,
+    annotationEditorType.NONE,
+    annotationMode.ENABLE,
+    annotationMode.ENABLE_STORAGE,
+    src,
+  ]);
+
+  const zoomBy = (factor: number) => {
+    const viewer = pdfViewerRef.current;
+    if (!viewer) return;
+    viewer.currentScale = Math.max(0.25, Math.min(4, viewer.currentScale * factor));
+  };
+
+  const fitWidth = () => {
+    const viewer = pdfViewerRef.current;
+    if (!viewer) return;
+    viewer.currentScaleValue = "page-width";
+    setScaleText("适应宽度");
+  };
+
+  const saveEditedPdf = async () => {
+    const pdfDoc = pdfDocRef.current;
+    if (!canEdit || uploadBusy || !pdfDoc) return;
+    try {
+      setError("");
+      setSaveMessage("正在保存批注版 PDF...");
+      const bytes = await pdfDoc.saveDocument();
+      const buffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) as ArrayBuffer;
+      const safeTitle = title.replace(/[\\/:*?"<>|]+/g, "-").slice(0, 120) || "paper";
+      await onUploadAnnotatedPdf(new File([buffer], `${safeTitle}-annotated.pdf`, { type: "application/pdf" }));
+      setSaveMessage("已保存到我的文献库。");
+    } catch (err) {
+      setSaveMessage("");
+      setError(err instanceof Error ? err.message : "批注版 PDF 保存失败。");
+    }
+  };
+
+  return (
+    <div ref={shellRef} className="pdf-reader pdfjs-editor">
+      <div className="pdfjs-editor-toolbar">
+        <div className="pdfjs-tool-group">
+          <button className={tool === "select" ? "active" : ""} type="button" onClick={() => applyTool("select")}>
+            <MousePointer2 size={15} />
+            选择
+          </button>
+          <button
+            className={tool === "highlight" ? "active" : ""}
+            type="button"
+            onClick={() => applyTool("highlight")}
+            disabled={!canEdit}
+            title={canEdit ? "选中文字后添加官方 PDF 高亮批注" : "当前文献库只读"}
+          >
+            <Highlighter size={15} />
+            高亮
+          </button>
+          <button
+            className={tool === "text" ? "active" : ""}
+            type="button"
+            onClick={() => applyTool("text")}
+            disabled={!canEdit}
+            title={canEdit ? "在 PDF 上添加文字批注" : "当前文献库只读"}
+          >
+            <Type size={15} />
+            文字
+          </button>
+          <button
+            className={tool === "ink" ? "active" : ""}
+            type="button"
+            onClick={() => applyTool("ink")}
+            disabled={!canEdit}
+            title={canEdit ? "用官方墨迹工具手写或划线" : "当前文献库只读"}
+          >
+            <Pencil size={15} />
+            画笔
+          </button>
+        </div>
+        <div className="pdfjs-tool-group">
+          <button type="button" onClick={() => zoomBy(0.9)} title="缩小">
+            <ZoomOut size={15} />
+          </button>
+          <button type="button" onDoubleClick={fitWidth} onClick={fitWidth} className="pdfjs-scale-button" title="适应宽度">
+            {scaleText}
+          </button>
+          <button type="button" onClick={() => zoomBy(1.1)} title="放大">
+            <ZoomIn size={15} />
+          </button>
+        </div>
+        <div className="pdfjs-tool-spacer" />
+        <span className="pdfjs-page-status">
+          {loading ? "加载中" : `${pageNumber} / ${pageCount || "-"}`}
+        </span>
+        <button type="button" onClick={saveEditedPdf} disabled={!canEdit || uploadBusy || loading} title="保存带批注的 PDF 到我的文献库">
+          <Save size={15} />
+          {uploadBusy ? "保存中..." : "保存修改"}
+        </button>
+      </div>
+      {error && <div className="pdf-reader-error">{error}</div>}
+      {saveMessage && !error && <div className="pdfjs-save-message">{saveMessage}</div>}
+      <div className="pdfjs-editor-stage">
+        <div ref={containerRef} className="pdfjs-viewer-container">
+          <div ref={viewerRef} className="pdfViewer" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PdfReader({
   src,
   title,
@@ -510,6 +806,16 @@ function PdfReader({
   onUploadAnnotatedPdf: (file: File) => void;
   uploadBusy?: boolean;
 }) {
+  return (
+    <PdfJsEditor
+      src={src}
+      title={title}
+      canEdit={canEdit}
+      onUploadAnnotatedPdf={onUploadAnnotatedPdf}
+      uploadBusy={uploadBusy}
+    />
+  );
+
   const nativeSaveInputRef = useRef<HTMLInputElement | null>(null);
 
   return (

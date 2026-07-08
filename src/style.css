@@ -1263,6 +1263,107 @@ button:disabled {
   background: #eef2f2;
 }
 
+.pdfjs-editor {
+  position: relative;
+  background: #eef2f2;
+}
+
+.pdfjs-editor-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  border-bottom: 1px solid #d7e2e1;
+  padding: 6px 10px;
+  background: #f8fbfb;
+}
+
+.pdfjs-tool-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #d9e5e4;
+  border-radius: 6px;
+  padding: 3px;
+  background: #ffffff;
+}
+
+.pdfjs-editor-toolbar button {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  min-height: 28px;
+  border: 0;
+  border-radius: 5px;
+  padding: 0 8px;
+  background: transparent;
+  color: #123238;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pdfjs-editor-toolbar button:hover {
+  background: #eef6f5;
+}
+
+.pdfjs-editor-toolbar button.active {
+  background: #dff3f0;
+  color: #006a62;
+  font-weight: 700;
+}
+
+.pdfjs-editor-toolbar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.pdfjs-scale-button {
+  min-width: 72px;
+  justify-content: center;
+}
+
+.pdfjs-tool-spacer {
+  flex: 1;
+}
+
+.pdfjs-page-status {
+  color: #65777b;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.pdfjs-save-message {
+  border-bottom: 1px solid #d7e2e1;
+  background: #f4faf8;
+  color: #0f5d58;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.pdfjs-editor-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.pdfjs-viewer-container {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  background: #eef2f2;
+}
+
+.pdfjs-viewer-container .pdfViewer {
+  --scale-factor: 1;
+  position: relative;
+}
+
+.pdfjs-viewer-container .pdfViewer .page {
+  margin: 10px auto;
+  border: 1px solid #d0dcda;
+  box-shadow: 0 8px 18px rgba(21, 44, 49, 0.08);
+}
+
 .pdf-annotation-toolbar {
   display: flex;
   flex-wrap: wrap;
