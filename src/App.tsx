@@ -161,6 +161,36 @@ function resolveFileUrl(path = "") {
   return `${fileBase}/${path.replace(/^\/+/, "")}`;
 }
 
+function fileIdentity(path = "") {
+  const value = String(path || "").trim();
+  if (!value) return "";
+  try {
+    const url = new URL(value);
+    return url.pathname
+      .replace(/^\/paper-reader-files\//, "")
+      .replace(/^\/public\//, "")
+      .replace(/^\/+/, "");
+  } catch {
+    return value
+      .replace(/^https?:\/\/[^/]+\/paper-reader-files\//i, "")
+      .replace(/^public\//, "")
+      .replace(/^\/+/, "");
+  }
+}
+
+function paperLocation(slug: string, view: "reader" | "related" = "reader", scope?: LibraryScope) {
+  const params = new URLSearchParams();
+  if (slug) params.set("paper", slug);
+  if (view === "related") params.set("view", "related");
+  if (scope?.type === "mine") params.set("scope", "mine");
+  if (scope?.type === "friend" && scope.owner) {
+    params.set("scope", "friend");
+    params.set("owner", scope.owner);
+  }
+  const query = params.toString();
+  return query ? `${baseUrl}?${query}` : baseUrl;
+}
+
 function resolvePdfUrl(path = "") {
   const url = resolveFileUrl(path);
   const separator = url.includes("#") ? "&" : "#";
@@ -1301,6 +1331,8 @@ export default function App() {
   const [aiBusy, setAiBusy] = useState(false);
   const [aiError, setAiError] = useState("");
   const [auth, setAuth] = useState<AuthState>({ authenticated: false });
+  const [authChecked, setAuthChecked] = useState(false);
+  const [personalPapersLoaded, setPersonalPapersLoaded] = useState(false);
   const [syncError, setSyncError] = useState("");
   const [sortOpen, setSortOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -1359,8 +1391,15 @@ export default function App() {
         setPapers(items);
         const params = new URLSearchParams(location.search);
         const fromUrl = params.get("paper");
+        const scopeFromUrl = params.get("scope");
+        const ownerFromUrl = params.get("owner");
+        if (scopeFromUrl === "friend" && ownerFromUrl) {
+          setLibraryScope({ type: "friend", owner: ownerFromUrl });
+        } else if (scopeFromUrl === "mine") {
+          setLibraryScope({ type: "mine" });
+        }
         setViewMode(params.get("view") === "related" ? "related" : "reader");
-        setActiveSlug(items.some((paper) => paper.slug === fromUrl) ? fromUrl || "" : items[0]?.slug || "");
+        setActiveSlug(fromUrl || items[0]?.slug || "");
         setStates({});
       })
       .catch((err) => setError(`无法加载文献索引：${err.message}`));
@@ -1434,6 +1473,7 @@ export default function App() {
     setSyncError("");
     if (!auth.authenticated) {
       setPersonalPapers([]);
+      setPersonalPapersLoaded(false);
       setMyPapers([]);
       setStates({});
       return;
@@ -1478,7 +1518,10 @@ export default function App() {
   };
 
   const checkAuth = async () => {
-    if (!aiApiBase) return;
+    if (!aiApiBase) {
+      setAuthChecked(true);
+      return;
+    }
     try {
       const res = await fetch(`${aiApiBase}/me`, { credentials: "include" });
       const data = await res.json().catch(() => ({}));
@@ -1490,6 +1533,8 @@ export default function App() {
       });
     } catch {
       setAuth({ authenticated: false });
+    } finally {
+      setAuthChecked(true);
     }
   };
 
@@ -1574,7 +1619,12 @@ export default function App() {
       setActiveSlug(target.slug);
       setViewMode("reader");
       setPendingCommentScroll(true);
-      history.replaceState(null, "", `${baseUrl}?paper=${target.slug}`);
+      const targetScope: LibraryScope = target.personal
+        ? target.ownerLogin === auth.login
+          ? { type: "mine" }
+          : { type: "friend", owner: target.ownerLogin || "" }
+        : libraryScope;
+      history.replaceState(null, "", paperLocation(target.slug, "reader", targetScope));
       return;
     }
     window.open(item.url, "_blank", "noopener,noreferrer");
@@ -1602,6 +1652,7 @@ export default function App() {
 
   const loadPersonalPapers = async (ownerLogin: string) => {
     if (!aiApiBase || !auth.authenticated || !ownerLogin) return;
+    setPersonalPapersLoaded(false);
     try {
       const res = await fetch(`${aiApiBase}/personal-papers?owner=${encodeURIComponent(ownerLogin)}`, {
         credentials: "include",
@@ -1613,6 +1664,8 @@ export default function App() {
     } catch (err) {
       setPersonalPapers([]);
       setSyncError(err instanceof Error ? err.message : "个人文献库加载失败。");
+    } finally {
+      setPersonalPapersLoaded(true);
     }
   };
 
@@ -1666,7 +1719,10 @@ export default function App() {
       setLibraryScope({ type: "mine" });
       await loadPersonalPapers(auth.login || "");
       await loadMyPapers();
-      if (data.item?.slug) setActiveSlug(data.item.slug);
+      if (data.item?.slug) {
+        setActiveSlug(data.item.slug);
+        history.replaceState(null, "", paperLocation(data.item.slug, "reader", { type: "mine" }));
+      }
     } catch (err) {
       const message = err instanceof Error ? err.message : "上传失败。";
       setSyncError(message.includes("GITHUB_CONTENT_TOKEN") ? "个人上传需要先配置 GitHub 写入 token；公共库不受影响。" : message);
@@ -1714,7 +1770,10 @@ export default function App() {
       setLibraryScope({ type: "mine" });
       await loadPersonalPapers(auth.login || "");
       await loadMyPapers();
-      if (data.item?.slug) setActiveSlug(data.item.slug);
+      if (data.item?.slug) {
+        setActiveSlug(data.item.slug);
+        history.replaceState(null, "", paperLocation(data.item.slug, "reader", { type: "mine" }));
+      }
       setSyncError("已保存批注版 PDF 到我的文献库。");
     } catch (err) {
       const message = err instanceof Error ? err.message : "上传批注版 PDF 失败。";
@@ -1887,14 +1946,39 @@ export default function App() {
   }, [categoryFilter, dateFilter, journalFilter, libraryScope.type, query, readFilter, sortDirection, sortKey, states, visibleLibraryPapers]);
 
   useEffect(() => {
+    const urlPaper = new URLSearchParams(location.search).get("paper") || "";
+    const waitingForUrlPaper =
+      !!activeSlug &&
+      activeSlug === urlPaper &&
+      (!authChecked || (auth.authenticated && !personalPapersLoaded));
     if (!visibleLibraryPapers.length) {
+      if (waitingForUrlPaper) return;
       setActiveSlug("");
       return;
     }
     if (!visibleLibraryPapers.some((paper) => paper.slug === activeSlug)) {
+      if (waitingForUrlPaper) return;
       setActiveSlug(visibleLibraryPapers[0].slug);
     }
-  }, [activeSlug, visibleLibraryPapers]);
+  }, [activeSlug, auth.authenticated, authChecked, personalPapersLoaded, visibleLibraryPapers]);
+
+  useEffect(() => {
+    if (!active || !auth.authenticated || libraryScope.type !== "mine" || !personalPapersLoaded || active.personal) return;
+    const activeMarkdown = fileIdentity(active.markdownPath);
+    const activePdf = fileIdentity(active.pdfPath);
+    const match = personalPapers.find((paper) => {
+      const paperMarkdown = fileIdentity(paper.markdownPath);
+      const paperPdf = fileIdentity(paper.pdfPath);
+      return (
+        (activeMarkdown && paperMarkdown === activeMarkdown) ||
+        (activePdf && paperPdf === activePdf) ||
+        (paper.title === active.title && paper.date === active.date)
+      );
+    });
+    if (!match) return;
+    setActiveSlug(match.slug);
+    history.replaceState(null, "", paperLocation(match.slug, viewMode, { type: "mine" }));
+  }, [active, auth.authenticated, libraryScope.type, personalPapers, personalPapersLoaded, viewMode]);
 
   const changeSort = (nextKey: typeof sortKey) => {
     if (nextKey === sortKey) {
@@ -1944,6 +2028,7 @@ export default function App() {
     if (slug === activeSlug) {
       const nextPaper = filtered.find((paper) => paper.slug !== slug);
       setActiveSlug(nextPaper?.slug || "");
+      history.replaceState(null, "", nextPaper ? paperLocation(nextPaper.slug, viewMode, libraryScope) : baseUrl);
     }
   };
 
@@ -2056,7 +2141,7 @@ export default function App() {
     setActiveSlug(slug);
     setViewMode("reader");
     setPaneVisibility((prev) => ({ ...prev, pdf: true, text: true }));
-    history.replaceState(null, "", `${baseUrl}?paper=${slug}`);
+    history.replaceState(null, "", paperLocation(slug, "reader", libraryScope));
   };
 
   const togglePane = (key: PaneKey) => {
@@ -2168,11 +2253,11 @@ export default function App() {
     if (!active) return;
     if (viewMode === "related") {
       setViewMode("reader");
-      history.replaceState(null, "", `${baseUrl}?paper=${active.slug}`);
+      history.replaceState(null, "", paperLocation(active.slug, "reader", libraryScope));
     } else {
       setPaneVisibility((prev) => ({ ...prev, text: true }));
       setViewMode("related");
-      history.replaceState(null, "", `${baseUrl}?paper=${active.slug}&view=related`);
+      history.replaceState(null, "", paperLocation(active.slug, "related", libraryScope));
     }
   };
 
@@ -2366,7 +2451,7 @@ export default function App() {
                   key={paper.slug}
                   className={`paper-item ${paper.slug === activeSlug ? "active" : ""}`}
                 >
-                  <button className="paper-select" onClick={() => isOverviewMode ? openPaperFromOverview(paper.slug) : setActiveSlug(paper.slug)}>
+                  <button className="paper-select" onClick={() => openPaperFromOverview(paper.slug)}>
                     <span>
                       <strong>{paper.title}</strong>
                       <small title={paper.journal || "Unknown journal"}>{displayJournalName(paper.journal)} · {paper.date}</small>
