@@ -9,6 +9,7 @@ import {
   BookOpen,
   ChevronDown,
   Eraser,
+  ExternalLink,
   FileText,
   Highlighter,
   LogOut,
@@ -18,6 +19,7 @@ import {
   Send,
   Trash2,
   Underline,
+  Upload,
   User,
 } from "lucide-react";
 
@@ -490,16 +492,22 @@ function PdfReader({
   annotations,
   canEdit,
   onChange,
+  onUploadAnnotatedPdf,
+  uploadBusy,
 }: {
   src: string;
   title: string;
   annotations: PdfAnnotation[];
   canEdit: boolean;
   onChange: (next: PdfAnnotation[]) => void;
+  onUploadAnnotatedPdf: (file: File) => void;
+  uploadBusy?: boolean;
 }) {
+  const uploadInputRef = useRef<HTMLInputElement | null>(null);
   const [pdfDoc, setPdfDoc] = useState<any>(null);
   const [pages, setPages] = useState<any[]>([]);
   const [mode, setMode] = useState<PdfAnnotationKind | "select" | "erase">("select");
+  const [readerMode, setReaderMode] = useState<"native" | "legacy">("native");
   const [error, setError] = useState("");
   const normalizedAnnotations = useMemo(() => normalizePdfAnnotations(annotations), [annotations]);
 
@@ -541,7 +549,49 @@ function PdfReader({
 
   return (
     <div className="pdf-reader">
+      {readerMode === "native" ? (
+        <>
+          <div className="pdf-native-toolbar">
+            <button onClick={() => window.open(src, "_blank", "noopener,noreferrer")} title="用浏览器 PDF 工具打开和标注">
+              <ExternalLink size={15} />
+              浏览器标注
+            </button>
+            <button
+              onClick={() => uploadInputRef.current?.click()}
+              disabled={!canEdit || uploadBusy}
+              title={canEdit ? "上传保存后的带批注 PDF，替换到我的文献库" : "只能在我的文献库保存批注版 PDF"}
+            >
+              <Upload size={15} />
+              {uploadBusy ? "上传中..." : "上传批注版"}
+            </button>
+            <button onClick={() => setReaderMode("legacy")} title="使用旧版网页高亮/下划线">
+              <Highlighter size={15} />
+              旧版网页标注
+            </button>
+            <span className="pdf-annotation-hint">
+              建议在新标签页用浏览器原生高亮/下划线，保存 PDF 后上传回来。
+            </span>
+            <input
+              ref={uploadInputRef}
+              type="file"
+              accept="application/pdf"
+              hidden
+              onChange={(event) => {
+                const file = event.currentTarget.files?.[0];
+                event.currentTarget.value = "";
+                if (file) onUploadAnnotatedPdf(file);
+              }}
+            />
+          </div>
+          <iframe className="pdf-frame pdf-native-frame" src={resolvePdfUrl(src)} title={`${title} PDF`} />
+        </>
+      ) : (
+        <>
       <div className="pdf-annotation-toolbar">
+        <button onClick={() => setReaderMode("native")} title="回到浏览器原生 PDF 阅读器">
+          <ExternalLink size={15} />
+          原生 PDF
+        </button>
         <button className={mode === "select" ? "active" : ""} onClick={() => setMode("select")} title="普通选择">
           <MousePointer2 size={15} />
           选择
@@ -596,6 +646,8 @@ function PdfReader({
             />
           ))}
         </div>
+      )}
+        </>
       )}
     </div>
   );
@@ -716,6 +768,7 @@ export default function App() {
   const [uploadTranslation, setUploadTranslation] = useState<File | null>(null);
   const [uploadRelated, setUploadRelated] = useState<File | null>(null);
   const [uploadBusy, setUploadBusy] = useState(false);
+  const [annotatedPdfBusy, setAnnotatedPdfBusy] = useState(false);
   const [copyBusy, setCopyBusy] = useState(false);
   const [ownApiKey, setOwnApiKey] = useState("");
   const [aiReady, setAiReady] = useState(false);
@@ -1096,6 +1149,50 @@ export default function App() {
       setSyncError(message.includes("GITHUB_CONTENT_TOKEN") ? "个人上传需要先配置 GitHub 写入 token；公共库不受影响。" : message);
     } finally {
       setUploadBusy(false);
+    }
+  };
+
+  const uploadAnnotatedPdf = async (file: File) => {
+    if (!active || !aiApiBase || !auth.authenticated) {
+      setSyncError("请先登录后再上传批注版 PDF。");
+      return;
+    }
+    if (!/\.pdf$/i.test(file.name) && file.type !== "application/pdf") {
+      setSyncError("批注版文件必须是 PDF。");
+      return;
+    }
+    const formData = new FormData();
+    formData.set("pdf", file);
+    formData.set("paperSlug", active.slug);
+    formData.set("sourceOwner", active.ownerLogin || "");
+    formData.set("title", active.title);
+    formData.set("journal", active.journal || "");
+    formData.set("date", active.date || "");
+    formData.set("pdfPath", active.pdfPath || "");
+    formData.set("markdownPath", active.markdownPath || "");
+    formData.set("relatedReadingPath", active.relatedReadingPath || "");
+    formData.set("originalType", "pdf");
+    formData.set("translationType", active.translationType || "markdown");
+    formData.set("relatedReadingType", active.relatedReadingType || "markdown");
+    setAnnotatedPdfBusy(true);
+    try {
+      const res = await fetch(`${aiApiBase}/personal-papers/annotated-pdf`, {
+        method: "POST",
+        credentials: "include",
+        body: formData,
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `上传批注版 PDF 失败：${res.status}`);
+      setLibraryScope({ type: "mine" });
+      await loadPersonalPapers(auth.login || "");
+      await loadMyPapers();
+      if (data.item?.slug) setActiveSlug(data.item.slug);
+      setSyncError("已保存批注版 PDF 到我的文献库。");
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "上传批注版 PDF 失败。";
+      setSyncError(message.includes("GITHUB_CONTENT_TOKEN") ? "上传批注版 PDF 需要先配置 GitHub 写入 token。" : message);
+    } finally {
+      setAnnotatedPdfBusy(false);
     }
   };
 
@@ -2124,6 +2221,8 @@ export default function App() {
                           annotations={states[active.slug]?.pdfAnnotations || []}
                           canEdit={canEditReaderState}
                           onChange={savePdfAnnotations}
+                          onUploadAnnotatedPdf={uploadAnnotatedPdf}
+                          uploadBusy={annotatedPdfBusy}
                         />
                       )}
                     </section>

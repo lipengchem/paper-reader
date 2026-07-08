@@ -686,6 +686,77 @@ async function handlePersonalPapers(request, env) {
   const url = new URL(request.url);
 
   if (request.method === "POST") {
+    if (url.pathname === "/personal-papers/annotated-pdf") {
+      const form = await request.formData();
+      const pdf = form.get("pdf");
+      if (!(pdf instanceof File) || fileType(pdf) !== "pdf") {
+        return json({ error: "Please upload a PDF file." }, 400, corsHeaders(request, env));
+      }
+
+      const sourceSlug = String(form.get("paperSlug") || "").trim();
+      const sourceOwner = String(form.get("sourceOwner") || "").trim();
+      const title = String(form.get("title") || pdf.name.replace(/\.[^.]+$/, "")).trim().slice(0, 300) || "Untitled paper";
+      const journal = String(form.get("journal") || "").trim().slice(0, 200);
+      const date = String(form.get("date") || new Date().toISOString().slice(0, 10)).trim().slice(0, 20);
+      const markdownPath = String(form.get("markdownPath") || "").trim();
+      const relatedReadingPath = String(form.get("relatedReadingPath") || "").trim();
+      const translationType = String(form.get("translationType") || "markdown").trim() || "markdown";
+      const relatedReadingType = String(form.get("relatedReadingType") || "markdown").trim() || "markdown";
+      const now = new Date().toISOString();
+
+      let existing = null;
+      if (sourceOwner === session.login && sourceSlug) {
+        existing = await env.DB.prepare(
+          "SELECT slug FROM personal_papers WHERE owner_login = ? AND slug = ? LIMIT 1",
+        ).bind(session.login, sourceSlug).first();
+      }
+      if (!existing && markdownPath) {
+        existing = await env.DB.prepare(
+          "SELECT slug FROM personal_papers WHERE owner_login = ? AND markdown_path = ? LIMIT 1",
+        ).bind(session.login, markdownPath).first();
+      }
+
+      const slug = existing?.slug || `${session.login}-${Date.now()}-${slugify(title)}`;
+      const siteBasePath = `user-library/${session.login}/${slug}`;
+      const annotatedPath = `${siteBasePath}/paper-annotated-${Date.now()}.pdf`;
+      await githubPutFile(env, `public/${annotatedPath}`, pdf, `Save annotated PDF: ${title.slice(0, 80)}`);
+
+      if (existing) {
+        await env.DB.prepare(
+          `UPDATE personal_papers
+           SET pdf_path = ?, original_type = 'pdf'
+           WHERE owner_login = ? AND slug = ?`,
+        ).bind(annotatedPath, session.login, slug).run();
+      } else {
+        if (!markdownPath) return json({ error: "Missing translation path for personal copy." }, 400, corsHeaders(request, env));
+        await env.DB.prepare(
+          `INSERT INTO personal_papers
+           (slug, owner_login, title, date, journal, pdf_path, markdown_path, related_reading_path, original_type, translation_type, related_reading_type, created_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        ).bind(slug, session.login, title, date, journal, annotatedPath, markdownPath, relatedReadingPath, "pdf", translationType, relatedReadingType, now).run();
+      }
+
+      return json({
+        item: {
+          slug,
+          ownerLogin: session.login,
+          personal: true,
+          title,
+          date,
+          journal,
+          pdfPath: siteFileUrl(env, annotatedPath),
+          markdownPath: siteFileUrl(env, markdownPath),
+          relatedReadingPath: relatedReadingPath ? siteFileUrl(env, relatedReadingPath) : "",
+          relatedReading: !!relatedReadingPath,
+          originalType: "pdf",
+          translationType,
+          relatedReadingType,
+          createdAt: now,
+          uploadedAt: now,
+        },
+      }, 200, corsHeaders(request, env));
+    }
+
     if (url.pathname === "/personal-papers/copy") {
       const body = await request.json().catch(() => ({}));
       const sourceOwner = String(body.owner || "").trim();
@@ -892,7 +963,7 @@ export default {
       if (url.pathname === "/states" && request.method === "GET") return handleStates(request, env);
       if (url.pathname === "/state" && request.method === "PUT") return handleState(request, env);
       if (url.pathname === "/friends" && (request.method === "GET" || request.method === "POST")) return handleFriends(request, env);
-      if ((url.pathname === "/personal-papers" || url.pathname === "/personal-papers/copy") && (request.method === "GET" || request.method === "POST")) return handlePersonalPapers(request, env);
+      if ((url.pathname === "/personal-papers" || url.pathname === "/personal-papers/copy" || url.pathname === "/personal-papers/annotated-pdf") && (request.method === "GET" || request.method === "POST")) return handlePersonalPapers(request, env);
       if (url.pathname.startsWith("/file/") && request.method === "GET") return handleFile(request, env);
       if (url.pathname === "/history") return handleHistory(request, env);
       if (url.pathname === "/chat" && request.method === "POST") return handleChat(request, env);
