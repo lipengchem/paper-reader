@@ -510,6 +510,38 @@ function PdfReader({
   onUploadAnnotatedPdf: (file: File) => void;
   uploadBusy?: boolean;
 }) {
+  const nativeSaveInputRef = useRef<HTMLInputElement | null>(null);
+
+  return (
+    <div className="pdf-reader">
+      <div className="pdf-native-toolbar">
+        <button
+          onClick={() => nativeSaveInputRef.current?.click()}
+          disabled={!canEdit || uploadBusy}
+          title={canEdit ? "选择原生 PDF 工具保存后的文件，自动保存到我的文献库" : "当前文献库只读"}
+        >
+          <Upload size={15} />
+          {uploadBusy ? "保存中..." : "保存修改"}
+        </button>
+        <span className="pdf-annotation-hint">
+          用内嵌 PDF 工具标注后，先用 PDF 工具栏保存文件，再点这里接回网页。
+        </span>
+        <input
+          ref={nativeSaveInputRef}
+          type="file"
+          accept="application/pdf"
+          hidden
+          onChange={(event) => {
+            const file = event.currentTarget.files?.[0];
+            event.currentTarget.value = "";
+            if (file) onUploadAnnotatedPdf(file);
+          }}
+        />
+      </div>
+      <iframe className="pdf-frame pdf-native-frame" src={resolvePdfUrl(src)} title={`${title} PDF`} />
+    </div>
+  );
+
   const uploadInputRef = useRef<HTMLInputElement | null>(null);
   const [pdfDoc, setPdfDoc] = useState<any>(null);
   const [pages, setPages] = useState<any[]>([]);
