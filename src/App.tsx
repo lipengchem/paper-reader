@@ -201,9 +201,11 @@ const paneWeightsKey = "paper-reader:pane-weights";
 const sidebarWidthKey = "paper-reader:sidebar-width";
 const overviewColumnWidthsKey = "paper-reader:overview-column-widths";
 const commentsHeightKey = "paper-reader:comments-height";
+const readerHeightKey = "paper-reader:reader-height";
 const defaultPaneWeights: Record<PaneKey, number> = { pdf: 42, text: 42, ai: 22 };
 const defaultSidebarWidth = 300;
 const defaultCommentsHeight = 520;
+const defaultReaderHeight = () => Math.max(620, window.innerHeight - 150);
 const defaultOverviewColumnWidths: Record<SortKey, number> = {
   title: 560,
   journal: 250,
@@ -625,7 +627,7 @@ function PdfJsEditor({
           ? annotationEditorType.FREETEXT
           : nextTool === "ink"
             ? annotationEditorType.INK
-            : annotationEditorType.NONE;
+            : annotationEditorType.HIGHLIGHT;
     pdfViewer.annotationEditorMode = { mode };
   };
 
@@ -641,6 +643,10 @@ function PdfJsEditor({
     const eventBus = eventBusRef.current;
     const pdfViewer = pdfViewerRef.current;
     if (!eventBus || !pdfViewer) return;
+    if (name === "delete") {
+      pdfViewer.annotationEditorMode = { mode: annotationEditorType.HIGHLIGHT };
+      setTool("select");
+    }
     eventBus.dispatch("editingaction", {
       source: pdfViewer,
       name,
@@ -690,6 +696,9 @@ function PdfJsEditor({
           pdfViewer.currentScaleValue = "page-width";
           setPageCount(pdfViewer.pagesCount || pdfDocRef.current?.numPages || 0);
           setScaleText("适应宽度");
+          if (canEdit) {
+            pdfViewer.annotationEditorMode = { mode: annotationEditorType.HIGHLIGHT };
+          }
           dispatchEditorParam(annotationEditorParamsType.HIGHLIGHT_COLOR, "#ffe066");
           dispatchEditorParam(annotationEditorParamsType.HIGHLIGHT_FREE, false);
           dispatchEditorParam(annotationEditorParamsType.FREETEXT_COLOR, "#0f3b3b");
@@ -757,6 +766,7 @@ function PdfJsEditor({
     annotationEditorType.NONE,
     annotationMode.ENABLE,
     annotationMode.ENABLE_STORAGE,
+    canEdit,
     src,
   ]);
 
@@ -1339,6 +1349,10 @@ export default function App() {
   const [sidebarWidth, setSidebarWidth] = useState(() => {
     const stored = Number(localStorage.getItem(sidebarWidthKey));
     return Number.isFinite(stored) && stored >= 220 ? stored : defaultSidebarWidth;
+  });
+  const [readerHeight, setReaderHeight] = useState(() => {
+    const stored = Number(localStorage.getItem(readerHeightKey));
+    return Number.isFinite(stored) && stored >= 420 ? stored : defaultReaderHeight();
   });
   const [notifications, setNotifications] = useState<CommentNotification[]>([]);
   const [notificationOpen, setNotificationOpen] = useState(false);
@@ -2189,6 +2203,34 @@ export default function App() {
     localStorage.setItem(paneWeightsKey, JSON.stringify(defaultPaneWeights));
   };
 
+  const startReaderHeightResize = (event: ReactPointerEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    const startY = event.clientY;
+    const startHeight = readerHeight;
+
+    const updateHeight = (clientY: number) => {
+      const next = Math.min(Math.max(520, window.innerHeight * 1.8), Math.max(420, startHeight + clientY - startY));
+      setReaderHeight(next);
+      localStorage.setItem(readerHeightKey, String(next));
+    };
+    const onPointerMove = (moveEvent: PointerEvent) => updateHeight(moveEvent.clientY);
+    const onPointerUp = () => {
+      document.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerup", onPointerUp);
+      document.body.classList.remove("is-resizing-reader-height");
+    };
+
+    document.body.classList.add("is-resizing-reader-height");
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
+  };
+
+  const resetReaderHeight = () => {
+    const next = defaultReaderHeight();
+    setReaderHeight(next);
+    localStorage.setItem(readerHeightKey, String(next));
+  };
+
   const startSidebarResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     event.preventDefault();
     const startX = event.clientX;
@@ -2811,7 +2853,8 @@ export default function App() {
                 </table>
               </section>
             ) : (
-              <section className="reader-grid" style={{ gridTemplateColumns: readerGridTemplate }}>
+              <>
+              <section className="reader-grid" style={{ gridTemplateColumns: readerGridTemplate, height: readerHeight }}>
               {!visiblePaneKeys.length && <div className="reader-empty">当前没有显示的阅读栏。</div>}
               {visiblePaneKeys.map((pane, index) => (
                 <div className="pane-slot" key={pane}>
@@ -3056,6 +3099,17 @@ export default function App() {
                 </div>
               ))}
               </section>
+              {!isOverviewMode && (
+                <div
+                  className="reader-height-resizer"
+                  role="separator"
+                  aria-label="调整阅读区高度"
+                  aria-orientation="horizontal"
+                  onPointerDown={startReaderHeightResize}
+                  onDoubleClick={resetReaderHeight}
+                />
+              )}
+              </>
             )}
             {!isOverviewMode && viewMode === "reader" && <GiscusComments paper={active} />}
           </>

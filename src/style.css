@@ -83,7 +83,7 @@ button:disabled {
   padding: 18px 16px;
   min-width: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .shell-divider {
@@ -324,10 +324,10 @@ button:disabled {
 
 .paper-list {
   display: flex;
-  flex: 1;
+  flex: 0 0 auto;
   flex-direction: column;
   gap: 6px;
-  overflow: auto;
+  overflow: visible;
   min-height: 0;
   padding-right: 2px;
 }
@@ -1045,10 +1045,25 @@ button:disabled {
 .reader-grid {
   display: grid;
   gap: 14px;
-  flex: 0 0 calc(100vh - 56px);
-  height: calc(100vh - 56px);
+  flex: 0 0 auto;
   padding: 14px;
   min-height: 0;
+}
+
+.reader-height-resizer {
+  height: 14px;
+  margin: 0 14px;
+  border: 0;
+  background:
+    linear-gradient(180deg, transparent 0 5px, #d2dfde 5px 8px, transparent 8px 14px);
+  cursor: row-resize;
+  touch-action: none;
+}
+
+.reader-height-resizer:hover,
+.reader-height-resizer:focus-visible {
+  background:
+    linear-gradient(180deg, transparent 0 4px, #177c79 4px 9px, transparent 9px 14px);
 }
 
 .pane-slot {
@@ -1078,6 +1093,15 @@ button:disabled {
 }
 
 .is-resizing-reader iframe {
+  pointer-events: none;
+}
+
+.is-resizing-reader-height {
+  cursor: row-resize;
+  user-select: none;
+}
+
+.is-resizing-reader-height iframe {
   pointer-events: none;
 }
 
