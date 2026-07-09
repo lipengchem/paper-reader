@@ -2230,9 +2230,6 @@ export default function App() {
         ])
         .join(" ")
     : "1fr";
-  const shellGridTemplate = sidebarOpen
-    ? `${sidebarWidth}px minmax(0, 1fr)`
-    : "minmax(0, 1fr)";
   const overviewTableWidth = Object.values(overviewColumnWidths).reduce((sum, width) => sum + width, 0);
 
   const openPaperFromOverview = (slug: string) => {
@@ -2327,10 +2324,12 @@ export default function App() {
     event.stopPropagation();
     event.currentTarget.setPointerCapture?.(event.pointerId);
     const handle = event.currentTarget;
+    const shellLeft =
+      (event.currentTarget.closest(".shell") as HTMLElement | null)?.getBoundingClientRect().left ?? 0;
 
     const updateWidth = (clientX: number) => {
       const maxWidth = Math.min(920, Math.max(420, window.innerWidth * 0.62));
-      const next = Math.min(maxWidth, Math.max(240, clientX));
+      const next = Math.min(maxWidth, Math.max(240, clientX - shellLeft));
       setSidebarWidth(next);
       localStorage.setItem(sidebarWidthKey, String(next));
     };
@@ -2420,9 +2419,9 @@ export default function App() {
   ];
 
   return (
-    <div className={isOverviewMode ? "shell overview-shell" : "shell"} style={{ gridTemplateColumns: shellGridTemplate }}>
+    <div className={isOverviewMode ? "shell overview-shell" : "shell"}>
       {sidebarOpen ? (
-        <div className="sidebar-region">
+        <div className="sidebar-region" style={{ width: sidebarWidth }}>
         <aside className="sidebar">
           <div className="brand">
             <div className="library-switcher">
