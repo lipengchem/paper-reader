@@ -1439,6 +1439,7 @@ export default function App() {
     text: true,
     ai: false,
   });
+  const readerGridRef = useRef<HTMLElement | null>(null);
   const [paneWeights, setPaneWeights] = useState<Record<PaneKey, number>>(() => {
     const stored = localStorage.getItem(paneWeightsKey);
     if (!stored) return defaultPaneWeights;
@@ -2230,7 +2231,7 @@ export default function App() {
         .join(" ")
     : "1fr";
   const shellGridTemplate = sidebarOpen
-    ? `${sidebarWidth}px 24px minmax(0, 1fr)`
+    ? `${sidebarWidth}px minmax(0, 1fr)`
     : "minmax(0, 1fr)";
   const overviewTableWidth = Object.values(overviewColumnWidths).reduce((sum, width) => sum + width, 0);
 
@@ -2295,11 +2296,10 @@ export default function App() {
     event.stopPropagation();
     event.currentTarget.setPointerCapture?.(event.pointerId);
     const handle = event.currentTarget;
-    const startY = event.clientY;
-    const startHeight = readerHeight;
+    const top = readerGridRef.current?.getBoundingClientRect().top ?? 0;
 
     const updateHeight = (clientY: number) => {
-      const next = Math.min(Math.max(960, window.innerHeight * 2.2), Math.max(320, startHeight + clientY - startY));
+      const next = Math.min(Math.max(960, window.innerHeight * 2.2), Math.max(320, clientY - top));
       setReaderHeight(next);
       localStorage.setItem(readerHeightKey, String(next));
     };
@@ -2327,12 +2327,10 @@ export default function App() {
     event.stopPropagation();
     event.currentTarget.setPointerCapture?.(event.pointerId);
     const handle = event.currentTarget;
-    const startX = event.clientX;
-    const startWidth = sidebarWidth;
 
     const updateWidth = (clientX: number) => {
       const maxWidth = Math.min(920, Math.max(420, window.innerWidth * 0.62));
-      const next = Math.min(maxWidth, Math.max(240, startWidth + clientX - startX));
+      const next = Math.min(maxWidth, Math.max(240, clientX));
       setSidebarWidth(next);
       localStorage.setItem(sidebarWidthKey, String(next));
     };
@@ -2424,6 +2422,7 @@ export default function App() {
   return (
     <div className={isOverviewMode ? "shell overview-shell" : "shell"} style={{ gridTemplateColumns: shellGridTemplate }}>
       {sidebarOpen ? (
+        <div className="sidebar-region">
         <aside className="sidebar">
           <div className="brand">
             <div className="library-switcher">
@@ -2642,23 +2641,21 @@ export default function App() {
             {!filtered.length && <p className="empty">没有符合筛选条件的文献。</p>}
           </div>
         </aside>
+        <div
+          className="shell-divider"
+          role="separator"
+          aria-label="Resize literature sidebar"
+          aria-orientation="vertical"
+          onPointerDown={startSidebarResize}
+          onDoubleClick={resetSidebarWidth}
+        />
+        </div>
       ) : (
         <div className="sidebar-collapsed-anchor">
           <button className="icon-button sidebar-restore" onClick={() => setSidebarOpen(true)} title="展开侧栏">
             <PanelLeftOpen size={18} />
           </button>
         </div>
-      )}
-
-      {sidebarOpen && (
-        <div
-          className="shell-divider"
-          role="separator"
-          aria-label="调整文献列表宽度"
-          aria-orientation="vertical"
-          onPointerDown={startSidebarResize}
-          onDoubleClick={resetSidebarWidth}
-        />
       )}
 
       <main className="main">
@@ -2952,7 +2949,7 @@ export default function App() {
               </section>
             ) : (
               <>
-              <section className="reader-grid" style={{ gridTemplateColumns: readerGridTemplate, height: readerHeight }}>
+              <section ref={readerGridRef} className="reader-grid" style={{ gridTemplateColumns: readerGridTemplate, height: readerHeight }}>
               {!visiblePaneKeys.length && <div className="reader-empty">当前没有显示的阅读栏。</div>}
               {visiblePaneKeys.map((pane, index) => (
                 <div className="pane-slot" key={pane}>
