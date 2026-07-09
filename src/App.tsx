@@ -1294,24 +1294,28 @@ function GiscusComments({ paper }: { paper: PaperItem }) {
 
   const startCommentsResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     event.preventDefault();
+    event.stopPropagation();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    const handle = event.currentTarget;
     const startY = event.clientY;
     const startHeight = commentsHeight;
 
     const updateHeight = (clientY: number) => {
-      const next = Math.min(1000, Math.max(260, startHeight + clientY - startY));
+      const next = Math.min(Math.max(1100, window.innerHeight * 1.8), Math.max(220, startHeight + clientY - startY));
       setCommentsHeight(next);
       localStorage.setItem(commentsHeightKey, String(next));
     };
     const onPointerMove = (moveEvent: PointerEvent) => updateHeight(moveEvent.clientY);
     const onPointerUp = () => {
-      document.removeEventListener("pointermove", onPointerMove);
-      document.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+      handle.releasePointerCapture?.(event.pointerId);
       document.body.classList.remove("is-resizing-comments");
     };
 
     document.body.classList.add("is-resizing-comments");
-    document.addEventListener("pointermove", onPointerMove);
-    document.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
   };
 
   const resetCommentsHeight = () => {
@@ -1344,7 +1348,7 @@ function GiscusComments({ paper }: { paper: PaperItem }) {
   }, [paper.slug, paper.title]);
 
   return (
-    <section className="comments-section" id="paper-comments" style={{ minHeight: commentsHeight }}>
+    <section className="comments-section" id="paper-comments" style={{ height: commentsHeight }}>
       <div
         className="comments-resizer"
         role="separator"
@@ -2243,6 +2247,9 @@ export default function App() {
 
   const startPaneResize = (event: ReactPointerEvent<HTMLDivElement>, leftKey: PaneKey, rightKey: PaneKey) => {
     event.preventDefault();
+    event.stopPropagation();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+    const handle = event.currentTarget;
     const grid = event.currentTarget.closest(".reader-grid") as HTMLElement | null;
     const leftPanel = grid?.querySelector(`[data-pane="${leftKey}"]`) as HTMLElement | null;
     const rightPanel = grid?.querySelector(`[data-pane="${rightKey}"]`) as HTMLElement | null;
@@ -2267,14 +2274,15 @@ export default function App() {
     };
     const onPointerMove = (moveEvent: PointerEvent) => updateSplit(moveEvent.clientX);
     const onPointerUp = () => {
-      document.removeEventListener("pointermove", onPointerMove);
-      document.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+      handle.releasePointerCapture?.(event.pointerId);
       document.body.classList.remove("is-resizing-reader");
     };
 
     document.body.classList.add("is-resizing-reader");
-    document.addEventListener("pointermove", onPointerMove);
-    document.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
   };
 
   const resetPaneSplit = () => {
@@ -2284,25 +2292,28 @@ export default function App() {
 
   const startReaderHeightResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     event.preventDefault();
+    event.stopPropagation();
     event.currentTarget.setPointerCapture?.(event.pointerId);
+    const handle = event.currentTarget;
     const startY = event.clientY;
     const startHeight = readerHeight;
 
     const updateHeight = (clientY: number) => {
-      const next = Math.min(Math.max(760, window.innerHeight * 1.9), Math.max(520, startHeight + clientY - startY));
+      const next = Math.min(Math.max(960, window.innerHeight * 2.2), Math.max(320, startHeight + clientY - startY));
       setReaderHeight(next);
       localStorage.setItem(readerHeightKey, String(next));
     };
     const onPointerMove = (moveEvent: PointerEvent) => updateHeight(moveEvent.clientY);
     const onPointerUp = () => {
-      document.removeEventListener("pointermove", onPointerMove);
-      document.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+      handle.releasePointerCapture?.(event.pointerId);
       document.body.classList.remove("is-resizing-reader-height");
     };
 
     document.body.classList.add("is-resizing-reader-height");
-    document.addEventListener("pointermove", onPointerMove);
-    document.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
   };
 
   const resetReaderHeight = () => {

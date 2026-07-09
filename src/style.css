@@ -1097,20 +1097,21 @@ button:disabled {
 .reader-height-resizer {
   position: relative;
   z-index: 35;
-  height: 34px;
-  margin: -4px 14px 4px;
+  height: 28px;
+  margin: -4px 14px 2px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 6px;
   background:
-    linear-gradient(180deg, transparent 0 14px, #8abdb9 14px 20px, transparent 20px 34px);
+    linear-gradient(180deg, transparent 0 11px, #8abdb9 11px 17px, transparent 17px 28px);
   cursor: row-resize;
   touch-action: none;
+  user-select: none;
 }
 
 .reader-height-resizer:hover,
 .reader-height-resizer:focus-visible {
   background:
-    linear-gradient(180deg, transparent 0 12px, #177c79 12px 22px, transparent 22px 34px);
+    linear-gradient(180deg, rgba(231, 244, 242, 0.72) 0 10px, #177c79 10px 18px, rgba(231, 244, 242, 0.72) 18px 28px);
 }
 
 .reader-height-resizer::after {
@@ -1142,19 +1143,21 @@ button:disabled {
 
 .pane-divider {
   align-self: stretch;
-  width: 10px;
+  width: 16px;
+  margin: 0 -3px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 6px;
   background:
-    linear-gradient(90deg, transparent 0 4px, #c7d6d4 4px 6px, transparent 6px 10px);
+    linear-gradient(90deg, transparent 0 6px, #c7d6d4 6px 10px, transparent 10px 16px);
   cursor: col-resize;
   touch-action: none;
+  user-select: none;
 }
 
 .pane-divider:hover,
 .pane-divider:focus-visible {
   background:
-    linear-gradient(90deg, transparent 0 3px, #177c79 3px 7px, transparent 7px 10px);
+    linear-gradient(90deg, rgba(231, 244, 242, 0.72) 0 5px, #177c79 5px 11px, rgba(231, 244, 242, 0.72) 11px 16px);
 }
 
 .is-resizing-reader {
@@ -1660,31 +1663,33 @@ button:disabled {
 
 .comments-section {
   position: relative;
-  min-height: 260px;
+  min-height: 220px;
   margin: 0 14px 32px;
   border: 1px solid #dbe4e3;
   border-radius: 8px;
   background: #ffffff;
   padding: 24px 28px 38px;
-  overflow: visible;
+  overflow: auto;
+  resize: vertical;
 }
 
 .comments-resizer {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 16px;
   right: 16px;
-  height: 18px;
+  height: 22px;
   cursor: row-resize;
   touch-action: none;
   background:
-    linear-gradient(180deg, transparent 0 7px, #d2dfde 7px 11px, transparent 11px 18px);
+    linear-gradient(180deg, transparent 0 8px, #d2dfde 8px 13px, transparent 13px 22px);
+  user-select: none;
 }
 
 .comments-resizer:hover,
 .comments-resizer:focus-visible {
   background:
-    linear-gradient(180deg, transparent 0 6px, #177c79 6px 12px, transparent 12px 18px);
+    linear-gradient(180deg, rgba(231, 244, 242, 0.72) 0 7px, #177c79 7px 14px, rgba(231, 244, 242, 0.72) 14px 22px);
 }
 
 .comments-heading {
