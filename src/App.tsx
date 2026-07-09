@@ -2226,7 +2226,7 @@ export default function App() {
         .join(" ")
     : "1fr";
   const shellGridTemplate = sidebarOpen
-    ? `${sidebarWidth}px 18px minmax(0, 1fr)`
+    ? `${sidebarWidth}px 24px minmax(0, 1fr)`
     : "minmax(0, 1fr)";
   const overviewTableWidth = Object.values(overviewColumnWidths).reduce((sum, width) => sum + width, 0);
 
@@ -2313,26 +2313,31 @@ export default function App() {
 
   const startSidebarResize = (event: ReactPointerEvent<HTMLDivElement>) => {
     event.preventDefault();
+    event.stopPropagation();
     event.currentTarget.setPointerCapture?.(event.pointerId);
+    const handle = event.currentTarget;
     const startX = event.clientX;
     const startWidth = sidebarWidth;
 
     const updateWidth = (clientX: number) => {
-      const maxWidth = Math.min(760, Math.max(360, window.innerWidth * 0.45));
-      const next = Math.min(maxWidth, Math.max(220, startWidth + clientX - startX));
+      const maxWidth = Math.min(920, Math.max(420, window.innerWidth * 0.62));
+      const next = Math.min(maxWidth, Math.max(240, startWidth + clientX - startX));
       setSidebarWidth(next);
       localStorage.setItem(sidebarWidthKey, String(next));
     };
     const onPointerMove = (moveEvent: PointerEvent) => updateWidth(moveEvent.clientX);
     const onPointerUp = () => {
-      document.removeEventListener("pointermove", onPointerMove);
-      document.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("pointerup", onPointerUp);
+      handle.releasePointerCapture?.(event.pointerId);
       document.body.classList.remove("is-resizing-reader");
+      document.body.classList.remove("is-resizing-sidebar");
     };
 
     document.body.classList.add("is-resizing-reader");
-    document.addEventListener("pointermove", onPointerMove);
-    document.addEventListener("pointerup", onPointerUp);
+    document.body.classList.add("is-resizing-sidebar");
+    window.addEventListener("pointermove", onPointerMove);
+    window.addEventListener("pointerup", onPointerUp);
   };
 
   const resetSidebarWidth = () => {
