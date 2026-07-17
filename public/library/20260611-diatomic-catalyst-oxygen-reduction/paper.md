@@ -1,0 +1,549 @@
+# The geometric-electronic coupled design of diatomic catalyst towards oxygen reduction reaction
+
+**Zotero key:** 26VVUJJU
+**Attachment key:** ZUF4YES6
+**Journal:** Nature Communications
+**DOI:** 10.1038/s41467-025-60170-0
+**Publication date:** 2025-06-04
+**Source PDF:** paper.pdf
+
+## Why This Paper / 为什么选这篇
+
+**English:** This paper is useful because it turns a broad diatomic-catalyst screening problem into a two-axis design map and then closes the loop with synthesis and zinc-air battery testing. It is a good template for reading ML-assisted catalyst design papers that claim both interpretability and experimental validation.
+
+**中文:** 这篇有价值在于它把双原子催化剂庞大的组合筛选问题压缩成一个二维几何-电子耦合热点图，并且用 Co-N-Mn/NC 的合成、ORR 测试和锌空气电池验证闭环。它很适合作为“机器学习可解释设计 + 实验验证”类文章的阅读模板。
+
+## Reading Guide / 读前导读
+
+**English:** Do not read the model as a generic black box. Track the logic from feature selection to active-center validation, then to the two descriptors dM1-M2 and MagM1. The important claim is the narrow coupled region, not merely that ML ranks catalysts.
+
+**中文:** 不要把模型当成普通黑箱筛选。要顺着特征筛选、活性中心确认、再到 dM1-M2 与 MagM1 两个描述符的逻辑读。最关键的不是 ML 排了个名，而是高活性区域很窄，说明几何和电子结构必须协同调控。
+
+## Terminology / 术语表
+
+| English | 中文 | Note |
+|---|---|---|
+| diatomic catalyst | 双原子催化剂 | 相邻两个单原子位点协同调控反应中间体吸附和催化路径。 |
+| oxygen reduction reaction, ORR | 氧还原反应 | 燃料电池和锌空气电池中的关键阴极反应。 |
+| hot spot map | 热点图 | 本文的核心设计工具，以几何距离和磁矩为坐标寻找高活性窄区域。 |
+| geometric descriptor | 几何描述符 | 主要指双金属原子间距离 dM1-M2。 |
+| electronic descriptor | 电子描述符 | 主要指活性中心磁矩 MagM1。 |
+| Co-N-Mn/NC | Co-N-Mn/NC 双原子催化剂 | 机器学习预测并实验合成验证的最优 ORR 催化剂。 |
+| zinc-air battery, ZAB | 锌空气电池 | 用于展示催化剂器件层面性能。 |
+
+<a id="S001"></a>
+**Source:** p.1 S001
+
+**Original:** Article https://doi.org/10.1038/s41467-025-60170-0 The geometric-electronic coupled design of diatomic catalyst towards oxygen reduction reaction Yan Liu 1,5, Yan Yang1,5, Xuanni Lin2,5, Yutao Lin1, Zhiwen Zhuo 3, Dong Liu 2, Junjie Mao 1 & Jun Jiang 4 Diatomic catalysts are promising candidates for heterogeneous catalysis, whereas the rational design meets the challenges of numerous optional elements and the correlated alternation of parameters that affect the performance. Herein, we demonstrate a geometric-electronic coupled design of diatomic catalysts towards oxygen reduction reaction through machine learning derived catalytic “hot spot map”. The hot spot map is constructed with two descriptors as axes, including the geometric distance of the diatom and electronic magnetic moment. The narrow hot region in the map indicates the necessary collaborative regulation of the geometric and electronic effects for catalyst design. As a predicted ideal catalyst for oxygen reduction reaction, the N-bridged Co, Mn diatomic catalyst (Co-N-Mn/NC) is experimentally synthesized with a half-wave potential of 0.90 V, together with the embodied zinc air battery displaying high peak power density of 271 mW cm−2 and specific capacity of 806 mAh g −1 Zn. This work presents an advanced prototype for the comprehensive design of catalysts.
+
+**中文:** 文章 https://doi.org/10.1038/s41467-025-60170-0 双原子催化剂对氧还原反应的几何电子耦合设计 Yan Liu 1,5, Yan Yang1,5, Xuni Lin2,5, Yutao Lin1,zhiwen Zhuo 3, Dong Liu 2, Junjie Mao 1 & Jun Jiang 4 双原子催化剂是多相催化的有前途的候选者，而合理的设计满足众多可选元素的挑战以及影响性能的参数的相关交替。在这里，我们通过机器学习导出的催化“热点图”展示了双原子催化剂对氧还原反应的几何电子耦合设计。热点图以两个描述符为轴构建，包括硅藻的几何距离和电子磁矩。图中狭窄的热点区域表明催化剂设计中几何效应和电子效应的必要协同调节。作为预测的氧还原反应的理想催化剂，实验合成了半波电位为0.90 V的N桥联钴、锰双原子催化剂（Co-N-Mn/NC），以及表现出271 mW cm−2的高峰值功率密度和806 mAh g −1 Zn的比容量的锌空气电池。这项工作为催化剂的综合设计提供了先进的原型。
+
+<a id="S002"></a>
+**Source:** p.1 S002
+
+**Original:** Engineering catalysts at the atomic level leads to the development of modern heterogeneous catalysis and boosts the discovery of singleatom catalysis1. In recent years, neighboring two single atoms into diatomic catalysts has provided a powerful means to further tailor the catalytic properties based on the atomically synergistic effect2–4. Compared with the limited metal center for single-atom catalysts, the quantity of the selection of metal species for diatomic catalysts exhibits a growth in the square order, significantly broadening the family of single-atom catalysis5. However, the numerous optional elements of diatomic catalysts severely increase the time cost of traditional trialand-error approach for the screening of single-atom catalysts6,7. To substitute the trial-and-error approach by the purposeful design of diatomic catalysts, it is desired to identify the most important catalysis-related parameters from the numerous structural factors
+
+**中文:** 原子水平上的工程催化剂导致了现代多相催化的发展，并促进了单原子催化的发现1。近年来，将相邻的两个单原子制成双原子催化剂为进一步调整基于原子协同效应的催化性能提供了有力的手段2-4。与单原子催化剂的有限金属中心相比，双原子催化剂的金属物种选择数量呈现平方级增长，显着拓宽了单原子催化家族。然而，双原子催化剂的众多可选元素严重增加了传统试错法筛选单原子催化剂的时间成本6,7。为了通过有目的地设计双原子催化剂来代替试错法，需要从众多结构因素中确定最重要的催化相关参数
+
+<a id="S003"></a>
+**Source:** p.1 S003
+
+**Original:** of diatomic catalysts, such as bond length, d-band center, etc8–12. According to the principles of catalytic action, these parameters include the geometric factors and the electronic factors. For example, a volcano-shaped curve correlation between site distance and catalytic activity was discovered in dual-site catalysts through the manipulation of the spacing between heterogeneous synergistic catalytic sites13. As another example, Chen and co-workers constructed an asymmetric nitrogen, sulfur-coordinated diatomic iron catalyst, breaking the symmetrical electron distribution of Fe-N4 moiety and optimizing the adsorption of oxygen-containing intermediates, thereby enhancing the overall catalytic performance14. Despite the current progress in manipulating geometric or electronic effects, the geometric parameters and electronic parameters are commonly highly correlated in the system of diatomic catalysts15–18. Accordingly, one-sided
+
+**中文:** 双原子催化剂的参数，如键长、d带中心等8-12。根据催化作用原理，这些参数包括几何因素和电子因素。例如，通过操纵异质协同催化位点之间的间距，在双位点催化剂中发现了位点距离和催化活性之间的火山形曲线相关性13。另一个例子，陈和同事构建了一种不对称的氮、硫配位双原子铁催化剂，打破了Fe-N4部分的对称电子分布，优化了含氧中间体的吸附，从而提高了整体催化性能14。尽管目前在操纵几何或电子效应方面取得了进展，但双原子催化剂系统中的几何参数和电子参数通常高度相关15-18。据此，片面
+
+<a id="S004"></a>
+**Source:** p.1 S004
+
+**Original:** 1School of Chemistry and Materials Science, Anhui Normal University, Wuhu 241002, PR China. 2State Key Laboratory of Organic-Inorganic Composites, College of Chemical Engineering, Beijing University of Chemical Technology, Beijing 100029, PR China. 3Hefei National Research Center for Physical Sciences at the Microscale, University of Science and Technology of China, Hefei 230026, PR China. 4Key Laboratory of Precision and Intelligent Chemistry, School of Chemistry and Materials Science, University of Science and Technology of China, Hefei 230026, PR China. 5These authors contributed equally: Yan Liu, Yan Yang, Xuanni Lin. e-mail: zhuozw@ustc.edu.cn; liudong@mail.buct.edu.cn; maochem@ahnu.edu.cn; jiangj1@ustc.edu.cn
+
+**中文:** 1安徽师范大学化学与材料科学学院, 芜湖 241002 2北京化工大学化学工程学院有机无机复合材料国家重点实验室，北京 100029 3中国科学技术大学合肥国家微尺度物质科学研究中心, 合肥 230026 4中国科学技术大学化学与材料科学学院精密与智能化学重点实验室, 合肥 230026 5 这些作者做出了同等贡献：Yan Liu、Yan Yang、Xuanni Lin。邮箱：zhuozw@ustc.edu.cn； liudong@mail.buct.edu.cn; maochem@ahnu.edu.cn； jianj1@ustc.edu.cn
+
+<a id="S005"></a>
+**Source:** p.2 S005
+
+**Original:** optimization of either geometric or electronic structure for diatomic catalysts commonly encounters the challenge of unfavorable coupled alternation, leaving difficulty in the rational design. Considering the strong ability of machine learning (ML) on the mechanistic study in complicated catalysis, we herein constructed a geometric-electronic coupled design of diatomic catalyst derived by ML. Taking electrocatalytic oxygen reduction reaction (ORR) as the model reaction, we analyzed the influence of geometric and electronic parameters on ORR catalysts by ML, demonstrating a coupled design principle via a catalytic “hot spot map”. When the active center atom was validated, the geometric distance descriptor of the diatom and electronic magnetic moment descriptor constituted the two axes of the hot spot map. In the hot spot map, the predicted ideal ORR catalysts were located in a narrow region that required the collaborative regulation of the distance between two metal atoms and the magnetic moment of the active center metal atoms. Based on the geometricelectronic coupled design, we predicted Co-N-Mn/NC as an ideal ORR catalyst and verified the effectiveness by experimental study. In alkaline electrolyte, the synthesized Co-N-Mn/NC catalyst exhibited a halfwave potential (E1/2) of 0.90 V and a kinetic current density (Jk) of 48.64 mA cm−2 at 0.85 V, significantly higher than those of commercial Pt/C. Furthermore, the zinc air battery (ZAB) with Co-N-Mn/NC catalyst achieved remarkable peak power density of 271 mW cm−2 and specific capacity of 806 mAh g−1 Zn.
+
+**中文:** 双原子催化剂的几何结构或电子结构的优化通常会遇到不利耦合交替的挑战，给合理设计带来困难。考虑到机器学习（ML）在复杂催化机理研究方面的强大能力，我们在此构建了由机器学习衍生的双原子催化剂的几何电子耦合设计。以电催化氧还原反应（ORR）为模型反应，通过ML分析了几何和电子参数对ORR催化剂的影响，通过催化“热点图”展示了耦合设计原理。当验证活性中心原子时，硅藻的几何距离描述符和电子磁矩描述符构成了热点图的两个轴。在热点图中，预测的理想ORR催化剂位于一个狭窄的区域，需要协同调节两个金属原子之间的距离和活性中心金属原子的磁矩。基于几何电子耦合设计，我们预测Co-N-Mn/NC是一种理想的ORR催化剂，并通过实验研究验证了其有效性。在碱性电解液中，合成的Co-N-Mn/NC催化剂在0.85 V时表现出0.90 V的半波电位（E1/2）和48.64 mA cm−2的动力学电流密度（Jk），显着高于商业Pt/C。此外，采用Co-N-Mn/NC催化剂的锌空气电池（ZAB）实现了271 mW cm−2的峰值功率密度和806 mAh g−1 Zn的比容量。
+
+<a id="S006"></a>
+**Source:** p.2 S006
+
+**Original:** decouple the geometric and electronic effects. Subsequently, we employed the DFT calculations to obtain the database as the input for ML. Through the screening of the significance of the features by ML, the most important geometric and electronic parameters were obtained. The two parameters were then acted as two axes for the plotting of the catalytic hot spot map, which guided the design of the ORR catalyst through the coupling of the geometric and electronic effects. Based on the hot spot map, the ideal diatomic ORR catalyst was screened and experimentally validated to verify the effectiveness of the design principle.
+
+**中文:** 解耦几何效应和电子效应。随后，我们使用 DFT 计算来获取数据库作为 ML 的输入。通过ML筛选特征的显着性，获得最重要的几何和电子参数。然后将这两个参数作为绘制催化热点图的两个轴，通过几何效应和电子效应的耦合来指导 ORR 催化剂的设计。基于热点图，筛选出理想的双原子ORR催化剂并进行实验验证，验证了设计原理的有效性。
+
+<a id="S007"></a>
+**Source:** p.2 S007
+
+**Original:** Machine learning assisted high-throughput screening In the M1-N-M2/NC model, M1 (central metal) and M2 (side metal) were selected from 11 transition metals, which were widely used for constructing ORR active sites (Fig. 2a)23–33. This yielded 121 structural combinations via permutations (Supplementary Data 1). To establish a robust dataset for ML training, 36 structures (approximately 30%) were randomly chosen for DFT calculations. Initially, we assessed the stability of these structures using the binding and formation energies. As shown in Fig. 2b, most M1-N-M2/NCs exhibited both negative formation energy and binding energy, demonstrating the stability of the M1-N-M2/NCs. Moreover, the M1-N-M2/NCs displayed more negative binding energy than the single-atom system (MNC), demonstrating the strong binding of M1 and M2 by the cage of bridge N and the surrounding N atoms. In addition, the dissolution potentials of the above structures were positive except for the case of Pd-N-Os/NC, suggesting the electrochemical stability (Supplementary Tables 1 and 2). We then calculated the Gibbs free energy variation of the ORR reaction pathways, which included four electronic transfer steps: * + O2 →*OOH →*O →* OH →* + H2O (Supplementary Data 2 and Supplementary Tables 3, 4). Based on the data, the OOH*, OH* formation, and OH* desorption were possible potential determination steps (Fig. 2c). To quickly obtain the catalytic activity, we chose the overpotentials of the whole ORR steps as the targeted variables for ML. To train reliable ML models that cover both geometric and electronic effects, we analyzed the potential features to gain a proper feature set. Firstly, the 22 common atomic properties were adapted as the initial feature set (Supplementary Table 5)34,35. According to the Pearson correlation coefficient matrix analysis, several features were deleted to avoid dimensional disasters (Supplementary Fig. 1), forming a subset containing 16 features. As shown in Fig. 2d, most pairwise
+
+**中文:** 机器学习辅助高通量筛选 在M1-N-M2/NC模型中，从11种过渡金属中选择M1（中心金属）和M2（侧金属），这些过渡金属被广泛用于构建ORR活性位点（图2a）23-33。通过排列产生了 121 种结构组合（补充数据 1）。为了建立用于 ML 训练的稳健数据集，随机选择了 36 个结构（约 30%）用于 DFT 计算。最初，我们使用结合能和形成能评估了这些结构的稳定性。如图2b所示，大多数M1-N-M2/NCs都表现出负的形成能和结合能，证明了M1-N-M2/NCs的稳定性。此外，M1-N-M2/NCs比单原子系统（MNC）表现出更多的负结合能，证明了桥N笼和周围N原子对M1和M2的强结合。此外，除了Pd-N-Os/NC的情况外，上述结构的溶解电势均为正，表明电化学稳定性（补充表1和2）。然后，我们计算了 ORR 反应途径的吉布斯自由能变化，其中包括四个电子转移步骤：* + O2 →*OOH →*O →* OH →* + H2O（补充数据 2 和补充表 3、4）。根据数据，OOH*、OH* 形成和 OH* 解吸是可能的潜在确定步骤（图 2c）。为了快速获得催化活性，我们选择整个 ORR 步骤的超电势作为 ML 的目标变量。为了训练涵盖几何和电子效应的可靠机器学习模型，我们分析了潜在的特征以获得适当的特征集。首先，将 22 个常见原子属性改编为初始特征集（补充表 5）34,35。根据皮尔逊相关系数矩阵分析，删除了几个特征以避免维数灾难（补充图1），形成包含16个特征的子集。如图2d所示，大多数成对
+
+<a id="S008"></a>
+**Source:** p.2 S008
+
+**Original:** Results Design framework for diatomic ORR catalyst As illustrated in Fig. 1, we developed a comprehensive workflow to construct a principle coupling of both geometric and electronic effects for the design of diatomic ORR catalysts, which integrates DFT calculation and ML. Moreover, the screened diatomic ORR catalyst was verified by experimental synthesis and corresponding catalytic performance. For the convenience of the experimental synthesis, we chose transition metal-anchored nitrogen-coordinated carbon substrates for diatomic catalysts with M1-N-M2/NC (M2N7-C) structure, which was explored for other electrocatalysis19–22. Additionally, through sharing a bridge N atom between two separate MN4 moieties, this diatom possessed the moderate atomic distance to ensure interaction between the two moieties with a validated active center. Initially, we divided the features of this system into geometric parameters, electronic parameters, and systematic parameters to theoretically
+
+**中文:** 结果 双原子ORR催化剂的设计框架 如图1所示，我们开发了一个综合的工作流程，为双原子ORR催化剂的设计构建几何和电子效应的原理耦合，该工作流程集成了DFT计算和ML。此外，通过实验合成和相应的催化性能验证了筛选的双原子ORR催化剂。为了方便实验合成，我们选择了过渡金属锚定氮配位碳底物作为具有M1-N-M2/NC（M2N7-C）结构的双原子催化剂，这在其他电催化中进行了探索19-22。此外，通过在两个独立的 MN4 部分之间共享桥 N 原子，该硅藻具有适中的原子距离，以确保两个部分之间具有经过验证的活性中心的相互作用。最初，我们将该系统的特征分为几何参数、电子参数和系统参数，从理论上讲
+
+
+<a id="F001"></a>
+### Fig. 1 | DFT-ML-experiment workflow
+
+**Placed near:** p.2 S008
+
+**Source:** p.2 F001
+
+![Fig. 1 | DFT-ML-experiment workflow](assets/fig-01.png)
+
+**Original caption:** Fig. 1 | Schematic of the workflow based on the DFT-ML-experiment method to achieve a principle coupling of geometric and electronic parameters for the design of M1-N-M2/NCs. Some elements in this scheme were created using BioGDP.com (https://BioGDP.com).
+
+**中文图注:** 图1|基于 DFT-ML 实验方法的工作流程示意图，用于实现 M1-N-M2/NC 设计的几何参数和电子参数的原理耦合。该方案中的一些元素是使用 BioGDP.com (https://BioGDP.com) 创建的。
+
+**Reading note / 阅读提示:** 该图给出了论文的方法级逻辑：特征工程、DFT数据生成、机器学习筛选和实验验证。
+
+<a id="S009"></a>
+**Source:** p.2 S009
+
+**Original:** Fig. 1 | Schematic of the workflow based on the DFT-ML-experiment method to achieve a principle coupling of geometric and electronic parameters for the design of M1-N-M2/NCs. Some elements in this scheme were created using BioGDP.com (https://BioGDP.com).
+
+**中文:** 图1|基于 DFT-ML 实验方法的工作流程示意图，用于实现 M1-N-M2/NC 设计的几何参数和电子参数的原理耦合。该方案中的一些元素是使用 BioGDP.com (https://BioGDP.com) 创建的。
+
+<a id="S010"></a>
+**Source:** p.3 S010
+
+**Original:** Fig. 2 | The generation and pretreatment of the data. a Schematic structure of M1-N-M2/NCs and element type of metal atom. b Binding energies and formation energies of MNC and part of the randomly combined M1-N-M2/NCs. c The overpotentials of part of the randomly combined M1-N-M2/NCs. d Pearson correlation map between each of the 16 features. Source data are provided as a Source Data file.
+
+**中文:** 图2|数据的生成和预处理。 a M1-N-M2/NCs的结构示意图和金属原子的元素类型。 b MNC 和部分随机组合的 M1-N-M2/NC 的结合能和形成能。 c 部分随机组合的M1-N-M2/NC的超电势。 d 16 个特征之间的皮尔逊相关图。源数据作为源数据文件提供。
+
+<a id="S011"></a>
+**Source:** p.3 S011
+
+**Original:** features of M1-N-M2/NCs were allowed to coexist due to the low correlation. The preserved features were categorically divided into three groups: geometric parameters (AngM1-N-M2, dM1-M2, RM1, RM2), electronic parameters (MagM1, MagM2, χM1, χM2, NoutM1, NoutM2,), and other reactive parameters (Hf,oxM1, Hf,oxM2, EAM1, EAM2, EiM1, EiM2), all of which were evenly distributed. The low linear correlation of most of the features indicated the independent and repetitive properties of the final selected features in the set, which benefited the following ML study. In the ML model, the final selected features were used as input values, and the calculated ORR overpotentials were merged as target values. Following a systematic assessment for the impacts of trainingtest split ratios on predictive accuracy (Supplementary Fig. 2), we adopted an 8:2 random split of the entire dataset to ensure a balance between training sufficiency and validation reliability. After that, five different ML algorithms, including gradient boosting regression (GBR), random forest regression (RFR), support vector regression (SVR), gaussian processes regression (GPR), and K nearest neighbors regression (KNR), were used to train the corresponding models (see Supplementary Table 6 for details of these models). Subsequently, grid search and cross-validation were utilized to adjust the hyperparameters of the models, together with the root mean square error (RMSE) and coefficient of determination (R2) evaluating the stability and accuracy of the models (Fig. 3a and Supplementary Table 7). Among the five models, the trained GBR algorithm exhibited the highest accuracy and stability in both the training set and test set. Moreover, the predicted overpotential and the DFT calculation results displayed an obvious linear relationship over the whole dataset (Fig. 3b), proving that the effective training of the GBR model achieves
+
+**中文:** 由于相关性较低，M1-N-M2/NC 的特征可以共存。保留的特征被分类为三组：几何参数（AngM1-N-M2、dM1-M2、RM1、RM2）、电子参数（MagM1、MagM2、χM1、χM2、NoutM1、NoutM2）和其他反应参数（Hf，oxM1，Hf，oxM2，EAM1，EAM2，EiM1，EiM2），所有这些都是分布均匀。大多数特征的低线性相关性表明了集合中最终选择的特征的独立性和重复性，这有利于后续的机器学习研究。在ML模型中，最终选择的特征被用作输入值，计算出的ORR超电势被合并为目标值。在对训练测试分割比率对预测准确性的影响进行系统评估后（补充图 2），我们对整个数据集采用 8:2 随机分割，以确保训练充分性和验证可靠性之间的平衡。之后，使用梯度增强回归（GBR）、随机森林回归（RFR）、支持向量回归（SVR）、高斯过程回归（GPR）和K最近邻回归（KNR）等五种不同的ML算法来训练相应的模型（有关这些模型的详细信息，请参见补充表6）。随后，利用网格搜索和交叉验证来调整模型的超参数，并用均方根误差（RMSE）和确定系数（R2）来评估模型的稳定性和准确性（图3a和补充表7）。在五个模型中，经过训练的GBR算法在训练集和测试集上都表现出最高的准确性和稳定性。此外，预测的过电势和DFT计算结果在整个数据集上表现出明显的线性关系（图3b），证明GBR模型的有效训练达到了
+
+
+<a id="F002"></a>
+### Fig. 2 | Data generation and pretreatment
+
+**Placed near:** p.3 S011
+
+**Source:** p.3 F002
+
+![Fig. 2 | Data generation and pretreatment](assets/fig-02.png)
+
+**Original caption:** Fig. 2 | The generation and pretreatment of the data. a Schematic structure of M1-N-M2/NCs and element type of metal atom. b Binding energies and formation energies of MNC and part of the randomly combined M1-N-M2/NCs. c The overpotentials of part of the randomly combined M1-N-M2/NCs. d Pearson correlation map between each of the 16 features. Source data are provided as a Source Data file.
+
+**中文图注:** 图2|数据的生成和预处理。 a M1-N-M2/NCs的结构示意图和金属原子的元素类型。 b MNC 和部分随机组合的 M1-N-M2/NC 的结合能和形成能。 c 部分随机组合的M1-N-M2/NC的超电势。 d 16 个特征之间的皮尔逊相关图。源数据作为源数据文件提供。
+
+**Reading note / 阅读提示:** 该图解释了在机器学习之前如何准备数据集和特征，包括稳定性、超电势和特征相关性检查。
+
+<a id="S012"></a>
+**Source:** p.3 S012
+
+**Original:** highly precise prediction (see Supplementary Table 8 and Supplementary Fig. 3 for detailed data and the comparison of other algorithms). Therefore, we chose the GBR algorithm to further predict the residual M1-N-M2/NCs outside the dataset (Fig. 3c). Ranking the overpotential from low to high values, we selected the predicted top 10 M1N-M2/NCs and verified the results by DFT calculation (Fig. 3d, Supplementary Table 9 and Supplementary Data 3). The average error of the ORR overpotentials is only 0.03 V, confirming that the quick ML prediction was able to substitute the long-term DFT calculations. Specially, Co-N-Mn/NC exhibited the lowest overpotential of 0.27 V by ML prediction, corresponding to the overpotential of 0.25 V by DFT calculation (Supplementary Fig. 4). Further DFT calculations showed that Co-N-Mn/NC preferred the four-electron transfer mechanism to the two-electron transfer path for H2O2 generation, confirming the selectivity for ORR (Supplementary Fig. 5). According to ab initio molecular dynamics simulation, the energy of Co-N-Mn/NC fluctuated slightly, and the structures remained almost unchanged at 500 K after 12 ps, demonstrating good stability (Supplementary Fig. 6).
+
+**中文:** 高精度预测（详细数据和其他算法的比较参见补充表8和补充图3）。因此，我们选择GBR算法来进一步预测数据集外的残差M1-N-M2/NC（图3c）。将超电势从低到高排序，我们选择了预测的前10个M1N-M2/NC，并通过DFT计算验证了结果（图3d，补充表9和补充数据3）。 ORR 超电势的平均误差仅为 0.03 V，证实快速 ML 预测能够替代长期 DFT 计算。特别是，根据 ML 预测，Co-N-Mn/NC 表现出最低的过电势，为 0.27 V，对应于 DFT 计算的 0.25 V 过电势（补充图 4）。进一步的 DFT 计算表明，Co-N-Mn/NC 在生成 H2O2 时更喜欢四电子转移机制，而不是双电子转移路径，证实了 ORR 的选择性（补充图 5）。根据从头算分子动力学模拟，Co-N-Mn/NC的能量波动很小，12 ps后在500 K下结构几乎保持不变，表现出良好的稳定性（补充图6）。
+
+
+<a id="F003"></a>
+### Fig. 3 | Machine-learning training and prediction
+
+**Placed near:** p.3 S012
+
+**Source:** p.4 F003
+
+![Fig. 3 | Machine-learning training and prediction](assets/fig-03.png)
+
+**Original caption:** Fig. 3 | Machine learning training and prediction. a Comparison of the RMSE and the R2 score for each model on the train set and the test set. b Comparison of DFT calculated overpotential values with those predicted by the best-performing GBR model. c ML predicted overpotential heatmap of all M1-N-M2/NCs in this system. d DFT calculations verified that ML predicted the best performing 10 M1-N-M2/NCs with overpotentials. Source data are provided as a Source Data file.
+
+**中文图注:** 图3|机器学习训练和预测。 a 训练集和测试集上每个模型的 RMSE 和 R2 分数的比较。 b DFT 计算的超电势值与性能最佳的 GBR 模型预测的超电势值的比较。 c ML 预测该系统中所有 M1-N-M2/NC 的过电势热图。 d DFT 计算验证了 ML 预测了性能最佳的 10 个具有超电势的 M1-N-M2/NC。源数据作为源数据文件提供。
+
+**Reading note / 阅读提示:** 该图是机器学习模型的核心验证：首先检查预测准确性，然后通过 DFT 重新检查最佳候选者。
+
+<a id="S013"></a>
+**Source:** p.3 S013
+
+**Original:** Interpretation of geometric and electronic descriptors Apart from the selection of the optimal catalyst, the deep analysis of the design principle that considers both geometric and electronic effects was further conducted. Figure 4a shows the significance of the features evaluated through the SHapley Additive exPlanation (SHAP) summary plot36. The features were sorted vertically in descending order based on the cumulative sum of SHAP values, while the horizontal axis showcased the distribution of SHAP values for each individual feature. Among all the features, the top 3 important features were related to the intrinsic properties of M1, indicating the species of
+
+**中文:** 几何和电子描述符的解读除了选择最佳催化剂外，还对同时考虑几何和电子效应的设计原理进行了深入分析。图 4a 显示了通过 Shapley Additive exPlanation (SHAP) 摘要图 36 评估的特征的重要性。根据 SHAP 值的累积和，将特征按降序垂直排序，而水平轴则显示每个特征的 SHAP 值的分布。在所有特征中，前 3 个重要特征与 M1 的内在属性相关，表明了 M1 的种类
+
+<a id="S014"></a>
+**Source:** p.4 S014
+
+**Original:** Fig. 3 | Machine learning training and prediction. a Comparison of the RMSE and the R2 score for each model on the train set and the test set. b Comparison of DFT calculated overpotential values with those predicted by the best-performing GBR model. c ML predicted overpotential heatmap of all M1-N-M2/NCs in this system. d DFT calculations verified that ML predicted the best performing 10 M1-N-M2/NCs with overpotentials. Source data are provided as a Source Data file.
+
+**中文:** 图3|机器学习训练和预测。 a 训练集和测试集上每个模型的 RMSE 和 R2 分数的比较。 b DFT 计算的超电势值与性能最佳的 GBR 模型预测的超电势值的比较。 c ML 预测该系统中所有 M1-N-M2/NC 的过电势热图。 d DFT 计算验证了 ML 预测了性能最佳的 10 个具有超电势的 M1-N-M2/NC。源数据作为源数据文件提供。
+
+<a id="S015"></a>
+**Source:** p.4 S015
+
+**Original:** active center atom was the prerequisite factor for highly active ORR catalysts. The catalytic performance was boosted when the active center atom was Co, Rh, or Ir with d7 structure, which was interestingly consistent with the eg theory. After validating the active center, the distance of bimetallic (dM1-M2) and the magnetic moment of M1 (MagM1) became the top 2 determined factors. Notably, these two factors coincidentally corresponded to the geometric descriptor and electronic descriptor, respectively. This phenomenon indicated that both geometric and electronic effects can manipulate the catalytic performance, which verified the principle of catalytic action. To summarize a design principle that contained the geometric and electronic effects, we plotted the hot spot maps using dM1-M2 and MagM1 as axes and the theoretical overpotential as the mapping signal (Fig. 4b). Regardless of the species of active centers, the catalytically active signals were located within a narrow region. For the center of Co and Ir, this region required small dM1-M2 and high MagM1 values, whereas small dM1-M2 and low MagM1 values were required for the center of Rh (Supplementary Table 10). Therefore, the hot spot map served as a design principle that directed the simultaneous limitation of geometric descriptor (dM1-M2) and electronic descriptor (MagM1). Based on the geometric-electronic coupled design principle, researchers can focus on the synergistic analysis of two key parameters rather than fullpath calculations. In addition, due to narrow region for the catalytically
+
+**中文:** 活性中心原子是高活性ORR催化剂的先决条件。当活性中心原子为d7结构的Co、Rh或Ir时，催化性能得到提升，这与eg理论一致。确定活性中心后，双金属片的距离（dM1-M2）和M1的磁矩（MagM1）成为前2个确定因素。值得注意的是，这两个因素恰好分别对应于几何描述符和电子描述符。这一现象表明几何效应和电子效应都可以操纵催化性能，验证了催化作用的原理。为了总结包含几何效应和电子效应的设计原理，我们使用 dM1-M2 和 MagM1 为轴，以理论超电势为映射信号绘制了热点图（图 4b）。无论活性中心的种类如何，催化活性信号都位于狭窄的区域内。对于Co和Ir的中心，该区域需要小dM1-M2和高MagM1值，而Rh中心需要小dM1-M2和低MagM1值（补充表10）。因此，热点图作为指导同时限制几何描述符（dM1-M2）和电子描述符（MagM1）的设计原则。基于几何电子耦合设计原理，研究人员可以专注于两个关键参数的协同分析，而不是全路径计算。此外，由于催化区域狭窄
+
+
+<a id="F004"></a>
+### Fig. 4 | Key factors and hot-spot map
+
+**Placed near:** p.4 S015
+
+**Source:** p.5 F004
+
+![Fig. 4 | Key factors and hot-spot map](assets/fig-04.png)
+
+**Original caption:** Fig. 4 | Analysis of key factors affecting catalytic performance. a SHAP summary plot of the GBR model for ORR overpotentials. b Hot spot plot of ML predicted overpotential as a function of dM1-M2 and MagM1 features by M1-N-M2/NCs (M1 = Co, Rh, Ir). Source data are provided as a Source Data file.
+
+**中文图注:** 图4|影响催化性能的关键因素分析。 ORR 过电势的 GBR 模型的 SHAP 汇总图。 b ML 预测过电势的热点图，作为 M1-N-M2/NC 的 dM1-M2 和 MagM1 特征的函数（M1 = Co、Rh、Ir）。源数据作为源数据文件提供。
+
+**Reading note / 阅读提示:** 该图将机器学习结果转换为可解释的设计规则：几何距离和磁矩必须一起调整。
+
+<a id="S016"></a>
+**Source:** p.4 S016
+
+**Original:** active signals, the two key parameters are enough to quickly highthroughput screening the potential candidates for efficient catalysts, which can avoid the validation of all parameters for ML-based prediction and significantly reduce the calculation cost. Moreover, for experimental research, this hot spot map provides a clear direction for the optimization of catalyst performance by regulating the two key parameters in the narrow region of the hot spot map.
+
+**中文:** 活性信号中，这两个关键参数足以快速高通量筛选高效催化剂的潜在候选者，这可以避免对基于机器学习的预测的所有参数进行验证，并显着降低计算成本。此外，对于实验研究来说，该热点图通过调节热点图狭窄区域内的两个关键参数，为催化剂性能的优化提供了明确的方向。
+
+<a id="S017"></a>
+**Source:** p.4 S017
+
+**Original:** Synthesis and characterization of the predicted optimal catalyst To further verify the reliability of the design principle, we experimentally synthesized the predicted optimal catalysts (Co-N-Mn/NC) and tested the ORR performance. Supplementary Fig. 7 schematically depicted the synthetic route to the Co-N-Mn/NC catalyst via a simple double-solvent method, in which Mn phthalocyanine (MnPc) solution was mixed with a Co-containing zeolitic imidazolate framework (CoZIF-8), followed by pyrolysis at 950 °C. To get more insight into the CoMn dual sites, Co single-atom catalyst (CoNC), Mn single-atom catalyst (MnNC), and nitrogen-doped carbon (NC) were prepared for comparison. The preparation details for these catalysts were provided in the “Methods” section. The scanning electron microscopy (SEM) and transmission electron microscopy (TEM) images of Co-N-Mn/NC displayed a dodecahedron morphology with particle size of ~100 nm (Supplementary Fig. 8 and Fig. 5a). X-ray diffraction (XRD) pattern and
+
+**中文:** 预测最优催化剂的合成和表征为了进一步验证设计原理的可靠性，我们实验合成了预测最优催化剂（Co-N-Mn/NC）并测试了ORR性能。补充图7示意性地描述了通过简单的双溶剂法合成Co-N-Mn/NC催化剂的路线，其中将Mn酞菁（MnPc）溶液与含Co沸石咪唑酯骨架（CoZIF-8）混合，然后在950℃下热解。为了更深入地了解CoMn双位点，制备了Co单原子催化剂（CoNC）、Mn单原子催化剂（MnNC）和氮掺杂碳（NC）进行比较。 “方法”部分提供了这些催化剂的制备细节。 Co-N-Mn/NC的扫描电子显微镜（SEM）和透射电子显微镜（TEM）图像显示出十二面体形貌，粒径约为100 nm（补充图8和图5a）。 X 射线衍射 (XRD) 图案和
+
+<a id="S018"></a>
+**Source:** p.5 S018
+
+**Original:** Fig. 4 | Analysis of key factors affecting catalytic performance. a SHAP summary plot of the GBR model for ORR overpotentials. b Hot spot plot of ML predicted overpotential as a function of dM1-M2 and MagM1 features by M1-N-M2/NCs (M1 = Co, Rh, Ir). Source data are provided as a Source Data file.
+
+**中文:** 图4|影响催化性能的关键因素分析。 ORR 过电势的 GBR 模型的 SHAP 汇总图。 b ML 预测过电势的热点图，作为 M1-N-M2/NC 的 dM1-M2 和 MagM1 特征的函数（M1 = Co、Rh、Ir）。源数据作为源数据文件提供。
+
+<a id="S019"></a>
+**Source:** p.5 S019
+
+**Original:** high-resolution TEM (HRTEM) image for Co-N-Mn/NC revealed the absence of metal-related nanoparticles, preliminarily confirming the preparation of atomically dispersed catalysts, control catalysts (CoNC, MnNC, and NC) also showed similar morphologies and XRD patterns (Supplementary Figs. 9–11), suggesting a similar amorphous carbon structure. Meanwhile, the HRTEM image showed the presence of graphitized carbon layers, which were conducive to electronic conduction. Moreover, Raman spectra displayed a close intensity ratio of Dband to G-band (ID/IG) for all catalysts, indicating that as-synthesized catalysts exhibited similar defect degrees (Supplementary Fig. 12). In addition, N2 adsorption/desorption isotherm curves showed that the BET specific surface areas of Co-N-Mn/NC, CoNC, and MnNC were 529, 731, and 737 m2 g−1, respectively (Supplementary Fig. 13). All these catalysts possessed abundant micropores, beneficial for the exposure of catalytic active sites. We further studied the structure of Co-N-Mn/NC at the atomic resolution. In the aberration-corrected HAADF-STEM (AC HAADF-STEM) image, abundant bright dots were distributed in pairs within the carbon matrix, illustrating the possible coexistence of Co-Mn dual sites within Co-N-Mn/NC (Fig. 5b). According to the estimation of the distance between the pair dot, the adjacent Co and Mn atoms possessed the distance of 3.56 Å, which was consistent with the structure of N-bridged diatoms (Fig. 5c). Compared with the paired dual dots for Co-N-Mn/NC, plenty of isolated bright dots were observed in AC HAADF-STEM images of CoNC and MnNC, corresponding to the atomically dispersed Co sites and Mn sites, respectively (Supplementary Fig. 14). Figure 5d shows the high-angle annular dark-field scanning TEM (HAADF-STEM) and corresponding energy-dispersive X-ray spectroscopy (EDS) mapping images of Co-N-Mn/NC, displaying the uniform elemental distribution of Co, Mn, and N throughout the whole carbon matrix.
+
+**中文:** Co-N-Mn/NC的高分辨率TEM（HRTEM）图像显示不存在金属相关纳米颗粒，初步证实了原子分散催化剂的制备，对照催化剂（CoNC、MnNC和NC）也显示出相似的形貌和XRD图案（补充图9-11），表明具有相似的无定形碳结构。同时，HRTEM图像显示石墨化碳层的存在，这有利于电子传导。此外，拉曼光谱显示所有催化剂的 D 带与 G 带 (ID/IG) 的强度比接近，表明合成的催化剂表现出相似的缺陷程度（补充图 12）。此外，N2吸附/解吸等温线显示Co-N-Mn/NC、CoNC和MnNC的BET比表面积分别为529、731和737 m2 g−1（补充图13）。所有这些催化剂都具有丰富的微孔，有利于催化活性位点的暴露。我们进一步在原子分辨率下研究了 Co-N-Mn/NC 的结构。在像差校正的HAADF-STEM（AC HAADF-STEM）图像中，大量的亮点在碳基体中成对分布，说明Co-N-Mn/NC中Co-Mn双位点可能共存（图5b）。根据对点之间距离的估计，相邻的Co和Mn原子的距离为3.56 Å，这与N桥硅藻的结构一致（图5c）。与Co-N-Mn/NC的成对双点相比，在CoNC和MnNC的AC HAADF-STEM图像中观察到大量孤立的亮点，分别对应于原子分散的Co位点和Mn位点（补充图14）。图5d显示了Co-N-Mn/NC的高角度环形暗场扫描TEM（HAADF-STEM）和相应的能量色散X射线光谱（EDS）映射图像，显示了Co、Mn和N在整个碳基体中的均匀元素分布。
+
+<a id="S020"></a>
+**Source:** p.5 S020
+
+**Original:** To determine the electronic environments and chemical bonding nature for Co-N-Mn/NC and controls, we performed a series of characterizations. In N 1s X-ray photoelectron spectroscopy (XPS) spectra, metal-nitrogen bonds were clearly recorded (Supplementary Fig. 15a). Notably, pyridinic-N was the primary species in all catalysts, which was consistent with our theoretical model of Co-N-Mn/NC. No cobalt nitride, manganese nitride, or Co/Mn-related metal nanoparticles peaks were detected for Co-N-Mn/NC, CoNC, and MnNC in their Co 2p and Mn 2p XPS spectra (Supplementary Fig. 15b, c), implying the possible existence of N bonded to Co or Mn in our catalysts, respectively. In Co K-edge X-ray absorption near-edge structure (XANES) spectra, the Co K-pre-edges of both CoNC and Co-N-Mn/NC lay between those of Co foil and CoPc, suggesting that the Co oxidation states resided between 0 and +2 (Supplementary Fig. 16a). In Fig. 5e, the Co K-edge extended X-ray absorption fine structure (EXAFS) spectra for both Co-N-Mn/NC and CoNC exhibited a singular peak located at roughly 1.53 Å, ascribing to the first shell CoN scattering path28. Meanwhile, no peak referring to the CoCo path at 2.18 Å was observed37, verifying the atomic dispersion of Co atoms within both Co-N-Mn/NC and CoNC. According to the XANES and EXAFS of Mn, the similar result of atomic dispersion was concluded in the case of Mn elements in Co-N-Mn/NC and MnNC (Fig. 5f and Supplementary Fig. 16b)38. Additionally, compared to CoNC and MnNC, the CoN and MnN peaks in EXAFS of Co-N-Mn/NC were asymmetric and slightly shifted, indicating that the coupling of adjacent Co and Mn atoms affected the coordination environment of the metal center. As illustrated in the EXAFS fitting of Co-N-Mn/NC, both Co and Mn atoms were coordinated with the four N atoms in the first shell, corresponding to CoNC and MnNC (Fig. 5g, h and Supplementary Tables 11, 12).
+
+**中文:** 为了确定 Co-N-Mn/NC 和对照的电子环境和化学键性质，我们进行了一系列表征。在N 1s X射线光电子能谱（XPS）光谱中，清楚地记录了金属-氮键（补充图15a）。值得注意的是，吡啶-N是所有催化剂中的主要物质，这与我们的Co-N-Mn/NC理论模型一致。在 Co 2p 和 Mn 2p XPS 光谱中，没有检测到 Co-N-Mn/NC、CoNC 和 MnNC 的氮化钴、氮化锰或与 Co/Mn 相关的金属纳米颗粒峰（补充图 15b、c），这意味着在我们的催化剂中可能存在分别与 Co 或 Mn 键合的 N。在Co K边X射线吸收近边结构（XANES）光谱中，CoNC和Co-N-Mn/NC的Co K前边位于Co箔和CoPc之间，表明Co氧化态位于0和+2之间（补充图16a）。在图5e中，Co-N-Mn/NC和CoNC的Co K边扩展X射线吸收精细结构（EXAFS）光谱在大约1.53 Å处表现出奇异峰，归因于第一壳层CoN散射路径28。同时，在 2.18 Å 处没有观察到 CoCo 路径的峰37，验证了 Co-N-Mn/NC 和 CoNC 中 Co 原子的原子分散性。根据 Mn 的 XANES 和 EXAFS，对于 Co-N-Mn/NC 和 MnNC 中的 Mn 元素，得出了类似的原子色散结果（图 5f 和补充图 16b）38。此外，与CoNC和MnNC相比，Co-N-Mn/NC的EXAFS中的CoN和MnN峰不对称且略有偏移，表明相邻Co和Mn原子的耦合影响了金属中心的配位环境。如 Co-N-Mn/NC 的 EXAFS 拟合所示，Co 和 Mn 原子均与第一壳层中的四个 N 原子配位，对应于 CoNC 和 MnNC（图 5g、h 和补充表 11、12）。
+
+
+<a id="F005"></a>
+### Fig. 5 | Characterization of Co-N-Mn/NC
+
+**Placed near:** p.5 S020
+
+**Source:** p.6 F005
+
+![Fig. 5 | Characterization of Co-N-Mn/NC](assets/fig-05.png)
+
+**Original caption:** Fig. 5 | Characterization of Co-N-Mn/NC catalyst. a TEM and b AC HAADF-STEM images of Co-N-Mn/NC catalyst. c The intensity profiles obtained on site A and site B. d Corresponding EDS mapping images of Co-N-Mn/NC catalyst. e The EXAFS spectra of Co K-edge in R space. f The EXAFS spectra of Mn K-edge in R space. g The R-space EXAFS fitting curves of the Co-N-Mn/NC at Co K-edge. Inset: Schematic diagram of the Co-N-Mn/NC structure. h The R-space EXAFS fitting curves of the Co-N-Mn/NC at Mn K-edge. Source data are provided as a Source Data file.
+
+**中文图注:** 图5 | Co-N-Mn/NC 催化剂的表征。 a TEM 和 b AC HAADF-STEM 图像 Co-N-Mn/NC 催化剂。 c 在位点 A 和位点 B 上获得的强度分布。 d Co-N-Mn/NC 催化剂的相应 EDS 映射图像。 e R空间中Co K边的EXAFS谱。 f R 空间中 Mn K 边的 EXAFS 谱。 g Co-N-Mn/NC在Co K边缘处的R空间EXAFS拟合曲线。插图：Co-N-Mn/NC 结构示意图。 h Co-N-Mn/NC 在 Mn K 边缘处的 R 空间 EXAFS 拟合曲线。源数据作为源数据文件提供。
+
+**Reading note / 阅读提示:** 该图验证了预测的 Co-N-Mn/NC 结构实际上是合成的，并且 Co 和 Mn 配位环境与模型相匹配。
+
+<a id="S021"></a>
+**Source:** p.6 S021
+
+**Original:** Fig. 5 | Characterization of Co-N-Mn/NC catalyst. a TEM and b AC HAADF-STEM images of Co-N-Mn/NC catalyst. c The intensity profiles obtained on site A and site B. d Corresponding EDS mapping images of Co-N-Mn/NC catalyst. e The EXAFS spectra of Co K-edge in R space. f The EXAFS spectra of Mn K-edge in R space. g The R-space EXAFS fitting curves of the Co-N-Mn/NC at Co K-edge. Inset: Schematic diagram of the Co-N-Mn/NC structure. h The R-space EXAFS fitting curves of the Co-N-Mn/NC at Mn K-edge. Source data are provided as a Source Data file.
+
+**中文:** 图5 | Co-N-Mn/NC 催化剂的表征。 a TEM 和 b AC HAADF-STEM 图像 Co-N-Mn/NC 催化剂。 c 在位点 A 和位点 B 上获得的强度分布。 d Co-N-Mn/NC 催化剂的相应 EDS 映射图像。 e R空间中Co K边的EXAFS谱。 f R 空间中 Mn K 边的 EXAFS 谱。 g Co-N-Mn/NC在Co K边缘处的R空间EXAFS拟合曲线。插图：Co-N-Mn/NC 结构示意图。 h Co-N-Mn/NC 在 Mn K 边缘处的 R 空间 EXAFS 拟合曲线。源数据作为源数据文件提供。
+
+<a id="S022"></a>
+**Source:** p.6 S022
+
+**Original:** Electrochemical performance testing of the predicted optimal catalyst The ORR electrocatalytic performance of Co-N-Mn/NC and controls was evaluated using a three-electrode system with a rotating disk electrode (RDE) in 0.1 M KOH electrolyte (Supplementary Fig. 17). The linear sweep voltammetry (LSV) curves indicated that the Co-N-Mn/NC exhibited the highest ORR activity over reference catalysts, featuring a half-wave potential (E1/2) of 0.900 V superior to those of CoNC (0.871 V), MnNC (0.839 V), NC (0.768 V), and Pt/C (0.883 V) (Fig. 6a, Supplementary Figs. 18, 19 and Supplementary Table 13). Meanwhile, the Co-N-Mn/NC exhibited higher kinetic current density (48.64 mA cm−2) at 0.85 V and lower Tafel slope (54.0 mV dec−1) than those of the other reference catalysts and Pt/C (Fig. 6b, c). Supplementary Fig. 20 showed that Co-N-Mn/NC possessed higher double layer capacitance (Cdl) compared to CoNC, MnNC, and NC, suggesting larger electrochemically active surface areas and thus more exposed ORR active sites for Co-N-Mn/NC. In addition, the results of rotating ring disk electrode (RRDE) measurements revealed that Co-N-Mn/NC delivered high catalytic selectivity with a favorable 4-electron transfer pathway toward ORR (Fig. 6d), in agreement with the results obtained
+
+**中文:** 预测的最佳催化剂的电化学性能测试 Co-N-Mn/NC 和对照的 ORR 电催化性能使用带有旋转盘电极 (RDE) 的三电极系统在 0.1 M KOH 电解质中进行评估（补充图 17）。线性扫描伏安法（LSV）曲线表明，Co-N-Mn/NC比参考催化剂表现出最高的ORR活性，其半波电位（E1/2）为0.900 V，优于CoNC（0.871 V）、MnNC（0.839 V）、NC（0.768 V）和Pt/C（0.883 V）（图6a，补充材料）图 18、19 和补充表 13）。同时，与其他参考催化剂和Pt/C相比，Co-N-Mn/NC在0.85 V下表现出更高的动态电流密度（48.64 mA cm−2）和更低的塔菲尔斜率（54.0 mV dec−1）（图6b，c）。补充图 20 显示，与 CoNC、MnNC 和 NC 相比，Co-N-Mn/NC 具有更高的双层电容 (Cdl)，这表明 Co-N-Mn/NC 具有更大的电化学活性表面积，因此具有更多暴露的 ORR 活性位点。此外，旋转环盘电极（RRDE）测量结果表明，Co-N-Mn/NC 具有高催化选择性，具有良好的 ORR 4 电子转移路径（图 6d），与获得的结果一致
+
+<a id="S023"></a>
+**Source:** p.6 S023
+
+**Original:** from Koutecky-Levich (K-L) plots (Supplementary Fig. 21). As shown by the accelerated durability test and chronoamperometric test, the CoN-Mn/NC catalyst exhibited a negligible decay in terms of E1/2 after 10,000 continuous CV cycles and maintained a high current density retention after 13 h of continuous operation at 0.7 V, manifesting its remarkable durability (Fig. 6e, f). In addition, unlike the Pt/C catalyst, the Co-N-Mn/NC catalyst exhibited tolerance to methanol (Supplementary Fig. 22). These results suggested the highly active and stable of Co-N-Mn/NC towards ORR catalysis. To further confirm the remarkable ORR activity and stability of Co-N-Mn/NC, an aqueous ZAB with Co-N-Mn/NC as cathodic catalyst was assembled. The as-constructed ZAB with the Co-N-Mn/NC cathode achieved a high open-circuit voltage (OCV) of 1.51 V (Fig. 7a), a large peak power density of 271 mW cm−2, exceeding the Pt/C-based ZAB (OCV: 1.45 V, peak power density: 186 mW cm−2) (Fig. 7b). Moreover, Co-N-Mn/NC-based ZAB also showed a better rate performance at different current densities from 1 to 50 mA cm−2 and a higher specific capacity (806 mAh g−1 Zn) than those of the Pt/C-based ZAB (653 mAh g−1 Zn) (Fig. 7c, d). Moreover, the Co-N-Mn/NC-based ZAB showed high stability over 200 h of discharge-charge cycling test at
+
+**中文:** 来自 Koutecky-Levich (K-L) 图（补充图 21）。加速耐久性测试和计时电流测试表明，CoN-Mn/NC催化剂在10,000次连续CV循环后，E1/2的衰减可以忽略不计，并且在0.7V下连续运行13小时后仍保持高电流密度保留率，显示出其卓越的耐久性（图6e，f）。此外，与 Pt/C 催化剂不同，Co-N-Mn/NC 催化剂表现出对甲醇的耐受性（补充图 22）。这些结果表明Co-N-Mn/NC对ORR催化具有高活性和稳定性。为了进一步证实Co-N-Mn/NC卓越的ORR活性和稳定性，组装了以Co-N-Mn/NC为阴极催化剂的水性ZAB。采用Co-N-Mn/NC阴极的ZAB实现了1.51 V的高开路电压（OCV）（图7a），峰值功率密度为271 mW cm−2，超过了Pt/C基ZAB（OCV：1.45 V，峰值功率密度：186 mW cm−2）（图7b）。此外，Co-N-Mn/NC基ZAB在1至50 mA cm−2的不同电流密度下也表现出更好的倍率性能，并且比Pt/C基ZAB（653 mAh g−1 Zn）具有更高的比容量（806 mAh g−1 Zn）（图7c，d）。此外，Co-N-Mn/NC基ZAB在200小时的充放电循环测试中表现出高稳定性。
+
+
+<a id="F006"></a>
+### Fig. 6 | ORR electrochemical activity
+
+**Placed near:** p.6 S023
+
+**Source:** p.7 F006
+
+![Fig. 6 | ORR electrochemical activity](assets/fig-06.png)
+
+**Original caption:** Fig. 6 | Electrochemical activity of Co-N-Mn/NC catalyst. a iR-corrected RDE polarization curves of Co-N-Mn/NC, CoNC, MnNC, NC, and Pt/C catalysts (scan rate: 5 mV s−1, rotation rate: 1600 rpm). b Comparison of E1/2 and Jk at 0.85 V for the different catalysts. c Corresponding Tafel plots derived from the RDE polarization curves for the different catalysts. The error bars are the standard deviations of three individual calculations. d Electron transfer number (n) and H2O2 yield of Co-N-Mn/NC and the reference catalysts. e Accelerated durability test of Co-N-Mn/NC catalyst before and after 10,000 continuous CV cycles ranging from 0.7 to 1.0 V (vs. RHE). Inset: accelerated durability test of Pt/C catalyst. f Chronoamperometric test of Co-N-Mn/NC and Pt/C catalysts at 0.7 V. Source data are provided as a Source Data file.
+
+**中文图注:** 图 6 | Co-N-Mn/NC催化剂的电化学活性。 a Co-N-Mn/NC、CoNC、MnNC、NC 和 Pt/C 催化剂的 iR 校正 RDE 极化曲线（扫描速率：5 mV s−1，旋转速率：1600 rpm）。 b 不同催化剂在 0.85 V 下 E1/2 和 Jk 的比较。 c 根据不同催化剂的 RDE 极化曲线得出相应的塔菲尔图。误差线是三个单独计算的标准偏差。 d Co-N-Mn/NC 和参考催化剂的电子转移数 (n) 和 H2O2 产率。 e Co-N-Mn/NC 催化剂在 0.7 至 1.0 V（相对于 RHE）的 10,000 次连续 CV 循环之前和之后的加速耐久性测试。插图：Pt/C 催化剂的加速耐久性测试。 f 在 0.7 V 下对 Co-N-Mn/NC 和 Pt/C 催化剂进行计时电流测试。源数据作为源数据文件提供。
+
+**Reading note / 阅读提示:** 该图结合了活性、选择性和耐久性证据，测试了预测的催化剂在 ORR 方面是否确实表现良好。
+
+<a id="S024"></a>
+**Source:** p.7 S024
+
+**Original:** Fig. 6 | Electrochemical activity of Co-N-Mn/NC catalyst. a iR-corrected RDE polarization curves of Co-N-Mn/NC, CoNC, MnNC, NC, and Pt/C catalysts (scan rate: 5 mV s−1, rotation rate: 1600 rpm). b Comparison of E1/2 and Jk at 0.85 V for the different catalysts. c Corresponding Tafel plots derived from the RDE polarization curves for the different catalysts. The error bars are the standard deviations of three individual calculations. d Electron transfer number (n) and H2O2 yield of Co-N-Mn/ NC and the reference catalysts. e Accelerated durability test of Co-N-Mn/NC catalyst before and after 10,000 continuous CV cycles ranging from 0.7 to 1.0 V (vs. RHE). Inset: accelerated durability test of Pt/C catalyst. f Chronoamperometric test of Co-N-Mn/NCand Pt/Ccatalysts at0.7 V.Source data are provided asa Source Data file.
+
+**中文:** 图 6 | Co-N-Mn/NC催化剂的电化学活性。 a Co-N-Mn/NC、CoNC、MnNC、NC和Pt/C催化剂的iR校正RDE极化曲线（扫描速率：5 mV s−1，旋转速率：1600 rpm）。 b 不同催化剂在 0.85 V 下 E1/2 和 Jk 的比较。 c 根据不同催化剂的 RDE 极化曲线得出相应的塔菲尔图。误差线是三个单独计算的标准偏差。 d Co-N-Mn/NC 和参考催化剂的电子转移数 (n) 和 H2O2 产率。 e Co-N-Mn/NC 催化剂在 0.7 至 1.0 V（相对于 RHE）的 10,000 次连续 CV 循环之前和之后的加速耐久性测试。插图：Pt/C 催化剂的加速耐久性测试。 f Co-N-Mn/NC 和 Pt/C 催化剂在 0.7 V 下的计时电流测试。源数据作为源数据文件提供。
+
+<a id="S025"></a>
+**Source:** p.7 S025
+
+**Original:** 5 mA cm−2, whereasthe commercialPt/C + IrO2-based battery suffered from severe degradation after about 70 h (Fig. 7e). Through using the catalytically active and stable Co-N-Mn/NC-based ZAB, a toy light was powered by two in series connected ZABs, showing promising application prospects of Co-N-Mn/NC in energy storage devices (Supplementary Fig. 23).
+
+**中文:** 5 mA cm−2，而商业Pt/C + IrO2基电池在大约70小时后出现严重退化（图7e）。通过使用具有催化活性且稳定的Co-N-Mn/NC基ZAB，玩具灯由两个串联的ZAB供电，显示了Co-N-Mn/NC在储能装置中的良好应用前景（补充图23）。
+
+
+<a id="F007"></a>
+### Fig. 7 | Zinc-air battery performance
+
+**Placed near:** p.7 S025
+
+**Source:** p.8 F007
+
+![Fig. 7 | Zinc-air battery performance](assets/fig-07.png)
+
+**Original caption:** Fig. 7 | Zinc air battery based on Co-N-Mn/NC catalyst. a An open-circuit voltage. Inset: schematic illustration of a ZAB. b Polarization curve and the recorded power density for the Co-N-Mn/NC or commercial Pt/C catalyst-based ZAB, respectively. c Rate performance of the ZABs with Co-N-Mn/NC or commercial Pt/C as air cathode at different current densities. d Galvanostatic discharge curves of Co-N-Mn/NC or commercial Pt/C-based ZAB at j = 10 mA cm−2. e Long-term discharge-charge curves at j = 5 mA cm−2 for ZABs with Co-N-Mn/NC + IrO2 and commercial Pt/C + IrO2. Inset: the corresponding voltage efficiency curves during the cycling test. Source data are provided as a Source Data file.
+
+**中文图注:** 图 7 |基于Co-N-Mn/NC催化剂的锌空气电池。 a 开路电压。插图：ZAB 的示意图。 b 分别基于 Co-N-Mn/NC 或商用 Pt/C 催化剂的 ZAB 的极化曲线和记录的功率密度。 c 以Co-N-Mn/NC或商用Pt/C作为空气阴极的ZAB在不同电流密度下的倍率性能。 d Co-N-Mn/NC 或商用 Pt/C 基 ZAB 在 j = 10 mA cm−2 时的恒电流放电曲线。 e 采用 Co-N-Mn/NC + IrO2 和商用 Pt/C + IrO2 的 ZAB 在 j = 5 mA cm−2 时的长期放电-充电曲线。插图：循环测试时对应的电压效率曲线。源数据作为源数据文件提供。
+
+**Reading note / 阅读提示:** 该数字从三电极催化转移到设备级锌空气电池性能。
+
+<a id="S026"></a>
+**Source:** p.7 S026
+
+**Original:** comparison can be seen in Supplementary Table 15), indicating the remarkable performance with high E1/2 and high Jk values. Furthermore, compared with recently reported Co-Mn dual-site catalysts (Supplementary Fig. 24 and Table 16), Co-N-Mn/NC exhibited the highest half-wave potential in alkaline media, further demonstrating its superior performance as an efficient ORR catalyst. The performance of ZAB device was another aspect to assess the Co-N-Mn/NC catalyst for potential practical use, which mainly considered the peak power density and specific activity. Among the listed materials, the Co-N-Mn/ NC exhibited the highest peak power density with a relatively high specific activity, demonstrating the superiority of Co-N-Mn/NC for the battery device (Fig. 8d and Supplementary Table 17). Taken together, the highly efficient Co-N-Mn/NC catalyst demonstrated the success of the geometric-electronic coupled design for ORR catalyst.
+
+**中文:** 比较可以在补充表15中看到），表明高E1/2和高Jk值的显着性能。此外，与最近报道的Co-Mn双中心催化剂（补充图24和表16）相比，Co-N-Mn/NC在碱性介质中表现出最高的半波电位，进一步证明了其作为高效ORR催化剂的优越性能。 ZAB装置的性能是评估Co-N-Mn/NC催化剂潜在实际应用的另一个方面，主要考虑峰值功率密度和比活性。在列出的材料中，Co-N-Mn/NC表现出最高的峰值功率密度和相对较高的比活度，证明了Co-N-Mn/NC对于电池装置的优越性（图8d和补充表17）。综上所述，高效的Co-N-Mn/NC催化剂证明了ORR催化剂几何电子耦合设计的成功。
+
+<a id="S027"></a>
+**Source:** p.7 S027
+
+**Original:** The comparison of design method and catalyst performance To display the advancement of our design method and catalyst performance, we provided a comparison relative to the reported literature from both theoretical and experimental aspects. As shown in Fig. 8a, the theoretical overpotential of the predicted Co-N-Mn/NC catalyst was compared with that of the reported Pt-free catalyst. Our DFTcalculated overpotential (0.25 V) was one of the lowest values among the listed catalysts (the detailed data for comparison can be seen in Supplementary Table 14), indicating the effectiveness of geometricelectronic coupled design for ORR catalyst. To gain the geometric and electronic descriptors, the time cost by DFT calculations was 5.67 h. Using the ML-derived hot-spot map, we only took 20 s to obtain the overpotentials of the 85 diatomic models in the predicting dataset and precisely found the optimal Co-N-Mn model. To get similar results, traditional DFT-based high throughput screening required ~1071 h, which was 188-fold longer than the current ML-DFT coupled method (Fig. 8b). This result indicated the advantage of our geometricelectronic coupled design combining ML and DFT calculations. The experimental performance of the Co-N-Mn/NC catalyst toward ORR and ZAB was further evaluated with those of the previously reported Pt-free materials. For the ORR, the E1/2 and the Jk at 0.85 V were two key parameters for the evaluation of the performance. Compared with other reported Pt-free catalysts, the Co-N-Mn/NC was located at the upper-right region in Fig. 8c (the detailed data for
+
+**中文:** 设计方法和催化剂性能的比较为了展示我们的设计方法和催化剂性能的先进性，我们从理论和实验方面与报道的文献进行了比较。如图8a​​所示，将预测的Co-N-Mn/NC催化剂的理论过电势与报道的无Pt催化剂的理论过电势进行了比较。我们的DFT计算的过电势（0.25 V）是列出的催化剂中最低的值之一（详细的比较数据见补充表14），表明ORR催化剂几何电子耦合设计的有效性。为了获得几何和电子描述符，DFT计算的时间成本为5.67小时。使用机器学习导出的热点图，我们只用了 20 s 就获得了预测数据集中 85 个双原子模型的超电势，并精确找到了最佳 Co-N-Mn 模型。为了获得类似的结果，传统的基于 DFT 的高通量筛选需要约 1071 小时，比当前的 ML-DFT 耦合方法长 188 倍（图 8b）。这一结果表明了我们结合 ML 和 DFT 计算的几何电子耦合设计的优势。 Co-N-Mn/NC 催化剂对 ORR 和 ZAB 的实验性能与之前报道的无 Pt 材料的实验性能进行了进一步评估。对于 ORR，E1/2 和 0.85 V 下的 Jk 是评估性能的两个关键参数。与其他报道的无 Pt 催化剂相比，Co-N-Mn/NC 位于图 8c 的右上区域（详细数据为
+
+
+<a id="F008"></a>
+### Fig. 8 | Comparison with reported methods and catalysts
+
+**Placed near:** p.7 S027
+
+**Source:** p.9 F008
+
+![Fig. 8 | Comparison with reported methods and catalysts](assets/fig-08.png)
+
+**Original caption:** Fig. 8 | Comparison of design method and catalyst performance. a Comparison of theoretical overpotential values for Co-N-Mn/NC and catalysts in literature. b Comparison of the average computation costs for predicting the ORR catalytic activity of residual M1-N-M2/NC using pure DFT calculation and ML prediction. c Comparison of the Jk and E1/2 values between Co-N-Mn/NC and the catalysts reported recently. d Comparison of peak power density and specific capacity of Co-N-Mn/NC and recently reported highly active catalysts. The detailed data and references for comparison can be seen in the Supplementary Information tables. Source data are provided as a Source Data file.
+
+**中文图注:** 图 8 |设计方法和催化剂性能比较。 a Co-N-Mn/NC 和文献中催化剂的理论过电势值比较。 b 使用纯DFT计算和ML预测预测残留M1-N-M2/NC的ORR催化活性的平均计算成本的比较。 c Co-N-Mn/NC与最近报道的催化剂的Jk和E1/2值比较。 d Co-N-Mn/NC 与最近报道的高活性催化剂的峰值功率密度和比容量的比较。详细数据和比较参考可以在补充信息表中看到。源数据作为源数据文件提供。
+
+**Reading note / 阅读提示:** 该图通过将计算成本和催化剂性能与报告的方法和催化剂进行比较来结束本文。
+
+<a id="S028"></a>
+**Source:** p.7 S028
+
+**Original:** Discussion In summary, we developed a geometric-electronic coupled design principle through a catalytic hot spot map for diatomic ORR catalysts by machine learning. In this hot spot map, the geometric parameter dM1-M2 and electronic parameter MagM1 were recognized as the two descriptors that manipulated the catalytic properties of active center atoms. For a certain active center atom, the highly active region in the hot spot map was narrow, which can direct the design of diatomic ORR catalysts. Based on this design, we predicted a highly active ORR catalyst of Co-N-Mn/NC and verified this result by experiment. The Co-NMn/NC catalyst exhibited E1/2 of 0.90 V and Jk of 48.64 mA cm−2 at 0.85 V, with a peak power density of 271 mW cm−2 and a specific capacity of 806 mAh g−1 Zn toward ZAB tests. Our work not only showed the successful prediction of ORR catalysts, but also provided a protocol for finding coupled design principles for catalysts with both geometric and electronic factors.
+
+**中文:** 讨论 总之，我们通过机器学习的双原子 ORR 催化剂的催化热点图开发了几何电子耦合设计原理。在这张热点图中，几何参数 dM1-M2 和电子参数 MagM1 被认为是操纵活性中心原子催化性能的两个描述符。对于某个活性中心原子，热点图中的高活性区域较窄，可以指导双原子ORR催化剂的设计。基于此设计，我们预测了Co-N-Mn/NC的高活性ORR催化剂，并通过实验验证了这一结果。 Co-NMn/NC催化剂在0.85 V时表现出0.90 V的E1/2和48.64 mA cm−2的Jk，在ZAB测试中峰值功率密度为271 mW cm−2，比容量为806 mAh g−1 Zn。我们的工作不仅展示了 ORR 催化剂的成功预测，而且还提供了寻找具有几何和电子因素的催化剂耦合设计原理的协议。
+
+<a id="S029"></a>
+**Source:** p.8 S029
+
+**Original:** Fig. 7 | Zinc air battery based on Co-N-Mn/NC catalyst. a An Open-circuit voltage. Inset: Schematic illustration of a ZAB. b Polarization curve and the recorded power density for the Co-N-Mn/NC or commercial Pt/C catalyst-based ZAB, respectively. c Rate performance of the ZABs with Co-N-Mn/NC or commercial Pt/C as aircathode at different current densities. d Galvanostatic discharge curves of Co-N- Mn/NC or commercial Pt/C-based ZAB at j = 10 mA cm−2. e Long-term dischargecharge curves at j = 5 mA cm−2 for ZABs with Co-N-Mn/NC+ IrO2 and commercial Pt/C + IrO2. Inset: the corresponding voltage efficiency curves during the cycling test. Source data are provided as a Source Data file.
+
+**中文:** 图 7 |基于Co-N-Mn/NC催化剂的锌空气电池。 a 开路电压。插图：ZAB 的示意图。 b 分别基于 Co-N-Mn/NC 或商用 Pt/C 催化剂的 ZAB 的极化曲线和记录的功率密度。 c 以 Co-N-Mn/NC 或商用 Pt/C 作为空气阴极的 ZAB 在不同电流密度下的倍率性能。 d Co-N-Mn/NC 或商用 Pt/C 基 ZAB 在 j = 10 mA cm−2 时的恒电流放电曲线。 e 使用 Co-N-Mn/NC+ IrO2 和商用 Pt/C + IrO2 的 ZAB 在 j = 5 mA cm−2 时的长期放电曲线。插图：循环测试时对应的电压效率曲线。源数据作为源数据文件提供。
+
+<a id="S030"></a>
+**Source:** p.8 S030
+
+**Original:** Methods DFT computational details Spin-polarized DFT calculations were performed using the Vienna ab initio simulation package (VASP) 5.4.4 code39. The exchangecorrelation energy was modeled by the Perdew-Burke-Ernzerhof (PBE) functional within the generalized gradient approximation (GGA)40, and the projector augmented wave (PAW) pseudo-potentials were used to describe the ionic cores41. A vacuum space of 15 Å was adopted in the z-direction of the 6 × 6 × 1 graphene supercell to minimize interactions among neighboring catalyst images. The cutoff energy was set as 500 eV and the Brillouin zone was sampled using 3 × 3 × 1 k-points. The convergence criteria of structure optimization were chosen as the maximum force on each atom less than 0.02 eV/Å with an energy change less than 1 × 10−5 eV. The van der Waals interaction was treated by using the empirical correction in Grimme’s scheme (DFT-D2)42. More computational details can be found in the Supplementary Information.
+
+**中文:** 方法 DFT 计算细节 自旋极化 DFT 计算是使用 Vienna 从头算仿真包 (VASP) 5.4.4 code39 进行的。交换相关能通过广义梯度近似 (GGA)40 内的 Perdew-Burke-Ernzerhof (PBE) 泛函进行建模，并使用投影增强波 (PAW) 赝势来描述离子核心 41。 6 × 6 × 1 石墨烯超级电池的 z 方向采用 15 Å 的真空空间，以最大限度地减少相邻催化剂图像之间的相互作用。截止能量设置为 500 eV，布里渊区使用 3 × 3 × 1 k 点进行采样。结构优化的收敛标准被选择为每个原子上的最大力小于0.02 eV/Å，能量变化小于1 × 10−5 eV。范德华相互作用通过使用 Grimme 方案 (DFT-D2)42 中的经验修正来处理。更多计算细节可以在补充信息中找到。
+
+<a id="S031"></a>
+**Source:** p.8 S031
+
+**Original:** where ^yi, yi, and μi denote the ground truth, the prediction of the model, and the mean value, respectively. The R2 score ranged from 0 to 1, and the prediction accuracy of the model was desired when the R2 score approached the value of 1. The RMSE represented the loss between the prediction and the ground truth. The lower RMSE loss meant a better model performance.
+
+**中文:** 其中 ^yi、yi 和 μi 分别表示基本事实、模型的预测和平均值。 R2分数范围为0到1，当R2分数接近1时，模型的预测精度达到预期。RMSE代表预测与真实值之间的损失。较低的 RMSE 损失意味着更好的模型性能。
+
+<a id="S032"></a>
+**Source:** p.8 S032
+
+**Original:** Materials and chemicals Zinc (II) nitrate hexahydrate (Zn(NO3)2·6H2O, 99%, Aladdin), cobalt (II) nitrate hexahydrate (Co(NO3)2·6H2O, 99%, Macklin), manganese phthalocyanine (MnPc, 98%, Rhawn), 2-methylimidazole (2-mIm, 98%, Aladdin), n-hexane (99%, Macklin), and methanol (99.9%, Macklin) were used as received without further purification. Deionized water (18.25 MΩ cm) used in the experiments was obtained from an ultrapure purification system (EPED).
+
+**中文:** 材料和化学品 六水硝酸锌 (II) (Zn(NO3)2·6H2O, 99%, Aladdin)、六水硝酸钴 (II) (Co(NO3)2·6H2O, 99%, Macklin)、酞菁锰 (MnPc, 98%, Rhawn)、2-甲基咪唑 (2-mIm, 98%, Aladdin）、正己烷（99%，Macklin）和甲醇（99.9%，Macklin）直接使用，无需进一步纯化。实验中使用的去离子水（18.25 MΩ cm）来自超纯纯化系统（EPED）。
+
+<a id="S033"></a>
+**Source:** p.8 S033
+
+**Original:** Machine learning computational details All ML algorithms were conducted by the open-source code Scikitlearn in the Python3 environment43. Given the limited sample size and high feature dimensionality of the dataset in this work, we employed five distinct regression algorithms under a supervised learning framework to construct predictive models. These algorithms encompassed various paradigms, including ensemble learning, kernel methods, probabilistic modeling, and lazy learning, providing multi-faceted insights into the relationship between data features and the target variable. Detailed theoretical formulations, applicability conditions, and algorithmic advantages of each algorithm were provided in the Supplementary Information. Two indicators used to describe prediction errors, the RMSE and R2 score, were applied herein to evaluate the accuracy of the ML models. Their
+
+**中文:** 机器学习计算细节 所有 ML 算法均由开源代码 Scikitlearn 在 Python3 环境中执行43。鉴于本工作中数据集的样本量有限和特征维度较高，我们在监督学习框架下采用了五种不同的回归算法来构建预测模型。这些算法涵盖了各种范式，包括集成学习、核方法、概率建模和惰性学习，为数据特征和目标变量之间的关系提供了多方面的见解。补充信息中提供了每种算法的详细理论公式、适用条件和算法优势。本文应用用于描述预测误差的两个指标 RMSE 和 R2 分数来评估 ML 模型的准确性。他们的
+
+<a id="S034"></a>
+**Source:** p.8-9 S034
+
+**Original:** Catalysts preparation We synthesized Co-N-Mn/NC and a series of comparative catalysts through a simple dual solvent method. Initially, 2-mIm (2.42 g) was dissolved in 50 mL of methanol with stirring in a flask, obtaining solution A. Concurrently, Zn(NO3)2·6H2O (1.38 g) and Co(NO3)2·6H2O (0.08 g) were dissolved in 50 mL of methanol under ultrasound for 5 min to form a clear solution B. Then, solution A was added to solution Fig. 8 | Comparison of design method and catalyst performance. a Comparison of theoretical overpotential values for Co-N-Mn/NC and catalysts in literature. b Comparison of the average computation costs for predicting the ORR catalytic activity of residual M1-N-M2/NC using pure DFT calculation and ML prediction. c Comparison of the Jk and E1/2 values between Co-N-Mn/NC and the catalysts
+
+**中文:** 催化剂制备我们通过简单的双溶剂法合成了Co-N-Mn/NC和一系列对比催化剂。首先，将2-mIm（2.42 g）在烧瓶中搅拌溶解在50 mL甲醇中，得到溶液A。同时，将Zn(NO3)2·6H2O（1.38 g）和Co(NO3)2·6H2O（0.08 g）在超声下溶解在50 mL甲醇中5分钟，形成澄清溶液B。然后，将溶液A添加到溶液中。 图8 |设计方法和催化剂性能比较。 a Co-N-Mn/NC 和文献中催化剂的理论过电势值比较。 b 使用纯DFT计算和ML预测预测残留M1-N-M2/NC的ORR催化活性的平均计算成本的比较。 c Co-N-Mn/NC与催化剂的Jk和E1/2值比较
+
+<a id="S035"></a>
+**Source:** p.9 S035
+
+**Original:** reported recently. d Comparison of peak power density and specific capacity of Co-N-Mn/NC and recently reported highly active catalysts. The detailed data and references for comparison can be seen in the Supplementary Information tables. Source data are provided as a Source Data file.
+
+**中文:** 最近报道。 d Co-N-Mn/NC 与最近报道的高活性催化剂的峰值功率密度和比容量的比较。详细数据和比较参考可以在补充信息表中看到。源数据作为源数据文件提供。
+
+<a id="S036"></a>
+**Source:** p.9 S036
+
+**Original:** B under stirring at 800 rpm for 24 h. The resulting product was separated by centrifugation, washed three times with methanol, and then vacuum-dried at 80 °C overnight to obtain Co-ZIF-8. The ZIF-8 was also synthesized using the same method as Co-ZIF-8, but without the addition of cobalt nitrate hexahydrate. Next, the as-prepared Co-ZIF-8 (0.05 g) was dispersed in 13 mL of n-hexane, followed by sonicated for 30 min, obtaining a well-distributed suspension. Subsequently, 0.015 mL of MnPc solution (50 mg mL−1, MnPc in ethanol) was added dropwise into the above suspension under continuous sonication for 15 min, followed by vigorous stirring for 2 h. The resulting suspension was centrifuged, washed with ethanol, and finally dried at 80 °C overnight to yield MnPc@Co-ZIF-8. The MnPc@ZIF-8 was prepared using the same method as MnPc@Co-ZIF-8 by replacing Co-ZIF-8 with ZIF-8. The aforementioned precursors (MnPc@Co-ZIF-8, Co-ZIF-8, MnPc@ZIF-8, and ZIF-8) were fully ground and pyrolyzed in a tube furnace under argon gas at 950 °C for 2 h (heating rate of 5 °C min−1), obtaining Co-N-Mn/NC, CoNC, MnNC, and NC, respectively.
+
+**中文:** B在800rpm下搅拌24小时。将所得产物离心分离，用甲醇洗涤3次，然后在80℃真空干燥过夜，得到Co-ZIF-8。 ZIF-8也采用与Co-ZIF-8相同的方法合成，但不添加六水硝酸钴。接下来，将制备好的Co-ZIF-8（0.05 g）分散在13 mL正己烷中，然后超声处理30分钟，获得均匀的悬浮液。随后，将0.015 mL MnPc溶液（50 mg mL−1，MnPc乙醇溶液）滴加到上述悬浮液中，连续超声处理15 min，然后剧烈搅拌2 h。将所得悬浮液离心，用乙醇洗涤，最后在80℃下干燥过夜，得到MnPc@Co-ZIF-8。 MnPc@ZIF-8的制备方法与MnPc@Co-ZIF-8相同，用ZIF-8代替Co-ZIF-8。将上述前驱体（MnPc@Co-ZIF-8、Co-ZIF-8、MnPc@ZIF-8 和 ZIF-8）充分研磨并在管式炉中在氩气下于 950 °C 下热解 2 h（加热速率为 5 °C min−1），分别获得 Co-N-Mn/NC、CoNC、MnNC 和 NC。
+
+<a id="S037"></a>
+**Source:** p.9 S037
+
+**Original:** obtained using a JEOL ARM-200F HAADF-STEM equipped with EDS, operated at 300 kV. Co K-edge and Mn K-edge XANES spectra were collected at the commercial Laboratory-Based XAFS spectrometer (Rapid XAFS 1 M, Anhui Absorption Spectroscopy Analysis Instrument Co., Ltd). Raman data were collected on a Horiba LabRAM HR Evolution Raman spectrometer (laser wavelength is 532 nm). XPS experiments were conducted on a Thermo Fisher Nexsa spectrometer. N2 adsorption-desorption isotherms of all samples were measured using a Micromeritics ASAP 2460 N2 adsorption instrument.
+
+**中文:** 使用配备 EDS 的 JEOL ARM-200F HAADF-STEM 获得，运行电压为 300 kV。 Co K-edge 和 Mn K-edge XANES 光谱是在商用实验室型 XAFS 光谱仪（Rapid XAFS 1 M，安徽吸收光谱分析仪器有限公司）上收集的。拉曼数据在 Horiba LabRAM HR Evolution 拉曼光谱仪（激光波长为 532 nm）上收集。 XPS 实验在 Thermo Fisher Nexsa 光谱仪上进行。使用 Micromeritics ASAP 2460 N2 吸附仪测量所有样品的 N2 吸附-解吸等温线。
+
+<a id="S038"></a>
+**Source:** p.9 S038
+
+**Original:** ORR performance measurements The ORR performance was measured in a three-electrode configuration using a CHI 760 C electrochemical workstation at room temperature (298.15 K). A catalyst loaded RDE with a glassy carbon (GC) disk of 5 mm in diameter or a RRDE with a Pt ring (6.25 mm ring inner diameter and 7.92 mm ring outer diameter) and a GC disk of 5.61 mm in diameter were used as working electrode. An Ag/AgCl (saturated KCl) and a graphite rod were used as reference and counter electrodes, respectively. All the potentials were calibrated with respect to the reversible hydrogen electrode (RHE) according to the following equations:
+
+**中文:** ORR 性能测量 ORR 性能是在室温 (298.15 K) 下使用 CHI 760 C 电化学工作站在三电极配置中测量的。使用具有直径 5 mm 的玻璃碳 (GC) 盘的负载催化剂的 RDE 或具有 Pt 环（环内径为 6.25 mm，环外径为 7.92 mm）的 RRDE 和直径为 5.61 mm 的 GC 盘作为工作电极。 Ag/AgCl（饱和 KCl）和石墨棒分别用作参比电极和对电极。所有电势均根据以下方程相对于可逆氢电极 (RHE) 进行校准：
+
+<a id="S039"></a>
+**Source:** p.9-10 S039
+
+**Original:** Physical characterization The structure of the samples was characterized by a Bruker D2 Phaser XRD equipped with a Cu-K radiation source. Morphology characterization was performed on a Zeiss Gemini 300 SEM and Hitachi HT7700 TEM. High-resolution TEM images were determined by using a Talos F200S-G2 HRTEM operated at 200 kV. HAADF-STEM images were The Ag/AgCl electrode was calibrated using a three-electrode system configuration, where the reference electrode served as the reference, a platinum sheet as the working electrode, and a platinum sheet as the counter electrode. Hydrogen gas remained saturated in the 0.1 M KOH electrolyte throughout the test. CV was performed over a potential range of −1.05 V to −0.85 V at a scan rate of 1 mV s−1 to maintain equilibrium conditions in the reaction system. The calibrated potential of the reference electrode was determined by averaging the two electrode potentials corresponding to the zero current density points in the CV measurement. To prepare the working electrode, a homogeneous catalyst ink was first prepared by dispersing 5 mg of the sample into 1 mL of a mixture solution containing 0.495 mL of isopropyl alcohol, 0.495 mL of deionized water, and 10 μL of Nafion solution (5 wt%) by the assistance of ultrasonication for 1 h. Thereafter, 20 µL of catalyst ink (0.1 mg of sample) was dropped onto the GC surface (0.196 cm2 of geometric area) to obtain the working electrode with a catalyst loading of 0.50 mg cm−2. Before each electrochemical experiment, N2 or O2 gas was bubbled into the electrolyte for about 30 min, obtaining the N2 or O2saturated solution. The 0.1 M KOH electrolyte was prepared fresh before use and stored in an airtight to prevent moisture absorption and deterioration. The CV tests were conducted in O2-saturated 0.1 M KOH solution from 1.0 to 0 V (vs. RHE) with a scan rate of 50 mV s−1 for activation and stabilization tests. RDE/RRDE tests were measured in N2 or O2-saturated 0.1 M KOH solution at 1600 rpm from 1.0 to 0 V (vs. RHE) with a sweep rate of 5 mV s−1. Electrochemical impedance spectroscopy (EIS) tests were conducted in O2-saturated electrolyte solutions under AC voltage amplitude of 5 mV in the frequency range of 1000 kHz to 0.01 Hz. The number of electrons transferred (n) for the ORR at various electrode potentials was determined by the Koutecky-Levich equation:
+
+**中文:** 物理表征 样品的结构通过配备 Cu-K 辐射源的 Bruker D2 Phaser XRD 进行表征。在 Zeiss Gemini 300 SEM 和 Hitachi HT7700 TEM 上进行形态表征。高分辨率 TEM 图像是使用在 200 kV 下运行的 Talos F200S-G2 HRTEM 测定的。 HAADF-STEM 图像是使用三电极系统配置校准 Ag/AgCl 电极，其中参比电极作为参比，铂片作为工作电极，铂片作为对电极。在整个测试过程中，氢气在 0.1 M KOH 电解液中保持饱和状态。 CV 在-1.05 V 至-0.85 V 的电势范围内以1 mV s-1 的扫描速率进行，以维持反应系统中的平衡条件。参比电极的校准电位通过对 CV 测量中与零电流密度点相对应的两个电极电位进行平均来确定。为了制备工作电极，首先将 5 mg 样品分散到 1 mL 含有 0.495 mL 异丙醇、0.495 mL 去离子水和 10 μL Nafion 溶液（5 wt%）的混合溶液中，超声处理 1 h，制备均质催化剂墨水。此后，将20 µL催化剂墨水（0.1 mg样品）滴在GC表面（几何面积0.196 cm2）上，得到催化剂负载量为0.50 mg cm-2的工作电极。每次电化学实验前，将N2或O2气体鼓入电解液中约30分钟，获得N2或O2饱和溶液。 0.1 M KOH电解液在使用前新鲜配制，并密闭保存，以防止吸潮和变质。 CV 测试在 O2 饱和的 0.1 M KOH 溶液中从 1.0 V 至 0 V（相对于 RHE）进行，扫描速率为 50 mV s−1，用于激活和稳定测试。 RDE/RRDE 测试是在 N2 或 O2 饱和的 0.1 M KOH 溶液中以 1600 rpm 的转速从 1.0 至 0 V（相对于 RHE）进行测量，扫描速率为 5 mV s−1。电化学阻抗谱（EIS）测试在O2饱和电解质溶液中、交流电压幅值5 mV、频率范围1000 kHz至0.01 Hz下进行。 ORR 在不同电极电位下转移的电子数 (n) 由 Koutecky-Levich 方程确定：
+
+<a id="S040"></a>
+**Source:** p.10 S040
+
+**Original:** electrolyte to ensure reversible Zn electrochemical reactions at the anode. Besides, catalysts (Co-N-Mn/NC or Pt/C) mixed with IrO2 in a mass ratio of 1:1 were used to prepare the air electrode.
+
+**中文:** 电解质以确保阳极上可逆的锌电化学反应。此外，采用催化剂(Co-N-Mn/NC或Pt/C)与IrO2以1:1的质量比混合来制备空气电极。
+
+<a id="S041"></a>
+**Source:** p.10 S041
+
+**Original:** Data availability The data that supports the findings of the study are included in the main text and Supplementary Information files. Source data are provided with this paper.
+
+**中文:** 数据可用性 支持研究结果的数据包含在正文和补充信息文件中。本文提供了源数据。
+
+<a id="S042"></a>
+**Source:** p.10 S042
+
+**Original:** Code availability The codes used to train models for predicting the theoretical potentials of ORR are available on GitHub at https://github.com/ YanYang233/ORR-ML.git44.
+
+**中文:** 代码可用性 用于训练预测 ORR 理论潜力的模型的代码可在 GitHub 上获取：https://github.com/YanYang233/ORR-ML.git44。
+
+<a id="S043"></a>
+**Source:** p.10 S043
+
+**Original:** References 1. Kment, S. et al. Single atom catalysts based on earth-abundant metals for energy-related applications. Chem. Rev. 124, 11767–11847 (2024). 2. Bai, L., Hsu, C.-S., Alexander, D. T. L., Chen, H. M. & Hu, X. Doubleatom catalysts as a molecular platform for heterogeneous oxygen evolution electrocatalysis. Nat. Energy 6, 1054–1066 (2021). 3. Wang, Q., Cheng, Y., Yang, H. B., Su, C. & Liu, B. Integrative catalytic pairs for efficient multi-intermediate catalysis. Nat. Nanotechnol. 19, 1442–1451 (2024). 4. Fang, C. et al. Synergy of dual-atom catalysts deviated from the scaling relationship for oxygen evolution reaction. Nat. Commun. 14, 4449 (2023). 5. Zhang, W. et al. Emerging dual-atomic-site catalysts for efficient energy catalysis. Adv. Mater. 33, e2102576 (2021). 6. Pu, T. et al. Dual atom catalysts for energy and environmental applications. Angew. Chem. Int. Ed. 62, e202305964 (2023). 7. Wang, X. et al. Developing a class of dual atom materials for multifunctional catalytic reactions. Nat. Commun. 14, 7210 (2023). 8. Li, M. et al. Spin-polarized PdCu-Fe3O4 in-plane heterostructures with tandem catalytic mechanism for oxygen reduction catalysis. Adv. Mater. 36, e2412004 (2024). 9. Zhao, Y. et al. Steric-confinement Rh2/MoS2 dual-atom catalyst directionally modulating adsorption configuration of ester group to boost ethanol synthesis. Chem 10, 3342–3363 (2024). 10. Ren, C. et al. A universal descriptor for complicated interfacial effects on electrochemical reduction reactions. J. Am. Chem. Soc. 144, 12874–12883 (2022). 11. Chen, S. et al. Dehydrogenation of ammonia borane by platinumnickel dimers: Regulation of heteroatom interspace boosts bifunctional synergetic catalysis. Angew. Chem. Int. Ed. 61, e202211919 (2022). 12. Zhou, J. et al. Precisely tailoring the d-band center of nickel sulfide for boosting overall water splitting. Appl. Catal. B 359, 124461 (2024). 13. Jiang, S. et al. Visualization of the distance-dependent synergistic interaction in heterogeneous dual-site catalysis. J. Am. Chem. Soc. 146, 29084–29093 (2024). 14. Zhang, L. et al. High-density asymmetric iron dual-atom sites for efficient and stable electrochemical water oxidation. Nat. Commun. 15, 9440 (2024). 15. Wang, H. et al. Disentangling the size-dependent geometric and electronic effects of palladium nanocatalysts beyond selectivity. Sci. Adv. 5, eaat6413 (2019). 16. Li, Z. et al. Geometric and electronic engineering of atomically dispersed copper-cobalt diatomic sites for synergistic promotion of bifunctional oxygen electrocatalysis in zinc-air batteries. Adv. Mater. 35, e2300905 (2023). 17. Zhao, S.-N., Li, J.-K., Wang, R., Cai, J. & Zang, S.-Q. Electronically and geometrically modified single-atom Fe sites by adjacent Fe nanoparticles for enhanced oxygen reduction. Adv. Mater. 34, e2107291 (2022).
+
+**中文:** 参考文献 1. Kment, S. 等人。基于地球储量丰富的金属的单原子催化剂，用于能源相关应用。化学。修订版 124, 11767–11847 (2024)。 2. Bai, L., Hsu, C.-S., Alexander, D. T. L., Chen, H. M. & Hu, X. 双原子催化剂作为非均相析氧电催化的分子平台。纳特。能源 6，1054–1066（2021）。 3. Wang, Q., Cheng, Y., Yang, H. B., Su, C. & Liu, B. 用于高效多中间体催化的综合催化对。纳特。纳米技术。 19, 1442–1451 (2024)。 4. Fang, C. 等人。双原子催化剂的协同作用偏离了析氧反应的比例关系。纳特。交流。 14, 4449 (2023)。 5. 张，W. 等人。用于高效能源催化的新兴双原子位催化剂。副词。马特。 33、e2102576 (2021)。 6. Pu, T. 等人。用于能源和环境应用的双原子催化剂。安吉乌。化学。国际。埃德。 62、e202305964 (2023)。 7. 王X.等人。开发一类用于多功能催化反应的双原子材料。纳特。交流。 14, 7210 (2023)。 8. 李 M. 等人。具有串联催化机制的自旋极化 PdCu-Fe3O4 面内异质结构用于氧还原催化。副词。马特。 36、e2412004 (2024)。 9. 赵，Y.等人。位阻Rh2/MoS2双原子催化剂定向调节酯基吸附构型促进乙醇合成。化学 10, 3342–3363 (2024)。 10. Ren, C. 等人。电化学还原反应中复杂界面效应的通用描述符。 J. Am.化学。苏克。 144, 12874–12883 (2022)。 11. Chen, S. 等人。铂镍二聚体对氨硼烷的脱氢：杂原子间隙的调节促进双功能协同催化。安吉乌。化学。国际。埃德。 61、e202211919 (2022)。 12. 周杰等人。精确调整硫化镍的 d 带中心，以促进整体水分解。应用。加塔尔。 B 359, 124461 (2024)。 13. Jiang, S. 等。异相双位点催化中距离依赖性协同相互作用的可视化。 J. Am.化学。苏克。 146, 29084–29093 (2024)。 14. 张 L. 等人。高密度不对称铁双原子位点可实现高效稳定的电化学水氧化。纳特。交流。 15, 9440 (2024)。 15. Wang, H. 等人。解开钯纳米催化剂的尺寸依赖性几何效应和电子效应，超越选择性。科学。副词。 5、eaat6413（2019）。 16. Li, Z. 等人。原子分散的铜钴双原子位点的几何和电子工程，用于协同促进锌空气电池中双功能氧电催化。副词。马特。 35、e2300905 (2023)。 17. 赵S.-N.、李J.-K.、王R.、蔡J.和臧S.-Q.。通过相邻的铁纳米粒子对单原子铁位点进行电子和几何修饰，以增强氧还原。副词。马特。 34、e2107291 (2022)。
+
+<a id="S044"></a>
+**Source:** p.10 S044
+
+**Original:** where J is the measured current density, JK and JL are the kinetic and limiting current densities, ω is the rotating speed of the working electrode, B is the Levich constant, n is the electron transfer number, F is the Faraday constant (F = 96,485 C mol−1), D0 is the diffusion coefficient of O2 in 0.1 M KOH (1.9 × 10−5 cm2 s−1), C0 is the bulk concentration of O2 in 0.1 M KOH (1.2 × 10−6 mol cm−3), and ν is the kinetic viscosity of the electrolyte (1 × 10−2 cm2 s−1). The hydrogen peroxide yield (H2O2%) and n were calculated using the following equations:
+
+**中文:** 其中 J 是测量的电流密度，JK 和 JL 是动力学和极限电流密度，ω 是工作电极的转速，B 是列维奇常数，n 是电子转移数，F 是法拉第常数 (F = 96,485 C mol−1)，D0 是 O2 在 0.1 M KOH (1.9 × 10−5 cm2 s−1) 中的扩散系数，C0 是 O2 在0.1 M KOH (1.2 × 10−6 mol cm−3)，ν 是电解质的动力粘度 (1 × 10−2 cm2 s−1)。过氧化氢产率 (H2O2%) 和 n 使用以下公式计算：
+
+<a id="S045"></a>
+**Source:** p.10 S045
+
+**Original:** where Id is the disk current, Ir is the ring current, and N is the current collection efficiency of the Pt ring, which is 0.37.
+
+**中文:** 其中Id为盘电流，Ir为环电流，N为Pt环的集流效率，为0.37。
+
+<a id="S046"></a>
+**Source:** p.10-11 S046
+
+**Original:** Zn-air battery tests A liquid Zn-air battery was tested in homemade electrochemical cells, where the as-prepared catalysts loaded carbon paper (catalyst loading: 1 mg cm−2), Zn plate, and 6.0 M KOH were used as air cathode, anode, and electrolyte, respectively. Battery performance was measured under an ambient atmosphere in an incubator at 298.15 K using a LAND CT2001A electrochemical workstation. For the long-term dischargecharge cycling test, 6.0 M KOH with 0.2 M zinc acetate was used as the 18. Yang, P., Li, J., Vlachos, D. G. & Caratzoulas, S. Tuning active site flexibility by defect engineering of graphene ribbon edge-hosted Fe-N3 sites. Angew. Chem. Int. Ed. 63, e202311174 (2024). 19. Li, R. et al. Polystyrene waste thermochemical hydrogenation to ethylbenzene by a N-bridged Co, Ni dual-atom catalyst. J. Am. Chem. Soc. 145, 16218–16227 (2023). 20. Chen, H. et al. Theoretical screening of cooperative N-bridged dualatom sites for efficient electrocatalytic nitrogen reduction with remolding insight. Nano Res. 17, 3413–3422 (2023). 21. Liu, Y. et al. Atomically inner tandem catalysts for electrochemical reduction of carbon dioxide. Energy Environ. Sci. 16, 5185–5195 (2023). 22. Pei, J. et al. N-bridged Co-N-Ni: new bimetallic sites for promoting electrochemical CO2 reduction. Energy Environ. Sci. 14, 3019–3028 (2021). 23. Zeng, R. et al. Origins of enhanced oxygen reduction activity of transition metal nitrides. Nat. Mater. 23, 1695–1703 (2024). 24. Chang, J. et al. Improving Pd-N-C fuel cell electrocatalysts through fluorination-driven rearrangements of local coordination environment. Nat. Energy 6, 1144–1153 (2021). 25. Tao, L. et al. Precise synthetic control of exclusive ligand effect boosts oxygen reduction catalysis. Nat. Commun. 14, 6893 (2023). 26. Tang, B. et al. A janus dual-atom catalyst for electrocatalytic oxygen reduction and evolution. Nat. Synth. 3, 878–890 (2024). 27. Zhao, C.-X. et al. A clicking confinement strategy to fabricate transition metal single-atom sites for bifunctional oxygen electrocatalysis. Sci. Adv. 8, eabn5091 (2022). 28. Lv, M. et al. Precisely engineering asymmetric atomic CoN4 by electron donating and extracting for oxygen reduction reaction. Angew. Chem. Int. Ed. 63, e202315802 (2024). 29. Qin, J. et al. Altering ligand fields in single-atom sites through second-shell anion modulation boosts the oxygen reduction reaction. J. Am. Chem. Soc. 144, 2197–2207 (2022). 30. Ni, B. et al. Second-shell N dopants regulate acidic O2 reduction pathways on isolated Pt sites. J. Am. Chem. Soc. 146, 11181–11192 (2024). 31. Xiao, M. et al. 3d-orbital occupancy regulated Ir-Co atomic pair toward superior bifunctional oxygen electrocatalysis. ACS Catal. 11, 8837–8846 (2021). 32. Prabhu, P. et al. Subnanometric osmium clusters confined on palladium metallenes for enhanced hydrogen evolution and oxygen reduction catalysis. ACS Nano 18, 9942–9957 (2024). 33. Tong, M. et al. Potential dominates structural recombination of single atom Mn sites for promoting oxygen reduction reaction. Angew. Chem. Int. Ed. 62, e202314933 (2023). 34. Li, Z., Wang, S., Chin, W. S., Achenie, L. E. & Xin, H. High-throughput screening of bimetallic catalysts enabled by machine learning. J. Mater. Chem. A 5, 24131–24138 (2017). 35. Ding, H. et al. Active learning accelerating to screen dual-metal-site catalysts for electrochemical carbon dioxide reduction reaction. ACS Appl. Mater. Interfaces 15, 12986–12997 (2023). 36. Lundberg, S. M. et al. From local explanations to global understanding with explainable AI for trees. Nat. Mach. Intell. 2, 56–67 (2020). 37. Chen, S. et al. Identification of the highly active Co-N4 coordination motif for selective oxygen reduction to hydrogen peroxide. J. Am. Chem. Soc. 144, 14505–14516 (2022). 38. Wang, M. et al. Atomically dispersed manganese on carbon substrate for aqueous and aprotic CO2 electrochemical reduction. Adv. Mater. 35, e2210658 (2023). 39. Kresse, G. & Furthmüller, J. Efficiency of ab-initio total energy calculations for metals and semiconductors using a plane-wave basis set. Comput. Mater. Sci. 6, 15–50 (1996). 40. Perdew, J. P., Burke, K. & Ernzerhof, M. Generalized gradient approximation made simple. Phys. Rev. Lett. 77, 3865–3868 (1996).
+
+**中文:** 锌空气电池测试在自制电化学电池中测试了液体锌空气电池，其中制备的催化剂负载碳纸（催化剂负载量：1 mg cm−2）、锌板和6.0 M KOH分别用作空气阴极、阳极和电解质。使用 LAND CT2001A 电化学工作站在 298.15 K 培养箱中的环境大气下测量电池性能。对于长期放电充电循环测试，使用 6.0 M KOH 和 0.2 M 醋酸锌作为 18。Yang, P., Li, J., Vlachos, D. G. & Caratzoulas, S. 通过石墨烯带边缘托管 Fe-N3 位点的缺陷工程调整活性位点灵活性。安吉乌。化学。国际。埃德。 63、e202311174 (2024)。 19. Li, R. 等人。 N桥联Co、Ni双原子催化剂将聚苯乙烯废料热化学加氢制乙苯。 J. Am.化学。苏克。 145, 16218–16227 (2023)。 20. Chen, H. 等人。理论上筛选协同 N 桥双原子位点，以实现高效电催化氮还原，并具有重塑洞察力。纳米研究。 17, 3413–3422 (2023)。 21.刘，Y.等人。用于电化学还原二氧化碳的原子内串联催化剂。能源环境。科学。 16, 5185–5195 (2023)。 22. Pei, J. 等人。 N-桥联Co-N-Ni：促进电化学二氧化碳还原的新双金属位点。能源环境。科学。 14, 3019–3028 (2021)。 23. Zeng, R. 等人。过渡金属氮化物增强氧还原活性的起源。纳特。马特。 23, 1695–1703 (2024)。 24. Chang, J. 等人。通过氟化驱动的局部协调环境重排改进 Pd-N-C 燃料电池电催化剂。纳特。能源 6，1144–1153（2021）。 25.Tao，L.等人。独特配体效应的精确合成控制增强了氧还原催化作用。纳特。交流。 14, 6893 (2023)。 26. Tang, B. 等人。用于电催化氧还原和析出的 Janus 双原子催化剂。纳特。合成器。 3, 878–890 (2024)。 27.赵，C.-X。等人。一种点击限制策略来制造用于双功能氧电催化的过渡金属单原子位点。科学。副词。 8、eabn5091（2022）。 28. Lv，M.等人。通过供电子和萃取氧还原反应精确设计不对称原子 CoN4。安吉乌。化学。国际。埃德。 63、e202315802 (2024)。 29. 秦杰等人。通过第二壳层阴离子调节改变单原子位点的配体场可促进氧还原反应。 J. Am.化学。苏克。 144, 2197–2207 (2022)。 30. Ni, B. 等人。第二层 N 掺杂剂调节孤立 Pt 位点上的酸性 O2 还原途径。 J. Am.化学。苏克。 146, 11181–11192 (2024)。 31. 肖 M. 等人。 3d 轨道占据调节 Ir-Co 原子对以实现卓越的双功能氧电催化。 ACS目录。 11, 8837–8846 (2021)。 32. Prabhu, P. 等人。亚纳米锇簇限制在钯金属上，用于增强析氢和氧还原催化。 ACS 纳米 18, 9942–9957 (2024)。 33. Tong, M. 等人。电势主导单原子Mn位点的结构重组，促进氧还原反应。安吉乌。化学。国际。埃德。 62、e202314933 (2023)。 34. Li, Z.、Wang, S.、Chin, W. S.、Achenie, L. E. 和 Xin, H. 通过机器学习实现双金属催化剂的高通量筛选。 J.马特。化学。 A 5，24131–24138（2017）。 35. 丁 H. 等人。主动学习加速筛选用于电化学二氧化碳还原反应的双金属位催化剂。 ACS 应用马特。接口 15, 12986–12997 (2023)。 36. Lundberg，S.M.等人。通过可解释的树木人工智能，从本地解释到全球理解。纳特。马赫。英特尔。 2, 56–67 (2020)。 37. Chen, S. 等人。鉴定用于选择性氧还原成过氧化氢的高活性 Co-N4 配位基序。 J. Am.化学。苏克。 144, 14505–14516 (2022)。 38. Wang, M. 等人。碳基底上原子分散的锰，用于水相和非质子 CO2 电化学还原。副词。马特。 35、e2210658 (2023)。 39. Kresse, G. 和 Furthmüller, J. 使用平面波基组对金属和半导体进行从头计算总能量的效率。计算。马特。科学。 6, 15–50 (1996)。 40. Perdew, J. P.、Burke, K. & Ernzerhof, M. 广义梯度应用近似化变得简单。物理。莱特牧师。 77、3865–3868（1996）。
+
+<a id="S047"></a>
+**Source:** p.11 S047
+
+**Original:** 41. Blöchl, P. E. Projector augmented-wave method. Phys. Rev. B Condens. Matter Mater. Phys. 50, 17953–17979 (1994). 42. Grimme, S. Semiempirical GGA-type density functional constructed with a long-range dispersion correction. J. Comput. Chem. 27, 1787–1799 (2006). 43. Pedregosa, F. et al. Scikit-learn: Machine learning in python. J. Mach. Learn. Res. 12, 2825–2830 (2011). 44. Yang, Y. The geometric-electronic coupled design of diatomic catalyst towards oxygen reduction reaction, YanYang233/ORRML:v1.0, https://doi.org/10.5281/zenodo.15300027 (2025).
+
+**中文:** 41. Blöchl, P. E. 投影仪增强波方法。物理。 Rev. B Condens。事事事事。物理。 50、17953–17979（1994）。 42. Grimme, S. 用长程色散校正构造的半经验 GGA 型密度泛函。 J. 计算机。化学。 27, 1787–1799 (2006)。 43. Pedregosa, F. 等人。 Scikit-learn：Python 中的机器学习。 J.马赫.学习。资源。 12, 2825–2830 (2011)。 44. Yang, Y. 氧还原反应双原子催化剂的几何电子耦合设计，YanYang233/ORRML:v1.0，https://doi.org/10.5281/zenodo.15300027 (2025)。
+
+<a id="S048"></a>
+**Source:** p.11 S048
+
+**Original:** Acknowledgements This work was supported by the Natural Science Foundation of China (22303002, Y.L.; 22375006, J.M.) and the Anhui Provincial Natural Science Foundation (2408085MB035, Z.Z.). D.L. thanks the Fundamental Research Funds for the Central Universities (buctrc202007). Numerical computations were performed on Hefei Advanced Computing Center.
+
+**中文:** 致谢这项工作得到了国家自然科学基金（22303002，Y.L.；22375006，J.M.）和安徽省自然科学基金（2408085MB035，Z.Z.）的支持。 D.L.感谢中央高校基本科研业务费专项资金（buctrc202007）。数值计算在合肥先进计算中心进行。
+
+<a id="S049"></a>
+**Source:** p.11 S049
+
+**Original:** Author contributions Y. Liu and J.J. conceived this work. Y.Y. proposed a Machine learning framework with guidance from Y. Liu, Z.Z. and J.J., Y.Y. performed DFT calculations and wrote the code with guidance from Y. Liu and Z.Z., X.L. and Y. Lin performed synthesis, characterization and performance tests with guidance from D.L. and J.M., Y. Liu, Y.Y. and X.L. analyzed the data and co-wrote the manuscript, with input from the other authors.
+
+**中文:** 作者贡献 Y. Liu 和 J.J.构思了这个作品。 Y.Y。在 Y. Liu, Z.Z. 的指导下提出了一个机器学习框架。和 J.J.、Y.Y.在 Y. Liu 和 Z.Z., X.L. 的指导下进行了 DFT 计算并编写了代码。 Y. Lin 和 Y. Lin 在 D.L. 的指导下进行了合成、表征和性能测试。以及 J.M.、Y. Liu、Y.Y.和 X.L.分析了数据并在其他作者的意见下共同撰写了手稿。
+
+<a id="S050"></a>
+**Source:** p.11 S050
+
+**Original:** Additional information Supplementary information The online version contains supplementary material available at https://doi.org/10.1038/s41467-025-60170-0.
+
+**中文:** 其他信息 补充信息 在线版本包含补充材料，网址为 https://doi.org/10.1038/s41467-025-60170-0。
+
+<a id="S051"></a>
+**Source:** p.11 S051
+
+**Original:** Correspondence and requests for materials should be addressed to Zhiwen Zhuo, Dong Liu, Junjie Mao or Jun Jiang.
+
+**中文:** 信函和索取材料应发送至卓志文、刘东、毛俊杰或蒋俊。
+
+<a id="S052"></a>
+**Source:** p.11 S052
+
+**Original:** Peer review information Nature Communications thanks Wei Zhou, and the other, anonymous, reviewer(s) for their contribution to the peer review of this work. A peer review file is available.
+
+**中文:** 同行评审信息 Nature Communications 感谢周伟和其他匿名审稿人对这项工作的同行评审所做的贡献。同行评审文件可用。
+
+<a id="S053"></a>
+**Source:** p.11 S053
+
+**Original:** Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+**中文:** 出版商说明施普林格·自然对于已出版地图和机构隶属关系中的管辖权主张保持中立。
+
+<a id="S054"></a>
+**Source:** p.11 S054
+
+**Original:** Open Access This article is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License, which permits any non-commercial use, sharing, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if you modified the licensed material. You do not have permission under this licence toshare adapted material derived from this article or parts of it. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http:// creativecommons.org/licenses/by-nc-nd/4.0/.
+
+**中文:** 开放获取 本文根据 Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License 获得许可，该许可允许以任何媒介或格式进行任何非商业使用、共享、分发和复制，只要您对原作者和来源给予适当的认可，提供知识共享许可的链接，并表明您是否修改了许可材料。根据本许可，您无权共享源自本文或其部分内容的改编材料。本文中的图像或其他第三方材料包含在文章的知识共享许可中，除非材料的信用额度中另有说明。如果文章的知识共享许可中未包含材料，并且您的预期用途不受法律法规允许或超出了允许的用途，则您需要直接获得版权所有者的许可。要查看此许可证的副本，请访问 http://creativecommons.org/licenses/by-nc-nd/4.0/。
+
+## Critical Reading Notes / 批判性阅读提示
+
+- Treat machine-learning or microkinetic conclusions as design logic, but check whether the dataset, reaction network, and validation experiments support the claimed generality.
+- 对机器学习或微观动力学结论，要看作一种设计逻辑，同时检查数据集、反应网络和实验验证是否足以支撑作者声称的普适性。
+
+## Related Reading / 相关阅读
+
+See `related_reading.md` for the sparse strongly recommended follow-up reading.
+
+相关阅读已单独写入 `related_reading.md`，只保留强相关、值得读的条目。

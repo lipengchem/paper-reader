@@ -1,0 +1,569 @@
+# Free energy of proton transfer at the water-TiO2 interface from ab initio deep potential molecular dynamics
+
+**Zotero key:** HYZYYYHR
+**Attachment key:** AIRNPKV3
+**Journal:** Chemical Science
+**DOI:** 10.1039/c9sc05116c
+**Publication date:** 2020-01-28
+**Source PDF:** paper.pdf
+
+## Why This Paper / 为什么选这篇
+
+**English:** This paper is worth prioritizing because it uses an ab initio-trained deep neural network potential to turn a long-standing TiO2-water question into a free-energy and dynamical equilibrium problem. It is a compact case study for connecting machine-learned potentials, oxide-water interfaces, proton transfer, surface hydroxyls, and photocatalytic surface chemistry.
+
+**中文:** 这篇值得优先读，因为它用从头算级别数据训练深度神经网络势函数，把 TiO2-水界面的水解离问题从静态构型判断推进到自由能和长时间动力学层面。它直接回答了一个基础但长期争议的问题：水在 anatase TiO2(101) 上主要是分子吸附，还是会形成表面羟基；同时也展示了机器学习势函数如何服务于界面质子转移机理。
+
+## Reading Guide / 读前导读
+
+**English:** Read it in three passes. First, identify the surface sites Ti5c and O2c and the difference between molecular and dissociative water adsorption. Second, use the validation section and Fig. 2 to decide whether the DNN potential can reproduce AIMD-quality interfacial structure. Third, focus on Fig. 3 and Fig. 4: water dissociation is a solvent-assisted concerted proton-transfer event, molecular adsorption is lower in free energy by 8.0 ± 0.9 kJ mol^-1, and only a small transient hydroxyl population remains at room temperature.
+
+**中文:** 建议分三遍读。第一遍先抓住研究问题：Ti5c 和 O2c 位点如何决定水的分子吸附和解离吸附。第二遍看 DNN/DPMD 方法与 Fig. 2 的验证，判断机器学习势是否能替代短时间 AIMD。第三遍重点读 Fig. 3 和 Fig. 4：水解离通过溶剂辅助的协同质子转移发生，分子吸附比解离吸附低 8.0 ± 0.9 kJ mol^-1，但室温仍有约 5.6% 的瞬态羟基。
+
+## Terminology / 术语表
+
+| English | 中文 | Note |
+|---|---|---|
+| anatase TiO2(101) | 锐钛矿 TiO2(101) 面 | 本文研究的主要水-氧化物界面。 |
+| Ti5c / O2c | 五配位 Ti / 二配位 O 表面位点 | 水吸附和质子转移涉及的关键表面原子。 |
+| molecular adsorption | 分子态吸附 | 水分子保持完整并与 Ti5c 配位。 |
+| dissociative adsorption | 解离态吸附 | 水解离形成 terminal hydroxyl 和 bridging hydroxyl。 |
+| DPMD | deep potential molecular dynamics / 深度势分子动力学 | 用 DNN 势函数进行长时间尺度 MD。 |
+| AIMD | ab initio molecular dynamics / 从头算分子动力学 | 训练和验证 DPMD 的第一性原理参考。 |
+| free energy surface | 自由能面 | 用增强采样得到的质子转移热力学图景。 |
+| Grotthuss-like mechanism | 类 Grotthuss 机制 | 通过氢键网络发生的协同质子转移。 |
+
+## Page / Section Index
+
+- p.1: Journal cover page (not used as a body figure)
+- p.2-p.3: Abstract, introduction, and motivation for TiO2-water dissociation
+- p.3-p.4: DNN training and DPMD simulation details
+- p.4: Validation of DPMD against AIMD and water structure
+- p.4-p.6: Equilibrium sampling, hydroxyl lifetime, and proton-transfer mechanism
+- p.6-p.7: Enhanced sampling, free-energy surface, conclusion, and declarations
+
+## Bilingual Reader / 逐段中英对照
+
+<a id="S001"></a>
+**Source:** p.2 S001
+
+**Original:** Free energy of proton transfer at the water–TiO2 interface from ab initio deep potential molecular dynamics†
+
+**中文:** 来自从头算深势分子动力学的水-TiO2 界面上的质子转移自由能†
+
+<a id="S002"></a>
+**Source:** p.2 S002
+
+**Original:** Marcos F. Calegari Andrade, a Hsin-Yu Ko, a Linfeng Zhang,b Roberto Cara
+
+**中文:** Marcos F. Calegari Andrade、a Hsin-Yu Ko、a Linfeng 张、b Roberto Cara
+
+<a id="S003"></a>
+**Source:** p.2 S003
+
+**Original:** and Annabella Selloni *a
+
+**中文:** 和安娜贝拉·塞洛尼 *a
+
+<a id="S004"></a>
+**Source:** p.2 S004
+
+**Original:** TiO2 is a widely used photocatalyst in science and technology and its interface with water is important in
+
+**中文:** TiO2是一种在科学技术中广泛应用的光催化剂，其与水的界面在光催化领域具有重要意义。
+
+<a id="S005"></a>
+**Source:** p.2 S005
+
+**Original:** fields ranging from geochemistry to biomedicine. Yet, it is still unclear whether water adsorbs in
+
+**中文:** 领域涵盖从地球化学到生物医学。但目前尚不清楚水是否会被吸附。
+
+<a id="F001"></a>
+### Fig. 1. TiO2-water interface and adsorption motifs
+
+**Placed near:** S006  
+**Source:** p.2 figure caption
+
+![TiO2-water interface and adsorption motifs](assets/fig1-interface-adsorption.png)
+
+**Original caption:** Fig. 1 (a) Surface undercoordinated Ti5c and O2c sites, the most relevant TiO2 atoms for water adsorption on the anatase (101) surface. (b) Molecular adsorption of water on anatase TiO2. (c) Dissociative water adsorption on anatase TiO2. Terminal and bridging hydroxyls are indicated by OHt and OHbr, respectively. (d) Model of the anatase (101)-water interface used to train the DNN potential. The water region is highlighted by the pale blue shading.
+
+**中文图注:** 图 1 (a) 表面欠配位的 Ti5c 和 O2c 位点，这是锐钛矿 (101) 表面上与水吸附最相关的 TiO2 原子。 (b) 锐钛矿型 TiO2 上水的分子吸附。 (c) 锐钛矿型 TiO2 上的解离水吸附。末端和桥接羟基分别用OHt和OHbr表示。 (d) 用于训练 DNN 势的锐钛矿 (101)-水界面模型。水域通过淡蓝色阴影突出显示。
+
+**Reading note:** Use this figure to identify the two key surface sites, Ti5c and O2c, and to distinguish molecular adsorption from dissociative adsorption into terminal and bridging hydroxyls.
+
+
+<a id="S006"></a>
+**Source:** p.2 S006
+
+**Original:** molecular or dissociated form on TiO2 even for the case of well-defined crystalline surfaces. To address this issue, we simulated the TiO2-water interface using molecular dynamics with an ab initio-based deep
+
+**中文:** TiO2 上的分子或解离形式，甚至对于明确的晶体表面的情况也是如此。为了解决这个问题，我们使用分子动力学和基于从头算的深度模型模拟了 TiO2-水界面。
+
+<a id="S007"></a>
+**Source:** p.2 S007
+
+**Original:** neural network potential. Our simulations show a dynamical equilibrium of molecular and dissociative
+
+**中文:** 神经网络潜力。我们的模拟显示了分子和解离的动态平衡
+
+<a id="S008"></a>
+**Source:** p.2 S008
+
+**Original:** adsorption of water on TiO2. Water dissociates through a solvent-assisted concerted proton transfer to
+
+**中文:** TiO2 上水的吸附。水通过溶剂辅助的协同质子转移分解成
+
+<a id="S009"></a>
+**Source:** p.2 S009
+
+**Original:** form a pair of short-lived hydroxyl groups on the TiO2 surface. Molecular adsorption of water is ΔF = 8.0
+
+**中文:** 在TiO2表面形成一对短寿命的羟基。水的分子吸附量ΔF = 8.0
+
+<a id="S010"></a>
+**Source:** p.2 S010
+
+**Original:** ± 0.9 kJ mol^-1 lower in free energy than the dissociative adsorption, giving rise to a 5.6 ± 0.5%
+
+**中文:** 自由能比解离吸附低 ± 0.9 kJ mol^-1，产生 5.6 ± 0.5%
+
+<a id="S011"></a>
+**Source:** p.2 S011
+
+**Original:** equilibrium water dissociation fraction at room temperature. Due to the relevance of surface hydroxyl
+
+**中文:** 室温下的平衡水解离分数。由于表面羟基的相关性
+
+<a id="S012"></a>
+**Source:** p.2 S012
+
+**Original:** groups to the surface chemistry of TiO2, our model might be key to understanding phenomena ranging
+
+**中文:** 组到 TiO2 的表面化学，我们的模型可能是理解各种现象的关键
+
+<a id="S013"></a>
+**Source:** p.2 S013
+
+**Original:** from surface functionalization to photocatalytic mechanisms.
+
+**中文:** 从表面功能化到光催化机制。
+
+<a id="S014"></a>
+**Source:** p.2 S014
+
+**Original:** 1 Introduction
+
+**中文:** 1 简介
+
+<a id="S015"></a>
+**Source:** p.2 S015
+
+**Original:** The photocatalytic activity of TiO2 has attracted the attention of researchers for decades. Due to its natural abundance, chemical stability, and environmental compatibility, TiO2 is one of the most widely used photocatalysts for scientific and technological applications to date.1–3 Of particular relevance is the anatase phase of TiO2, which predominates at the nanoscale. Since TiO2 photocatalysis usually takes place in humid or aqueous environment, the interface of anatase TiO2 with water is of fundamental importance, e.g. for elucidating the not yet fully understood mechanisms of photochemical water splitting,4–6
+
+**中文:** 几十年来，TiO2 的光催化活性引起了研究人员的关注。由于其天然丰度、化学稳定性和环境相容性，TiO2 是迄今为止科学和技术应用中使用最广泛的光催化剂之一。1-3 特别相关的是 TiO2 的锐钛矿相，它在纳米尺度上占主导地位。由于TiO2光催化通常发生在潮湿或水性环境中，因此锐钛矿型TiO2与水的界面至关重要，例如：用于阐明尚未完全了解的光化学分解水机制，4-6
+
+<a id="F002"></a>
+### Fig. 2. DPMD validation against AIMD and water structure
+
+**Placed near:** S016  
+**Source:** p.4 figure caption
+
+![DPMD validation against AIMD and water structure](assets/fig2-validation-rdf-density.png)
+
+**Original caption:** Fig. 2 (a) Radial distribution function of selected atomic type pairs at the anatase (101)-water interface given from DPMD (lines) and AIMD (points). The definition of Ti5c and O2c is given in Fig. 1a, and Ow represents water oxygen atoms. (b) Density profile of water confined between two TiO2 surfaces as predicted by DPMD and AIMD. In the inset of (b) the authors compare the oxygen radial distribution function in water, g(r), as obtained from AIMD and DPMD. (c) Comparison of water density profiles from DPMD simulations for water in contact with 1 x 3 and 4 x 12 anatase (101) surface supercells. Distributions in (a) and (b) were obtained from 40 ps trajectories, whereas 2.5 ns of dynamics was sampled in (c). Shaded areas indicate the standard deviation from four independent DPMD simulations.
+
+**中文图注:** 图2（a）由DPMD（线）和AIMD（点）给出的锐钛矿（101）-水界面处选定原子类型对的径向分布函数。 Ti5c和O2c的定义如图1a所示，Ow代表水氧原子。 (b) DPMD 和 AIMD 预测的限制在两个 TiO2 表面之间的水的密度分布。在 (b) 的插图中，作者比较了从 AIMD 和 DPMD 获得的水中氧径向分布函数 g(r)。 (c) DPMD 模拟中与 1 x 3 和 4 x 12 锐钛矿 (101) 表面超晶胞接触的水的水密度分布比较。 (a) 和 (b) 中的分布是从 40 ps 轨迹获得的，而 (c) 中采样的是 2.5 ns 的动态。阴影区域表示四个独立 DPMD 模拟的标准偏差。
+
+**Reading note:** This is the validation figure: the neural-network potential must reproduce AIMD local structure and interfacial water density before its longer simulations can be trusted.
+
+
+<a id="S016"></a>
+**Source:** p.2 S016
+
+**Original:** UV-induced hydrophilicity,7–9 and for improving the performance of TiO2 nanomaterials in biomedical applications.10,11 As a specific example, we focus here on the aqueous interface with the majority (101) surface of anatase. Our main goal is to solve an apparently simple but longstanding question: does water spontaneously dissociate on the defect-free anatase (101) surface? Hydroxyl groups are known to trap charges on TiO2 surfaces,12–14 hence the relevance of this particular question extends over the broad field of TiO2 photocatalysis in aqueous environments.
+
+**中文:** 紫外线诱导的亲水性，7-9 以及提高 TiO2 纳米材料在生物医学应用中的性能。10,11 作为一个具体示例，我们在此重点关注与锐钛矿的大部分 (101) 表面的水界面。我们的主要目标是解决一个看似简单但长期存在的问题：水是否会在无缺陷的锐钛矿（101）表面上自发解离？众所周知，羟基会在 TiO2 表面捕获电荷，12-14 因此，这个特定问题的相关性延伸到了水环境中 TiO2 光催化的广泛领域。
+
+<a id="S017"></a>
+**Source:** p.2 S017
+
+**Original:** Water adsorption on anatase (101) takes place at the undercoordinated five-fold Ti (Ti5c) and two-fold oxygen (O2c) surface sites (Fig. 1a).15,16 Water oxygen atoms can form dative bonds with
+
+**中文:** 锐钛矿（101）上的水吸附发生在欠配位的五重钛（Ti5c）和两倍氧（O2c）表面位点（图1a）。15,16 水氧原子可以与
+
+<a id="S018"></a>
+**Source:** p.3 S018
+
+**Original:** Ti5c atoms (Fig. 1b), while surface O2c's can either accept hydrogen bonds (Fig. 1b) or protons from water (Fig. 1c). Both Ti5c and O2c sites participate in water dissociation on the anatase (101) surface. As shown in Fig. 1c, water dissociation involves the transfer of a proton from a molecule adsorbed at a Ti5c site to an O2c. This results in the formation of two surface hydroxyl groups: a terminal hydroxyl on Ti5c (OHt, Fig. 1c, le) and a bridging hydroxyl, corresponding to a protonated O2c atom (OHbr, Fig. 1c, right). The presence/absence of dissociated water plays a major role in the surface chemistry of anatase TiO2. Although both experiments and computer simulations agree on the nature of water adsorption on anatase (101) under vacuum conditions, the picture remains controversial at the interface of anatase (101) with liquid water. In vacuum, Temperature Programmed Desorption (TPD),17 Scanning Tunneling Microscopy16 (STM) and Density Functional Theory (ΔFT)15,18 all agree that water dissociation can only take place at defect sites on the anatase (101) surface. At the aqueous interface, however, only few experiments can selectively probe water right at the TiO2 surface, and the experimental data currently available for the anatase (101)-water interface were either obtained using reduced anatase,19 or could not unambiguously define the adsorption state of water.20,21
+
+**中文:** Ti5c 原子（图 1b），而表面 O2c 原子可以接受氢键（图 1b）或来自水的质子（图 1c）。 Ti5c 和 O2c 位点均参与锐钛矿 (101) 表面的水解离。如图1c所示，水解离涉及质子从吸附在Ti5c位点的分子转移到O2c。这导致形成两个表面羟基：Ti5c 上的末端羟基（OHt，图 1c，左）和桥接羟基，对应于质子化的 O2c 原子（OHbr，图 1c，右）。解离水的存在/不存在在锐钛矿型 TiO2 的表面化学中起着重要作用。尽管实验和计算机模拟都同意真空条件下锐钛矿 (101) 上水吸附的性质，但锐钛矿 (101) 与液态水界面的情况仍然存在争议。在真空中，程序升温解吸 (TPD)、17 扫描隧道显微镜 16 (STM) 和密度泛函理论 (ΔFT)15,18 都同意水离解只能发生在锐钛矿 (101) 表面的缺陷位置。然而，在水界面，只有少数实验可以选择性地探测 TiO2 表面的水，目前锐钛矿 (101)-水界面的实验数据要么是使用还原锐钛矿获得的，19 要么无法明确定义水的吸附状态。 20,21
+
+<a id="S019"></a>
+**Source:** p.3 S019
+
+**Original:** Computational studies based on ΔFT have provided valuable insights into water adsorption on the surface of metals,22,23 semiconductors24–26 and insulators.27,28 When coupled with molecular dynamics (MD), ΔFT has also provided atomic-level interpretation of experimental surface sensitive vibrational spectrocopies.29–31 ΔFT-based ab initio molecular dynamics (AIMD) employs forces derived from the quantum mechanical ground state of the electrons and could in principle be used to access the stability difference between molecular and dissociative adsorption of water on the anatase (101) surface. However, water dissociation on anatase TiO2 is kinetically hindered and cannot be observed in the short-time dynamics currently accessible to AIMD. Neither the dissociation of water nor the recombination of hydroxyls were indeed observed in AIMD simulations of the anatase (101)-water interface of approximately 40 ps duration.21
+
+**中文:** 基于 ΔFT 的计算研究为金属、22,23 半导体24–26 和绝缘体表面的水吸附提供了宝贵的见解。27,28 当与分子动力学 (MD) 结合时，ΔFT 还提供了实验表面敏感振动光谱的原子级解释。29–31 基于 ΔFT 的从头算分子动力学 (AIMD) 采用源自电子量子力学基态的力，原则上可以使用以获得锐钛矿 (101) 表面上水的分子吸附和解离吸附之间的稳定性差异。然而，锐钛矿型 TiO2 上的水解离在动力学上受到阻碍，并且无法在 AIMD 目前可获得的短时动力学中观察到。在大约 40 ps 持续时间的锐钛矿 (101)-水界面的 AIMD 模拟中，确实没有观察到水的解离和羟基的重组。 21
+
+<a id="S020"></a>
+**Source:** p.3 S020
+
+**Original:** In this work we extend both the time and length scales sampled by AIMD using a deep neural network (DNN) to represent the potential energy surface (PES), gaining a substantial speed-up of MD simulations. Several authors have demonstrated the DNNs' ability to reproduce the complex PES of ab initio potentials,32–34 thus allowing accurate long-time simulations of several condensed phase systems35–37 including metal oxide–water interfaces.38,39 In the present study, the ab initio-based DNN potential reproduces energy and atomic forces obtained from ΔFT at a five orders of magnitude lower computational cost. This allows us to carry out MD simulations at the nanosecond timescale on systems of thousands of atoms and to use enhanced sampling techniques to obtain converged free energy surfaces of proton transfer at the aqueous anatase (101) interface as a function of suitable reaction coordinates. All our simulations are carried out assuming no net electric charge on the surface, a condition that can be experimentally realized at the point of zero charge and flat band potential of TiO2 in contact with water. Altogether, the present results enable us to
+
+**中文:** 在这项工作中，我们使用深度神经网络 (DNN) 扩展了 AIMD 采样的时间和长度尺度来表示势能面 (PES)，从而显着提高了 MD 模拟的速度。几位作者已经证明了 DNN 能够重现从头计算势的复杂 PES，32–34，从而可以对包括金属氧化物-水界面在内的几种凝聚相系统 35–37 进行精确的长时间模拟。 38,39 在本研究中，基于从头计算的 DNN 势能以较低五个数量级的计算成本重现从 ΔFT 获得的能量和原子力。这使我们能够在纳秒时间尺度上对数千个原子的系统进行MD模拟，并使用增强的采样技术来获得水性锐钛矿（101）界面处质子转移的收敛自由能表面作为合适反应坐标的函数。我们所有的模拟都是在假设表面没有净电荷的情况下进行的，这一条件可以在 TiO2 与水接触的零电荷和平带电势点通过实验实现。总而言之，目前的结果使我们能够
+
+<a id="S021"></a>
+**Source:** p.3 S021
+
+**Original:** elucidate both the relative stability of molecular versus dissociated water and the mechanism of proton transport at the aqueous anatase (101) interface, which are two fundamental features for understanding the reactivity of this interface.
+
+**中文:** 阐明分子与解离水的相对稳定性以及水性锐钛矿 (101) 界面处的质子传输机制，这是理解该界面反应性的两个基本特征。
+
+<a id="F003"></a>
+### Fig. 3. Surface hydroxyl fraction and proton-transfer mechanism
+
+**Placed near:** S022  
+**Source:** p.5 figure caption
+
+![Surface hydroxyl fraction and proton-transfer mechanism](assets/fig3-hydroxyl-lifetime-mechanism.png)
+
+**Original caption:** Fig. 3 (a) Time evolution of the surface hydroxyl coverage on the anatase (101)-water interface, as obtained from an average of 4 DPMD simulations. (b) Un-normalized survival probability of hydroxyl groups on the anatase (101)-water (H2O and D2O) interface as a function of time. In both plots τ denotes the average lifetime of terminal hydroxyl groups. (c) Mechanisms of proton transfer reaction at the anatase (101)-water interface. I: molecular adsorption; II: transition state; III and IV: equivalent configurations of the dissociated water. Water dissociation mechanism follows I -> II -> III (or IV), while proton transport follows III -> II -> IV or IV -> II -> III.
+
+**中文图注:** 图 3 (a) 锐钛矿 (101)-水界面上的表面羟基覆盖率的时间演变，从 4 次 DPMD 模拟的平均值中获得。 (b) 锐钛矿 (101)-水（H2O 和 D2O）界面上羟基的非标准化存活概率随时间的变化。在这两个图中，τ 表示末端羟基的平均寿命。 （c）锐钛矿（101）-水界面的质子转移反应机制。 I：分子吸附； II：过渡状态； III 和 IV：解离水的等效构型。水解离机制遵循I -> II -> III（或IV），而质子传输遵循III -> II -> IV或IV -> II -> III。
+
+**Reading note:** This figure connects the equilibrium dissociation fraction with the actual atomistic pathway: a solvent-assisted, Grotthuss-like proton transfer rather than a static broken water molecule.
+
+
+<a id="S022"></a>
+**Source:** p.3 S022
+
+**Original:** 2 Methods
+
+**中文:** 2 方法
+
+<a id="S023"></a>
+**Source:** p.3 S023
+
+**Original:** 2.1 DNN training
+
+**中文:** 2.1 DNN训练
+
+<a id="S024"></a>
+**Source:** p.3 S024
+
+**Original:** Our DNN potential was constructed following the method recently proposed by Zhang et al.34,40 In this scheme, the potential energy E of each atomic configuration is a sum of
+
+**中文:** 我们的 DNN 势能是按照Zhang 等人最近提出的方法构建的。34,40 在这个方案中，每个原子构型的势能 E 是
+
+<a id="S025"></a>
+**Source:** p.3 S025
+
+**Original:** “atomic energies” E = X
+
+**中文:** “原子能”E = X
+
+<a id="S026"></a>
+**Source:** p.3 S026
+
+**Original:** i Ei, where Ei is determined by the local
+
+**中文:** i Ei，其中 Ei 由局部确定
+
+<a id="F004"></a>
+### Fig. 4. Collective variables and free-energy surfaces
+
+**Placed near:** S027  
+**Source:** p.6 figure caption
+
+![Collective variables and free-energy surfaces](assets/fig4-free-energy-surface.png)
+
+**Original caption:** Fig. 4 (a) Interatomic distances used to define the two collective variables describing proton transfer reactions. The first CV, dOOO = (d1 + d2)/2, represents the average distance between hydrogen-bonded oxygen atoms connecting proton-donor and proton-acceptor sites. The second CV, (ν1 + ν2)/2 with νi = bi - hi, describes the progress of the proton transfer reaction, with positive and negative values corresponding to the dissociated and molecular states, respectively. (b) Free energy surface of water dissociation (left) and proton transport (right) at the anatase (101)-water interface. Roman numerals indicate states specified by the energy plot. Molecular water is more stable than the dissociated state by 8.0 ± 0.9 kJ mol^-1, with a free energy barrier of 32 ± 4 kJ mol^-1 separating these states.
+
+**中文图注:** 图 4 (a) 用于定义描述质子转移反应的两个集体变量的原子间距离。第一个 CV，dOOO = (d1 + d2)/2，表示连接质子供体和质子受体位点的氢键氧原子之间的平均距离。第二个 CV (ν1 + ν2)/2（νi = bi - hi）描述了质子转移反应的进程，正值和负值分别对应于解离态和分子态。 (b) 锐钛矿 (101)-水界面处的水解离自由能表面（左）和质子传输（右）。罗马数字表示能量图指定的状态。分子水比解离态稳定 8.0 ± 0.9 kJ mol^-1，分隔这些状态的自由能垒为 32 ± 4 kJ mol^-1。
+
+**Reading note:** The quantitative result lives here: molecular adsorption is thermodynamically preferred, but a finite population of transient hydroxyls exists at room temperature.
+
+
+<a id="S027"></a>
+**Source:** p.3 S027
+
+**Original:** environment of atom i within a smooth cutoffradius Rc. Ei is constructed in two steps. First, for each atom a set of symmetrypreserving descriptors is constructed. Next, this information is given as input for a DNN, which returns Ei as the output. The additive form of E naturally preserves the extensive character of the potential energy. We refer the reader to ref. 34 and 40 for further details. With this method, the DNN potential has been shown to accurately reproduce interatomic forces and energies predicted by ΔFT.41
+
+**中文:** 原子 i 的环境位于平滑截止半径 Rc 内。 Ei 的构建分两步进行。首先，为每个原子构造一组对称性保持描述符。接下来，该信息作为 DNN 的输入给出，DNN 返回 Ei 作为输出。 E 的加法形式自然地保留了势能的广泛特征。我们建议读者参考参考文献。参见图 34 和 40 了解更多详情。通过这种方法，DNN 势已被证明可以准确再现 ΔFT.41 预测的原子间力和能量
+
+<a id="S028"></a>
+**Source:** p.3 S028
+
+**Original:** We trained our DNN potential using an active learning approach.41 In this scheme, training data is collected in an iterative scheme consisting of a computationally eﬃcient exploration of the configurational space and evaluation of ab initio energies and atomic forces of a small set of selected atomic configurations. We performed such iterative procedure using three different systems: bulk anatase TiO2 (108 atoms), bulk liquid water (192 atoms), and the anatase (101)-water interface (426 atoms), for which we included configurations with one or few interfacial water molecules either dissociated or near the transition state. The latter were generated with enhanced sampling techniques during the iterative refinement of the DNN and their inclusion has been essential to predict dissociation barriers close to those of ΔFT.
+
+**中文:** 我们使用主动学习方法训练了 DNN 潜力。41 在该方案中，训练数据以迭代方案收集，该方案包括对构型空间的计算有效探索以及对一小组选定原子构型的从头计算能量和原子力的评估。我们使用三种不同的系统执行了这样的迭代过程：散装锐钛矿型 TiO2（108 个原子）、散装液态水（192 个原子）和锐钛矿型（101）-水界面（426 个原子），其中我们包括一个或几个界面水分子解离或接近过渡态的配置。后者是在 DNN 迭代细化过程中通过增强采样技术生成的，它们的包含对于预测接近 ΔFT 的解离势垒至关重要。
+
+<a id="S029"></a>
+**Source:** p.3 S029
+
+**Original:** In more detail, our model of the anatase–water interface consists of 82 water molecules in contact with an anatase (101) slab (five TiO2 layers exposing a (1  3) surface supercell) within a periodically repeated unit cell of size 10.4 ˚A  11.4 ˚A  36.8 ˚A along the three orthogonal directions [-101], [010] and [101] of the anatase TiO2 crystal lattice (Fig. 1d). Forces and energies were computed with the SCAN functional,42 as implemented in the PWscf code of Quantum ESPRESSO.43,44 The SCAN functional has been shown to accurately predict both the structure of water45 and TiO2.21 We performed all DNN potential-based MD simulations using the Lammps code46 interfaced with the DeePMD-kit.47 Enhanced sampling techniques were provided by PLUMED.48 The DeePMD-kit code47 was used to train the DNN potential. Additional details on the DNN training method and ΔFT calculations can be found in the ESI.† MD performed with the DNN potential is called DPMD in the following.
+
+**中文:** 更详细地说，我们的锐钛矿-水界面模型由 82 个水分子组成，这些水分子与锐钛矿 (101) 板（五个 TiO2 层暴露出 (1 3) 表面超晶胞）接触，这些水分子位于沿着锐钛矿的三个正交方向 [-101]、[010] 和 [101] 的周期性重复晶胞内，尺寸为 10.4 °A、11.4 °A、36.8 °A。 TiO2 晶格（图 1d）。使用 SCAN 函数计算力和能量，42 在 Quantum ESPRESSO 的 PWscf 代码中实现。43,44 SCAN 函数已被证明可以准确预测水 45 和 TiO2 的结构。21 我们使用与 DeePMD-kit 接口的 Lammps 代码 46 执行所有基于 DNN 电势的 MD 模拟。47 PLUMED 提供了增强型采样技术。48 DeePMD-kit code47 用于训练 DNN 潜力。有关 DNN 训练方法和 ΔFT 计算的更多详细信息，请参阅 ESI。† 使用 DNN 势执行的 MD 在下文中称为 DPMD。
+
+<a id="S030"></a>
+**Source:** p.3 S030
+
+**Original:** 2.2 DPMD simulations
+
+**中文:** 2.2 DPMD模拟
+
+<a id="S031"></a>
+**Source:** p.3 S031
+
+**Original:** DPMD simulations of the anatase (101)-water interface sampled the canonical ensemble (constant volume and
+
+**中文:** 锐钛矿 (101)-水界面的 DPMD 模拟采样了正则系综（恒定体积和
+
+<a id="S032"></a>
+**Source:** p.4 S032
+
+**Original:** temperature), while the isobaric–isothermal ensemble (constant pressure and temperature) was sampled for liquid water simulations. Liquid water simulations were performed with a periodically repeated cell containing 64 water molecules. For the anatase (101)-water system, comparison between DPMD and AIMD involved simulations of a 1  3 anatase (101) surface supercell exposing 6Ti5c and 6O2c sites. This supercell was used also for umbrella sampling simulations used to evaluate the free energy barrier to transfer a proton from water to a surface O2c atom. All other DPMD simulations of the anatase (101)– water interface were carried out with a larger 4  12 anatase (101) surface supercell exposing 96Ti5c and 96O2c sites. In all cases, the system was composed by a slab of 5TiO2 layers in contact with a 20 ˚A water slab at the experimental density; essentially identical interfacial water properties were obtained in a simulation using a water thickness of 40 ˚A (see ESI†). Temperature and pressure were controlled by a Nos´e–Hoover thermostat49,50 at 330 K and Parrinello–Rahman barostat51
+
+**中文:** 温度），同时对等压-等温系综（恒定压力和温度）进行采样以进行液态水模拟。使用包含 64 个水分子的周期性重复单元进行液态水模拟。对于锐钛矿 (101)-水系统，DPMD 和 AIMD 之间的比较涉及暴露 6Ti5c 和 6O2c 位点的 1 3 锐钛矿 (101) 表面超晶胞的模拟。该超级电池还用于伞式采样模拟，用于评估将质子从水中转移到表面 O2c 原子的自由能垒。锐钛矿 (101)-水界面的所有其他 DPMD 模拟均使用暴露 96Ti5c 和 96O2c 位点的较大 4·12 锐钛矿 (101) 表面超晶胞进行。在所有情况下，该系统均由 5TiO2 层板组成，并以实验密度与 20 °A 水板接触；在使用 40 Å 水厚度的模拟中获得了基本相同的界面水性质（参见 ESI†）。温度和压力由 Nos´e–Hoover 恒温器49,50（330 K）和 Parrinello–Rahman 恒压器51 控制
+
+<a id="S033"></a>
+**Source:** p.4 S033
+
+**Original:** under 1 bar, respectively. A temperature 30 K higher than room temperature was used to roughly mimic nuclear quantum effects on the oxygen distribution in water.52 The classical equations of motion were numerically integrated using Verlet's method53 with a time step of 0.5 fs for D2O (0.25 fs for H2O). Equilibrium properties were computed from simulations with D2O, since it allows a larger time step in the numerical integration of the equations of motion without aﬀecting the equilibrium statistical properties of the investigated systems. All error bars were evaluated from simulations ran with independently trained DNN potentials.
+
+**中文:** 分别低于 1 bar。使用比室温高 30 K 的温度来粗略模拟核量子效应对水中氧分布的影响。52 使用 Verlet 方法 53 对经典运动方程进行数值积分，D2O 的时间步长为 0.5 fs（H2O 的时间步长为 0.25 fs）。平衡特性是通过 D2O 模拟计算得出的，因为它允许运动方程的数值积分具有更大的时间步长，而不会影响所研究系统的平衡统计特性。所有误差条均通过使用独立训练的 DNN 电位运行的模拟进行评估。
+
+<a id="S034"></a>
+**Source:** p.4 S034
+
+**Original:** 3 Results and discussion
+
+**中文:** 3 结果与讨论
+
+<a id="S035"></a>
+**Source:** p.4 S035
+
+**Original:** 3.1 Validation
+
+**中文:** 3.1 验证
+
+<a id="S036"></a>
+**Source:** p.4 S036
+
+**Original:** The ability of DPMD to reproduce the ΔFT-predicted structures of pure water, pure anatase TiO2, and anatase (101)-water interface is confirmed by the following results. (i) The anatase TiO2 lattice constants given by DPMD agree well with the values predicted by SCAN21 (DPMD: a = 3.80 ˚A, c = 9.52 ˚A; SCAN: a = 3.77 ˚A, c = 9.52 ˚A). (ii) The radial distribution functions and average water density profile obtained from 4 independent 40 ps DPMD simulations of the anatase (101)-water interface agree, within their standard deviation, with analogous quantities obtained from a 40 ps AIMD trajectory of this interface (Fig. 2a and b, respectively). (iii) Our DNN potential reproduces the oxygen radial distribution function and density of bulk liquid water obtained from SCAN AIMD simulations, which are in good agreement with experiment45 (see Fig. 2b, inset). DPMD also yields a water diffusion coeﬃcient that compares well with that given by AIMD (DPMD: 0.17 ± 0.01 ˚A2 ps^-1, AIMD:45 0.19 ± 0.03 ˚A2 ps^-1). (iv) The water density profile along the direction perpendicular to the TiO2 surface derived from DPMD simulations of our large (4  12) anatase (101) surface model (surface area of 18.5 nm2) essentially coincides with that obtained from analogous simulations of the smaller (1  3) anatase (101) model (surface area of 1.16 nm2) used in our training data (Fig. 2c).
+
+**中文:** 以下结果证实了 DPMD 重现纯水、纯锐钛矿 TiO2 和锐钛矿 (101)-水界面的 ΔFT 预测结构的能力。 (i) DPMD 给出的锐钛矿型 TiO2 晶格常数与 SCAN21 预测的值非常吻合（DPMD：a = 3.80 ℃，c = 9.52 ℃；SC​​AN：a = 3.77 ℃，c = 9.52 ℃）。 （ii）从锐钛矿（101）-水界面的4个独立的40 ps DPMD模拟中获得的径向分布函数和平均水密度分布在其标准偏差内与从该界面的40 ps AIMD轨迹获得的类似量一致（分别为图2a和b）。 (iii) 我们的 DNN 势再现了从 SCAN AIMD 模拟中获得的氧气径向分布函数和大量液态水的密度，这与实验 45 非常吻合（见图 2b，插图）。 DPMD 还产生与 AIMD 给出的水扩散系数相媲美的水扩散系数（DPMD：0.17 ± 0.01 ˚A2 ps^-1，AIMD：45 0.19 ± 0.03 ˚A2 ps^-1）。 （iv）沿垂直于TiO2表面方向的水密度分布，源自我们的大（4 12）锐钛矿（101）表面模型（表面积为18.5 nm2）的DPMD模拟，与我们的训练数据中使用的较小（1 3）锐钛矿（101）模型（表面积为1.16 nm2）的类似模拟所获得的水密度分布基本一致（图2c）。
+
+<a id="S037"></a>
+**Source:** p.4 S037
+
+**Original:** Additional validation tests are reported in the ESI,† where we compare results from DPMD and AIMD for the vibrational densities of states of water and TiO2 at the anatase–water interface and water dissociation at both the dry anatase surface and the aqueous interface. In particular, from Fig. S4 of the ESI,† one can see that the ΔFT result for the work to move a H+
+
+**中文:** ESI 中报告了其他验证测试，† 我们比较了 DPMD 和 AIMD 的结果，了解锐钛矿-水界面处水和 TiO2 状态的振动密度以及干燥锐钛矿表面和水界面处的水离解。特别是，从 ESI 的图 S4 可以看到，移动 H+ 的功的 ΔFT 结果
+
+<a id="S038"></a>
+**Source:** p.4 S038
+
+**Original:** from a surface O2c to a nearby OHt is reproduced very well by DPMD.
+
+**中文:** DPMD 可以很好地再现从表面 O2c 到附近 OHt 的情况。
+
+<a id="S039"></a>
+**Source:** p.4 S039
+
+**Original:** 3.2 Equilibrium sampling of aqueous anatase (101) via DPMD
+
+**中文:** 3.2 通过 DPMD 水相锐钛矿 (101) 的平衡取样
+
+<a id="S040"></a>
+**Source:** p.4 S040
+
+**Original:** The equilibrium structure of the aqueous anatase (101) interface was determined by averaging the results of 4 independent DPMD trajectories of 25 ns duration each, from which error
+
+**中文:** 水性锐钛矿 (101) 界面的平衡结构是通过对每个持续时间为 25 ns 的 4 个独立 DPMD 轨迹的结果进行平均来确定的，其中误差
+
+<a id="S041"></a>
+**Source:** p.5 S041
+
+**Original:** bars of computed quantities were also estimated. All simulations started from configurations with purely molecular water at the interface and a surface model exposing 96Ti5c and 96O2c sites was used, which allows a minimum non-zero hydroxyl surface coverage of 1.04%. The water density profile predicted by such DPMD simulations is perfectly symmetric with respect to its center (Fig. 2c), consistent with the symmetry of the anatase (101) slab used for the simulations. Since the water density profile does not depend on the surface supercell size (Fig. 2c), the lack of symmetry of the profile in Fig. 2b can be attributed to the short duration of that trajectory. In fact, AIMD simulations have shown a substantial slowdown of the rotational and translational dynamics of water close to the anatase (101) surface relative to bulk liquid water.21 Hence, a longer simulation time is needed to obtain the equilibrium density distribution of interfacial water on the anatase (101) surface relative to bulk liquid water.
+
+**中文:** 还估计了计算量的条形。所有模拟均从界面处纯分子水的配置开始，并使用暴露 96Ti5c 和 96O2c 位点的表面模型，该模型允许最小非零羟基表面覆盖率为 1.04%。通过这种 DPMD 模拟预测的水密度分布相对于其中心完全对称（图 2c），与模拟中使用的锐钛矿（101）板的对称性一致。由于水密度分布不​​依赖于表面超晶胞尺寸（图 2c），因此图 2b 中的分布缺乏对称性可归因于该轨迹的持续时间较短。事实上，AIMD 模拟显示，相对于大量液态水，靠近锐钛矿 (101) 表面的水的旋转和平移动力学显着减慢。 21 因此，需要更长的模拟时间才能获得锐钛矿 (101) 表面上界面水相对于大量液态水的平衡密度分布。
+
+<a id="S042"></a>
+**Source:** p.5 S042
+
+**Original:** Analysis of the DPMD trajectories shows that the equilibrium adsorption configuration of water at the aqueous anatase (101) interface consists mostly of intact molecules at Ti5c sites, but also includes an average 5.6 ± 0.5% of water dissociated into OHt and OHbr hydroxyl groups (see Fig. 3a; note that the average surface hydroxyl coverage is calculated excluding the first 10 ns of this curve). Hydroxyls have a finite lifetime before they recombine to form molecular water adsorbed at Ti5c sites. This can be important in photo-oxidation processes, e.g. photocatalytic water splitting, where photoexcited holes are transferred from TiO2 to adsorbed hydroxyls to form OH radicals.54–56
+
+**中文:** DPMD轨迹分析表明，水在锐钛矿（101）界面处的平衡吸附构型主要由Ti5c位点的完整分子组成，但也包括平均5.6±0.5%的水解离成OHt和OHbr羟基（见图3a；注意，平均表面羟基覆盖度的计算不包括该曲线的前10 ns）。羟基在重新结合形成吸附在 Ti5c 位点上的分子水之前具有有限的寿命。这在光氧化过程中很重要，例如光催化水分解，其中光激发空穴从 TiO2 转移到吸附的羟基，形成 OH 自由基。 54–56
+
+<a id="S043"></a>
+**Source:** p.5 S043
+
+**Original:** The hydroxyl lifetime can be estimated from its survival probability distribution P(t), which is the probability to continuously observe water dissociated during a time interval t. We computed
+
+**中文:** 羟基寿命可以根据其生存概率分布 P(t) 来估计，即在时间间隔 t 内连续观察水解离的概率。我们计算了
+
+<a id="S044"></a>
+**Source:** p.5 S044
+
+**Original:** P(t) for OHt and ODt separately (Fig. 3b), and defined the
+
+**中文:** 分别计算 OHt 和 ODt 的 P(t)（图 3b），并定义
+
+<a id="S045"></a>
+**Source:** p.5 S045
+
+**Original:** average lifetime (s) as τ = ðN
+
+**中文:** 平均寿命 (s) 为 τ = ðN
+
+<a id="S046"></a>
+**Source:** p.5 S046
+
+**Original:** 0 PðtÞtdt= ðN
+
+**中文:** 0 PðtÞtdt= ðN
+
+<a id="S047"></a>
+**Source:** p.5 S047
+
+**Original:** 0 PðtÞdt. We found the
+
+**中文:** 0 PðtÞdt。我们发现了
+
+<a id="S048"></a>
+**Source:** p.5 S048
+
+**Original:** average lifetime of ODt (τ = 0.6 ± 0.2 ns) to be twice as long as the one of OHt (τ = 0.3 ± 0.1 ns). For comparison, the hydroxyl lifetimes observed in our simulation are shorter than the lifetimes of several ns for electron–hole recombination in anatase,57,58 and on the same timescale as the characteristic times of hole transfer to organic adsorbates on TiO2 surfaces.3
+
+**中文:** ODt (τ = 0.6 ± 0.2 ns) 的平均寿命是 OHt (τ = 0.3 ± 0.1 ns) 平均寿命的两倍。为了进行比较，我们的模拟中观察到的羟基寿命比锐钛矿中电子-空穴复合的几个纳秒的寿命短57,58，并且与空穴转移到 TiO2 表面有机吸附物的特征时间处于同一时间尺度。 3
+
+<a id="S049"></a>
+**Source:** p.5 S049
+
+**Original:** The mechanism of hydroxyl formation that emerges from our simulations involves a concerted proton transfer from molecular water to surface O2c sites. As shown in Fig. 3c (path I / II / III or I / II / IV), the initial state is a stable hydrogenbond complex, in which the path from the water coordinated to a Ti5c site to two adjacent O2c sites is fully connected with hydrogen bonds. The proton transfer proceeds through a Grotthuss-like mechanism,59 with a transient hydronium ion formed along the reaction path. The dissociation reaction produces a terminal (bonded to Ti5c) and a bridging hydroxyl (protonated O2c) connected through an intermediate water molecule that is H-bonded to both of them. The TiO2 surface remains charge neutral along the proton transfer reaction, and no proton transfer to liquid water is observed. A similar mechanism, involving an intermediate water molecule, is observed also for the proton transport along O2c sites (path III / II / IV in Fig. 3c). A proton at a bridging O2c site can either recombine with a terminal hydroxyl to form molecular water or transfer to a neighboring non-protonated O2c site. The latter proton transport process requires a fully connected hydrogen-bond path between initial and final states similar to that of water dissociation/recombination, and has
+
+**中文:** 我们的模拟中出现的羟基形成机制涉及从分子水到表面 O2c 位点的协调质子转移。如图3c（路径I / II / III或I / II / IV）所示，初始状态是稳定的氢键配合物，其中从Ti5c位点配位的水到两个相邻O2c位点的路径完全由氢键连接。质子转移通过类似 Grotthuss 的机制进行，59 沿反应路径形成瞬态水合氢离子。解离反应产生一个末端（与 Ti5c 键合）和一个桥接羟基（质子化的 O2c），通过中间水分子连接，中间水分子与这两个末端通过氢键键合。 TiO2 表面在质子转移反应过程中保持电中性，并且没有观察到质子转移到液态水中。沿着 O2c 位点的质子传输也观察到了类似的机制，涉及中间水分子（图 3c 中的路径 III / II / IV）。桥接 O2c 位点上的质子可以与末端羟基重组形成分子水，也可以转移到邻近的非质子化 O2c 位点。后一种质子传输过程需要类似于水解离/重组的初始状态和最终状态之间完全连接的氢键路径，并且具有
+
+<a id="S050"></a>
+**Source:** p.6 S050
+
+**Original:** also the same transition state. For this reason, the recombination of bridging and terminal hydroxyls to form molecular water competes with the proton transfer from one bridging hydroxyl to a non-protonated O2c site.
+
+**中文:** 也是同样的过渡状态。因此，桥接羟基和末端羟基重组形成分子水与质子从一个桥接羟基转移到非质子化的 O2c 位点竞争。
+
+<a id="S051"></a>
+**Source:** p.6 S051
+
+**Original:** 3.3 Enhanced sampling
+
+**中文:** 3.3 增强抽样
+
+<a id="S052"></a>
+**Source:** p.6 S052
+
+**Original:** We estimated the free energy difference between molecular and dissociated water on aqueous TiO2 from enhanced sampling techniques. Due to the complex nature of proton transfer reactions in water,60–62 we devised a two-step procedure to reconstruct the free energy surface of water dissociation on titania. First, we estimated the free energy barrier to transfer a proton from water to a surface O2c atom using umbrella sampling.63 With this method, the free energy F(So) of the system was obtained as a function of the minimum distance So between a particular surface O2c (index o) and any hydrogen atom. A continuous version of the minimum distance was used,
+
+**中文:** 我们通过增强采样技术估算了 TiO2 水溶液中分子水和离解水之间的自由能差异。由于水中质子转移反应的复杂性，60-62我们设计了一个两步程序来重建二氧化钛上水解离的自由能表面。首先，我们使用伞式采样估算了将质子从水中转移到表面 O2c 原子的自由能垒。 63 通过这种方法，获得了系统的自由能 F(So)，作为特定表面 O2c（指数 o）和任何氢原子之间的最小距离 So 的函数。使用最小距离的连续版本，
+
+<a id="S053"></a>
+**Source:** p.6 S053
+
+**Original:** So = l=ln X
+
+**中文:** 所以 = l=ln X
+
+<a id="S054"></a>
+**Source:** p.6 S054
+
+**Original:** i expðl=rioÞ (l = 500 ˚A), and quadratic (or umbrella)
+
+**中文:** i expðl=rioÞ (l = 500 ˚A)，以及二次（或伞形）
+
+<a id="S055"></a>
+**Source:** p.6 S055
+
+**Original:** potentials were applied at different values of So, allowing the sampling of configurational space regions that would be rarely visited from unbiased simulations. The free energy surfaces obtained from umbrella sampling are given in the ESI.† The second step in our procedure involved a new set of enhanced sampling simulations with a bias potential V = So - F(So) applied to the O2c sites in the system, in which F(So) is the free energy previously obtained from umbrella sampling. This set of bias potentials enhances the probability of proton transfer to every O2c on the anatase (101) surface. A probability
+
+**中文:** 在不同的 So 值下应用势能，从而可以对无偏模拟中很少访问的构型空间区域进行采样。从伞式采样获得的自由能表面在 ESI 中给出。† 我们程序的第二步涉及一组新的增强采样模拟，其中偏置电势 V = So - F(So) 应用于系统中的 O2c 位点，其中 F(So) 是之前从伞式采样获得的自由能。这组偏压提高了质子转移到锐钛矿 (101) 表面上每个 O2c 的概率。一个概率
+
+<a id="S056"></a>
+**Source:** p.6 S056
+
+**Original:** distribution of the two collective variables given in Fig. 4a was then constructed in the biased ensemble and re-weighted by the Boltzmann factor ebV, where b is the inverse temperature. The probability distribution was obtained from the average of 12 independent 3 ns long simulations (viz. 3 simulations with each of the four independent DNN potentials) and the average over all water adsorption sites in the system. The choice of the two collective variables in Fig. 4a was inspired by earlier computer simulations of proton diffusion in basic and acidic aqueous solutions.64
+
+**中文:** 然后在有偏系综中构建图 4a 中给出的两个集体变量的分布，并通过玻尔兹曼因子 ebV 重新加权，其中 b 是温度的倒数。概率分布是从 12 个独立的 3 ns 长模拟（即四个独立 DNN 电位中的每一个进行 3 次模拟）的平均值以及系统中所有水吸附位点的平均值获得的。图 4a 中两个集体变量的选择受到早期计算机模拟质子在碱性和酸性水溶液中扩散的启发。 64
+
+<a id="S057"></a>
+**Source:** p.6 S057
+
+**Original:** From the computed free energy surface in Fig. 4b (le), two main features emerge: (i) water adsorbed in molecular form is thermodynamically more stable than dissociatively adsorbed water on the anatase (101) surface by ΔF = 8.0 ± 0.9 kJ mol^-1; (ii) the free energy barrier for water dissociation, ΔF‡ d = 32 ± 4 kJ mol^-1, is around 13 times larger than the thermal energy at room temperature and would unlikely be crossed during the typical timescale (tens of ps) of AIMD simulations. Analysis of the computed trajectories in the presence of the bias potential confirms the mechanism of water dissociation observed in the unbiased simulations: water dissociation always involves a water molecule mediating the proton transfer between water adsorbed on a Ti5c site and a neighboring O2c atom (Fig. 3c). The enhanced sampling simulations also captured the mechanism of proton transport at the aqueous anatase (101) interface observed in the unbiased simulations. As shown in Fig. 4b (right), proton transport produces an approximately symmetric free energy surface with a free energy barrier of 25 ± 4 kJ mol^-1 separating the two equivalent states.
+
+**中文:** 从图 4b（左）计算的自由能表面可以看出两个主要特征：（i）以分子形式吸附的水在热力学上比锐钛矿（101）表面上解离吸附的水更稳定，ΔF = 8.0 ± 0.9 kJ mol^-1； (ii) 水解离的自由能垒，ΔF‡ d = 32 ± 4 kJ mol^-1，大约比室温下的热能大 13 倍，并且在 AIMD 模拟的典型时间尺度（数十 ps）内不太可能被跨越。在存在偏压的情况下对计算轨迹的分析证实了在无偏模拟中观察到的水解离机制：水解离总是涉及水分子介导Ti5c位点上吸附的水和邻近O2c原子之间的质子转移（图3c）。增强的采样模拟还捕获了在无偏模拟中观察到的水性锐钛矿（101）界面处的质子传输机制。如图 4b（右）所示，质子输运产生近似对称的自由能表面，其自由能势垒为 25 ± 4 kJ mol^-1，分隔两个等效状态。
+
+<a id="S058"></a>
+**Source:** p.7 S058
+
+**Original:** To verify the consistency of the free energy surfaces in Fig. 4b with the results of our unbiased DPMD simulations (Fig. 3), we can estimate the equilibrium fraction of dissociated water on the anatase (101)-water interface from the Boltzmann factor e-bΔF, where b is the inverse temperature and ΔF is the free energy difference between molecular and dissociated water. Using the computed value ΔF = 8.0 kJ mol^-1, we obtain a dissociation fraction of 5.0% at our simulation temperature of 330 K, in very good agreement with the DPMD simulations. This result is also confirmed by Monte Carlo sampling of a 2-D lattice gas model that includes the constraint present in the real system: adsorbed water can only dissociate if at least one neighboring O2c site is non-protonated (see ESI†). Using the lattice gas model, we can further estimate the free energy of the anatase (101)-water interface as a function of the surface hydroxyl coverage, which allows us to rule out the existence of additional metastable states at other surface hydroxyl fractions. Another relevant comparison is that between the hydroxyl lifetime determined from our equilibrium simulations and that estimated from the computed free energy barrier. Using transition-state theory, the recombination rate constant can be
+
+**中文:** 为了验证图4b中的自由能表面与我们的无偏DPMD模拟结果（图3）的一致性，我们可以根据玻尔兹曼因子e-bΔF估计锐钛矿（101）-水界面上离解水的平衡分数，其中b是温度的倒数，ΔF是分子水和离解水之间的自由能差。使用计算值 ΔF = 8.0 kJ mol^-1，我们在 330 K 的模拟温度下获得了 5.0% 的解离分数，与 DPMD 模拟非常一致。这一结果也得到了二维晶格气体模型蒙特卡罗采样的证实，该模型包括真实系统中存在的约束：只有至少一个相邻的 O2c 位点非质子化时，吸附的水才能解离（参见 ESI†）。使用晶格气体模型，我们可以进一步估计锐钛矿（101）-水界面的自由能作为表面羟基覆盖度的函数，这使我们能够排除其他表面羟基部分存在额外的亚稳态。另一个相关的比较是根据我们的平衡模拟确定的羟基寿命与根据计算的自由能垒估计的羟基寿命之间的比较。利用过渡态理论，复合速率常数可以为
+
+<a id="S059"></a>
+**Source:** p.7 S059
+
+**Original:** written as k = nce-ΔF‡ r =kbT, where nc is the attempt frequency and ΔF‡ r = ΔF‡ d - ΔF is the barrier for a terminal and bridging hydroxyl to recombine into a water molecule. Approximating nc with the H-bonded OD or OH stretching frequency of heavy (nc z 71 THz) and light (nc z 101 THz) water, and taking the recombination barrier ΔF‡ r = 25 kJ mol^-1, we obtain a lifetime s = 1/k of the terminal hydroxyl group equal to 0.09 ns and 0.13 ns for OH and OD, respectively. Thus, this simplified approach predicts lifetimes on the same order of magnitude as the ones evaluated from our DPMD simulations, although with slightly underestimated values. However, the fact that the simulations give sOD  2sOH, rather than sOD  1.4sOH as in the simplified approach, indicates a process more complex than a simple exponential relaxation dynamics. This is apparent from the curves in Fig. 3b, that cannot be fitted by a single exponential.
+
+**中文:** 写为 k = nce-ΔF‡ r =kbT，其中 nc 是尝试频率，ΔF‡ r = ΔF‡ d - ΔF 是末端和桥接羟基重新结合成水分子的势垒。用重水 (nc z 71 THz) 和轻水 (nc z 101 THz) 的氢键 OD 或 OH 伸缩频率来近似 nc，并采用复合势垒 ΔF‡ r = 25 kJ mol^-1，我们得到 OH 和 OD 的末端羟基寿命 s = 1/k 分别等于 0.09 ns 和 0.13 ns。因此，这种简化的方法预测的寿命与我们的 DPMD 模拟评估的寿命相同数量级，尽管数值略有低估。然而，模拟给出的是 sOD 2sOH，而不是简化方法中的 sOD 1.4sOH，这一事实表明该过程比简单的指数弛豫动力学更为复杂。这从图 3b 中的曲线可以明显看出，它不能用单个指数拟合。
+
+<a id="S060"></a>
+**Source:** p.7 S060
+
+**Original:** Conflicts of interest
+
+**中文:** 利益冲突
+
+<a id="S061"></a>
+**Source:** p.7 S061
+
+**Original:** There are no conflicts to declare.
+
+**中文:** 没有需要声明的冲突。
+
+<a id="S062"></a>
+**Source:** p.7 S062
+
+**Original:** Acknowledgements
+
+**中文:** 致谢
+
+<a id="S063"></a>
+**Source:** p.7 S063
+
+**Original:** This work was conducted within the Computational Chemical Center: Chemistry in Solution and at Interfaces funded by the DoE under Award DE-SC0019394. A. S. acknowledge the support of DoE-BES, Division of Chemical Sciences, Geosciences and Biosciences under Award DE-SC0007347. M. C. A. acknowledges partial financial support from the CNPq-Brazil. We used resources of the National Energy Research Scientific Computing Center (DoE Contract No. DE-AC02-05cH11231). We also acknowledge use of the TIGRESS High Performance Computer Center at Princeton University.
+
+**中文:** 这项工作是在计算化学中心进行的：溶液中的化学和界面化学，由美国能源部资助，荣获 DE-SC0019394 奖。 A. S. 感谢 DoE-BES 化学科学、地球科学和生物科学部的支持，授予 DE-SC0007347 奖。 M. C. A. 承认来自 CNPq-Brazil 的部分财政支持。我们使用国家能源研究科学计算中心的资源（DoE 合同号 DE-AC02-05cH11231）。我们还感谢使用普林斯顿大学的 TIGRESS 高性能计算机中心。
+
+<a id="S064"></a>
+**Source:** p.7 S064
+
+**Original:** 1 A. Fujishima, X. Zhang and D. A. Tryk, Surf. Sci. Rep., 2008, 63, 515–582. 2 A. L. Linsebigler, G. Lu and J. T. Yates, Chem. Rev., 1995, 95, 735–758. 3 J. Schneider, M. Matsuoka, M. Takeuchi, J. Zhang, Y. Horiuchi, M. Anpo and D. W. Bahnemann, Chem. Rev., 2014, 114, 9919–9986. 4 A. Fujishima and K. Honda, Nature, 1972, 238, 37–38. 5 S. U. M. Khan, M. Al-Shahry and W. B. Ingler Jr, Science, 2002, 297, 2243–2245. 6 M. Gratzel, Acc. Chem. Res., 1981, 14, 376–384. 7 R. Wang, K. Hashimoto, A. Fujishima, M. Chikuni, E. Kojima, A. Kitamura, M. Shimohigoshi and T. Watanabe, Nature, 1997, 388, 431–432. 8 L. Zhang, R. Dillert, D. Bahnemann and M. Vormoor, Energy Environ. Sci., 2012, 5, 7491. 9 T. Zubkoy, D. Stahl, T. L. Thompson, D. Panayotov, O. Diwald and J. T. Yates, J. Phys. Chem. B, 2005, 109, 15454–15462. 10 A. Fujishima, T. N. Rao and D. A. Tryk, J. Photochem. Photobiol., C, 2000, 1, 1–21. 11 R. Cai, K. Hashimoto, K. Itoh, Y. Kubota and A. Fujishima, Bull. Chem. Soc. Jpn., 1991, 64, 1268–1273. 12 M. Anpo, T. Shima and Y. Kubokawa, Chem. Lett., 1985, 14, 1799–1802. 13 O. I. Micic, Y.
+
+**中文:** 1 A.Fujishima、X.Zhang 和 D.A.Tryk，Surf。科学。报告，2008 年，63，515–582。 2 A. L. Linsebigler、G. Lu 和 J. T. Yates，化学。修订版，1995 年，95，735–758。 3 J. Schneider、M. Matsuoka、M. Takeuchi、J. 张、Y. Horiuchi、M. Anpo 和 D. W. Bahnemann，化学。修订版，2014 年，114，9919–9986。 4 A. Fujishima 和 K. Honda，《自然》，1972 年，238，37-38。 5 S. U. M. Khan、M. Al-Shahry 和 W. B. Ingler Jr，《科学》，2002 年，297 年，2243–2245 年。 6 M.格拉泽尔，Acc。化学。研究，1981，14，376-384。 7 R. Wang、K. Hashimoto、A. Fujishima、M. Chikuni、E. Kojima、A. Kitamura、M. Shimohigoshi 和 T. Watanabe，《自然》，1997 年，388，431-432。 8 L.Zhang、R.Dillert、D.Bahnemann 和 M.Vormoor，能源环境。科学，2012，5，7491。 9 T. Zubkoy、D. Stahl、T. L. Thompson、D. Panayotov、O. Diwald 和 J. T. Yates，J. Phys。化学。乙，2005，109，15454–15462。 10 A. Fujishima、T. N. Rao 和 D. A. Tryk、J. Photochem。光生物学，C，2000，1，1-21。 11 R. Cai、K. Hashimoto、K. Itoh、Y. Kubota 和 A. Fujishima，Bull。化学。苏克。日本，1991，64，1268–1273。 12 M. Anpo、T. Shima 和 Y. Kubokawa，化学。快报，1985 年，14，1799-1802 年。 13 O.I.米西奇，Y.
+
+<a id="S065"></a>
+**Source:** p.7 S065
+
+**Original:** Zhang, K. R. Cromack, A. D. Trifunac and M. C. Thurnauer, J. Phys. Chem., 1993, 97, 7277–7283. 14 S. H. Szczepankiewicz, A. J. Colussi and M. R. Hoffmann, J. Phys. Chem. B, 2000, 104, 9842–9850. 15 A. Vittadini, A. Selloni, F. P. Rotzinger and M. Gr¨atzel, Phys. Rev. Lett., 1998, 81, 2954–2957. 16 Y. He, A. Tilocca, O. Dulub, A. Selloni and U. Diebold, Nat. Mater., 2009, 8, 585–589. 17 G. S. Herman, Z. Dohn´alek, N. Ruzycki and U. Diebold, J. Phys. Chem. B, 2003, 107, 2788–2795. 18 A. Tilocca and A. Selloni, Langmuir, 2004, 20, 8379–8384. 19 I. M. Nadeem, J. P. W. Treacy, S. Selcuk, X. Torrelles, H. Hussain, A. Wilson, D. C. Grinter, G. Cabailh, O. Bikondoa, C. Nicklin, A. Selloni, J. Zegenhagen,
+
+**中文:** 张，K. R. Cromack，A. D. Trifunac 和 M. C. Thurnauer，J. Phys。化学，1993，97，7277–7283。 14 S. H. Szczepankiewicz、A. J. Colussi 和 M. R. Hoffmann，J. Phys。化学。 B, 2000, 104, 9842–9850。 15 A. Vittadini、A. Selloni、F. P. Rotzinger 和 M. Grátzel，物理学。牧师快报，1998 年，81，2954–2957。 16 Y. He、A. Tilocca、O. Dulub、A. Selloni 和 U. Diebold，Nat。硕士，2009，8，585–589。 17 G. S. Herman、Z. Dohn´alek、N. Ruzycki 和 U. Diebold，J. Phys。化学。 B, 2003, 107, 2788–2795。 18 A. Tilocca 和 A. Selloni，朗缪尔，2004 年，20，8379–8384。 19 I. M. Nadeem、J. P. W. Treacy、S. Selcuk、X. Torrelles、H. Hussain、A. Wilson、D. C. Grinter、G. Cabailh、O. Bikondoa、C. Nicklin、A. Selloni、J. Zegenhagen、
+
+## Critical Reading Notes / 批判性阅读提示
+
+**English:** The central numerical result is not that TiO2 is fully hydroxylated in water. The result is subtler: molecular water is thermodynamically favored, but transient hydroxyl pairs appear through solvent-assisted proton transfer and can matter chemically. When citing this paper, separate equilibrium fraction, lifetime, and free-energy barrier.
+
+**中文:** 这篇的核心不是“TiO2 在水里会完全羟基化”。更准确的说法是：分子态水热力学更稳定，但界面氢键网络会诱导短寿命羟基对，这些瞬态羟基足以影响表面化学。引用时要区分平衡解离比例、羟基寿命和自由能垒这三个量。
+
+## Related Reading / 相关阅读
+
+See `related_reading.md`.

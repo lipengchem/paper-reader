@@ -1,0 +1,283 @@
+{
+  "paper": {
+    "title": "Mobility Mechanism of Hydroxyl Radicals in Aqueous Solution via Hydrogen Transfer",
+    "doi": "10.1021/ja208874t",
+    "source_pdf": "C:\\Users\\LP\\Zotero\\storage\\WAXS5TTD\\Codorniu-Hernández and Kusalik - 2012 - Mobility Mechanism of Hydroxyl Radicals in Aqueous Solution via Hydrogen Transfer.pdf",
+    "output_markdown": "paper.md",
+    "journal": "Journal of the American Chemical Society",
+    "date": "2011-12-05",
+    "zotero_item_key": "C5VF7EZX",
+    "zotero_attachment_key": "WAXS5TTD"
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "page": 532,
+      "type": "title",
+      "section": "Title And Abstract",
+      "confidence": "high"
+    },
+    {
+      "id": "GA001",
+      "page": 532,
+      "type": "graphical_abstract",
+      "asset": "assets/graphical_abstract.png",
+      "confidence": "high"
+    },
+    {
+      "id": "S002",
+      "page": 532,
+      "type": "abstract",
+      "section": "Title And Abstract",
+      "confidence": "high"
+    },
+    {
+      "id": "S003",
+      "page": 532,
+      "type": "abstract",
+      "section": "Title And Abstract",
+      "confidence": "high"
+    },
+    {
+      "id": "S004",
+      "page": 532,
+      "type": "abstract",
+      "section": "Title And Abstract",
+      "confidence": "high"
+    },
+    {
+      "id": "S005",
+      "page": 532,
+      "type": "body",
+      "section": "Introduction",
+      "confidence": "high"
+    },
+    {
+      "id": "S006",
+      "page": 532,
+      "type": "body",
+      "section": "Introduction",
+      "confidence": "high"
+    },
+    {
+      "id": "S007",
+      "page": 532,
+      "type": "body",
+      "section": "Introduction",
+      "confidence": "high"
+    },
+    {
+      "id": "S008",
+      "page": 532,
+      "type": "body",
+      "section": "Introduction",
+      "confidence": "high"
+    },
+    {
+      "id": "S009",
+      "page": 533,
+      "type": "body",
+      "section": "Methods",
+      "confidence": "high"
+    },
+    {
+      "id": "S010",
+      "page": 533,
+      "type": "body",
+      "section": "Methods",
+      "confidence": "high"
+    },
+    {
+      "id": "S011",
+      "page": 533,
+      "type": "body",
+      "section": "Methods",
+      "confidence": "high"
+    },
+    {
+      "id": "S012",
+      "page": 533,
+      "type": "body",
+      "section": "Methods",
+      "confidence": "high"
+    },
+    {
+      "id": "S013",
+      "page": 533,
+      "type": "body",
+      "section": "Methods",
+      "confidence": "high"
+    },
+    {
+      "id": "S014",
+      "page": 533,
+      "type": "body",
+      "section": "Results And Discussion",
+      "confidence": "high"
+    },
+    {
+      "id": "F001",
+      "page": 534,
+      "type": "figure",
+      "asset": "assets/fig1.png",
+      "caption_id": "C001",
+      "placed_near": "S014",
+      "confidence": "high"
+    },
+    {
+      "id": "S015",
+      "page": 533,
+      "type": "body",
+      "section": "Results And Discussion",
+      "confidence": "medium"
+    },
+    {
+      "id": "S016",
+      "page": 533,
+      "type": "body",
+      "section": "Results And Discussion",
+      "confidence": "high"
+    },
+    {
+      "id": "S017",
+      "page": 534,
+      "type": "body",
+      "section": "H-Transfer Mechanism",
+      "confidence": "high"
+    },
+    {
+      "id": "S018",
+      "page": 534,
+      "type": "body",
+      "section": "H-Transfer Mechanism",
+      "confidence": "high"
+    },
+    {
+      "id": "F002",
+      "page": 535,
+      "type": "figure",
+      "asset": "assets/fig2.png",
+      "caption_id": "C002",
+      "placed_near": "S018",
+      "confidence": "high"
+    },
+    {
+      "id": "S019",
+      "page": 534,
+      "type": "body",
+      "section": "H-Transfer Mechanism",
+      "confidence": "high"
+    },
+    {
+      "id": "S020",
+      "page": "534-535",
+      "type": "body",
+      "section": "H-Transfer Mechanism",
+      "confidence": "high"
+    },
+    {
+      "id": "S021",
+      "page": 535,
+      "type": "body",
+      "section": "H-Transfer Mechanism",
+      "confidence": "high"
+    },
+    {
+      "id": "S022",
+      "page": 535,
+      "type": "body",
+      "section": "Free Energy Barrier",
+      "confidence": "high"
+    },
+    {
+      "id": "F003",
+      "page": 535,
+      "type": "figure",
+      "asset": "assets/fig3.png",
+      "caption_id": "C003",
+      "placed_near": "S022",
+      "confidence": "high"
+    },
+    {
+      "id": "S023",
+      "page": "535-536",
+      "type": "body",
+      "section": "Free Energy Barrier",
+      "confidence": "high"
+    },
+    {
+      "id": "S024",
+      "page": 536,
+      "type": "body",
+      "section": "Free Energy Barrier",
+      "confidence": "high"
+    },
+    {
+      "id": "F004",
+      "page": 536,
+      "type": "figure",
+      "asset": "assets/fig4.png",
+      "caption_id": "C004",
+      "placed_near": "S024",
+      "confidence": "high"
+    },
+    {
+      "id": "S025",
+      "page": "536-537",
+      "type": "body",
+      "section": "Free Energy Barrier",
+      "confidence": "high"
+    },
+    {
+      "id": "S026",
+      "page": 537,
+      "type": "body",
+      "section": "Concluding Remarks",
+      "confidence": "high"
+    },
+    {
+      "id": "S027",
+      "page": 537,
+      "type": "body",
+      "section": "Concluding Remarks",
+      "confidence": "high"
+    },
+    {
+      "id": "S028",
+      "page": 537,
+      "type": "body",
+      "section": "Concluding Remarks",
+      "confidence": "high"
+    },
+    {
+      "id": "S029",
+      "page": 537,
+      "type": "body",
+      "section": "Concluding Remarks",
+      "confidence": "high"
+    },
+    {
+      "id": "S030",
+      "page": 537,
+      "type": "associated_content",
+      "section": "Associated Content",
+      "confidence": "high"
+    },
+    {
+      "id": "S031",
+      "page": 537,
+      "type": "acknowledgments",
+      "section": "Author Information And Acknowledgments",
+      "confidence": "high"
+    },
+    {
+      "id": "S032",
+      "page": "537-538",
+      "type": "references",
+      "section": "References",
+      "confidence": "medium"
+    }
+  ],
+  "paragraph_count": 32,
+  "figure_count": 5
+}

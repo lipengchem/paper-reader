@@ -1,0 +1,2045 @@
+# Protons and Hydroxide Ions in Aqueous Systems
+
+**中文题名:** 水系统中的质子和氢氧根离子
+
+**Zotero key:** QUT75QES
+**Attachment key:** YWVZDKRE
+**Journal:** Chemical Reviews
+**Date:** 2016-12-27
+**DOI:** 10.1021/acs.chemrev.5b00736
+**Task date:** 2026-07-07
+**Source PDF:** paper.pdf
+
+## Why This Paper / 为什么选这篇
+
+**English:** This paper belongs to the core proton/hydroxide transport reading thread selected for today. It helps connect microscopic solvation structure, hydrogen-bond rearrangement, and anomalous ion mobility in water.
+
+**中文:** 这篇文献属于今天选定的质子/氢氧根传输核心阅读线索。它有助于把微观溶剂化结构、氢键重排以及水中离子的反常迁移率联系起来。
+
+## Reading Guide / 读前导读
+
+**English:** Read it by asking three questions: what structural motif carries the charge, what hydrogen-bond rearrangement enables transfer, and which observable or simulation coordinate supports the proposed mechanism.
+
+**中文:** 阅读时抓住三个问题：电荷到底由什么结构单元承载，哪类氢键重排使转移成为可能，以及作者用哪种实验观测或模拟坐标支撑该机制。
+
+## Terminology / 术语表
+
+| English | 中文 | Note |
+| --- | --- | --- |
+| hydrated proton | 水合质子 | 通常指水中过量质子及其溶剂化结构 |
+| hydroxide ion | 氢氧根离子 | OH-，在水中通过结构扩散和普通扩散共同迁移 |
+| Grotthuss mechanism | Grotthuss 机制 | 通过氢键网络重排实现的质子/缺质子迁移 |
+| proton transfer | 质子转移 | 常缩写为 PT |
+| hydrogen-bond network | 氢键网络 | 决定水中离子溶剂化和传输通道 |
+| potential of mean force | 平均力势 | 常用于表示反应坐标上的自由能剖面 |
+
+## Full Bilingual Reader / 全文逐段中英对照
+
+<a id="S001"></a>
+**Source:** p.1 S001
+
+**Original:** Protons and Hydroxide Ions in Aqueous Systems
+
+**中文:** 水系统中的质子和氢氧根离子
+
+<a id="S002"></a>
+**Source:** p.1 S002
+
+**Original:** Noam Agmon,† Huib J. Bakker,‡ R. Kramer Campen,§ Richard H. Henchman,∥Peter Pohl,⊥Sylvie Roke,#
+
+**中文:** 诺姆·阿格蒙，† Huib J. Bakker，‡ R. Kramer Campen，§ 理查德 H. Henchman，∥Peter Pohl，⊥Sylvie Roke，#
+
+<a id="S003"></a>
+**Source:** p.1 S003
+
+**Original:** Martin Thämer,∇,§ and Ali Hassanali*,○
+
+**中文:** Martin Thämer,∇,§ 和 Ali Hassanali*,○
+
+<a id="S004"></a>
+**Source:** p.1 S004
+
+**Original:** †The Fritz Haber Research Center, Institute of Chemistry, The Hebrew University of Jerusalem, Jerusalem 91904, Israel ‡FOM Institute AMOLF, Science Park 104, 1098 XG Amsterdam, The Netherlands §Fritz Haber Institute of the Max Planck Society, Faradayweg 4-6, 14195 Berlin, Germany ∥Manchester Institute of Biotechnology, School of Chemistry, The University of Manchester, Oxford Road, Manchester M13 9PL, United Kingdom ⊥Johannes Kepler University Linz, Institute of Biophysics, Gruberstrasse 40, 4020 Linz, Austria #Laboratory for Fundamental BioPhotonics (LBP), Institute of Bioengineering (IBI), and Institute of Material Science (IMX), School of Engineering (STI), and Lausanne Centre for Ultrafast Science (LACUS), École Polytechnique Fédérale de Lausanne (EPFL), CH-1015, Lausanne, Switzerland ∇Department of Chemistry, Institute for Biophysical Dynamics, and James Franck Institute, The University of Chicago, Chicago, Illinois 60637, United States ○CMSP Section, The Abdus Salaam International Center for Theoretical Physics, I-34151 Trieste, Italy
+
+**中文:** †弗里茨·哈伯研究中心，化学研究所，耶路撒冷希伯来大学，耶路撒冷 91904，以色列 ‡FOM Institute AMOLF, Science Park 104, 1098 XG 阿姆斯特丹，荷兰 §马克斯·普朗克学会弗里茨·哈伯研究所，Faradayweg 4-6, 14195 Berlin, 德国 ∥曼彻斯特生物技术研究所，化学学院，曼彻斯特大学，Oxford Road, Manchester M13 9PL，英国 ⊥约翰开普勒大学林茨生物物理研究所，Gruberstrasse 40, 4020 Linz, Austria #基础生物光子学实验室 (LBP)、生物工程研究所 (IBI) 和材料科学研究所 (IMX)、工程学院 (STI) 和洛桑超快科学中心 (LACUS)、巴黎综合理工学院洛桑联邦理工学院 (EPFL), CH-1015, 洛桑, 瑞士 ∇芝加哥大学化学系、生物物理动力学研究所和詹姆斯·弗兰克研究所, 芝加哥, 伊利诺伊州 60637, 美国 ○阿卜杜斯·萨拉姆国际理论物理中心 CMSP 部分, I-34151 的里雅斯特, 意大利
+
+<a id="S005"></a>
+**Source:** p.1 S005
+
+**Original:** ABSTRACT: Understanding the structure and dynamics of water's constituent ions, proton and hydroxide, has been a subject of numerous experimental and theoretical studies over the last century. Besides their obvious importance in acid-base chemistry, these ions play an important role in numerous applications ranging from enzyme catalysis to environmental chemistry. Despite a long history of research, many fundamental issues regarding their properties continue to be an active area of research. Here, we provide a review of the experimental and theoretical advances made in the last several decades in understanding the structure, dynamics, and transport of the proton and hydroxide ions in different aqueous environments, ranging from water clusters to the bulk liquid and its interfaces with hydrophobic surfaces. The propensity of these ions to accumulate at hydrophobic surfaces has been a subject of intense debate, and we highlight the open issues and challenges in this area.
+
+**中文:** 摘要：了解水的组成离子、质子和氢氧根的结构和动力学，一直是上个世纪众多实验和理论研究的主题。除了在酸碱化学中具有明显的重要性外，这些离子还在从酶催化到环境化学的众多应用中发挥着重要作用。尽管研究历史悠久，但有关其特性的许多基本问题仍然是研究的活跃领域。在这里，我们回顾了过去几十年在理解不同水环境中质子和氢氧根离子的结构、动力学和传输方面取得的实验和理论进展，范围从水簇到本体液体及其与疏水表面的界面。这些离子在疏水表面积聚的倾向一直是激烈争论的主题，我们强调了该领域的未决问题和挑战。
+
+<a id="S006"></a>
+**Source:** p.1 S006
+
+**Original:** Biological applications reviewed include proton transport along the hydration layer of various membranes and through channel proteins, problems that are at the core of cellular bioenergetics.
+
+**中文:** 回顾的生物学应用包括沿着各种膜的水合层和通过通道蛋白的质子传输，这是细胞生物能量学的核心问题。
+
+<a id="S007"></a>
+**Source:** p.2 S007
+
+**Original:** It has been known for more than a century that protons (H+) and hydroxide (OH-) ions in aqueous solutions are critical in a wide variety of industrial, biological, and environmental processes.1-3 Driven by this appreciation, much work has been devoted to understanding the molecular-scale structure and dynamics of H+ and OH- in aqueous environments.4-6
+
+**中文:** 一个多世纪以来，人们就知道水溶液中的质子 (H+) 和氢氧根 (OH-) 离子在各种工业、生物和环境过程中都至关重要。1-3 在这种认识的推动下，人们致力于了解水环境中 H+ 和 OH- 的分子尺度结构和动力学。4-6
+
+<a id="S008"></a>
+**Source:** p.2 S008
+
+**Original:** Despite extensive efforts, achieving detailed, molecular-scale insight has been challenging, partly because the structure and dynamics of protons and hydroxide ions is inextricably linked with the hydrogen bond (HB) dynamics of water, and thus, insight into the former requires a detailed understanding of the latter. Driven, in part, by massive improvements in computational and experimental techniques, the last 20 years have seen a dramatic enhancement in our understanding of both systems. In this paper we review these fundamental developments. We begin by briefly describing the founding experiments of the field. These observations strongly suggested that H+ and OH-are unlike other ions in water: e.g., their solvation and transport properties differ dramatically. To understand how molecular-scale structure controls these macroscopic effects, experimental and theoretical tools are required that allow interrogation of molecular-scale structure and dynamics of both ions. Partly in an effort to develop such tools, numerous experimental and theoretical studies of gas-phase charged clusters have been conducted.
+
+**中文:** 尽管付出了巨大的努力，但实现详细的分子尺度洞察仍然具有挑战性，部分原因是质子和氢氧根离子的结构和动力学与水的氢键 (HB) 动力学有着千丝万缕的联系，因此，深入了解前者需要详细了解后者。在计算和实验技术的巨大进步的推动下，过去 20 年我们对这两个系统的理解得到了显着增强。在本文中，我们回顾了这些基本进展。我们首先简要描述该领域的创立实验。这些观察结果强烈表明，H+ 和 OH- 与水中的其他离子不同：例如，它们的溶剂化和传输特性显着不同。为了了解分子尺度结构如何控制这些宏观效应，需要实验和理论工具来探究两种离子的分子尺度结构和动力学。为了开发此类工具，人们对气相带电团簇进行了大量的实验和理论研究。
+
+<a id="S009"></a>
+**Source:** p.2 S009
+
+**Original:** Because these systems are cold and contain only small numbers of water molecules, experimental observables, most notably the infrared (IR) spectrum, are hopefully straightforward to interpret and computation is possible at very high levels of theory. Armed with the insights from cluster studies, we next discuss computational and experimental studies of H+ and OH- in bulk liquid water. On the theoretical front, we review results from semiempirical and ab initio molecular dynamics (AIMD) methodologies concerning the solvation patterns of these ions and, particularly, the abnormal proton mobility occurring via a chain of proton transfer (PT) events. Although most simulations of the H+ and OH-treat the nuclei classically, there is a growing appreciation of the role of nuclear quantum effects (NQE) in hydrogen-bonded systems, and we highlight the importance of some these effects. On the experimental side, we emphasize the ability of femtosecond time-resolved IR spectroscopy to directly probe the dynamics of H+ and OH- in real time.
+
+**中文:** 由于这些系统温度较低且仅包含少量水分子，因此实验观测值（尤其是红外 (IR) 光谱）有望易于解释，并且可以在非常高的理论水平上进行计算。借助聚类研究的见解，我们接下来讨论散装液态水中 H+ 和 OH- 的计算和实验研究。在理论方面，我们回顾了半经验和从头开始分子动力学 (AIMD) 方法的结果，这些方法涉及这些离子的溶剂化模式，特别是通过质子转移 (PT) 事件链发生的异常质子迁移率。尽管大多数 H+ 和 OH- 模拟都以经典方式处理原子核，但人们越来越认识到核量子效应 (NQE) 在氢键系统中的作用，并且我们强调了其中一些效应的重要性。在实验方面，我们强调飞秒时间分辨红外光谱直接实时探测 H+ 和 OH- 动态的能力。
+
+<a id="S010"></a>
+**Source:** p.2 S010
+
+**Original:** These are complemented by time-resolved fluorescence techniques that can monitor excited photoacids transferring their proton to the water solvent or a base molecule over 3-5 orders of magnitude in time and intensity. Because water structure and dynamics at interfaces and in one-dimensional channels differ significantly from that in the bulk liquid, it is expected that H+ and OH-structure and dynamics in such systems, which depend on that of the water solvent, should also differ from those in bulk water. To highlight these issues, we first review studies of H+ and OH-at extended hydrophobic surfaces, where we will show that the
+
+**中文:** 这些技术得到了时间分辨荧光技术的补充，可以监测激发的光酸将其质子转移到水溶剂或基础分子的时间和强度超过 3-5 个数量级。由于界面和一维通道中的水结构和动力学与本体液体中的显着不同，因此预计此类系统中的 H+ 和 OH-结构和动力学（取决于水溶剂的结构和动力学）也应与本体水中的不同。为了强调这些问题，我们首先回顾了扩展疏水表面上的 H+ 和 OH- 的研究，其中我们将表明
+
+<a id="S011"></a>
+**Source:** p.2 S011
+
+**Original:** interpretation of experimental results at short-length scales near interfaces is extremely challenging. We will then briefly review the importance of understanding the structure and dynamics of protons in biological systems, such as membranes and transmembrane proteins. In spite of this wide range of different systems, the basic observation of abnormally fast proton transport through the HB network appears to carry over from bulk water to biological systems.
+
+**中文:** 在界面附近的短长度尺度上解释实验结果极具挑战性。然后，我们将简要回顾了解生物系统（例如膜和跨膜蛋白）中质子的结构和动力学的重要性。尽管存在如此广泛的不同系统，但对通过 HB 网络的异常快速质子传输的基本观察似乎从散装水转移到了生物系统。
+
+<a id="S012"></a>
+**Source:** p.2 S012
+
+**Original:** 2. STRUCTURE AND DYNAMICS OF H+ AND OH-IN BULK WATER
+
+**中文:** 2. 散装水中 H+ 和 OH- 的结构和动力学
+
+<a id="S013"></a>
+**Source:** p.2 S013
+
+**Original:** 2.1. Foundational Experiments The first studies addressing the dynamics of PT between water molecules were experimental measurements of ionic conductivities, from which it was possible to derive the mobility of protons and hydroxide ions in water.7-10 Results from the first half of the previous century are summarized in textbooks, for example, by Robinson and Stokes.11 They reveal anomalously high mobilities (3.62 × 10-3 cm2 V-1 s-1 for H+ and 1.98 × 10-3 cm2 V-1 s-1 for OH-at room temperature) as compared to other ions. For example, the mobilities of Rb+ and Cs+ are just 22% that of the proton. The hydroxide anion also shows an abnormally high mobility, though to a lesser extent than the proton:11 at room temperature, its mobility is 57% that of a proton, while the mobility of Br-is 39% that of OH-.
+
+**中文:** 2.1.基础实验 解决水分子之间 PT 动力学的第一个研究是离子电导率的实验测量，从中可以推导出水中质子和氢氧根离子的迁移率。7-10 Robinson 和 Stokes 等教科书总结了上世纪上半叶的结果。11 它们揭示了异常高的迁移率（H+ 为 3.62 × 10-3 cm2 V-1 s-1，H+ 为 1.98）。 × 10-3 cm2 V-1 s-1（室温下 OH-））与其他离子相比。例如，Rb+和Cs+的迁移率仅为质子的22%。氢氧根阴离子也表现出异常高的迁移率，尽管其程度低于室温下的质子：11，其迁移率是质子的57%，而Br-的迁移率是OH-的39%。
+
+<a id="S014"></a>
+**Source:** p.2 S014
+
+**Original:** Further information about the dynamics of the solvated proton was obtained in the 1960s by nuclear magnetic resonance (NMR) measurements of acidic and basic aqueous solutions performed by Meiboom.12 Since the chemical shift of the proton is highly sensitive to the local environment, the resonance frequencies of the excess proton and water hydrogen atoms are slightly different. While this technique has only millisecond time resolution, a careful analysis of the line shape using a very simple model for the line width (i.e., the NMR relaxation time) as a function of solution pH and temperature suggested that protons in bulk water move on a picosecond time scale, in good agreement with the proton mobility measurements. The mobility can be extracted by combining the Nernst and Einstein equations without assuming anything about the characteristic jump length of the proton.
+
+**中文:** 关于溶剂化质子动力学的更多信息是在 20 世纪 60 年代通过 Meiboom 对酸性和碱性水溶液进行核磁共振 (NMR) 测量而获得的。 12 由于质子的化学位移对局部环境高度敏感，过量质子和水氢原子的共振频率略有不同。虽然该技术只有毫秒时间分辨率，但使用非常简单的线宽模型（即 NMR 弛豫时间）作为溶液 pH 和温度的函数对线形状进行仔细分析表明，大量水中的质子在皮秒时间尺度上移动，与质子迁移率测量结果非常一致。可以通过结合能斯特方程和爱因斯坦方程来提取迁移率，而无需对质子的特征跳跃长度进行任何假设。
+
+<a id="S015"></a>
+**Source:** p.2 S015
+
+**Original:** At room temperature, the results of this type of analysis give a PT time of 1.7 ps in acid solutions and 4.7 ps in bases.12 This study has been extended to obtain the temperature dependence of these rate constants.13 The measured Arrhenius plots gave low activation enthalpies, 2.4 and 2.1 kcal mol-1 for H+ and OH-, respectively. These values are similar to the enthalpy of the HB in bulk liquid water (2.6 kcal mol-1, according to some Raman measurements)14 and smaller than the activation enthalpy (4.5 kcal mol-1) for the dielectric relaxation of water (see ref 15). To summarize, early experiments suggested that the proton and hydroxide are unique among ions in aqueous solution with regard to their high mobilities. To understand why this is so requires development of a molecular-scale treatment of the solvated proton and hydroxide structures and an examination of how they change in time. The development of theoretical and computational tools that allow this insight have benefitted enormously from experimental work on gas-phase clusters. 2.2. Gas Phase Experiments and their Theoretical Interpretation
+
+**中文:** 在室温下，此类分析的结果表明，酸性溶液中的 PT 时间为 1.7 ps，碱溶液中的 PT 时间为 4.7 ps。 12 这项研究已得到扩展，以获得这些速率常数的温度依赖性。 13 测得的阿伦尼乌斯图给出了较低的活化焓，H+ 和 OH- 分别为 2.4 和 2.1 kcal mol-1。这些值类似于散装液态水中的 HB 的焓（2.6 kcal mol-1，根据一些拉曼测量）14，并且小于水介电弛豫的活化焓（4.5 kcal mol-1）（参见参考文献 15）。总而言之，早期的实验表明，质子和氢氧根在水溶液中的离子中具有独特的高迁移率。要理解为什么会这样，需要开发对溶剂化质子和氢氧根结构的分子尺度处理，并检查它们如何随时间变化。实现这一见解的理论和计算工具的开发极大地受益于气相团簇的实验工作。 2.2.气相实验及其理论解释
+
+<a id="S016"></a>
+**Source:** p.2 S016
+
+**Original:** 2.2.1. Infrared Spectra of Protonated Water Clusters. Much effort has been put into studying both neutral and charged water clusters, particularly in the context of
+
+**中文:** 2.2.1.质子化水簇的红外光谱。人们投入了大量精力来研究中性和带电水团簇，特别是在
+
+<a id="S017"></a>
+**Source:** p.3 S017
+
+**Original:** interpreting infrared (IR) spectra, since it is easier to disentangle the molecular origins of specific modes of systems with a relatively small number of degrees of freedom. The difference in the IR spectra of liquid water and acidic water is quite featureless, with wide bands that are difficult to assign to particular conformers (see section 2.3.4 below). In contrast, gas-phase protonated water clusters at low temperatures exhibit sharp IR features that may help disentangle the convoluted liquid spectrum. Attempts to describe the molecular structure of the proton in water have typically revolved around two structural motifs proposed by Eigen and Zundel. Eigen viewed the proton as localized on a single water molecule,16,17 with the resulting H3O+ being further solvated by three water molecules, yielding H3O+(H2O)3, the Eigen cation, E. In contrast, Zundel advocated18 a structure proposed earlier by Huggins,19 in which the proton is equally shared between two water molecules (H5O2+, the Zundel cation, Z), which he believed gave rise to the broad IR continuum in concentrated acids.
+
+**中文:** 解释红外（IR）光谱，因为更容易以相对较少的自由度来解开特定系统模式的分子起源。液态水和酸性水的红外光谱的差异非常无特征，宽频带很难分配给特定的构象异构体（参见下面的 2.3.4 节）。相比之下，低温下的气相质子化水簇表现出尖锐的红外特征，这可能有助于解开复杂的液体光谱。描述水中质子分子结构的尝试通常围绕着 Eigen 和 Zundel 提出的两个结构主题。 Eigen 将质子定位在单个水分子上，16,17 由此产生的 H3O+ 被三个水分子进一步溶剂化，产生 H3O+(H2O)3，即本征阳离子 E。相比之下，Zundel 主张 18 哈金斯早期提出的结构，19 其中质子在两个水分子（H5O2+，Zundel 阳离子，Z）之间平均分配，他认为这产生了浓酸中的宽红外连续谱。
+
+<a id="S018"></a>
+**Source:** p.3 S018
+
+**Original:** The isolated Z and E cations are depicted in Figure 1 by structures A and C, respectively.
+
+**中文:** 孤立的 Z 和 E 阳离子在图 1 中分别由结构 A 和 C 表示。
+
+<a id="S019"></a>
+**Source:** p.3 S019
+
+**Original:** An experimental breakthrough occurred with the introduction of the predissociation messenger method by Lee and collaborators,21 which was subsequently perfected by the Johnson group using an argon messenger technique, where Ar atoms are weakly bound to the ultracold water clusters.20,22
+
+**中文:** Lee 及其合作者引入预解离信使方法取得了实验性突破，21 随后约翰逊小组使用氩信使技术完善了该方法，其中 Ar 原子与超冷水团簇的结合较弱。 20,22
+
+<a id="S020"></a>
+**Source:** p.3 S020
+
+**Original:** These Ar atoms are shaken offafter an infrared photon is absorbed, and the daughter cluster is detected with a mass spectrometer. Using this highly sensitive technique, the IR spectra of the H5O2+ and H9O4+ structures (and the other clusters in Figure 1) were measured. In the protonated water dimer, i.e. the Zundel complex, the features of the shared (excess) proton were clearly identified around 1050 and 1760 cm-1. The first corresponds to the proton rattling between the two oxygen atoms. The second mode involves strong coupling of the proton motion to the HOH bending of the flanking water molecules. Before proceeding, we present a brief overview of theoretical methods used for vibrational spectroscopy calculations as applied to
+
+**中文:** 这些Ar原子在吸收红外光子后被抖落，并用质谱仪检测到子团簇。使用这种高灵敏度技术，测量了 H5O2+ 和 H9O4+ 结构（以及图 1 中的其他簇）的红外光谱。在质子化水二聚体（即 Zundel 复合物）中，在 1050 和 1760 cm-1 附近清楚地识别出了共享（过量）质子的特征。第一个对应于两个氧原子之间的质子轰击。第二种模式涉及质子运动与侧翼水分子的 HOH 弯曲的强耦合。在继续之前，我们简要概述了用于振动光谱计算的理论方法
+
+<a id="S021"></a>
+**Source:** p.3 S021
+
+**Original:** protonated water clusters. Recent reviews (specifically, for biological molecules) are available.23,24
+
+**中文:** 质子化的水簇。最近的评论（特别是生物分子）可用。23,24
+
+<a id="S022"></a>
+**Source:** p.3 S022
+
+**Original:** The accuracy of all computational methods depends sensitively on the accuracy of the interaction potential (the "potential energy surface", PES). Empirical force fields currently do not have spectroscopic accuracy, since most do not account explicitly for polarizability, which is particularly important for floppy systems like clusters. Thus, we only consider "firstprinciples" PES calculated by solving the Schrödinger equation for the electrons using either wave functions or density functional theory (DFT). We broadly divide the computational methods into "static" and "dynamic". Static methods utilize the PES only near its global minimum. High-level quantum chemistry methods can be utilized in these types of calculations. If the potential is expanded up to quadratic terms, the second derivatives of the potential can be used to find harmonic normal modes (NMs) and their characteristic frequencies. Expanding up to quartic terms enables a perturbation expansion around the harmonic solution, which corrects the frequencies and intensities for anharmonicities.
+
+**中文:** 所有计算方法的准确性都敏感地取决于相互作用势（“势能面”，PES）的准确性。经验力场目前不具有光谱精度，因为大多数没有明确考虑极化率，而极化率对于集群等软盘系统尤其重要。因此，我们只考虑通过使用波函数或密度泛函理论 (DFT) 求解电子薛定谔方程而计算出的“第一原理”PES。我们将计算方法大致分为“静态”和“动态”。静态方法仅利用接近其全局最小值的 PES。高级量子化学方法可用于这些类型的计算。如果势能扩展到二次项，则势能的二阶导数可用于查找谐波简正模 (NM) 及其特征频率。扩展到四次项可以实现谐波解周围的微扰展开，从而校正非谐波的频率和强度。
+
+<a id="S023"></a>
+**Source:** p.3 S023
+
+**Original:** This is the idea behind the second-order vibrational perturbation theory (VPT2) method, which gives quite accurate frequencies provided a sufficiently accurate quantum chemistry method is used and the quartic approximation for the potential is valid. It may nevertheless break down for very floppy and very anharmonic modes. Signs of a suspicious VPT2 output can be infinite anharmonic intensities (often due to energetic degeneracies), unexpectedly large anharmonic frequency shifts, or imaginary frequencies. A competing methodology used less frequently for clusters, and extensively for biomolecules, is the vibrational self consistent field (VSCF) method.24 It is based on a separability ansatz for the vibrational wave function and a mean field approximation in which each vibrational mode feels an averaged interaction due to all other modes. Dynamic methods use the whole PES, namely, all the regions accessible energetically at a given energy or temperature. A time-dependent trajectory of all atoms is used to calculate the dipole moment autocorrelation function (DACF), whose Fourier transform (FT) yields the IR spectrum.
+
+**中文:** 这是二阶振动微扰理论 (VPT2) 方法背后的想法，只要使用足够准确的量子化学方法并且势能的四次近似有效，该方法就会给出相当准确的频率。然而，对于非常松软和非常不和谐的模式，它可能会崩溃。可疑 VPT2 输出的迹象可能是无限的非谐波强度（通常由于能量简并）、意外大的非谐波频移或虚频率。振动自洽场 (VSCF) 方法是一种不太常用于簇而广泛用于生物分子的竞争方法。 24 它基于振动波函数的可分离性模拟和平均场近似，其中每个振动模式感受到由于所有其他模式而产生的平均相互作用。动态方法使用整个 PES，即在给定能量或温度下可有效访问的所有区域。所有原子的时间相关轨迹用于计算偶极矩自相关函数 (DACF)，其傅立叶变换 (FT) 产生红外光谱。
+
+<a id="S024"></a>
+**Source:** p.3 S024
+
+**Original:** Thus, this method inherently includes all anharmonic effects, including conformational changes and temperature effects not sampled in the 0 K spectrum. In addition, the bands are expected to widen with increasing temperature as more nuclear configurations become accessible to the simulation, an effect commonly referred to as thermal broadening. An accurate depiction of such effects therefore depends on the ability to calculate the full PES in all the nuclear degrees of freedom. For small clusters, a large number of ab initio points on the PES can be calculated and fit to an analytical function. Alternately, ab initio molecular dynamics (AIMD), particularly the so-called Born-Oppenheimer molecular dynamics (BOMD) method, solves the whole electronic problem for each nuclear configuration along the trajectory of the nuclei and calculates the required forces using the Hellman-Feynman theorem. This usually cannot be done with a very high level quantum chemistry method, and one typically uses DFT techniques.
+
+**中文:** 因此，该方法本质上包括所有非谐波效应，包括构象变化和未在 0 K 光谱中采样的温度效应。此外，随着更多的核构型可供模拟，预计能带会随着温度的升高而变宽，这种效应通常称为热展宽。因此，对此类效应的准确描述取决于计算所有核自由度的完整 PES 的能力。对于小簇，可以计算 PES 上的大量从头开始点并拟合分析函数。或者，从头算分子动力学 (AIMD)，特别是所谓的玻恩-奥本海默分子动力学 (BOMD) 方法，解决了沿着原子核轨迹的每个核构型的整个电子问题，并使用赫尔曼-费曼定理计算所需的力。这通常无法通过非常高水平的量子化学方法来完成，并且通常使用 DFT 技术。
+
+<a id="S025"></a>
+**Source:** p.3 S025
+
+**Original:** The computational efficiency is because the electronic density is a function of only the three Cartesian coordinates and not of all the nuclear degrees of freedom of the system. However, the accuracy is limited by the suitability of the exchange "density functional''. In addition, the nuclear dynamics is classical, so that NQE, which is important for light
+
+**中文:** 计算效率高是因为电子密度仅是三个笛卡尔坐标的函数，而不是系统所有核自由度的函数。然而，精度受到交换“密度泛函”的适用性的限制。此外，核动力学是经典的，因此对于光来说很重要的NQE
+
+<a id="F001"></a>
+### Figure 1
+
+**Placed near:** p.3 S025  
+**Source:** p.3 F001
+
+![Figure 1](assets/fig1-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 1. Minimum-energy structures of small protonated water clusters, calculated at the MP2/aug-cc-pVDZ level of theory and possibly detected in the low-temperature IR spectra of ref 20. Structure A is the Zundel cation, C is the Eigen cation, D is an Eigen cation with one water molecule in its second solvation shell, and E is a Zundel cation with a complete first solvation shell. F and G are ring structures harboring a Zundel ion. Reprinted from ref 20 with permission. Copyright 2005 American Association for the Advancement of Science.
+
+**中文图注:** 图 1. 小质子化水簇的最低能量结构，在 MP2/aug-cc-pVDZ 理论水平上计算，并可能在参考文献 20 的低温红外光谱中检测到。结构 A 是 Zundel 阳离子，C 是本征阳离子，D 是在其第二溶剂化壳层中具有一个水分子的本征阳离子，E 是具有完整的第一溶剂化壳层的 Zundel 阳离子。 F和G是含有Zundel离子的环结构。经许可转载自参考文献 20。版权所有 2005 美国科学促进会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S026"></a>
+**Source:** p.4 S026
+
+**Original:** atoms like hydrogen, are not included. A somewhat older AIMD approach is the Car-Parrinello molecular dynamics (CPMD),25 which propagates the initial electronic wavefunction together with the nuclei using a "fictitious mass" for the electrons. DACF spectra have also been computed with the CPMD method. Besides using DFT, there are also other methods for determining the electronic structure and IR spectrum, such as self-consistent tight-binding DFT (SCCDFTB), which allows for much more exhaustive statistical sampling than DFT.26
+
+**中文:** 像氢这样的原子不包括在内。一种较旧的 AIMD 方法是 Car-Parrinello 分子动力学 (CPMD)，25 它使用电子的“虚拟质量”将初始电子波函数与原子核一起传播。 DACF 谱也用 CPMD 方法计算。除了使用 DFT 之外，还有其他方法来确定电子结构和红外光谱，例如自洽紧束缚 DFT (SCCDFTB)，它允许比 DFT 更详尽的统计采样。26
+
+<a id="S027"></a>
+**Source:** p.4 S027
+
+**Original:** The comparison between the different methods is summarized in Table 1. It is seen that no single method
+
+**中文:** 表1总结了不同方法之间的比较。可以看出，没有单一方法
+
+<a id="S028"></a>
+**Source:** p.4 S028
+
+**Original:** method anharmonic effects temp effects NQE
+
+**中文:** 方法 非谐波效应 温度效应 NQE
+
+<a id="S029"></a>
+**Source:** p.4 S029
+
+**Original:** static harmonic NM no no yes VPT2 quartic no yes VSCF yes no yes dynamic DFT-BOMD yes yes no DFT-CPMD yes yes no MCTDH yes yes yes
+
+**中文:** 静态谐波 NM no no yes VPT2 四次 no yes VSCF yes no yes 动态 DFT-BOMD yes yes no DFT-CPMD yes yes no MCTDH yes yes yes
+
+<a id="S030"></a>
+**Source:** p.4 S030
+
+**Original:** suffices for capturing all the aspects of the vibrational spectrum, so that a combination of static and dynamic methods may be recommended. An exception is perhaps the multiconfiguration time-dependent Hartree method (MCTDH), which solves the time-dependent nuclear Schrödinger equation on an ab initio generated PES. It is mentioned in passing that DFT-BOMD and DFT-CPMD can be coupled with methods such as ringpolymer molecular dynamics (RPMD), which allow for an explicit inclusion of quantum dynamics and hence, in principle, allow for the computation of IR spectra with NQE.27 All of these types of calculations are, however, very computationally expensive. For the H5O2+ cluster, CPMD yielded spectra agreeing semiquantitatively with experiment.28,29 Yet full quantitative agreement in the peak positions of the spectra between experiments and theory was obtained when all the 15 nuclear degrees of freedom were treated quantum mechanically using the MCTDH method.30 In particular, the 1047/928 cm-1 doublet was shown to be a Fermi resonance between the proton transfer mode (PTM) and a combination band.
+
+**中文:** 足以捕获振动频谱的所有方面，因此可以推荐静态和动态方法的组合。一个例外可能是多配置时间相关 Hartree 方法 (MCTDH)，该方法在从头生成的 PES 上求解时间相关核薛定谔方程。顺便提到，DFT-BOMD 和 DFT-CPMD 可以与环聚合物分子动力学 (RPMD) 等方法结合使用，这些方法允许明确包含量子动力学，因此原则上允许使用 NQE 计算红外光谱。27 然而，所有这些类型的计算都非常昂贵。对于 H5O2+ 簇，CPMD 产生的光谱与实验半定量一致。28,29 然而，当使用 MCTDH 方法对所有 15 个核自由度进行量子力学处理时，实验与理论之间的光谱峰值位置完全定量一致。30 特别是，1047/928 cm-1 双峰被证明是质子转移模式 (PTM) 和组合带之间的费米共振。
+
+<a id="S031"></a>
+**Source:** p.4 S031
+
+**Original:** This result is not easily obtained from AIMD, which normally produces only fundamentals, and when combination bands and overtones appear, they are of extremely weak intensities. However, the computational effort invested in this MCTDH project is so great31 that full-dimensional MCTDH calculations were not done for clusters larger than H5O2+. For larger systems, partial-dimensionality MCTDH calculations can be performed, but then some of the vibrational modes are not reproduced.32,33
+
+**中文:** 这个结果很难从 AIMD 中获得，AIMD 通常只产生基频，当出现组合频带和泛音时，它们的强度非常弱。然而，该 MCTDH 项目投入的计算量非常大，以至于没有对大于 H5O2+ 的簇进行全维 MCTDH 计算。对于较大的系统，可以执行部分​​维 MCTDH 计算，但某些振动模式无法再现。 32,33
+
+<a id="S032"></a>
+**Source:** p.4 S032
+
+**Original:** In larger protonated water clusters, H+(H2O)n, multiple isomers may exist like in bulk water. The existence of both Z and E cations was demonstrated for the protonated water hexamer.34 Thus, some researchers consider n = 6 as the smallest n for which multiple isomers coexist in the molecular beam. This has been contested for both the tetramer35 and pentamer.36 Of particular interest is the protonated water tetramer (n = 4), by consensus the E cation in Figure 1C. This is the lowest-energy isomer for n = 4. Its computed spectrum exhibits strong absorption near 2850 cm-1 due to the stretch
+
+**中文:** 在较大的质子化水簇 H+(H2O)n 中，可能像散装水一样存在多种异构体。质子化水六聚体中 Z 和 E 阳离子均存在。34 因此，一些研究人员认为 n = 6 是分子束中多种异构体共存的最小 n。这对于四聚体 35 和五聚体都存在争议。36 特别令人感兴趣的是质子化水四聚体 (n = 4)，一致认为是图 1C 中的 E 阳离子。这是 n = 4 时能量最低的异构体。由于拉伸，其计算光谱在 2850 cm-1 附近表现出强吸收
+
+<a id="S033"></a>
+**Source:** p.4 S033
+
+**Original:** vibrations of the three hydrogen-bonded OH moieties but not the Zundel-type lower energy bands near 1050 and 1760 cm-1. These latter features could be reproduced with DACF/AIMD computations for a linear four-water isomer that harbors a Z core in its center (Figure 2).35 Its "dangling" (non-hydrogen-
+
+**中文:** 三个氢键 OH 部分的振动，但不是 1050 和 1760 cm-1 附近 Zundel 型较低能带的振动。后面这些特征可以通过 DACF/AIMD 计算来重现，用于线性四水异构体，该异构体在其中心具有 Z 核心（图 2）。35 它的“悬空”（非氢-
+
+<a id="F002"></a>
+### Table 1
+
+**Placed near:** p.4 S033  
+**Source:** p.4 F002
+
+![Table 1](assets/table1-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Table 1. Comparison of Different Computational Methods for Vibrational Spectroscopy
+
+**中文图注:** 表 1. 振动光谱不同计算方法的比较
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="F003"></a>
+### Figure 2
+
+**Placed near:** p.4 S033  
+**Source:** p.4 F003
+
+![Figure 2](assets/fig2-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 2. Ar-predissociation IR spectrum of the H+(H2O)4 cluster at 50 K (black line),20 compared with simulated spectra (AIMD dipole autocorrelation) for the branched E isomer (blue) and a linear isomer with a Z core (red).35 The labels a, s, and b (in black) on the experimental spectrum mark the antisymmetric and symmetric stretching and the bending band (respectively) of water molecules that do not donate any HB. The computed stretching bands of hydrogen-bonded OH moieties are denoted (in color) by E or Z (the isomer) with a numerical subscript (0, 1, or 2) for the solvation shell around the excess proton; see Figure 3 below for the detailed notation. Z2,a and Z2,s are the antisymmetric and symmetric stretching modes of the dangling hydrogens in the second shell, while Z1a and Z1b refer to the bonded and dangling OH in the first shell of the Z cation. Adapted from ref 35. Copyright 2014 American Chemical Society.
+
+**中文图注:** 图 2. H+(H2O)4 簇在 50 K 下的 Ar 预解离红外光谱（黑线）20 与支化 E 异构体（蓝色）和具有 Z 核心的线性异构体（红色）的模拟光谱（AIMD 偶极自相关）进行比较。 35 实验光谱上的标签 a、s 和 b（黑色）标记了水分子的反对称和对称拉伸和弯曲带，而水分子则不存在。捐赠任何 HB。氢键 OH 部分的计算拉伸带用 E 或 Z（异构体）表示（以颜色表示），并用数字下标（0、1 或 2）表示过量质子周围的溶剂化壳层；详细符号请参见下面的图 3。 Z2,a 和 Z2,s 是第二壳层中悬挂氢的反对称和对称伸缩模式，而 Z1a 和 Z1b 是指 Z 阳离子第一壳层中的键合和悬挂 OH。改编自参考文献 35。版权所有 2014 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="F004"></a>
+### Figure 3
+
+**Placed near:** p.4 S033  
+**Source:** p.4 F004
+
+![Figure 3](assets/fig3-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 3. Schematic depiction of the different proton classes of the E and linear Z cations of the protonated water tetramer whose IR spectra are shown in Figure 2.
+
+**中文图注:** 图 3. 质子化水四聚体的 E 和线性 Z 阳离子的不同质子类别的示意图，其红外光谱如图 2 所示。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S034"></a>
+**Source:** p.4 S034
+
+**Original:** bonded) OH stretch appears above 3500 cm-1. Red-shifted from it is the OH stretch of the hydrogen-bonded OH moieties (Z1a), and, finally, the shared proton (Z0) that contributes at two above-mentioned frequencies. More recent hole-burning experiments show that only one isomer is present.6 VPT2 anharmonic calculations for the E and Z isomers (Figure S1 of ref 6), at the B3LYP/6-31+G(d) level of theory, exhibit good agreement with experiment for the E but not the Z isomer spectrum. Aside from the problem that the VPT2 quartic ansatz might not be suitable for the Z isomer, which is likely too floppy (e.g., undergoing cis-trans isomerization), the use of DFT with a small basis set forsakes the relative advantage of VPT2 over AIMD. It remains to be shown that the VPT2 spectra do not change when computed with more accurate methods that account for electron correlation, as well as with larger basis sets, which are critical when using VPT2.37
+
+**中文:** 键合）OH 拉伸出现在 3500 cm-1 以上。从它红移的是氢键 OH 部分 (Z1a) 的 OH 延伸，最后是在上述两个频率上起作用的共享质子 (Z0)。最近的烧孔实验表明仅存在一种异构体。6 E 和 Z 异构体的 VPT2 非谐波计算（参考文献 6 的图 S1）在 B3LYP/6-31+G(d) 理论水平上与 E 异构体谱的实验表现出良好的一致性，但与 Z 异构体谱不符。除了 VPT2 四次拟构可能不适合 Z 异构体（可能太松散（例如，进行顺反异构化））的问题之外，使用小基组的 DFT 会放弃 VPT2 相对于 AIMD 的相对优势。仍有待证明的是，当使用考虑电子相关性的更准确方法以及更大的基组计算时，VPT2 谱不会改变，这在使用 VPT2.37 时至关重要
+
+<a id="S035"></a>
+**Source:** p.5 S035
+
+**Original:** Unlike the protonated tetramer, the protonated trimer (n = 3) can have only one isomer, which is linear. In the experiment, a prominent peak near 1880 cm-1 is observed.38 VSCF calculations20 reproduce it at 1984 cm-1, while AIMD calculations39 position this peak at around 2400 cm-1. Since anharmonicity is already taken into account and VSCF, which solves a quantum mechanical vibrational problem, generates a considerably red-shifted frequency compared to AIMD, an intriguing possibility is that the experimentally observed large red shift is due to NQE39 within a "mega-Zundel'' cation in which two protons are delocalized over three water molecules. The shift may also be sensitive to the Ar binding site; note that in the VSCF calculations of this trimer,20 argon atoms were not included. Similar behavior has been proposed for the protonated water trimer in benzene and dichloroethane solutions (see Figure 20 of ref 40), concluding that "contrary to general expectation, neither Enor Z-type ions are present. Rather, the core species is the H7O3 + ion".40
+
+**中文:** 与质子化四聚体不同，质子化三聚体 (n = 3) 只能有一种异构体，即线性异构体。在实验中，观察到 1880 cm-1 附近有一个突出的峰值。38 VSCF 计算20 在 1984 cm-1 处重现该峰值，而 AIMD 计算39 将该峰值定位在 2400 cm-1 左右。由于已经考虑了非谐性，并且解决量子力学振动问题的 VSCF 与 AIMD 相比产生了相当大的红移频率，因此一个有趣的可能性是，实验观察到的大红移是由于“mega-Zundel”阳离子内的 NQE39 造成的，其中两个质子在三个水分子上离域。该偏移也可能对 Ar 结合位点敏感；请注意，在该三聚体的 VSCF 计算中，20不包括氩原子。对于苯和二氯乙烷溶液中的质子化水三聚体，也提出了类似的行为（参见参考文献 40 的图 20），得出的结论是“与一般预期相反，Enor Z 型离子都不存在。相反，核心物质是 H7O3 + 离子”。40
+
+<a id="S036"></a>
+**Source:** p.5 S036
+
+**Original:** Recently, the IR spectrum of the "magic number" cluster, n = 21 (magic number clusters have noticeably larger abundance in the mass spectrum than their neighbors), has been studied. Its predissociation spectrum was recently measured with enhanced detail6,41 and interpreted as resulting from an E cation localized on the surface of the 21-water cluster. The main peaks of the experimental spectra appear to be reproduced quite well by anharmonic VPT2 calculations, although, as mentioned earlier, the broadening of the spectra is not captured with these approaches. It should be noted that in these calculations, only the Eigen isomer contributes to the spectra. Whether or not a single isomer contributes to the IR spectra in the magic number cluster will require theory and simulations where broadening effects on the spectra are explicitly taken into account. In this regard, it is curious to observe that a closer inspection of this spectrum reveals peaks near 2300 and 1900 cm-1, which are seen in the trimer but not in other clusters.20
+
+**中文:** 最近，研究了“幻数”簇 n = 21（幻数簇在质谱中的丰度明显大于其邻居）的红外光谱。最近对其预解离谱进行了更详细的测量6,41，并将其解释为由位于 21-水簇表面的 E 阳离子产生的结果。实验光谱的主峰似乎可以通过非谐波 VPT2 计算很好地再现，尽管如前所述，这些方法并未捕获光谱的展宽。应该注意的是，在这些计算中，只有本征异构体对光谱有贡献。无论单一异构体是否对幻数簇中的红外光谱有贡献，都需要理论和模拟，其中明确考虑对光谱的展宽效应。在这方面，令人好奇的是，对该光谱的仔细检查揭示了 2300 和 1900 cm-1 附近的峰，这些峰在三聚体中可见，但在其他簇中未见。 20
+
+<a id="S037"></a>
+**Source:** p.5 S037
+
+**Original:** Besides the broadening coming from thermal fluctuations, there is also the question of the role of NQE. Although the dominant molecular structure may remain as Eigen-like, the effect of quantum fluctuations from this structure on the spectra remains an open question. Since in the trimer the proton is more delocalized, one possibility is that the proton on the cluster's surface may involve quantum mechanical delocalization over several water molecules. We mention this possibility without direct computational support at this point since an accurate modeling of the full quantum dynamics at the ab initio level remains quite challenging for large protonated clusters. As we will show later, the necessity of such a treatment is anticipated, since nuclear quantum effects have already been shown to significantly enhance the delocalization of protons in numerous hydrogen-bonded systems.30,42-46
+
+**中文:** 除了热波动带来的拓宽之外，还存在 NQE 的作用问题。尽管主要的分子结构可能仍然是类本征结构，但该结构的量子涨落对光谱的影响仍然是一个悬而未决的问题。由于在三聚体中质子更加离域，一种可能性是簇表面的质子可能涉及多个水分子的量子力学离域。我们目前在没有直接计算支持的情况下提到了这种可能性，因为从头开始精确模拟完整的量子动力学对于大型质子化簇来说仍然相当具有挑战性。正如我们稍后将展示的那样，预计这种处理的必要性，因为核量子效应已被证明可以显着增强许多氢键系统中质子的离域。30,42-46
+
+<a id="S038"></a>
+**Source:** p.5 S038
+
+**Original:** Despite the importance of NQE, it should be mentioned that the classical treatment of the nuclei for calculating spectroscopic features remains a valuable tool in unraveling the molecular origins underlying the spectra. In particular, besides the quantum treatment of the nuclei, there are also other approximations, such as the quality of the electronic structure method as well as the role of adequate sampling of the configurational space, which can also affect the IR spectra. For example, for the protonated ammonia dimer it has been argued that only quantum dynamics (MCTDH) can explain the IR spectrum,32,33 but recent classical AIMD simulations allowed the assignment of all of the fundamental peaks in this spectrum as well as some of the combination bands.47
+
+**中文:** 尽管 NQE 很重要，但应该提到的是，用于计算光谱特征的原子核的经典处理仍然是解开光谱背后的分子起源的宝贵工具。特别是，除了原子核的量子处理之外，还有其他近似，例如电子结构方法的质量以及构型空间充分采样的作用，这些也会影响红外光谱。例如，对于质子化氨二聚体，有人认为只有量子动力学 (MCTDH) 才能解释红外光谱，32,33 但最近的经典 AIMD 模拟允许分配该光谱中的所有基本峰以及一些组合谱带。 47
+
+<a id="S039"></a>
+**Source:** p.5 S039
+
+**Original:** 2.2.2. Hydroxide Water Clusters. The properties of OH-
+
+**中文:** 2.2.2.氢氧化物水簇。 OH-的性质
+
+<a id="S040"></a>
+**Source:** p.5 S040
+
+**Original:** clusters, OH-(H2O)n, have also been addressed in several studies, although not as extensively as clusters containing the excess proton. The electronic structure of the hydroxide is rather peculiar compared to that of the proton, because it is characterized by a "ring" of electron density around the OH-
+
+**中文:** OH-(H2O)n 团簇也已在多项研究中得到解决，尽管不如含有过量质子的团簇广泛。与质子相比，氢氧化物的电子结构相当奇特，因为它的特点是 OH- 周围有一个电子密度“环”。
+
+<a id="S041"></a>
+**Source:** p.5 S041
+
+**Original:** axis on the oxygen side, to which different numbers of water molecules (typically 3, 4, or 5) may form a HB (Figure 3 in ref 48). This is analogous to the crescent of electron density (the "negativity track") between the lone pairs of a water molecule to which two or three water molecules may HB.48,49 The presence of a "ring" of electron density poses challenges for the calculation of the solvation structure of OH-, since it is capable of adopting a much wider array of solvation structures. Concomitantly, the observed structures were found to depend quite sensitively on the density functional employed.4,50
+
+**中文:** 轴位于氧侧，不同数量的水分子（通常为 3、4 或 5）可以形成 HB（参考文献 48 中的图 3）。这类似于水分子的孤对电子密度（“负性轨迹”）之间的新月形，两个或三个水分子可能 HB.48,49 电子密度“环”的存在对 OH- 溶剂化结构的计算提出了挑战，因为它能够采用更广泛的溶剂化结构。同时，发现观察到的结构非常敏感地依赖于所使用的密度泛函。4,50
+
+<a id="S042"></a>
+**Source:** p.5 S042
+
+**Original:** Small gas-phase OH-(H2O)n clusters (n ≤5) have been studied both theoretically51 and experimentally.52,53 It was found that up to n = 3 the water ligands enter into the first solvation shell of the hydroxide anion, but the fourth water enters already into the second solvation shell, donating HBs to two of the water molecules in the first shell (and possibly accepting a HB from the third one). Rather large clusters are required for a fourth water molecule to enter the first solvation shell. For example, quantum chemistry calculations of Bankura and Chandra have shown how OH-solvation changes with cluster size.54 In small clusters with less than 16 water molecules, OH-mostly resides on the surface, tending to accept three HBs through its oxygen atom, whereas in larger clusters the ion has an increasing propensity to accept four HBs. For n = 20, Bankura and Chandra found an internalized state, where the hydroxide also donates a HB through its hydrogen atom.4 However, their AIMD simulations indicated that this structure "melts" at room temperature, and the hydroxide moves to the surface of the cluster.54
+
+**中文:** 小气相 OH-(H2O)n 簇 (n ≤ 5) 已在理论上和实验上进行了研究 51 和实验。 52,53 研究发现，直到 n = 3，水配体进入氢氧根阴离子的第一个溶剂化壳层，但第四个水已经进入第二个溶剂化壳层，将 HBs 提供给第一个壳层中的两个水分子（并可能接受来自第三个壳层的 HB）。第四个水分子需要相当大的簇才能进入第一个溶剂化壳。例如，Bankura 和 Chandra 的量子化学计算显示了 OH-溶剂化如何随簇大小而变化。 54 在少于 16 个水分子的小簇中，OH-主要驻留在表面，倾向于通过其氧原子接受三个 HB，而在较大的簇中，离子越来越倾向于接受四个 HB。对于 n = 20，Bankura 和 Chandra 发现了一种内化状态，其中氢氧化物还通过其氢原子提供 HB。4 然而，他们的 AIMD 模拟表明这种结构在室温下“熔化”，并且氢氧化物移动到簇的表面。 54
+
+<a id="S043"></a>
+**Source:** p.5 S043
+
+**Original:** A recent study used DACF from AIMD simulations ("dynamic spectra"), as well as normal-mode analysis, to determine the IR spectra of OH-(H2O)20 of different motifs corresponding to local minima on the potential energy surface where the hydroxide ion can be either on the surface or buried in a cavity (i.e., the H atom of the OH-is either pointing to the vacuum or to the cluster).55,56 Interestingly, the potential energy of the motif where the OH-accepts three HBs and is surface-bound (3A0DS; see Figure 4) is quite similar to the energy of an OH-that is buried and accepts four HBs (4A1DB there). In the IR spectrum of 3A0DS (Figure 5), the stretch modes appear to mix with the bend mode due to the presence of a very strong HB that is donated to the OH-, leading to a peak that is centered around but broader than the bend mode at 1600 cm-1. On the other hand, the broad continuum between 1500 and 3000 cm-1 appears to come from clusters with the hydroxide ion having different local solvation environments (see Figure 4).
+
+**中文:** 最近的一项研究使用 AIMD 模拟（“动态光谱”）中的 DACF 以及正态模式分析，来确定不同基序的 OH-(H2O)20 的红外光谱，该基序对应于势能表面上的局部最小值，其中氢氧离子可以位于表面或埋在空腔中（即 OH- 的 H 原子指向真空或指向簇）。 55,56 有趣的是，基序的势能在OH-接受三个 HB 且表面结合（3A0DS；见图 4），与 OH- 的能量非常相似，OH- 被掩埋并接受四个 HB（此处为 4A1DB）。在 3A0DS 的红外光谱中（图 5），由于存在向 OH- 提供的非常强的 HB，拉伸模式似乎与弯曲模式混合，导致在 1600 cm-1 处出现以弯曲模式为中心但比弯曲模式更宽的峰。另一方面，1500 至 3000 cm-1 之间的宽连续谱似乎来自具有不同局部溶剂化环境的氢氧离子簇（见图 4）。
+
+<a id="S044"></a>
+**Source:** p.5 S044
+
+**Original:** Unfortunately, IR experiments on large hydroxide ion clusters have not been performed, so that one-to-one comparisons with calculations cannot be currently done. However, the spectra obtained for the different types of hydroxide ion structures determined with AIMD appear to account for the spectra that are experimentally observed for concentrated NaOH solutions.57,58
+
+**中文:** 不幸的是，尚未对大型氢氧根离子簇进行红外实验，因此目前无法与计算进行一对一的比较。然而，使用 AIMD 测定的不同类型氢氧根离子结构获得的光谱似乎可以解释在浓 NaOH 溶液中实验观察到的光谱。 57,58
+
+<a id="S045"></a>
+**Source:** p.5 S045
+
+**Original:** 2.3. Proton and Hydroxide Ions in Bulk Liquid Water
+
+**中文:** 2.3.散装液态水中的质子和氢氧根离子
+
+<a id="S046"></a>
+**Source:** p.5 S046
+
+**Original:** Armed with insights from cluster studies on proton and hydroxide structural motifs, we next return to the central
+
+**中文:** 凭借对质子和氢氧根结构基序的聚类研究的见解，我们接下来回到中心
+
+<a id="S047"></a>
+**Source:** p.6 S047
+
+**Original:** motivation outlined above: understanding why protons have an anomalously high mobility in liquid water relative to other cations and why the activation enthalpy for proton transport appears to be correlated with the energetics of HB breakage. In what follows, we first discuss conceptual models for proton transport in liquid water and the degree to which they account for these observations and then review work that explicitly probes proton and hydroxide mobility in simulation and experiment. 2.3.1. Interpretations of Experimental Data. The anomalously high proton mobility in acid solutions implies that it cannot be described by hydrodynamic diffusion.2,59-61 In order to relate the experimental mobilities discussed earlier to a molecular picture of PT, structural information about the solvated proton and hydroxide is required. In 1905, Danneel explained proton mobility in water as occurring along onedimensional water chains, followed by water rotation ("turn") to allow the next proton transfer.62 Thereby he revived the 1806 model of Grotthuss for water (OH, as then believed) electrolysis as parallel rows of O and H atoms, exchanging
+
+**中文:** 上述动机：理解为什么质子在液态水中相对于其他阳离子具有异常高的迁移率，以及为什么质子传输的活化焓似乎与 HB 断裂的能量相关。接下来，我们首先讨论液态水中质子传输的概念模型以及它们对这些观察结果的解释程度，然后回顾在模拟和实验中明确探测质子和氢氧根迁移率的工作。 2.3.1.实验数据的解释。酸性溶液中异常高的质子迁移率意味着它无法通过流体动力学扩散来描述。2,59-61 为了将前面讨论的实验迁移率与 PT 的分子图联系起来，需要有关溶剂化质子和氢氧根的结构信息。 1905 年，Danneel 将水中的质子迁移率解释为沿着一维水链发生，然后水旋转（“转动”）以允许下一次质子转移。62 因此，他恢复了 1806 年 Grotthuss 的模型，将水（OH，当时认为）电解为平行的 O 和 H 原子行，交换
+
+<a id="S048"></a>
+**Source:** p.6 S048
+
+**Original:** partners and moving to the positive and negative electrodes, respectively.2,63 Today the term "Grotthuss mechanism" is used for any proton-hopping mechanism, regardless of whether it occurs along "water wires" in confined environments or in the bulk. In addition, there is a smaller component of "vehicular diffusion", namely, hydrodynamic motion of the protoncarrying water complex. In bulk water, where there are many potential pathways for proton migration, there is no need to wait for Danneel's "turn" step, which could make the migration quite slow. Early interpretations of the conductivity data were based on a scenario of a rotating hydronium or water molecule.
+
+**中文:** 2,63 如今，“格罗萨斯机制”一词用于任何质子跳跃机制，无论它是沿着密闭环境中的“水线”发生还是在本体中发生。此外，还有一个较小的“车辆扩散”成分，即携带质子的水复合物的流体动力运动。在散装水中，存在许多潜在的质子迁移路径，无需等待丹尼尔的“转向”步骤，这可能会使迁移变得相当缓慢。电导率数据的早期解释是基于旋转水合氢或水分子的情况。
+
+<a id="S049"></a>
+**Source:** p.6 S049
+
+**Original:** In 1928, Hückel suggested that after a water molecule picks up a proton to become H3O+ it rotates to deliver the proton to a neighboring water molecule.64 This rotation requires cleaving of the three HBs to the hydronium, each considerably stronger than a water-water HB.65,66 In 1933, Bernal and Fowler suggested, instead, that a water molecule rotates in the solvation shell of the hydronium until it acquires the right orientation to pick up the proton.67 This, again, requires cleavage of several HBs. Subsequently, in 1958, Eigen and De Maeyer16 proposed that the protonic charge fluctuates quickly back and forth within a finite hydrogen-bonded complex (such as a water wire) and that the reorientation of water molecules at the periphery of this complex is required for diffusion. They termed the restructuring of HBs as "structural diffusion".16
+
+**中文:** 1928 年，Hückel 提出，水分子在获得质子变成 H3O+ 后，会旋转以将质子传递给邻近的水分子。 64 这种旋转需要将三个 HB 裂解成水合氢离子，每个 HB 都比水-水 HB 强得多。 65,66 相反，1933 年，Bernal 和 Fowler 提出，水分子在水合氢离子的溶剂化壳层中旋转，直到获得水合氢离子。拾取质子的正确方向。67 这又需要裂解几个 HB。随后，1958 年，Eigen 和 De Maeyer16 提出，质子电荷在有限的氢键复合物（例如水线）内快速来回波动，并且该复合物外围的水分子重新定向是扩散所必需的。他们将 HBs 的重组称为“结构性扩散”。 16
+
+<a id="F005"></a>
+### Figure 4
+
+**Placed near:** p.6 S049  
+**Source:** p.6 F005
+
+![Figure 4](assets/fig4-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 4. Six motifs illustrating the amphiphilic character of the OHion: (a) 3A0DS, (b) 4A0DS, (c) 4A0DB, (d) 4A1DB, (e) 5A0DS, and (f) 5A1DB. The number in front of A refers to the number of HBs that the hydroxide accepts, while the number in front of D refers to whether it donates a HB or not. Finally, the B and the S describe whether it is a buried or a surface state. Reproduced from ref 55 with permission. Copyright 2015 American Chemical Society.
+
+**中文图注:** 图 4. 说明 OHion 两亲特征的六个基序：(a) 3A0DS、(b) 4A0DS、(c) 4A0DB、(d) 4A1DB、(e) 5A0DS 和 (f) 5A1DB。 A前面的数字是指该氢氧化物接受的HB的数量，而D前面的数字是指它是否捐赠HB。最后，B和S描述了它是埋入态还是表面态。经许可转载自参考文献 55。版权所有 2015 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="S050"></a>
+**Source:** p.6 S050
+
+**Original:** Because all of these models for proton transport require the breaking of more than one bulk water HB, the low activation enthalpy from the NMR studies of Luz and Meiboom13
+
+**中文:** 由于所有这些质子输运模型都需要分解多个大量水 HB，因此 Luz 和 Meiboom13 的 NMR 研究得出的低活化焓
+
+<a id="S051"></a>
+**Source:** p.6 S051
+
+**Original:** suggests that one must look elsewhere. Agmon proposed a model for proton mobility that does not require HB cleavage in the first solvation shell of H3O+, hence explaining its low activation energy discussed above.59 In this picture, the Grotthuss mechanism in bulk liquid water involves an E cation "resting state" that is converted by second-shell HB loss to a Z intermediate, which by second-shell HB formation is in turn converted to an E cation centered on a neighboring water molecule (Figure 6). In this "E-Z-E mechanism", the
+
+**中文:** 表明人们必须寻找其他地方。 Agmon 提出了一种质子迁移率模型，该模型不需要 H3O+ 第一个溶剂化壳层中的 HB 裂解，从而解释了上面讨论的其低活化能。 59 在这张图中，大量液态水中的 Grotthuss 机制涉及 E 阳离子“静止状态”，该 E 阳离子通过第二壳层 HB 损失转化为 Z 中间体，而第二壳层 HB 形成又转化为以邻近水分子为中心的 E 阳离子（图 6）。在这个“E-Z-E机制”中，
+
+<a id="F006"></a>
+### Figure 5
+
+**Placed near:** p.6 S051  
+**Source:** p.6 F006
+
+![Figure 5](assets/fig5-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 5. Computed linear response theory IR spectra of hydroxide clusters shown earlier (a, left) between 1500 and 3200 cm-1 and (b, right) between 3400 and 3800 cm-1. Color codes adopted here are the following: 3A0DS (black, labeled 3AS), 4A0DB (red, labeled 4AC), 4A0DS (dashed violet, labeled 4AS), 4A1DB (dotted blue), and finally 5A1DB (green). The spectra for the neutral water cluster are shown with black dashed lines. For clarity, the clusters contributing to the band between 1600 and 2500 cm-1 are explicitly labeled as 3AS (3A0DS), 4AC (4A0DB), and 4AS (4A0DS). Reproduced from ref 55 with permission. Copyright 2015 American Chemical Society.
+
+**中文图注:** 图 5. 先前显示的氢氧化物团簇的计算线性响应理论红外光谱（a，左）在 1500 至 3200 cm-1 之间，（b，右）在 3400 至 3800 cm-1 之间。这里采用的颜色代码如下：3A0DS（黑色，标记为3AS）、4A0DB（红色，标记为4AC）、4A0DS（虚线紫色，标记为4AS）、4A1DB（虚线蓝色），最后是5A1DB（绿色）。中性水簇的光谱用黑色虚线显示。为了清楚起见，对 1600 和 2500 cm-1 之间的波段有贡献的簇被明确标记为 3AS (3A0DS)、4AC (4A0DB) 和 4AS (4A0DS)。经许可转载自参考文献 55。版权所有 2015 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="F007"></a>
+### Figure 6
+
+**Placed near:** p.6 S051  
+**Source:** p.6 F007
+
+![Figure 6](assets/fig6-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 6. Schematic depiction of the E-Z-E mechanism. Left: Oxygen 0 is the hydronium, and oxygen 1 is in its first solvation shell, accepting a HB (A1) from the second solvation shell. Center: The Zundel intermediate. Right: A new hydronium centered on oxygen 1. Reproduced from ref 68 by permission. Copyright 2008 American Chemical Society.
+
+**中文图注:** 图 6.E-Z-E 机制的示意图。左图：氧 0 是水合氢离子，氧 1 位于其第一个溶剂化壳层中，接受来自第二个溶剂化壳层的 HB (A1)。中：Zundel 中间。右：以氧 1 为中心的新水合氢。经许可转载自参考文献 68。版权所有2008 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="S052"></a>
+**Source:** p.6 S052
+
+**Original:** activation enthalpy for proton mobility equals approximately the strength of one HB in bulk liquid water, because the broken HB is in the second solvation shell of the H3O+ cation, unlike first-shell HBs that are considerably stronger (about twice the enthalpy, according to ref 65). 2.3.2. Numerical Simulations. Proton motion via structural diffusion involves the breakage and formation of covalent bonds. In order to model this type of process with an atomistic simulation, electronic degrees of freedom must be explicitly described, making it computationally very challenging. The CPMD method25 provided, for the first time, a way to
+
+**中文:** 质子迁移率的活化焓大约等于散装液态水中一个 HB 的强度，因为破碎的 HB 位于 H3O+ 阳离子的第二个溶剂化壳层中，这与强度相当大的第一壳层 HB 不同（根据参考文献 65，大约是焓的两倍）。 2.3.2.数值模拟。通过结构扩散的质子运动涉及共价键的断裂和形成。为了通过原子模拟对此类过程进行建模，必须明确描述电子自由度，这使得计算非常具有挑战性。 CPMD 方法25 首次提供了一种方法
+
+<a id="S053"></a>
+**Source:** p.7 S053
+
+**Original:** achieve this description of the electronic degrees of freedom, thereby offering much needed insights into the molecular mechanism of proton and hydroxide diffusion in liquid water. 2.3.2.1. Hydronium. The first CPMD simulations of an excess proton in liquid water consisted of a proton in a periodic box of 32 water molecules simulated for a couple of picoseconds.60,69 These early calculations provided a first glimpse into the two postulated dominant structures of the excess proton in water, namely, the E and Z cations. In particular, the simulations showed that the E cation involved an H9O4+ complex including the hydronium and three tightly bound water molecules. It could easily convert into the Z cation, since the proton rattled on the femtosecond time scale with one particular neighboring water, closest to the hydronium, referred to as the "special pair". These simulations revealed the detailed solvation environment of the E and Z cations as seen in the O*-H radial distribution function (RDF), where O* is the oxygen atom that hosts the excess proton (Figure 7).69 These results showed that the O*-H
+
+**中文:** 实现了电子自由度的描述，从而为液态水中质子和氢氧根扩散的分子机制提供了急需的见解。 2.3.2.1.离子。液态水中过量质子的首次 CPMD 模拟由 32 个水分子的周期盒中的一个质子组成，模拟了几皮秒。60,69 这些早期计算首次让我们了解了水中过量质子的两种假设的主要结构，即 E 和 Z 阳离子。特别是，模拟表明 E 阳离子涉及 H9O4+ 复合物，其中包括水合氢离子和三个紧密结合的水分子。它可以很容易地转化为 Z 阳离子，因为质子在飞秒时间尺度上与最接近水合氢离子的一个特定的邻近水（称为“特殊对”）发生碰撞。这些模拟揭示了 E 和 Z 阳离子的详细溶剂化环境，如 O*-H 径向分布函数 (RDF) 中所示，其中 O* 是承载过量质子的氧原子（图 7）。 69 这些结果表明，O*-H
+
+<a id="S054"></a>
+**Source:** p.7 S054
+
+**Original:** covalent bonds in the hydronium are slightly longer (and weaker) as compared to bulk water, whereas the OH peak for the Z cation is split, indicating that the average OH+ distances in the H2O-H+-OH2 complex are not precisely equal. Additionally, the oxygen atoms of both the E and Z cations are weaker acceptors of HBs compared to neutral water. Besides characterizing structural properties, these simulations showed that proton transport in liquid water16 proceeds via an interchange of E and Z forms.59
+
+**中文:** 与本体水相比，水合氢中的共价键稍长（且较弱），而 Z 阳离子的 OH 峰是分裂的，表明 H2O-H+-OH2 复合物中的平均 OH+ 距离并不精确相等。此外，与中性水相比，E 和 Z 阳离子的氧原子是 HBs 较弱的受体。除了表征结构特性外，这些模拟还表明，液态水中的质子传输16是通过 E 和 Z 形式的互换进行的。 59
+
+<a id="S055"></a>
+**Source:** p.7 S055
+
+**Original:** Subsequently, the understanding of the specific microscopic details of the Grotthuss mechanism has undergone significant refinement due to both the advancement in numerical algorithms and computational resources allowing for bigger and longer AIMD simulations and the development of sophisticated empirical potentials capable of modeling chemical reactions. In particular, later CPMD simulations run for over 70 ps showed that the E-Z-E mechanism also involved concerted HB dynamics, whereby the E cation begins to accept a HB from
+
+**中文:** 随后，由于数值算法和计算资源的进步允许更大和更长的 AIMD 模拟以及能够模拟化学反应的复杂经验势的发展，对 Grotthuss 机制的具体微观细节的理解发生了显着的改进。特别是，后来运行超过 70 ps 的 CPMD 模拟表明，E-Z-E 机制还涉及协调的 HB 动力学，由此 E 阳离子开始接受来自
+
+<a id="S056"></a>
+**Source:** p.7 S056
+
+**Original:** a nearby water molecule while simultaneously (within 50 fs) the proton accepting water loses one of its acceptor HBs70 (see Figure 8).
+
+**中文:** 附近的水分子，同时（在 50 fs 内）接受质子的水失去其受体 HBs70 之一（见图 8）。
+
+<a id="F008"></a>
+### Figure 8
+
+**Placed near:** p.7 S056  
+**Source:** p.7 F008
+
+![Figure 8](assets/fig8-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 8. Snapshots of an example proton-transfer event from the CPMD simulations. O* is blue, other oxygen atoms are red, hydrogen atoms are white, and HBs are purple. Panels a-d show how the PT step involves an almost simultaneous decrease and increase of the coordination number of the proton accepting and proton donating water molecules, respectively. Reproduced from ref 70 with permission. Copyright 2009 American Physical Society.
+
+**中文图注:** 图 8. CPMD 模拟中质子转移事件示例的快照。 O* 为蓝色，其他氧原子为红色，氢原子为白色，HBs 为紫色。图 a-d 显示了 PT 步骤如何分别涉及几乎同时减少和增加接受质子的水分子和提供质子的水分子的配位数。经许可转载自参考文献 70。版权所有 2009 美国物理学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S057"></a>
+**Source:** p.7 S057
+
+**Original:** Extracting dynamical properties such as diffusion constants requires averaging over long time scales. Hence, using CPMD to characterize proton transport is still computationally expensive. One way to circumvent this problem is to turn to empirical-based potentials that allow for the dissociation and formation of bonds. The most popular approach is the multistate empirical valence bond (MS-EVB) methodology, where a certain number of valence bond states define the main chemical groups, and the potential energy surface along radial or angular coordinates is fitted to ab initio data.5,71-73 For the H+ in water, the longer simulation times of MS-EVB offered additional insight into the transport mechanism. For example, they revealed that the hydronium resting state involves, besides proton rattling, an exchange of the special partner among the three water ligands in the first solvation shell68 driven by the HB cleavage event envisioned in ref 59 (see Figure 6). This "special pair dance" (SPD) scenario is depicted schematically in Figure 9.
+
+**中文:** 提取动力学特性（例如扩散常数）需要在长时间尺度上进行平均。因此，使用 CPMD 来表征质子输运的计算成本仍然很高。规避这个问题的一种方法是转向基于经验的势，允许键的解离和形成。最流行的方法是多态经验价键 (MS-EVB) 方法，其中一定数量的价键态定义主要化学基团，并且沿径向或角坐标的势能表面适合从头计算数据。5,71-73 对于水中的 H+，MS-EVB 较长的模拟时间提供了对输运机制的额外见解。例如，他们发现，除了质子震颤之外，水合氢静息态还涉及第一个溶剂化壳层 68 中三个水配体之间特殊伴侣的交换，这是由参考文献 59 中设想的 HB 裂解事件驱动的（见图 6）。这种“特殊双人舞”(SPD) 场景如图 9 所示。
+
+<a id="S058"></a>
+**Source:** p.7 S058
+
+**Original:** The average time constant for special partner exchange was found to be 40 fs from classical MS-EVB simulations and 45 fs when the nuclei were quantized, as deduced from the plateau in Figure 7B of ref 68. Because the time scale for PT is a few picoseconds, the hydronium undergoes dozens of partner exchange events before a Z intermediate is formed and PT takes place. These can involve just two partners for a while, and only after several cycles one of them gets replaced by the third partner. This leads to oscillatory motion of the excess charge (between the two partners) with a period of about 90 fs (twice 45 fs), corresponding to about 360 cm-1, which might give rise to an IR band at the indicated frequency (the "SPD band"). While conventional IR measurements do not easily get below 500 cm-1, recent terahertz Fourier transform infrared (FTIR) measurements on concentrated aqueous HCl and HBr solutions by Decka et al.74 have located a band at 340 cm-1,
+
+**中文:** 从经典 MS-EVB 模拟中发现，特殊伙伴交换的平均时间常数为 40 fs，而当原子核被量子化时，特殊伙伴交换的平均时间常数为 45 fs，如从参考文献 68 的图 7B 中的平台推断的那样。由于 PT 的时间尺度为几皮秒，因此在 Z 中间体形成和 PT 发生之前，水合氢原子经历了数十次伙伴交换事件。这些可能会在一段时间内只涉及两个合作伙伴，只有在几个周期之后，其中一个才会被第三个合作伙伴取代。这导致过量电荷（两个伙伴之间）的振荡运动，周期约为 90 fs（45 fs 的两倍），对应于约 360 cm-1，这可能会在指定频率（“SPD 频带”）处产生 IR 频带。虽然传统的红外测量不容易低于 500 cm-1，但 Decka 等人最近对浓 HCl 和 HBr 水溶液进行的太赫兹傅立叶变换红外 (FTIR) 测量74 发现了 340 cm-1 处的谱带，
+
+<a id="F009"></a>
+### Figure 7
+
+**Placed near:** p.7 S058  
+**Source:** p.7 F009
+
+![Figure 7](assets/fig7-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 7. O*-H radial distribution functions of the H9O4 + (dotted line) and H5O2 + (solid line) structures of H+ in liquid water. The O* atoms correspond to the oxygen atoms hosting the proton. The dashed line gives the O-H radial distribution functions for pure water. Reproduced from ref 69 with permission. Copyright 1995 American Institute of Physics.
+
+**中文图注:** 图 7. 液态水中 H+ 的 H9O4 +（虚线）和 H5O2 +（实线）结构的 O*-H 径向分布函数。 O* 原子对应于承载质子的氧原子。虚线给出了纯水的 O-H 径向分布函数。经许可转载自参考文献 69。版权所有 1995 美国物理研究所。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S059"></a>
+**Source:** p.8 S059
+
+**Original:** which they assigned to the SPD (Figure 10). They find for this mode a relaxation time of 60 fs, close to the theoretical values
+
+**中文:** 他们将其分配给 SPD（图 10）。他们发现该模式的弛豫时间为 60 fs，接近理论值
+
+<a id="S060"></a>
+**Source:** p.8 S060
+
+**Original:** quoted above. As depicted in Figure 9, the SPD is controlled by cleavage of a second-shell HB. These HBs become a few percent stronger in heavy water (as deduced from the 2% increase in the heat of vaporization of D2O compared to H2O). Hence, one expects the SPD to slow down slightly in heavy water. Indeed, Figure 10 shows a few percent red shift of the SPD band upon deuteration. MS-EVB simulations also revealed that a successful PT event (in which the proton is eventually transferred to one of the special partners) requires collective solvent fluctuations involving the reorganization of the second-shell water molecules around the Z cation.75 These help destabilize the proton on the previous oxygen center while stabilizing it on the new oxygen center, sometimes before the transfer actually occurs ("presolvation"). The participation of so many water molecules in the Z cation dynamics leads to a wide distribution of its lifetimes (averaging to 380 fs).75 Indeed, another terahertz
+
+**中文:** 上面引用了。如图 9 所示，SPD 由第二壳 HB 的裂解控制。这些 HB 在重水中会变得更强几个百分点（根据 D2O 的汽化热比 H2O 增加 2% 来推断）。因此，人们预计 SPD 在重水环境下的速度会略有放缓。事实上，图 10 显示了氘化时 SPD 谱带发生了几个百分点的红移。 MS-EVB 模拟还表明，成功的 PT 事件（质子最终转移到特殊伙伴之一）需要集体溶剂波动，涉及 Z 阳离子周围第二壳层水分子的重组。 75 这些有助于破坏前一个氧中心上的质子稳定性，同时将其稳定在新的氧中心上，有时是在转移实际发生之前（“预溶剂化”）。 Z 阳离子动力学中如此多的水分子的参与导致了其寿命的广泛分布（平均为 380 fs）。75 事实上，另一个太赫兹
+
+<a id="S061"></a>
+**Source:** p.8 S061
+
+**Original:** time-domain spectroscopy study has found that the addition of protons to water leads to a very strong decrease of the water dielectric response, corresponding to about 19 water molecules per dissolved proton.76 This is about the number of water molecules involved with the Z complex up to its second hydration shell (see Figure 14 in ref 75). Thus far, proton diffusion was described as hopping from one molecule to the next in a stepwise fashion. In confined environments, such as carbon nanotubes and biological membranes, extended chains of water molecules (water wires) provide pathways for concerted proton jumps; PT in these systems is not stepwise.77 Recently, AIMD simulations have found evidence for the presence of water wires that allow for concerted proton hopping events across several HBs in liquid water.61 The fluctuations of the wires play an important role in triggering these events.
+
+**中文:** 时域光谱研究发现，向水中添加质子会导致水介电响应急剧下降，相当于每个溶解的质子约 19 个水分子。 76 这大约是 Z 复合物涉及的水分子数量，直至其第二个水合壳层（参见参考文献 75 中的图 14）。到目前为止，质子扩散被描述为以逐步的方式从一个分子跳跃到下一个分子。在碳纳米管和生物膜等受限环境中，延长的水分子链（水线）为质子的协同跳跃提供了通道；这些系统中的 PT 不是逐步进行的。77 最近，AIMD 模拟发现了水线存在的证据，这些水线允许在液态水中的多个 HB 上发生一致的质子跳跃事件。61 线的波动在触发这些事件中发挥着重要作用。
+
+<a id="S062"></a>
+**Source:** p.8 S062
+
+**Original:** For example, it has been shown that for the recombination of the hydronium and hydroxide ions, namely, the time-reversed process of ionization,78 the collective compression of three HBs forming a wire between the ions was needed to trigger a concerted PT event.77
+
+**中文:** 例如，已经表明，对于水合氢离子和氢氧根离子的重组，即电离的时间反转过程，78 需要三个 HB 的集体压缩，在离子之间形成一条线，以触发一致的 PT 事件。 77
+
+<a id="F010"></a>
+### Figure 9
+
+**Placed near:** p.8 S062  
+**Source:** p.8 F010
+
+![Figure 9](assets/fig9-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 9. Schematics of the special pair dance around a central hydronium ion (magenta-colored oxygen atom). The special partner, depicted as a triply coordinated water ligand, is interchanged following HB cleavage and formation events. Reproduced from ref 68 with permission. Copyright 2008 American Chemical Society.
+
+**中文图注:** 图 9. 特殊对围绕中心水合氢离子（洋红色氧原子）跳舞的示意图。这种特殊的配体被描述为三重配位的水配体，在 HB 裂解和形成事件后发生交换。经许可转载自参考文献 68。版权所有2008 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="S063"></a>
+**Source:** p.8 S063
+
+**Original:** The HB network of liquid water is made up of a distribution of closed rings with specific directional correlations of waters within the rings, leading to different types of topological patterns; see Figure 11 showing two six-membered rings. The
+
+**中文:** 液态水的HB网络由闭环分布组成，环内的水具有特定的方向相关性，从而产生不同类型的拓扑图案；参见图 11，显示两个六元环。这
+
+<a id="F011"></a>
+### Figure 11
+
+**Placed near:** p.8 S063  
+**Source:** p.8 F011
+
+![Figure 11](assets/fig11-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 11. Panels A and B show two directed six-membered rings obtained in liquid water. The ring in A is composed exclusively of water molecules that accept and donate a HB (DA waters), while that in B contains one water that donates two HBs (DD) and another that accepts two HBs (AA). The directional correlations within rings change, depending on the size and number of DD-AA pairs within the ring and create the architecture for water wires. The number of DD-AA pairs in the rings is quantified with the order parameter S1. Panel C shows the distribution of the S1 showing that most rings have one DD-AA pair. Reproduced from ref 61 with permission. Copyright 2013 National Academy of Sciences.
+
+**中文图注:** 图 11. 图 A 和 B 显示了在液态水中获得的两个定向六元环。 A 中的环仅由接受和提供 HB（DA 水）的水分子组成，而 B 中的环包含一个提供两个 HB（DD）的水和另一个接受两个 HB（AA）的水。环内的方向相关性会发生变化，具体取决于环内 DD-AA 对的大小和数量，并创建水线的架构。环中DD-AA对的数量用顺序参数S1来量化。图 C 显示了 S1 的分布，表明大多数环都有一对 DD-AA。经许可转载自参考文献 61。版权所有 2013 美国国家科学院。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="F012"></a>
+### Figure 10
+
+**Placed near:** p.8 S063  
+**Source:** p.8 F012
+
+![Figure 10](assets/fig10-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 10. Comparison of the effective ionic extinctions of HCl in H2O and DCl in D2O showing a slight red shift of the high-frequency resonance (from 340 to 320 cm-1, arrows) that is ascribed to the SPD. Reproduced from ref 74 with permission. Copyright 2015 Royal Society of Chemistry.
+
+**中文图注:** 图 10. H2O 中的 HCl 和 D2O 中的 DCl 的有效离子消光比较，显示出归因于 SPD 的高频共振（从 340 到 320 cm-1，箭头）的轻微红移。经许可转载自参考文献 74。版权所有 2015 英国皇家化学学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="S064"></a>
+**Source:** p.8 S064
+
+**Original:** proton also participates in several closed rings, the segments of which create the architecture for water wires leading to more complex proton-hopping mechanisms. Rather than occurring at a constant frequency, there are periods of rapid succession of PT events ("bursts"), separated by quiescence ("rest") periods during which few such events occur; see Figure 12 for an example of such a trajectory. Regions of the HB network where the proton is surrounded by a fewer number of rings tend to result in longer traps. The burst activities involve two or three rapid protons hopping over several HBs through the water wires, facilitated by the collective compressions of these wires, as illustrated in Figure 13. The concerted motion of two protons can occur when successive HBs along the proton wire decrease by about 0.25 Å. In the discussions below, we will make reference to a PT coordinate, δ, that corresponds to the difference in distance between the transferring proton and the
+
+**中文:** 质子还参与几个闭合环，这些闭合环的各个部分创建了水线结构，从而导致更复杂的质子跳跃机制。 PT 事件并不是以恒定的频率发生，而是有快速连续的时期（“爆发”），中间被静止（“休息”）时期隔开，在此期间很少发生此类事件；有关此类轨迹的示例，请参见图 12。质子被较少数量的环包围的 HB 网络区域往往会产生更长的陷阱。爆发活动涉及两个或三个快速质子通过水线跳跃多个 HB，这些线的集体压缩促进了这些过程，如图 13 所示。当沿质子线的连续 HB 减少约 0.25 Å 时，两个质子的协同运动就会发生。在下面的讨论中，我们将参考 PT 坐标 δ，它对应于传输质子和质子之间的距离差。
+
+<a id="S065"></a>
+**Source:** p.9 S065
+
+**Original:** oxygens it is connected to; therefore, when the PT coordinate is 0, the proton is equally shared between the waters. This type of analysis makes clear that determining the reaction coordinates associated with PT is very complex. For example, a recent AIMD study79 has found that the presence of the burst and rest states correlates with the presence or absence of a fourth water molecule (4WM) donating a HB to the
+
+**中文:** 它所连接的氧气；因此，当 PT 坐标为 0 时，质子在水之间平均分配。这种类型的分析清楚地表明，确定与 PT 相关的反应坐标是非常复杂的。例如，最近的一项 AIMD 研究79 发现爆发和休息状态的存在与第四个水分子 (4WM) 的存在或不存在相关，第四个水分子 (4WM) 向
+
+<a id="S066"></a>
+**Source:** p.9 S066
+
+**Original:** hydronium oxygen atom (Figure 14a). When such a bond exists the burst probability is high (b). When the 4WM is further away from the hydronium (c), the latter is stabilized and few PT events occur. Along similar lines, recent work has highlighted the importance of the umbrella inversion mode of the hydronium ion in PT in bulk water. Molecules such as ammonia and hydronium can turn inside out, and this inversion mode leads to a characteristic signature in the IR spectrum.32-35 Figure 15 examines the role of the inversion mode for a situation where the hydronium is trapped in one part of the HB network, making it easier to focus the analysis on the motion of the proton between two water molecules only. Since inversion occurs on a faster time scale than solvent reorganization, the position along this coordinate change the PT potentials quite significantly. Because the PT barriers change quite substantially as a function of the inversion coordinate, they can couple with features such as the burst and rest behavior. More work is needed to understand how all these various coordinates couple together to form the Grotthuss mechanism.
+
+**中文:** 水合氢氧原子（图14a）。当这种债券存在时，破裂的概率就很高 (b)。当 4WM 距离水合氢离子 (c) 较远时，后者稳定并且很少发生 PT 事件。沿着类似的思路，最近的工作强调了散装水中 PT 中水合氢离子伞形反转模式的重要性。氨和水合氢等分子可以从里到外翻转，这种反转模式会在红外光谱中产生特征信号。32-35 图 15 检查了水合氢被困在 HB 网络一部分的情况下反转模式的作用，从而更容易将分析集中在两个水分子之间的质子运动上。由于反转发生的时间尺度比溶剂重组更快，因此沿该坐标的位置会相当显着地改变 PT 电势。由于 PT 势垒随反演坐标的变化相当大，因此它们可以与爆发和静止行为等特征结合起来。需要做更多的工作来理解所有这些不同的坐标如何结合在一起形成格罗特胡斯机制。
+
+<a id="S067"></a>
+**Source:** p.9 S067
+
+**Original:** Although we have focused on simulation results coming from AIMD and MS-EVB approaches, there are also efforts placed in developing more sophisticated empirical water potentials that allow its dissociation.81-88 Some of these models capture many of the features observed in the AIMD and MS-EVB simulations. The reader is referred to those references for more details. 2.3.2.2. Hydroxide. As for clusters, the structural and dynamical properties of OH- in bulk water are less well understood than those of H+, partly because anionic species are more challenging to model with DFT. Before the first CPMD simulations of OH- in water, the Grotthuss diffusion of the OH-was thought to be a mirror image of that of the proton, implying that it would only accept three HBs.89 Later, X-ray diffraction and core level electron spectroscopy experiments indicated that the OH-could accept four HBs and possibly even donate a weak HB, thus yielding a hypercoordinated species.
+
+**中文:** Although we have focused on simulation results coming from AIMD and MS-EVB approaches, there are also efforts placed in developing more sophisticated empirical water potentials that allow its dissociation.81-88 Some of these models capture many of the features observed in the AIMD and MS-EVB simulations.读者可参阅这些参考资料以获取更多详细信息。 2.3.2.2.氢氧化物。至于团簇，对散装水中 OH- 的结构和动力学性质的了解不如 H+ 的好，部分原因是用 DFT 建模阴离子物种更具挑战性。在首次对水中的 OH- 进行 CPMD 模拟之前，OH- 的格罗萨斯扩散被认为是质子扩散的镜像，这意味着它只能接受三个 HB。89 后来，X 射线衍射和核心级电子能谱实验表明，OH- 可以接受四个 HB，甚至可能贡献一个弱 HB，从而产生超配位物种。
+
+<a id="S068"></a>
+**Source:** p.9 S068
+
+**Original:** In their CPMD simulations, Tuckerman and coworkers48 found that the dominant state of OH-was the hypercoordinated species that accepts four HBs in a square planar arrangement, as illustrated in Figure 16. The hopping mechanism involved a decrease of the coordination number of the hydroxide to form the short-lived transient species shown in the bottom panel of Figure 16. In this transient species, the
+
+**中文:** 在他们的 CPMD 模拟中，Tuckerman 和同事 48 发现 OH- 的主要状态是超配位物质，它接受方形平面排列中的四个 HB，如图 16 所示。跳跃机制涉及氢氧根配位数的减少，以形成图 16 底部面板所示的短命瞬态物质。在这种瞬态物质中，
+
+<a id="F013"></a>
+### Figure 12
+
+**Placed near:** p.9 S068  
+**Source:** p.9 F013
+
+![Figure 12](assets/fig12-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 12. Burst and rest behavior of the proton is shown for one trajectory. The y axis depicts the distance that the proton jumps with respect to a reference starting point at the beginning of the trajectory. The motion of the proton goes through periods of bursts (B), where it can jump rather long distances due to correlated proton hopping, followed by resting periods (R). Reproduced from ref 61 with permission. Copyright 2013 National Academy of Sciences.
+
+**中文图注:** 图 12. 显示了一条轨迹的质子爆发和静止行为。 y 轴描绘质子相对于轨迹起点处的参考起点跳跃的距离。质子的运动经历爆发期 (B)，由于相关的质子跳跃，它可以跳跃相当长的距离，然后是静止期 (R)。经许可转载自参考文献 61。版权所有 2013 美国国家科学院。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="F014"></a>
+### Figure 13
+
+**Placed near:** p.9 S068  
+**Source:** p.9 F014
+
+![Figure 13](assets/fig13-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 13. Coupling between the average of two consecutive PT coordinates on the x-axis and the sum of the two HBs (the O-O distances) along which the PT events occur.61 The double PT is coupled to the compression of the proton wire. Reproduced from ref 61 with permission. Copyright 2013 National Academy of Sciences.
+
+**中文图注:** 图 13. x 轴上两个连续 PT 坐标的平均值与发生 PT 事件的两个 HB（O-O 距离）之和之间的耦合。61 双 PT 与质子线的压缩耦合。经许可转载自参考文献 61。版权所有 2013 美国国家科学院。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="F015"></a>
+### Figure 14
+
+**Placed near:** p.9 S068  
+**Source:** p.9 F015
+
+![Figure 14](assets/fig14-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 14. Fourth water molecule (4WM) influence on PT burst dynamics. Panel a defines the distance, d, and angle, θ, between the 4WM hydrogen atom, the hydronium oxygen atom, and the normal to the plane of the H3O+ hydrogen atoms. Panel b shows the probability distribution in the (d,θ) plane during burst periods, while panel c shows it during rest periods. Reproduced from ref 79 with permission. Copyright 2015 Institute of Physics.
+
+**中文图注:** 图 14. 第四个水分子 (4WM) 对 PT 爆发动力学的影响。图 a 定义了 4WM 氢原子、水合氢氧原子和 H3O+ 氢原子平面的法线之间的距离 d 和角度 θ。图 b 显示了突发期间 (d,θ) 平面中的概率分布，而图 c 显示了休息期间的概率分布。经许可转载自参考文献 79。版权所有2015 物理研究所。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="F016"></a>
+### Figure 15
+
+**Placed near:** p.9 S068  
+**Source:** p.10 F016
+
+![Figure 15](assets/fig15-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 15. Potential of mean force along the PT coordinate for three conformations of the inversion position of two water molecules between which the protons move. The snapshots on top of the free energy profiles are representative of the typical configurations used to generate these profiles. In all cases, we see that there is a tendency for the proton to be most localized on the left water, although the barriers associated with PT are on the order of kBT. In panel a the lone-pairs of both oxygen atoms face upward, while in panel b left is up-inverted and right is down-inverted. This leads to quite a drastic change in the activation barrier for PT. On the other hand, in panel c the left water is down-inverted while the right is up-inverted. This introduces some additional roughness in the profile that is absent in both panels a and b. Reprinted from ref 80 with permission. Copyright 2014 Elsevier.
+
+**中文图注:** 图 15. 质子在其间移动的两个水分子反转位置的三种构象沿 PT 坐标的平均力势。自由能分布图顶部的快照代表了用于生成这些分布图的典型配置。在所有情况下，我们都看到质子有最集中在左侧水的趋势，尽管与 PT 相关的势垒约为 kBT。在图 a 中，两个氧原子的孤对电子面朝上，而在图 b 中，左侧为上反转，右侧为下反转。这导致 PT 激活势垒发生相当大的变化。另一方面，在 c 图中，左侧的水是向下反转的，而右侧的水是向上反转的。这会在轮廓中引入一些额外的粗糙度，而面板 a 和 b 中都没有这种粗糙度。经许可转载自参考文献 80。版权所有 2014 爱思唯尔。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S069"></a>
+**Source:** p.10 S069
+
+**Original:** OH-accepts three HBs and donates a weak HB, thus forming a locally tetrahedral environment.60
+
+**中文:** OH-接受三个HB并捐赠一个弱HB，从而形成局部四面体环境。 60
+
+<a id="S070"></a>
+**Source:** p.10 S070
+
+**Original:** Subsequently, it was found that three popular (generalized gradient) density functionals, BLYP, PW91 and HCTH, yield qualitatively different solvation structures, diffusion constants, and molecular mechanisms for OH-migration in water.4,50 For example, BLYP yields a diffusion constant of 1.92, PW91 gives 18.5, and HCTH gives 0.14, in comparison to the experimental value of 5.3 (all in units of 10-9 m2 s-1). Clearly more work is
+
+**中文:** 随后，我们发现三种流行的（广义梯度）密度泛函 BLYP、PW91 和 HCTH 产生了性质不同的溶剂化结构、扩散常数和 OH 在水中迁移的分子机制。4,50 例如，与实验值 5.3 相比，BLYP 产生的扩散常数为 1.92，PW91 为 18.5，HCTH 为 0.14（均以 5.3 为单位） 10-9 平方米·s-1)。显然更多的工作是
+
+<a id="S071"></a>
+**Source:** p.10 S071
+
+**Original:** needed in this area, for example, with the use of multireference ab initio and quantum Monte Carlo calculations, which will allow for a more rigorous treatment of electron correlation effects. 2.3.3. The Importance of the Nuclear Quantum Effects (NQE). In most of the previously discussed studies, the electrons were treated quantum mechanically (i.e., by solving the electronic Schrödinger equation at some level of approximation), whereas the nuclei were treated classically (i.e., the evolution of their position in time was computed from Newton's equations of motion). This may not always suffice. For example, the zero point energy of the O-H stretch mode in liquid water is about 0.2 eV, which is significant compared to the thermal energy at room temperature (kBT = 0.026 eV). The effects of NQE in bulk liquid water are reflected in the significant broadening of the O-H radial distribution function compared to what one observes when the nuclei are treated classically.90,91
+
+**中文:** 例如，该领域需要使用多参考从头计算和量子蒙特卡罗计算，这将允许更严格地处理电子相关效应。 2.3.3.核量子效应 (NQE) 的重要性。在前面讨论的大多数研究中，电子都是通过量子力学来处理的（即，通过在某种近似水平上求解电子薛定谔方程），而原子核则采用经典的处理方式（即，它们的位置随时间的演化是根据牛顿运动方程计算出来的）。这可能并不总是足够的。例如，液态水中O-H拉伸模式的零点能量约为0.2 eV，这与室温下的热能（kBT = 0.026 eV）相比非常重要。与传统处理原子核时观察到的情况相比，NQE 对大量液态水的影响反​​映在 O-H 径向分布函数的显着展宽上。90,91
+
+<a id="S072"></a>
+**Source:** p.10 S072
+
+**Original:** A first-principles quantum mechanical treatment of both the electrons and nuclei for protons in liquid water can be achieved by the use of ab initio path integral molecular dynamics (PIMD) simulations, which are computationally quite expensive. Over a decade ago, Tuckerman and Marx performed the first ab initio PIMD simulations of the excess proton and hydroxide ion in liquid water.48,92 The zero-point energy of the proton significantly lowered the barrier for transition between the E and Z cations to a point that the Z cation was no longer a true intermediate in the interconversion between these two states. Similarly, for the hydroxide ion, PIMD simulations also lowered the barrier, by ∼1 kcal mol-1, for the motion of the proton hole along the HB where PT occurs (see Figure 17). In addition, it was found that in the classical simulations PT occurred over a narrower range of OH-orientations, as compared with the PIMD studies. These earlier PIMD studies were limited by short simulation times and small system sizes.
+
+**中文:** 液态水中质子的电子和原子核的第一原理量子力学处理可以通过使用从头算路径积分分子动力学（PIMD）模拟来实现，这种模拟在计算上是相当昂贵的。十多年前，Tuckerman 和 Marx 对液态水中过量的质子和氢氧根离子进行了首次从头算 PIMD 模拟。48,92 质子的零点能量显着降低了 E 和 Z 阳离子之间的跃迁势垒，以至于 Z 阳离子不再是这两种状态之间相互转换的真正中间体。同样，对于氢氧根离子，PIMD 模拟也将质子空穴沿 HB 运动（发生 PT 时）的势垒降低了约 1 kcal mol-1（见图 17）。此外，我们发现，与 PIMD 研究相比，经典模拟中 PT 发生在更窄的 OH 方向范围内。这些早期的 PIMD 研究受到仿真时间短和系统尺寸小的限制。
+
+<a id="S073"></a>
+**Source:** p.10 S073
+
+**Original:** The design of more sophisticated and efficient algorithms to treat both electrons and nuclei quantum mechanically has resulted in more numerical studies examining the role of NQE in various hydrogen-bonded systems.93-95 These studies showed, for example, that NQE strengthen strong HBs and weaken the weak HBs,94 and that in both bulk liquid water and confined water NQE cause proton
+
+**中文:** 设计更复杂和更有效的算法来处理电子和原子核量子力学已经导致更多的数值研究，检验 NQE 在各种氢键系统中的作用。 93-95 例如，这些研究表明，NQE 增强强 HBs 并削弱弱 HBs，94 并且在散装液态水和承压水中 NQE 都会导致质子
+
+<a id="F017"></a>
+### Figure 16
+
+**Placed near:** p.10 S073  
+**Source:** p.10 F017
+
+![Figure 16](assets/fig16-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 16. Representative resting and active states of OH-in bulk water, OH-(aq), within the dynamical hypercoordination mechanism (ref 4). The resting state (top) is the majority complex, with four HBs accepted by O* in an essentially square-planar arrangement. The active state (bottom) is a short-lived transient complex with three HBs accepted by O* and an additional HB donated by H′ in a locally tetrahedral arrangement. O*, in yellow, is the oxygen atom identified as the OH-ion and H′ is the hydrogen atom attached to it. Electron density is depicted by the purple blobs. Note the ring of negative charge around O*,48 resembling the crescent of negative charge connecting the two lone pairs of a water molecule.49 Reproduced from ref 48 with permission. Copyright 2002 Nature Publishing Group.
+
+**中文图注:** 图 16. 在动态超协调机制中，散装水 OH-(aq) 中 OH- 的代表性静止状态和活跃状态（参考文献 4）。静止状态（顶部）是多数复合体，其中四个 HB 被 O* 接受，基本上呈方形平面排列。活性状态（底部）是一个短暂的瞬态复合体，其中三个 HB 被 O* 接受，另外一个 HB 由 H' 以局部四面体排列形式提供。黄色的 O* 是被识别为 OH-离子的氧原子，H' 是与其相连的氢原子。电子密度由紫色斑点表示。注意 O* 周围的负电荷环，48 类似于连接水分子的两个孤对对的负电荷新月形。49 经许可转载自参考文献 48。版权所有2002 自然出版集团。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="S074"></a>
+**Source:** p.11 S074
+
+**Original:** delocalization over several water molecules, partly washing away the distinction between the E and Z cations.95
+
+**中文:** 多个水分子的离域，部分消除了 E 和 Z 阳离子之间的区别。 95
+
+<a id="S075"></a>
+**Source:** p.11 S075
+
+**Original:** Evidence for proton delocalization can be seen in Figure 18, which shows the probability of finding a particular protonated
+
+**中文:** 质子离域的证据如图 18 所示，它显示了找到特定质子化的概率
+
+<a id="S076"></a>
+**Source:** p.11 S076
+
+**Original:** "cluster" in acidified bulk water.45 Unlike in classical simulations, in simulations including NQE the proton can sometimes delocalize over more than two water molecules, moving without requiring the correct presolvation at all places in the network. Although the probability of finding the proton delocalized over three water molecules is still small, the difference compared to the classical simulations is statistically significant. The role of these rare fluctuations on proton dynamics and hence the diffusion constant remains an open issue. 2.3.4. Time-Resolved IR Studies. As presented above, our current understanding of the specific molecular configurations and structures has relied on input from simulations and
+
+**中文:** 酸化散装水中的“簇”。45 与经典模拟不同，在包括 NQE 在内的模拟中，质子有时可以在两个以上的水分子上离域，无需在网络中的所有位置进行正确的预溶剂化即可移动。尽管发现质子在三个水分子上离域的概率仍然很小，但与经典模拟相比，差异在统计上是显着的。这些罕见的波动对质子动力学以及扩散常数的作用仍然是一个悬而未决的问题。 2.3.4.时间分辨红外研究。如上所述，我们目前对特定分子构型和结构的理解依赖于模拟和
+
+<a id="S077"></a>
+**Source:** p.11 S077
+
+**Original:** experiments. In the gas phase, such protonated water clusters have been identified primarily by infrared spectroscopy (section 2.2). However, the interpretation of the IR spectra in the liquid phase is a major challenge. This is due to the large number of hydrogen-bonding configurations, which give rise to very broad and rather featureless absorption bands, as well as the ultrafast dynamics that drives the interchange between these configurations and contributes to the observed line shapes. Especially remarkable is the growth of a continuum-like absorption spanning almost the entire mid-IR region (see Figure 19) when protons are added to water.18
+
+**中文:** 实验。在气相中，这种质子化水簇主要通过红外光谱法进行鉴定（第 2.2 节）。然而，液相红外光谱的解释是一个重大挑战。这是由于大量的氢键构型产生了非常宽且相当无特征的吸收带，以及驱动这些构型之间的交换并有助于观察到的线形状的超快动力学。尤其值得注意的是，当质子添加到水中时，几乎整个中红外区域的类似连续吸收的增长（见图 19）。 18
+
+<a id="F018"></a>
+### Figure 17
+
+**Placed near:** p.11 S077  
+**Source:** p.11 F018
+
+![Figure 17](assets/fig17-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 17. Canonical (Helmholtz) free energy profile at 300 K along the proton transfer coordinate δ of the OH-and H+ systems (left and right panels, respectively) in bulk water (top) and the gas phase (bottom). Dashed lines depict the classical canonical ensemble, while solid lines are from the quantum simulations. Note that the thermal energy is kBT ≈0.59 kcal/mol at 300 K. Reproduced from ref 4 with permission. Copyright 2010 American Chemical Society.
+
+**中文图注:** 图 17. 300 K 时沿着本体水（顶部）和气相（底部）中 OH- 和 H+ 系统（分别为左图和右图）的质子转移坐标 δ 的正则（亥姆霍兹）自由能分布。虚线描绘了经典的正则系综，而实线则来自量子模拟。请注意，300 K 时的热能为 kBT ≈0.59 kcal/mol。经许可转载自参考文献 4。版权所有 2010 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="F019"></a>
+### Figure 19
+
+**Placed near:** p.11 S077  
+**Source:** p.11 F019
+
+![Figure 19](assets/fig19-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 19. FFT-IR spectra of water (blue line) and 4 M HCl (red line) with assignments of the different spectral regions to different structures of the solvated proton (cartoons). The vibrational modes shaded in green involve the excess proton (purple color), whereas the vibrations in bulk/flanking water molecules are shaded in red. Details of the assignments are discussed in the text. Reproduced from ref 99 with permission. Copyright 2015 American Association for the Advancement of Science.
+
+**中文图注:** 图 19. 水（蓝线）和 4 M HCl（红线）的 FFT-IR 光谱，并将不同光谱区域分配给溶剂化质子的不同结构（卡通）。绿色阴影的振动模式涉及过量的质子（紫色），而本体/侧翼水分子的振动则以红色阴影。作业的详细信息将在正文中讨论。经许可转载自参考文献 99。版权所有 2015 美国科学促进会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S078"></a>
+**Source:** p.11 S078
+
+**Original:** However, by combining our knowledge from the cluster experiments discussed earlier (e.g., Figure 2) with results from ab initio calculations and liquid phase simulations,22,28-30,34,96-98 the absorption in several spectral regions can be correlated to vibrations of different solvation structures (Figure 19). The Z complex gives rise to the characteristic absorption features at 3200 cm-1 (O-H stretch vibration of the flanking water molecules), at 1760 cm-1 (HOH bending motion of the flanking water molecules coupled to excess proton oscillations between them), and at 1150 cm-1 (protonshuttling motion), whereas the E structure shows an absorption peak around 2700 cm-1 (O-H stretch vibration). Distortions of the Eigen geometry with one shortened HB lead to absorption frequencies that span the entire range between 1000 and 3200 cm-1 giving rise to the acid continuum absorption.35,97
+
+**中文:** 然而，通过将我们之前讨论的簇实验（例如图 2）的知识与从头计算和液相模拟的结果相结合，22,28-30,34,96-98 几个光谱区域的吸收可以与不同溶剂化结构的振动相关联（图 19）。 Z复合物在3200 cm-1（侧翼水分子的O-H伸缩振动）、1760 cm-1（侧翼水分子的HOH弯曲运动与它们之间的过量质子振荡耦合）和1150 cm-1（质子穿梭运动）处产生特征吸收特征，而E结构在2700 cm-1（O-H伸缩振动）附近显示出吸收峰。 HB 缩短后本征几何形状的扭曲会导致吸收频率跨越 1000 至 3200 cm-1 的整个范围，从而产生酸性连续吸收。 35,97
+
+<a id="F020"></a>
+### Figure 18
+
+**Placed near:** p.11 S078  
+**Source:** p.11 F020
+
+![Figure 18](assets/fig18-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 18. Histogram of the number of constituents for the cluster containing the excess proton for three quantum simulations (red, blue, and purple dashed lines) and one classical simulation (black line). Here, a cluster corresponds to a motif built using a criterion based on the PT coordinate that connects species with high coordination numbers (see ref 45 for details) and that identifies the excess proton as localized on a cluster of n water molecules. Quantum fluctuations of the proton lead to situations where it is delocalized over more than two water molecules, most notably n = 3 and 4. Reproduced from ref 45 with permission. Copyright 2014 American Chemical Society.
+
+**中文图注:** 图 18. 三种量子模拟（红色、蓝色和紫色虚线）和一种经典模拟（黑线）的包含过量质子的簇的成分数量直方图。在这里，簇对应于使用基于 PT 坐标的标准构建的基序，该标准连接具有高配位数的物种（详细信息请参见参考文献 45），并将过量质子识别为位于 n 个水分子簇上。质子的量子涨落会导致其在两个以上的水分子上离域，最明显的是 n = 3 和 4。经许可转载自参考文献 45。版权所有 2014 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S079"></a>
+**Source:** p.11 S079
+
+**Original:** Deeper experimental insight into the structures and dynamics of solvated protons and hydroxide ions requires a combination of structural sensitivity with time resolution in the same experiment. The advent of ultrafast lasers made it recently possible to perform ultrafast (femtosecond) IR measurements with a time resolution that suffices to resolve the fast fluctuations of the HB network that drive the structural changes. A number of experiments have been performed on acids and bases using transient absorption IR100 and two-
+
+**中文:** 对溶剂化质子和氢氧根离子的结构和动力学进行更深入的实验了解需要在同一实验中将结构灵敏度与时间分辨率相结合。超快激光器的出现使得最近可以进行超快（飞秒）红外测量，其时间分辨率足以解决驱动结构变化的 HB 网络的快速波动。使用瞬态吸收 IR100 和二元法对酸和碱进行了许多实验
+
+<a id="F021"></a>
+### Figure 20
+
+**Placed near:** p.11 S079  
+**Source:** p.12 F021
+
+![Figure 20](assets/fig20-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 20. Left panel: Infrared spectrum of a 5 M solution of HCl:DCl in HDO:D2O, with a H:D ratio of 1:20. The bars indicate the frequency regions of the O-H-stretching modes of the E (I) and Z/E (II) structures. Right panel: Absorption change as a function of delay after resonant excitation (at 2935 cm-1) of the proton O-H stretch vibrations of the E structure. The absorption change is shown for two probing frequencies, one resonant with the E (I) structure and one resonant with the Z and E (II) structures. The time constants are 120 fs and 0.7 ps for the dotted curve and 130 fs and 0.8 ps for the solid curve. From ref 100 with permission. Copyright 2006 American Physical Society.
+
+**中文图注:** 图 20. 左图：HDO:D2O 中的 5 M HCl:DCl 溶液（H:D 比例为 1:20）的红外光谱。条形表示 E (I) 和 Z/E (II) 结构的 O-H 拉伸模式的频率区域。右图：E 结构的质子 O-H 伸缩振动共振激发（2935 cm-1）后，吸收变化随延迟变化。显示了两种探测频率的吸收变化，一种与 E (I) 结构共振，一种与 Z 和 E (II) 结构共振。虚线的时间常数为 120 fs 和 0.7 ps，实线的时间常数为 130 fs 和 0.8 ps。经许可，来自参考文献 100。版权所有 2006 美国物理学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S080"></a>
+**Source:** p.12 S080
+
+**Original:** dimensional infrared (2DIR) techniques,57,101 with the goal of identifying different solvation structures and determining their persistence time and rate of interchange. Woutersen and Bakker performed two-color transient absorption experiments on isotopically dilute acid solutions, finding evidence for an ultrafast interconversion between E and Z species on a time scale of <50 fs.100 By exciting the O-H stretch vibration of the Eigen core at 2935 cm-1 with a femtosecond infrared pulse, an instantaneous response of the Zundel species was observed (Figure 20). In the left panel of Figure 20, the absorption spectrum of an isotopically diluted (H:D = 1:20) solution of 5 M HCl in water is shown. In the right panel the responses at 2850 and 3300 cm-1 are shown as a function of delay between the excitation and the probing pulses. It is seen that the excitation of the vibrations of the E structure leads to a direct response at ∼3300 cm-1, which is associated with water molecules flanking the Z proton. The quasiinstantaneous rise of this signal indicates that the interconversion between E and Z takes place on a time scale of <50 fs.
+
+**中文:** 三维红外 (2DIR) 技术，57,101 旨在识别不同的溶剂化结构并确定其持续时间和交换率。 Woutersen 和 Bakker 对同位素稀酸溶液进行了双色瞬态吸收实验，找到了 E 和 Z 物种之间在 <50 fs.100 时间尺度上超快相互转换的证据。通过用飞秒红外脉冲激发 2935 cm-1 处本征核心的 O-H 伸缩振动，观察到了 Zundel 物种的瞬时响应（图 20）。图 20 的左图中显示了同位素稀释（H:D = 1:20）的 5 M HCl 水溶液的吸收光谱。在右图中，2850 和 3300 cm-1 处的响应显示为激励脉冲和探测脉冲之间延迟的函数。可以看出，E 结构振动的激发导致~3300 cm-1 处的直接响应，这与 Z 质子侧翼的水分子相关。该信号的准瞬时上升表明 E 和 Z 之间的相互转换发生在 <50 fs 的时间尺度内。
+
+<a id="S081"></a>
+**Source:** p.12 S081
+
+**Original:** More recent experiments on solvated protons and hydroxide ions employed ultrafast 2DIR spectroscopy, where the temporal evolution of the induced vibrations can be monitored as a function of an excitation and a probe frequency.57,101 The frequency correlation spectra obtained with this technique contain information about the inhomogeneous broadening of the IR absorption peaks, which is crucial for identifying the different solvation species contributing to these broad spectral features. Additionally, information about the dynamics of chemical exchange processes can be obtained by analyzing a series of 2D spectra with varying time delays. Measurements of isotopically dilute HOD in NaOD/D2O solutions revealed strong evidence for the formation of a Z-like transition state (H3O2 -) during the proton transfer reaction which persists on a 110 fs time scale.57 The identification of this transition species is based on the observation of a fast-decaying off-diagonal broadening of the 2D line shape in the spectral region of the O-H stretch vibration of the solvating HOD molecules.
+
+**中文:** 最近关于溶剂化质子和氢氧根离子的实验采用了超快 2DIR 光谱，其中诱发振动的时间演化可以作为激发和探针频率的函数进行监测。57,101 使用该技术获得的频率相关光谱包含有关红外吸收峰不均匀展宽的信息，这对于识别导致这些宽光谱特征的不同溶剂化物种至关重要。此外，可以通过分析一系列具有不同时间延迟的二维光谱来获得有关化学交换过程动态的信息。 NaOD/D2O 溶液中同位素稀释 HOD 的测量揭示了在质子转移反应过程中形成 Z 状过渡态 (H3O2 -) 的有力证据，该反应持续时间为 110 fs。 57 这种过渡态的识别基于对溶剂化 HOD 分子 O-H 伸缩振动光谱区域中 2D 线形的快速衰减非对角线形状的观察。
+
+<a id="S082"></a>
+**Source:** p.12 S082
+
+**Original:** The interpretation was supported by calculations of vibrational frequencies of the [DO-H-OD]-complex during the PT event using MS-EVB simulations. In a subsequent 2DIR study on this system, the temporal evolution of the cross-peak regions (offdiagonal regions) that report on the proton/deuterium exchange processes between different deuterated water and hydroxide species was analyzed
+
+**中文:** 使用 MS-EVB 模拟计算 PT 事件期间 [DO-H-OD] 复合物的振动频率支持了这一解释。在随后对该系统的 2DIR 研究中，分析了报告不同氘化水和氢氧化物物质之间的质子/氘交换过程的交叉峰区域（非对角线区域）的时间演化
+
+<a id="S083"></a>
+**Source:** p.12 S083
+
+**Original:** in more detail. In order to extract the molecular dynamics of these exchange processes, a model for calculating 2D line shapes was constructed that includes the most significant effects contributing to the 2DIR spectra.101 Fitting the model parameters to the experimental data, a lower limit of the proton transfer time in basic solutions of approximately 3 ps was extracted, in good agreement with the results of the conductivity studies discussed earlier. Even with the additional information content of a 2DIR spectrum, unambiguous identification of specific solvation structures can be challenging. One approach to this problem is to recognize that if a specific solvation structure is present, all modes associated with it must appear in the spectrum and could be coupled (i.e., apparent as off-diagonal cross-peaks in a 2D spectrum). One example of this is the stretch and bend vibrational modes of a Z complex. In order to perform such experiments, a very broad spectral bandwidth, which spans the entire mid-IR region, has to be probed because of the 1500 cm-1 separation of these modes.
+
+**中文:** 更详细地说。为了提取这些交换过程的分子动力学，构建了一个用于计算 2D 线形状的模型，其中包括对 2DIR 光谱贡献最显着的影响。 101 将模型参数与实验数据进行拟合，提取了基本溶液中质子转移时间的下限，约为 3 ps，与前面讨论的电导率研究的结果非常一致。即使有 2DIR 光谱的附加信息内容，明确识别特定溶剂化结构也可能具有挑战性。解决这个问题的一种方法是认识到，如果存在特定的溶剂化结构，则与其相关的所有模式都必须出现在光谱中并且可以耦合（即，在二维光谱中表现为非对角线交叉峰）。其中一个例子是 Z 复合体的拉伸和弯曲振动模式。为了进行此类实验，由于这些模式的间隔为 1500 cm-1，因此必须探测跨越整个中红外区域的非常宽的光谱带宽。
+
+<a id="S084"></a>
+**Source:** p.12 S084
+
+**Original:** The development of broadband 2DIR has made these measurements possible.102
+
+**中文:** 宽带 2DIR 的发展使这些测量成为可能。 102
+
+<a id="S085"></a>
+**Source:** p.12 S085
+
+**Original:** In studies of HCl/H2O solutions using this broadband method, it was indeed possible to identify the spectral signature of H5O2+.99 By analyzing the region of the stretch-bend crosspeaks in the 2D spectra, it could be shown that the spectral feature at 1760 cm-1 is coupled to O-H stretch frequencies in the range between 3000 and 3200 cm-1 (Figure 21). This observation confirms that both vibrations stem from the same molecular species, namely the Z complex of the solvated proton. By analyzing time-dependent shifts of this cross-peak, a lower bound of 480 fs for the persistence time of the Z complex could be extracted, suggesting a rather stable Zundel species.
+
+**中文:** 在使用这种宽带方法对 HCl/H2O 溶液的研究中，确实可以识别 H5O2+.99 的光谱特征。通过分析 2D 光谱中拉伸弯曲交叉峰的区域，可以表明 1760 cm-1 处的光谱特征与 3000 至 3200 cm-1 范围内的 O-H 拉伸频率耦合（图 21）。这一观察证实，两种振动源于相同的分子种类，即溶剂化质子的 Z 复合物。通过分析该交叉峰随时间的变化，可以提取 Z 复合物持续时间的下限 480 fs，这表明 Zundel 物种相当稳定。
+
+<a id="S086"></a>
+**Source:** p.12 S086
+
+**Original:** At first glance, this observation seems to contradict the ultrashort lifetimes of protonated water structures found in the transient absorption measurements.100 However, it is possible that the results from the transient absorption measurements report on fast structural fluctuations, whereas the recent 2DIR results describe only the long-range PT events.99 This may be in accord with MS-EVB simulations that found a wide distribution of lifetimes for the Z complex mediating PT in water: from ca. 50 fs to over 1 ps (Figures 9 and 7, respectively, in ref 75). With 2DIR it should also be possible to identify cross-peaks for the E cation,103 allowing for a more quantitative identification of the Z and E cations in liquid water than ever before.
+
+**中文:** 乍一看，这一观察结果似乎与瞬态吸收测量中发现的质子化水结构的超短寿命相矛盾。 100 然而，瞬态吸收测量的结果可能报告了快速结构波动，而最近的 2DIR 结果仅描述了长程 PT 事件。 99 这可能与 MS-EVB 模拟一致，该模拟发现 Z 复合物在水中介导 PT 的寿命分布广泛：从大约 100 到 100。 50 fs 至超过 1 ps（分别为参考文献 75 中的图 9 和 7）。利用 2DIR，还应该能够识别 E 阳离子的交叉峰，103 从而能够比以往更加定量地识别液态水中的 Z 和 E 阳离子。
+
+<a id="F022"></a>
+### Figure 22
+
+**Placed near:** p.12 S086  
+**Source:** p.13 F022
+
+![Figure 22](assets/fig22-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 22. Förster cycle of 2-naphthol.104 The photoacid in its ground state (bottom left) is photoexcited (usually to S2 and then relaxing very fast to S1), ejects a proton to water (reversibly) to produce the conjugated photobase (upper right), and then decays radiatively (wiggly arrow), and also nonradiatively (not indicated), to form the ground-state RO-base. The latter picks up a proton from solution and reprotonates (irreversibly) to regenerate the ground-state photoacid. Reproduced from ref 106 with permission. Copyright 2005 American Chemical Society.
+
+**中文图注:** 图 22. 2-萘酚的福斯特循环。104 基态的光酸（左下）被光激发（通常到 S2，然后快速弛豫到 S1），将质子喷射到水中（可逆）以产生共轭光碱（右上），然后辐射衰变（摆动箭头）和非辐射衰变（未指示），形成基态 RO 碱。后者从溶液中拾取质子并重新质子化（不可逆）以再生基态光酸。经许可转载自参考文献 106。版权所有2005 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="F023"></a>
+### Figure 21
+
+**Placed near:** p.12 S086  
+**Source:** p.13 F023
+
+![Figure 21](assets/fig21-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 21. Shape and time evolution of the stretch-bend cross-peaks following decomposition (Reproduced from ref 99. Copyright 2015 American Association for the Advancement of Science). (A) Presentation of the three dominant components for 2DIR spectra of 4 M HCl for waiting times (time elapsed after excitation) of τ2 = 50 and 600 fs. Grid lines illustrate the Zundel (red) and water (blue) peak frequencies. (B) Projections of the stretch-bend cross peaks onto one frequency axis: ω1 for stretch (ν) and ω3 for bend (δ). These bleach signals are inverted to present a positive spectrum. (C) Evolution of the peak frequency of the Zundel stretch-bend cross peak in ω1 with waiting time. The blue dotted line indicates the asymptotic value.
+
+**中文图注:** 图 21. 分解后拉伸弯曲交叉峰的形状和时间演变（摘自参考文献 99。版权所有 2015 年美国科学促进会）。 (A) 展示 4 M HCl 2DIR 光谱的三个主要成分，等​​待时间（激发后经过的时间）为 τ2 = 50 和 600 fs。网格线显示了 Zundel（红色）和水（蓝色）峰值频率。 (B) 拉伸-弯曲交叉峰在一个频率轴上的投影：拉伸 (ν) 为 ω1，弯曲 (δ) 为 ω3。这些漂白信号被反转以呈现正谱。 (C) ω1 中 Zundel 拉伸弯曲交叉峰的峰值频率随等待时间的演变。蓝色虚线表示渐近值。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 光谱证据 的证据，建议和相邻段落一起看。
+
+
+<a id="S087"></a>
+**Source:** p.13 S087
+
+**Original:** 2.3.5. Excited State Proton Transfer by Proton Mobility and Water Wires. Another active area of research involves the mechanisms of PT occurring upon electronic excitation, namely, excited state proton transfer (ESPT). When a molecule capable of releasing a proton after absorbing a photon (e.g., a photoacid) is excited, the emitted proton goes either to the solvent (ESPT to solvent, "by proton mobility") or to another molecule (a base) that serves as a proton acceptor ("by water wires"). These processes are of practical interest in initiating chemical reactions, such as polymerization, by a photon-induced pH jump. ESPT also offers a convenient way of studying fundamental issues in PT reactions that are initiated, synchronously, by a laser pulse. Photoacids are dye molecules that decrease their pKa value upon photoexcitation.104,105 A typical ROH photoacid might have a hydroxy group coupled to an electronic π-system. An example is 2-naphthol (Figure 22), the pKa value of which decreases from 9.5 in the ground state to 2.8 in its first excited singlet state, S1.
+
+**中文:** 2.3.5。通过质子迁移率和水线进行激发态质子转移。另一个活跃的研究领域涉及电子激发时发生 PT 的机制，即激发态质子转移 (ESPT)。当吸收光子（例如光酸）后能够释放质子的分子被激发时，发射的质子要么进入溶剂（ESPT 到溶剂，“通过质子迁移率”），要么进入另一个充当质子受体的分子（碱基）（“通过水线”）。这些过程对于通过光子引起的 pH 跃变来引发化学反应（例如聚合）具有实际意义。 ESPT 还提供了一种研究由激光脉冲同步引发的 PT 反应中基本问题的便捷方法。光酸是在光激发时降低其 pKa 值的染料分子。104,105 典型的 ROH 光酸可能具有与电子 π 系统偶联的羟基。 2-萘酚就是一个例子（图 22），其 pKa 值从基态的 9.5 降至第一激发单线态 S1 的 2.8。
+
+<a id="S088"></a>
+**Source:** p.13 S088
+
+**Original:** The secret behind photoacidity is intramolecular charge transfer (ICT) in S1, from the proximal ring that harbors the OH substituent to the distal ring, stabilizing the RO-product of the ESPT reaction.106 In "superphotoacids", such as 5,8-dicyano-2-naphthol, electron-withdrawing substituents on the distal ring further stabilize the negative charge.107,108 ICT makes dissociation in the excitedstate more downhill, shifting the anion fluorescence to the red (lower energies) as compared with the acid. Such "dual emission", consisting of two fluorescence frequencies (wiggly arrows in Figure 22), is the hallmark of ESPT. 2.3.5.1. ESPT to Solvent. Water is a receptive solvent to protons. Therefore, a relatively weak photoacid, like 2-naphthol, will transfer its proton to water (on the 100 ps time scale) but not, for example, to alcohols. Stronger photoacids dissociate faster (the fastest known to date is about 100 fs in water) and are capable of emitting protons to alcohols and other nonaqueous solutions.107-109 Proton dissociation occurs
+
+**中文:** 光致酸性背后的秘密是 S1 中的分子内电荷转移 (ICT)，从含有 OH 取代基的近端环到远端环，稳定 ESPT 反应的 RO 产物。106 在“超光酸”中，例如 5,8-二氰基-2-萘酚，远端环上的吸电子取代基进一步稳定负电荷。107,108 ICT 使负电荷解离。与酸相比，激发态更加下坡，阴离子荧光转向红色（较低能量）。这种由两种荧光频率组成的“双发射”（图 22 中的摆动箭头）是 ESPT 的标志。 2.3.5.1. ESPT 至溶剂。水是质子的接受溶剂。因此，相对较弱的光酸，如 2-萘酚，会将其质子转移到水中（在 100 ps 时间尺度上），但不会转移到醇等物质中。更强的光酸解离速度更快（迄今为止已知最快的速度在水中约为 100 fs），并且能够向醇和其他非水溶液发射质子。107-109 发生质子解离
+
+<a id="S089"></a>
+**Source:** p.13 S089
+
+**Original:** adiabatically, leaving behind an excited anion. However, it is not necessarily irreversible, which would lead to exponential decay of the excited ROH fluorescence. Attracted by the charged RO-base, the proton may recombine adiabatically on the S1 potential energy surface several times before its eventual escape. The ensuing reversible geminate recombination process can be described quantitatively by a reversible diffusion model,110,111 involving a spherically symmetric, time-dependent Smoluchowski equation with "back-reaction" boundary conditions (Figure 23).112 The parameters in this approach include the proton diffusion coefficient (taken from the conductivity measurements discussed above), its Coulomb attraction with the excited anion (determined from the solvent dielectric constant), and the two rate coefficients (for proton dissociation and recombination). The long-time behavior is a t-3/2 decay of the ROH signal (a straight line on a log-log scale), reflecting the probability of the random walker (the proton) to return to the origin of its random walk (the excited anion).
+
+**中文:** 绝热，留下激发的阴离子。然而，它不一定是不可逆的，这会导致激发的 ROH 荧光指数衰减。质子受到带电 RO 基的吸引，在最终逃逸之前可能会在 S1 势能表面上绝热重组数次。随后的可逆双子复合过程可以通过可逆扩散模型定量描述，110,111 涉及具有“逆反应”边界条件的球对称、时间相关的 Smoluchowski 方程（图 23）。 112 该方法中的参数包括质子扩散系数（取自上述电导率测量）、其与激发阴离子的库仑吸引力（由溶剂介电常数确定）以及两个速率系数（质子解离和重组）。长时间行为是 ROH 信号的 t-3/2 衰减（双对数标度上的直线），反映随机游走者（质子）返回其随机游走原点（受激阴离子）的概率。
+
+<a id="S090"></a>
+**Source:** p.13 S090
+
+**Original:** This behavior for ESPT kinetics has been verified after the detection technique was upgraded from streak-cameras to timecorrelated single-photon counting.113 Stronger photoacids are monitored nowadays using the up-conversion technique, because they emit their proton on a much faster time scale. For example, the time-resolved fluorescence of the dye dubbed QCy7 is due to proton ejection to water in about 0.5 ps.114 The asymptotic power-law behavior shown in Figure 23 is modified upon moving from pure water to more complex systems, such as water in reverse micelles,115 mesoporous surfaces,116 or near proteins undergoing conformational changes.117
+
+**中文:** ESPT 动力学的这种行为在检测技术从条纹相机升级到时间相关的单光子计数后得到了验证。113 现在使用上转换技术监测更强的光酸，因为它们以更快的时间尺度发射质子。例如，被称为 QCy7 的染料的时间分辨荧光是由于约 0.5 ps 内的质子喷射到水中所致。114 图 23 所示的渐近幂律行为在从纯水转移到更复杂的系统（例如反胶束中的水、115 中孔表面、116 或靠近经历构象变化的蛋白质）时会发生变化。 117
+
+<a id="S091"></a>
+**Source:** p.13 S091
+
+**Original:** One wonders whether spherically symmetric diffusion for a single translational coordinate (the proton-photobase separation, r) is not an oversimplified model for PT reactions in liquids.115 In comparison, molecular simulations follow the location and velocity of every atom, so one may search for an analogous mechanism there. For simplicity, let us consider H3O+ as the proton donor. Then, from a given trajectory of protonated water one may compute a correlation function, c(t), that depicts the probability of the excess proton to reside at time t on the same H3O*+ oxygen, O*, to which it was bound at
+
+**中文:** 人们想知道单个平移坐标的球对称扩散（质子-光碱分离，r）是否不是液体中 PT 反应的过于简化的模型。 115 相比之下，分子模拟遵循每个原子的位置和速度，因此人们可以在那里寻找类似的机制。为简单起见，我们将 H3O+ 视为质子供体。然后，根据质子化水的给定轨迹，我们可以计算出相关函数 c(t)，该函数描述了过量质子在时间 t 驻留在其所结合的相同 H3O*+ 氧 O* 上的概率。
+
+<a id="S092"></a>
+**Source:** p.14 S092
+
+**Original:** from 8-hydroxypyrene-1,3,6-trisulfonate (HPTS) that was irradiated with a picosecond laser. The time-resolved fluorescence signal from the undissociated photoacid, detected by a streak-camera apparatus and corrected for its radiative lifetime, is depicted by dots. Irreversible proton dissociation would give rise to a single exponential decay, which is not the observed behavior. The reversibility of the reaction leads, in conventional chemical kinetics, to biexponential decay (upper dashed line) that does not fit the data at long times. The solution of the time-dependent Smoluchowski equation with reversible boundary conditions (convoluted with the instrument response function, lower dashed line) is depicted by the full line that goes through the data points. Its (analytically derived) asymptotic power-law behavior is the straight dotted line. Reproduced from ref 110 with permission. Copyright 1988 American Institute of Physics.
+
+**中文:** 来自用皮秒激光照射的 8-羟基芘-1,3,6-三磺酸盐 (HPTS)。来自未解离光酸的时间分辨荧光信号由条纹相机装置检测并校正其辐射寿命，用点表示。不可逆的质子解离会引起单一指数衰变，这不是观察到的行为。在传统化学动力学中，反应的可逆性导致双指数衰减（上方虚线），这与长时间的数据不相符。具有可逆边界条件的瞬态 Smoluchowski 方程的解（与仪器响应函数，下部虚线进行卷积）由穿过数据点的实线表示。它的（分析得出的）渐近幂律行为是直线虚线。经许可转载自参考文献 110。版权所有 1988 美国物理研究所。
+
+<a id="S093"></a>
+**Source:** p.14 S093
+
+**Original:** t = 0.118 The result in Figure 24 shows similar behavior to the experimental t-3/2 asymptotic decay. However, it fits a slightly more complex model, with a distance-dependent diffusion coefficient, D(r), for the relative H+O* motion. At small
+
+**中文:** t = 0.118 图 24 中的结果显示了与实验 t-3/2 渐近衰减类似的行为。然而，它适合一个稍微复杂的模型，具有用于相对 H+O* 运动的距离相关扩散系数 D(r)。小时
+
+<a id="S094"></a>
+**Source:** p.14 S094
+
+**Original:** separations D(r) diminishes, reflecting the stronger HBs near the excess charge (cf. the O0O1 HB in Figure 6).65
+
+**中文:** 分离 D(r) 减小，反映了过量电荷附近更强的 HB（参见图 6 中的 O0O1 HB）。65
+
+<a id="S095"></a>
+**Source:** p.14 S095
+
+**Original:** 2.3.5.2. ESPT to Base. The PT reaction from a photoacid (HPTS) to an accepting base (acetate) in liquid water has been studied with femtosecond mid-IR laser pulses.119-125 In this approach, PT is probed by detecting the vibrational resonances of the photoacid, the conjugate photobase, the hydrated proton, and the accepting base with time-delayed infrared probe pulses. Thereby a complete picture of the PT reaction can be obtained. The time the proton needs to leave the photoacid is detected by measuring the responses of the photoacid and its conjugate photobase. The uptake of the proton in water is detected by measuring the transient response of the hydrated proton, and the arrival at the base is detected by measuring the vibrational response of the conjugate acid of the accepting base (acetic acid). In Figure 25, the vibrational response of the proton/ deuteron vibrations is shown as a function of delay with respect to the excitation of HPTS for different acetate base concentrations.
+
+**中文:** 2.3.5.2. ESPT 至基地。使用飞秒中红外激光脉冲研究了液态水中从光酸 (HPTS) 到接受碱（乙酸盐）的 PT 反应。119-125 在这种方法中，通过使用延时红外探测脉冲检测光酸、共轭光碱、水合质子和接受碱的振动共振来探测 PT。从而可以获得PT反应的完整图像。通过测量光酸及其共轭光碱的响应来检测质子离开光酸所需的时间。通过测量水合质子的瞬态响应来检测水中质子的吸收，通过测量接受碱（乙酸）的共轭酸的振动响应来检测是否到达碱。在图 25 中，质子/氘核振动的振动响应显示为不同乙酸盐碱浓度下 HPTS 激发的延迟函数。
+
+<a id="S096"></a>
+**Source:** p.14 S096
+
+**Original:** The PT reaction is observed to be highly nonexponential, which can be explained by the presence of a distribution of acid-base distances in solution before the excitation by the pump pulse.119-125 PT will be fast if the nearest accepting base is close to the excited photoacid and slow when the nearest base is separated by many water molecules. The distribution of reaction rates for different photoacidbase separations has been modeled in different ways. In one approach, the generation and reaction rate of each waterseparated acid-base complex was described independently from the other acid-base complexes, which results in a large number of independent rate constants.119-121 In another approach, the PT dynamics is described with a model in which the PT rate coefficient decreases by the same factor for every additional water molecule separating the acid from the base.122,123,125 For the acetate base it was found that, at a concentration of 1 M, most PT events take place in reaction complexes in which the photoacid and the acetate base are separated by two or three water molecules.
+
+**中文:** 观察到 PT 反应是高度非指数的，这可以通过泵脉冲激发之前溶液中酸碱距离分布的存在来解释。如果最近的接受碱基靠近激发的光酸，119-125 PT 会很快，而当最近的碱基被许多水分子分开时，PT 会很慢。不同光酸碱分离的反应速率分布已以不同方式建模。在一种方法中，每个水分离的酸碱络合物的生成和反应速率均独立于其他酸碱络合物进行描述，从而产生大量独立的速率常数。119-121 在另一种方法中，用模型描述 PT 动力学，其中每增加一个将酸与碱分离的水分子，PT 速率系数就会降低相同的系数。122,123,125 对于乙酸盐碱，我们发现，在浓度为 1 M 时，最PT 事件发生在反应复合物中，其中光酸和乙酸盐碱被两个或三个水分子分开。
+
+<a id="S097"></a>
+**Source:** p.14 S097
+
+**Original:** The comparison of the left and right panels of Figure 25 shows that PT to the base has a significant kinetic isotope effect (KIE) of 1.5 (note the difference in horizontal time axes). This KIE suggests that the reaction rate is not determined by diffusion of the base, as proposed earlier.126,127 In such a scenario, one would expect to find a KIE of ∼1.2, the ratio of the viscosities of D2O and H2O. A KIE of 1.5 is very similar to that of the mobility of free hydrated protons/deuterons in H2O/D2O. This supports PT via a Grotthuss-type conduction mechanism. The PT from the photoacid to the base thus likely involves conduction via short-lived wires of water molecules connecting the photoacid and the base (short time scale) or that the proton is first transferred to water and later taken up (scavenged) by the base (longer time scales). At low concentrations and for weak bases, it was shown that the second conducting channel becomes more pronounced,128
+
+**中文:** 图 25 左图和右图的比较表明，PT 对底座具有显着的动力学同位素效应 (KIE)，为 1.5（注意水平时间轴的差异）。该 KIE 表明，反应速率并非由碱的扩散决定，如之前提出的。126,127 在这种情况下，人们预计会发现 KIE 约为 1.2，即 D2O 和 H2O 的粘度比。 1.5 的 KIE 与 H2O/D2O 中自由水合质子/氘核的迁移率非常相似。这通过 Grotthuss 型传导机制支持 PT。因此，从光酸到碱的 PT 可能涉及通过连接光酸和碱的短命水分子线进行传导（短时间尺度），或者质子首先转移到水中，然后被碱吸收（清除）（较长时间尺度）。在低浓度和弱碱的情况下，第二个导电通道变得更加明显，128
+
+<a id="F024"></a>
+### Figure 23
+
+**Placed near:** p.14 S097  
+**Source:** p.14 F024
+
+![Figure 23](assets/fig23-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 23. First reported power-law kinetics in ESPT to water,110,111
+
+**中文图注:** 图 23. 首次报道 ESPT 对水的幂律动力学，110,111
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="F025"></a>
+### Figure 24
+
+**Placed near:** p.14 S097  
+**Source:** p.14 F025
+
+![Figure 24](assets/fig24-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 24. Simulated (MS-EVB3) time evolution of the probability of the excess proton to reside on the oxygen atom (O*) to which it was initially bound (full lines), depicted on a log-log scale. A biexponential (dashed magenta line) clearly does not fit the data. A model with a fixed (small, D0, or large, D∞) diffusion constant also misses the data (dashed red lines). A model in which the diffusion constant increases (from D0 to D∞) as a function of r is in quantitative agreement with these simulations. Reproduced from ref 118 with permission. Copyright 2010 American Chemical Society.
+
+**中文图注:** 图 24. 过量质子驻留在其最初结合的氧原子 (O*) 上的概率的模拟 (MS-EVB3) 时间演变（实线），以双对数刻度表示。双指数（洋红色虚线）显然不适合数据。具有固定扩散常数（小 D0 或大 D∞）的模型也会丢失数据（红色虚线）。扩散常数作为 r 的函数而增加（从 D0 到 D∞）的模型与这些模拟在数量上一致。经许可转载自参考文献 118。版权所有 2010 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S098"></a>
+**Source:** p.14 S098
+
+**Original:** indicating that the pKa difference between acid and base plays a role in determining the strength of the water wires connecting them.128
+
+**中文:** 表明酸和碱之间的 pKa 差异在决定连接它们的水线的强度方面发挥着作用。 128
+
+<a id="S099"></a>
+**Source:** p.14 S099
+
+**Original:** The temperature dependence of photoacid to base PT kinetics is shown in Figure 26.124 A generalized Smoluchowski model is capable of fitting this data over the whole time regime (fs to ps). Smoluchowski theory129,130 treats the irreversible reaction A + B →products, for a single, static A molecule
+
+**中文:** 光酸与基本 PT 动力学的温度依赖性如图 26.124 所示。广义 Smoluchowski 模型能够在整个时间范围内（fs 到 ps）拟合该数据。 Smoluchowski 理论 129,130​​ 处理单个静态 A 分子的不可逆反应 A + B →产物
+
+<a id="F026"></a>
+### Figure 25
+
+**Placed near:** p.14 S099  
+**Source:** p.15 F026
+
+![Figure 25](assets/fig25-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 25. Response of the proton/deuteron vibrations as a function of the pump-probe delay for solutions of 10 mM HPTS and 1, 2, and 4 M acetate in (a) H2O and (b) D2O. In the insets, the response measured in the first 20 ps is shown, illustrating the highly nonexponential character of the PT reaction. The solid lines are calculated using a conduction model in which the rate of transfer decreases by a constant factor for every additional water molecule in the short-living hydrogen-bonded water wire connecting the acid and the base. Reproduced from ref 123 with permission. Copyright 2008 American Chemical Society.
+
+**中文图注:** 图 25. 对于 10 mM HPTS 和 1、2 和 4 M 醋酸盐在 (a) H2O 和 (b) D2O 中的溶液，质子/氘核振动的响应与泵浦探针延迟的函数关系。插图中显示了前 20 ps 内测得的响应，说明了 PT 反应的高度非指数特征。实线是使用传导模型计算的，其中连接酸和碱的短寿命氢键水线中每增加一个水分子，传输速率就会降低一个常数因子。经许可转载自参考文献 123。版权所有2008 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S100"></a>
+**Source:** p.15 S100
+
+**Original:** surrounded by a uniform distribution of B molecules. The survival probability of A (i.e., the probability that it has not reacted with any of the B's by time t) is then calculated from the probability distribution of an AB pair, p(r,t). The latter obeys a spherically symmetric diffusion equation with a "sink term", k(r), depicting PT within an AB pair separated by distance r. For very short times (say, t < 1 ps) diffusion can be neglected, and then p(r,t) = exp[-k(r)t] is a function of the distance, r, at which the pair was "born". Those born at short separations give rise to the sharp initial decay seen in Figure 26. The slowing down at longer times is due to pairs born at larger distances that require mass diffusion to bring them to distances amenable to PT. Interestingly, the fit to the experimental data reveals an inverse temperature dependence of k(r), which decreases with increasing temperature, T. This suggests concerted proton translocation along water wires: raising T disrupts the wires, rendering concerted PT less probable.
+
+**中文:** 周围有均匀分布的 B 分子。然后根据 AB 对的概率分布 p(r,t) 计算 A 的生存概率（即，到时间 t 时它尚未与任何 B 发生反应的概率）。后者遵循带有“汇项”k(r) 的球对称扩散方程，描述了以距离 r 分隔的 AB 对内的 PT。对于非常短的时间（例如，t < 1 ps），可以忽略扩散，然后 p(r,t) = exp[-k(r)t] 是该对“诞生”时距离 r 的函数。那些在短距离处诞生的配对会产生如图 26 所示的急剧初始衰减。较长时间内的减速是由于在较大距离处诞生的配对需要质量扩散才能将它们带到适合 PT 的距离。有趣的是，与实验数据的拟合揭示了 k(r) 的反温度依赖性，它随着温度 T 的升高而减小。这表明沿着水线的一致质子易位：升高 T 会破坏水线，使得一致 PT 的可能性较小。
+
+<a id="S101"></a>
+**Source:** p.15 S101
+
+**Original:** Unlike proton hops between water molecules, here proton translocation involves a strong driving force from the photoacid to the acetate base. These scenarios have been tested by first-principles simulations of model acid-base pairs131 (or just proton-base pairs),132
+
+**中文:** 与水分子之间的质子跳跃不同，这里的质子易位涉及从光酸到乙酸盐碱的强大驱动力。这些场景已经通过模型酸碱对131（或质子碱对）的第一性原理模拟进行了测试，132
+
+<a id="S102"></a>
+**Source:** p.15 S102
+
+**Original:** finding evidence for both concerted and stepwise acid-to-base PT along water wires in liquid water. Concerted proton translocation occurs when the water molecules along the water wire are all four-coordinated, so that they cannot stabilize the proton as a transient hydronium cation.
+
+**中文:** 寻找液态水中沿水线协同和逐步酸碱 PT 的证据。当沿着水线的水分子都是四配位时，就会发生协同质子易位，因此它们不能将质子稳定为瞬态水合氢阳离子。
+
+<a id="S103"></a>
+**Source:** p.15 S103
+
+**Original:** 3. H+ AND OH-AT EXTENDED HYDROPHOBIC INTERFACES Reducing the dimensionality of the liquid from the bulk (3D) to an extended surface (2D, with a radius of curvature that is larger relative to molecular dimensions) has notable effects on the properties of the excess proton and hydroxide ion. In general, it is thought that chemical reactivity occurs more readily at an interface than in a bulk phase. Since OH-and H+ are involved in numerous biochemical reactions, it is also useful to understand the interfacial structure and dynamics of H+ and OH-and how this might be relevant in biological systems. We address the first question in this section, while the function of protons in a related biological system (the membrane/water interface) is considered in the next section. Despite the significance of the interfacial structure of acidic and basic aqueous solutions in contact with hydrophobic phases, virtually every aspect of the structure and dynamics of the excess proton and hydroxide ion at hydrophobic interfaces is either contentious or incompletely understood.
+
+**中文:** 3. H+和OH-在扩展疏水界面将液体的维度从本体（3D）降低到扩展表面（2D，曲率半径相对于分子尺寸更大）对过量质子和氢氧根离子的性质具有显着影响。一般来说，化学反应被认为在界面处比在本体相中更容易发生。由于 OH- 和 H+ 参与许多生化反应，因此了解 H+ 和 OH- 的界面结构和动力学以及这在生物系统中的相关性也很有用。我们在本节中解决第一个问题，而质子在相关生物系统（膜/水界面）中的功能将在下一节中考虑。尽管酸性和碱性水溶液与疏水相接触的界面结构很重要，但实际上疏水界面处过量质子和氢氧根离子的结构和动力学的每个方面都存在争议或不完全了解。
+
+<a id="S104"></a>
+**Source:** p.15 S104
+
+**Original:** In the following, we review experimental and theoretical views that have attempted to shed light on the structure of acidic and basic solutions in contact with hydrophobic materials. In contrast to the previous sections of this review, far fewer studies have been conducted on this topic. For example, even the question whether excess protons and hydroxide ions reside at the interface and under which conditions is heavily debated, let alone what will be the exact structure. For this reason, after reviewing the literature, we end this section with a discussion of challenges. 3.1. Experimental Probes for H+ and OH- on Surfaces
+
+**中文:** 在下文中，我们回顾了试图阐明与疏水材料接触的酸性和碱性溶液的结构的实验和理论观点。与本综述的前几节相比，有关该主题的研究要少得多。例如，即使是过量的质子和氢氧根离子是否存在于界面以及在什么条件下存在的问题也存在激烈争论，更不用说确切的结构是什么了。因此，在回顾了文献之后，我们以挑战的讨论来结束本节。 3.1.表面 H+ 和 OH- 的实验探针
+
+<a id="F027"></a>
+### Figure 26
+
+**Placed near:** p.15 S104  
+**Source:** p.15 F027
+
+![Figure 26](assets/fig26-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 26. Time-resolved infrared signal from excited HPTS in D2O at 5 °C, at different acetate concentrations (symbols). Full lines are fits to the extended Smoluchowski model in which k(r) has a Gaussian-like distance dependence. Reproduced from ref 124 with permission. Copyright 2009 American Chemical Society.
+
+**中文图注:** 图 26. 5 °C 下 D2O 中不同乙酸浓度（符号）下激发的 HPTS 的时间分辨红外信号。整条线适合扩展的 Smoluchowski 模型，其中 k(r) 具有类似高斯的距离依赖性。经许可转载自参考文献 124。版权所有 2009 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 光谱证据 的证据，建议和相邻段落一起看。
+
+
+<a id="S105"></a>
+**Source:** p.15 S105
+
+**Original:** 3.1.1. Macroscopic Measurements. Surface tension measurements probe the equilibrium reversible work needed to create a unit surface area of liquid/vapor interface from bulk water and are therefore in general sensitive to changes in both the bulk and surface structure of water. Solubility and partitioning data provide information about the exclusion or accumulation of solutes near a homogeneous nonpolar/water interface. The surface tension of the air/neat water interface is
+
+**中文:** 3.1.1.宏观测量。表面张力测量探测从本体水产生液体/蒸气界面的单位表面积所需的平衡可逆功，因此通常对水的本体和表面结构的变化敏感。溶解度和分配数据提供有关均匀非极性/水界面附近溶质的排除或积累的信息。空气/纯净水界面的表面张力为
+
+<a id="S106"></a>
+**Source:** p.16 S106
+
+**Original:** 72.7 mN m-1 at 293 K and varies weakly between pH 3 and 10 on the addition of acid or base (i.e., between 72.6 and 72.9 mN m-1).133 With continued addition of acid below pH 1, the surface tension reduces to 71.4 mN m-1, and with addition of base above pH 13, it increases to 73.4 mN m-1.133,134 In comparison, adding 1 M of NaCl to neat water increases the surface tension to 74 mN m-1. Surface tension and solubility data for NaOH and HCl in water (for ionic strengths >0.1 M) were analyzed in the framework of a two-state approximation, in which water in contact with air was divided into a bulk water and a surface water region, with each having a certain concentration of ions. Partitioning coefficients for H+ and OH-of 1.5 and 0.5 for the air/water interface and 0.6 and 0.9 for the toluene/water interface, respectively, were obtained.135
+
+**中文:** 293 K 时为 72.7 mN m-1，添加酸或碱后，pH 值 3 至 10 之间变化很小（即 72.6 至 72.9 mN m-1）。133 在 pH 值低于 1 的情况下继续添加酸，表面张力会降低至 71.4 mN m-1，在 pH 值高于 13 时添加碱，表面张力会增加至 73.4 mN m-1.133,134 相比之下，在纯水中添加 1 M 氯化钠可将表面张力增加至 74 mN m-1。 NaOH 和 HCl 在水中的表面张力和溶解度数据（离子强度 >0.1 M）在二态近似框架中进行了分析，其中与空气接触的水被分为本体水和表面水区域，每个区域都具有一定浓度的离子。空气/水界面的 H+ 和 OH- 分配系数分别为 1.5 和 0.5，甲苯/水界面的 H+ 和 OH- 分配系数分别为 0.6 和 0.9。 135
+
+<a id="S107"></a>
+**Source:** p.16 S107
+
+**Original:** In the absence of additional information, these observations suggest that at sufficiently low pH the excess proton tends to adsorb to the air/water interface, while at sufficiently high pH the OH-is excluded from it. For the oil/water interface, both ionic species appear to be repelled from the interface at high pH, but OH-less so than H+. Because we wish to gain insight into the presence of charged species at an interface, one might expect electrokinetic mobility to also offer insight into proton and hydroxide interfacial abundance. In such measurements, the mobility of bubbles, droplets, or particles in an electric field is measured. The mobility is proportional to an electrostatic potential, the ζpotential, which is generally interpreted as the potential at the edge of the diffuse electric double layer.136 Indeed, many years137 of electrokinetic measurements on air138 and N2
+
+**中文:** 在没有额外信息的情况下，这些观察结果表明，在足够低的 pH 值下，过量的质子往往会吸附到空气/水界面上，而在足够高的 pH 值下，OH- 会被排除在外。对于油/水界面，两种离子在高 pH 条件下似乎都会被界面排斥，但 OH- 的排斥程度低于 H+。因为我们希望深入了解界面上带电物质的存在，所以人们可能期望动电迁移率也能提供对质子和氢氧根界面丰度的深入了解。在此类测量中，测量电场中气泡、液滴或颗粒的迁移率。迁移率与静电势（即 ze 势）成正比，通常将其解释为扩散双电层边缘的势。 136 事实上，多年来 137 对空气 138 和 N2 进行了动电测量。
+
+<a id="S108"></a>
+**Source:** p.16 S108
+
+**Original:** bubbles, oil droplets,139,140 or extended hydrophobic surfaces all tell a similar story: that the air/water or oil/water interface has a vanishing ζ-potential at pH ≈2-3. With increasing pH, the ζ-potential becomes increasingly negative, indicating that the interface retains negative charge. This behavior is observed for many compounds,138,141 some of which are represented in Figure 27. If the excess proton or OH-are the only charged moieties in the system, it is natural to interpret these measurements as indicating that OH-adsorbs with a free energy of adsorption of 12-20 kBT to the air/water interface: the air(hydrophobic)/water interface is strongly basic.142,143
+
+**中文:** 气泡、油滴、139,140 或扩展的疏水表面都讲述了类似的故事：空气/水或油/水界面在 pH 值 ≈2-3 时具有消失的 ζ 电势。随着 pH 值的增加， z 电位变得越来越负，表明界面保留负电荷。许多化合物都观察到这种行为，138,141 其中一些如图 27 所示。如果过量的质子或 OH- 是系统中唯一的带电部分，则很自然地将这些测量结果解释为表明 OH- 以 12-20 kBT 的吸附自由能吸附到空气/水界面：空气（疏水）/水界面呈强碱性。 142,143
+
+<a id="S109"></a>
+**Source:** p.16 S109
+
+**Original:** Beattie et al. have argued that there is no discrepancy between
+
+**中文:** 比蒂等人。认为两者之间不存在差异
+
+<a id="S110"></a>
+**Source:** p.16 S110
+
+**Original:** bubbles as a function of pH. pH control is achieved by adding either HCl or NaOH. The pH of the potential of zero charge is between 2.5 and 4.5.
+
+**中文:** 气泡是 pH 值的函数。通过添加 HCl 或 NaOH 来控制 pH 值。零电荷电位的pH值在2.5至4.5之间。
+
+<a id="S111"></a>
+**Source:** p.16 S111
+
+**Original:** the surface tension and electrokinetic measurements by noting that the surface excess of H+ and OH-is coupled via the autodissociation constant of water and the Gibbs adsorption equation, and that they both change in similar but opposite ways when the pH is altered (provided that charge neutralization occurs via counterions whose nonideality can be described by bulk activity).133 For strongly acidic/basic solutions (at pH <1 and >13, i.e., those that have a pHdependent surface tension), it is not clear that this is a reasonable assumption.144 However, even for solutions at more moderate pH values, much recent work, discussed in detail below, suggests that interface-induced ion pair formation may occur. Such effects imply that even at relatively low bulk concentrations, the analysis of the electrokinetic mobility data may need to be revisited.
+
+**中文:** 通过注意到表面过量的 H+ 和 OH- 通过水的自解离常数和吉布斯吸附方程耦合，并且当 pH 值改变时，它们都以相似但相反的方式变化（假设电荷中和是通过抗衡离子发生的，其非理想性可以通过体积活性来描述）。 133 对于强酸性/碱性溶液（pH <1 和 >13，即具有 pH 依赖性表面张力的溶液），它目前尚不清楚这是一个合理的假设。144 然而，即使对于 pH 值较适中的溶液，最近的许多工作（下文详细讨论）表明也可能发生界面诱导的离子对形成。这种效应意味着即使在相对较低的体积浓度下，也可能需要重新审视动电迁移率数据的分析。
+
+<a id="S112"></a>
+**Source:** p.16 S112
+
+**Original:** It is also worth noting that a recent measurement of the potential of the quiescent air/water interface using a Kelvin probe by Shapovalov and co-workers found essentially no surface potential change between pH 4 and 9.145 However, as noted by the authors, despite experimental care, such measurements are susceptible to possible contamination by impurities that may suppress an otherwise changing surface potential. Clearly, part of the difficulty in this discussion is that one is attempting to infer molecular-scale interfacial properties, the surface excess of H+ or OH-, from macroscopic observables. Presumably, application of experimental techniques that allow extraction of molecular-scale observables of the interfacial excess proton or OH-might help clarify the appropriate molecular level interpretation of these macroscopic observables. 3.1.2. Molecular-Scale Measurements. Probing OHand the excess proton at the air/water interface experimentally is challenging in part because one needs to distinguish these moieties at the interface from the much larger number of both species in the adjoining bulk liquid phase.
+
+**中文:** 还值得注意的是，Shapovalov 及其同事最近使用开尔文探针测量静态空气/水界面的电势，发现 pH 4 和 9.145 之间基本上没有表面电势变化。然而，正如作者指出的，尽管进行了实验，这种测量结果很容易受到杂质的污染，而杂质可能会抑制表面电势的变化。显然，这一讨论的部分困难在于，人们试图从宏观可观测值推断分子尺度的界面性质，即表面过量的 H+ 或 OH-。据推测，应用允许提取界面过量质子或OH-的分子尺度可观测值的实验技术可能有助于澄清这些宏观可观测值的适当分子水平解释。 3.1.2.分子尺度测量。通过实验探测空气/水界面处的 OH 和过量质子具有挑战性，部分原因是需要将界面处的这些部分与相邻本体液相中大量的两种物质区分开来。
+
+<a id="S113"></a>
+**Source:** p.16 S113
+
+**Original:** The laser-based techniques of second-harmonic generation (SHG) and vibrational sum frequency generation (SFG) spectroscopy are interface-specific by their symmetry selection rules (see, for example, the review by Lambert and co-workers for details146) and are thus conventional methods to address this problem. SFG/SHG spectroscopy is sensitive to both vibrational resonance (SFG) and electronic resonances (SHG) of interfacial species, as well as interfacial molecular order (orientational correlations along the surface normal of all active species, SFG as well as resonant and nonresonant SHG). As such, a variety of possible changes in spectral observables, such as frequency and intensity of resonances and their change with polarization of the optical beams as a function of pH, might be expected. Petersen and Saykally conducted resonant SHG experiments on surfaces of strongly acidic and basic solutions.147,148 These measurements probed interfacial OHvia its charge transfer band, and the excess protons, via resonant excitation of counterion charge transfer bands (in absence of a direct resonance on H+).
+
+**中文:** 基于激光的二次谐波产生 (SHG) 和振动和频产生 (SFG) 光谱技术因其对称性选择规则而具有界面特定性（例如，有关详细信息，请参阅 Lambert 及其同事的评论146），因此是解决此问题的传统方法。 SFG/SHG 光谱对界面物质的振动共振 (SFG) 和电子共振 (SHG) 以及界面分子顺序（所有活性物质、SFG 以及共振和非共振 SHG 沿表面法线的方向相关性）敏感。因此，可以预期光谱可观测值会发生各种可能的变化，例如共振的频率和强度，以及它们随光束偏振的变化（作为 pH 的函数）。 Petersen 和 Saykally 在强酸性和碱性溶液的表面上进行了共振 SHG 实验。147,148 这些测量通过其电荷转移带探测界面 OH，并通过抗衡离子电荷转移带的共振激发（在 H+ 上没有直接共振的情况下）探测过量质子。
+
+<a id="S114"></a>
+**Source:** p.16 S114
+
+**Original:** The results are consistent with a scenario in which interfacial adsorption of the excess proton from strongly acidic solutions is energetically favorable, while in strongly basic solutions, OH-adsorption is either weak or unfavorable. In contrast, a nonresonant SHG study149 of the hexadecane/water interface found that the SHG intensity increases above pH 9 and levels offfrom 10 to 12, whereas the signal from NaCl solutions remained flat throughout this region (see Figure 28A). This signal was interpreted by the authors to be the result of the increasing order of interfacial water with pH increasing from 8 to 10. One possible cause of such increasing
+
+**中文:** 结果与以下情况一致：强酸性溶液中过量质子的界面吸附在能量上是有利的，而在强碱性溶液中，OH 吸附要么较弱，要么不利。相比之下，十六烷/水界面的非共振二次谐波研究149发现，二次谐波强度在 pH 值高于 9 时增加，并从 10 降至 12，而来自 NaCl 溶液的信号在整个区域保持平坦（见图 28A）。作者将这一信号解释为随着 pH 从 8 增加到 10，界面水顺序递增的结果。这种增加的一个可能原因
+
+<a id="F028"></a>
+### Figure 27
+
+**Placed near:** p.16 S114  
+**Source:** p.16 F028
+
+![Figure 27](assets/fig27-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 27. ζ-potential of oil droplets140,139 and air138 and N2
+
+**中文图注:** 图 27. 油滴 140,139 以及空气 138 和 N2 的 z 电位
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="S115"></a>
+**Source:** p.17 S115
+
+**Original:** order could be adsorption of OH-, which increases the interfacial electrostatic field and hence increases the order of water molecules.149
+
+**中文:** 有序可能是 OH- 的吸附，这增加了界面静电场，从而增加了水分子的有序度。 149
+
+<a id="S116"></a>
+**Source:** p.17 S116
+
+**Original:** Several authors have measured or attempted to compute the SFG spectrum of the air/water interface, since the interfacial OH stretch response should contain details about the excess of H+/OH-ions.150-153 The direct detection of the interfacial excess proton or OH-via their characteristic vibrational resonances is in principle possible, since both species give rise to distinct spectral features in both IR20,57 and Raman spectroscopy. Within the OH stretch response, as discussed above, increasing H+ concentrations lead to an increase in intensity in the red part of the spectrum, while basic solutions display an increasing spectral intensity on the blue side as well as a narrow resonance at ∼3625 cm-1 (∼2705 cm-1) for H2O (D2O).154 SFG results for strongly (pH <2) acidic solutions at the air/water interface are consistent with a scenario in which the excess proton is present at the interface. In basic solutions, interfacial water order decreases and OH-is, at most, only weakly adsorbed.
+
+**中文:** 几位作者已经测量或尝试计算空气/水界面的 SFG 光谱，因为界面 OH 拉伸响应应包含有关过量 H+/OH- 离子的详细信息。 150-153 通过其特征振动共振直接检测界面过量质子或 OH- 原则上是可能的，因为这两种物质在 IR20,57 和拉曼光谱中都会产生不同的光谱特征。在 OH 伸缩响应中，如上所述，增加 H+ 浓度会导致光谱红色部分的强度增加，而碱性溶液在蓝色一侧显示出增加的光谱强度，以及 H2O (D2O) 在 ∼3625 cm-1 (∼2705 cm-1) 处的窄共振。154 空气/水界面处强（pH <2）酸性溶液的 SFG 结果与界面处存在过量质子的情况一致。在碱性溶液中，界面水序降低，OH-最多仅被微弱吸附。
+
+<a id="S117"></a>
+**Source:** p.17 S117
+
+**Original:** Similar to the SHG measurements on both the air/water and hexadecane/water interfaces, SFG measurements at the air/water interface do not find a significant signal change that is attributable to interfacial H+/OH-at pHs at which electrokinetic measurements are made, which suggests that the surface should be strongly charged (i.e., pH 6-9). The planar CCl4/water interface was measured by Richmond and co-workers using SFG spectroscopy for aqueous phases at pH 9.87 and 2.45 and under pH-neutral conditions.155 Here, as
+
+**中文:** 与空气/水和十六烷/水界面上的 SHG 测量类似，空气/水界面处的 SFG 测量没有发现可归因于进行动电测量时的界面 H+/OH- 的 pH 值的显着信号变化，这表明表面应带强电荷（即 pH 6-9）。 Richmond 及其同事在 pH 值 9.87 和 2.45 以及 pH 中性条件下使用 SFG 光谱法测量了平面 CCl4/水界面。 155 这里，如
+
+<a id="S118"></a>
+**Source:** p.17 S118
+
+**Original:** can be seen from Figure 28B, at high pH there are changes in the blue part of the spectrum, while at low pH there are changes in the red part of the spectrum. As described above, these observations are consistent with the presence of H+/OHat low/high pH at the air/water interface but are indirect (the subtle changes in line shape observed may also have other origins). SFG spectra from octadecyltrichlorosilane (OTS)/ water films were also shown to change as a function of bulk pH156,158 (Figure 28C). The main features that change with pH are the broad OH stretch band around 3200 cm-1, which increases with pH, and the phase difference between the imaginary and real part of the OH and the CH modes of the OTS molecules (not shown in the figure).
+
+**中文:** 从图28B中可以看出，在高pH时，光谱的蓝色部分发生变化，而在低pH时，光谱的红色部分发生变化。如上所述，这些观察结果与空气/水界面低/高 pH 条件下 H+/OH 的存在一致，但是间接的（观察到的线形状的细微变化也可能有其他来源）。十八烷基三氯硅烷 (OTS)/水膜的 SFG 光谱也显示出随本体 pH156,158 的变化而变化（图 28C）。随 pH 值变化的主要特征是 3200 cm-1 左右的宽 OH 伸缩带（该伸缩带随 pH 值增加而增加），以及 OTS 分子的 OH 模式和 CH 模式之间的相位差（图中未显示）。
+
+<a id="S119"></a>
+**Source:** p.17 S119
+
+**Original:** In the first study of this system by Ye et al., these pH-dependent changes were attributed to changes in water structure involving defects in the monolayer.158 Subsequently, Tyrode and Liljeblad,159 monitoring the quality of OTS monolayer formation via advancing, retreating, and static contact angle measurements, confirmed that the peak intensity around 3300 cm-1 likely originates from defects in the OTS monolayer (although they did not address the pH dependence of their response). In a subsequent paper from the Shen group on the pH dependence of the silica/OTS/ water interfacial OH stretch response, the influence of monolayer defects on the spectral response was not considered.156 Instead the observed spectral changes were attributed to water structure changes with H+/OH-adsorption at low/high pH with OH-adsorption being more favorable (see Figure 28C). The planar polydimethylsiloxane (PDMS)/ water interface was investigated as a function of pH by Bakker and co-workers. They found a similar trend as on the OTS/ water interface: an increasing SFG signal with increasing pH.160
+
+**中文:** 在 Ye 等人对该系统的首次研究中，这些 pH 依赖性变化归因于涉及单层缺陷的水结构变化。 158 随后，Tyrode 和 Liljeblad，159 通过前进、后退和静态接触角测量监测 OTS 单层形成的质量，证实 3300 cm-1 附近的峰值强度可能源自 OTS 单层中的缺陷（尽管他们没有解决其响应的 pH 依赖性）。在 Shen 小组随后发表的一篇关于二氧化硅/OTS/水界面 OH 拉伸响应的 pH 依赖性的论文中，没有考虑单层缺陷对光谱响应的影响。 156 相反，观察到的光谱变化归因于水结构的变化，在低/高 pH 下，H+/OH 吸附更有利（见图 28C）。 Bakker 及其同事研究了平面聚二甲基硅氧烷 (PDMS)/水界面与 pH 值的函数关系。他们发现了与 OTS/水界面类似的趋势：SFG 信号随着 pH 值的增加而增加。160
+
+<a id="F029"></a>
+### Figure 28
+
+**Placed near:** p.17 S119  
+**Source:** p.17 F029
+
+![Figure 28](assets/fig28-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 28. pH-dependent SHG and SFG data for various interfaces: (A) pH-dependent nonresonant SHG intensity measured from the planar hexadecane/water interface (Reproduced from ref 149 with permission. Copyright 2015 Royal Society of Chemistry.); (B) SFG spectra obtained from the CCl4/water interface (Reproduced from ref 155 with permission. Copyright 2001 American Association for the Advancement of Science.); (C) SFG spectra as a function of pH from the OTS/water interface [for pH values of 11 (squares), 7.8 (triangles), 6 (stars) and 2.3 (crosses)] (Reproduced from ref 156 with permission. Copyright 2009 Elsevier.); and (D) SFG scattering intensities from hexadecane nanodroplets in water as a function of pH (Reproduced from ref 157 with permission. Copyright 2014 the National Academy of Sciences).
+
+**中文图注:** 图 28. 各种界面的 pH 依赖性 SHG 和 SFG 数据：(A) 从平面十六烷/水界面测量的 pH 依赖性非共振 SHG 强度（经许可转载自参考文献 149。版权所有 2015 英国皇家化学学会。）； (B) 从 CCl4/水界面获得的 SFG 光谱（经许可转载自参考文献 155。版权所有 2001 年美国科学促进会。）； (C) SFG 光谱作为 OTS/水界面 pH 值的函数 [pH 值为 11（正方形）、7.8（三角形）、6（星形）和 2.3（十字形）]（经许可转载自参考文献 156。版权所有 2009 Elsevier。）； (D) 水中十六烷纳米液滴的 SFG 散射强度与 pH 值的函数关系（经许可转载自参考文献 157。版权所有 2014 年美国国家科学院）。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="S120"></a>
+**Source:** p.17 S120
+
+**Original:** While the line shape of the spectral response also appears to be pH-dependent, the low spectral resolution made it difficult to correlate their observations with interfacial H+ or OHpopulations. While most electrokinetic measurements have been performed on bubbles or droplets, most SHG/SFG measurements have been performed on planar interfaces. In an attempt to remove any possible differences in the acid/base properties of hydrophobic/water interfaces as a result of interfacial curvature, SFG scattering and electrokinetic measurements were performed on the same (hexadecane) droplet system.161
+
+**中文:** 虽然光谱响应的线形似乎也与 pH 相关，但低光谱分辨率使其很难将观察结果与界面 H+ 或 OH 群体关联起来。虽然大多数电动测量是在气泡或液滴上进行的，但大多数 SHG/SFG 测量是在平面界面上进行的。为了消除由于界面曲率而导致的疏水/水界面酸/碱特性的任何可能差异，在相同的（十六烷）液滴系统上进行了 SFG 散射和电动测量。 161
+
+<a id="S121"></a>
+**Source:** p.17 S121
+
+**Original:** While this particular study found behavior similar to that observed in Figure 27 for the electrokinetic measurements, in the high-frequency range at high pH values (9, 12.5), no change in the SFG intensity was seen (see Figure 28D). To summarize, while interfacial populations of H+/OH-at low/high pH at hydrophobic/water interfaces are consistent with most SHG/ SFG measurements of these systems, the great majority of measurements find little or no change in spectral response from pH 2 to 9, a pH range over which most electrokinetic measurements find a large change in surface potential. In addition to these all-optical probes, surface-specific information has been gained by applying synchrotron-based X-ray photoemission spectroscopy (XPS) to liquid water microjets. In contrast to SFG/SHG spectroscopy, the surface sensitivity in these experiments is limited by the mean free path of electrons in liquid water, which is a function of electron kinetic energy.
+
+**中文:** 虽然这项特定研究发现与图 27 中观察到的动电测量行为类似，但在高 pH 值 (9, 12.5) 的高频范围内，未观察到 SFG 强度的变化（见图 28D）。总而言之，虽然疏水/水界面的低/高 pH 下的 H+/OH- 界面群与这些系统的大多数 SHG/SFG 测量结果一致，但绝大多数测量发现从 pH 2 到 9 的光谱响应几乎没有变化或没有变化，在这个 pH 范围内，大多数动电测量发现表面电位发生很大变化。除了这些全光学探针之外，还通过将基于同步加速器的 X 射线光电子能谱 (XPS) 应用于液态水微射流获得了表面特定信息。与 SFG/SHG 光谱相比，这些实验中的表面灵敏度受到液态水中电子平均自由程的限制，这是电子动能的函数。
+
+<a id="S122"></a>
+**Source:** p.17 S122
+
+**Original:** Hence it can be tuned by changing the incident photon energy, enabling one to extract a "surface" and "bulk" signal from the same measurement.162 In spite of the different probing depths of the all-optical and XPS approaches, the latter experiments tell a story similar to that of the former, as probed
+
+**中文:** 因此，可以通过改变入射光子能量来调整它，使人们能够从同一测量中提取“表面”和“体”信号。 162尽管全光学和 XPS 方法的探测深度不同，但后一实验讲述了与前者类似的故事，正如所探测的那样
+
+<a id="S123"></a>
+**Source:** p.18 S123
+
+**Original:** both via the OH-2pπ valence electron and O 1s core electron response; these results suggest that OH-is either not enriched or weakly repelled from the air/water interface at elevated pH.163
+
+**中文:** 均通过 OH-2pπ 价电子和 O 1s 核心电子响应；这些结果表明，在升高的 pH 值下，OH- 要么不富集，要么被微弱地排斥在空气/水界面上。 163
+
+<a id="S124"></a>
+**Source:** p.18 S124
+
+**Original:** Similar to the all-optical SHG measurements, X-ray-based probes can also be applied to probe the interfacial activity of H+/OH- indirectly, through the presence of counterions. In an example of this approach, XPS spectra (of the carbon 1s orbital) collected from solutions of formic, acetic, and butyric acid strongly suggest that both formic and acetic acids exist at the interface as fully protonated species (at the half-equivalence point) while butyric acid coexists with butyrate.164 Collectively, these measurements thus suggest that adsorption of the excess proton at the air/water interface is favorable: the air/water interface is acidic.
+
+**中文:** 与全光学 SHG 测量类似，基于 X 射线的探针也可用于通过抗衡离子的存在来间接探测 H+/OH- 的界面活性。在这种方法的一个例子中，从甲酸、乙酸和丁酸溶液中收集的 XPS 光谱（碳 1s 轨道）强烈表明，甲酸和乙酸都作为完全质子化的物质（在半当量点）存在于界面处，而丁酸与丁酸盐共存。 164 总的来说，这些测量结果表明，过量质子在空气/水界面的吸附是有利的：空气/水界面是酸性的。
+
+<a id="S125"></a>
+**Source:** p.18 S125
+
+**Original:** While in this case the counterion was the acid's conjugate base, in a subsequent study, the XPS spectrum of iodine in solution at pH values of 1, 6.8, and 13 (pH adjusted by HCl/NaOH) was concluded to suggest that interfacial concentrations of iodide were enhanced at both pH extremes.165 On the basis of complementary molecular dynamics simulation, these measurements were taken to suggest that interfacial populations of I-are enhanced at low pH because of the surface activity of the excess proton and at high pH by a salting-out effect from OH- in bulk (see Figure 29). Along similar lines, Shapovalov et al. have recently
+
+**中文:** 虽然在这种情况下，抗衡离子是酸的共轭碱，但在随后的研究中，溶液中碘在 pH 值为 1、6.8 和 13（pH 值由 HCl/NaOH 调节）时的 XPS 谱得出的结论表明，碘化物的界面浓度在两个 pH 极端值下均有所增加。 165 根据互补分子动力学模拟，这些测量结果表明，由于过量的表面活性，I- 的界面群体在低 pH 下有所增加。质子和高 pH 条件下，通过大量 OH- 的盐析效应（见图 29）。沿着类似的思路，Shapovalov 等人。最近有
+
+<a id="S126"></a>
+**Source:** p.18 S126
+
+**Original:** performed total reflection X-ray fluorescence measurements of solutions containing RbBr, at pH values of 4, 6, and 9, and found essentially no preferential enrichment of either species, suggesting that both the excess proton and OH-at most weakly adsorb to the interface at these pH values.145
+
+**中文:** 在 pH 值为 4、6 和 9 的情况下，对含有 RbBr 的溶液进行了全反射 X 射线荧光测量，发现这两种物质基本上没有优先富集，这表明过量的质子和 OH- 在这些 pH 值下最多只能微弱地吸附到界面上。 145
+
+<a id="S127"></a>
+**Source:** p.18 S127
+
+**Original:** In addition to probing the presence of H+/OH-at the air/ water interface via their optical response, one might also utilize mass spectrometric techniques. Recently, Colussi and coworkers have performed electrospray ionization mass spectrometry on liquid jets of heptanoic acid solutions.166 In their experiments, systems in which the acid is dissolved in the aqueous solution used to form a liquid jet and those in which the acid is deposited via the gas phase on the jet's surface are probed via electrospray mass spectrometry.166 By comparing the two types of samples, they conclude that, as a function of bulk pH, the surface population of heptanoate is enhanced
+
+**中文:** 除了通过光学响应探测空气/水界面上 H+/OH- 的存在之外，还可以利用质谱技术。最近，Colussi 及其同事对庚酸溶液的液体射流进行了电喷雾电离质谱分析。 166 在他们的实验中，通过电喷雾质谱法探测了酸溶解在水溶液中形成液体射流的系统和酸通过气相沉积在射流表面的系统。 166 通过比较这两种类型的样品，他们得出结论，作为本体 pH 的函数，庚酸盐的表面数量为增强型
+
+<a id="S128"></a>
+**Source:** p.18 S128
+
+**Original:** relative to that of the bulk. On the basis of cluster calculations, the authors then suggest that such surface excess is only possible if OH-is enhanced at the air/water interface at nearneutral pH: the air/water interface is basic. Whether this novel approach directly or indirectly probes interfacial H+/OH-still remains an open question. In particular, the relative time scales of autoionization and diffusional equilibrium at the interface remain unclear. Furthermore, the similarity between the electronic and dielectric properties of neat interfacial water and those inferred from the presence of interfacial carboxylate also remains an open question.167
+
+**中文:** 相对于大块而言。基于聚类计算，作者随后提出，只有在接近中性 pH 值的空气/水界面处 OH- 增强时，这种表面过量才有可能：空气/水界面是碱性的。这种新方法是否直接或间接探测界面 H+/OH- 仍然是一个悬而未决的问题。特别是，界面处自电离和扩散平衡的相对时间尺度仍不清楚。此外，纯界面水的电子和介电性质与从界面羧酸盐的存在推断出的电子和介电性质之间的相似性也仍然是一个悬而未决的问题。 167
+
+<a id="S129"></a>
+**Source:** p.18 S129
+
+**Original:** Proton adsorption at the air/water interface has been modeled coarsely by Levin and co-workers employing polarizable anion dielectric continuum theory (PA-DCT), in which the excess proton is treated as a point charge.168,169 In this model, proton adsorption is the result of a square well potential positioned at ∼1 HB length from the interface. Given this ansatz, a square well potential chosen so as to give a proton adsorption free energy of -7.5 kJ/mol results in calculated surface tensions that reproduce the experimental values for solutions of most hydrohalous acids. While useful, it is clear that such an approach assumes a lack of specific proton/anion interactions that for some systems is not correct, as discussed below. Clearly, the first step toward studying surface partitioning of OH-or the excess proton from an atomistic simulation perspective is to develop an appropriate model for both species. As discussed above, developing such a model for the bulk is already challenging. This challenge is amplified at the air/water, and indeed all, extended interfaces.
+
+**中文:** Levin 及其同事采用可极化阴离子介电连续体理论 (PA-DCT) 对空气/水界面上的质子吸附进行了粗略建模，其中多余的质子被视为点电荷。 168,169 在该模型中，质子吸附是位于距界面约 1 HB 长度处的方阱电势的结果。给定这个 ansatz，选择方井电势以给出 -7.5 kJ/mol 的质子吸附自由能，导致计算出的表面张力再现了大多数氢卤酸溶液的实验值。虽然有用，但很明显，这种方法假设缺乏特定的质子/阴离子相互作用，这对于某些系统来说是不正确的，如下所述。显然，从原子模拟的角度研究 OH- 或过量质子的表面分配的第一步是为这两种物质开发适当的模型。如上所述，为批量开发这样的模型已经具有挑战性。这一挑战在空气/水以及实际上所有扩展接口处被放大。
+
+<a id="S130"></a>
+**Source:** p.18 S130
+
+**Original:** Molecular dynamics simulations used to study the air/water interface need to be larger than those appropriate for bulk properties and must additionally sample slower interfacial structural degrees of freedom and therefore have to be simulated longer. A variety of workers have modeled the proton using classical fixed charge or polarizable models. Because such models are not reactive, typically such analyses assume that the proton exists in its E form.170-172 In this spirit, initial work by Dang found that the adsorption of the E cation is not favorable at the air/water interface.170 However, other polarizable force fields suggest that H3O+ has a favorable free energy of adsorption of ∼12.6 kJ mol-1.172 Jungwirth and co-workers have recently demonstrated that the favorability of E cation adsorption at the air/ water interface sensitively depends on the interaction of the hydronium oxygen with adjoining water molecules.171 If the hydronium accepts a weak HB, the free energy of adsorption is substantially less favorable. However, as discussed above, an essential feature of the excess proton in bulk water is its structural flexibility.
+
+**中文:** 用于研究空气/水界面的分子动力学模拟需要比适合体积特性的分子动力学模拟更大，并且必须另外采样较慢的界面结构自由度，因此必须模拟更长时间。许多研究人员使用经典的固定电荷或极化模型对质子进行了建模。由于此类模型不具有反应性，此类分析通常假设质子以 E 形式存在。170-172 本着这一精神，Dang 的初步工作发现 E 阳离子在空气/水界面的吸附并不有利。170 然而，其他极化力场表明 H3O+ 具有良好的吸附自由能 ∼12.6 kJ mol-1.172 Jungwirth 和同事最近证明了 E 阳离子吸附的有利性空气/水界面处的吸附敏感地取决于水合氢氧与相邻水分子的相互作用。171如果水合氢接受弱HB，则吸附自由能明显较差。然而，如上所述，大量水中过量质子的一个基本特征是其结构灵活性。
+
+<a id="S131"></a>
+**Source:** p.18 S131
+
+**Original:** As confinement to a two-dimensional surface will likely influence these structural dynamics, there is little evidence that a single E form is an appropriate description. To address this limitation, a variety of workers have applied MS-EVB models designed to capture the E-Z interconversion. Notably, Voth and co-workers have demonstrated that excess proton adsorption at the air/water interface is favorable by 2.18.4 kJ mol-1 (depending on the model parametrization).173-175
+
+**中文:** 由于限制在二维表面可能会影响这些结构动力学，因此几乎没有证据表明单个 E 形式是合适的描述。为了解决这一限制，许多工作人员应用了旨在捕获 E-Z 相互转换的 MS-EVB 模型。值得注意的是，Voth 和同事已经证明，空气/水界面处的过量质子吸附有利于 2.18.4 kJ mol-1（取决于模型参数化）。173-175
+
+<a id="F030"></a>
+### Figure 29
+
+**Placed near:** p.18 S131  
+**Source:** p.18 F030
+
+![Figure 29](assets/fig29-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 29. XPS spectra of 0.5 M LiI aqueous solutions in the indicated energy range. Clearly, as illustrated in the inset, I-surface propensity is enhanced in non-neutral solutions. Reproduced from ref 165 with permission. Copyright 2011 American Chemical Society.
+
+**中文图注:** 图 29. 指定能量范围内 0.5 M LiI 水溶液的 XPS 光谱。显然，如插图所示，非中性溶液中 I 面倾向增强。经许可转载自参考文献 165。版权所有 2011 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 该部分机制分析 的证据，建议和相邻段落一起看。
+
+
+<a id="S132"></a>
+**Source:** p.18 S132
+
+**Original:** The excess proton in their model is slightly delocalized. As a result, Z is more favorable at the interface than in the bulk. Köfinger and Dellago reached similar conclusions with a differently parametrized MS-EVB model.176 Neither of these models, however, explicitly account for electronic polarization. Wick developed such an MS-EVB variant and found that
+
+**中文:** 他们的模型中多余的质子稍微离域了。因此，Z 在界面处比在本体处更有利。 Köfinger 和 Dellago 使用不同参数化的 MS-EVB 模型得出了类似的结论。176 然而，这些模型都没有明确解释电子极化。 Wick 开发了这样一种 MS-EVB 变体，并发现
+
+<a id="S133"></a>
+**Source:** p.19 S133
+
+**Original:** explicitly accounting for polarizability results in an essentially flat potential of mean force as the proton is brought from the bulk to the interface (see Figure 30); i.e., surface adsorption of
+
+**中文:** 当质子从本体带到界面时，明确考虑极化率会导致平均力的势能基本平坦（见图 30）；即表面吸附
+
+<a id="S134"></a>
+**Source:** p.19 S134
+
+**Original:** the proton is not favored.177 A more recent study with a new MS-EVB model indicates that the proton is found to be attracted to the air-water interface and that this is driven by favorable enthalpic contributions. In contrast, the hydroxide ion is repelled from the interface.178
+
+**中文:** 177 最近一项新的 MS-EVB 模型研究表明，质子被发现被吸引到空气-水界面，这是由有利的焓贡献驱动的。相反，氢氧根离子被界面排斥。178
+
+<a id="S135"></a>
+**Source:** p.19 S135
+
+**Original:** There have been several studies examining H+ and OH-near water/hydrophobic interfaces from AIMD simulations. Such simulations are computationally demanding, and as a result, initial efforts by Buch et al.179 and Kudin and Car180 did not quantify the proton's free energy of adsorption. On the basis of limited statistics, the former found the excess proton to preferentially absorb to the air/water interface, while the latter found that both the H+ and OH- interact strongly with a hydrophobic surface. Potentials of mean force for adsorption of the excess proton at the air/water interface have been calculated in more recent work.181,182 While the exchange/ correlation functionals employed in the two studies differed, neither work found proton adsorption to be favorable, and the former found a 7.5 kJ mol-1 barrier for surface adsorption. Several groups have also examined adsorption of OH-at the air/water interface using empirical potentials.172,183 In general, these works find that OH-at the interface is 4.8-16.7 kJ mol-1 less stable than in the bulk.
+
+**中文:** 有几项研究通过 AIMD 模拟检验了 H+ 和 OH- 近水/疏水界面。这种模拟对计算的要求很高，因此，Buch 等人 179 以及 Kudin 和 Car 180 的最初努力并未量化质子的吸附自由能。基于有限的统计，前者发现过量的质子优先吸收到空气/水界面，而后者发现H+和OH-均与疏水表面发生强烈相互作用。在最近的工作中计算了空气/水界面上过量质子吸附的平均力势。181,182 虽然两项研究中使用的交换/相关泛函不同，但两项工作都没有发现质子吸附是有利的，并且前者发现了 7.5 kJ mol-1 的表面吸附势垒。几个小组还利用经验势研究了 OH- 在空气/水界面处的吸附。172,183 一般来说，这些工作发现界面处的 OH- 比本体中的稳定性低 4.8-16.7 kJ mol-1。
+
+<a id="S136"></a>
+**Source:** p.19 S136
+
+**Original:** MS-EVB models [also called MSRMD (reactive molecular dynamics)] developed in different ways find qualitatively similar but quantitatively different results: OH-at the interface is 0-10.5 kJ mol-1 less stable than in the bulk.184 Similar AIMD simulations predicted a 0.5 kcal mol-1 stabilization of OH-at the air/water interface.182,185
+
+**中文:** 以不同方式开发的 MS-EVB 模型 [也称为 MSRMD（反应分子动力学）] 发现了定性相似但定量不同的结果：界面处的 OH- 比本体中的稳定性低 0-10.5 kJ mol-1。184 类似的 AIMD 模拟预测，空气/水界面处的 OH- 稳定性为 0.5 kcal mol-1。182,185
+
+<a id="S137"></a>
+**Source:** p.19 S137
+
+**Original:** 3.3. Challenges for Interfacial Studies From the previous sections, it is clear that there are a number of experimental findings that suggest contradictory interfacial affinities of OH-/H+. Partially, this can be ascribed to differences between the methods. First there is the sample preparation: given that planar surfaces typically have a small surface to volume ratio, it is possible that impurities from the
+
+**中文:** 3.3.界面研究的挑战 从前面的章节可以清楚地看出，许多实验结果表明 OH-/H+ 具有矛盾的界面亲和力。部分地，这可以归因于方法之间的差异。首先是样品制备：鉴于平面表面通常具有较小的表面积与体积比，因此来自样品的杂质可能
+
+<a id="S138"></a>
+**Source:** p.19 S138
+
+**Original:** bulk phase (water, oil, solid film) influence the outcome of the experiment. Such an effect of impurities is to be suspected when subsequent experiments render different results or when they change over time.186 Using an aqueous solution of nanodroplets/particles or bubbles in water in combination with an overall small volume can reduce this problem, but this also depends on the chosen chemicals, preparation procedure, and chemical purity. SHG149 and SFG187 measurements can detect the surface influence of impurities down to micromolar concentrations. On the basis of these data, it is reasonable to assume that negligibly detectable impurity-related changes occur when >99.8% pure oils are used. In addition, defects in supported films159 or imperfect wetting in the case of oils188
+
+**中文:** 体相（水、油、固体膜）影响实验结果。当随后的实验得出不同的结果或随着时间的推移而变化时，就需要怀疑杂质的这种影响。 186 使用纳米液滴/颗粒或气泡的水溶液与整体小体积相结合可以减少这个问题，但这也取决于所选择的化学品、制备程序和化学纯度。 SHG149 和 SFG187 测量可以检测低至微摩尔浓度的杂质对表面的影响。根据这些数据，可以合理地假设，当使用 >99.8% 的纯油时，会发生可忽略不计的可检测到的杂质相关变化。此外，支撑膜的缺陷159或油的润湿不完善188
+
+<a id="S139"></a>
+**Source:** p.19 S139
+
+**Original:** can have a significant influence on the experimental outcome and thus complicate the interpretation of, for example, the data reported in Figure 28A. Second, method-related differences in the experimental observables can also play a role, for example, the probing depth of XPS, SHG, and SFG is not the same. Pulsed IR and 800 nm laser radiation can influence monolayer structure.189
+
+**中文:** 可能对实验结果产生重大影响，从而使图 28A 中报告的数据的解释复杂化。其次，实验观测值中与方法相关的差异也会发挥作用，例如 XPS、SHG 和 SFG 的探测深度不同。脉冲红外和 800 nm 激光辐射可以影响单层结构。 189
+
+<a id="S140"></a>
+**Source:** p.19 S140
+
+**Original:** Also, as nicely illustrated by Figure 28B,C, deconvoluting the spectral response of the excess proton or hydroxide ion from the broad OH stretch feature of interfacial water is not trivial. A third issue concerns the physical interpretation of experimental observables. Surface tension measurements are often thought to report on the properties of the surface state of water, but they equally report on properties of the bulk state of water.190
+
+**中文:** 此外，如图 28B、C 很好地说明的那样，从界面水的宽 OH 拉伸特征中解卷积过量质子或氢氧根离子的光谱响应并非易事。第三个问题涉及实验观测值的物理解释。表面张力测量通常被认为报告水表面状态的特性，但它们同样报告水本体状态的特性。 190
+
+<a id="F031"></a>
+### Figure 30
+
+**Placed near:** p.19 S140  
+**Source:** p.19 F031
+
+![Figure 30](assets/fig30-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 30. Potentials of mean force calculated using an MS-EVB model of the proton with and without polarizability. Clearly accounting for polarizability creates a proton whose adsorption at the air/water interface is dramatically less favored. Reproduced from ref 177 with permission. Copyright 2012 American Chemical Society.
+
+**中文图注:** 图 30. 使用具有和不具有极化性的质子的 MS-EVB 模型计算的平均力势。显然，考虑到极化率会产生一个质子，其在空气/水界面的吸附明显不那么受欢迎。经许可转载自参考文献 177。版权所有 2012 美国化学会。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S141"></a>
+**Source:** p.19 S141
+
+**Original:** Electrokinetic mobility data are interpreted to report on a surface potential using typically a point charge to replace the particle. It can also be shown that an E field across a particle with oriented water molecules generates a gradient in the chemical potential. Similar to the osmotic force, this gradient can lead to particle motion.191 Also, mean field modeling of a hydrophobic surface with mobile charge and displaying a significant slip (relevant for the oil and gas bubbles as described above) shows that compared to hydrophilic interfaces smaller charges lead to larger mobility and thus electrokinetic potentials.192 Clearly, the final verdict has not been given here, but it may well be possible that the surface charge necessary to predict the high electrokinetic mobility is much lower than what is commonly expected. For example, more sophisticated interfacial descriptions, such as a charge transfer mechanism instead of adsorbed ionic species, may rationalize the pH dependence.161,193,194
+
+**中文:** 动电迁移率数据被解释为通常使用点电荷代替颗粒来报告表面电势。还可以证明，穿过具有定向水分子的颗粒的电场会产生化学势梯度。与渗透力类似，这种梯度可以导致粒子运动。 191 此外，具有移动电荷并显示显着滑移（与上述油气气泡相关）的疏水表面的平均场模型表明，与亲水界面相比，较小的电荷导致较大的迁移率，从而导致动电势。 192 显然，这里尚未给出最终结论，但预测高动电迁移率所需的表面电荷很可能比通常预期的要低得多。例如，更复杂的界面描述，例如电荷转移机制而不是吸附的离子物质，可以使 pH 依赖性合理化。161,193,194
+
+<a id="S142"></a>
+**Source:** p.19 S142
+
+**Original:** Another interpretational controversy might arise from the assumption that the excess proton and OH-adsorb independently. Recent work has highlighted that for many solutions the counterion (anion for the excess proton and cation for OH-) determines the stability of the interfacial excess proton and OH-.182,195,196 For example, in X-ray photoemission measurements and ab initio molecular dynamics studies of the air/water interface of nitric acid solutions, it was found that the undissociated acid is substantially more energetically favorable at the air/water interface than both the H3O+···NO3 -contact ion pair (CIP) and the fully dissociated forms.197,198 Recent work calculating a potential of mean force from ab initio dynamics simulations quantifies this effect and confirms earlier qualitative conclusions from previous, less extensive, ab initio molecular dynamics studies: the molecular form is approximately 4 kcal mol-1 more stable than the CIP and more than 5.5 kcal mol-1 more stable than the fully dissociated form.182,199,200 Along similar lines, combined X-ray absorption measurements and ab initio molecular dynamics
+
+**中文:** 另一个解释争议可能源于过量质子和 OH-独立吸附的假设。最近的工作强调，对于许多溶液，抗衡离子（过量质子的阴离子和 OH- 的阳离子）决定了界面过量质子和 OH- 的稳定性。182,195,196 例如，在硝酸溶液的空气/水界面的 X 射线光电子发射测量和从头算分子动力学研究中，发现未解离的酸在空气/水界面处比两种酸在能量上更加有利。 H3O+···NO3 -接触离子对 (CIP) 和完全解离的形式。197,198 最近的工作通过从头动力学模拟计算平均力的潜力，量化了这种效应，并证实了先前不太广泛的从头分子动力学研究的早期定性结论：分子形式比 CIP 稳定大约 4 kcal mol-1，比完全解离的稳定超过 5.5 kcal mol-1 form.182,199,200 沿着类似的思路，结合 X 射线吸收测量和从头算分子动力学
+
+<a id="S143"></a>
+**Source:** p.20 S143
+
+**Original:** simulations have been taken to suggest that HCl forms persistent CIPs in solution over a wide range of acid concentrations.201,202 A recently calculated ab initio potential of mean force suggests similar structures exist at the air/water interface: here the H3O+···Cl-CIP is 0.6 kcal mol-1 more stable than the molecular acid.202 Such contact ion pair formation appears to be consistent both with molecular beam measurements at the solution/vapor interface203 that have found slow isotope exchange between vapor-deposited DCl and H2O and with VSF measurements that find essentially no interfacial molecular HCl at virtually all bulk concentrations.204
+
+**中文:** 模拟表明，HCl 在溶液中在较宽的酸浓度范围内形成持久的 CIP。201,202 最近计算的平均力从头计算势表明，空气/水界面处存在类似的结构：此处 H3O+…Cl-CIP 比分子酸稳定 0.6 kcal mol-1。202 这种接触离子对的形成似乎与溶液/蒸汽界面处的分子束测量一致，203 发现缓慢气相沉积 DCl 和 H2O 之间的同位素交换以及 VSF 测量发现，在几乎所有体积浓度下基本上没有界面分子 HCl。204
+
+<a id="S144"></a>
+**Source:** p.20 S144
+
+**Original:** From a physical point of view, there is an increasing awareness that the potential of mean force for ion pair formation and acid deprotonation may differ significantly at the air/water and hydrophobic/water interface from that in bulk water. While such phenomena are clearly important chemically, e.g., effectively HNO3 is a dramatically weaker acid at the air/ water interface than in the bulk, their quantification may help to reconcile apparent inconsistencies between experimental observables. For example, undissociated acids/bases do not contribute to interfacial charging and thus will drastically decrease interfacial water ordering and the free energy of adsorption of subsequent counterions relative to their dissociated analogs. The exploration of such phenomena is in its infancy. X-ray photoemission measurements as a function of ion concentration and ion pair are capable of providing such insight as SFG measurements provide information about the internal vibrations.
+
+**中文:** 从物理角度来看，人们越来越认识到，离子对形成和酸去质子化的平均力的潜力在空气/水和疏水性/水界面处可能与本体水中存在显着差异。虽然这些现象在化学上显然很重要，例如，实际上，HNO3 在空气/水界面上是一种比在本体中弱得多的酸，但它们的量化可能有助于调和实验观察值之间明显的不一致。例如，未离解的酸/碱不会促进界面充电，因此将大大降低界面水的有序性以及相对于其离解类似物的后续抗衡离子的吸附自由能。对此类现象的探索还处于起步阶段。作为离子浓度和离子对函数的 X 射线光电发射测量能够提供洞察力，就像 SFG 测量提供有关内部振动的信息一样。
+
+<a id="S145"></a>
+**Source:** p.20 S145
+
+**Original:** In the latter case, 2D IR-SFG measurements applied to intramolecular vibrations may provide similar insight into interfacial ion clustering and dynamics as that gained from 2D IR measurements in bulk (see discussion of both points elsewhere in this issue), although, with the average duration of the experiment being several hours, it may require heroic efforts in terms of purity and system stability. To summarize, the behavior of water at hydrophobic interfaces in the context of the propensity for it to attract hydronium or hydroxide ions remains a hotly debated issue. Given experimental and simulation-based local probes, the pHdependent surface charge at the air/water interface inferred from bubble and droplet surface potential measurements is difficult to understand. As mentioned in the above paragraphs, it may well be that the standard interpretation205 needs adjustment. Ideally, experiments on the hydrophobic/water interface that provides simultaneous insight into surface charging and the interfacial structure of all constituents under conditions of controllable shear would be very insightful.
+
+**中文:** 在后一种情况下，应用于分子内振动的 2D IR-SFG 测量可以提供与批量 2D IR 测量类似的界面离子簇和动力学洞察（请参阅本期其他地方对这两点的讨论），尽管实验的平均持续时间为几个小时，可能需要在纯度和系统稳定性方面做出巨大的努力。总而言之，水在疏水界面上吸引水合氢离子或氢氧根离子的行为仍然是一个备受争议的问题。考虑到基于实验和模拟的局部探针，从气泡和液滴表面电势测量推断出的空气/水界面的 pH 依赖性表面电荷很难理解。正如上文所述，标准解释205很可能需要调整。理想情况下，疏水/水界面上的实验可以同时了解可控剪切条件下所有成分的表面电荷和界面结构，这将是非常有洞察力的。
+
+<a id="S146"></a>
+**Source:** p.20 S146
+
+**Original:** Sum frequency scattering measurements combined with electrokinetic mobility measurements provide one ingredient to further build upon,161 as well as SFG experiments in microfluidic devices probing hydrophilic interfaces under shear.206 Combining surface charge and surface structure under carefully explained slip conditions would go a long way in clarifying some of the inconsistencies, as would further work on interpretational questions related, for example, to the probing depth of the various nonlinear optical methods. In addition, combining XPS and SHG/SFG experiments might help to disentangle the molecular structure of acidic, neutral, and basic aqueous interfaces.
+
+**中文:** 和频散射测量与动电迁移率测量相结合，为进一步构建提供了一种成分，161 以及在剪切下探测亲水界面的微流体装置中的 SFG 实验。 206 在仔细解释的滑移条件下结合表面电荷和表面结构将大大有助于澄清一些不一致之处，也将进一步解决与各种非线性光学方法的探测深度相关的解释问题。此外，结合 XPS 和 SHG/SFG 实验可能有助于解开酸性、中性和碱性水界面的分子结构。
+
+<a id="S147"></a>
+**Source:** p.20 S147
+
+**Original:** 4. PROTONS AT THE MEMBRANE/WATER INTERFACE In the previous section, we discussed the propensity of protons and hydroxide ions for hydrophobic surfaces like the air/water interface. Most of the evidence in this context suggests that the
+
+**中文:** 4. 膜/水界面处的质子在上一节中，我们讨论了质子和氢氧根离子对于疏水表面（如空气/水界面）的倾向。这方面的大多数证据表明
+
+<a id="S148"></a>
+**Source:** p.20 S148
+
+**Original:** binding free energy of protons to these interfaces is comparable to thermal energy at room temperature. In the current section, we discuss the properties of protons at the membrane/water interface, where apparently the propensity for protons appears to be significantly larger. This increased affinity is one of the many consequences of a profoundly altered interface structure: the hydrophobic membrane interior is shielded from water by polar moieties (e.g., carbonyl groups) and most often also by charged groups (e.g., phosphate moieties) (Figure 31), which
+
+**中文:** 质子与这些界面的结合自由能与室温下的热能相当。在本节中，我们讨论膜/水界面处的质子特性，显然质子的倾向似乎明显更大。这种亲和力的增加是界面结构发生深刻改变的众多后果之一：疏水膜内部通过极性部分（例如，羰基）和最常见的带电基团（例如，磷酸盐部分）与水隔离（图 31），这
+
+<a id="F032"></a>
+### Figure 31
+
+**Placed near:** p.20 S148  
+**Source:** p.20 F032
+
+![Figure 31](assets/fig31-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 31. Proton transfer to a lipid-anchored pH-sensitive dye. In equilibrium, the residence time of a proton on titratable residues can be calculated. If it was a determinant of proton mobility, the surface diffusion constants of protons on different lipids should differ by orders of magnitude.
+
+**中文图注:** 图 31.质子转移至脂质锚定 pH 敏感染料。在平衡状态下，可以计算质子在可滴定残留物上的停留时间。如果它是质子迁移率的决定因素，那么质子在不同脂质上的表面扩散常数应该有几个数量级的差异。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S149"></a>
+**Source:** p.20 S149
+
+**Original:** are both able to attract protons. Second, membrane lipids are strongly hydrated, as indicated by the high penalty for removing all water separating lipid bilayers; e.g., an energy of 5 kcal per mole of lipid molecules is needed to bring egg phosphatidylcholine bilayers into contact.207
+
+**中文:** 两者都能够吸引质子。其次，膜脂具有很强的水合性，如去除所有水分离脂双层的高惩罚所表明的那样；例如，每摩尔脂质分子需要 5 kcal 的能量才能使鸡蛋磷脂酰胆碱双层接触。207
+
+<a id="S150"></a>
+**Source:** p.20 S150
+
+**Original:** The more favorable binding free energy of protons to the water/membrane interface than to the air/water one enables membrane interfaces to act as proton pathways; i.e., protons are thought to move along membranes via a hopping mechanism. This is markedly different from proton diffusion in biological aqueous solutions, which usually contain buffers in concentrations that exceed the free proton concentration by orders of magnitude. Thus, under physiological conditions, proton transport through the bulk does not occur via a protonhopping mechanism but via the (much slower) diffusion of buffer molecules that carry the protons.
+
+**中文:** 质子与水/膜界面的结合自由能比与空气/水的结合自由能更有利，使得膜界面能够充当质子通道；即，质子被认为通过跳跃机制沿着膜移动。这与生物水溶液中的质子扩散明显不同，后者通常含有浓度超过游离质子浓度几个数量级的缓冲液。因此，在生理条件下，质子在本体中的传输不是通过质子跳跃机制发生的，而是通过携带质子的缓冲分子的（慢得多）扩散发生的。
+
+<a id="S151"></a>
+**Source:** p.20 S151
+
+**Original:** By providing the shortest pathway and the fastest means of transport, membrane surfaces gain special importance in bioenergetics: the first step in energy transduction in biological systems (e.g., photosynthetic bacteria, mitochondria) is proton pumping across a membrane by a specialized protein (e.g., bacteriorhodopsin, cytochrome c oxidase), creating a pH gradient that in a second step can be utilized to synthesize ATP (the energy "currency" of the cell) or provide the driving force for membrane transport (e.g., ion pumps, protein translocation channels).3 The pumped protons may not be immediately released into the bulk of the aqueous phase but may migrate in the confinement of the membrane/water interface toward the proton-consuming membranal proteins, where they energize an enzymatic reaction, e.g., ATP synthesis. Such a link between sites of proton release and proton consumption is thought to be more efficient than the exchange
+
+**中文:** 通过提供最短的路径和最快的运输方式，膜表面在生物能学中变得特别重要：生物系统（例如光合细菌、线粒体）中能量转导的第一步是通过特殊蛋白质（例如细菌视紫红质、细胞色素 c 氧化酶）将质子泵过膜，产生 pH 梯度，第二步可用于合成 ATP（细胞的能量“货币”）或提供驱动力膜运输（例如，离子泵、蛋白质易位通道）。3 泵送的质子可能不会立即释放到大部分水相中，但可能在膜/水界面的限制中向消耗质子的膜蛋白迁移，在那里它们激发酶促反应，例如 ATP 合成。质子释放点和质子消耗点之间的这种联系被认为比交换更有效
+
+<a id="S152"></a>
+**Source:** p.21 S152
+
+**Original:** via diffusion through the liquid bulk.208 It also implies that pH does not equilibrate even in the small volume of the mitochondria. This offers the possibility of locally regulating the proton transmembrane chemical potential. For example, the proton transporter UCP4 (uncoupling protein 4) prevents excessive transmembrane pH differences, thereby limiting the production of reactive oxygen species by proton pumps.209
+
+**中文:** 通过液体扩散。208 这也意味着即使在小体积的线粒体中，pH 值也不会平衡。这提供了局部调节质子跨膜化学势的可能性。例如，质子转运蛋白 UCP4（解偶联蛋白 4）可防止跨膜 pH 值差异过大，从而限制质子泵产生活性氧。 209
+
+<a id="S153"></a>
+**Source:** p.21 S153
+
+**Original:** The molecular mechanism of proton movement in the confinement of near-membrane water layers is not well understood. For a long time, surface protons were considered to either hop between titratable membrane moieties210,211 or along a HB network involving both titratable groups and interfacial water molecules.212 The hypotheses came from experiments that were carried out with either lipid monolayers213 or membrane fragments of purple bacteria.214,215
+
+**中文:** 近膜水层限制中质子运动的分子机制尚不清楚。长期以来，表面质子被认为要么在可滴定膜部分210,211之间跳跃，要么沿着涉及可滴定基团和界面水分子的HB网络跳跃。212这些假设来自用脂质单层213或紫色细菌膜片段进行的实验。214,215
+
+<a id="S154"></a>
+**Source:** p.21 S154
+
+**Original:** 4.1. Proton Movement along Lipid Monolayers
+
+**中文:** 4.1.质子沿着脂质单分子层运动
+
+<a id="S155"></a>
+**Source:** p.21 S155
+
+**Original:** In the early experiments by Teissie et al., protons were injected into the aqueous phase below a lipid monolayer, and their travel time was derived from the pH-dependent decline in fluorescence intensity of lipid anchored dyes at a distance of several centimeters.213 In the absence of the phosphatidylethanolamine monolayer, this time became significantly longer, as judged from the fluorescence of water-soluble dyes. The interfacial proton surface diffusion coefficient, Dp, in the presence of phosphatidylethanolamine monolayers, appeared to be larger than the proton diffusion coefficient in pure water. It varied between 1.5 × 10-4 216 and 2 × 10-3 cm2 s-1.213,216
+
+**中文:** 在 Teissie 等人的早期实验中，质子被注入脂质单层下方的水相中，其行进时间源自几厘米距离处脂质锚定染料的荧光强度随 pH 值的下降。 213 在没有磷脂酰乙醇胺单层的情况下，从水溶性染料的荧光判断，该时间明显更长。在磷脂酰乙醇胺单层存在下，界面质子表面扩散系数 Dp 似乎大于纯水中的质子扩散系数。它在 1.5 × 10-4 216 和 2 × 10-3 cm2 s-1.213,216 之间变化
+
+<a id="S156"></a>
+**Source:** p.21 S156
+
+**Original:** This large variability suggested that convection, due to a rather large injection volume, may have influenced the results.217
+
+**中文:** 这种巨大的变化表明，由于注射量相当大，对流可能会影响结果。 217
+
+<a id="S157"></a>
+**Source:** p.21 S157
+
+**Original:** Long-distance interfacial proton movement was also debated because the early experiments revealed no evidence for the delayed proton surface-to-bulk release that it requires.217 That is, subsequent to their permeation through a lipid bilayer, weak acids dissociated adjacent to the membrane surface and buffer molecules from the bulk solution appeared to immediately pick up the released protons. In contrast, protons released by more hydrophobic weak acids first traveled over the bilayer surface and continued migrating along the lipids that covered the Teflon support before being observed in the bulk by doublebarreled ion-selective microelectrodes.218 The second barrel of the microelectrodes was sensitive to Ca2+ that these weak acids (i) picked up in exchange at one interface for twice as many released protons and (ii) released at the opposite interphase. In contrast to the H+ release, the Ca2+ release was limited to the bilayer part of the membrane.
+
+**中文:** 长距离界面质子运动也受到争议，因为早期实验没有发现任何证据表明质子从表面到本体的延迟释放是必需的。 217也就是说，在它们渗透通过脂质双层后，在膜表面附近解离的弱酸和本体溶液中的缓冲分子似乎立即吸收了释放的质子。相比之下，疏水性更强的弱酸释放的质子首先穿过双层表面，并继续沿着覆盖聚四氟乙烯支撑物的脂质迁移，然后通过双管离子选择性微电极进行大量观察。 218 微电极的第二个管对 Ca2+ 敏感，这些弱酸 (i) 在一个界面处吸收，以交换两倍的释放质子，(ii) 在相反的界面处释放。与 H+ 释放相反，Ca2+ 释放仅限于膜的双层部分。
+
+<a id="S158"></a>
+**Source:** p.21 S158
+
+**Original:** Support for a delayed proton surface-to-bulk release came also from measurements of the equilibrium electrical conductance of the aqueous layers in the immediate vicinity of a monolayer surface.217 Two platinum electrodes enclosed the monolayer and reached a few millimeters into the aqueous phase. They revealed a much lower conductivity in the absence of the lipid monolayer.219 These conductivity data translate into an increase in proton concentration from 2.6 × 10-6 M in the bulk to 0.18 M in a 1 nm thick volume element adjacent to a phosphatidylethanolamine monolayer! The calculations assume that (i) only short-range interaction forces may keep the proton at the bilayer surface and (ii) the protons retained bulk mobility. However, it is questionable that protons were the only charge carriers that contributed to the electrical conductivity in the immediate vicinity of the lipid monolayers. The projected huge increase in proton surface concentration219 is in sharp contrast
+
+**中文:** 对延迟质子表面到本体释放的支持也来自对单层表面附近水层平衡电导的测量。217 两个铂电极包围单层并到达水相几毫米。他们发现，在没有脂质单层的情况下，电导率要低得多。219 这些电导率数据转化为质子浓度从本体中的 2.6 × 10-6 M 增加到邻近磷脂酰乙醇胺单层的 1 nm 厚体积元件中的 0.18 M！计算假设（i）只有短程相互作用力可以将质子保持在双层表面，（ii）质子保留整体迁移率。然而，值得怀疑的是，质子是唯一有助于脂质单层附近导电性的电荷载体。与预计的质子表面浓度219的巨大增加形成鲜明对比
+
+<a id="S159"></a>
+**Source:** p.21 S159
+
+**Original:** to (i) pH profiles that were reported by lipid-anchored pHsensitive dyes at distances between 0.2 and 1.3 nm from the membrane surface,220 and (ii) direct measurements of the protonation rate of a fluorophore by fluorescence correlation spectroscopy.221 It appeared to be equal for dyes that were anchored to an uncharged lipid bilayer and dyes that were placed into the bulk solution (for pH <7).221
+
+**中文:** (i) 由脂质锚定的 pH 敏感染料在距膜表面 0.2 至 1.3 nm 的距离处报告的 pH 曲线，220 和 (ii) 通过荧光相关光谱法直接测量荧光团的质子化速率。 221 对于锚定到不带电脂质双层的染料和放入本体溶液中的染料（pH <7）来说，这似乎是相同的。 221
+
+<a id="S160"></a>
+**Source:** p.21 S160
+
+**Original:** Taken together, the controversially discussed monolayer experiments did not conclusively demonstrate proton migration along the monolayer/water interface. Additional experimental evidence was required to demonstrate that the membrane surface may serve as a proton pathway. Experiments carried out with bacterial membrane fragments provided some of the missing pieces.
+
+**中文:** 总而言之，有争议的单层实验并没有最终证明质子沿着单层/水界面迁移。需要更多的实验证据来证明膜表面可以充当质子通路。用细菌膜碎片进行的实验提供了一些缺失的碎片。
+
+<a id="S161"></a>
+**Source:** p.21 S161
+
+**Original:** 4.2. Proton Diffusion along Bacterial Membrane Fragments
+
+**中文:** 4.2.质子沿细菌膜碎片扩散
+
+<a id="S162"></a>
+**Source:** p.21 S162
+
+**Original:** Long-range proton transfer was found along the surface of purple membrane fragments.214,215 Protons that were photoreleased to one (the extracellular) side of the membrane fragment by the integral membrane protein bacteriorhodopsin arrived at surface-bound pH-dependent dyes at the other (cytoplasmic) side of the fragment earlier than at aqueous dyes (pyranine) in the surrounding solution.214,215 Different Dp values were calculated from proton's travel time and the dimensions of the membrane fragments: Dp varied from 1 × 10-6 214 to 3 × 10-5 cm2 s-1.214,215 This discrepancy is not the only weak point of these experiments: long-range proton transfer is only one possible interpretation of the data. A transient deprotonation on the cytoplasmic surface could also explain the observations.222
+
+**中文:** 沿着紫色膜片段的表面发现了长程质子转移。214,215 由整合膜蛋白细菌视紫红质光释放到膜片段一侧（细胞外）的质子比周围溶液中的水性染料（吡喃）更早到达片段另一侧（细胞质）表面结合的 pH 依赖性染料。214,215 根据质子的传播时间和膜碎片的尺寸：Dp 从 1 × 10-6 214 到 3 × 10-5 cm2 s-1.214,215 这种差异并不是这些实验的唯一弱点：长程质子转移只是数据的一种可能解释。细胞质表面的短暂去质子化也可以解释这些观察结果。222
+
+<a id="S163"></a>
+**Source:** p.21 S163
+
+**Original:** In order to remove this ambiguity, proton movement around a bacteriorhodopsin-lipid-detergent micelle was measured with lipids of different pKa values. Accordingly, cysteineanchored pH-dependent dyes demonstrated a pKa-dependent change in signal amplitude that was taken as evidence for lateral diffusion along surface-bound buffer groups.210 However, this conclusion is also not unambiguous, because the travel time around the micelle should have increased with pKa. That is, if the protons would have moved by hopping from one headgroup to the next, their migration time should have depended on their dwell time on the lipid head groups, as the latter increases rapidly with the headgroup's pKa.223,224 The fact that an invariant Dp was observed in these experiments210 could mean that (i) the proton does not travel along lipid head groups, or (ii) the system was out of equilibrium, or both.
+
+**中文:** 为了消除这种模糊性，用不同 pKa 值的脂质测量了细菌视紫红质-脂质-去污剂胶束周围的质子运动。因此，半胱氨酸锚定的 pH 依赖性染料表现出信号幅度的 pKa 依赖性变化，这被视为沿着表面结合缓冲基团横向扩散的证据。210 然而，这个结论也不是明确的，因为胶束周围的传播时间应该随着 pKa 的增加而增加。也就是说，如果质子通过从一个头基跳跃到下一个头基而移动，那么它们的迁移时间应该取决于它们在脂质头基上的停留时间，因为后者随着头基的 pKa 迅速增加。223,224 在这些实验中观察到不变的 Dp 的事实210可能意味着 (i) 质子不沿着脂质头基移动，或 (ii) 系统失去平衡，或两者兼而有之。
+
+<a id="S164"></a>
+**Source:** p.21 S164
+
+**Original:** 4.3. Proton Migration along Lipid Bilayers
+
+**中文:** 4.3.质子沿脂质双层迁移
+
+<a id="S165"></a>
+**Source:** p.21 S165
+
+**Original:** Assuming that protons move along the membrane surface by jumping between titratable lipid head groups (Figure 31), the lateral diffusion constant, Dp, was predicted from measurements211 of the rate constant koff for proton exchange between a pH-dependent fluorescent dye and the surrounding head groups as:211
+
+**中文:** 假设质子通过在可滴定脂质头部基团之间跳跃而沿膜表面移动（图 31），则横向扩散常数 Dp 可通过测量 211 pH 依赖性荧光染料与周围头部基团之间质子交换的速率常数 koff 来预测：211
+
+<a id="S166"></a>
+**Source:** p.21 S166
+
+**Original:** where l is the average distance between two lipid molecules. To derive koff, lipid vesicles were subjected to fluorescence correlation spectroscopy and the fluctuations attributable to dye protonation were observed. For vesicles made of phosphatidic acid, Dp amounted to only 2 × 10-7 cm2 s-1.211
+
+**中文:** 其中 l 是两个脂质分子之间的平均距离。为了导出 koff，对脂质囊泡进行荧光相关光谱分析，并观察染料质子化引起的波动。对于由磷脂酸制成的囊泡，Dp 仅为 2 × 10-7 cm2 s-1.211
+
+<a id="S167"></a>
+**Source:** p.21 S167
+
+**Original:** Thus, it was 1 or 2 orders of magnitude smaller than proton diffusivity adjacent to bacterial membrane fragments (compare section 4.2). The difference cannot be attributed to membrane
+
+**中文:** 因此，它比细菌膜碎片附近的质子扩散率小 1 或 2 个数量级（比较第 4.2 节）。差异不能归因于膜
+
+<a id="S168"></a>
+**Source:** p.22 S168
+
+**Original:** proteins, as Dp on top of planar phosphatidylcholine bilayers was also much larger.218
+
+**中文:** 蛋白质，因为平面磷脂酰胆碱双层顶部的 Dp 也更大。218
+
+<a id="S169"></a>
+**Source:** p.22 S169
+
+**Original:** In order to obtain the Dp value for planar lipid bilayers, protons were photoreleased from a hydrophobic membranebound caged compound225 in a small membrane patch.225
+
+**中文:** 为了获得平面脂质双层的 Dp 值，质子从小膜片中的疏水性膜结合笼状化合物 225 中光释放。 225
+
+<a id="S170"></a>
+**Source:** p.22 S170
+
+**Original:** Membrane-anchored, pH-sensitive fluorescent dyes indicated the arrival of the protons at a distant membrane patch (Figure 32). The proton travel time between both sites was measured.
+
+**中文:** 膜锚定的 pH 敏感荧光染料表明质子到达远处的膜片（图 32）。测量了两个地点之间的质子传播时间。
+
+<a id="S171"></a>
+**Source:** p.22 S171
+
+**Original:** Dp calculations were undertaken by a Monte Carlo algorithm that revealed a satisfactory fit to the experimental fluorescence kinetics for Dp = 5.8 × 10-5 cm2 s-1.218
+
+**中文:** Dp 计算采用蒙特卡罗算法进行，显示与 Dp = 5.8 × 10-5 cm2 s-1.218 的实验荧光动力学令人满意的拟合
+
+<a id="S172"></a>
+**Source:** p.22 S172
+
+**Original:** It is impossible to explain the 2 orders of magnitude difference between measured218 and predicted211 Dp values as originating from the acidity of the lipid headgroups, because Dp appears to be independent of the pKa.226 This is best demonstrated by comparing proton mobilities on top of phosphatidyl ethanolamine (PE) and phosphatidylcholine (PC) bilayers. Assuming a diffusion-limited protonation reaction with the on-rate kon = 2 × 1010 s-1 M-1 223 and pKa values of 9.6227 and 2.5223 for PE227 and PC,223 respectively, we find koff values of 2 × 10(10-9.6) s-1 ≈5 s-1 and 2 × 10(10-2.5) s-1 ≈6.3 × 107 s-1 and the corresponding Dp values of ∼10-14 and ∼10-7 cm2 s-1, respectively (Figure 31). Using the assay depicted in Figure 32, Springer et al. measured similar rates of proton diffusion for compositionally different lipid bilayers.226
+
+**中文:** 不可能将测量 218 和预测 211 Dp 值之间的 2 个数量级差异解释为源自脂质头基的酸度，因为 Dp 似乎独立于 pKa。 226 通过比较磷脂酰乙醇胺 (PE) 和磷脂酰胆碱 (PC) 双层上的质子迁移率可以最好地证明这一点。假设扩散限制质子化反应的开启速率 kon = 2 × 1010 s-1 M-1 223，PE227 和 PC,223 的 pKa 值分别为 9.6227 和 2.5223，我们发现 koff 值为 2 × 10(10-9.6) s-1 ≈5 s-1 和 2 × 10(10-2.5) s-1 ≈6.3 × 107 s-1，相应的 Dp 值分别为 ∼10-14 和 ∼10-7 cm2 s-1（图 31）。 Springer 等人使用图 32 所示的测定法。测量了成分不同的脂质双层的类似质子扩散速率。226
+
+<a id="S173"></a>
+**Source:** p.22 S173
+
+**Original:** Fitting a system of reaction-diffusion equations to the experimental data was successful provided that an energy barrier that impedes proton surface to bulk release was artificially introduced. This procedure did not confirm the predicted 7 orders of magnitude difference between the Dp values.226 It revealed a 2-fold Dp difference between PC and PE, indicating that the model of proton hopping between titratable residues along the membrane surface is invalid.226 Instead, proton surface migration is likely to occur along ordered waters of membrane hydration.
+
+**中文:** 只要人为引入阻碍质子表面大量释放的能量势垒，就可以成功地将反应扩散方程系统与实验数据拟合。该程序并没有证实预测的 Dp 值之间有 7 个数量级的差异。226 它揭示了 PC 和 PE 之间的 2 倍 Dp 差异，表明沿膜表面可滴定残基之间的质子跳跃模型是无效的。226相反，质子表面迁移很可能沿着膜水合的有序水发生。
+
+<a id="S174"></a>
+**Source:** p.22 S174
+
+**Original:** To explain these results, two different migration models were proposed (Figure 33). According to the first model, proton
+
+**中文:** 为了解释这些结果，提出了两种不同的迁移模型（图 33）。根据第一个模型，质子
+
+<a id="F033"></a>
+### Figure 33
+
+**Placed near:** p.22 S174  
+**Source:** p.22 F033
+
+![Figure 33](assets/fig33-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 33. Gibbs activation energy ΔG⧧for proton surface-to-bulk release depends on whether the detached proton is irreversibly lost from the surface (left panel) or allowed to return to the surface (right panel). The term Rl accounts for the two models in the equation for proton surface diffusion: σ σ π = + - x t A Dt x Dt R ( , ) /(4 ) exp( /(4 ) o 2 l, where σ(x,t), σ0, A, and D are the are the proton surface density as a function of both time t and the distance x from the proton source, the initial proton surface density, a constant, and the proton surface diffusion coefficient, respectively. Rl = exp(-tkoff) for irreversible proton loss228 and Rl = (1 + [(πDt)-1/2/L0]α)-1 in quasi-equilibrium, where L0 and α are the distance over which surface and bulk protons are coupled and the dimensionality of the space orthogonal to the membrane surface where the detached protons diffuse (should be equal to 1), respectively.229
+
+**中文图注:** 图 33. 质子从表面到本体释放的吉布斯活化能 ΔG⧧ 取决于分离的质子是否不可逆地从表面损失（左图）或允许返回表面（右图）。 Rl 项说明了质子表面扩散方程中的两个模型： σ σ π = + - x t A Dt x Dt R ( , ) /(4 ) exp( /(4 ) o 2 l，其中 σ(x,t)、σ0、A 和 D 是质子表面密度，是时间 t 和距质子源距离 x 的函数、初始质子表面密度、常数和质子表面分别为不可逆质子损失的扩散系数228和准平衡状态下的Rl = (1 + [(πDt)-1/2/L0]α)-1，其中L0和α是表面质子和体质子耦合的距离以及与分离质子扩散的膜表面正交的空间维数（应等于1），分别.229
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="F034"></a>
+### Figure 32
+
+**Placed near:** p.22 S174  
+**Source:** p.22 F034
+
+![Figure 32](assets/fig32-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 32. Measurements of Dp. (Left) A horizontal planar lipid bilayer is placed on top of an inverse fluorescent microscope. A UVflash releases the protons within the red area from a membrane-bound caged compound.225 (Upper right) Proton arrival at a distant site (blue) is indicated by the drop in fluorescence intensity (blue line) of a lipid-anchored pH-dependent dye (excited in the green area). Photorelease of fluorescein from a caged compound in the red area and its fluorimetric detection in the blue area yielded a much slower diffusion constant (green line), indicating that fluorescein diffusion occurred via the aqueous bulk (Right upper panel taken from ref 218 with permission. Copyright 2003 Cell Press). Proton shuttling by buffer molecules would have yielded equally slow kinetics.
+
+**中文图注:** 图 32. Dp 测量值。 （左）水平平面脂质双层被放置在倒置荧光显微镜的顶部。紫外线闪光从膜结合的笼状化合物中释放红色区域内的质子。225（右上）质子到达远处位置（蓝色）由脂质锚定 pH 依赖性染料（在绿色区域中激发）的荧光强度（蓝线）下降表示。红色区域中笼状化合物的荧光素光释放及其在蓝色区域中的荧光检测产生了慢得多的扩散常数（绿线），表明荧光素扩散是通过水体发生的（右上图取自参考文献 218，经许可。版权所有 2003 Cell Press）。缓冲分子的质子穿梭会产生同样缓慢的动力学。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S175"></a>
+**Source:** p.22 S175
+
+**Original:** surface-to-bulk release is irreversible.228 That is, once a proton has left the surface, the probability of its return to the membrane surface is negligibly small. The second model envisions a quasi-equilibrium process; i.e., the released proton is allowed to return multiple times to the membrane surface.229
+
+**中文:** 表面到本体的释放是不可逆的。228 也就是说，一旦质子离开表面，它返回膜表面的概率就小得可以忽略不计。第二个模型设想了一个准平衡过程；即，释放的质子可以多次返回膜表面。229
+
+<a id="S176"></a>
+**Source:** p.22 S176
+
+**Original:** The Gibbs activation energy ΔG⧧for proton surface-to-bulk release was considered to be on the order of 10 kBT in the quasi-equilibrium model.229 The alternative model of an irreversible proton release from the membrane surface returns an off-rate on the order of 0.5 s-1.228 In the frame of transition state theory for rate processes at surfaces, such an off-rate would correspond to ΔG⧧= -kBT ln(koff/ν0) ≈30 kBT, if one assumes the value ν0 ≈1013 s-1 for the attempt frequency. Such an immense energy barrier cannot be explained by hydrogen bonding. An entropic barrier would be required. So far there is no experimental proof in favor of either model. However, the hypothesis of an entropic component is favored by the observation of interfacial proton migration along the decane/water interface.230 In these experiments the protons were microinjected close to the decane/water interface and their arrival at a distant spot was observed (Figure 34).
+
+**中文:** 在准平衡模型中，质子表面到本体释放的吉布斯活化能 ΔG⧧ 被认为约为 10 kBT。229 从膜表面释放不可逆质子的替代模型返回的解离速率约为 0.5 s-1.228 在表面速率过程的过渡态理论框架中，这样的解离速率将对应于 ΔG⧧= -kBT ln(koff/ν0) ≈30 kBT，如果假设尝试频率的值 ν0 ≈1013 s-1。如此巨大的能量势垒无法用氢键来解释。需要一个熵屏障。到目前为止，还没有任何实验证据支持这两种模型。然而，沿着癸烷/水界面的界面质子迁移的观察结果支持了熵成分的假设。230在这些实验中，质子被微注射到癸烷/水界面附近，并观察到它们到达了远处（图34）。
+
+<a id="S177"></a>
+**Source:** p.22 S177
+
+**Original:** Indeed, both Dp and koff differed surprisingly little from the respective values measured at the membrane/water interface,230 supporting the idea that the protons migrate along ordered interfacial water molecules. Such ordering was observed adjacent to lipid membranes as well as in the vicinity of organic solvents such as decane by vibrational sum frequency generation spectroscopy.231
+
+**中文:** 事实上，Dp 和 koff 与在膜/水界面测得的各自值相差不大，230 支持质子沿着有序界面水分子迁移的观点。通过振动和频发生光谱法，在脂质膜附近以及癸烷等有机溶剂附近观察到了这种排序。 231
+
+<a id="S178"></a>
+**Source:** p.22 S178
+
+**Original:** The importance of interfacial proton movement was demonstrated by measuring the PT rate into the catalytic site of a proton pump.232 The proton-coupled electron transfer was accelerated 7-fold when the pump cytochrome c oxidase (from Rhodobacter sphaeroides) was moved from a detergent solution into lipid vesicles (Figure 35). The membrane-accelerating effect was completely suppressed when the surface-exposed titratable residue (glutamic acid) of the pump at position 101
+
+**中文:** 通过测量质子泵催化位点的 PT 速率证明了界面质子运动的重要性。232 当泵细胞色素 C 氧化酶（来自球形红细菌）从洗涤剂溶液移至脂质囊泡时，质子耦合电子转移加速了 7 倍（图 35）。当位置 101 泵的表面暴露的可滴定残留物（谷氨酸）时，膜加速效应被完全抑制
+
+<a id="S179"></a>
+**Source:** p.23 S179
+
+**Original:** was mutated to a nontitratable residue (alanine). The result suggested that Glu101 establishes a protonic contact between the intraproteinaceous proton pathway and the membrane surface.232 That is, protons that accumulated on the membrane surface rushed directly into the proton channel of the proton pump. 4.4. Molecular Dynamics Simulations of Proton Movement along Membranes Computational approaches using the MS-EVB model suggested that some of the interfacial protons are stabilized by charged or dipolar lipid moieties, i.e., by carbonyls or phosphate groups. Proton release from these groups was so slow that the hydrated
+
+**中文:** 突变为不可滴定残基（丙氨酸）。结果表明，Glu101 在蛋白质内质子通道和膜表面之间建立了质子接触。232 也就是说，积累在膜表面的质子直接冲入质子泵的质子通道。 4.4.质子沿膜运动的分子动力学模拟使用 MS-EVB 模型的计算方法表明，一些界面质子通过带电或偶极脂质部分（即羰基或磷酸基团）稳定。这些基团释放的质子非常缓慢，以至于水合
+
+<a id="S180"></a>
+**Source:** p.23 S180
+
+**Original:** proton essentially followed the lipid motion.233,234 A second, more mobile fraction of surface protons was also found to be incapable of efficiently linking the membranal proton source and sink because it readily equilibrated with the bulk; i.e., the mobile protons were released from the interfacial region in less than 1 ns.234
+
+**中文:** 质子基本上跟随脂质运动。233,234 还发现第二个流动性更强的表面质子部分无法有效连接膜质子源和库，因为它很容易与本体平衡；即，移动质子在不到 1 ns 的时间内从界面区域释放。234
+
+<a id="S181"></a>
+**Source:** p.23 S181
+
+**Original:** Classical molecular dynamics simulations observed a much longer residence time of mobile protons on the membrane surface.235 The Grotthuss proton-shuttling mechanism was included in the calculations by means of the HYDYN protocol. That is, a Monte Carlo criterion was used at regular intervals for the selection of a proton acceptor in the vicinity of a proton donor.235 In these simulations, restricted diffusion of (i) lipidbound protons or (ii) protons that were entrapped inside small water clusters, was interrupted by occasional proton excursions into the bulk that allowed for long-range diffusion intervals. With a diffusion constant of about 10-6 cm2 s-1, overall proton mobility was more than 1 order of magnitude smaller than in comparable experimental systems.218,226
+
+**中文:** 经典分子动力学模拟观察到移动质子在膜表面的停留时间要长得多。235 Grotthuss 质子穿梭机制通过 HYDYN 协议包含在计算中。也就是说，定期使用蒙特卡罗标准来选择质子供体附近的质子受体。 235 在这些模拟中，(i) 脂质结合质子或 (ii) 被捕获在小水簇内的质子的受限扩散被偶尔的质子偏移打断，从而允许长程扩散间隔。由于扩散常数约为 10-6 cm2 s-1，总体质子迁移率比同类实验系统小 1 个数量级以上。218,226
+
+<a id="F035"></a>
+### Figure 34
+
+**Placed near:** p.23 S181  
+**Source:** p.23 F035
+
+![Figure 34](assets/fig34-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 34. Observation of interfacial proton migration along the decane/water interface. (A) Protons were microinjected via a glass pipet and their arrival at a distant spot was indicated by the pH response of sparsely located amphiphilic dye molecules.230 (B) If the proton was traveling 100 μm by diffusion via bulk, proton microinjection to the surface should have decreased the pH from 6.3 to 5.3 in the buffer volume (V = 2 nL) occupying the half-sphere beneath the water/decane interface. Taking into account the buffer capacity of 0.06 mM, this would have required 0.06 mM × 2 nL = 1.2 × 10-13 mole of protons. (C) Since only 2 × 10-16 mole of protons was injected, the protons must have moved within a thin layer (V = 5 pL) adjacent to the interface to elicit the recorded pH drop 100 μm away from the source.
+
+**中文图注:** 图 34.沿癸烷/水界面观察界面质子迁移。 (A) 通过玻璃移液管显微注射质子，通过稀疏分布的两亲性染料分子的 pH 响应来指示质子到达远处的位置。230 (B) 如果质子通过体扩散而行进 100 μm，则质子显微注射到表面应将占据水/癸烷界面下方半球的缓冲体积 (V = 2 nL) 中的 pH 值从 6.3 降低到 5.3。考虑到 0.06 mM 的缓冲容量，这将需要 0.06 mM × 2 nL = 1.2 × 10-13 摩尔质子。 (C) 由于仅注入 2 × 10-16 摩尔质子，质子必须在界面附近的薄层 (V = 5 pL) 内移动，以引发记录的 pH 值下降，距离源 100 μm。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S182"></a>
+**Source:** p.23 S182
+
+**Original:** Ab initio simulations revealed a more reasonable agreement with experiment.230 However, the immense computational effort has so far restricted the simulations to the decane/water interface. Its simple structure allowed answering the question about how the requirements for proton attraction and high proton transport rate, which at first glance appear conflicting, may be simultaneously realized. The 75 ps long simulations show that the protons in direct contact with the hydrophobic liquid are immobile.230 However, the protons in the second water layer are mobile and the in silico mobility is compatible with the Dp of the in vitro measurements.230 The conclusion from these simulations is that fast proton migration occurs along the ordered waters of hydration. Interestingly, the same mode of transport, i.e., hopping along hydrogen-bonded water wires, has long been accepted as the preferential mode of proton movement through membrane channels, within carbon nanotubes236,237 or through a protein.238
+
+**中文:** 从头算模拟揭示了与实验更合理的一致性。230然而，迄今为止，巨大的计算工作限制了对癸烷/水界面的模拟。其简单的结构可以回答如何同时实现乍一看似乎相互矛盾的质子吸引和高质子传输速率的要求的问题。 75 ps 长的模拟表明，与疏水性液体直接接触的质子是不可移动的。230 然而，第二个水层中的质子是可移动的，并且计算机中的移动性与体外测量的 Dp 一致。230 这些模拟的结论是，质子快速迁移发生在有序的水合水中。有趣的是，相同的运输模式，即沿着氢键水线跳跃，长期以来一直被认为是质子通过膜通道、碳纳米管236,237或通过蛋白质运动的优先模式。 238
+
+<a id="S183"></a>
+**Source:** p.23 S183
+
+**Original:** 4.5. Proton Transport through Membrane Channels
+
+**中文:** 4.5.通过膜通道的质子传输
+
+<a id="S184"></a>
+**Source:** p.23 S184
+
+**Original:** The involvement of the proton jump mechanism along water wires was first shown in experiments with gramicidin-A channels.239 These are small pentadecapeptides from Bacillus brevis that span the membrane upon dimerization at their Ntermini. They conduct monovalent cations like protons, sodium, and potassium ions.240 In response to an osmotic gradient, water flows through the channel and drags solvated cations with it.241 Since this mechanism is cation-specific, a membrane potential builds up. This so-called streaming potential is missing when sodium or potassium ions are replaced by protons.239 It was concluded that protons are transported along water wires. That is, a proton jumps on to a water molecule at one end of the channel and due to the Grotthuss mechanism, another proton jumps offat the other end.239 It is important to note that the ability of a membrane channel to conduct protons cannot be derived from the mere presence of a continuous row of water molecules in its lumen.
+
+**中文:** 沿水线的质子跳跃机制的参与首先在短杆菌肽-A 通道的实验中得到证实。239 这些是来自短芽孢杆菌的小十五肽，在其 N 末端二聚化后跨越膜。它们传导单价阳离子，如质子、钠离子和钾离子。240响应渗透梯度，水流过通道并拖曳溶剂化阳离子。241由于这种机制是阳离子特异性的，因此会产生膜电位。当钠或钾离子被质子取代时，这种所谓的流动势就消失了。239得出的结论是，质子沿着水线传输。也就是说，一个质子在通道一端跳跃到水分子上，并且由于格罗特胡斯机制，另一个质子从另一端跳跃。 239 值得注意的是，膜通道传导质子的能力不能仅仅源自于其管腔中存在一排连续的水分子。
+
+<a id="S185"></a>
+**Source:** p.23 S185
+
+**Original:** For example, water channel proteins that belong to the aquaporin family exclude protons with an astonishing selectivity: The water-to-proton ratio is higher than 109:1.242,243 The transport mechanism of aquaporins is reviewed in an accompanying paper in this issue. On the other hand, there are proton-selective channels that are commonly unable to transport water, like the proton channel formed by the M2 protein from influenza A244 or the
+
+**中文:** 例如，属于水通道蛋白家族的水通道蛋白以惊人的选择性排除质子：水与质子的比例高于109:1.242,243。本期的一篇附带论文对水通道蛋白的转运机制进行了综述。另一方面，存在通常无法运输水的质子选择性通道，例如由 A244 流感病毒的 M2 蛋白或流感病毒的 M2 蛋白形成的质子通道。
+
+<a id="F036"></a>
+### Figure 35
+
+**Placed near:** p.23 S185  
+**Source:** p.23 F036
+
+![Figure 35](assets/fig35-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 35. One of the proton pathways in cytochrome c oxidase is wired via an acidic residue (Glu101) to the membrane surface. The proton influx H+ M via the membrane surface exceeds several times the proton transfer H+ D of the detergent-solubilized cytochrome c oxidase; serCuA, heme a, heme a3, and CuB are redox-active cofactors, and residue Lys362 (hydrogen bonded via a water molecule to SerI299) is a key element of the proton pathway. Reproduced from ref 232 with permission. Copyright 2010 National Academy of Sciences.
+
+**中文图注:** 图 35. 细胞色素 c 氧化酶中的质子途径之一通过酸性残基 (Glu101) 连接至膜表面。通过膜表面的质子流入 H+ M 超过去污剂溶解的细胞色素 c 氧化酶的质子转移 H+ D 的数倍； serCuA、血红素 a、血红素 a3 和 CuB 是氧化还原活性辅助因子，残基 Lys362（通过水分子与 SerI299 形成氢键）是质子途径的关键元件。经许可转载自参考文献 232。版权所有2010 美国国家科学院。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S186"></a>
+**Source:** p.24 S186
+
+**Original:** voltage-sensitive HV1 channel.245 Their selectivity filter consists of titratable amino acids that protrude into the lumen, thereby physically occluding the channel. The water column in these channels is divided into two parts and the protons are handed over from one column to the other by one intervening amino acid244 or by a pair of amino acids.245 The inclusion of amino acids into the proton-conducting wire of HBs (see Figure 36)
+
+**中文:** 电压敏感的 HV1 通道。245 他们的选择性过滤器由伸入管腔的可滴定氨基酸组成，从而物理堵塞通道。这些通道中的水柱分为两部分，质子通过一个插入氨基酸244或一对氨基酸从一个柱传递到另一个柱。245将氨基酸纳入HBs的质子传导线中（见图36）
+
+<a id="S187"></a>
+**Source:** p.24 S187
+
+**Original:** has the peculiar effect that proton conductivity depends only weakly on the proton concentration in the outside solution. While there is no problem in measuring single channel openings for gramicidin channels at acidic pH,246 the conductance of proton-selective channels remains so small that electrophysiological recordings of single channels cannot be performed. The only report of single voltage-gated HV1 proton channels indicated a pH-dependent conductivity of 38140 fS.247 In contrast, fluorescence measurements of intravesicular pH changes estimated the conductivity of reconstituted channels to be on the order of 0.1 fS.248
+
+**中文:** 具有质子电导率仅微弱地依赖于外部溶液中的质子浓度的奇特效果。虽然在酸性 pH 下测量短杆菌肽通道的单通道开口没有问题246，但质子选择性通道的电导仍然很小，以至于无法进行单通道的电生理记录。单电压门控 HV1 质子通道的唯一报告表明 pH 依赖性电导率为 38140 fS.247 相反，囊泡内 pH 变化的荧光测量估计重构通道的电导率约为 0.1 fS.248
+
+<a id="S188"></a>
+**Source:** p.24 S188
+
+**Original:** 5. CONCLUSIONS AND PERSPECTIVES In this review, we have provided a summary of both the experimental and theoretical progress made in understanding the structural and dynamical properties of protons and hydroxide ions in different aqueous environments. We began with a discussion of efforts made in disentangling the spectroscopic origins of protonated/deprotonated water clusters: Does the lowest energy isomer dominate at low temperatures, or is a mixture of isomers responsible for the observed IR spectra? These seemingly simple molecular systems still pose challenges especially from the view of the ability of theoretical models to reproduce features of the experimental IR spectra. Methods that provide excellent results for other systems are often ambiguous for these clusters, which exhibit a high degree of anharmonicity due to coupling between the vibrational modes. This can result in rather intense combination bands and Fermi resonances that render the assignment difficult. Both dynamic methods such as AIMD as well as static anharmonic approaches like VPT2 have challenges in reproducing these types of features.
+
+**中文:** 5.结论和展望在这篇综述中，我们总结了在理解不同水环境中质子和氢氧根离子的结构和动力学性质方面所取得的实验和理论进展。我们首先讨论了在解开质子化/去质子化水簇的光谱起源方面所做的努力：在低温下能量最低的异构体是否占主导地位，或者是异构体的混合物导致了观察到的红外光谱？这些看似简单的分子系统仍然构成挑战，特别是从理论模型再现实验红外光谱特征的能力来看。为其他系统提供优异结果的方法对于这些集群通常是不明确的，由于振动模式之间的耦合而表现出高度的不和谐性。这可能会导致相当强烈的组合带和费米共振，从而使分配变得困难。 AIMD 等动态方法以及 VPT2 等静态非谐波方法在重现这些类型的特征方面都面临着挑战。
+
+<a id="S189"></a>
+**Source:** p.24 S189
+
+**Original:** The hope is that a quantum mechanical treatment encompassing the nuclear degrees of freedom could provide the ultimate assignments, yet due to steep computational costs, this has been
+
+**中文:** 希望包含核自由度的量子力学处理可以提供最终的任务，但由于计算成本高昂，这一直无法实现。
+
+<a id="S190"></a>
+**Source:** p.24 S190
+
+**Original:** demonstrated only for the smallest system namely, the protonated dimer. In liquid water, progress has been made in quantifying the structural diffusion process commonly referred to as the Grotthuss mechanism, such as via the special pair dance and the E-Z-E mechanism. The complementary role of proton wires has been demonstrated for proton transfer in the bulk, for H+/OH-recombination and photoacid-to-base PT. Yet, fundamental issues are still debated, e.g., whether the E or Z forms (to an extent that protonated water can be approximated by these structures) dominate the acidic solutions. Timeresolved 2DIR offers new avenues for approaching this question, e.g., by direct monitoring of intermode couplings in the time domain. For the hydroxide ion, even the coordination number remains debated, and different DFT functionals provide different results. Modeling the proton and hydroxide ions remains challenging also because their physical and chemical properties are inherently quantum mechanical, involving both the electronic and nuclear degrees of freedom.
+
+**中文:** 仅针对最小的系统（即质子化二聚体）进行了演示。在液态水中，在量化结构扩散过程（通常称为 Grotthuss 机制）方面取得了进展，例如通过特殊的配对舞蹈和 E-Z-E 机制。质子线的补充作用已被证明对于质子在本体中的转移、H+/OH-重组和光酸到碱的 PT 而言。然而，基本问题仍然存在争议，例如 E 或 Z 形式（在一定程度上质子化水可以通过这些结构来近似）是否在酸性溶液中占主导地位。 Timeresolved 2DIR 为解决这个问题提供了新途径，例如，通过在时域中直接监控模间耦合。对于氢氧根离子，甚至配位数仍然存在争议，并且不同的 DFT 泛函提供了不同的结果。质子和氢氧根离子的建模仍然具有挑战性，因为它们的物理和化学性质本质上是量子力学的，涉及电子和核自由度。
+
+<a id="S191"></a>
+**Source:** p.24 S191
+
+**Original:** In particular, the importance of quantum fluctuations of the nuclei will be an important issue to consider in future studies. The propensity of hydronium and hydroxide ions for the air/ water or membrane/water interfaces remains an extremely muddy area with inconsistent and contradictory views coming from experiments and as well as theory. We have highlighted the challenges underlying the interpretations of various experiments and also proposed a possible way forward. From the computational side, besides exploring many fundamental questions regarding the structure and dynamics of protons and hydroxide ions at the air/water interface, as has been done in the bulk, the development of highly accurate dissociable empirical potentials that will allow for modeling of electrokinetic phenomena while at the same time allowing for spontaneous autoionization is certainly needed. The computational challenges involved in elucidating the structure of the proton at the membrane/water interface are even larger. So far, there is no clear picture as to what constitutes the barrier opposing proton surface-to-bulk release.
+
+**中文:** 特别是，原子核量子涨落的重要性将是未来研究中需要考虑的重要问题。水合氢离子和氢氧根离子对空气/水或膜/水界面的倾向仍然是一个极其混乱的领域，来自实验和理论的观点不一致和矛盾。我们强调了各种实验解释背后的挑战，并提出了可能的前进方向。从计算方面来看，除了探索有关空气/水界面处质子和氢氧根离子的结构和动力学的许多基本问题（正如已经大量完成的那样）之外，当然还需要开发高精度的可解离经验势，以允许对动电现象进行建模，同时允许自发自电离。阐明膜/水界面质子结构所涉及的计算挑战甚至更大。到目前为止，尚不清楚是什么构成了阻止质子从表面到本体释放的屏障。
+
+<a id="S192"></a>
+**Source:** p.24 S192
+
+**Original:** It is only clear that a proton's residence time at titratable residues is not compatible with fast surface proton migration. Further experimental and theoretical work is needed to reveal whether proton surface diffusion occurs either totally decoupled from the bulk or under conditions of rapid equilibrium between bulk and surface protons. Besides the fascinating properties of the proton at the membrane/water interface, there are many other exciting problems in biophysics where both the thermodynamics and kinetics of proton transfer play an important role. Hydrogendeuterium isotope exchange to probe the solvent accessibility of amide groups in proteins;249 groundand excited-state proton transfer in biological systems, such as green fluorescent protein,250 amyloid proteins251 and enzymes;252 and, finally, the molecular origins of pKa shifts of amino acids253 are some of the many situations where both experimental and theoretical research is currently an active area of investigation.
+
+**中文:** 唯一清楚的是，质子在可滴定残留物处的停留时间与快速表面质子迁移不相容。需要进一步的实验和理论工作来揭示质子表面扩散是否发生与本体完全解耦或在本体和表面质子之间快速平衡的条件下发生。除了膜/水界面上质子的迷人特性之外，生物物理学中还存在许多其他令人兴奋的问题，其中质子转移的热力学和动力学都发挥着重要作用。氢氘同位素交换可探测蛋白质中酰胺基团的溶剂可及性；249 生物系统中的基态和激发态质子转移，例如绿色荧光蛋白、250 淀粉样蛋白251 和酶；252 最后，氨基酸 pKa 变化的分子起源 253 是目前​​实验和理论研究都是活跃研究领域的许多情况中的一些。
+
+<a id="F037"></a>
+### Figure 36
+
+**Placed near:** p.24 S192  
+**Source:** p.24 F037
+
+![Figure 36](assets/fig36-20260707-protons-hydroxide-ions-aqueous-systems.png)
+
+**Original caption:** Figure 36. Homotetrameric proton channel formed by the M2 protein from influenza A. His37 mediates the shuttling of protons across a central barrier between the Nand C-terminal aqueous pore regions. Two of the four histidines and tryptophans are shown. Upon PT to the inter-residue HB, the transition from the locked to the open conformation takes place.244
+
+**中文图注:** 图 36. 由甲型流感 M2 蛋白形成的同源四聚体质子通道。His37 介导质子穿过 N 端和 C 端水孔区域之间的中央屏障的穿梭。显示了四种组氨酸和色氨酸中的两种。当 PT 到残基间 HB 时，发生从锁定构象到开放构象的转变。244
+
+**Reading note / 读图提示:** 这张图对应正文中关于 质子溶剂化或质子转移 的证据，建议和相邻段落一起看。
+
+
+<a id="S193"></a>
+**Source:** p.24 S193
+
+**Original:** AUTHOR INFORMATION
+
+**中文:** 作者信息
+
+<a id="S194"></a>
+**Source:** p.24 S194
+
+**Original:** Corresponding Author *E-mail: ahassana@ictp.it. Notes The authors declare no competing financial interest.
+
+**中文:** 通讯作者 *E-mail: ahassana@ictp.it。注释 作者声明不存在竞争性经济利益。
+
+<a id="S195"></a>
+**Source:** p.25 S195
+
+**Original:** Biographies
+
+**中文:** 传记
+
+<a id="S196"></a>
+**Source:** p.25 S196
+
+**Original:** Noam Agmon did his Ph.D. in theoretical chemistry on the topic of structure-reactivity correlations with R. D. Levine at the Hebrew University of Jerusalem (Jerusalem, Israel) in 1980. He moved to the United States for a short postdoctoral position with D. R. Herschbach at Harvard University (Cambridge, MA) and a longer one with J. J. Hopfield at the California Institute of Technology (Pasadena, CA) on ligand binding to heme proteins. He then returned as a lecturer to the Hebrew University in 1983, being promoted to full professor of chemistry in 2000. His research interests are diffusion-influenced reactions (particularly for reversible reactions), excited-state proton transfer, mechanisms of proton transport in aqueous solutions and in proteins (such as the green fluorescent protein), infrared spectra of protonated water in the liquid and in gas-phase clusters.
+
+**中文:** 诺姆·阿格蒙 (Noam Agmon) 获得博士学位。 1980 年，他在耶路撒冷希伯来大学（以色列耶路撒冷）与 R. D. Levine 一起获得理论化学博士学位，研究方向为结构-反应性相关性。随后，他移居美国，与哈佛大学（马萨诸塞州剑桥）的 D. R. Herschbach 一起担任短期博士后职位，并在加州理工学院（加利福尼亚州帕萨迪纳）与 J. J. Hopfield 一起担任较长时间的博士后职位，研究配体与血红素蛋白的结合。随后，他于 1983 年返回希伯来大学担任讲师，并于 2000 年晋升为化学正教授。他的研究兴趣包括扩散影响的反应（特别是可逆反应）、激发态质子转移、水溶液和蛋白质（例如绿色荧光蛋白）中的质子传输机制、液相和气相团簇中质子化水的红外光谱。
+
+<a id="S197"></a>
+**Source:** p.25 S197
+
+**Original:** Huib J. Bakker was born in Haarlem, The Netherlands. He did his Ph.D. studies in the group of Prof. Dr. Ad Lagendijk, at the FOM Institute for Atomic and Molecular Physics (AMOLF) (Amsterdam, The Netherlands). From 1991 to 1994, he worked as a postdoc in the group of Prof. Dr. Heinrich Kurz at the Institute of Semiconductor Electronics at the Technical University of Aachen (Aachen, Germany). In 1995, he became a group leader at AMOLF, heading the ultrafast spectroscopy group. The research work of the group includes the spectroscopic study of the structure and ultrafast dynamics of water interacting with ions and (bio)molecular systems and the study of the mechanism of proton transfer in aqueous media. In 2001 he became a full professor of physical chemistry at the University of Amsterdam, (Amsterdam, The Netherlands), and in 2003 he became head of the Molecular Nanophysics Department at FOM-AMOLF. In 2004, he received the Gold Medal of the Royal Netherlands Chemical Society for his work on the ultrafast dynamics of aqueous systems. Since February 1, 2016, he has been director of AMOLF.
+
+**中文:** Huib J. Bakker 出生于荷兰哈勒姆。他完成了博士学位。在 FOM 原子与分子物理研究所 (AMOLF)（荷兰阿姆斯特丹）的 Ad Lagendijk 教授博士小组中进行研究。 1991年至1994年在亚琛工业大学（德国亚琛）半导体电子研究所Heinrich Kurz教授课题组从事博士后工作。 1995 年，他成为 AMOLF 的组长，领导超快光谱组。该小组的研究工作包括水与离子和（生物）分子系统相互作用的结构和超快动力学的光谱研究以及水介质中质子转移机制的研究。 2001 年，他成为阿姆斯特丹大学（荷兰阿姆斯特丹）物理化学正教授，并于 2003 年成为 FOM-AMOLF 分子纳米物理系主任。 2004年，他因其在水系统超快动力学方面的工作而获得荷兰皇家化学学会金奖。自2016年2月1日起，他担任AMOLF董事。
+
+<a id="S198"></a>
+**Source:** p.25 S198
+
+**Original:** R. Kramer Campen is currently a staffscientist at the Fritz Haber Institute of the Max Planck Society in Berlin, Germany. There he runs a research group that focuses on molecular structure, ultrafast dynamics, and chemical kinetics at gas/solid, air/liquid and solid/ liquid interfaces. Currently, he spends his time trying to understand how water interacts with alumina, the mechanism of ion adsorption at hydrophobic aqueous interfaces, the mechanism of coupled proton/ electron transfer across solid/water interfaces, what determines the thermal stability of small hydrocarbons on metal surfaces, and how solvent and surface potential control switching in photoswitchable selfassembled monolayers.
+
+**中文:** R. Kramer Campen 目前是德国柏林马克斯·普朗克学会弗里茨·哈伯研究所的研究员。他在那里领导了一个研究小组，专注于气体/固体、空气/液体和固体/液体界面的分子结构、超快动力学和化学动力学。目前，他致力于了解水如何与氧化铝相互作用、疏水性水界面上的离子吸附机制、固体/水界面上耦合质子/电子转移的机制、决定金属表面上小碳氢化合物的热稳定性的因素，以及溶剂和表面电势如何控制光可切换自组装单分子层中的切换。
+
+<a id="S199"></a>
+**Source:** p.25 S199
+
+**Original:** Richard H. Henchman obtained a B.Sc. Honours degree from the University of Sydney (Sydney, Australia), in 1996, and his Ph.D. from the University of Southampton (Southampton, UK), in 2000, supported by a Commonwealth Scholarship (supervised by Prof. Jonathan Essex). He did postdoctoral research with Prof. Andrew McCammon at the University of California, San Diego (San Diego, CA) and Howard Hughes Medical Institute from 2000 to 2004. Subsequently, he took a lecturer position at the University of Manchester (Manchester, UK), later being promoted to senior lecturer. He develops theories to calculate the entropy of multimolecular systems such as liquids, solutions, and assemblies so as to understand their structure and stability.
+
+**中文:** Richard H. Henchman 获得理学士学位1996 年获得悉尼大学（澳大利亚悉尼）荣誉学位，并于 1996 年获得博士学位。 2000 年，在英联邦奖学金的支持下，获得南安普顿大学（英国南安普顿）博士学位（由乔纳森·埃塞克斯教授监督）。 2000年至2004年在加州大学圣地亚哥分校（加利福尼亚州圣地亚哥）和霍华德休斯医学研究所跟随Andrew McCammon教授进行博士后研究。随后在曼彻斯特大学（英国曼彻斯特）担任讲师，后晋升为高级讲师。他发展了计算液体、溶液和组装体等多分子系统熵的理论，以了解它们的结构和稳定性。
+
+<a id="S200"></a>
+**Source:** p.25 S200
+
+**Original:** Peter Pohl obtained his diploma in biophysics at the Pirogov Institute Moscow (Moscow, Russia) in 1989 and his M.D. at the Martin Luther University Halle (Saale, Germany) in 1994. After having completed his habilitation in 2001, he joined the Leibniz Institute of Molecular Pharmacology in Berlin, Germany, as Heisenberg Fellow of the Deutsche Forschungsgemeinschaft. He then became guest professor at the Institute of Biology of the Humboldt University of Berlin (Berlin,
+
+**中文:** Peter Pohl 于 1989 年在莫斯科皮罗戈夫研究所（俄罗斯莫斯科）获得生物物理学文凭，并于 1994 年在哈雷马丁路德大学（德国萨勒）获得医学博士学位。2001 年完成训练后，他加入德国柏林莱布尼茨分子药理学研究所，担任德国研究协会海森堡研究员。随后，他成为柏林洪堡大学生物学研究所的客座教授（柏林，
+
+<a id="S201"></a>
+**Source:** p.25 S201
+
+**Original:** Germany) in 2002-2003 and was appointed as full professor of biophysics in 2004 at the Physics Department of the Johannes Kepler University Linz (Linz, Austria). His research focuses on (i) membrane transport of water by aquaporins, ion channels, and cotransporters, (ii) proton migration along membranes, (iii) protein translocation through membranes, and (iv) the coupling of membrane leaflets.
+
+**中文:** 德国）于2002-2003年获得博士学位，并于2004年被任命为约翰开普勒林茨大学（奥地利林茨）物理系生物物理学正教授。他的研究重点是（i）水通道蛋白、离子通道和协同转运蛋白对水的膜转运，（ii）质子沿膜迁移，（iii）蛋白质通过膜易位，以及（iv）膜小叶的耦合。
+
+<a id="S202"></a>
+**Source:** p.25 S202
+
+**Original:** Sylvie Roke obtained B.Sc. and M.Sc. degrees with highest honors in chemistry (2000) and physics (2000) from Utrecht University (Utrecht, The Netherlands) and a Ph.D. degree in natural sciences from Leiden University (Leiden, The Netherlands) in 2004, with highest honors. In 2005, she was awarded an independent research group leader (W2) position from the Max-Planck Society. In 2011 she moved to École Polytechnique Fédérale de Lausanne (Lausanne, Switzerland), where she holds the Juli Jacobi chair in photomedicine. She received the Minerva Prize (2006), the Hertha Sponer Prize (2008), an ERC Starting Grant (2009), and an ERC Consolidator Grant (2014). Her research is focused on understanding aqueous systems, interfaces, soft matter, and biological systems using a variety of spectroscopic and imaging methods.
+
+**中文:** Sylvie Roke 获得理学学士学位和硕士学位获得乌得勒支大学（荷兰乌得勒支）化学（2000 年）和物理学（2000 年）最高荣誉学位以及博士学位。 2004 年以最高荣誉获得莱顿大学（荷兰莱顿）自然科学博士学位。 2005年，她被马克斯-普朗克学会授予独立研究小组组长（W2）职位。 2011 年，她搬到洛桑联邦理工学院（瑞士洛桑），担任光学医学领域的 Juli Jacobi 主席。她获得了 Minerva 奖（2006 年）、Hertha Sponer 奖（2008 年）、ERC 启动补助金（2009 年）和 ERC Consolidator 补助金（2014 年）。她的研究重点是使用各种光谱和成像方法了解水系统、界面、软物质和生物系统。
+
+<a id="S203"></a>
+**Source:** p.25 S203
+
+**Original:** Martin Thämer graduated from the University of Münster (Münster, Germany) in 2006. He then joined the group of Prof. U. Heiz at TU Munich (Munich, Germany), where he received his Ph.D. in physical chemistry in 2012. His Ph.D. work focused on surface-sensitive spectroscopy of supported size-selected metal clusters. From 2013 to 2015 he worked as a postdoctoral fellow (DAAD fellowship) with Prof. A. Tokmakoffat MIT (Cambridge, MA) and later at the University of Chicago (Chicago, IL). During this time he studied hydrogen-bonded systems by employing ultrafast multidimensional spectroscopy. Since 2015, he has been a postdoc with Prof. M. Wolf at the Fritz-Haber-Institute in Berlin, Germany. His current research interests focus on time-resolved spectroscopy of ultrafast surface reactions.
+
+**中文:** Martin Thämer 于 2006 年毕业于明斯特大学（德国明斯特）。随后，他加入了慕尼黑工业大学（德国慕尼黑）U. Heiz 教授的团队，并在那里获得了博士学位。 2012年获得物理化学博士学位。工作重点是支持尺寸选定的金属簇的表面敏感光谱。 2013年至2015年，他在麻省理工学院A. Tokmakoffat教授（马萨诸塞州剑桥）担任博士后研究员（DAAD奖学金），后来在芝加哥大学（伊利诺伊州芝加哥）工作。在此期间，他利用超快多维光谱研究了氢键系统。 2015年起在德国柏林Fritz-Haber研究所跟随M. Wolf教授做博士后。他目前的研究兴趣集中在超快表面反应的时间分辨光谱。
+
+<a id="S204"></a>
+**Source:** p.25 S204
+
+**Original:** Ali Hassanali was born in Tanzania and grew up in Kenya. He received his Ph.D. in biophysics at The Ohio State University in Columbus, OH, in 2010, under Sherwin Singer and Dongping Zhong. He then did a postdoc with Michele Parrinello at ETH-Zürich (Zürich, Switzerland) and at the University of Lugano (Lugano, Switzerland), where he began to work on fundamental problems in acid-base chemistry in water. He is currently a staffscientist at the International Center for Theoretical Physics in Trieste, Italy. His research interests lie in the area of the structure, dynamics, and IR and optical spectroscopy of water and aqueous solutions, as well as mechanistic details of chemical reactions like proton transfer in these and biological systems like DNA and amyloid proteins.
+
+**中文:** 阿里·哈桑纳利出生于坦桑尼亚，在肯尼亚长大。他获得了博士学位。 2010 年，在舍温·辛格 (Sherwin Singer) 和钟东平 (Dongpingzhong) 的指导下，在俄亥俄州哥伦布市的俄亥俄州立大学获得生物物理学博士学位。随后，他与 Michele Parrinello 一起在苏黎世联邦理工学院（瑞士苏黎世）和卢加诺大学（瑞士卢加诺）进行博士后研究，在那里他开始研究水中酸碱化学的基本问题。他目前是意大利的里雅斯特国际理论物理中心的科学家。他的研究兴趣在于水和水溶液的结构、动力学、红外光谱和光谱学，以及化学反应的机制细节，例如这些化学反应以及 DNA 和淀粉样蛋白等生物系统中的质子转移。
+
+<a id="S205"></a>
+**Source:** p.25 S205
+
+**Original:** ACKNOWLEDGMENTS
+
+**中文:** 致谢
+
+<a id="S206"></a>
+**Source:** p.25 S206
+
+**Original:** This review was initiated during the Nordita (Nordic Institute for Theoretical Physics) scientific program "Water - the Most Anomalous Liquid" (October 2014). Additional financial support for this program was provided by the Royal Swedish Academy of Sciences through its Nobel Institutes for Physics and Chemistry, by the Swedish Research Council, and by the Department of Physics at Stockholm University. N.A. acknowledges support from the Israel Science Foundation (grant number 766/12). R.H.H. acknowledges support from the BBSRC (grant number BB/K001558/1). P.P. is indebted to the Austrian Science Fund (grant number P25981) for support.
+
+**中文:** 本次审查是在 Nordita（北欧理论物理研究所）科学计划“水 - 最异常的液体”（2014 年 10 月）期间发起的。瑞典皇家科学院通过其诺贝尔物理和化学研究所、瑞典研究委员会和斯德哥尔摩大学物理系为该项目提供了额外的财政支持。 N.A. 感谢以色列科学基金会的支持（拨款号 766/12）。右.H.H.感谢 BBSRC 的支持（拨款号 BB/K001558/1）。 PP感谢奥地利科学基金（拨款号 P25981）的支持。
+
+## Critical Reading Notes / 批判性阅读提示
+
+**English:** Compare the proposed transport coordinate with the actual structural evidence in the figures. For this topic, small differences in hydrogen-bond definition, exchange-correlation functional, nuclear quantum treatment, and sampling length can change the mechanistic interpretation.
+
+**中文:** 建议把作者提出的传输坐标和图中的结构证据对应起来看。对于水中质子/氢氧根传输这类问题，氢键定义、泛函选择、核量子效应处理以及采样长度的细微差别，都可能改变机制解释。
+
+## Related Reading / 相关阅读
+
+**English:** Strongly recommended follow-up papers are provided in `related_reading.md`.
+
+**中文:** 强推荐的后续阅读文献见 `related_reading.md`。

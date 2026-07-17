@@ -1,0 +1,658 @@
+# The reorientation mechanism of hydroxide ions in water: A molecular dynamics study
+
+**中文题名:** 水中氢氧根离子的重新取向机制：分子动力学研究
+
+**Zotero key:** ZC65UUZ7
+**Attachment key:** DS7J8IDJ
+**Journal:** Chemical Physics Letters
+**Date:** 2009-04-28
+**DOI:** 10.1016/j.cplett.2009.04.081
+**Task date:** 2026-07-07
+**Source PDF:** paper.pdf
+
+## Why This Paper / 为什么选这篇
+
+**English:** This paper belongs to the core proton/hydroxide transport reading thread selected for today. It helps connect microscopic solvation structure, hydrogen-bond rearrangement, and anomalous ion mobility in water.
+
+**中文:** 这篇文献属于今天选定的质子/氢氧根传输核心阅读线索。它有助于把微观溶剂化结构、氢键重排以及水中离子的反常迁移率联系起来。
+
+## Reading Guide / 读前导读
+
+**English:** Read it by asking three questions: what structural motif carries the charge, what hydrogen-bond rearrangement enables transfer, and which observable or simulation coordinate supports the proposed mechanism.
+
+**中文:** 阅读时抓住三个问题：电荷到底由什么结构单元承载，哪类氢键重排使转移成为可能，以及作者用哪种实验观测或模拟坐标支撑该机制。
+
+## Terminology / 术语表
+
+| English | 中文 | Note |
+| --- | --- | --- |
+| hydrated proton | 水合质子 | 通常指水中过量质子及其溶剂化结构 |
+| hydroxide ion | 氢氧根离子 | OH-，在水中通过结构扩散和普通扩散共同迁移 |
+| Grotthuss mechanism | Grotthuss 机制 | 通过氢键网络重排实现的质子/缺质子迁移 |
+| proton transfer | 质子转移 | 常缩写为 PT |
+| hydrogen-bond network | 氢键网络 | 决定水中离子溶剂化和传输通道 |
+| potential of mean force | 平均力势 | 常用于表示反应坐标上的自由能剖面 |
+
+## Full Bilingual Reader / 全文逐段中英对照
+
+<a id="S001"></a>
+**Source:** p.1 S001
+
+**Original:** The reorientation mechanism of hHydroxide ions in water: A molecular dynamics study
+
+**中文:** 水中氢氧根离子的重新取向机制：分子动力学研究
+
+<a id="S002"></a>
+**Source:** p.1 S002
+
+**Original:** Chemical Physics Letters 481 (2009) 9-16
+
+**中文:** 化学物理快报481（2009）9-16
+
+<a id="S003"></a>
+**Source:** p.1 S003
+
+**Original:** Contents lists available at ScienceDirect
+
+**中文:** ScienceDirect 提供内容列表
+
+<a id="S004"></a>
+**Source:** p.1 S004
+
+**Original:** Chemical Physics Letters
+
+**中文:** 化学物理快报
+
+<a id="S005"></a>
+**Source:** p.1 S005
+
+**Original:** journal homepage: www.elsevier.com/locate/cplett
+
+**中文:** 期刊主页：www.elsevier.com/locate/cplett
+
+<a id="S006"></a>
+**Source:** p.1 S006
+
+**Original:** FRONTIERS ARTICLE
+
+**中文:** 前沿文章
+
+<a id="S007"></a>
+**Source:** p.1 S007
+
+**Original:** Xiuquan Sun, Soohaeng Yoo, Sotiris S. Xantheas, Liem X. Dang *
+
+**中文:** Xiuquan Sun、Soohaeng Yoo、Sotiris S. Xantheas、Liem X. Dang *
+
+<a id="S008"></a>
+**Source:** p.1 S008
+
+**Original:** Article history: Received 25 August 2009 In final form 2 September 2009 Available online 6 September 2009
+
+**中文:** 文章历史： 2009 年 8 月 25 日收到 最终版本 2009 年 9 月 2 日 可在线获取 2009 年 9 月 6 日
+
+<a id="S009"></a>
+**Source:** p.1 S009
+
+**Original:** Classical molecular dynamics simulations with a polarizable force field indicate two major structural motifs for the aqueous bulk solvation of OH-: a fourand a five-coordinated solvent hydrogen bond donor to OHin addition to a weak solvent hydrogen bond acceptor by OH-. A two-step mechanism for the reorientation of OHin water is proposed: first, the reorientation of OHis initiated by the coupled translation with the water molecules in its first solvation shell; second, the OHrelaxes to the minimum energy configuration. The first step is the rate-limiting one for this mechanism. - 2009 Elsevier B.V. All rights reserved.
+
+**中文:** 使用可极化力场的经典分子动力学模拟表明 OH- 的水相本体溶剂化有两个主要结构基序：OH- 的四配位和五配位溶剂氢键供体以及 OH- 的弱溶剂氢键受体。提出了 OHin 水重新取向的两步机制：首先，OHis 的重新取向是通过与第一个溶剂化壳层中的水分子的耦合平移引发的；其次，OH 弛豫到最小能量构型。第一步是该机制的速率限制。 - 2009 Elsevier B.V. 保留所有权利。
+
+<a id="S010"></a>
+**Source:** p.1 S010
+
+**Original:** As one of the two ions formed by water dissociation, hHydroxide plays a unique role in chemical and biochemical processes. In contrast to the well-established mechanism for the mobility of hydronium ions in water [1-4], the debate over the mechanism of the orientation relaxation of hHydroxide ions in solution is still quite active [5-12]. The traditional view of the transport mechanism for both hydronium and hHydroxide ions is similar [5,7], namely that the transport of both ions is driven by second solvation shell fluctuations. By breaking one hydrogen bond in the second solvation shell, the coordination number of a first solvation shell water is reduced from 4 to 3 and this under-coordinated hydrogen bonded network will subsequently form either a [H2O-H-OH2]+ complex with hydronium or a [HO-H-OH]- complex with hHydroxide to facilitate the pProton transfer between those ions in water. This mechanism is based on a tri-coordinated structure of hHydroxide ions that is similar to the structure of hydronium ions.
+
+**中文:** 作为水离解形成的两种离子之一，氢氧根在化学和生化过程中发挥着独特的作用。与水合氢离子在水中的迁移率的公认机制相反[1-4]，关于溶液中氢氧根离子的取向弛豫机制的争论仍然相当活跃[5-12]。水合氢离子和氢氧根离子的传输机制的传统观点是相似的[5,7]，即两种离子的传输都是由第二溶剂化层波动驱动的。通过破坏第二溶剂化壳中的一个氢键，第一溶剂化壳水的配位数从4减少到3，并且这种欠配位的氢键网络随后将与水合氢形成[H2O-H-OH2]+络合物或与h氢氧化物形成[HO-H-OH]-络合物，以促进水中这些离子之间的p质子转移。该机制基于氢氧根离子的三配位结构，该结构类似于水合氢离子的结构。
+
+<a id="S011"></a>
+**Source:** p.1 S011
+
+**Original:** This triply hydrogen bonded complex OH-(H2O)3 with a tetrahedral arrangement is supported by some theoretical and experimental studies [11,13]. Previous quantum calculations by Tuckerman et al. suggested a roughly planar arrangement of a fourfold coordinated OH-(H2O)4 complex being the most probable arrangement in liquid water, whereas OH-(H2O)3 is a transition state during the pProton transfer process [6,8,9,12]. This suggestion leads to the following picture of the transport mechanism of OHin water: one hydrogen bond in the ion's first solvation shell is broken due to thermal fluctuations; the remaining threefold coordinated complex OH-(H2O)3 donates its hydrogen to form a weak hydrogen bond with a neighboring water; the pProton transfer between OHand one of the first solva-
+
+**中文:** 这种具有四面体排列的三氢键复合物 OH-(H2O)3 得到了一些理论和实验研究的支持 [11,13]。塔克曼等人之前的量子计算。建议四重配位 OH-(H2O)4 复合物的大致平面排列是液态水中最可能的排列，而 OH-(H2O)3 是 p质子转移过程中的过渡态 [6,8,9,12]。这一建议引出了以下 OH 在水中的传输机制：离子第一溶剂化层中的一个氢键由于热波动而断裂；剩余的三重配位络合物 OH-(H2O)3 贡献其氢，与邻近的水形成弱氢键； OH 与第一个溶剂化物之一之间的 p质子转移
+
+<a id="S012"></a>
+**Source:** p.1 S012
+
+**Original:** * Corresponding author. Fax: +1 509 375 2644. E-mail address: liem.dang@pnl.gov (L.X. Dang).
+
+**中文:** * 通讯作者。传真：+1 509 375 2644。电子邮件地址：liem.dang@pnl.gov (L.X. Dang)。
+
+<a id="S013"></a>
+**Source:** p.1 S013
+
+**Original:** 0009-2614/$ - see front matter - 2009 Elsevier B.V. All rights reserved. doi:10.1016/j.cplett.2009.09.004
+
+**中文:** 0009-2614/$ - 参见前面的内容 - 2009 Elsevier B.V. 保留所有权利。 doi:10.1016/j.cplett.2009.09.004
+
+<a id="S014"></a>
+**Source:** p.1 S014
+
+**Original:** tion shell water molecules is then completed, causing OHand H2O to exchange places. The fourfold coordinated hHydroxide ion moiety is further supported by several recent experiments [1416] together with a weak hydrogen bond in which the H atom of OHacts as a donor to a fifth water molecule [14,17,18]. Although progress into the structural and dynamical properties of OHin aqueous solutions has been previously reported, the direct measurement of the rotation of OHwas only recently made possible due to complications with the experimental techniques [19]. Thogersen et al. used the charge-transfer-to-solvent (CTTS) transition of hHydroxide ions in water to study the reorientation of hHydroxide ions at various temperatures. From their observations, the reorientation of hHydroxide ions is well described by a single exponential decay function after 3 ps. At temperatures above 290 K, the hHydroxide ions have a similar orientational relaxation time as that of water molecules, while at temperatures below 290 K, the relaxation time of hHydroxide ions is much longer than that of the water molecules.
+
+**中文:** 然后壳层水分子完成，导致 OH 和 H2O 交换位置。最近的几个实验[1416]进一步支持了四重配位的氢氧根离子部分以及弱氢键，其中OH的H原子充当第五个水分子的供体[14,17,18]。尽管先前已经报道了 OHin 水溶液的结构和动力学性质的进展，但由于实验技术的复杂性，OH 旋转的直接测量直到最近才成为可能 [19]。托格森等人。利用水中氢氧根离子的电荷转移到溶剂（CTTS）转变来研究氢氧根离子在不同温度下的重新取向。根据他们的观察，氢氧根离子的重新定向可以通过 3 ps 后的单一指数衰减函数得到很好的描述。在高于290 K的温度下，h氢氧根离子具有与水分子相似的取向弛豫时间，而在低于290 K的温度下，h氢氧根离子的弛豫时间比水分子长得多。
+
+<a id="S015"></a>
+**Source:** p.1 S015
+
+**Original:** The authors proposed two different mechanisms for this process for the different temperature ranges. At high temperatures, the reorientation is initiated by the movement of a second solvation shell water into the first solvation shell of the hHydroxide ion, and the over-coordinated hHydroxide breaks one of its hydrogen bonds and undertakes a large angular jump. At low temperatures, the stronger interaction between hHydroxide and its first solvation shell water molecules creates a type of super-complex that has an increased moment of inertia, which slows down the reorientation of the hHydroxide ions dramatically. Furthermore, they suggested the possibility of a change in the hydration structure motif from OH-(H2O)3 at high temperatures to OH-(H2O)4 at low temperatures. In this Letter, we report a detailed investigation of the reorientation mechanism of hHydroxide ions using molecular dynamics (MD) simulations with polarizable potentials that have been previously widely applied to understand the structural and dynamical
+
+**中文:** 作者针对不同的温度范围提出了该过程的两种不同机制。在高温下，重新取向是通过第二个溶剂化壳层水移动到氢氧根离子的第一溶剂化壳层中引发的，并且过度配位的氢氧根打破其一个氢键并进行大的角跳跃。在低温下，氢氧根与其第一个溶剂化层水分子之间的相互作用更强，形成一种惯性矩增加的超复合物，从而显着减慢氢氧根离子的重新定向。此外，他们提出水合结构基序可能从高温下的 OH-(H2O)3 变为低温下的 OH-(H2O)4。在这封信中，我们报告了使用具有极化电位的分子动力学（MD）模拟对氢氧根离子的重新取向机制的详细研究，该模拟先前已广泛应用于理解结构和动力学
+
+<a id="S016"></a>
+**Source:** p.1 S016
+
+**Original:** Chemical and Materials Sciences Division, Pacific Northwest National Laboratory, 902 Battelle Boulevard, P.O. Box 999, MS K1-83, Richland, WA 99352, USA
+
+**中文:** 太平洋西北国家实验室化学与材料科学部，902 Battelle Boulevard，P.O. Box 999, MS K1-83, 里奇兰, WA 99352, 美国
+
+<a id="S017"></a>
+**Source:** p.2 S017
+
+**Original:** 10 X. Sun et al. / Chemical Physics Letters 481 (2009) 9-16
+
+**中文:** 10 X.孙等人。 /化学物理快报481 (2009) 9-16
+
+<a id="S018"></a>
+**Source:** p.2 S018
+
+**Original:** properties of liquids [20]. Polarizable potentials in classical MD simulations have been shown to be essential in describing the behavior of anions, especially at the interfaces [21-24], but also in bulk water [25]. A general deficiency of classical rigid molecule potentials is their inability to account for pProton transfer between molecules. However, for the present study the adopted approach is justified for two reasons. First, the decay of the reorientation of the hHydroxide ions after 3 ps can be well described by a single exponential function, a fact that lends strong evidence to the proposition that the mechanism is facilitated via a succession of small angular jumps [26]. Second, the pProton transfer rate is believed to occur in 3-4 ps at room temperature. At lower temperatures, it is reasonable to assume the rate will decrease. This time scale is longer than the experimental observed relaxation time of the reorientation for hHydroxide ions, thus the reorientation of hHydroxide ions is little affected by the pProton transfer.
+
+**中文:** 液体的性质[20]。经典MD模拟中的极化电位已被证明对于描述阴离子的行为至关重要，特别是在界面处[21-24]，而且在本体水中也是如此[25]。经典刚性分子势的普遍缺陷是它们无法解释分子之间的质子转移。然而，对于本研究而言，采用的方法是合理的，原因有两个。首先，3 ps 后氢氧根离子重新定向的衰减可以通过单个指数函数很好地描述，这一事实为以下命题提供了强有力的证据：该机制是通过一系列小角度跳跃来促进的[26]。其次，p质子转移速率被认为在室温下发生在 3-4 ps 内。在较低温度下，可以合理地假设该速率会降低。该时间尺度比实验观察到的氢氧根离子重新取向的弛豫时间长，因此氢氧根离子的重新取向几乎不受p质子转移的影响。
+
+<a id="S019"></a>
+**Source:** p.2 S019
+
+**Original:** We also present a critical comparison against high-level electronic structure results for the coordination number of hHydroxide in small aqueous clusters with the polarizable force field used in this study and other DFT-based approaches that were previously adopted to study the aqueous solvation of OH-.
+
+**中文:** 我们还利用本研究中使用的极化力场以及之前用于研究 OH- 水溶剂化的其他基于 DFT 的方法，对小水簇中 hHydroxy 配位数的高级电子结构结果进行了关键比较。
+
+<a id="S020"></a>
+**Source:** p.2 S020
+
+**Original:** The polarizable Dang-Chang (DC) force field for water, potassium and hHydroxide ions were used in the MD simulations. These interaction potentials are described in earlier work [27]. We used a cubic periodic simulation box comprised of 1000 water molecules and 9 KOH ion pairs, corresponding to a concentration of 0.5 M for KOH. Simulations at lower concentrations (0.05 and 0.25 M) of KOH were also carried out. The Shake algorithm was used to keep the O-H bonds rigid [28]. The Lennard-Jones interactions were truncated at 11 Å, and long range electrostatic interactions were evaluated using the Particle mesh 3D periodic Ewald summation [29]. The time step was 1 fs for all simulations. The systems were equilibrated for 3 ns in the isobaric-isothermal (NPT) ensemble and subsequent simulations for data collection were carried out in the micro-canonical (NVE) ensemble.
+
+**中文:** MD 模拟中使用了水、钾和氢氧根离子的可极化 Dang-Chang (DC) 力场。这些相互作用势在早期的工作中有所描述 [27]。我们使用了由 1000 个水分子和 9 个 KOH 离子对组成的立方周期性模拟盒，对应于 KOH 的浓度为 0.5 M。还进行了较低浓度（0.05 和 0.25 M）KOH 的模拟。 Shake 算法用于保持 O-H 键的刚性[28]。 Lennard-Jones 相互作用被截断为 11 Å，并使用粒子网格 3D 周期性 Ewald 求和来评估长程静电相互作用 [29]。所有模拟的时间步长均为 1 fs。系统在等压等温 (NPT) 系综中平衡 3 ns，随后在微正则 (NVE) 系综中进行数据收集模拟。
+
+<a id="S021"></a>
+**Source:** p.2 S021
+
+**Original:** The electronic structure calculations for the various isomers of the OH-(H2O)n, n = 4 and 5 clusters were performed at the second order Møller-Plesset (MP2) [30] and coupled-cluster singles and doubles with perturbative estimate of triple excitations [CCSD(T)] [31,32] levels of theory using the family of augmented correlation consistent basis sets, aug-cc-pVnZ (n = D, T and Q), of Dunning and co-workers [33,34]. At the MP2 level of theory the geometries of the 4-coordinated (C4 symmetry) and 3-coordinated ('3 + 1') OH-(H2O)4 cluster isomers were optimized with up to aug-ccpVQZ basis set while CCSD(T) single point energy calculations were run at the MP2 optimal geometries. For the OH-(H2O)5 cluster the geometries of the 5-coordinated (C5 symmetry), 4-coordinated ('4 + 1') and 3-coordinated ('3 + 1') isomers were optimized with the aug-cc-pVDZ and aug-cc-pVTZ basis sets. For all the previous isomers harmonic frequency calculations were also performed to ensure that they correspond to minimum configurations. The MP2 and CCSD(T) calculations were carried out with the NWChem suite of electronic structure codes [35,36].
+
+**中文:** OH-(H2O)n、n = 4 和 5 团簇的各种异构体的电子结构计算是在二阶 Møller-Plesset (MP2) [30] 和耦合团簇单团簇和双团团以及三重激发的微扰估计 [CCSD(T)] [31,32] 水平上进行的，使用增强相关一致基组系列 aug-cc-pVnZ (n = D, T 和Q），邓宁及其同事的研究[33,34]。在 MP2 理论水平上，4 配位（C4 对称性）和 3 配位（'3 + 1'）OH-(H2O)4 簇异构体的几何结构使用高达 aug-ccpVQZ 基组进行优化，同时 CCSD(T) 单点能量计算在 MP2 最佳几何结构下运行。对于 OH-(H2O)5 簇，使用 aug-cc-pVDZ 和 aug-cc-pVTZ 基组优化了 5 配位（C5 对称性）、4 配位（'4 + 1'）和 3 配位（'3 + 1'）异构体的几何形状。对于所有先前的异构体，还进行了谐波频率计算，以确保它们对应于最小配置。 MP2 和 CCSD(T) 计算是使用 NWChem 电子结构代码套件进行的 [35,36]。
+
+<a id="S022"></a>
+**Source:** p.2 S022
+
+**Original:** Additional cluster optimizations with the Perdew-Burke-Ernzerhof (PBE) [37] and the Becke-Lee-Yang-Parr (BLYP) [38,39] density functionals for the above isomers of the hHydroxide ion with 4 and 5 water molecules were performed in order to compare the performance of those functionals against the more structures (MP2) and relative energetics [MP2, CCSD(T)] obtained from the higher level calculations. The BLYP cluster optimizations were performed with both a plane-wave (Martins-Troullier pseudopotentials with a wavefunction energy cutoff of 70 Ry) and with a hybrid Gaussian and plane-wave (GPW) method. For the GPW
+
+**中文:** 使用 Perdew-Burke-Ernzerhof (PBE) [37] 和 Becke-Lee-Yang-Parr (BLYP) [38,39] 密度泛函对上述具有 4 和 5 个水分子的氢氧根离子异构体进行了额外的簇优化，以便将这些泛函的性能与从更高级别计算获得的更多结构 (MP2) 和相对能量学 [MP2, CCSD(T)] 进行比较。 BLYP 簇优化使用平面波（波函数能量截止为 70 Ry 的 Martins-Troullier 赝势）和混合高斯和平面波 (GPW) 方法进行。对于《工作总规划》
+
+<a id="S023"></a>
+**Source:** p.2 S023
+
+**Original:** method a unit cell of 15 Å was used, the core electrons were removed by the introduction of norm-conserving pseudopotentials developed by Goedecker, Teter and Hutter (GTH) [40,41], the Kohn-Sham orbitals were expanded in a triple-zeta valence basis set augmented with two sets of d-type or p-type polarization functions (TZV2P) while a charge density cutoff of 280 Ry was used for the auxiliary basis set. The same basis set (TZV2P, 280 Ry cutoff) was used for the GPW optimizations with the PBE functional. The GPW optimizations were performed with Quickstep [42], which is part of the CP2K program package, whereas the BLYP/plane-wave optimizations were performed with the CPMD program package [43].
+
+**中文:** 该方法使用 15 Å 的晶胞，通过引入由 Goedecker、Teter 和 Hutter (GTH) [40,41] 开发的范数守恒赝势来去除核心电子，Kohn-Sham 轨道在三重 zeta 价基组中扩展，并用两组 d 型或 p 型极化函数 (TZV2P) 增强，同时使用 280 Ry 的电荷密度截止值辅助基组。相同的基础集（TZV2P，280 Ry 截止）用于通过 PBE 函数进行 GPW 优化。 GPW 优化是使用 Quickstep [42] 执行的，它是 CP2K 程序包的一部分，而 BLYP/平面波优化是使用 CPMD 程序包 [43] 执行的。
+
+<a id="S024"></a>
+**Source:** p.2 S024
+
+**Original:** 3.1. Reorientation relaxation times
+
+**中文:** 3.1.重新定向松弛时间
+
+<a id="S025"></a>
+**Source:** p.2 S025
+
+**Original:** The relaxation time of the reorientation of hHydroxide ions was calculated from the orientation correlation function C(t), defined as
+
+**中文:** h 氢氧根离子重新取向的弛豫时间由取向相关函数 C(t) 计算，定义为
+
+<a id="S026"></a>
+**Source:** p.2 S026
+
+**Original:** where u is the unit vector along the O-H direction, and P2 is the second-order Legendre polynomial. The relaxation time is given by the integral,
+
+**中文:** 其中u是沿O-H方向的单位向量，P2是二阶勒让德多项式。弛豫时间由积分给出，
+
+<a id="S027"></a>
+**Source:** p.2 S027
+
+**Original:** For both OHand H2O at different temperatures, the decay of the orientational correlation function is described by a single exponential. This observation indicates a successive small angular jump mechanism for the reorientation of both OHand H2O [26]. At low temperatures, C(t) shows an anomalous slow decay that was also observed in the CTTS experiments [19]. Fig. 1 shows the computed relaxation time of the hHydroxide ion reorientation as a function of temperature. The computed relaxation time increases with decreasing temperature in qualitative agreement with the CTTS experimental data.
+
+**中文:** 对于不同温度下的 OH 和 H2O，方向相关函数的衰减由单个指数描述。这一观察表明 OH 和 H2O 的重新定向存在连续的小角跳跃机制 [26]。在低温下，C(t) 显示出异常的缓慢衰减，这也在 CTTS 实验中观察到 [19]。图 1 显示了计算得出的氢氧根离子重新取向弛豫时间与温度的函数关系。计算出的弛豫时间随着温度的降低而增加，与 CTTS 实验数据定性一致。
+
+<a id="F001"></a>
+### Fig
+
+**Placed near:** p.2 S027  
+**Source:** p.2 F001
+
+![Fig](assets/fig1-20260707-reorientation-mechanism-hydroxide-ions-water.png)
+
+**Original caption:** Fig. 1. The computed relaxation time of the hydroxide and water reorientation as a function of temperature. Black filled circles are the hydroxide simulation results; red filled squares are the hydroxide CTTS experimental results. Black open circles are the water simulation data; blue dotted line is the water NMR sNMR ¼ 0:34  T-233 233 - -1:83   and red open squares are water THz measurements ðsDebye=3Þ.
+
+**中文图注:** 图 1. 计算得出的氢氧化物和水重新取向的弛豫时间与温度的函数关系。黑色实心圆圈是氢氧化物模拟结果；红色实心方块是氢氧化物CTTS实验结果。黑色空心圆圈为水模拟数据；蓝色虚线是水 NMR sNMR ¼ 0:34 T-233 233 - -1:83，红色空心方块是水太赫兹测量 ðsDebye=3Þ。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="S028"></a>
+**Source:** p.3 S028
+
+**Original:** X. Sun et al. / Chemical Physics Letters 481 (2009) 9-16 11
+
+**中文:** X.孙等人。 / 化学物理快报 481 (2009) 9-16 11
+
+<a id="S029"></a>
+**Source:** p.3 S029
+
+**Original:** The reorientation of water was also previously investigated using the same experimental techniques. The two experimentally available orientational relaxation times for water (from NMR [19,44] and THz [45] measurements) are shown in Fig. 1 for comparison. As described in the experimental paper, the THz results were obtained by dividing the Debye time by a factor of 3 with the assumption that the reorientation of water follows a successive small angular jump mechanism [19]. Our simulation results are in excellent agreement with the experiments over the temperature range shown in Fig. 1, and they provide further support the successive small angular jump mechanism for the reorientation of water, although this is still a subject of future research [46]. Although the relaxation times for the reorientation for both hHydroxide ions and water molecules increase with decreasing temperature, a large difference in their corresponding rates of change with temperature was observed.
+
+**中文:** 之前也使用相同的实验技术研究了水的重新定向。两个实验上可用的水取向弛豫时间（来自 NMR [19,44] 和 THz [45] 测量）如图 1 所示，以进行比较。正如实验论文中所述，太赫兹结果是通过将德拜时间除以 3 获得的，假设水的重新定向遵循连续的小角跳跃机制 [19]。我们的模拟结果与图1所示温度范围内的实验非常吻合，并且它们为水的重新定向的连续小角跳跃机制提供了进一步的支持，尽管这仍然是未来研究的主题[46]。尽管氢氧根离子和水分子的重新取向的弛豫时间随着温度的降低而增加，但观察到它们相应的随温度变化的速率存在很大差异。
+
+<a id="S030"></a>
+**Source:** p.3 S030
+
+**Original:** At T > 290 K the reorientation relaxation times of the hHydroxide ion and water are similar, however, at T < 290 K the reorientation of the hHydroxide ions slows down more dramatically when compared to that of the water molecules, in agreement with the CTTS experiments [19]. Two different reorientation mechanisms of hHydroxide ions for high and low temperatures were proposed based on the assumption that the dominant solvation structures of hHydroxide ions changes with temperature [19]. It is therefore necessary to investigate the solvation structure of hHydroxide ions at different temperatures.
+
+**中文:** 在 T > 290 K 时，氢氧根离子和水的重新取向弛豫时间相似，然而，在 T < 290 K 时，与水分子的重新取向相比，氢氧根离子的重新取向减慢得更显着，这与 CTTS 实验一致 [19]。基于氢氧根离子的主要溶剂化结构随温度变化的假设，提出了氢氧根离子在高温和低温下的两种不同的重新取向机制[19]。因此有必要研究氢氧根离子在不同温度下的溶剂化结构。
+
+<a id="S031"></a>
+**Source:** p.3 S031
+
+**Original:** To gain more insight into the solvation structure of hHydroxide ions, we calculated the number of hydrogen bonds (HB) formed by the hHydroxide ions with surrounding water molecules. We used the following geometric criteria to define a HB: the distance between the O of OHand the O of H2O ROO < 3.5 Å, the hydrogen bonded distance RO  H < 2.6 Å and finally the hydrogen bonded angle c(O  H  O) > 125. The total number of HB as a function of temperature is shown in Fig. 2 (black circles). As expected, the total number of HBs is not temperature sensitive, with the average number of HBs being 5. This number is slightly larger than the coordination number in the first solvation shell (4.73), implying that a weak transient HB is formed between the OHand the H2O in the second solvation shell of the OH-. In Fig. 2, the total number
+
+**中文:** 为了更深入地了解氢氧根离子的溶剂化结构，我们计算了氢氧根离子与周围水分子形成的氢键（HB）的数量。我们使用以下几何标准来定义 HB：OH 的 O 与 H2O ROO 的 O 之间的距离 < 3.5 Å，氢键距离 RO H < 2.6 Å，最后氢键角 c(O H O) > 125 。 HB 总数与温度的关系如图 2 所示（黑色圆圈）。正如预期的那样，HB 总数对温度不敏感，HB 的平均数量为 5。该数字略大于第一溶剂化壳层中的配位数（4.73），这意味着在OH-的第二溶剂化壳层中的OH和H2O之间形成了弱瞬态HB。图2中，总数
+
+<a id="S032"></a>
+**Source:** p.3 S032
+
+**Original:** of HBs is decomposed into the number of HBs accepted by OH-
+
+**中文:** HBs 被分解为 OH- 接受的 HBs 数量
+
+<a id="S033"></a>
+**Source:** p.3 S033
+
+**Original:** (red squares), and donated by OH- (green triangles). As with the total number of HBs, no temperature dependence was observed for those as well. The average number of HBs accepted and donated by OH- (subject to the geometric criteria for defining a HB listed earlier) is 4.6 and 0.4, respectively. These numbers indicate the existence of more than one single dominant solvation motif for OH-. For the HBs accepted by OH-, the average probability of finding 4 HBs is 38%, and that for 5 HBs is 57%. The OHis also capable of donating its hydrogen to participate in a weak hydrogen bond with the oxygen of a water molecule. Our simulations suggest two major solvation structures of OHhaving different numbers of OHacceptor HBs. These solvation structures are shown in Fig. 3. In structure (a) the hHydroxide ion has four acceptor HBs from the water molecules; these four water molecules adopt a nearly planar arrangement with the center of the plane below the O of the hHydroxide ion.
+
+**中文:** （红色方块），由 OH-（绿色三角形）捐赠。与 HB 总数一样，也没有观察到这些温度依赖性。 OH- 接受和捐赠的 HB 平均数量（取决于前面列出的定义 HB 的几何标准）分别为 4.6 和 0.4。这些数字表明存在不止一个 OH- 的主要溶剂化基序。对于OH-接受的HB，找到4个HB的平均概率是38％，找到5个HB的平均概率是57％。 OH还能够贡献其氢来参与与水分子的氧的弱氢键。我们的模拟表明 OH 的两种主要溶剂化结构具有不同数量的 OH 受体 HB。这些溶剂化结构如图3所示。在结构(a)中，h氢氧化物离子具有来自水分子的四个受体HB；这四个水分子采用近乎平面的排列，平面中心位于氢氧根离子的 O 下方。
+
+<a id="S034"></a>
+**Source:** p.3 S034
+
+**Original:** The orientation of the hHydroxide ion is found more likely to be perpendicular to the plane of the 4 O atoms of the water molecules in order to avoid the repulsion between the H atoms of OHand H2O. A weak HB can be formed by a water molecule approaching OHas an acceptor from the top. The quasi-planar arrangement of the four water molecules in the first solvation shell of the hHydroxide ion is supported by previous quantum mechanical simulations [6,9,14], as well as neutron diffraction [14], X-ray adsorption [15] and diffraction experiments [16]. In addition, the hHydroxide donating HB was also previously reported in both theoretical and experimental studies [9,14,17,18]. In structure (b) of Fig. 3, the hHydroxide accepts five HBs from the surrounding water molecules. Four of the waters are arranged in a manner similar to the quasi-planar structure (a). Compared to structure (a), the distance between the hHydroxide oxygen and the center of the water plane is closer in structure (b). The O atom of hHydroxide is closer to the plane defined by the O atoms of the four water molecules.
+
+**中文:** 发现氢氧根离子的方向更有可能垂直于水分子的 4 个 O 原子的平面，以避免 OH 和 H2O 的 H 原子之间的排斥。水分子从顶部接近 OH 受体可以形成弱 HB。 hHydroxy 离子的第一个溶剂化壳层中四个水分子的准平面排列得到了先前的量子力学模拟 [6,9,14] 以及中子衍射 [14]、X 射线吸附 [15] 和衍射实验 [16] 的支持。此外，先前在理论和实验研究中也报道了提供 hHydroxy 的 HB [9,14,17,18]。在图 3 的结构 (b) 中，hHydroxy 接受来自周围水分子的 5 个 HB。其中四个水域的排列方式与准平面结构 (a) 类似。与结构(a)相比，结构(b)中hHydroxy氧与水面中心之间的距离更近。 hHydroxy 的 O 原子更接近由四个水分子的 O 原子定义的平面。
+
+<a id="S035"></a>
+**Source:** p.3 S035
+
+**Original:** This kind of arrangement results in a nearly tetragonal pyramid that has a smaller height in structure (b) than in structure (a) and allows more space for an additional water molecule to approach underneath in order to form the fifth donating HB to OH-. In concert, the repulsion from the four planar water molecules to the other water molecules on the donating side of OHis increased, and thus the probability of forming a donor HB for the hHydroxide is reduced. Structure (b) was found in a recent CPMD investigation of alkaline solutions [8]. Similar to structure (a), the orientation of the hHydroxide ion is more likely to be perpendicular to the plane defined by the center of mass of the four water molecules.
+
+**中文:** 这种排列形成了一个近似四角锥体，其结构 (b) 的高度比结构 (a) 的高度小，并为额外的水分子提供更多的空间接近下方，以形成第五个将 HB 提供给 OH- 的空间。同时，四个平面水分子对OH供体侧其他水分子的排斥力增加，因此形成h氢氧化物供体HB的概率降低。结构 (b) 是在最近的碱性溶液 CPMD 研究中发现的 [8]。与结构（a）类似，h氢氧化物离子的方向更有可能垂直于由四个水分子的质心限定的平面。
+
+<a id="F002"></a>
+### Fig
+
+**Placed near:** p.3 S035  
+**Source:** p.3 F002
+
+![Fig](assets/fig3-20260707-reorientation-mechanism-hydroxide-ions-water.png)
+
+**Original caption:** Fig. 3. The two dominant OH-/H2O complex structures found in our simulation. The yellow and pink spheres correspond to the O and H atoms of OH-, whereas the red and white spheres to the O and H atoms of H2O, respectively. The HBs are denoted by green dotted lines.
+
+**中文图注:** 图 3.我们的模拟中发现的两种主要 OH-/H2O 复合结构。黄色和粉色球体对应于 OH- 的 O 和 H 原子，而红色和白色球体分别对应于 H2O 的 O 和 H 原子。 HB 由绿色虚线表示。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="F003"></a>
+### Fig
+
+**Placed near:** p.3 S035  
+**Source:** p.3 F003
+
+![Fig](assets/fig2-20260707-reorientation-mechanism-hydroxide-ions-water.png)
+
+**Original caption:** Fig. 2. The total (black circles), acceptor (red squares) and donor (green triangles) HBs for the hydroxide ion as a function of temperature.
+
+**中文图注:** 图 2. 氢氧根离子的总 HB（黑色圆圈）、受体（红色方块）和供体（绿色三角形）HB 与温度的关系。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="S036"></a>
+**Source:** p.4 S036
+
+**Original:** 12 X. Sun et al. / Chemical Physics Letters 481 (2009) 9-16
+
+**中文:** 12 X.孙等人。 /化学物理快报481 (2009) 9-16
+
+<a id="S037"></a>
+**Source:** p.4 S037
+
+**Original:** The four-coordinated hHydroxide ion has a slightly different structure when compared to previous DFT simulations of Tuckerman et al. [6,9,12]. In this study, the observed distance between the center of plane formed by four water molecules and the oxygen in hHydroxide ion is larger than that observed in the previous DFT simulations, and the four water molecules around the hHydroxide ion are in a more distorted planar arrangement than in the previous DFT simulations. However, the arrangement of the four planar water molecules in the five-coordinated hHydroxide ion complex is similar to the results of previous DFT simulations. Since the O-O coordination numbers are similar in both simulations, 4.7 and 4.5 for classical and quantum, respectively, the disagreement of the number of HB formed by hHydroxide ion in the current and DFT studies could be due to the definition of the hydrogen bond in this work.
+
+**中文:** 与 Tuckerman 等人之前的 DFT 模拟相比，四配位氢氧根离子的结构略有不同。 [6,9,12]。在本研究中，观察到的四个水分子与hHydroxy离子中的氧形成的平面中心之间的距离比之前的DFT模拟中观察到的距离要大，并且hHydroxy离子周围的四个水分子的平面排列比之前的DFT模拟中更加扭曲。然而，五配位氢氧根离子络合物中四个平面水分子的排列与之前的DFT模拟结果相似。由于两个模拟中的 O-O 配位数相似，经典模拟和量子模拟分别为 4.7 和 4.5，因此当前研究和 DFT 研究中氢氧根离子形成的 HB 数的不一致可能是由于本工作中氢键的定义所致。
+
+<a id="S038"></a>
+**Source:** p.4 S038
+
+**Original:** The number of HBs accepted by hHydroxide as a function of time at different temperatures is shown in Fig. 4 at T = 281 K (top panel) and T = 302 K (bottom panel). Clearly, four and five hHydroxide acceptor HBs correspond to the dominant structures. There are some transient formations of three and six HBs due to thermal fluctuations. Although the population of four and five hHydroxide acceptor arrangements is roughly the same at the two different temperatures, the switching rate between these two structures is temperature dependent. In general, this switching rate is lower as the temperature decreases. At T = 281 K, the lifetime of one structure, especially when there are five acceptor HBs, can be as long as 10 ps. In contrast, at T = 302 K the breaking and making of hydrogen bonds is much faster, the typical time of effective switching is now under 3 ps. For both temperatures, oscillations between the two structures are observed.
+
+**中文:** 图 4 显示了不同温度下 hHydroxy 接受的 HB 数量随时间变化的情况，其中 T = 281 K（上图）和 T = 302 K（下图）。显然，四个和五个氢氧受体 HB 对应于主要结构。由于热波动，存在一些短暂形成的三个和六个HB。尽管四个和五个氢氧受体排列的数量在两个不同温度下大致相同，但这两种结构之间的转换速率取决于温度。一般来说，当温度降低时，该开关速率会降低。在 T = 281 K 时，一种结构的寿命，特别是当有 5 个受体 HB 时，可以长达 10 ps。相比之下，在 T = 302 K 时，氢键的断裂和形成要快得多，有效切换的典型时间现在低于 3 ps。对于这两种温度，观察到两种结构之间的振荡。
+
+<a id="S039"></a>
+**Source:** p.4 S039
+
+**Original:** H atoms of H2O, respectively, and the HBs are represented by green dotted lines. In Fig. 5a, the system is in the configuration of five hHydroxide acceptor HBs. Due to the thermal fluctuations, one of those five HBs is broken and the system changes to the four acceptor HB configuration shown in Fig. 5b. Usually at the beginning of the switching process, the donating to OHwater molecules are not close to the quasi-planar arrangement, and the relaxation to a more energetically stable arrangement takes place after the formation of the new structure. In Fig. 5c, the quasi-planar arrangement of the four donating water molecules is again distorted by thermal fluctuations to generate more space for a new HB to be formed by the hHydroxide ion with another water molecule that was initially in the second solvation shell. Then, a former first solvation shell water molecule moves to the second solvation shell of the hHydroxide ion. Finally, the newly formed structure relaxes to its stable configuration shown in Fig. 5d.
+
+**中文:** H2O 的 H 原子和 HBs 分别用绿色虚线表示。在图5a中，系统处于五个氢氧受体HB的配置中。由于热波动，这五个 HB 之一被破坏，系统变为图 5b 所示的四个受体 HB 配置。通常在转换过程开始时，OH水分子的供给并不接近准平面排列，并且在新结构形成后松弛到更能量稳定的排列。在图5c中，四个供体水分子的准平面排列再次被热波动扭曲，从而为氢氧根离子与最初位于第二溶剂化壳中的另一个水分子形成新的HB产生更多空间。然后，以前的第一溶剂化层水分子移动到氢氧根离子的第二溶剂化层。最后，新形成的结构松弛至图5d所示的稳定构型。
+
+<a id="S040"></a>
+**Source:** p.4 S040
+
+**Original:** Although the switching between the structures involves the breaking and forming of HBs, no drastic changes in the overall arrangement are observed. The driving force for these structural transitions is the thermal fluctuations. The system has to be in a specific geometry for the breaking or forming of HBs to facilitate the processes. Since the interaction between the hHydroxide ion and its first solvation shell water molecules is strong, the motion of the hHydroxide ion is coupled to the motion of its first solvation shell water molecules. As stated earlier, the orientation of the hHydroxide ion is likely to be perpendicular to the four-water plane. When that plane is distorted due to thermal fluctuations, the hHydroxide ion will reorient accordingly. According to our simulations, a two-step mechanism for the reorientation of the hHydroxide ion in water is suggested. First, the thermal fluctuation of H2O in the first solvation shell of OHdrags the oxygen of OHto translate together with the H2O molecules that are donating a HB to OH-, initiating the reorientation of OH-.
+
+**中文:** 尽管结构之间的转换涉及HBs的断裂和形成，但没有观察到整体排列的剧烈变化。这些结构转变的驱动力是热波动。该系统必须具有特定的几何形状，才能破坏或形成 HB，以促进该过程。由于氢氧根离子与其第一溶剂化层水分子之间的相互作用很强，因此氢氧根离子的运动与其第一溶剂化层水分子的运动耦合。如前所述，氢氧根离子的方向可能垂直于四水平面。当该平面因热波动而扭曲时，氢氧根离子将相应地重新定向。根据我们的模拟，提出了一种用于水中氢氧根离子重新定向的两步机制。首先，OH的第一个溶剂化壳中H2O的热波动拖动OH的氧与将HB提供给OH-的H2O分子一起平移，从而引发OH-的重新取向。
+
+<a id="S041"></a>
+**Source:** p.4 S041
+
+**Original:** Second, the hHydroxide ion reorients its H to the minimum energy arrangement in the OH-(H2O)n complex to complete the reorientation of the OH-. The second step is very fast due to the small mass of the hydrogen. However, sometimes the reorientation of the OHhydrogen involves breaking or forming a weak HB donated by OHto other water molecules. This step could be slowed down or accelerated, but the thermal averaging is canceling that out. The rate-limiting step in this mechanism is the first step, namely the thermal fluctuations of the first solvation shell water molecules. Here, the thermal fluctuations of water molecules are related to the translational diffusion of the water molecules. The translational diffusion of water molecules is investigated from the diffusion coefficient
+
+**中文:** 其次，h氢氧化物离子将其H重新定向到OH-(H2O)n配合物中的最小能量排列，以完成OH-的重新定向。由于氢气质量小，第二步非常快。然而，有时 OH 氢的重新定向涉及破坏或形成由 OH 提供给其他水分子的弱 HB。这一步骤可能会减慢或加速，但热平均正在抵消这一点。该机制中的限速步骤是第一步，即第一个溶剂化层水分子的热波动。这里，水分子的热波动与水分子的平移扩散有关。从扩散系数研究水分子的平移扩散
+
+<a id="F004"></a>
+### Fig
+
+**Placed near:** p.4 S041  
+**Source:** p.4 F004
+
+![Fig](assets/fig5-20260707-reorientation-mechanism-hydroxide-ions-water.png)
+
+**Original caption:** Fig. 5 is a schematic illustration of one full cycle of structure switching. The yellow and pink spheres correspond to the O and H atoms of OH-, whereas the red and white spheres to the O and
+
+**中文图注:** 图5是结构切换的一个完整周期的示意图。黄色和粉色球体对应于 OH- 的 O 和 H 原子，而红色和白色球体对应于 O 和 H 原子。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="S042"></a>
+**Source:** p.4 S042
+
+**Original:** Here ri(t) is the position of particle i at time t, and N is the total number of particles. At T = 302 K, the diffusion coefficient of water obtained from our simulations was 1.9  10-5 cm2 s-1. Compared to the experimental value of 2.3  10-5 cm2 s-1 at 298 K [47], our potential was found to slightly underestimate the translation rate of water molecules. This could be one of the explanations for the overestimation of the reorientation relaxation time of hHydroxide ions, since the reorientation of hHydroxide ions is coupled to the translation diffusion of water molecules in our suggested mechanism. It should be noted that our force field should be considered as an effective one in which quantum effects (known to increase the diffusion coefficient by as much as 60%) [48,49] are implicitly contained, since the intent was to reproduce macroscopic properties of liquid water with classical simulations. The diffusion of water molecules decreases drastically with decreasing temperature. This is consistent with the observation of the drastic slowdown of the reorientation of hHydroxide ions at low temperatures. The activation
+
+**中文:** 这里 ri(t) 是粒子 i 在时间 t 的位置，N 是粒子总数。在 T = 302 K 时，我们模拟获得的水扩散系数为 1.9 × 10-5 cm2 s-1。与 298 K 下的实验值 2.3 10-5 cm2 s-1 相比[47]，我们的潜力被发现稍微低估了水分子的翻译速率。这可能是高估氢氧根离子重新定向弛豫时间的解释之一，因为在我们提出的机制中，氢氧根离子重新定向与水分子的平移扩散耦合。应该指出的是，我们的力场应该被认为是一种有效的力场，其中隐含着量子效应（已知会使扩散系数增加多达 60%）[48,49]，因为其目的是通过经典模拟再现液态水的宏观特性。随着温度的降低，水分子的扩散急剧减少。这与在低温下氢氧根离子重新定向急剧减慢的观察结果一致。激活
+
+<a id="F005"></a>
+### Fig
+
+**Placed near:** p.4 S042  
+**Source:** p.4 F005
+
+![Fig](assets/fig4-20260707-reorientation-mechanism-hydroxide-ions-water.png)
+
+**Original caption:** Fig. 4. The number of hydroxide acceptor HBs during the simulation at T = 281 K (top panel) and T = 302 K (bottom panel).
+
+**中文图注:** 图 4. T = 281 K（上图）和 T = 302 K（下图）时模拟过程中氢氧根受体 HB 的数量。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="S043"></a>
+**Source:** p.5 S043
+
+**Original:** X. Sun et al. / Chemical Physics Letters 481 (2009) 9-16 13
+
+**中文:** X.孙等人。 / 化学物理快报 481 (2009) 9-16 13
+
+
+<a id="S044"></a>
+**Source:** p.5 S044
+
+**Original:** energies of reorientation of OHand translation of H2O determined from our simulations are 22.5 and 18.5 kJ/mol, respectively. The activation energy for the diffusion in the temperature range of this study can be described by Arrhenius law, D = D0 exp(-Eat/RT). Here Eat is the translational (diffusion) activation energy, R is the gas constant and D0 is the pre-exponential factor. Similarly, the activation energy for rotation can be described by 1 s ¼ 1 s0 expð-Ear=RTÞ, where Ear is the rotational activation energy. This lends more evidence that the translational diffusion of water molecules is the dominant step in our proposed two-step mechanism for the reorientation of OH-. The 4 kJ/mol difference in the activation energies between the translation of H2O and the reorientation of OHis mainly due to the second step in the mechanism, namely the reorientation of the H atom of OH-.
+
+**中文:** 根据我们的模拟确定，OH 的重新定向能量和 H2O 的平移能量分别为 22.5 和 18.5 kJ/mol。本研究温度范围内扩散的活化能可以用阿伦尼乌斯定律描述，D = D0 exp(-Eat/RT)。这里 Eat 是平移（扩散）活化能，R 是气体常数，D0 是指前因子。类似地，旋转的活化能可以用 1 s ¼ 1 s0 expð-Ear=RTÞ 来描述，其中 Ear 是旋转活化能。这提供了更多证据，表明水分子的平移扩散是我们提出的 OH- 重新定向两步机制中的主要步骤。 H2O的平移和OH的重新取向之间的活化能差异为4 kJ/mol，这主要是由于该机制的第二步，即OH-的H原子的重新取向。
+
+<a id="S045"></a>
+**Source:** p.5 S045
+
+**Original:** 3.4. The coordination of hHydroxide in small water clusters
+
+**中文:** 3.4. hHydroxy在小水团簇中的配位
+
+<a id="S046"></a>
+**Source:** p.5 S046
+
+**Original:** The previous discussion has made it evident that the accurate description of the different coordination of the first few water molecules acting as donors to hHydroxide and their variation with temperature is essential in order to probe its dynamical properties in an aqueous environment. A zero-order picture can be obtained from the relative energetics of the various isomers of the first few hHydroxide-water clusters OH-(H2O)n corresponding to different coordination of the first solvation shell [50]. In our opinion, the accurate description of the relative coordination of hHydroxide in gas phase clusters for a given theoretical approach represents a 'necessary but not sufficient' condition for obtaining a rational picture of its local environment in the condensed phase. Furthermore, the comparison between DFT-based approaches and high-level electronic structure results is justified, as they both represent
+
+**中文:** 前面的讨论表明，为了探测其在水环境中的动力学特性，准确描述作为 hHydroxy 供体的前几个水分子的不同配位及其随温度的变化至关重要。可以从对应于第一溶剂化壳的不同配位的前几个氢-水簇OH-(H2O)n的各种异构体的相对能量学中获得零级图[50]。我们认为，对于给定的理论方法，准确描述气相团簇中氢氧化物的相对配位代表了获得其凝聚相局部环境的合理图像的“必要但不充分”条件。此外，基于 DFT 的方法和高级电子结构结果之间的比较是合理的，因为它们都代表
+
+<a id="S047"></a>
+**Source:** p.5 S047
+
+**Original:** different levels of approximations to the Born-Oppenheimer potential energy surface (PES). The optimal geometries of the OH-(H2O)n, n = 4 and 5 cluster isomers corresponding to the different coordination of the water molecules are shown in Fig. 6. They all represent minima on the corresponding PESs, as evidenced from the analysis of the vibrational frequencies. For the n = 4 cluster, we examined the four-coordinated isomer of C4 symmetry and the three-coordinated version with the fourth water molecule in the second solvation shell (denoted as '3 + 1'). For the n = 5 cluster, we examined the five-coordinated (C5), four-coordinated ('4 + 1') and three-coordinated ('3 + 2') isomers, respectively. The results for the relative energetics between those isomers are listed in Table 1. For n = 4, the four-coordinated isomer is lower in energy than the three-coordinated (3 + 1) one, although their energy difference is small and it is decreasing upon the use of a larger basis set at the MP2 level of theory.
+
+**中文:** 玻恩-奥本海默势能面 (PES) 的不同程度的近似。与水分子的不同配位相对应的OH-(H2O)n、n = 4和5簇异构体的最佳几何形状如图6所示。从振动频率分析可以看出，它们都代表相应PES上的最小值。对于 n = 4 簇，我们检查了 C4 对称性的四配位异构体和第二个溶剂化壳层中第四个水分子的三配位异构体（表示为“3 + 1”）。对于 n = 5 簇，我们分别检查了五配位 (C5)、四配位 ('4 + 1') 和三配位 ('3 + 2') 异构体。这些异构体之间的相对能量结果列于表1中。当n = 4时，四配位异构体的能量低于三配位(3 + 1)异构体，尽管它们的能量差异很小，并且在MP2理论水平上使用更大的基组时能量差异正在减小。
+
+<a id="S048"></a>
+**Source:** p.5 S048
+
+**Original:** The effect of higher correlation, estimated at the CCSD(T) level of theory with the aug-cc-pVTZ basis set, was found to further stabilize the C4 isomer by 0.26 kcal/mol with respect to MP2. Based on the results listed in Table 1, we estimate an energy separation (DEe) of just 0.09 kcal/ mol at the MP2 Complete Basis Set (CBS) limit and 0.35 kcal/mol at the CCSD(T)/CBS limit, with the C4 isomer being more stable. The inclusion of harmonic zero-point energy corrections (estimated at the MP2/aug-cc-pVDZ level) to the CCSD(T)/CBS value decreases the energy separation to 0.02 kcal/mol. However, estimates for the enthalpy and Gibbs free energy (albeit using harmonic corrections) stabilize the 3 + 1 isomer with respect to the C4 by 0.18 and 0.48 kcal/mol, respectively. These results suggest that the energy difference between the two cluster isomers (fourand three-coordinated hHydroxide) is quite subtle. The near degeneracy, predicted by the high-level [MP2 and CCSD(T)] calculations, is not
+
+**中文:** 较高相关性的影响，在 CCSD(T) 理论水平上与 aug-cc-pVTZ 基础组估计，发现相对于 MP2 进一步稳定 C4 异构体 0.26 kcal/mol。根据表 1 列出的结果，我们估计 MP2 完全基集 (CBS) 极限下的能量分离 (DEe) 仅为 0.09 kcal/mol，CCSD(T)/CBS 极限下的能量分离 (DEe) 仅为 0.35 kcal/mol，其中 C4 异构体更加稳定。 CCSD(T)/CBS 值中包含谐波零点能量校正（在 MP2/aug-cc-pVDZ 水平估计），可将能量分离降低至 0.02 kcal/mol。然而，对焓和吉布斯自由能的估计（尽管使用谐波校正）使 3 + 1 异构体相对于 C4 分别稳定了 0.18 和 0.48 kcal/mol。这些结果表明两个簇异构体（四配位和三配位氢氧化物）之间的能量差异非常微妙。由高级 [MP2 和 CCSD(T)] 计算预测的近简并性并不
+
+<a id="S049"></a>
+**Source:** p.6 S049
+
+**Original:** 14 X. Sun et al. / Chemical Physics Letters 481 (2009) 9-16
+
+**中文:** 14 X.孙等人。 /化学物理快报481 (2009) 9-16
+
+<a id="F006"></a>
+### Fig
+
+**Placed near:** p.6 S049  
+**Source:** p.6 F006
+
+![Fig](assets/fig6-20260707-reorientation-mechanism-hydroxide-ions-water.png)
+
+**Original caption:** Fig. 6. The various isomers of the OH-(H2O)n, n = 4 and 5 clusters corresponding to the different coordination of hydroxide in the first solvation shell.
+
+**中文图注:** 图 6. OH-(H2O)n、n = 4 和 5 簇的各种异构体对应于第一溶剂化壳中氢氧化物的不同配位。
+
+**Reading note / 读图提示:** 这张图对应正文中关于 氢氧根结构、配位或传输 的证据，建议和相邻段落一起看。
+
+
+<a id="T001"></a>
+### Table 1 | Relative energetics of OH-(H2O)n clusters
+
+**Placed near:** p.6 S049  
+**Source:** p.6 T001
+
+![Table 1](assets/table1-20260707-reorientation-mechanism-hydroxide-ions-water.png)
+
+**Original caption:** Table 1. The relative energetics (in kcal/mol) between various OH-(H2O)n, n = 4 and 5 isomers.
+
+**中文表注:** 表 1. 各种 OH-(H2O)n（n = 4 和 5）异构体之间的相对能量（kcal/mol）。
+
+**Reading note / 读表提示:** 这张表对应正文中比较不同 OH-(H2O)n 簇构型相对稳定性的讨论，建议和 Fig. 6 及相邻段落一起看。
+
+
+<a id="S050"></a>
+**Source:** p.6 S050
+
+**Original:** C4 3 + 1 C5 4 + 1 3 + 2
+
+**中文:** C4 3 + 1 C5 4 + 1 3 + 2
+
+<a id="S051"></a>
+**Source:** p.6 S051
+
+**Original:** CCSD(T)/CBS + ZPE (MP2/aug-cc-pVDZ) DEe (0 K) 0 0.35 DE0 (0 K) 0 0.02 DH (298 K) 0 -0.18 DG (298 K) 0 -0.48
+
+**中文:** CCSD(T)/CBS + ZPE (MP2/aug-cc-pVDZ) DEe (0 K) 0 0.35 DE0 (0 K) 0 0.02 DH (298 K) 0 -0.18 DG (298 K) 0 -0.48
+
+<a id="S052"></a>
+**Source:** p.6 S052
+
+**Original:** a At the MP2/aug-cc-pVTZ optimal geometry.
+
+**中文:** a 在 MP2/aug-cc-pVTZ 最佳几何形状。
+
+<a id="S053"></a>
+**Source:** p.6 S053
+
+**Original:** well described by the two DFT functionals, which tend to favor the threefold coordinated arrangement over the fourfold one, whereas additional corrections for the zero-point and thermal effects will probably increase their energy separation even more. In contrast, the DC potential does predict the fourfold isomer to be more stable that the three-coordinated one, although the predicted energy difference (1.30 kcal/mol) is larger than the near degeneracy predicted by the high-level electronic structure calculations (0.02 kcal/mol). It should be noted that the energy difference at T = 0 K predicted by the DC force field should be compared to the DE0 value predicted by the electronic structure calculations (0.02 kcal/mol) due to the fact that the DC potential can be considered as an effective one which implicitly contains corrections for ZPE, since it is designed to reproduce macroscopic thermodynamic properties using classical MD simulations. As regards the n = 5 cluster, the four-coordinated 4 + 1 cluster is lower in energy than the five- (C5) and three-coordinated ones (3 + 2) by 3 kcal/mol.
+
+**中文:** 两个 DFT 泛函很好地描述了这一点，它们倾向于三重协调排列而不是四重协调排列，而对零点和热效应的额外修正可能会进一步增加它们的能量分离。相比之下，直流电势确实预测四重异构体比三配位异构体更稳定，尽管预测的能量差（1.30 kcal/mol）大于高级电子结构计算预测的近简并性（0.02 kcal/mol）。值得注意的是，直流力场预测的 T = 0 K 时的能量差应与电子结构计算预测的 DE0 值 (0.02 kcal/mol) 进行比较，因为直流电势可被视为隐含 ZPE 修正的有效电势，因为它旨在使用经典 MD 模拟重现宏观热力学性质。对于n=5团簇，四配位4+1团簇的能量比五配位团簇（C5）和三配位团簇（3+2）低3 kcal/mol。
+
+<a id="S054"></a>
+**Source:** p.6 S054
+
+**Original:** Harmonic zero-point energy corrections were found to decrease this energy difference by 0.65 kcal/mol, whereas they practically do not have an effect on the enthalpy at T = 298 K. The ordering of the three isomers is well reproduced
+
+**中文:** 谐波零点能量校正被发现可将该能量差降低 0.65 kcal/mol，而它们实际上对 T = 298 K 时的焓没有影响。三种异构体的排序得到了很好的再现
+
+<a id="S055"></a>
+**Source:** p.6 S055
+
+**Original:** by the DFT functionals and the DC force field, although the predicted energy difference between the global 4 + 1 and the local 3 + 2 minima is about one third (DFT) and half (DC) from the electronic structure results. It is interesting to note that the addition of a single water molecule further stabilizes the fourfold coordinated hHydroxide structure with respect to the other arrangements (fiveand three-coordinated ones) while it destabilizes the three-coordinated (3 + 2) isomer. The above results justify the use of the DC force field for the study of the local structure of aqueous hHydroxide.
+
+**中文:** 尽管根据电子结构结果预测全局 4 + 1 和局部 3 + 2 最小值之间的能量差异约为三分之一 (DFT) 和一半 (DC)，但通过 DFT 泛函和 DC 力场进行计算。有趣的是，相对于其他排列（五配位和三配位结构），单个水分子的添加进一步稳定了四配位 hHydroxy 结构，同时破坏了三配位 (3 + 2) 异构体的稳定性。上述结果证明了使用直流力场来研究氢氧化物水溶液的局部结构是合理的。
+
+<a id="S056"></a>
+**Source:** p.6 S056
+
+**Original:** The reorientation of hHydroxide ions in water was studied using classical MD simulations with a polarizable force field. Our results for the reorientation relaxation time of OHare in a qualitative agreement with the CTTS experiments. The observation that the decay of the orientation correlation functions is well described by a single exponential indicates a successive small angular jump mechanism for the reorientation of both OHand H2O. The calculated results of RDFs (not shown) show excellent agreement with the CPMD and the X-ray diffraction data. Our simulations suggest
+
+**中文:** 使用具有极化力场的经典 MD 模拟研究了水中氢氧根离子的重新定向。我们的 OHare 重定向弛豫时间结果与 CTTS 实验定性一致。方向相关函数的衰减可以用单个指数很好地描述，这一观察结果表明 OH 和 H2O 的重新取向存在连续的小角跳跃机制。 RDF 的计算结果（未显示）与 CPMD 和 X 射线衍射数据表现出极好的一致性。我们的模拟表明
+
+<a id="S057"></a>
+**Source:** p.6 S057
+
+**Original:** Method Quantity OH-(H2O)4 OH-(H2O)5
+
+**中文:** 方法 数量 OH-(H2O)4 OH-(H2O)5
+
+<a id="S058"></a>
+**Source:** p.6 S058
+
+**Original:** MP2/aug-cc-pVDZ DEe 0 0.56 3.40 0 3.44 MP2/aug-cc-pVTZ DEe 0 0.15 3.24 0 3.24 MP2/aug-cc-pVQZ DEe 0 0.10 3.03a 0 3.20a
+
+**中文:** MP2/aug-cc-pVDZ DEe 0 0.56 3.40 0 3.44 MP2/aug-cc-pVTZ DEe 0 0.15 3.24 0 3.24 MP2/aug-cc-pVQZ DEe 0 0.10 3.03a 0 3.20a
+
+<a id="S059"></a>
+**Source:** p.6 S059
+
+**Original:** CCSD(T)/aug-cc-pVTZa DEe 0 0.41 - - -
+
+**中文:** CCSD(T)/aug-cc-pVTZa DEe 0 0.41 - - -
+
+<a id="S060"></a>
+**Source:** p.6 S060
+
+**Original:** BLYP/Martens-Troullier/70 Ry DEe 0 -1.85 3.91 0 0.43 BLYP/TZV2P/280 Ry DEe 0 -1.15 3.79 0 1.05 PBE/TZV2P/280 Ry DEe 0 -1.22 4.38 0 1.07
+
+**中文:** BLYP/Martens-Troullier/70 Ry DEe 0 -1.85 3.91 0 0.43 BLYP/TZV2P/280 Ry DEe 0 -1.15 3.79 0 1.05 PBE/TZV2P/280 Ry DEe 0 -1.22 4.38 0 1.07
+
+<a id="S061"></a>
+**Source:** p.6 S061
+
+**Original:** DC force field DE (0 K) 0 1.30 4.82 0 1.67
+
+**中文:** 直流力场 DE (0 K) 0 1.30 4.82 0 1.67
+
+<a id="S062"></a>
+**Source:** p.7 S062
+
+**Original:** X. Sun et al. / Chemical Physics Letters 481 (2009) 9-16 15
+
+**中文:** X.孙等人。 / 化学物理快报 481 (2009) 9-16 15
+
+<a id="S063"></a>
+**Source:** p.7 S063
+
+**Original:** two principal solvation structures of OHdue to the different number of acceptor OHHBs. One of the structures has four acceptor HBs from water while the other has five. The population of the four-coordinated HB structure is 38%, while the one for the five-coordinated is 57% at all temperatures. A weak HB in which the hHydroxide acts as the donor is observed in our simulations. No drastic jump of the structure switching was observed. The angular motion of a hHydroxide ion is coupled with the motion of its first solvation shell water molecules. Our results suggest a two-step mechanism of the reorientation of hHydroxide ion in water. First, the reorientation of OHis initiated by the translation of the water molecules in its first solvation shell. Second, the H atom of the OHrelaxes to an energetically stable arrangement. The rate-limiting step in this mechanism is the first step, i.e., the translational diffusion of the water molecules in the first solvation shell. The activation energies of reorientation of OHand translation of H2O determined from our simulations are 22.5 and 18.5 kJ/mol, respectively.
+
+**中文:** 由于受体 OHHB 的数量不同，因此形成了 OH 的两种主要溶剂化结构。其中一个结构有四个来自水中的受体 HB，而另一个结构有五个。在所有温度下，四配位 HB 结构的数量为 38%，而五配位 HB 结构的数量为 57%。在我们的模拟中观察到了弱 HB，其中 hHydrox 充当供体。没有观察到结构转换的剧烈跳跃。氢氧根离子的角运动与其第一溶剂化层水分子的运动耦合。我们的结果提出了水中氢氧根离子重新定向的两步机制。首先，OH 的重新定向是由水分子在其第一个溶剂化壳层中的平移引发的。其次，OH 的 H 原子松弛至能量稳定的排列。该机制中的限速步骤是第一步，即第一个溶剂化壳中水分子的平移扩散。从我们的模拟中确定的 OH 重新定向和 H2O 平移的活化能分别为 22.5 和 18.5 kJ/mol。
+
+<a id="S064"></a>
+**Source:** p.7 S064
+
+**Original:** A subtle difference between the fourand three-coordinated hHydroxide was found in small clusters. This competition can be overridden by quenching with the addition of additional solvent molecules, which yields a preference for a four-coordinated hHydroxide arrangement in clusters. Nevertheless, our electronic structure results justify the use of the DC force field in the current study and provide a benchmark for the development of accurate force fields that can be used to study the dynamical properties of hHydroxide in an aqueous environment in future studies. Simulating the molecular properties of the surface of aqueous solutions is essential to understanding a wide range of important physical and environmental processes. The factor that gives rise to the thermodynamics properties (i.e., free energy) of ions at interfaces is an area of research at the frontiers of basic chemical physics. From the point of view of molecular simulation, there are many possible ways to model hHydroxide anions at an air-water interface.
+
+**中文:** 在小簇中发现了四配位和三配位氢氧化物之间的细微差别。这种竞争可以通过添加额外的溶剂分子进行淬灭来克服，这会产生对簇中四配位氢氧化物排列的偏好。尽管如此，我们的电子结构结果证明了在当前研究中使用直流力场的合理性，并为开发精确力场提供了基准，可用于在未来的研究中研究水环境中氢氧化物的动力学特性。模拟水溶液表面的分子特性对于了解各种重要的物理和环境过程至关重要。引起界面离子热力学性质（即自由能）的因素是基础化学物理前沿的研究领域。从分子模拟的角度来看，有许多可能的方法来模拟空气-水界面处的氢氧根阴离子。
+
+<a id="S065"></a>
+**Source:** p.7 S065
+
+**Original:** The first and foremost is classical empirical interaction potentials are only able to describe non-covalent bond interactions. A relevant quantity to discern the propensity of ions at interfaces is the free-energy profile of an ion as a function of interfacial depth. The results of our study on the transport property of an OH-
+
+**中文:** 首先也是最重要的是经典的经验相互作用势只能描述非共价键相互作用。辨别界面处离子倾向的相关量是离子的自由能分布，作为界面深度的函数。我们对 OH- 输运特性的研究结果
+
+<a id="S066"></a>
+**Source:** p.7 S066
+
+**Original:** across the water/air interface using the constraint mean force approach shows a flat minimum near the GDS, which indicates that OHcan be found at the interface, but its free energy is about 1 kcal/mol above the bulk, liquid. We have also carried out simulations of 1 M CsOH salt solution and closely examining the results, we can preliminary conclude that classical simulations show very few hHydroxide ions at the aqueous interface, with the majority residing in or inside the bulk liquid. Secondly, the polarizable multi-state empirical valence bond (MS-EVB) approach contains dissociation and allows multiple waters to share protons with the hHydroxide anion, but in a computationally efficient way. Lastly, the ab initio approaches based on Kohn-Sham density functional theory (DFT) contain the proper physics to describe charge transfer and chemistry but even large scale calculations are limited to short trajectories that will shed little insight on ion-partitioning at the interface. Our work on hHydroxide ions at the aqueous interfaces using the above approaches are in progress.
+
+**中文:** 使用约束平均力方法在水/空气界面上显示了 GDS 附近的平坦最小值，这表明可以在界面处找到 OH，但其自由能比本体液体高约 1 kcal/mol。我们还对 1 M CsOH 盐溶液进行了模拟，并仔细检查了结果，我们可以初步得出结论，经典模拟显示水界面上的氢氧根离子很少，大部分存在于本体液体中或内部。其次，可极化多态经验价键（MS-EVB）方法包含解离，并允许多个水与氢氧阴离子共享质子，但以计算有效的方式。最后，基于 Kohn-Sham 密度泛函理论 (DFT) 的从头计算方法包含描述电荷转移和化学的适当物理原理，但即使是大规模计算也仅限于短轨迹，这对界面处的离子分配几乎没有帮助。我们使用上述方法对水界面处的氢氧根离子进行的研究正在进行中。
+
+<a id="S067"></a>
+**Source:** p.7 S067
+
+**Original:** Acknowledgements
+
+**中文:** 致谢
+
+<a id="S068"></a>
+**Source:** p.7 S068
+
+**Original:** This work was performed at Pacific Northwest National Laboratory under the auspices of the Division of Chemical Sciences, Geosciences and Biosciences, US Department of Energy (DOE). Battelle operates Pacific Northwest National Laboratory for the DOE. Computer resources were provided by the Office of Basic Energy Sciences, US Department of Energy.
+
+**中文:** 这项工作是在美国能源部 (DOE) 化学科学、地球科学和生物科学司的支持下在太平洋西北国家实验室进行的。巴特尔为美国能源部运营太平洋西北国家实验室。计算机资源由美国能源部基础能源科学办公室提供。
+
+<a id="S069"></a>
+**Source:** p.8 S069
+
+**Original:** 16 X. Sun et al. / Chemical Physics Letters 481 (2009) 9-16
+
+**中文:** 16 X.孙等人。 /化学物理快报481 (2009) 9-16
+
+<a id="S070"></a>
+**Source:** p.8 S070
+
+**Original:** Soohaeng Yoo received his B.S. in Genetic Engineering from Korea University, Seoul, Korea (1996), a M.S. in Physical Chemistry from Korea University, Seoul, Korea in 1998 and a Ph.D. in Physical Chemistry in 2004 from the University of Nebraska, Lincoln, under the guidance of Prof. Xiao Cheng Zeng. He was a postdoctoral fellow at Iowa State University (2006-2008) under the guidance of Prof. Mark S. Gordon in the development of the time dependent density functional theory into GAMESS. He is currently a postdoctoral fellow at the Pacific Northwest National Laboratory (2008-). His research interests include the phase transition, biophysical chemistry, supercooled liquids, and nano-material clusters using electronic structure methods.
+
+**中文:** Soohaeng Yoo 获得了学士学位韩国首尔高丽大学基因工程学士学位（1996 年）、硕士学位1998 年在韩国首尔高丽大学获得物理化学博士学位，并于 1998 年在韩国首尔高丽大学获得博士学位。 2004年获得内布拉斯加大学林肯分校物理化学博士学位，师从曾晓成教授。 2006-2008年，他在爱荷华州立大学从事博士后研究，在Mark S. Gordon教授的指导下，将时间相关密度泛函理论发展为GAMESS。他目前是太平洋西北国家实验室的博士后研究员（2008-）。他的研究兴趣包括相变、生物物理化学、过冷液体和使用电子结构方法的纳米材料簇。
+
+<a id="S071"></a>
+**Source:** p.8 S071
+
+**Original:** Sotiris S. Xantheas is a Laboratory Fellow at Pacific Northwest National Laboratory. He earned a Diploma in Chemical Engineering from the National Technical University of Athens, Greece (1984), and a Ph.D. in Chemistry from Iowa State University (1991). He was a postdoctoral fellow at PNNL (1990-1992). His research interests include using electronic structure methods to study the intermolecular interactions and magnitude of the many-body effects in aqueous clusters and the development of interaction potentials to study the macroscopic properties of water and ice and the aqueous solvation of ions.
+
+**中文:** Sotiris S. Xantheas 是太平洋西北国家实验室的实验室研究员。他获得了希腊雅典国立技术大学化学工程文凭（1984 年）和博士学位。爱荷华州立大学化学博士（1991 年）。他是 PNNL 的博士后研究员（1990-1992）。他的研究兴趣包括使用电子结构方法研究水性团簇中的分子间相互作用和多体效应的大小，以及开发相互作用势来研究水和冰的宏观性质以及离子的水溶剂化。
+
+<a id="S072"></a>
+**Source:** p.8 S072
+
+**Original:** Liem X. Dang received his B.S. with Honors in Chemistry with a minor in Mathematics in 1980 from Florida Institute of Technology and his Ph.D. in Physical Chemistry in 1985 from the University of California, Irvine, under the guidance of Prof. Max Wolfsberg. He is currently a Chief Scientist at the Pacific Northwest National Laboratory. He has authored or co-authored over 100 peer-reviewed publications on the development and use of molecular dynamics computer simulation techniques to study molecular complex systems.
+
+**中文:** Liem X. Dang 获得理学士学位1980 年获得佛罗里达理工学院化学荣誉学位，辅修数学，并获得博士学位。 1985 年在 Max Wolfsberg 教授的指导下获得加州大学欧文分校物理化学博士学位。他目前是太平洋西北国家实验室的首席科学家。他撰写或合着了 100 多篇同行评审出版物，内容涉及分子动力学计算机模拟技术的开发和使用，以研究分子复杂系统。
+
+## Critical Reading Notes / 批判性阅读提示
+
+**English:** Compare the proposed transport coordinate with the actual structural evidence in the figures. For this topic, small differences in hydrogen-bond definition, exchange-correlation functional, nuclear quantum treatment, and sampling length can change the mechanistic interpretation.
+
+**中文:** 建议把作者提出的传输坐标和图中的结构证据对应起来看。对于水中质子/氢氧根传输这类问题，氢键定义、泛函选择、核量子效应处理以及采样长度的细微差别，都可能改变机制解释。
+
+## Related Reading / 相关阅读
+
+**English:** Strongly recommended follow-up papers are provided in `related_reading.md`.
+
+**中文:** 强推荐的后续阅读文献见 `related_reading.md`。

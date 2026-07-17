@@ -1,0 +1,634 @@
+# A Machine Learning Perspective on the Brønsted-Evans-Polanyi Relation in Water-Gas Shift Catalysis on MXenes
+
+> 中英文对照全文解读稿。源文件：`source.pdf`。正文按论文论证顺序重排，图表裁图放在首次实质讨论附近。
+
+## Metadata
+
+- Paper: Nassar et al., Advanced Intelligent Discovery, 2026, 2:e202500045
+- DOI: https://doi.org/10.1002/aidi.202500045
+- Dataset/code: https://doi.org/10.17632/4zmkpw3wxx.2
+- Reader build: paragraph-level bilingual reader with page/block anchors
+
+## Page And Section Index
+
+- p.1: Title, abstract, beginning of introduction
+- p.2-p.3: Introduction and study objective
+- p.3-p.6: Dataset, DFT details, features, ML workflow
+- p.6-p.13: Results: activation-energy distribution, feature selection, model comparison, SHAP
+- p.13-p.14: Conclusions, acknowledgments, data availability
+- p.14-p.17: References retained in `extracted_pages.txt` and source PDF
+
+## Terminology
+
+| Term | 中文 | Reading note |
+|---|---|---|
+| MXene | 二维过渡金属碳化物/氮化物 | 本研究的催化剂材料平台。 |
+| Water-gas shift reaction, WGS | 水煤气变换反应 | 总体反应 H2O + CO -> H2 + CO2。 |
+| Activation energy, Ea | 活化能 | 反应需跨越的动力学能垒，单位 eV。 |
+| Reaction energy, Er | 反应能 | 反应物到产物的热力学能量变化。 |
+| Brønsted-Evans-Polanyi relation, BEP | BEP 关系 | 反应能与活化能之间的经验/半经验关联。 |
+| Random forest regressor, RFR | 随机森林回归 | 本文表现最好的机器学习模型。 |
+| Recursive feature elimination, RFE | 递归特征消除 | 用于从 103 个特征中筛选关键描述符。 |
+| LogP | 辛醇/水分配系数对数 | 反映疏水性，并间接包含极性、氢键、大小、形状和电荷信息。 |
+| SHAP | SHAP 解释方法 | 量化每个特征对单个预测值的推动方向和大小。 |
+
+## Bilingual Reader
+
+
+## Metadata
+
+<a id="S001"></a>
+**Source:** p.1 S001
+
+**Original:** A Machine Learning Perspective on the Brønsted-Evans-Polanyi Relation in Water-Gas Shift Catalysis on MXenes. Kais Iben Nassar, Tiago L. P. Galvão, José D. Gouveia, and José R. B. Gomes. Advanced Intelligent Discovery, 2026; 2:e202500045. Received 10 March 2025; revised 12 May 2025; accepted 20 May 2025. Keywords: activation energy, catalyst, density functional theory, machine learning, MXene.
+
+**中文:** 题目为“从机器学习视角研究 MXenes 上水煤气变换催化中的 Brønsted-Evans-Polanyi 关系”。作者包括 Kais Iben Nassar、Tiago L. P. Galvão、José D. Gouveia 和 José R. B. Gomes，发表在 Advanced Intelligent Discovery。关键词显示论文核心是：活化能、催化剂、DFT、机器学习和 MXene。
+
+
+## Abstract
+
+<a id="S002"></a>
+**Source:** p.1 S002
+
+**Original:** Machine learning has been employed to predict activation energies for key reactions in the water-gas shift process on pure MXene surfaces, namely water and hydroxyl dissociation, and hydrogen and carbon dioxide formation. The dataset includes 92 MXenes, covering single-transition-metal and dual-transition-metal compositions, with energies from DFT calculations in this work or from the literature.
+
+**中文:** 作者用机器学习预测纯 MXene 表面上水煤气变换过程关键反应的活化能，包括水分子和羟基的解离，以及氢气和二氧化碳的生成。数据集包含 92 个 MXene 体系，既有单过渡金属组成，也有双过渡金属组成；能量数据来自本文 DFT 计算或已有文献。
+
+<a id="S003"></a>
+**Source:** p.1 S003
+
+**Original:** Several machine-learning models were evaluated, including random forest regressor, gradient boosting regressor, artificial neural networks, support vector machines, decision tree regressor, and k-nearest neighbors regressor. Random forest was identified as the most accurate. Feature importance analysis revealed that reaction energy and the logarithmic partition coefficient (LogP) of the reactant are crucial for predicting activation energies.
+
+**中文:** 论文比较了多种模型，包括随机森林回归、梯度提升回归、人工神经网络、支持向量机、决策树回归和 K 近邻回归。结果表明随机森林最准确。特征重要性分析指出，反应能和反应物的 LogP 是预测活化能的两个关键因素：前者对应 BEP 关系中的热力学-动力学联系，后者综合反映反应物的极性、氢键、尺寸、形状和电荷等物理化学性质。
+
+
+## Introduction
+
+<a id="S004"></a>
+**Source:** p.1 S004
+
+**Original:** MXenes are two-dimensional transition-metal carbides and nitrides that have attracted attention because of their high electrical conductivity, hydrophilicity, tunable surface chemistry, and catalytic potential. They are typically made by selectively etching A layers from MAX phases, producing surfaces that may carry terminal groups such as -OH, -O, and -F.
+
+**中文:** MXene 是二维过渡金属碳化物或氮化物，因高电导率、亲水性、可调表面化学和催化潜力而受到关注。它们通常通过从 MAX 相中选择性刻蚀 A 层获得，所得表面常带有 -OH、-O、-F 等端基。这种结构带来较大的表面积和丰富活性位点，也使电子性质可以通过表面化学调控。
+
+<a id="S005"></a>
+**Source:** p.2 S005
+
+**Original:** Hydrogen production and storage, water splitting, and CO2 reduction are central processes in renewable energy systems. MXenes offer a promising platform because of their high conductivity and high density of active surface sites. Accurately predicting activation energies can substantially improve the design of MXene-based catalysts.
+
+**中文:** 制氢与储氢、水分解和 CO2 还原是可再生能源体系中的关键过程。MXene 由于导电性高、表面活性位点密度大，是很有前景的催化平台。对催化反应而言，活化能决定反应速率，因此如果能准确预测活化能，就能更有效地筛选和设计 MXene 催化剂。
+
+<a id="S006"></a>
+**Source:** p.2 S006
+
+**Original:** Recent machine-learning studies have predicted MXene work functions, CO2 activation descriptors, hydrogen evolution activity, and doped or Janus MXene catalyst performance. These works show that ML can navigate large composition spaces and accelerate catalyst discovery beyond conventional DFT screening.
+
+**中文:** 作者回顾了近期机器学习在 MXene 研究中的应用，包括预测功函数、CO2 活化描述符、析氢反应活性，以及掺杂或 Janus MXene 的催化性能。这些研究说明，ML 能在庞大组成空间中快速定位有希望的候选物，从而超越逐一 DFT 筛选的效率限制。
+
+<a id="S007"></a>
+**Source:** p.3 S007
+
+**Original:** The primary objective is to apply machine learning techniques to predict activation energies for H2O and OH dissociation reactions as well as H2 and CO2 association reactions on MXene surfaces. These elementary reactions are fundamental to the water-gas shift reaction, H2O + CO -> H2 + CO2.
+
+**中文:** 本文的主要目标是用机器学习预测 MXene 表面上四类反应的活化能：H2O 解离、OH 解离、H2 生成和 CO2 生成。这些基元步骤与水煤气变换反应 H2O + CO -> H2 + CO2 的氧化还原路径直接相关。
+
+<a id="F001"></a>
+### Fig. 1. WGS reaction routes
+
+**Placed near:** p.3 S007
+**Source:** p.3 F001
+
+![F001](assets/fig1.png)
+
+**Original caption:** Formate (top), redox (middle), and carboxylate (bottom) routes for the water-gas shift reaction. Green arrows show the elementary steps considered in this work while black arrows show the (reverse) adsorptions considered in our previous machine learning study [50]. The elementary steps in the formate and carboxylate routes as well as the disproportionation reaction of hydroxyl moieties, highlighted with yellow, magenta, and blue arrows, respectively, were not considered in this work. Color code for spheres: White is H; grey is C; and red is O.
+
+**中文图注:** 水煤气变换反应的甲酸盐路径（上）、氧化还原路径（中）和羧酸盐路径（下）。绿色箭头表示本文考虑的基元步骤，黑色箭头表示作者前一项机器学习研究中考虑的（反向）吸附步骤。甲酸盐和羧酸盐路径中的基元步骤，以及以黄色、品红色和蓝色箭头标出的羟基物种歧化反应，本文未纳入。球的颜色：白色为 H，灰色为 C，红色为 O。
+
+**Reading note:** 这张图限定了本文实际建模的是 redox route 中的四类基元反应，而不是完整 WGS 网络。
+
+<a id="S008"></a>
+**Source:** p.3 S008
+
+**Original:** The authors used a dataset of 92 data points for various MXenes, derived from DFT calculations performed in this work and from existing literature. The dataset contains lattice parameters, interlayer distances, Bader charges, band gaps, and additional descriptors calculated with Matminer and RDKit.
+
+**中文:** 作者使用了包含 92 个数据点的 MXene 数据集，来源包括本文 DFT 计算和已有文献。数据集包括晶格参数、层间距、Bader 电荷、带隙等，并进一步用 Matminer 和 RDKit 补充材料与分子描述符，从而增强机器学习模型可利用的信息。
+
+<a id="S009"></a>
+**Source:** p.3 S009
+
+**Original:** The complete dataset, including relevant properties, interaction data, code, and machine-learning models, is available online through Mendeley Data. The dataset contains 28 H2O dissociation points, 18 OH dissociation points, 28 H2 association points, and 18 CO2 formation points.
+
+**中文:** 完整数据集、相互作用数据、代码和机器学习模型已通过 Mendeley Data 在线公开。数据规模为：28 个 H2O 解离数据点、18 个 OH 解离数据点、28 个 H2 生成数据点和 18 个 CO2 生成数据点。这个数据量不大，因此模型选择、交叉验证和特征选择的可靠性尤其重要。
+
+<a id="S010"></a>
+**Source:** p.3 S010
+
+**Original:** Because machine-learning applications in MXene catalysis are still in an early stage, the study focuses on bare and defect-free MXene surfaces to isolate the intrinsic effects of transition-metal chemistry. Surface terminations and defects are excluded to provide a consistent baseline, while future work can add those experimentally relevant effects.
+
+**中文:** 由于 MXene 催化中的机器学习研究仍处早期，作者先聚焦于裸露、无缺陷的 MXene 表面，以隔离核心过渡金属化学本身的影响。真实 MXene 往往存在 -O、-OH、-F 端基和空位/取代等缺陷，但本文先排除这些因素，以保证数据一致性并建立基线；后续工作可再加入这些更接近实验的复杂因素。
+
+
+## Methodology - Dataset
+
+<a id="S011"></a>
+**Source:** p.3 S011
+
+**Original:** The dataset consists of 92 data points representing MXene properties and interactions with H2O, OH, H2, and CO2. Data came from DFT calculations for ten bimetallic MXenes and literature data for the remaining single-metal MXenes. The authors note that identical computational parameters were used, mitigating concerns about data heterogeneity.
+
+**中文:** 数据集由 92 个数据点组成，描述 MXene 与 H2O、OH、H2 和 CO2 的相互作用。其中 10 个双金属 MXene 由本文 DFT 计算得到，其余单金属 MXene 来自文献。作者特别强调这些数据使用了相同计算参数，因此可以降低不同来源数据不一致带来的风险。
+
+
+## Methodology - DFT
+
+<a id="S012"></a>
+**Source:** p.4 S012
+
+**Original:** DFT calculations were performed with VASP using the PBE exchange-correlation functional and D3 dispersion corrections. MXenes with formulas M2C, M2N, and M'2M''C2 were represented by p(4 x 4) periodic supercells, 3 x 3 x 1 k-point grids, a 550 eV plane-wave cutoff, and PAW pseudopotentials.
+
+**中文:** DFT 计算使用 VASP，交换相关泛函为 PBE，并加入 D3 色散校正。M2C、M2N 和 M'2M''C2 型 MXene 采用 p(4 x 4) 周期性超胞建模，k 点网格为 3 x 3 x 1，平面波截断能为 550 eV，并使用 PAW 赝势。这些设置是表面吸附和反应能垒计算中较常见的稳健配置。
+
+<a id="F002"></a>
+### Fig. 2. MXene supercell structures
+
+**Placed near:** p.4 S012
+**Source:** p.4 F002
+
+![F002](assets/fig2.png)
+
+**Original caption:** Supercell structures of MXenes: (a) M2C and (b) M'2M''C2. The M2C structure is representative of both M2C and M2N, as their configurations are structurally similar. The layers in each structure are labeled as M (metal) and C/N (carbon or nitrogen).
+
+**中文图注:** MXene 超胞结构：(a) M2C 和 (b) M'2M''C2。由于 M2C 与 M2N 的构型相似，M2C 结构可代表二者。图中标出了 M（金属）层以及 C/N（碳或氮）层。
+
+**Reading note:** 用于说明 DFT 表面模型的结构类型。
+
+
+## Methodology - Reactions
+
+<a id="S013"></a>
+**Source:** p.4 S013
+
+**Original:** The modeled elementary reactions are H2O* -> OH* + H*, OH* -> O* + H*, 2H* -> H2*, and CO* + O* -> CO2*. The asterisk denotes an adsorption site on the MXene surface. These reactions are directly relevant to the redox route of WGS.
+
+**中文:** 模型考虑四个基元反应：H2O* -> OH* + H*，OH* -> O* + H*，2H* -> H2*，以及 CO* + O* -> CO2*。星号表示 MXene 表面的吸附位点。这四个反应对应水煤气变换反应的氧化还原路径，是本文数据建模的化学边界。
+
+
+## Methodology - Energetics
+
+<a id="S014"></a>
+**Source:** p.4 S014
+
+**Original:** For dissociation reactions, the activation energy is the energy difference between the transition state and initial state. For association reactions, the activation energy is obtained from the corresponding dissociation activation energy minus the dissociation reaction energy. Low activation energy indicates a more effective MXene catalyst.
+
+**中文:** 对于解离反应，活化能定义为过渡态总能量与初态总能量之差。对于缔合/生成反应，活化能通过对应反向解离反应的活化能减去解离反应能得到。能垒越低，说明该 MXene 表面对断键或成键步骤的催化越有效。
+
+
+## Methodology - Reaction coordinate
+
+<a id="S015"></a>
+**Source:** p.5 S015
+
+**Original:** Using water dissociation as an example, the initial state is a water molecule weakly interacting with the surface, the transition state is the highest-energy point where an O-H bond is stretched, and the final state contains separated H and OH fragments adsorbed at distinct sites.
+
+**中文:** 以水解离为例，初态是水分子通过物理吸附或弱化学吸附与表面相互作用；过渡态是沿反应坐标的最高能点，此时一根 O-H 键被拉长；终态则是 H 和 OH 片段分别吸附在不同位点。过渡态相对初态的能量差给出活化能，终态相对初态的能量差给出反应能。
+
+<a id="F003"></a>
+### Fig. 3. Water dissociation states
+
+**Placed near:** p.5 S015
+**Source:** p.4 F003
+
+![F003](assets/fig3.png)
+
+**Original caption:** Top and side views of the (a) initial, (b) transition, and (c) final states of the water dissociation reaction on a M'2M''C2 MXene surface.
+
+**中文图注:** 水分子在 M'2M''C2 MXene 表面解离反应的 (a) 初态、(b) 过渡态和 (c) 终态的俯视图与侧视图。
+
+**Reading note:** 活化能来自过渡态相对初态的能量差，反应能来自终态相对初态的能量差。
+
+
+## Methodology - Feature engineering
+
+<a id="S016"></a>
+**Source:** p.5 S016
+
+**Original:** Feature engineering used Matminer, Mendeleev, and RDKit. Matminer produced material features, Mendeleev supplied elemental properties of MXene atoms, and RDKit calculated molecular descriptors for the main adsorbate species. DFT-derived structural, electronic, thermodynamic, surface, and reactivity properties were also included.
+
+**中文:** 特征工程使用了 Matminer、Mendeleev 和 RDKit 三个 Python 工具。Matminer 提取材料特征，Mendeleev 提供 MXene 元素性质，RDKit 计算主要吸附物种的分子描述符。此外还加入了 DFT 得到的结构、电子、热力学、表面和反应性特征。最终生成 103 个特征，用于预测活化能。
+
+
+## Methodology - Feature selection
+
+<a id="S017"></a>
+**Source:** p.5 S017
+
+**Original:** Recursive feature elimination was used to identify the most relevant features and remove redundant or less informative ones. RFE was combined with cross-validation and mean absolute error to rank and select features, improving both accuracy and interpretability.
+
+**中文:** 作者用递归特征消除（RFE）筛选最相关特征，并剔除冗余或信息量较低的特征。RFE 与交叉验证和 MAE 结合，用于对特征排序和选择。这样既能减少过拟合风险，又能提高模型解释性。
+
+
+## Methodology - ML workflow
+
+<a id="S018"></a>
+**Source:** p.5 S018
+
+**Original:** The machine-learning workflow begins with MXene structure analysis and data collection from DFT calculations and literature, then proceeds through feature engineering, correlation visualization, model training and evaluation, hyperparameter optimization, and a final holdout test.
+
+**中文:** 机器学习流程从 MXene 结构分析和数据收集开始，数据来源包括 DFT 计算和文献。随后进行特征工程、相关性热图分析、模型训练与评价、超参数优化，最后用保留测试集评估模型泛化能力。
+
+<a id="F004"></a>
+### Fig. 4. Machine-learning workflow
+
+**Placed near:** p.5 S018
+**Source:** p.5 F004
+
+![F004](assets/fig4.png)
+
+**Original caption:** Workflow of machine learning in this study.
+
+**中文图注:** 本文机器学习流程示意图。
+
+**Reading note:** 流程从 MXene/反应数据收集，到特征工程、模型筛选、最终测试。
+
+
+## Methodology - Models
+
+<a id="S019"></a>
+**Source:** p.6 S019
+
+**Original:** The study compared random forest, artificial neural networks, gradient boosting, support vector machines, decision trees, k-nearest neighbors, and multivariable linear regression. Each model was included for a different balance of nonlinearity, interpretability, robustness, and suitability for small or high-dimensional datasets.
+
+**中文:** 论文比较了随机森林、神经网络、梯度提升、支持向量机、决策树、K 近邻和多元线性回归。这些模型的优势不同：随机森林适合复杂非线性关系，神经网络适合高维复杂模式，梯度提升精度高，SVM 适合寻找回归超平面，决策树解释性强，KNN 对小数据集直观有效，线性回归则作为可解释基线。
+
+
+## Methodology - Validation
+
+<a id="S020"></a>
+**Source:** p.6 S020
+
+**Original:** Models were implemented with scikit-learn. Seventy percent of the dataset was used for training and cross-validation, and the remaining thirty percent was held out as an independent test set. This separation was used to optimize models while preserving an unbiased final evaluation.
+
+**中文:** 模型通过 scikit-learn 实现。70% 数据用于训练和交叉验证，剩余 30% 作为独立测试集保留。这样的划分使作者能在训练阶段优化模型，同时用未见过的数据进行最终无偏评价。
+
+
+## Methodology - Tuning and final test
+
+<a id="S021"></a>
+**Source:** p.6 S021
+
+**Original:** Model tuning evaluated R2, MAE, and RMSE. The final test used the 30% holdout set to assess how well the optimized model generalizes to unseen reactions involving MXene materials.
+
+**中文:** 模型调参与评价指标包括 R2、MAE 和 RMSE。最终测试使用 30% 的保留数据集，用于判断优化后的模型能否推广到未见过的 MXene 反应数据上。
+
+
+## Results - Activation energy distributions
+
+<a id="S022"></a>
+**Source:** p.6 S022
+
+**Original:** Before modeling, the authors analyzed the distribution of activation energies. H2O dissociation energies are concentrated at low values around 0.44 eV, OH dissociation is sharply peaked around 0.74 eV, H2 association is much broader across more than 3 eV, and CO2 formation/oxidation spans roughly 1.5-3 eV.
+
+**中文:** 在预测前，作者先分析活化能分布。H2O 解离的能垒主要集中在低值，峰值约 0.44 eV；OH 解离在约 0.74 eV 附近呈尖峰分布，说明该类反应能量需求较一致；H2 生成的分布更宽，跨越 3 eV 以上；CO2 生成/CO 氧化的能垒大致位于 1.5-3 eV。
+
+<a id="F005"></a>
+### Fig. 5. Activation-energy distributions
+
+**Placed near:** p.6 S022
+**Source:** p.7 F005
+
+![F005](assets/fig5.png)
+
+**Original caption:** Density and frequency distributions of activation energies. (a) Kernel density estimate plot and (b) Histogram. Labels H2O, OH, H2 and CO2 stand for reactions described by Equations (1)-(4), respectively, that is, H2O and OH dissociations, and H2 and CO2 formations.
+
+**中文图注:** 活化能的密度分布与频数分布。(a) 核密度估计图；(b) 直方图。标签 H2O、OH、H2 和 CO2 分别对应式 (1)-(4)：H2O 与 OH 解离，以及 H2 与 CO2 生成。
+
+**Reading note:** H2O 和 OH 的能垒集中在较低范围，H2/CO2 生成的能垒分布更宽。
+
+
+## Results - Activation energy interpretation
+
+<a id="S023"></a>
+**Source:** p.7 S023
+
+**Original:** MXenes with d2 configurations were previously found to show lower barriers for water dissociation, followed by d3 and d4, while tungsten-based MXenes were least effective. The authors note that a zero barrier is rarely realistic; practical catalysis benefits from a suitable barrier range that balances reactivity and selectivity.
+
+**中文:** 已有研究发现，d2 构型 MXene 对水解离通常具有较低能垒，其次是 d3 和 d4；钨基 MXene 在所分析金属中效果较弱。作者也提醒，理论上接近 0 eV 的能垒代表自发反应，但真实体系中极少出现；实际催化往往需要合适的能垒范围，以平衡反应活性和选择性。
+
+
+## Results - Feature selection
+
+<a id="S024"></a>
+**Source:** p.7 S024
+
+**Original:** Feature selection with recursive feature elimination and random forests reduced more than 100 initial features to two optimal predictors: reaction energy and LogP of the reactant. Reaction energy directly relates to thermodynamic feasibility and intermediate stability.
+
+**中文:** 基于随机森林的 RFE 从 100 多个初始特征中筛出两个最优预测因子：反应能和反应物 LogP。反应能表示从反应物到产物的能量变化，直接关联热力学可行性和中间体稳定性，因此自然会影响活化能需求。
+
+
+## Results - LogP
+
+<a id="S025"></a>
+**Source:** p.7 S025
+
+**Original:** LogP is the logarithm of the octanol/water partition coefficient and reflects how a reagent distributes between hydrophobic and hydrophilic phases. Although unexpected, it provides a compact descriptor of polarity, hydrogen bonding, molecular size, molecular shape, and charge, and was selected over descriptors such as molecular weight, TPSA, Morgan density, partial charge, radical electrons, and valence electrons.
+
+**中文:** LogP 是辛醇/水分配系数的对数，反映分子在疏水相和亲水相之间的分布。它作为活化能预测特征有些意外，但可以压缩表达极性、氢键能力、分子大小、形状和电荷等多种性质。RFE 最终选择了 LogP，而不是分子量、TPSA、Morgan density、最大绝对部分电荷、自由基电子数或价电子数等候选描述符。
+
+
+## Results - Additional features
+
+<a id="S026"></a>
+**Source:** p.7 S026
+
+**Original:** Additional features were included in the correlation analysis to provide a broader view of the dataset, including molecular weight, maximum absolute partial charge, formation energy, adsorption energy of reactants, and distances within MXene structures.
+
+**中文:** 相关性分析还加入了额外特征，以更全面地观察数据结构，包括主要吸附物种的分子量、最大绝对部分电荷、MXene 形成能、反应物吸附能，以及 MXene 结构内原子间距离。这些特征帮助理解材料性质与吸附物性质之间的相互作用。
+
+
+## Results - Correlation matrix
+
+<a id="S027"></a>
+**Source:** p.8 S027
+
+**Original:** The correlation heatmap revealed interdependencies and redundancies among features. Reaction energy shows a strong positive correlation with activation energy: more exothermic reactions tend to have lower barriers, and more endothermic reactions tend to have higher barriers, supporting the Brønsted-Evans-Polanyi principle.
+
+**中文:** 相关性热图揭示了特征之间的依赖和冗余。反应能与活化能呈强正相关：越放热的反应通常能垒越低，越吸热的反应通常能垒越高。这支持了 Brønsted-Evans-Polanyi 原理，即催化过程中的反应热力学与动力学能垒密切相关。
+
+<a id="F006"></a>
+### Fig. 6. Correlation heatmap
+
+**Placed near:** p.7 S027
+**Source:** p.8 F006
+
+![F006](assets/fig6.png)
+
+**Original caption:** Correlation matrix heatmap showing the relationships between selected features and other features studied in this work, as well as the properties of MXenes.
+
+**中文图注:** 相关矩阵热图，展示所选特征与本文研究的其他特征以及 MXene 性质之间的关系。
+
+**Reading note:** 重点看 reaction energy 与 activation energy 的正相关，以及 adsorption energy 与 activation energy 的负相关。
+
+
+## Results - Correlation caveats
+
+<a id="S028"></a>
+**Source:** p.8 S028
+
+**Original:** Adsorption energy of the reactants has a strong negative correlation with activation energy, suggesting that stronger reactant adsorption tends to produce higher barriers. However, the authors warn that correlations can be misleading if the broader context or limited species diversity is ignored.
+
+**中文:** 反应物吸附能与活化能呈强负相关，说明更强的表面吸附可能对应更高的反应能垒。作者也提醒，相关性解释必须谨慎：如果忽略吸附机制复杂性、分子种类有限或更广泛化学背景，单纯依赖相关系数可能会得出误导性结论。
+
+
+## Results - Predictive modeling
+
+<a id="S029"></a>
+**Source:** p.9 S029
+
+**Original:** Linear regression gave an initial cross-validation R2 of 0.79, indicating moderate predictive ability but limited capacity to capture nonlinear relationships. Nonlinear methods such as random forests, support vector machines, and neural networks were therefore tested.
+
+**中文:** 线性回归的交叉验证 R2 为 0.79，说明有中等预测能力，但难以捕捉特征与活化能之间复杂非线性关系。因此作者进一步测试随机森林、SVM、神经网络等非线性模型。
+
+
+## Results - Model comparison
+
+<a id="S030"></a>
+**Source:** p.9 S030
+
+**Original:** Across cross-validation, nonlinear models except decision trees showed higher predictive accuracy. Random forest regression achieved the strongest performance, with mean R2 = 0.95 +/- 0.04, RMSE = 0.17 +/- 0.06 eV, and MAE = 0.12 +/- 0.04 eV after optimization.
+
+**中文:** 交叉验证中，除单棵决策树外，非线性模型整体预测精度更高。优化后的随机森林表现最好，平均 R2 = 0.95 +/- 0.04，RMSE = 0.17 +/- 0.06 eV，MAE = 0.12 +/- 0.04 eV。这说明 RFR 能较好捕捉 MXene 催化反应活化能中的非线性关系。
+
+<a id="T001"></a>
+### Table 1. Cross-validation results
+
+**Placed near:** p.9 S030
+**Source:** p.9 T001
+
+![T001](assets/table1.png)
+
+**Original caption:** Cross-validation results for different models.
+
+**中文图注:** 不同模型的交叉验证结果。
+
+**Reading note:** RFR 的平均 R2 最高、RMSE/MAE 最低，是后续解释分析的主模型。
+
+<a id="F007"></a>
+### Fig. 7. Cross-validation performance
+
+**Placed near:** p.9 S030
+**Source:** p.9 F007
+
+![F007](assets/fig7.png)
+
+**Original caption:** Variation in performance results (R2, RMSE, and MAE) from cross-validation for RFR, GBR, ANN, SVM, DTR, and KNR models, compared to the linear regression model.
+
+**中文图注:** RFR、GBR、ANN、SVM、DTR 和 KNR 模型相对于线性回归模型的交叉验证性能变化，包括 R2、RMSE 和 MAE。
+
+**Reading note:** 这张图以可视化形式支持 Table 1 的模型选择结论。
+
+
+## Results - Hyperparameters
+
+<a id="S031"></a>
+**Source:** p.9 S031
+
+**Original:** RandomizedSearchCV was used to identify model hyperparameters efficiently. The optimized random forest used n_estimators = 100, min_samples_split = 2, min_samples_leaf = 2, max_features = sqrt, max_depth = 30, and bootstrap = False.
+
+**中文:** 作者使用 RandomizedSearchCV 进行超参数搜索，以避免穷举搜索的高计算成本。优化后的随机森林参数包括：n_estimators = 100，min_samples_split = 2，min_samples_leaf = 2，max_features = sqrt，max_depth = 30，bootstrap = False。
+
+
+## Results - Final test
+
+<a id="S032"></a>
+**Source:** p.10 S032
+
+**Original:** On the independent test set, the random forest predictions closely aligned with the perfect-fit line. The final test achieved R2 = 0.97, RMSE = 0.17 eV, and MAE = 0.14 eV. Residuals were mostly centered near zero and fell between -0.3 and 0.3 eV.
+
+**中文:** 在独立测试集上，随机森林预测值与理想拟合线高度接近。最终测试结果为 R2 = 0.97，RMSE = 0.17 eV，MAE = 0.14 eV。残差主要集中在 0 附近，大多数位于 -0.3 到 0.3 eV 之间，说明测试集上的预测误差较小且较均匀。
+
+<a id="F008"></a>
+### Fig. 8. Final test and residuals
+
+**Placed near:** p.10 S032
+**Source:** p.10 F008
+
+![F008](assets/fig8.png)
+
+**Original caption:** Final test RFR model accuracy and residual analysis for predicted activation energies, (a) scatter plot of actual versus predicted energies, (b) residual histogram.
+
+**中文图注:** RFR 最终测试模型对预测活化能的准确性与残差分析：(a) 实际值与预测值散点图；(b) 残差直方图。
+
+**Reading note:** 测试集 R2 = 0.97，说明 holdout 数据上的泛化表现较好。
+
+
+## Results - Residual interpretation
+
+<a id="S033"></a>
+**Source:** p.10 S033
+
+**Original:** Only one residual fell outside the +/-0.3 eV range: the Ta2C surface for the CO + O -> CO2 reaction, with a residual of 0.43 eV. The authors argue that this small number does not indicate systematic bias but highlights the need for larger datasets and more nuanced descriptors.
+
+**中文:** 只有一个残差超过 +/-0.3 eV：Ta2C 表面上的 CO + O -> CO2 反应，残差为 0.43 eV。作者认为这只占测试集很小比例，不代表模型存在系统性偏差，但也说明未来需要扩大数据集，并加入更细致的电子和结构描述符。
+
+
+## Results - Model choice
+
+<a id="S034"></a>
+**Source:** p.10 S034
+
+**Original:** Gradient boosting also performed well, but random forest slightly outperformed it in R2. Other algorithms were less reliable, especially decision trees. Random forest was therefore selected for feature-importance and interpretability analysis.
+
+**中文:** 梯度提升模型也表现良好，但随机森林在 R2 上略优。因此作者选择随机森林开展后续特征重要性与解释分析。其他模型中，决策树表现最不稳定，R2 较低且误差波动较大。
+
+
+## Results - Small data context
+
+<a id="S035"></a>
+**Source:** p.11 S035
+
+**Original:** The study acknowledges the limited dataset but argues that carefully curated, domain-specific small datasets can still support accurate machine-learning models. Comparisons with prior work on metal surfaces and small-data catalysis workflows support the reliability of ensemble models such as random forest and CatBoost under such constraints.
+
+**中文:** 作者承认数据集规模有限，但认为经过谨慎整理、领域一致的小数据集仍可支撑有效的机器学习模型。他们引用金属表面活化能预测和小数据催化工作流的研究，说明随机森林、CatBoost 等集成模型在小数据场景下仍可能兼具准确性与一定解释性。
+
+
+## Results - Feature importance method
+
+<a id="S036"></a>
+**Source:** p.11 S036
+
+**Original:** Feature importance was analyzed by permutation importance, which randomly shuffles each feature and measures the resulting drop in model performance. A large decrease indicates that the feature is important for the model prediction.
+
+**中文:** 特征重要性通过置换重要性分析得到：随机打乱某个特征的取值，再观察模型性能下降程度。如果性能显著下降，说明该特征对模型预测很重要。本文用 R2 的下降程度衡量每个特征的贡献。
+
+<a id="F009"></a>
+### Fig. 9. Permutation feature importance
+
+**Placed near:** p.11 S036
+**Source:** p.12 F009
+
+![F009](assets/fig9.png)
+
+**Original caption:** Permutation feature importance analysis using random forest regression.
+
+**中文图注:** 基于随机森林回归的置换特征重要性分析。
+
+**Reading note:** 反应能导致最大的 R2 下降，是模型中最关键的特征。
+
+
+## Results - Reaction energy importance
+
+<a id="S037"></a>
+**Source:** p.11 S037
+
+**Original:** Reaction energy emerged as the dominant feature, giving the largest mean decrease in R2. This result shows that thermodynamic properties strongly influence the predicted kinetic barrier, consistent with the BEP relationship.
+
+**中文:** 反应能是最主要特征，会导致最大的 R2 平均下降。这说明热力学性质强烈影响模型预测的动力学能垒，与 BEP 关系一致：反应能越能解释初态与终态的稳定性差异，就越能帮助估计活化能。
+
+
+## Results - SHAP
+
+<a id="S038"></a>
+**Source:** p.12 S038
+
+**Original:** SHAP analysis confirmed that reaction energy is the most important feature. Changes in reaction energy move the predicted activation barrier about twice as much, on average, as changes in LogP. Lower reaction energies tend to push predictions downward, while higher reaction energies push them upward.
+
+**中文:** SHAP 分析进一步确认反应能最重要。平均来看，反应能变化对预测活化能的推动约为 LogP 的两倍。较低反应能通常把预测能垒向低值方向推，较高反应能则把预测能垒向高值方向推。
+
+<a id="F010"></a>
+### Fig. 10. SHAP feature effects
+
+**Placed near:** p.12 S038
+**Source:** p.13 F010
+
+![F010](assets/fig10.png)
+
+**Original caption:** Average SHAP values (above) and SHAP values (below) for the selected descriptors in this work. For the SHAP values, each dot is one sample, plotted at its SHAP value (x-axis) and colored by the actual feature value (blue = lower than average, red = higher than average).
+
+**中文图注:** 本文所选描述符的平均 SHAP 值（上）与 SHAP 值分布（下）。在 SHAP 值图中，每个点代表一个样本，横轴为 SHAP 值，颜色表示该特征实际值（蓝色低于平均值，红色高于平均值）。
+
+**Reading note:** 低反应能通常把预测能垒往低处推，高反应能则把预测能垒往高处推；LogP 的影响次之。
+
+
+## Results - BEP usefulness
+
+<a id="S039"></a>
+**Source:** p.12 S039
+
+**Original:** Because reaction energies are computationally cheaper to calculate than activation barriers, the observed BEP-like relationship is useful for first-principles screening. Reaction energies can be used to assess the catalytic potential of MXene surfaces at least preliminarily.
+
+**中文:** 反应能通常比过渡态能垒更容易计算，因此这种类似 BEP 的关系对第一性原理筛选很有价值。即使不能完全替代过渡态搜索，反应能也可作为初筛指标，用来快速评估 MXene 表面的催化潜力。
+
+
+## Results - Comparison with previous descriptors
+
+<a id="S040"></a>
+**Source:** p.12 S040
+
+**Original:** Prior work identified co-adsorption energy of OH and H as a key descriptor for water dissociation, but that descriptor strongly correlates with reaction energy. The authors argue that if reaction energy had been included in that earlier study, it likely would have emerged as the most significant descriptor.
+
+**中文:** 此前研究曾将 OH 与 H 的共吸附能识别为水解离的重要描述符，但该描述符与反应能强相关。作者认为，如果早期研究直接纳入反应能，它很可能也会成为最显著描述符。反应能虽然计算成本更高一些，但同时包含初态和终态信息，描述更完整。
+
+
+## Results - LogP interpretation
+
+<a id="S041"></a>
+**Source:** p.12 S041
+
+**Original:** LogP of the main adsorbate species unexpectedly emerged as the second most important feature. Although its influence is secondary, it suggests that hydrophobicity can affect how reactants interact with catalyst surfaces, possibly stabilizing or destabilizing transition states depending on the surface and environment.
+
+**中文:** 主要吸附物种的 LogP 意外成为第二重要特征。虽然影响弱于反应能，但这表明反应物疏水性会影响其与催化表面的相互作用，并可能通过改变吸附方式来稳定或去稳定过渡态。这个效应依赖具体表面与反应环境。
+
+
+## Results - Future descriptors
+
+<a id="S042"></a>
+**Source:** p.13 S042
+
+**Original:** Future work could incorporate electronic-structure features, solvent effects, charge distribution, active-site distances, adsorption energies, dipole moment, polarizability, electron affinity, and reaction-specific modeling strategies such as multitask learning or hierarchical models.
+
+**中文:** 作者提出未来可以加入更多描述符和建模策略，例如电子结构特征、溶剂效应、表面电荷分布、活性位距离、吸附能、偶极矩、极化率、电子亲和能，以及多任务学习或层级模型。这些扩展有助于区分反应通用规律和反应特异性规律。
+
+
+## Conclusions
+
+<a id="S043"></a>
+**Source:** p.13 S043
+
+**Original:** The study demonstrates the potential of machine-learning methods, especially ensemble techniques such as gradient boosting and random forest, for predicting activation energies of reactions involving MXenes. Random forest achieved the best performance, with mean cross-validation R2 of 0.95, RMSE of 0.17 eV, and MAE of 0.12 eV.
+
+**中文:** 论文证明了机器学习，尤其是梯度提升和随机森林等集成方法，在预测 MXene 相关反应活化能方面的潜力。随机森林表现最佳，交叉验证平均 R2 为 0.95，RMSE 为 0.17 eV，MAE 为 0.12 eV，说明其既准确又适合小规模异质催化数据集。
+
+<a id="S044"></a>
+**Source:** p.13 S044
+
+**Original:** Feature selection identified reaction energy and reactant LogP as the most influential attributes. Reaction energy was the dominant predictor, emphasizing the relevance of the Brønsted-Evans-Polanyi relationship for MXene-catalyzed WGS elementary reactions.
+
+**中文:** 特征选择识别出反应能和反应物 LogP 是最有影响的属性。其中反应能占主导地位，强调了 BEP 关系在 MXene 催化水煤气变换基元反应中的适用性。LogP 则提示分子疏水性和相关物性也会影响表面反应能垒。
+
+<a id="S045"></a>
+**Source:** p.14 S045
+
+**Original:** Future research should add DFT data points and expand the dataset to a broader range of elementary reactions. Additional features such as reactant-to-surface distances and hydrogen carrier molecules like methanol, formaldehyde, formic acid, and ammonia could improve model generality and help evaluate MXenes as catalysts across energy-related reactions.
+
+**中文:** 未来研究应增加 DFT 数据点，并扩展到更广泛的催化基元反应。加入反应物-表面距离等特征，以及甲醇、甲醛、甲酸、氨等氢载体分子，可以提高模型泛化能力，也能更全面评估 MXene 在能源相关反应中的催化潜力。
+
+
+## Acknowledgments and data
+
+<a id="S046"></a>
+**Source:** p.14 S046
+
+**Original:** The work was supported by Portuguese research projects and computing grants. The dataset and underlying machine-learning code are available in Mendeley Data as an Excel spreadsheet and Python script at https://doi.org/10.17632/4zmkpw3wxx.2. The authors declare no conflicts of interest.
+
+**中文:** 该工作获得葡萄牙相关科研项目和计算资源支持。数据集和机器学习代码以 Excel 表格和 Python 脚本形式公开在 Mendeley Data，链接为 https://doi.org/10.17632/4zmkpw3wxx.2。作者声明不存在利益冲突。
+
+## Critical Reading Notes
+
+- 这篇文章最有用的主线是：在 MXene 的 WGS 氧化还原基元步骤中，反应能可以作为活化能的廉价代理特征，因此 BEP-like 关系具有筛选价值。
+- 模型结果很强，但数据量只有 92 个点，且限定为裸露、无缺陷 MXene；真实端基、缺陷、溶剂、电势和覆盖度效应还没有纳入。
+- RFR 的测试集表现很好，但这种表现主要说明在当前一致计算设置和当前反应集合内泛化较好，不等同于可直接外推到所有 MXene 或真实反应环境。
+- LogP 成为第二重要特征很有意思，但由于本文物种只有 H2O、OH、H2、CO2，化学多样性有限；未来若加入甲醇、甲酸、氨等氢载体，LogP 的解释需要重新验证。
+- 如果你要把这篇文章用于自己的研究设计，最可借鉴的是数据表征和验证流程：DFT 能量/结构特征 + RFE + RFR/GBR 对照 + holdout test + SHAP/置换重要性。
+
+## Reference Handling
+
+References occupy pages 14-17 of the PDF. This reader keeps the argumentative body, captions, acknowledgments, conflicts, and data availability in bilingual form. The full extracted reference list is preserved in `extracted_pages.txt` and the original `source.pdf`; individual bibliography entries were not translated because they are citation metadata rather than prose argumentation.
