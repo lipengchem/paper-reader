@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T09:45:46.916Z",
+  "generatedAt": "2026-07-18T10:01:22.381Z",
   "items": [
     {
       "slug": "20260702-redefining-co3-formation-zundel-switches",
@@ -49,6 +49,23 @@
       "relatedReading": true,
       "paragraphCount": 22,
       "figureCount": 5
+    },
+    {
+      "slug": "20260719-ml-md-bulk-interfacial-aqueous-systems",
+      "title": "Machine Learning Driven Advances in Molecular Dynamics of Bulk and Interfacial Aqueous Systems",
+      "date": "2026-03-25",
+      "taskDate": "2026-07-19",
+      "uploadedAt": "2026-07-18T10:01:22.381Z",
+      "journal": "Chemical Reviews",
+      "zoteroKey": "9I9BK6TM",
+      "collections": [
+        "02课题/H2O"
+      ],
+      "pdfPath": "library/20260719-ml-md-bulk-interfacial-aqueous-systems/paper.pdf",
+      "markdownPath": "library/20260719-ml-md-bulk-interfacial-aqueous-systems/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 43,
+      "figureCount": 14
     },
     {
       "slug": "20260611-bep-mxenes-water-gas-shift",
