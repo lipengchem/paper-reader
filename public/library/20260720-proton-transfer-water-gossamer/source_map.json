@@ -1,0 +1,815 @@
+{
+  "paper": {
+    "title": "Proton transfer through the water gossamer",
+    "venue": "Proceedings of the National Academy of Sciences of the United States of America",
+    "source_type": "pdf",
+    "language": "en",
+    "source_path": "C:\\Users\\LP\\Zotero\\storage\\52LQ8FD8\\Hassanali et al. - 2013 - Proton transfer through the water gossamer.pdf"
+  },
+  "paragraph_count": 30,
+  "figure_count": 7,
+  "blocks": [
+    {
+      "id": "S001",
+      "page": 1,
+      "type": "paragraph",
+      "order": 1,
+      "original_text": "Proton transfer through the water gossamer Ali Hassanalia,1,2, Federico Gibertia,1, Jérôme Cunyb, Thomas D. Kühnec,d, and Michele Parrinelloa aDepartment of Chemistry and Applied Biosciences, Eidgenössiche Technische Hochschule Zurich and Università della Svizzera Italiana, CH-6900 Lugano, Switzerland; bLaboratoire de Chimie et Physique Quantiques–Unité Mixte de Recherche 5626, F-31062 Toulouse, France; cInstitute of Physical Chemistry, University of Mainz, D-55099 Mainz, Germany; and dInstitute of Physical Chemistry and Center for Computational Sciences, Johannes Gutenberg University Mainz, D-55128 Mainz, Germany Edited by Michael L. Klein, Temple University, Philadelphia, PA, and approved June 13, 2013 (received for review April 8, 2013)",
+      "translation": "通过水游丝进行质子转移 Ali Hassanalia,1,2、Federico Gibertia,1、Jérôme Cunyb、Thomas D. Kühnec,d 和 Michele Parrinelloa，苏黎世联邦理工学院化学与应用生物科学系和意大利瑞士大学，CH-6900 Lugano，瑞士； b化学与物理量子实验室 – Unité Mixte de Recherche 5626, F-31062 图卢兹, 法国; c美因茨大学物理化学研究所，D-55099 美因茨，德国； dInstitute of Physical Chemistry and Center for Computational Sciences, Johannes Gutenberg University Mainz, D-55128 Mainz, 德国 由宾夕法尼亚州费城天普大学 Michael L. Klein 编辑，并于 2013 年 6 月 13 日批准（2013 年 4 月 8 日收到审核）",
+      "bbox": [
+        38,
+        51,
+        452,
+        147
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S002",
+      "page": 1,
+      "type": "paragraph",
+      "order": 2,
+      "original_text": "The diffusion of protons through water is understood within the framework of the Grotthuss mechanism, which requires that they undergo structural diffusion in a stepwise manner throughout the water network. Despite long study, this picture oversimpliﬁes and neglects the complexity of the supramolecular structure of water. We use ﬁrst-principles simulations and demonstrate that the currently accepted picture of proton diffusion is in need of revision. We show that proton and hydroxide diffusion occurs through periods of intense activity involving concerted proton hopping followed by periods of rest. The picture that emerges is that proton transfer is a multiscale and multidynamical process involving a broader distribution of pathways and timescales than currently assumed. To rationalize these phenomena, we look at the 3D water network as a distribution of closed directed rings, which reveals the presence of medium-range directional correlations in the liquid. One of the natural consequences of this feature is that both the hydronium and hydroxide ion are decorated with proton wires. These wires serve as conduits for long proton jumps over several hydrogen bonds. T he mechanism by which protons move through water is at the heart of acid–base chemistry reactions. Understanding the reaction coordinates of this process has been one of the most challenging problems in physical chemistry due to the sheer complexity of water’s hydrogen bond network (1–4). Developing a molecular basis for these phenomena is of great relevance in energy conversion applications such as in the design of efﬁcient fuel cells (5). Over 200 y ago, von Grotthuss proposed a mechanism by which water would undergo electrolytic decomposition (6). He imagined that proton conduction involved the collective shuttling of hydrogen atoms along water wires. The early 20th century found many of the great scientists of the time developing conceptual models to understand the properties of water and its constituent ions (7, 8). Detailed insights into the mechanisms of proton transfer (PT) came much later from a combination of both ab initio molecular dynamics (AIMD) simulations (3, 9–13) and force-ﬁeld approaches based on the empirical valence bond formalism (14–16). The current textbook picture of the Grotthuss mechanism that has resulted from these studies involves a stepwise hopping of the proton from one water molecule to the next (1, 17, 18). This process occurs on a timescale of 1–2 ps. For a successful transfer, the model requires solvent reorganization around the proton-receiving species to develop a coordination pattern like that of the species it will convert to, a process known as presolvation. In all of these characterizations of the Grotthuss mechanism, the role of the connectivity of the water network was not brought to the forefront (3, 19).",
+      "translation": "质子在水中的扩散是在格罗萨斯机制的框架内理解的，这要求它们在整个水网络中以逐步的方式进行结构扩散。尽管经过长期研究，这张图还是过于简单化并忽略了水超分子结构的复杂性。我们使用第一原理模拟并证明目前公认的质子扩散图需要修订。我们表明，质子和氢氧根的扩散是在剧烈活动期间发生的，涉及协调的质子跳跃，然后是休息期。出现的情况是，质子转移是一个多尺度和多动力的过程，涉及比目前假设更广泛的路径和时间尺度分布。为了合理化这些现象，我们将 3D 水网络视为闭合有向环的分布，这揭示了液体中存在中等范围的方向相关性。这一特征的自然结果之一是水合氢离子和氢氧根离子都被质子线装饰。这些电线充当长质子跨越几个氢键的导管。质子在水中移动的机制是酸碱化学反应的核心。由于水的氢键网络非常复杂，了解该过程的反应坐标一直是物理化学中最具挑战性的问题之一 (1-4)。开发这些现象的分子基础对于能量转换应用（例如高效燃料电池的设计）具有重要意义（5）。 200 多年前，von Grotthuss 提出了水发生电解分解的机制 (6)。他想象质子传导涉及氢原子沿着水线的集体穿梭。 20 世纪初，许多当时的伟大科学家开发了概念模型来了解水及其组成离子的特性 (7, 8)。对质子转移 (PT) 机制的详细见解是在很久以后才通过从头算分子动力学 (AIMD) 模拟 (3, 9-13) 和基于经验价键形式主义的力场方法 (14-16) 的结合而获得的。这些研究得出的格罗特胡斯机制的当前教科书图片涉及质子从一个水分子逐步跳跃到下一个水分子（1,17,18）。该过程发生的时间尺度为 1-2 ps。为了成功转移，该模型需要围绕质子接收物质进行溶剂重组，以形成类似于它将转化为的物质的配位模式，这一过程称为预溶剂化。在 Grotthuss 机制的所有这些特征中，水网络连通性的作用并没有被提到最重要的位置 (3, 19)。",
+      "bbox": [
+        38,
+        155,
+        283,
+        604
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S003",
+      "page": 1,
+      "type": "paragraph",
+      "order": 3,
+      "original_text": "Sometimes PT has also been thought to take on coherent character involving jumps of several protons simultaneously. In this spirit, Eigen (20) suggested that the proton could delocalize over extended hydrogen-bonded wires. There is evidence that this behavior can occur when water molecules form isolated chains, in conﬁned environments like proteins and nanotubes (21–23). In addition, several spectroscopic experiments examining acid–base reactions in ice and water have suggested that fast PT occurs through the formation of transient water wires (24, 25). We have recently shown that, when the hydronium and hydroxide ions approach each other at ∼6 Å, a water wire that always bridges the ions undergoes a collective compression during their recombination (26). This event results in a concerted motion of three protons on the timescale of tens of femtoseconds. It appears as though the formation of polarized water wires is a necessary precursor for correlated PT events. The question then arises whether wire-like structures exist in liquid water and around its constituent ions, and if they do, whether they serve as conduits for different PT mechanisms. Currently, the prevailing view is that concerted PT through proton wires does not occur in liquid water (1, 3, 4, 19, 25).",
+      "translation": "有时，PT 也被认为具有涉及多个质子同时跳跃的相干特征。本着这种精神，Eigen (20) 提出质子可以在延伸的氢键线上离域。有证据表明，当水分子在蛋白质和纳米管等有限环境中形成孤立的链时，就会发生这种行为 (21-23)。此外，一些检查冰和水中酸碱反应的光谱实验表明，快速 PT 通过形成瞬态水线而发生 (24, 25)。我们最近表明，当水合氢离子和氢氧根离子以 ∼6 Å 相互接近时，始终桥接离子的水线在离子重组过程中会经历集体压缩 (26)。该事件导致三个质子在数十飞秒的时间尺度上协同运动。看来极化水线的形成是相关 PT 事件的必要先兆。接下来的问题是，液态水中及其组成离子周围是否存在线状结构，如果存在，它们是否充当不同 PT 机制的管道。目前，普遍的观点是在液态水中不会发生通过质子线的协同 PT (1,3,4,19,25)。",
+      "bbox": [
+        38,
+        605,
+        542,
+        231
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S004",
+      "page": 1,
+      "type": "paragraph",
+      "order": 4,
+      "original_text": "In this work, we revisit the currently accepted view of the Grotthuss mechanism. Using AIMD simulations of large periodic systems, we ﬁnd that PT in water occurs over a broader distribution of pathways and timescales than normally assumed. The migration of charge involves bursts of activity along proton wires in the network characterized by the concerted motion of several protons, followed by resting periods that are longer than expected, similar to a jump-like diffusion mechanism. This striking dynamical activity is driven partly by the ability of the proton wires to undergo collective compressions. Understanding the structural origins of this behavior, requires a reﬁned picture of the 3D hydrogen bond network. Our inspiration comes from the results of previous studies where it was observed that liquid water is characterized by a broad distribution of closed rings (27–29). In all of these studies, the directionality of the hydrogen bonds in the network has been ignored. By including this feature within our analysis of the rings, we reveal striking medium-range directional correlations in the network. One of the important consequences of this feature is that proton wires naturally decorate the atmosphere of the ions and subsequently inﬂuence the mechanisms by which they diffuse through water.",
+      "translation": "在这项工作中，我们重新审视目前公认的格罗特胡斯机制观点。使用大型周期系统的 AIMD 模拟，我们发现水中的 PT 发生的路径和时间尺度分布比通常假设的更广泛。电荷的迁移涉及网络中沿质子线的突发活动，其特征是多个质子的协同运动，随后是比预期更长的休息期，类似于跳跃式扩散机制。这种惊人的动力学活动部分是由质子线承受集体压缩的能力驱动的。要了解这种行为的结构起源，需要对 3D 氢键网络进行精细的描述。我们的灵感来自于之前的研究结果，其中观察到液态水的特征是闭环的广泛分布（27-29）。在所有这些研究中，网络中氢键的方向性都被忽略了。通过将这一特征纳入我们对环的分析中，我们揭示了网络中惊人的中程方向相关性。这一特征的重要后果之一是质子线自然地装饰离子的气氛，并随后影响它们在水中扩散的机制。",
+      "bbox": [
+        297,
+        231,
+        542,
+        434
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S005",
+      "page": 1,
+      "type": "heading_or_section",
+      "order": 5,
+      "original_text": "The Grotthuss Mechanism Revisited We begin ﬁrst by examining the range of both the spatial and temporal activity of the proton and hydroxide ion in the network.",
+      "translation": "重温格罗特胡斯机制 我们首先检查网络中质子和氢氧根离子的空间和时间活动范围。",
+      "bbox": [
+        297,
+        443,
+        542,
+        473
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S006",
+      "page": 1,
+      "type": "heading_or_section",
+      "order": 6,
+      "original_text": "The Excess Proton in Water. The accepted picture of PT requires that the proton moves from one water molecule to the next in a stepwise manner throughout the network. We ﬁnd instead that proton wires surrounding the hydronium, gives the proton more spatial activity. Stepwise PT events between two water molecules occur during resting periods, although these typically do not contribute to the long-range migration of the proton. The majority of successful PT events propagate through the wires in a quasiconcerted manner over two to three water molecules with a stronger tendency for double jumps. It should be emphasized that these correlated hopping events are distinct from Zundelto-Zundel transfers that were suggested in earlier studies (30). An important factor that allows for these correlated jumps is that Author contributions: A.H., F.G., and M.P. designed research; A.H., F.G., and M.P. performed research; A.H., F.G., J.C., T.D.K., and M.P. analyzed data; and A.H., F.G., J.C., T.D.K., and M.P. wrote the paper.",
+      "translation": "水中过量的质子。 PT 的公认图像要求质子在整个网络中逐步从一个水分子移动到下一个水分子。相反，我们发现水合氢原子周围的质子线赋予质子更多的空间活性。两个水分子之间的逐步 PT 事件发生在静止期间，尽管这些通常不会促进质子的长距离迁移。大多数成功的 PT 事件通过电线以准协同方式在两到三个水分子上传播，具有更强的双跳倾向。应该强调的是，这些相关的跳跃事件与早期研究中提出的 Zundelto-Zundel 转移不同 (30)。允许这些相关跳跃的一个重要因素是作者贡献：A.H.、F.G. 和 M.P.设计研究； A.H.、F.G. 和 M.P.进行研究； A.H.、F.G.、J.C.、T.D.K. 和 M.P.分析数据；以及 A.H.、F.G.、J.C.、T.D.K. 和 M.P.论文写道。",
+      "bbox": [
+        297,
+        483,
+        542,
+        654
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S007",
+      "page": 1,
+      "type": "author_information",
+      "order": 7,
+      "original_text": "The authors declare no conﬂict of interest.",
+      "translation": "作者声明不存在利益冲突。",
+      "bbox": [
+        297,
+        659,
+        416,
+        665
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S008",
+      "page": 1,
+      "type": "author_information",
+      "order": 8,
+      "original_text": "This article is a PNAS Direct Submission.",
+      "translation": "本文是 PNAS 直接投稿。",
+      "bbox": [
+        297,
+        670,
+        407,
+        676
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S009",
+      "page": 1,
+      "type": "author_information",
+      "order": 9,
+      "original_text": "See Commentary on page 13697.",
+      "translation": "请参阅第 13697 页的评论。",
+      "bbox": [
+        297,
+        681,
+        389,
+        687
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S010",
+      "page": 1,
+      "type": "paragraph",
+      "order": 10,
+      "original_text": "1A.H. and F.G. contributed equally to this work.",
+      "translation": "1A.H.和F.G.对这项工作做出了同样的贡献。",
+      "bbox": [
+        297,
+        691,
+        430,
+        698
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S011",
+      "page": 1,
+      "type": "paragraph",
+      "order": 11,
+      "original_text": "2To whom correspondence should be addressed. E-mail: ali.hassanali@phys.chem.ethz.ch.",
+      "translation": "2信件应寄给谁。电子邮件：ali.hassanali@phys.chem.ethz.ch。",
+      "bbox": [
+        297,
+        702,
+        542,
+        709
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S012",
+      "page": 2,
+      "type": "paragraph",
+      "order": 12,
+      "original_text": "they are strongly coupled to the collective compressions of the wires as seen in Fig. 1 similar to what was observed during the recombination of hydronium and hydroxide (26). The textbook descriptions of the Grotthuss mechanism paint a picture of all of the protons in the ensemble diffusing with a similar mechanism. We ﬁnd instead that, rather than undergoing an exclusive stepwise hopping, the proton goes through periods of bursts in activity, where it can jump 4–8 Å in distance over several water molecules on the subpicosecond timescale, followed by fairly long resting spells. An example of this burst-and-rest behavior is shown in Fig. 2A. The reader is referred to SI Appendix for other examples illustrating this feature. In any AIMD simulation, the sensitivity of the results to choice of basis set and density functional is always a concern. We have ascertained that this feature of collective compressions and subsequent correlated PTs that occur, are independent of these factors (SI Appendix). In our benchmarks, we have also ascertained that these features are not sensitive to ﬁnite box size effects as they occur in both 64 and 128 water systems. In both cases, the Bjerrum length where electrostatic correlations become critical, is approximately one-half the magnitude of the box side length and thus does not interfere signiﬁcantly with the creation of directed rings around the proton, which serve as the pathways for PT.",
+      "translation": "它们与线的集体压缩紧密耦合，如图 1 所示，类似于水合氢离子和氢氧化物重组过程中观察到的情况 (26)。教科书对格罗特胡斯机制的描述描绘了系综中所有质子以类似机制扩散的图景。相反，我们发现，质子并没有经历独特的逐步跳跃，而是经历了活动爆发期，在亚皮秒时间尺度上，它可以在几个水分子上跳跃 4-8 Å 的距离，然后是相当长的休息时间。图 2A 显示了这种突发和静止行为的示例。读者可以参考 SI 附录来了解说明此功能的其他示例。在任何 AIMD 模拟中，结果对基组和密度泛函选择的敏感性始终是一个问题。我们已经确定集体压缩的这一特征以及随后发生的相关 PT 与这些因素无关（SI 附录）。在我们的基准测试中，我们还确定这些特征对有限盒子尺寸效应不敏感，因为它们发生在 64 和 128 水系统中。在这两种情况下，静电相关性变得至关重要的 Bjerrum 长度大约是盒子边长的一半，因此不会显着干扰质子周围定向环的形成，而质子周围的定向环充当 PT 的路径。",
+      "bbox": [
+        43,
+        385,
+        288,
+        604
+      ],
+      "confidence": "high",
+      "refs": [
+        "F001",
+        "F002"
+      ]
+    },
+    {
+      "id": "S013",
+      "page": 2,
+      "type": "paragraph",
+      "order": 13,
+      "original_text": "An instructive way of seeing the broad range of timescales associated with PT is through the history correlation function cðtÞ, which essentially describes the probability that a tagged species that was a proton at t = 0, would be a proton at some time t after (see Fig. 2 legend for a detailed deﬁnition). The average cðtÞ (Fig. 2B, black curve) requires more than two exponentials and thus reﬂects the multidynamical behavior of PT. Furthermore, the cðtÞ (black curve) does not decay to zero on the simulated timescales, which indicates that there appears to be longer relaxation processes controlling PT. Besides this feature, there also appears to be enormous variability in the decay dynamics of the individual cðtÞ. This is because the proton does not propagate through the entire water network in a uniform way: for example, there are some cases where the proton is trapped for ∼10 ps, whereas in other situations, very short-lived protons form on the femtosecond timescale during correlated back-and-forth jumps. Part of the slow time relaxation behavior in the cðtÞ originates from the presence of these fairly long-lived traps. Some of this behavior can be seen in the work of Voth and coworker (31), which was however interpreted within the framework of a stepwise PT mechanism.",
+      "translation": "了解与 PT 相关的广泛时间尺度的一个有启发性的方法是通过历史相关函数 cðtÞ，它本质上描述了在 t = 0 时为质子的标记物种在 t 之后的某个时间为质子的概率（详细定义参见图 2 图例）。平均 cðtÞ（图 2B，黑色曲线）需要两个以上的指数，因此反映了 PT 的多动力行为。此外，cðtÞ（黑色曲线）在模拟时间尺度上不会衰减到零，这表明似乎存在更长的弛豫过程控制 PT。除了这个特征之外，个体 cðtÞ 的衰变动力学似乎也存在巨大的变异性。这是因为质子不会以统一的方式在整个水网络中传播：例如，在某些情况下，质子被捕获约 10 皮秒，而在其他情况下，在相关的来回跳跃期间，在飞秒时间尺度上形成非常短命的质子。 cðtÞ 中的缓慢时间松弛行为部分源于这些相当长寿命的陷阱的存在。其中一些行为可以在 Voth 和同事 (31) 的工作中看到，然而，这是在逐步 PT 机制的框架内进行解释的。",
+      "bbox": [
+        43,
+        605,
+        546,
+        128
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S014",
+      "page": 2,
+      "type": "paragraph",
+      "order": 14,
+      "original_text": "The multidynamical nature of PT has important implications in how we interpret the mechanistic origins of the femtosecond dynamics and diffusion constant of the proton. First, the motions on the femtosecond timescale do not exclusively involve the proton rattling between two waters as this is the same timescale over which protons can move in a correlated fashion over several water molecules (32, 33). Second, an analysis of the mean square displacement of the proton from our simulations suggests that the effective diffusion constant of the proton, although perhaps fortuitously close to the experimental value, can originate from a mixture of processes involving fairly long-lived trapped protons and concerted proton hopping events over several waters (SI Appendix).",
+      "translation": "PT 的多动力学性质对于我们如何解释质子的飞秒动力学和扩散常数的机械起源具有重要意义。首先，飞秒时间尺度上的运动并不完全涉及两个水之间的质子震颤，因为在同一时间尺度上，质子可以在几个水分子上以相关的方式移动 (32, 33)。其次，对我们模拟中质子均方位移的分析表明，质子的有效扩散常数虽然可能偶然接近实验值，但可能源自涉及相当长寿命的俘​​获质子和多个水域上协同质子跳跃事件的过程的混合（SI附录）。",
+      "bbox": [
+        301,
+        129,
+        546,
+        243
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S015",
+      "page": 2,
+      "type": "heading_or_section",
+      "order": 15,
+      "original_text": "The Hydroxide Ion in Water. Historically, the Grotthuss mechanism has been discussed mostly within the context of the motion of the excess proton in water. However, it is also well appreciated that the mobility of hydroxide ions exceeds what one would predict from hydrodynamic theories (3). Similar to the proton, the motion of the hydroxide ion is believed to exclusively involve stepwise hopping events accompanied by solvent reorganization. Our AIMD simulations, however, reveal a lot more activity in the hydrogen bond network. The hydroxide ion shares some common features to the proton. In particular, we ﬁnd that its successful migration is dominated by correlated jumps involving two to three proton “holes” (SI Appendix). In some of these events, the hydroxide undergoes an initial triple jump resulting in a concerted motion of three protons, followed by one of the holes receding. This results in an effective jump length of two hydrogen bonds. From a dynamical point of view, the cðtÞ for the hydroxide is also characterized by decay dynamics that cannot be ﬁt by less than two exponentials. This behavior arises from the heterogeneity in the type of motion that it undergoes in different solvent environments as we will now discuss. Like the proton, the hydroxide moves through the network in a manner that does not involve small continuous movements, but rather large jumps followed by periods of rest.",
+      "translation": "水中的氢氧根离子。历史上，格罗萨斯机制主要是在水中过量质子的运动背景下讨论的。然而，众所周知，氢氧根离子的迁移率超出了流体动力学理论的预测 (3)。与质子类似，氢氧根离子的运动被认为专门涉及伴随溶剂重组的逐步跳跃事件。然而，我们的 AIMD 模拟揭示了氢键网络中更多的活动。氢氧根离子与质子有一些共同的特征。特别是，我们发现它的成功迁移主要是涉及两到三个质子“空穴”的相关跃迁（SI 附录）。在其中一些事件中，氢氧化物经历最初的三级跳跃，导致三个质子的协同运动，随后其中一个空穴后退。这导致两个氢键的有效跳跃长度。从动力学的角度来看，氢氧化物的 cðtÞ 也具有衰变动力学的特征，不能用小于两个指数拟合。正如我们现在将讨论的，这种行为是由于它在不同溶剂环境中经历的运动类型的异质性而产生的。与质子一样，氢氧化物在网络中移动的方式不是小的连续运动，而是大的跳跃，然后是一段时间的休息。",
+      "bbox": [
+        301,
+        253,
+        283,
+        373
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S016",
+      "page": 3,
+      "type": "paragraph",
+      "order": 16,
+      "original_text": "In contrast to the excess proton, periods of rest also appear to be more sensitive to the details of the hydrogen bonding from both the accepting and donating side of the hydroxide ion. In some instances, we observe that periods of rest are associated with the hydroxide ion accepting four hydrogen bonds in a square planar arrangement (Fig. 3A). However, activity involving motion of the proton hole can be coupled to periods where the hydroxide ion accepts three hydrogen bonds. This picture is quite similar to the currently held view of the role of presolvation (3), with the caveat of course that in our simulations we observe a broader distribution of jumps of the proton hole.",
+      "translation": "与过量的质子相反，休息时间似乎对氢氧离子接受侧和供给侧的氢键细节更敏感。在某些情况下，我们观察到静止期与氢氧根离子在方形平面排列中接受四个氢键有关（图3A）。然而，涉及质子空穴运动的活动可以与氢氧根离子接受三个氢键的时期耦合。这张图与当前对预溶剂化作用的看法非常相似（3），当然需要注意的是，在我们的模拟中，我们观察到质子空穴跳跃的更广泛分布。",
+      "bbox": [
+        38,
+        373,
+        283,
+        479
+      ],
+      "confidence": "high",
+      "refs": [
+        "F003",
+        "F004"
+      ]
+    },
+    {
+      "id": "S017",
+      "page": 3,
+      "type": "paragraph",
+      "order": 17,
+      "original_text": "Resting spells of the hydroxide ion can also come from other types of variation in the hydrogen bond network. The hydroxide ion tends to donate a weak hydrogen bond to a water molecule in the surrounding network. It turns out that the presence of an undercoordinated hydroxide ion (one that accepts three hydrogen bonds) does not necessarily guarantee that it will be in a more active state. We ﬁnd instead that there can also be resting periods for undercoordinated hydroxide ions. The feature that makes this entity somewhat unique is that its donating hydrogen bond is dangling and hence points to a small cavity (Fig. 3B). It is interesting to note that a similar type of behavior has been observed in hexagonal ice Ih, where Buch and coworker (34) showed that interstitial or off-lattice hydroxide ions can serve as traps. To the best of our knowledge, this is the ﬁrst time that this stable conﬁguration of the hydroxide ion has been observed in liquid water.",
+      "translation": "氢氧根离子的静止期也可能来自氢键网络中其他类型的变化。氢氧根离子倾向于向周围网络中的水分子提供弱氢键。事实证明，配位不足的氢氧根离子（接受三个氢键的氢氧根离子）的存在并不一定保证它会处于更活跃的状态。相反，我们发现配位不足的氢氧根离子也可能存在静止期。使这个实体有些独特的特征是它的供体氢键是悬空的，因此指向一个小空腔（图3B）。有趣的是，在六方冰 Ih 中观察到了类似的行为，Buch 和同事 (34) 表明间隙或晶格外氢氧根离子可以充当陷阱。据我们所知，这是第一次在液态水中观察到氢氧根离子的这种稳定构型。",
+      "bbox": [
+        38,
+        479,
+        283,
+        632
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S018",
+      "page": 3,
+      "type": "heading_or_section",
+      "order": 18,
+      "original_text": "Structural Origins of Proton Wires Up to this point, we have shown that both the proton and hydroxide move through the network in a manner that yields a broader range of possible jump lengths and timescales than currently assumed. The task at hand now is to rationalize the origin of this multiscale and multidynamical behavior.",
+      "translation": "质子线的结构起源到目前为止，我们已经证明质子和氢氧根都以一种比目前假设更广泛的可能跳跃长度和时间尺度的方式穿过网络。现在的任务是合理解释这种多尺度和多动力行为的起源。",
+      "bbox": [
+        38,
+        641,
+        283,
+        700
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S019",
+      "page": 3,
+      "type": "heading_or_section",
+      "order": 19,
+      "original_text": "Ring Statistics: Water, Proton, and Hydroxide. The pioneering studies by Rahman and Stillinger (29) showed that liquid water was made up of a distribution of closed rings. Studies that followed built on this picture to characterize the 3D hydrogen bond network of liquid water (27, 28). Similar to these studies, we also ﬁnd that water is characterized by a broad distribution of rings of different sizes with a tendency for rings made up of ﬁve to seven water molecules (see SI Appendix for a more detailed review of previous studies). However, if one is interested in how the ions perturb the network and in a probe of the pathways in their vicinity, a more spatially local description of the rings is required. One measure of this is the distribution of rings that individually thread water molecules. In neat water, the average number of rings around a water molecule is ∼13. However, this property exhibits signiﬁcant ﬂuctuations ranging between ∼3 and ∼25 rings (SI Appendix). As a point of reference, in hexagonal ice, each water molecule is always surrounded by a ﬁxed number of 12 rings.",
+      "translation": "环统计：水、质子和氢氧化物。 Rahman 和 Stillinger (29) 的开创性研究表明，液态水是由闭环分布组成的。随后的研究基于这张图片来描述液态水的 3D 氢键网络 (27, 28)。与这些研究类似，我们还发现水的特征是广泛分布不同尺寸的环，并且倾向于由五到七个水分子组成的环（有关先前研究的更详细回顾，请参阅 SI 附录）。然而，如果人们对离子如何扰乱网络以及对其附近路径的探测感兴趣，则需要对环进行更空间局部的描述。衡量这一点的一种方法是单独穿过水分子的环的分布。在纯水中，水分子周围的平均环数为 ∼13。然而，该性质表现出显着波动，范围在～3 至～25 环之间（SI 附录）。作为参考，在六角形冰中，每个水分子总是被固定数量的 12 个环包围。",
+      "bbox": [
+        38,
+        710,
+        542,
+        201
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S020",
+      "page": 3,
+      "type": "paragraph",
+      "order": 20,
+      "original_text": "One of the ways in which the ions perturb the network compared with pure liquid water is by altering the distribution of rings that thread them. The hydronium typically participates in a fewer number of rings, whereas the opposite is true for the hydroxide ion (SI Appendix). This reﬂects the relative hydrophobic and hydrophilic character of the hydronium and hydroxide oxygen, respectively. Furthermore, both ions also reduce the ﬂuctuations in the number of rings due to the electrostatic ﬁeld that they impose on the network. Besides the number of rings, the geometry of the ions also alter the relative proportion of rings of different sizes threading them compared with neat water (SI Appendix). Earlier in our report, we showed that the motion of the proton involved periods of fairly long traps. Although the underlying PT reaction coordinate will be strongly coupled to the degree to which collective compressions occur in the vicinity of the proton, the ring distributions provide some clues into the origins of the strong variation in resting times. One of the factors that controls the extent of trapping is that water molecules participating in different numbers of rings confer different stability to the proton. If one embraces the notion of tetrahedral water threaded by rings that ﬂuctuate on similar timescales as PT, it is not so surprising that there would be some variability in stabilizing the proton in different regions of the network. In particular, regions of the water network characterized by a lower number of rings appear to be sites for longer trapping (greater than 5 ps). However, regions where there are a larger number of rings appear to serve as shorter traps for the proton (less than 2 ps). These features are illustrated in Fig. 4.",
+      "translation": "与纯液态水相比，离子扰乱网络的方式之一是改变穿过它们的环的分布。水合氢离子通常参与较少数量的环，而氢氧根离子则相反（SI 附录）。这分别反映了水合氢离子和氢氧根氧的相对疏水性和亲水性。此外，这两种离子还减少了由于它们施加在网络上的静电场而导致的环数波动。除了环的数量之外，与纯水相比，离子的几何形状也改变了穿过它们的不同尺寸的环的相对比例（SI附录）。在我们报告的早些时候，我们表明质子的运动涉及相当长的陷阱周期。尽管潜在的 PT 反应坐标与质子附近发生集体压缩的程度密切相关，但环分布为了解静止时间强烈变化的起源提供了一些线索。控制捕获程度的因素之一是参与不同数量环的水分子赋予质子不同的稳定性。如果人们接受四面体水的概念，这些环由在与 PT 类似的时间尺度上波动的环连接，那么在网络的不同区域中稳定质子的过程中存在一些变化就不足为奇了。特别是，以环数较少为特征的水网络区域似乎是较长捕获时间（大于 5 ps）的位置。然而，环数量较多的区域似乎可以作为质子的较短陷阱（小于 2 ps）。这些特征如图 4 所示。",
+      "bbox": [
+        297,
+        201,
+        542,
+        479
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S021",
+      "page": 4,
+      "type": "heading_or_section",
+      "order": 21,
+      "original_text": "Medium-Range Directional Correlations. In the previous discussion, the directionality of the hydrogen bonds within the rings is not taken into consideration. This feature turns out to be critical in characterizing the network environment of the proton and hydroxide ion. It is instructive to motivate the ensuing results by ﬁrst looking at the directed rings in neat water, which are characterized by rather striking topological patterns. For example, a ring can form a closed wire as seen in Fig. 5A where each water in the ring donates and accepts a single hydrogen bond with its neighbors in the ring. This type of water molecule will be referred to as a DA water within the ring. This arrangement can be broken by the introduction of a water molecule that is a double donor (DD) or double acceptor (AA) (as seen in Fig. 5B). Note that the presence of the closed-ring topology forces a DD molecule in a ring to be always accompanied by an AA one (this is a consequence of a lemma in graph theory: Handshaking Lemma for Directed Graphs) regardless of the size or shape of the ring. As we will soon see, it turns out that the hydronium and hydroxide ion play the role of DD and AA, respectively, for the great majority of rings threading them. The local medium-range directional correlations in the water network are strongly coupled to the number of DD–AA pairs in the ring. It is important to stress that the rings shown in Fig. 5, although illustrated as clusters for clarity, are topological structures that exist within a thermal bath of liquid water.",
+      "translation": "中等范围的方向相关性。在前面的讨论中，没有考虑环内氢键的方向性。事实证明，这一特征对于表征质子和氢氧根离子的网络环境至关重要。首先观察纯净水中的有向环来激发随后的结果是有启发性的，这些有向环的特点是相当引人注目的拓扑图案。例如，一个环可以形成如图 5A 所示的闭合线，其中环中的每个水与环中的相邻水提供和接受单个氢键。这种类型的水分子将被称为环内DA水。这种排列可以通过引入双供体 (DD) 或双受体 (AA) 水分子来打破（如图 5B 所示）。请注意，闭环拓扑的存在迫使环中的 DD 分子始终伴随着 AA 分子（这是图论中引理的结果：有向图的握手引理），无论环的大小或形状如何。正如我们很快就会看到的，事实证明，对于绝大多数穿过它们的环，水合氢离子和氢氧根离子分别起着 DD 和 AA 的作用。水网络中的局部中程方向相关性与环中 DD-AA 对的数量强耦合。需要强调的是，图 5 中所示的环虽然为了清楚起见而显示为簇，但它们是存在于液态水热浴中的拓扑结构。",
+      "bbox": [
+        43,
+        320,
+        288,
+        563
+      ],
+      "confidence": "high",
+      "refs": [
+        "F005",
+        "F006"
+      ]
+    },
+    {
+      "id": "S022",
+      "page": 4,
+      "type": "paragraph",
+      "order": 22,
+      "original_text": "To quantify these directional correlations within the ring, we introduce the order parameters S1 and S2 (see Materials and Methods, Computational Methods, for details). S1 measures the number of DD–AA pairs in a ring. For example, Fig. 5 A and B illustrates an S1 = 0 and S1 = 1 directed ring, respectively. Under the current simulated thermodynamic conditions, the value of S1 varies between 0 and 3 with the greatest tendency of ﬁnding a single DD–AA pair with S1 = 1 (Fig. 5C). Intuitively, the dominant S1 = 1 motif seen in Fig. 5B forms a building block that allows for the formation of an inﬁnitely spanning 3D hydrogen bond network which would not be achieved if the balance was tipped in favor of rings dominated by S1 = 0, S1 = 2, or S1 = 3. As S1 increases from 0 (Fig. 5A) to 1 (Fig. 5B), the presence of the DD–AA pair alters the ability to traverse the ring via a continuous sequence of hydrogen bonds. Thus, the relative proportion of DD, AA, and DA waters within the rings induces very characteristic directional correlations in the network.",
+      "translation": "为了量化环内的这些方向相关性，我们引入了顺序参数 S1 和 S2（有关详细信息，请参阅材料和方法、计算方法）。 S1 测量环中 DD-AA 对的数量。例如，图5A和B分别示出了S1=0和S1=1有向环。在当前模拟的热力学条件下，S1 的值在 0 和 3 之间变化，最大趋势是找到 S1 = 1 的单个 DD-AA 对（图 5C）。直观地说，图 5B 中看到的主要 S1 = 1 基序形成了一个构建块，允许形成无限跨越的 3D 氢键网络，如果平衡倾向于以 S1 = 0、S1 = 2 或 S1 = 3 为主的环，则无法实现这种网络。随着 S1 从 0（图 5A）增加到 1（图 5B），DD-AA 对的存在改变了通过连续的氢键序列穿过环的能力。因此，环内 DD、AA 和 DA 水的相对比例在网络中引起非常特有的方向相关性。",
+      "bbox": [
+        43,
+        564,
+        288,
+        729
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S023",
+      "page": 4,
+      "type": "paragraph",
+      "order": 23,
+      "original_text": "The presence of these correlations leads to a broad distribution of hydrogen bond pathways leading into and out of a water molecule. Our order parameter S2 probes these pathways by looking at the longest among all shortest directed paths that come into or out of a water molecule or an ion within a particular ring. Fig. 5 A and B, for example, illustrates in dark blue the path yielded by S2 for the S1 = 0 and S1 = 1 ring, respectively. The directed paths along these rings can be thought of as mediumrange water wires in the 3D hydrogen bond network. Although the presence of continuous sequences of hydrogen bonds may not come as much of a surprise, understanding their statistical properties in terms of the presence of closed directed water rings has not been previously appreciated. For meaningful comparison, because the hydronium and hydroxide ion dominantly play the role of DD and AA respectively, we compare their distribution of S2 to only DD and AA water molecules in neat water. By imposing a bias on the distribution of rings around each ion, the directed pathways that surround them are also perturbed. These distributions, shown in Fig. 6C for neat water, and Fig. 6D for the ions, show that the relative proportion of wires consisting of two to four hydrogen bonds are quite different. Earlier, we showed that there appears to be some correlation between the ring statistics and proton trapping. If we consider the directionality of the rings and compare the distribution of S2 for longand short-lived protons, we observe that the relative proportion of directed wires between two to four hydrogen bonds exhibits some differences (SI Appendix). Trapping behavior of the hydroxide appears to be more complicated. In particular, trapped states for the hydroxide are sensitive to not only the number rings threading the ion but also their ability to form a ring with S1 = 0. Although the trapped state of the hydroxide that accepts only three hydrogen bonds has a lower number of rings threading it, an S1 = 0 ring cannot form in this state due to the rather peculiar solvent environment in its vicinity (Fig. 3B).",
+      "translation": "这些相关性的存在导致进出水分子的氢键路径广泛分布。我们的顺序参数 S2 通过查看进出特定环内的水分子或离子的所有最短定向路径中最长的路径来探测这些路径。例如，图 5 A 和 B 分别以深蓝色显示了 S1 = 0 和 S1 = 1 环时 S2 产生的路径。沿着这些环的定向路径可以被认为是 3D 氢键网络中的中程水线。尽管连续氢键序列的存在可能并不令人意外，但以前尚未认识到根据闭合定向水环的存在来理解它们的统计特性。为了进行有意义的比较，由于水合氢离子和氢氧根离子分别主要发挥 DD 和 AA 的作用，因此我们将它们的 S2 分布与纯水中仅 DD 和 AA 水分子进行比较。通过对每个离子周围的环的分布施加偏差，围绕它们的定向路径也会受到干扰。这些分布如图 6C（纯水）和图 6D（离子）所示，表明由两到四个氢键组成的线的相对比例有很大不同。早些时候，我们表明环统计数据和质子捕获之间似乎存在某种相关性。如果我们考虑环的方向性并比较长寿命质子和短寿命质子的 S2 分布，我们会观察到两到四个氢键之间的定向线的相对比例表现出一些差异（SI 附录）。氢氧化物的捕获行为似乎更加复杂。特别是，氢氧化物的俘获态不仅对穿过离子的环的数量敏感，而且对它们形成 S1 = 0 环的能力敏感。尽管只接受三个氢键的氢氧化物的俘获态具有较少数量的穿过离子的环，但由于其附近相当特殊的溶剂环境，在这种状态下无法形成 S1 = 0 环（图 3B）。",
+      "bbox": [
+        301,
+        52,
+        547,
+        380
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S024",
+      "page": 5,
+      "type": "paragraph",
+      "order": 24,
+      "original_text": "The picture that begins to emerge is that the one has to view the hydronium and hydroxide ion as ﬂuxional topological structures of a collective coordinate involving the hydrogen bond network and not just a few water molecules solvating the ion. In particular, because of the presence of medium-range directional correlations in the network, the center of excess charge acts as a “source” for multiple pathways radiating out of it (Fig. 6A). In contrast, the hydroxide ion acts as a “sink” for many directed hydrogen bond wires bridging from the bulk into the center of negative charge (Fig. 6B).",
+      "translation": "开始出现的情况是，人们必须将水合氢离子和氢氧根离子视为涉及氢键网络的集体坐标的流动拓扑结构，而不仅仅是溶解离子的几个水分子。特别是，由于网络中存在中等范围的方向相关性，过量电荷中心充当从其辐射出的多个路径的“源”（图6A）。相反，氢氧根离子充当许多定向氢键线的“接收器”，从本体桥接至负电荷中心（图6B）。",
+      "bbox": [
+        38,
+        52,
+        283,
+        149
+      ],
+      "confidence": "high",
+      "refs": [
+        "F007"
+      ]
+    },
+    {
+      "id": "S025",
+      "page": 5,
+      "type": "heading_or_section",
+      "order": 25,
+      "original_text": "Network Coordinates of PT. The results presented until this point demonstrate that one of the origins of the rich dynamical activity of the proton and hydroxide ion stems from the complex network architecture of liquid water. It follows somewhat naturally that the broad distribution of directed pathways around the ions must lead to a hierarchy of collective modes involving the rings and hence wires. These modes involve collective compressions and expansions, which turn out to be critical in facilitating correlated PT as we showed earlier. This correlated proton hopping does not persist throughout the network in an uninterrupted fashion. Besides the compressions, solvent ﬂuctuations around the proton play an important role in facilitating PT. It is beyond the scope of the current study to provide a quantitative description of all of the network coordinates involved in PT. However, by viewing water as a 3D network composed of ﬂuctuating directed rings, we obtain some clues into the collective nature of PT as a reorganization of the network. One component of this involves the restructuring of the hydrogen bond network through the interconversion of rings of different sizes. Large-amplitude rotational and translational modes of water molecules in the vicinity of the proton, similar to those seen previously in bulk water (35), result in the breakage and formation of rings (Fig. 7A). These ﬂuctuations obviously lead to changes in both S1 and S2 and subsequently perturb the wires surrounding the hydronium and either trap or release it from different parts of the network. This may or may not lead to long-range transfer of the proton because one has to distinguish between proton activity along wires locally threading the hydronium and slower longer range translocation of the proton, which requires motion from one ring to another. Within this context, another striking feature that can change the environment of the hydronium is its umbrella inversion mode. This motion changes the pyramidal shape of the hydronium and moves its oxygen atom between different parts of the water network (Fig. 7B). Due to the heterogeneity of the surrounding environment caused by the variation in the size and shape of different rings, the barrier for PT is quite sensitive to changes the inversion mode induces on the hydronium and can thus either facilitate or hinder the propagation of the proton. More details of the role of ring interconversion and the umbrella inversion mode on PT will be reported in a forthcoming study.",
+      "translation": "PT 的网络坐标。到目前为止所得出的结果表明，质子和氢氧根离子丰富的动力学活性的起源之一源于液态水的复杂网络结构。很自然地，离子周围定向路径的广泛分布必然导致涉及环和线的集体模式的层次结构。这些模式涉及集体压缩和扩展，正如我们之前所展示的，这对于促进相关 PT 至关重要。这种相关的质子跳跃不会以不间断的方式持续存在于整个网络中。除了压缩之外，质子周围的溶剂波动在促进 PT 方面也发挥着重要作用。提供 PT 涉及的所有网络坐标的定量描述超出了当前研究的范围。然而，通过将水视为由波动的有向环组成的 3D 网络，我们获得了一些关于 PT 作为网络重组的集体性质的线索。其中一个组成部分涉及通过不同尺寸环的相互转化来重组氢键网络。质子附近水分子的大振幅旋转和平移模式与之前在散装水中看到的类似（35），导致环的破裂和形成（图7A）。这些波动显然会导致 S1 和 S2 发生变化，并随后扰乱水合氢周围的电线，并将其从网络的不同部分捕获或释放。这可能会也可能不会导致质子的长程转移，因为人们必须区分沿局部穿过水合氢的导线的质子活动和质子较慢的长程易位，这需要从一个环运动到另一个环。在此背景下，另一个可以改变水合氢离子环境的显着特征是其伞形反转模式。这种运动改变了水合氢的金字塔形状，并在水网络的不同部分之间移动其氧原子（图7B）。由于不同环的大小和形状的变化导致周围环境的异质性，PT的势垒对反演模式在水合氢上引起的变化非常敏感，因此可以促进或阻碍质子的传播。关于环互变和伞反转模式对 PT 的作用的更多细节将在即将发表的研究中报告。",
+      "bbox": [
+        38,
+        159,
+        542,
+        243
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S026",
+      "page": 5,
+      "type": "heading_or_section",
+      "order": 26,
+      "original_text": "Conclusion In conclusion, we have shown here using ﬁrst-principles simulations that the motion of protons through the water network is a complex process involving the collective behavior of both structural and dynamical properties of the network. The presence of proton wires gives proton motion much broader spatial and temporal character compared with the current textbook description of the Grotthuss mechanism (17). One way to picture this is to imagine the proton moving through a free-energy landscape along a generalized PT coordinate. Rather than experiencing the same effective barrier for PT throughout the water network, our results seem to suggest that the free-energy surface is very rough and characterized by basins of varying depths and activation barriers. The details of this surface will also be affected by nuclear quantum effects (NQEs), which are known to enhance the delocalization of the proton along the hydrogen bond, as observed in previous studies (9, 10). It is quite likely that NQEs will serve to further enhance the delocalization of the proton in the hydrogen bond network as well as increase the correlated hopping of the protons. Quantifying this behavior is underway in our group.",
+      "translation": "结论 总之，我们在这里使用第一原理模拟表明，质子通过水网络的运动是一个复杂的过程，涉及网络的结构和动力学特性的集体行为。与当前教科书对格罗特胡斯机制的描述相比，质子线的存在赋予质子运动更广泛的空间和时间特征（17）。描述这一现象的一种方法是想象质子沿着广义 PT 坐标穿过自由能景观。我们的结果似乎表明，自由能表面非常粗糙，并且具有不同深度和活化屏障的盆地特征，而不是在整个水网络中经历相同的 PT 有效屏障。该表面的细节也会受到核量子效应 (NQE) 的影响，正如之前的研究中所观察到的那样，核量子效应 (NQE) 会增强质子沿氢键的离域性 (9, 10)。 NQE 很可能会进一步增强氢键网络中质子的离域，并增加质子的相关跳跃。我们小组正在量化这种行为。",
+      "bbox": [
+        297,
+        252,
+        542,
+        455
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S027",
+      "page": 5,
+      "type": "paragraph",
+      "order": 27,
+      "original_text": "The phenomena we report here should open up new challenges for both experimentalists and theoreticians working on problems involving acid–base chemistry. In particular, our observations should be useful in shedding light on the complexity behind the origin of the time-dependent infrared dynamics of the proton and hydroxide (32, 33). Furthermore, it should also open up interesting discussions for those engaged in understanding PT in ice where phenomena such as proton trapping have also been observed (36). Besides its implications on PT on aqueous systems, the phenomena we observe bear similar features to important biological systems. In particular, collective vibrations have recently been recognized as playing a possible role in promoting hydrogen transfer in enzymes (37), which is crucial for catalysis. In addition, the fundamental aspects raised in this report are likely to open up new directions in the role of the water network in phenomena associated with the hydration of ions (38) and macromolecules such as proteins and DNA.",
+      "translation": "我们在这里报告的现象应该为研究酸碱化学问题的实验学家和理论家带来新的挑战。特别是，我们的观察应该有助于揭示质子和氢氧根随时间变化的红外动力学起源背后的复杂性 (32, 33)。此外，它还应该为那些致力于了解冰中 PT 的人展开有趣的讨论，在冰中也观察到了质子捕获等现象 (36)。除了对水系统 PT 的影响外，我们观察到的现象与重要的生物系统具有相似的特征。特别是，集体振动最近被认为在促进酶中氢转移方面可能发挥作用 (37)，这对于催化至关重要。此外，本报告中提出的基本方面可能会为水网络在离子 (38) 和蛋白质和 DNA 等大分子水合相关现象中的作用开辟新的方向。",
+      "bbox": [
+        297,
+        455,
+        542,
+        618
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S028",
+      "page": 5,
+      "type": "heading_or_section",
+      "order": 28,
+      "original_text": "Materials and Methods Computational Methods. AIMD simulations of all of the aqueous systems were conducted using Quickstep, which is part of the CP2K package (39). In these calculations, ab initio Born–Oppenheimer molecular dynamics is used for propagation of the classical nuclei. A convergence criterion of 5 × 10−7 a.u. was used for the optimization of the wave function. Using the Gaussian and plane waves method, the wave function was expanded in the Gaussian double zeta with valence polarization functions (DZVP) basis set. An auxiliary basis set of plane waves was used to expand the electron density up to a cutoff of 300 Ry. We used the BLYP (the exchange correction of Becke and the correlation function of Lee, Yang and Parr) gradient correction (40) to the local density approximation and Goedecker–Teter–Hutter pseudopotentials for treating the core electrons (41). Sensitivity of results with respect to choice of basis set and density functional is always a concern in ab initio simulations. It is well known that current generalized gradient approximation functionals tend to overstructure water. In a previous study on the recombination of the hydronium and hydroxide (26), we ascertained that the mechanisms inferred in that study, in particular the collective compression and concerted motion of the protons, observed using the Perdew, Burke, and Ernzerhof (PBE)-DZVP combination, was reproduced when we used a larger basis set (PBE-TZV2P) or another density functional (HCTH/120DZVP). Furthermore, this result also appears to be independent of ﬁnite-box size effects. The reader is referred to SI Appendix for more details on these benchmarks. Similar strategies were used to identify the proton and hydroxide and their respective solvation shells as in our previous work (26). All systems simulated consist of a box of side length 15.6404 Å with 128 water molecules for the neutral system (with either a proton or hydroxide ion for the charged systems). Simulations were conducted within the constant size, volume and temperature ensemble at 300 K using the canonical-sampling velocity-rescaling thermostat (42).",
+      "translation": "材料和方法计算方法。所有水系统的 AIMD 模拟均使用 Quickstep 进行，Quickstep 是 CP2K 软件包的一部分 (39)。在这些计算中，从头算玻恩-奥本海默分子动力学用于经典原子核的传播。收敛标准为 5 × 10−7 a.u.用于波函数的优化。利用高斯和平面波方法，在具有价极化函数（DZVP）的高斯双zeta基组中展开波函数。使用平面波的辅助基组将电子密度扩展到 300 Ry 的截止值。我们使用 BLYP（Becke 的交换校正和 Lee、Yang 和 Parr 的相关函数）梯度校正（40）对局部密度近似和 Goedecker-Teter-Hutter 赝势进行处理核心电子（41）。结果相对于基组和密度泛函的选择的敏感性始终是从头算模拟中关注的问题。众所周知，当前的广义梯度近似泛函倾向于过度结构化水。在之前关于水合氢离子和氢氧化物重组的研究中 (26)，我们确定了该研究中推断的机制，特别是使用 Perdew、Burke 和 Ernzerhof (PBE)-DZVP 组合观察到的质子的集体压缩和协同运动，当我们使用更大的基组 (PBE-TZV2P) 或另一种密度泛函 (HCTH/120DZVP) 时，可以重现。此外，这个结果似乎也与有限盒尺寸效应无关。读者可参阅 SI 附录，了解有关这些基准的更多详细信息。与我们之前的工作 (26) 一样，使用类似的策略来识别质子和氢氧根及其各自的溶剂化壳。所有模拟系统均由一个边长为 15.6404 Å 的盒子组成，中性系统包含 128 个水分子（带电系统包含质子或氢氧根离子）。使用规范采样速度缩放恒温器 (42) 在 300 K 的恒定尺寸、体积和温度系综内进行模拟。",
+      "bbox": [
+        297,
+        627,
+        288,
+        221
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S029",
+      "page": 6,
+      "type": "heading_or_section",
+      "order": 29,
+      "original_text": "Graph Topology Generation. The rings were constructed using the shortest path ring deﬁnition (43), which considers a water molecule (using the oxygen atoms as centers) and two of its nearest neighbors with a distance cutoff criterion of 3.3 Å. This cutoff corresponds to the end of the ﬁrst hydration shell given by the g(r) in BLYP water. Subsequently, the shortest path passing through these three molecules is used to generate a cyclic ring. Directed edges are inserted between pairs of nodes in the ring, which reﬂects the direction of the hydrogen bonds. The direction of the hydrogen bond along the edge consisting of nodes Oi and Oj was determined by ﬁnding the hydrogen Hk that yields the shortest hydrogen bond: Oj. . .Hk, where Oi and Hk are covalently bonded. For simplicity, in constructing the order parameters described below, every pair of nodes in the ring is assigned an edge. Although this inserts an edge along hydrogen bonds that would be considered as broken by standard criteria, we have checked that this feature does not affect the properties we have determined in this work (see SI Appendix for more details). The order parameters S1 and S2 are deﬁned below: In the expression for S1 above, N refers to the number of nodes in a ring (for a hexamer, this would be 6). InðviÞ is the in-degree of a node on the graph which quantiﬁes the number of ingoing edges to that node, whereas OutðviÞ is the out-degree of a node on the graph, which quantiﬁes the number of outgoing edges from the node. For example, a water molecule that is a DD in the ring would have an out-degree of 2 and an in-degree of 0 (vice versa for an AA), whereas a DA water would have both an out-and-in degree of 0 within the ring. In S2, pathðvi; vjÞ, corresponds to the length of the shortest path between a node vi and vj, whereas lmax picks up the longest among all possible paths leading out of vi. For paths leading into vi, the role of the subscripts i and j are simply reversed.",
+      "translation": "图拓扑生成。这些环是使用最短路径环定义 (43) 构建的，该定义考虑了一个水分子（使用氧原子作为中心）及其两个最近的邻居，距离截止标准为 3.3 Å。该截止值对应于 BLYP 水中 g(r) 给出的第一个水合壳的末端。随后，使用穿过这三个分子的最短路径来生成环。有向边插入环中的节点对之间，这反映了氢键的方向。沿着由节点 Oi 和 Oj 组成的边缘的氢键方向是通过找到产生最短氢键 Oj 的氢 Hk 来确定的。 。 .Hk，其中 Oi 和 Hk 共价键合。为了简单起见，在构建下面描述的顺序参数时，环中的每对节点都被分配一条边。尽管这沿着氢键插入了一条边缘，根据标准标准，该边缘被认为是断裂的，但我们已经检查过，此功能不会影响我们在本工作中确定的属性（更多详细信息，请参阅 SI 附录）。顺序参数 S1 和 S2 定义如下： 在上面 S1 的表达式中，N 指环中的节点数（对于六聚体，这将为 6）。 InðviÞ 是图上节点的入度，量化该节点的传入边数，而 OutðviÞ 是图上节点的出度，量化该节点的传出边数。例如，环中为 DD 的水分子的出度为 2，入度为 0（对于 AA 则反之），而 DA 水分子在环内的出度和入度均为 0。在S2中，pathðvi； vjÞ 对应于节点 vi 和 vj 之间的最短路径的长度，而 lmax 则选取从 vi 引出的所有可能路径中最长的路径。对于通向 vi 的路径，下标 i 和 j 的作用只是颠倒过来。",
+      "bbox": [
+        43,
+        233,
+        546,
+        254
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S030",
+      "page": 6,
+      "type": "acknowledgments",
+      "order": 30,
+      "original_text": "ACKNOWLEDGMENTS. The authors acknowledge Meher Prakash, Matteo Salvagglio, and Michele Ceriotti for useful discussions. The authors thank Swiss National Supercomputing Center (CSCS) and High Performance Computing Group of ETH Zurich for computational resources. Financial support from the European Union Grant ERC-2009-AdG-247075 is gratefully acknowledged. T.D.K. acknowledges ﬁnancial support from the Graduate School of Excellence MAINZ and the Inverse Design mit deﬁnierten Eigenschaften (IDEE) project of the Carl Zeiss Foundation.",
+      "translation": "致谢。作者感谢 Meher Prakash、Matteo Salvagglio 和 Michele Ceriotti 进行了有益的讨论。作者感谢瑞士国家超级计算中心 (CSCS) 和苏黎世联邦理工学院高性能计算组提供的计算资源。非常感谢欧盟拨款 ERC-2009-AdG-247075 的财政支持。 T.D.K.感谢 MAINZ 卓越研究生院和卡尔蔡司基金会的 Inverse Design mit definierten Eigenschaften (IDEE) 项目的财政支持。",
+      "bbox": [
+        301,
+        266,
+        546,
+        329
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C001",
+      "page": 2,
+      "type": "caption",
+      "order": 1001,
+      "original_text": "Fig. 1. The average of the symmetrized PT coordinates for pairs of consecutive PT events (double PT jumps) on the x axis vs. the collective compression of the wire on the y axis. On the x axis, νð1Þ = δOð1Þ−H−Oð2Þ and νð2Þ = δOð2Þ−H−Oð3Þ are the symmetrized PT coordinates deﬁned as the difference in distance of the transferring proton along the hydrogen bond [δOð1Þ−H−Oð2Þ = rOð1Þ−H −rH−Oð2Þ and δOð2Þ−H−Oð3Þ = rOð2Þ−H −rH−Oð3Þ]. The species O(1), O(2), and O(3) are consecutive oxygen atoms along a wire that house the proton at some point during PT. Associated with each PT coordinate is the distance between the oxygen atoms along the wire: rOð1Þ−Oð2Þ, rOð2Þ−Oð3Þ, and the y axis shows the sum of these two distances. This plot is strikingly similar to the “banana” plots in the stepwise PT jumps (9). Here, instead double jumps are facilitated by collective compressions (see SI Appendix for similar plot for the extent of correlations in groups of triple PT events).",
+      "translation": "图 1. x 轴上成对连续 PT 事件（双 PT 跳跃）的对称 PT 坐标平均值与 y 轴上导线的集体压缩。在 x 轴上，νð1Þ = δOð1Þ−H−Oð2Þ 和 νð2Þ = δOð2Þ−H−Oð3Þ 是对称 PT 坐标，定义为沿氢键转移质子的距离差 [δOð1Þ−H−Oð2Þ = rOð1Þ−H −rH−Oð2Þ 和δOð2Þ−H−Oð3Þ = rOð2Þ−H −rH−Oð3Þ]。 O(1)、O(2) 和 O(3) 物种是沿着导线的连续氧原子，在 PT 期间的某个时刻容纳质子。与每个 PT 坐标相关的是沿导线的氧原子之间的距离：rOð1Þ−Oð2Þ、rOð2Þ−Oð3Þ，y 轴显示这两个距离的总和。该图与逐步 PT 跳跃 (9) 中的“香蕉”图惊人地相似。在这里，集体压缩促进了二段跳（参见 SI 附录，了解三重 PT 事件组中相关程度的类似图）。",
+      "bbox": [
+        43,
+        251,
+        288,
+        366
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C002",
+      "page": 2,
+      "type": "caption",
+      "order": 1002,
+      "original_text": "Fig. 2. (A) Burst and rest behavior of the proton is shown for one trajectory. On the y axis, we show the distance that the proton jumps with respect to a reference starting point at the beginning of the trajectory. The motion of the proton goes through periods of bursts where it can jump rather long distances due to correlated proton hopping followed by resting periods. The regions labeled B indicate points where there is a burst in activity and R are regimes where the proton is going through a resting period. (B) Proton history correlation function (44) [cðtÞ = hhðtÞhð0Þi hhi , where h is 1 when a tagged species in the system is a proton or 0 if it is not] is shown for individual proton species in the system as well as the ensemble average. The two blue curves, for example, illustrate two limiting cases involving a trapped proton and a very short-lived proton transiently formed during concerted PT events. The red, green, and violet curves shown, interpolate between these two limiting cases. The black curve represents the average over all PT events from different trajectories, whereas the dashed magenta curve is a ﬁt to this average using several exponentials.",
+      "translation": "图 2. (A) 显示了一条轨迹的质子爆发和静止行为。在 y 轴上，我们显示质子相对于轨迹起点的参考起点跳跃的距离。质子的运动经历爆发期，由于相关的质子跳跃，质子可以跳跃相当长的距离，随后是休息期。标记为 B 的区域表示活动爆发的点，R 表示质子正在经历静止期的区域。 (B) 质子历史相关函数 (44) [cðtÞ = hhðtÞhð0Þi hhi ，其中当系统中的标记物种是质子时 h 为 1，否则为 0] 显示系统中的单个质子物种以及整体平均值。例如，两条蓝色曲线说明了两种极限情况，涉及捕获的质子和在一致的 PT 事件期间瞬时形成的非常短命的质子。所示的红色、绿色和紫色曲线在这两种极限情况之间进行插值。黑色曲线代表来自不同轨迹的所有 PT 事件的平均值，而洋红色虚线则使用多个指数拟合该平均值。",
+      "bbox": [
+        301,
+        587,
+        546,
+        656
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C003",
+      "page": 3,
+      "type": "caption",
+      "order": 1003,
+      "original_text": "Fig. 3. A illustrates the hypercoordinated hydroxide, which accepts four hydrogen bonds and donates one weaker hydrogen bond. B illustrates the undercoordinated hydroxide ion, which accepts three hydrogen bonds while the donating hydrogen bond is left dangling pointing to a closed ring.",
+      "translation": "图 3.A 说明了超配位氢氧化物，它接受四个氢键并提供一个较弱的氢键。 B 说明了配位不足的氢氧根离子，它接受三个氢键，而提供氢键则悬空指向闭合环。",
+      "bbox": [
+        38,
+        195,
+        283,
+        229
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C004",
+      "page": 3,
+      "type": "caption",
+      "order": 1004,
+      "original_text": "Fig. 4. This ﬁgure shows distribution of the total number of rings for protons in long-lived (blue) vs. short-lived (green) traps illustrated using a clustered bar chart. The blue bars tend to be larger at smaller ring values (less than ∼10), whereas the green bars tend to be larger at larger ring values (greater than ∼10).",
+      "translation": "图 4。该图显示了长寿命（蓝色）与短寿命（绿色）陷阱中质子环总数的分布，使用簇状条形图进行说明。蓝色条在较小环值（小于~10）时往往较大，而绿色条在较大环值（大于~10）时往往较大。",
+      "bbox": [
+        297,
+        685,
+        542,
+        710
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C005",
+      "page": 4,
+      "type": "caption",
+      "order": 1005,
+      "original_text": "Fig. 5. A and B show S1 for two directed six-membered rings, and C shows the distribution of S1 obtained for neat water. When S1 = 0 (A), the ring is made up of only DA water molecules, whereas when S1 = 1, the ring consists of one DD, one AA, and four DA water molecules. The blue-colored paths show possible realizations of S2 obtained for these rings. In particular for the S1 = 0 ring, the longest outgoing path from the tagged DA water (surrounded by a blue sphere) to waters other than itself, is shown by the blue path that is made of ﬁve hydrogen bonds. This path ends at the water surrounded by a yellow sphere. For S1 = 1 (B), a realization of the longest outgoing wire for a DD water molecule (surrounded by a blue sphere) is shown by the blue path made up of three hydrogen bonds. This path ends at the water surrounded by the yellow sphere. For clarity, in these ﬁgures we only show examples of six-membered rings. However, as discussed in the text, the same features hold for rings of all sizes. The distributions of S1 of charged systems are quite similar (SI Appendix).",
+      "translation": "图 5. A 和 B 显示两个有向六元环的 S1，C 显示纯水获得的 S1 分布。当S1 = 0 (A)时，环仅由DA水分子组成，而当S1 = 1时，环由1个DD、1个AA和4个DA水分子组成。蓝色路径显示了这些环获得的 S2 的可能实现。特别是对于 S1 = 0 环，从标记的 DA 水（被蓝色球体包围）到除自身以外的水的最长传出路径由由五个氢键组成的蓝色路径显示。这条路的终点是被黄色球体包围的水。对于 S1 = 1 (B)，由三个氢键组成的蓝色路径显示了 DD 水分子的最长输出线（被蓝色球体包围）的实现。这条路的终点是被黄色球体包围的水。为了清楚起见，在这些图中我们仅显示六元环的示例。然而，正如文中所讨论的，相同的特征适用于所有尺寸的戒指。带电系统的 S1 分布非常相似（SI 附录）。",
+      "bbox": [
+        43,
+        168,
+        288,
+        301
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C006",
+      "page": 4,
+      "type": "caption",
+      "order": 1006,
+      "original_text": "Fig. 6. The upper panels show snapshots of the environment of the H3O+ (A) and OH−(B) ions, which is made of closed rings. For clarity, not all of the rings threading the ions are shown. Wires along the rings are also shown around each ion. Note that the OH−ion accepts four hydrogen bonds and donates a weak hydrogen bond in this case. As mentioned in the text, the H3O+ acts as a DD water in the ring, whereas the OH−acts as an AA for the majority of the rings they participate in. The ﬁgure illustrates that both the H3O+ and OH−are characterized by many outgoing and incoming wires, respectively. C and D compare the distribution of S2 for neat water [DD (blue) and AA (red)], H3O+ (blue), and OH−(red) systems.",
+      "translation": "图 6. 上图显示了 H3O+ (A) 和 OH−(B) 离子的环境快照，该离子由闭合环组成。为了清楚起见，并未显示所有穿过离子的环。每个离子周围还显示了沿环的导线。请注意，在这种情况下，OH−离子接受四个氢键并提供一个弱氢键。正如文中提到的，H3O+ 在环中充当 DD 水，而 OH− 在它们所参与的大多数环中充当 AA。该图说明了 H3O+ 和 OH− 分别具有许多传出和传入导线的特征。 C 和 D 比较纯水 [DD（蓝色）和 AA（红色）]、H3O+（蓝色）和 OH−（红色）系统的 S2 分布。",
+      "bbox": [
+        301,
+        639,
+        546,
+        648
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C007",
+      "page": 5,
+      "type": "caption",
+      "order": 1007,
+      "original_text": "Fig. 7. A illustrates how the interconversion of rings, in this case a ﬁveand seven-membered ring, result in concerted PT. On the y axis, the symmetrized PT coordinates for the concerted PT events, νð1Þ, νð2Þ, and νð3Þ (corresponding to the black, red, and green curves, respectively) are shown. (B) Coupling between the ring interconversions and the umbrella inversion mode of the hydronium during PT events. The data series shows the umbrella inversion mode coordinate on the y axis along with four snapshots from the molecular dynamics trajectory. The purple triangle is formed by the base of three protons, which is used to illustrate the role of the inversion mode. The inversion coordinate is deﬁned by the perpendicular distance between the oxygen atom of the hydronium ion and the plane formed by the hydrogen atoms. In the ﬁrst example (A), the inversion mode does not change and hence does not play a role in the PT. However, in the second example, the inversion mode changes, which facilitated the formation and breakage of a 4M ring and is coupled to PT. For clarity, we note that in the ﬁrst 2 ps the oxygen lies below the triangular blue base, whereas between 2 and 6 ps the oxygen lies above the triangular base.",
+      "translation": "图 7.A 说明了环（在本例中为五元环和七元环）的相互转化如何产生一致的 PT。在 y 轴上，显示了协调 PT 事件的对称 PT 坐标 νð1Þ、νð2Þ 和 νð3Þ（分别对应于黑色、红色和绿色曲线）。 (B) PT 事件期间水合氢的环互变与伞反转模式之间的耦合。该数据系列显示了 y 轴上的伞形反转模式坐标以及分子动力学轨迹的四个快照。紫色三角形由三个质子的底边构成，用来说明反转模式的作用。反演坐标由水合氢离子的氧原子与氢原子形成的平面之间的垂直距离定义。在第一个例子（A）中，反演模式没有改变，因此在 PT 中不起作用。然而，在第二个例子中，反转模式发生变化，这促进了4M环的形成和破坏并耦合到PT。为了清楚起见，我们注意到在前 2 ps 中，氧位于三角形蓝色基底下方，而在 2 到 6 ps 之间，氧位于三角形基底上方。",
+      "bbox": [
+        38,
+        577,
+        283,
+        728
+      ],
+      "confidence": "high",
+      "refs": []
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "block_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011"
+      ]
+    },
+    {
+      "page": 2,
+      "block_ids": [
+        "S012",
+        "S013",
+        "S014",
+        "S015"
+      ]
+    },
+    {
+      "page": 3,
+      "block_ids": [
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ]
+    },
+    {
+      "page": 4,
+      "block_ids": [
+        "S021",
+        "S022",
+        "S023"
+      ]
+    },
+    {
+      "page": 5,
+      "block_ids": [
+        "S024",
+        "S025",
+        "S026",
+        "S027",
+        "S028"
+      ]
+    },
+    {
+      "page": 6,
+      "block_ids": [
+        "S029",
+        "S030"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "page": 2,
+      "caption_id": "C001",
+      "image_path": "fig-01.png",
+      "bbox": [
+        43,
+        53,
+        288,
+        243
+      ],
+      "placement_hint": "near_first_substantive_discussion_on_figure_page",
+      "placed_after": "S012"
+    },
+    {
+      "id": "F002",
+      "page": 2,
+      "caption_id": "C002",
+      "image_path": "fig-02.png",
+      "bbox": [
+        301,
+        365,
+        547,
+        585
+      ],
+      "placement_hint": "near_first_substantive_discussion_on_figure_page",
+      "placed_after": "S012"
+    },
+    {
+      "id": "F003",
+      "page": 3,
+      "caption_id": "C003",
+      "image_path": "fig-03.png",
+      "bbox": [
+        38,
+        53,
+        284,
+        187
+      ],
+      "placement_hint": "near_first_substantive_discussion_on_figure_page",
+      "placed_after": "S016"
+    },
+    {
+      "id": "F004",
+      "page": 3,
+      "caption_id": "C004",
+      "image_path": "fig-04.png",
+      "bbox": [
+        329,
+        505,
+        510,
+        677
+      ],
+      "placement_hint": "near_first_substantive_discussion_on_figure_page",
+      "placed_after": "S016"
+    },
+    {
+      "id": "F005",
+      "page": 4,
+      "caption_id": "C005",
+      "image_path": "fig-05.png",
+      "bbox": [
+        44,
+        53,
+        287,
+        160
+      ],
+      "placement_hint": "near_first_substantive_discussion_on_figure_page",
+      "placed_after": "S021"
+    },
+    {
+      "id": "F006",
+      "page": 4,
+      "caption_id": "C006",
+      "image_path": "fig-06.png",
+      "bbox": [
+        303,
+        405,
+        546,
+        632
+      ],
+      "placement_hint": "near_first_substantive_discussion_on_figure_page",
+      "placed_after": "S021"
+    },
+    {
+      "id": "F007",
+      "page": 5,
+      "caption_id": "C007",
+      "image_path": "fig-07.png",
+      "bbox": [
+        38,
+        380,
+        284,
+        570
+      ],
+      "placement_hint": "near_first_substantive_discussion_on_figure_page",
+      "placed_after": "S024"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Grotthuss mechanism",
+      "translation": "格罗特胡斯机制",
+      "note": "Structural diffusion of protonic charge through a hydrogen-bond network."
+    },
+    {
+      "term": "proton wire",
+      "translation": "质子线（质子导线）",
+      "note": "A directed hydrogen-bond pathway that can support correlated proton transfer."
+    },
+    {
+      "term": "concerted proton transfer",
+      "translation": "协同质子转移",
+      "note": "Several protons move in a correlated event rather than as independent hops."
+    },
+    {
+      "term": "hydronium / hydroxide",
+      "translation": "水合氢离子 / 氢氧根离子",
+      "note": "The positively and negatively charged aqueous defects analysed here."
+    },
+    {
+      "term": "AIMD",
+      "translation": "第一性原理分子动力学",
+      "note": "Molecular dynamics with electronic-structure forces computed on the fly."
+    },
+    {
+      "term": "directed ring",
+      "translation": "有向环",
+      "note": "A hydrogen-bond ring whose edges retain donor-to-acceptor directionality."
+    },
+    {
+      "term": "DD / AA / DA water",
+      "translation": "双供体 / 双受体 / 供受体水",
+      "note": "Ring-topology labels for double-donor, double-acceptor, and one-donor-one-acceptor waters."
+    }
+  ]
+}
