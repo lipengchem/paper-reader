@@ -34,7 +34,7 @@ jobs:
       - name: Build
         env:
           VITE_AI_API_URL: ${{ vars.PAPER_READER_AI_URL }}
-          VITE_FILE_BASE_URL: https://lipengchem.github.io/paper-reader
+          VITE_FILE_BASE_URL: https://lipengchem.github.io/paper-reader-files
         run: npm run build
 
       - name: Upload artifact
