@@ -392,24 +392,28 @@ function formatShortTime(value = "") {
 function displayJournalName(journal = "") {
   if (!journal) return "Unknown journal";
   const normalized = journal.replace(/[.&]/g, " ").replace(/\s+/g, " ").trim();
-  const words = normalized.split(" ").filter(Boolean);
-  if (words.length < 3) return journal;
+  const key = normalized.toLowerCase();
   const known: Record<string, string> = {
     "journal of the american chemical society": "JACS",
     "the journal of physical chemistry b": "JPCB",
     "journal of physical chemistry b": "JPCB",
     "the journal of physical chemistry c": "JPCC",
-    "journal of physical chemistry c": "J. Phys. Chem. C",
+    "journal of physical chemistry c": "JPCC",
     "the journal of physical chemistry letters": "JPCL",
     "journal of physical chemistry letters": "JPCL",
     "journal of chemical theory and computation": "JCTC",
+    "angewandte chemie international edition": "Angew.",
+    "proceedings of the national academy of sciences": "PNAS",
+    "proceedings of the national academy of sciences of the united states of america": "PNAS",
+    "the proceedings of the national academy of sciences of the united states of america": "PNAS",
     "advanced intelligent discovery": "Adv. Intell. Discov.",
     "nature machine intelligence": "Nat. Mach. Intell.",
     "nature computational science": "Nat. Comput. Sci.",
     "nature communications": "Nature Communications",
   };
-  const key = normalized.toLowerCase();
   if (known[key]) return known[key];
+  const words = normalized.split(" ").filter(Boolean);
+  if (words.length < 3) return journal;
   const ignored = new Set(["of", "the", "and", "for", "in", "on", "a", "an"]);
   const abbreviation = words
     .filter((word) => !ignored.has(word.toLowerCase()))
@@ -2030,7 +2034,10 @@ export default function App() {
       if (rankA !== rankB) return rankA - rankB;
       let value = 0;
       if (sortKey === "date") value = a.date.localeCompare(b.date);
-      if (sortKey === "uploaded") value = (a.uploadedAt || a.createdAt || "").localeCompare(b.uploadedAt || b.createdAt || "");
+      if (sortKey === "uploaded") {
+        value = paperTimestamp(a) - paperTimestamp(b);
+        if (value === 0) value = a.title.localeCompare(b.title);
+      }
       if (sortKey === "title") value = a.title.localeCompare(b.title);
       if (sortKey === "journal") value = (a.journal || "").localeCompare(b.journal || "");
       if (sortKey === "rating") value = (stateA.rating || 0) - (stateB.rating || 0);
