@@ -11,6 +11,7 @@ const filesRepoRoot = path.resolve(process.env.PAPER_READER_FILES_REPO || defaul
 const libraryRoot = path.resolve(process.env.PAPER_READER_LIBRARY || path.join(filesRepoRoot, "public", "library"));
 const processedPath = path.join(sourceRoot, "processed_zotero_items.json");
 const dateSlugPattern = /^\d{8}-[a-z0-9]+[a-z0-9-]*$/i;
+const onlyMissing = process.env.PAPER_READER_ONLY_MISSING === "1";
 
 async function exists(target) {
   try {
@@ -162,9 +163,23 @@ async function main() {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const items = [];
+  let syncedNewCount = 0;
   for (const folder of folders) {
+    const existing = existingLookup.get(folder.name);
+    if (onlyMissing && existing) {
+      items.push(existing);
+      continue;
+    }
     const synced = await syncPaperFolder(folder, processedLookup, existingLookup, syncStartedAt);
-    if (synced) items.push(synced);
+    if (synced) {
+      items.push(synced);
+      if (onlyMissing && !existing) syncedNewCount += 1;
+    }
+  }
+
+  if (onlyMissing && syncedNewCount === 0) {
+    console.log("No new paper reader packages to sync.");
+    return;
   }
 
   items.sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));

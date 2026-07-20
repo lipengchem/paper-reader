@@ -1,4 +1,12 @@
 import { spawn } from "node:child_process";
+import { mkdtemp, rm } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(__dirname, "..");
+const filesRepoRoot = process.env.PAPER_READER_FILES_REPO || "D:\\codex\\paper-reader-files";
 
 function run(command, args, options = {}) {
   return new Promise((resolve, reject) => {
@@ -14,11 +22,12 @@ function run(command, args, options = {}) {
   });
 }
 
-async function capture(command, args) {
+async function capture(command, args, options = {}) {
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, {
       shell: process.platform === "win32",
       stdio: ["ignore", "pipe", "pipe"],
+      ...options,
     });
     let stdout = "";
     let stderr = "";
@@ -33,20 +42,52 @@ async function capture(command, args) {
   });
 }
 
-async function main() {
-  await run("npm", ["run", "sync:library"]);
-  await run("npm", ["run", "build"]);
-  await run("git", ["add", "."]);
+async function publishContentRepo() {
+  const tempParent = await mkdtemp(path.join(os.tmpdir(), "paper-reader-files-publish-"));
+  const worktree = path.join(tempParent, "repo");
+  let worktreeReady = false;
 
-  const status = await capture("git", ["status", "--short"]);
-  if (!status) {
-    console.log("No paper-reader changes to publish.");
-    return;
+  try {
+    await run("git", ["-C", filesRepoRoot, "fetch", "origin"]);
+    await run("git", ["-C", filesRepoRoot, "worktree", "add", "--detach", worktree, "origin/main"]);
+    worktreeReady = true;
+
+    await run("node", [path.join(__dirname, "sync-library.mjs")], {
+      cwd: repoRoot,
+      env: {
+        ...process.env,
+        PAPER_READER_FILES_REPO: worktree,
+        PAPER_READER_ONLY_MISSING: "1",
+      },
+    });
+
+    const status = await capture("git", ["status", "--short", "--", "public/library"], { cwd: worktree });
+    if (!status) {
+      console.log("No new reader packages to publish.");
+      return;
+    }
+
+    await run("git", ["add", "--", "public/library"], { cwd: worktree });
+    const date = new Date().toISOString().slice(0, 10);
+    await run("git", ["commit", "-m", `Publish paper readers ${date}`], { cwd: worktree });
+    await run("git", ["push", "origin", "HEAD:main"], { cwd: worktree });
+  } finally {
+    if (worktreeReady) {
+      try {
+        await run("git", ["-C", filesRepoRoot, "worktree", "remove", "--force", worktree]);
+      } catch (error) {
+        console.warn(`Could not remove temporary worktree: ${error.message}`);
+      }
+    }
+    await rm(tempParent, { recursive: true, force: true });
   }
+}
 
-  const date = new Date().toISOString().slice(0, 10);
-  await run("git", ["commit", "-m", `Update paper library ${date}`]);
-  await run("git", ["push"]);
+async function main() {
+  await publishContentRepo();
+  await run("npm", ["run", "build"], { cwd: repoRoot });
+
+  console.log("Reader build completed. Library packages are published through paper-reader-files.");
 }
 
 main().catch((error) => {
