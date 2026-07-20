@@ -11,7 +11,14 @@ const filesRepoRoot = path.resolve(process.env.PAPER_READER_FILES_REPO || defaul
 const libraryRoot = path.resolve(process.env.PAPER_READER_LIBRARY || path.join(filesRepoRoot, "public", "library"));
 const processedPath = path.join(sourceRoot, "processed_zotero_items.json");
 const dateSlugPattern = /^\d{8}-[a-z0-9]+[a-z0-9-]*$/i;
+const qualityBackupFolderPattern = /-(?:draft-invalid|auto-crop-invalid|crop-qc\d*|running-header-qc)$/i;
 const onlyMissing = process.env.PAPER_READER_ONLY_MISSING === "1";
+const refreshSlugs = new Set(
+  String(process.env.PAPER_READER_REFRESH_SLUGS || "")
+    .split(",")
+    .map((slug) => slug.trim())
+    .filter(Boolean),
+);
 
 async function exists(target) {
   try {
@@ -131,12 +138,12 @@ async function syncPaperFolder(entry, processedLookup, existingLookup, syncStart
 
   return {
     slug,
-    title: record.title || sourceMap?.title || titleFromSlug(slug),
-    date: record.date || sourceMap?.date || dateFromSlug(slug),
+    title: record.title || sourceMap?.title || sourceMap?.paper?.title || titleFromSlug(slug),
+    date: record.date || sourceMap?.date || sourceMap?.paper?.publication_date || dateFromSlug(slug),
     taskDate: record.task_date || dateFromSlug(slug),
     uploadedAt: existing.uploadedAt || existing.createdAt || syncStartedAt,
-    journal: record.journal_publicationTitle || record.journal || sourceMap?.journal || "Unknown journal",
-    zoteroKey: record.zotero_item_key || record.item_key || record.zotero_key || record.zoteroKey || "",
+    journal: record.journal_publicationTitle || record.journal || sourceMap?.journal || sourceMap?.paper?.venue || "Unknown journal",
+    zoteroKey: record.zotero_item_key || record.item_key || record.zotero_key || record.zoteroKey || sourceMap?.paper?.zotero_key || "",
     collections: collectionList,
     pdfPath: `library/${slug}/paper.pdf`,
     markdownPath: `library/${slug}/paper.md`,
@@ -159,14 +166,20 @@ async function main() {
   const processedLookup = loadProcessedLookup(processed);
   const entries = await readdir(sourceRoot, { withFileTypes: true });
   const folders = entries
-    .filter((entry) => entry.isDirectory() && dateSlugPattern.test(entry.name))
+    .filter(
+      (entry) =>
+        entry.isDirectory() &&
+        dateSlugPattern.test(entry.name) &&
+        !qualityBackupFolderPattern.test(entry.name),
+    )
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const items = [];
   let syncedNewCount = 0;
+  let syncedRefreshCount = 0;
   for (const folder of folders) {
     const existing = existingLookup.get(folder.name);
-    if (onlyMissing && existing) {
+    if (onlyMissing && existing && !refreshSlugs.has(folder.name)) {
       items.push(existing);
       continue;
     }
@@ -174,10 +187,11 @@ async function main() {
     if (synced) {
       items.push(synced);
       if (onlyMissing && !existing) syncedNewCount += 1;
+      if (onlyMissing && existing && refreshSlugs.has(folder.name)) syncedRefreshCount += 1;
     }
   }
 
-  if (onlyMissing && syncedNewCount === 0) {
+  if (onlyMissing && syncedNewCount === 0 && syncedRefreshCount === 0) {
     console.log("No new paper reader packages to sync.");
     return;
   }

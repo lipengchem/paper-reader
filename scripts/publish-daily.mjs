@@ -69,7 +69,8 @@ async function publishContentRepo() {
 
     await run("git", ["add", "--", "public/library"], { cwd: worktree });
     const date = new Date().toISOString().slice(0, 10);
-    await run("git", ["commit", "-m", `Publish paper readers ${date}`], { cwd: worktree });
+    // `shell: true` on Windows requires the message to stay quoted as one argument.
+    await run("git", ["commit", "-m", `"Publish paper readers ${date}"`], { cwd: worktree });
     await run("git", ["push", "origin", "HEAD:main"], { cwd: worktree });
   } finally {
     if (worktreeReady) {
