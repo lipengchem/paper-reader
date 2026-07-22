@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-20T04:46:08.669Z",
+  "generatedAt": "2026-07-22T09:48:52.813Z",
   "items": [
     {
       "slug": "20260702-redefining-co3-formation-zundel-switches",
@@ -203,6 +203,23 @@
       "relatedReading": true,
       "paragraphCount": 45,
       "figureCount": 4
+    },
+    {
+      "slug": "20260722-hydroxyl-radicals-condensed-water-droplets-dft-md",
+      "title": "First results from the interaction between hydroxyl radicals and condensed water droplets: A spin-polarized DFT-MD study",
+      "date": "2024-01-01",
+      "taskDate": "2026-07-22",
+      "uploadedAt": "2026-07-22T09:48:52.770Z",
+      "journal": "Journal of Molecular Liquids",
+      "zoteroKey": "WI8UDPZM",
+      "collections": [
+        "02课题/OH"
+      ],
+      "pdfPath": "library/20260722-hydroxyl-radicals-condensed-water-droplets-dft-md/paper.pdf",
+      "markdownPath": "library/20260722-hydroxyl-radicals-condensed-water-droplets-dft-md/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 14,
+      "figureCount": 10
     },
     {
       "slug": "20260705-free-energy-proton-transfer-water-tio2",

@@ -1,0 +1,316 @@
+# First results from the interaction between hydroxyl radicals and condensed water droplets: A spin-polarized DFT-MD study
+
+# 羟基自由基与凝并水滴相互作用的初步结果：一项自旋极化 DFT-MD 研究
+
+**Zotero key:** WI8UDPZM
+**Attachment key:** 28BITJEX
+**Source type:** selectable-text publisher PDF (`pdf-text`)
+**Journal:** *Journal of Molecular Liquids* **393** (2024) 123557
+**DOI:** 10.1016/j.molliq.2023.123557
+**Received / accepted / online:** 14 June 2023 / 9 November 2023 / 10 November 2023
+**Source PDF:** `paper.pdf` (byte-preserving copy of the Zotero attachment)
+
+## Terminology / 术语表
+
+| English | 中文 | Consistency note / 统一说明 |
+| --- | --- | --- |
+| hydroxyl radical (OH*) | 羟基自由基（OH*） | 星号保留原文对未成对电子自由基的记号。 |
+| condensed water droplet | 凝并水滴 | 本文指云滴碰撞/靠近导致的致密水滴环境，而非普通孤立水滴。 |
+| Born–Oppenheimer molecular dynamics (BOMD) | Born–Oppenheimer 分子动力学（BOMD） | 基于电子结构能量面推进原子核运动。 |
+| hemibond | 半键 | 二中心三电子键；本文以 O*–O 约 2.3 Å 的结构证据检验其是否存在。 |
+| accommodation | 容纳/稳定停留 | 本文指 OH* 相对水滴质心达到稳定空间区域。 |
+| radial distribution function (RDF) | 径向分布函数（RDF） | 给出相对距离处的局部结构概率。 |
+| coordination analysis | 配位分析 | 统计 OH* 氧端或氢端与周围水形成的键数。 |
+| slow-growth free-energy calculation | 慢增长自由能计算 | 沿受约束反应坐标积分平均约束力。 |
+| lowest unoccupied molecular orbital (LUMO) | 最低未占据分子轨道（LUMO） | 用来讨论轨道离域与构型稳定化。 |
+
+## Reading Guide / 阅读提示
+
+**English:** Read the paper as a chain of tests. First establish the two initial conditions (S-I and S-II) and the density-defined interface. Then separate the evidence for the 3.5 kcal/mol condensed-droplet H-transfer barrier from the 12.0 kcal/mol gas-phase baseline. Finally, ask whether the structural analyses jointly support the claim that mobility is hindered below the interface and that hemibonding is absent.
+
+**中文:** 建议把本文读成一条连续证据链：先明确 S-I/S-II 两个初始条件及以水密度定义的界面；再区分凝并水滴中约 3.5 kcal/mol 氢转移自由能垒和气相约 12.0 kcal/mol 基线；最后检查 RDF、配位、布居、角度、LUMO 与自旋密度是否共同支撑两项核心结论——OH* 被阻滞在界面下方，且体系中不出现半键。
+
+## Page and Section Index / 页码与章节索引
+
+- p.1–2: article information, abstract, introduction, and computational details / 文章信息、摘要、引言与计算细节
+- p.2–5: OH* accommodation and H-transfer free energy / OH* 容纳位置与氢转移自由能
+- p.5–7: RDF, coordination, dominant structures, angular/LUMO/spin analyses / RDF、配位、主导结构与角度/LUMO/自旋分析
+- p.8–9: conclusion, author information, declarations, acknowledgments, and references / 结论、作者信息、声明、致谢与参考文献
+
+## Full Text / 全文逐段对照
+
+## Article information / 文章信息
+
+<a id="S001"></a>
+**Source:** p.1 S001
+
+**Original:** First results from the interaction between hydroxyl radicals and condensed water droplets: A spin-polarized DFT-MD study Mohammad Hassan Hadizadeh a,b,*, Fei Xu a,* a Environment Research Institute, Shandong University, Qingdao 266237, China b International Center for Quantum Design of Functional Materials (ICQD), Hefei National Laboratory for Physical Sciences at the Microscale, and Synergetic Innovation Center of Quantum Information and Quantum Physics, University of Science and Technology of China, Hefei, Anhui 230026, China
+
+**中文:** 题目：羟基自由基与凝并水滴相互作用的初步结果：一项自旋极化 DFT-MD 研究。作者为 Mohammad Hassan Hadizadeh（山东大学环境研究院；中国科学技术大学功能材料量子设计国际中心）和 Fei Xu（山东大学环境研究院），两人均为通讯作者。
+
+## Keywords / 关键词
+
+<a id="S002"></a>
+**Source:** p.1 S002
+
+**Original:** Keywords: OH radical Condensed water droplet Interface AIMD DFT
+
+**中文:** 关键词：OH 自由基；凝并水滴；界面；从头算分子动力学（AIMD）；密度泛函理论（DFT）。
+
+## Abstract / 摘要
+
+<a id="S003"></a>
+**Source:** p.1 S003
+
+**Original:** The formation of clouds results from condensation of water vapor into liquid water droplets. These water droplets form on the surface of tiny particles that are suspended in the air, like dust. Atmospheric chemistry relies heavily on the hydroxyl radical (OH*), which is highly reactive and prone to combining with hydrogen atoms in other compounds. Despite previous studies concerning liquid, solid, and gas phase interactions, how hydroxyl radicals interact with condensed water droplets is still unknown. OH*-condensed droplet interactions show unique behavior, according to our studies. Several hydrogen transfers were detected during the interaction process. It takes approximately 3.5 kcal/mol of energy to initiate hydrogen transfer. Moreover, we revealed the dominant structures of hydrated radicals during the mobility of OH* into condensed droplets using Born–Oppenheimer molecular dynamics simulations. In contrast to our previous studies, the hemibond doesn’t significantly affect the stability of OH*(H2O)n structures in condensed droplets. Our results showed that condensed droplets hinder the mobility of OH*, causing its diffusion coefficient to decrease. Moreover, several analyses were carried out to investigate condensed droplet surfaces, bonding patterns, and the position of OH* in conjunction with water molecules, including mobility analyses, radial distribution functions, coordination an alyses, and population analyses.
+
+**中文:** 云由水蒸气凝结为液态水滴而形成；水滴附着在尘埃等悬浮微粒表面。大气化学高度依赖反应性极强、易从其他化合物夺取氢原子的羟基自由基（OH*），但其如何与凝并水滴相互作用尚不清楚。本文的计算发现，OH*–凝并水滴体系呈现独特行为：相互作用过程中发生多次氢转移，启动氢转移约需 3.5 kcal/mol。Born–Oppenheimer 分子动力学进一步给出了 OH* 向凝并水滴内部迁移时水合自由基的主导结构。与作者先前工作不同，半键（hemibond）对凝并水滴中 OH*(H2O)n 结构稳定性并无显著影响。凝并水滴会阻碍 OH* 迁移、降低扩散系数；作者还通过迁移率、径向分布函数、配位和布居分析考察了水滴表面、成键方式以及 OH* 相对水分子的位置。
+
+## 1. Introduction / 引言（云滴与大气化学）
+
+<a id="S004"></a>
+**Source:** p.1 S004
+
+**Original:** There is no denying the importance of clouds to the Earth’s climate. They can shade the ground and block the sun, cooling the planet’s at mosphere. The chemical reactions within clouds can be complex and vary depending on the specific composition of the cloud and the sur rounding atmosphere. For example, reactions between water vapor and some atmospheric species such as nitrogen oxides and sulfur dioxide can produce nitric acid and sulfuric acid, contributing to acid rain and other environmental damage [1]. Clouds also trap heat and humidity in the atmosphere, warming the air. Based on several field campaigns, a sub stantial fraction of cloud droplets is activated on ultrafine aerosol par ticles with a diameter of less than 0.1 mm, particularly in clean or moderately polluted conditions [2–4]. Aerosol particles vary in size, composition, and location, ranging from tiny clusters of a few molecules to tens of micron-sized cloud droplets. The formation of clouds results from condensation of water vapor into liquid water droplets. These water droplets form on the surface of tiny particles in the air that are suspended in the air, such as salt crystals, dust, and bacteria. Air-liquid droplet interfaces offer an important site for adsorption and reactions, which may accelerate atmospheric reactions or create new mechanisms [5,6]. Due to the limitations of traditional spectroscopic methods, it wasn’t easy to study atmospheric reactions on aerosol water droplets. Several techniques have recently been developed to study atmospheric compounds’ adsorption behavior on aerosol surfaces, including X-ray photoelectron spectroscopy, sum-frequency generation, and secondharmonic generation [7,8]. However, by using current experiment methods, it can be challenging to detect the behavior of some atmo spheric species, especially in small sizes. Meanwhile, classical MD simulation can only describe physical adsorption at the air–water in terfaces, while it cannot accurately describe chemical reactions in cloud droplets. Among the theoretical methods, Born-Oppenheimer molecular dynamics simulation (BOMD) has the advantage of recording reactions on short time scales as well as providing details about the mechanism, allowing us to gain a deeper understanding of aerosol effects on atmo spheric chemistry. A wide range of atmospheric species, such as ozone,
+
+**中文:** 云对地球气候至关重要：它既遮挡太阳、冷却大气，也通过滞热和保湿使空气升温。云内反应依赖其组成和周围大气；水蒸气与氮氧化物、二氧化硫反应可生成硝酸和硫酸，导致酸雨等环境损害。大量云滴会在直径小于 0.1 mm 的超细气溶胶粒子上活化；气溶胶从少数分子簇到数十微米云滴不等，成分和位置也各异。气液滴界面是吸附与反应的重要位置，可能加速大气反应或产生新机制。传统光谱难以研究气溶胶水滴上的反应，近年才发展出 X 射线光电子谱、和频产生和二次谐波产生等界面探测方法；但小尺度大气物种仍难直接检测。经典 MD 只能描述气–水界面的物理吸附，不能可靠描述云滴中的化学反应。BOMD 能记录短时间尺度反应并给出机理细节，因而适合阐明气溶胶对大气化学的影响；臭氧、酸、自由基和离子等均可与水形成氢键复合物并改变光化学性质或催化大气反应。
+
+## 1. Introduction / 引言（OH* 与凝并问题）
+
+<a id="S005"></a>
+**Source:** p.2 S005
+
+**Original:** acids, radicals, and ions, can form hydrogen-bond complexes with water, influencing their photochemical properties as well as catalyzing atmospheric reactions [9–14]. Meanwhile, Hydroxyl radicals (OH*) are often called the “troposphere detergents” because they are involved in a variety of reactions related to the removal of organic compounds from the atmosphere, including greenhouse gases and pollutants [15–19]. Hydroxyl radicals are formed in the atmosphere through various chemical reactions such as the decomposition of hydroperoxides (ROOH), the reaction of excited atomic oxygen with water, and the re action between electronically excited nitrogen dioxide and water vapor [20,21]. Hydroxyl radicals play a crucial role in chemical processes occurring in the earth’s atmosphere because of their desire to form some complexes with other atmospheric constituents through the formation of a strong hydrogen bond. The lifetime of any gas that reacts with the OH* in the atmosphere can be accurately calculated by using the equation: t = 1/k [OH*], where “k” refers to the first-order rate constant of the reaction. However, due to high reactivity, the experimental investiga tion of diffusion OH* in the atmosphere and prediction of its mechanism with other species is largely unknown. The average hydroxyl radical concentration in the troposphere is estimated as 106 molecule/cm3 [22], while the water concentration is equal to half of the relative humidity at 298 K (6.95 × 1017 molecule/cm3). Despite this, the atmosphere’s water concentration varies widely, contributing to the dynamic processes taking place there. Generally, during the interaction between water and other species, such as radicals, there are four possibilities: H-bonds, in which the water acts as either a donor or acceptor, nonbonded and hemibond interactions [23]. Hemibond was proposed by Pauling as a 2- centre 3-electron bond (2c–3e), which is formed by the overlapping of a neutral molecule’s lone pair orbital with its radical orbitals [24]. Based on the first results of ab initio molecular dynamics of the OH*.31H2O system, Vassilev et al. found that the hydroxyl radical tends to form a hemibond, resulting from short O–O* distances of about 2.3 Å [25]. In a later study, Kusalik et al demonstrated that hemibonded structures disappear when the system enlarges from 31 water molecules to 63 water molecules [26]. However, our recent results showed that O–O* hemibond remains present even in the large OH*(H2O)191 systems [27,28], which is in accordance with the experimental results [29]. There has always been a lot of attention focused on the penetration of atmospheric species in bulk liquid water or their tendency to remain on the air–water interface. As a model for simulating the behavior of cloud droplets, Ravishankara et al. showed how a water droplet takes up a gas phase molecule [30]. In this model, different steps have been consid ered, including diffusion to the surface in the gas phase, surface ac commodation, diffusion in the liquid media, substrate or dissolved reactant reaction, and finally, the resultant products diffuse to the sur face and are expelled from the aerosol. Where the accommodation of the species at the surface has been found to be the most important step of the process. Moreover, our previous studies on water droplets revealed that hydroxyl radicals interact with water molecules at the droplet interface differently than liquid, solid, or gas phases [27,28,31]. However, in terms of aerosol collision and its role in atmospheric chemical processes at the surface, several issues remain unsolved. For example, no experi mental or theoretical research has been done on the interaction of hy droxyl radicals with water molecules during the collision process. Collision occurs when cloud droplets bump into each other due to air currents within the cloud, also coalescence can occur if they collide and stick together [32]. Indeed, a major contributor to the process of colli sion in the air is the condensation of water droplets, which may also influence the way in which water molecules interact with OH* in the atmosphere. The goal of this paper is to explore how condensed droplets impacts on the mobility mechanism of the OH* during interaction with water nanodroplets by performing two extensive DFT-based MD simu lations. Indeed, as a result of some novel H-transfer mechanisms observed during collision processes, we provided new insights into the local structure of hydrated OH* along with detection of energy barriers. Furthermore, we investigated mobility, radial distribution functions, coordination, and population analysis to examine droplet surfaces, bonding patterns, and position of OH* combined with water molecules.
+
+**中文:** OH* 常被称为“对流层洗涤剂”，参与清除温室气体和污染物等有机化合物的多类反应。它可由过氧化物分解、激发态氧原子与水反应以及激发态 NO2 与水蒸气反应产生；因易以强氢键与大气组分形成复合物，在地球大气化学中极为关键。气体与 OH* 的寿命可由 t = 1/k[OH*] 估算，但 OH* 反应性过高，使其扩散和反应机理的实验研究仍十分有限。对流层 OH* 平均浓度约为 10^6 molecule cm−3；298 K 时水浓度约为相对湿度的一半（6.95 × 10^17 molecule cm−3），且会大幅波动。水与自由基等物种可形成供体/受体氢键、非键相互作用或半键；Pauling 所述半键是中性分子孤对轨道与自由基轨道重叠形成的二中心三电子键。早期小团簇 AIMD 曾给出约 2.3 Å 的 O–O* 半键；随团簇由 31 个水增至 63 个水，该结构一度被认为消失，而作者前期的 OH*(H2O)191 结果和实验又支持其仍可存在。已有研究重视大气物种进入体相水或滞留气–水界面的倾向，云滴吸收气相分子包括气相扩散、表面容纳、液相扩散、反应及产物返表面等步骤，表面容纳尤其重要。作者此前发现 OH* 在水滴界面的行为不同于液、固、气相；但云滴碰撞期间 OH* 与水的相互作用仍无实验或理论研究。本文以两组扩展的 DFT-MD 模拟考察凝并水滴如何改变 OH* 与纳米水滴作用时的迁移机理、局部水合结构和能垒，并通过迁移率、RDF、配位和布居分析解析水滴表面、成键及 OH* 位置。
+
+## 2. Computational details / 计算细节
+
+<a id="S006"></a>
+**Source:** p.2 S006
+
+**Original:** To gain insight into how hydroxyl radicals interact with condensed water droplets, initial conditions were obtained by placing a single OH* in different situations. Water droplets were simulated as spherical models with a radius of 9.8 Å, including 191 water molecules and a hydroxyl radical, Fig. 1. For the accurate interpretation of results ob tained from the interaction between the OH* and condensed water droplets, two separate systems have been considered. According to one system (S-I), the OH* was positioned inside of the droplet at a distance of 1.2 Å from the droplet’s center of mass. In contrast, in the other system (S-II), the OH* was positioned at a distance of 8.5 Å from the droplet’s center of mass. Indeed, OH* position concerning the center of mass (COM) distinguishes these two systems. To calculate the distance be tween droplets for simulating condensed droplets, we have taken into account the widely used face-centered arrangement. Taking into ac count the density of the droplet, which is approximately 0.85 amu/Å3, we have made necessary adjustments to the length of the simulation box, setting it at approximately 22 Å. CP2K’s Quickstep module was used to perform a full set of Born- Oppenheimer molecular dynamics (BOMD) simulations [33], where the wave functions were also complemented by an auxiliary plane wave basis in addition to a Gaussian basis set [34]. Before carrying out BOMD simulations, each of the systems was fully relaxed by density functional theory (DFT) simulation through the combination of Beck’s parameter hybrid functional (B) with Lee-Yang-Parr correlation functional (LYP). Moreover, all systems were double relaxed by BOMD simulation for 2500 fs to ensure that the initial equilibrium have been reached. An NVT ensemble was applied to all BOMD simulations with a Nose-Hoover Chain thermostat having a time constant of 0.1 ps. To account for the weak dispersion interaction, Grime’s dispersion correction DFT-D3 function has been applied based on the zero damping [35]. An assess ment of the spin-polarized interaction with water molecules was per formed to account for the unpaired electron on OH*. Besides the double zeta valence polarized (DZVP) basis set [36], Goedecker-Teter-Hutter (GTH) pseudopotentials were also used to complement the DZVP basis set [37,38]. Moreover, the intermediates and transition state (TS) of the reaction between the OH*–H2O in the gas phase have been optimized at the M06- 2X/6–31++G(d,p) level using the Gaussian 16 software [39]. In addi tion to the zero-point energies (ZPE), intrinsic reaction coordinates (IRC) calculations were used to verify the transition state [40]. A con strained MD calculation was used to calculate the energy required for hydrogen transfers in the condensed droplet systems. The average constraint force was measured over a 4.8 ps trajectory with a 0.00025 Å fs−1 growth rate, allowing the R to span from −0.6 Å to 0.6 Å. The free energy profile was evaluated over the defined coordinate R by a ther modynamic integration.
+
+**中文:** 作者用半径 9.8 Å、含 191 个水分子和一个 OH* 的球形水滴模拟凝并水滴（图 1）。考虑两个体系：S-I 中 OH* 位于距水滴质心 1.2 Å 的内部；S-II 中位于距质心 8.5 Å 的外部。以面心排列估算水滴间距，按约 0.85 amu Å−3 的水滴密度将模拟盒长调至约 22 Å。所有 BOMD 由 CP2K Quickstep 完成，采用高斯基组加辅助平面波。BOMD 前以 BLYP-DFT 充分弛豫，随后 BOMD 再弛豫 2500 fs；使用时间常数 0.1 ps 的 Nosé–Hoover chain 恒温器的 NVT 系综，并以零阻尼 DFT-D3 描述弱色散。为处理 OH* 未成对电子，计算显式评估自旋极化的水相互作用；采用 DZVP 基组与 GTH 赝势。气相 OH*–H2O 的中间体与过渡态在 Gaussian 16 中以 M06-2X/6–31++G(d,p) 优化，并以零点能与 IRC 验证过渡态。凝并水滴氢转移的能量由约束 MD 得到：4.8 ps 轨迹、0.00025 Å fs−1 增长率，以 R = d(O–H) − d(O*–H) 为坐标，从 −0.6 到 0.6 Å，通过热力学积分获得自由能曲线。
+
+<a id="F001"></a>
+### Fig. 1. Initial OH* positions in the droplet
+
+**Placed near:** p.3 S006
+**Source:** p.3 C001
+
+![Fig. 1. Initial OH* positions in the droplet](assets/fig1.png)
+
+**Original caption:** Fig. 1. Initial positions of the OH* (indicated by yellow circled plus) in the water droplet. S-I is related to the inner region (ROH = 1.2 Å) and S-II is associated with the outer region (ROH = 8.5 Å). ROH is defined as the distance between the OH radical and the center of mass of the droplet.
+
+**中文图注:** 图 1. 水滴中 OH* 的初始位置
+
+**Reading note / 读图提示:** 区分 S-I 内部起点（R_OH = 1.2 Å）与 S-II 外部起点（R_OH = 8.5 Å）；这是后文比较两条轨迹的共同初始定义。
+
+## 3.1. Accommodation of OH* / OH* 在凝并水滴中的容纳
+
+<a id="S007"></a>
+**Source:** p.2 S007
+
+**Original:** We have shown in previous studies that OH* tends to interact with water molecules at the air–water interface of droplets due to structural characteristics [27,28,31]. These conditions have not been studied for OH* in a condensed system, especially considering the condensed water droplets. In addition to providing information about the position of the molecules, the center of mass (COM) can also be used to study the mo tion and properties of the molecules within the droplet. Therefore, the distance between the OH* and the droplet’s COM was evaluated for the two S-I and S-II systems to track the OH* through its interaction with water molecules during 80 ps of BOMD simulation, Fig. 2. The dotted line at about 38 ps represents the moment when the distances of OH* to COM in both systems become identical, about 6 Å. Then, the OH* ac commodates around 4.5 Å for about 15 ps, unsteadily. Finally, OH* in both the S-I and S-II systems reach the same stability about 7 Å from the center of mass after 68 ps and 58 ps, respectively, Fig. 2(a). Additionally, the residence time distribution of OH* within the simulation time has been depicted to help better understand the OH* position within the condensed droplet. Indeed, the residence time distribution shows how long the OH* persists at a specific shell relative to COM in the water droplet. It can be found from Fig. 2(b) that OH* finally accommodates at 7 Å based on the common peak points of the residence time distribution in S-I and S-II systems. It should be noted that the peak points around 3 Å and 8 Å are related to the time before OH* reaches equilibrium in the S-I and S-II systems, respectively. The density of water in the bulk is higher than the density at the interface. This means that approximately half of the water molecules in the uppermost layer of water at the air–water interface are air mole cules, so the water’s surface appears curved or “domed” in shape. This effect is also responsible for capillary action, where water is drawn up into narrow tubes or capillaries due to the surface tension at the air–water interface. Indeed, the droplet-air interface composition can be affected by capillary forces and the curved shape of the droplet. The capillary effect can cause hanging droplets to be bound to the air–water interface, while the curved shape of the droplet can affect its wetted diameter and wetting angle [41,42]. Upon calculating 50 % of the bulk water density, which represents the interface area [43,44], our results indicate that condensed water droplets possess an air–water interface measuring 10.5 Å, marked by a vertical dotted line in Fig. 3. Therefore, it can be concluded that the OH* does not reach the air–water interface in condensed water droplets (S-I and S-II) since it finally accommodates at 7 Å (Fig. 2). Indeed, it is likely that the collision density of condensed droplets hinders the mobility of OH*, causing it to reach an accommo dation area below the air–water interface. Interestingly, our previous studies of the OH* in droplet systems at various temperatures between 200 and 300 K revealed that the OH* has a high tendency to reach the air–water interface [27,28]. In many chemical reactions, particularly those involving hydroxyl radicals, hydrogen transfer is essential in determining reaction mecha nisms and kinetics. The results of DFT calculations related to OH*–H2O in the gas phase revealed two possible pathways in which the
+
+**中文:** 先前研究表明，普通水滴中 OH* 因结构因素倾向与气–水界面水分子相互作用；凝并体系尚未被考察。作者跟踪 S-I 和 S-II 在 80 ps BOMD 中 OH* 到水滴质心（COM）的距离。约 38 ps 时，两体系 OH*–COM 距离均约为 6 Å；随后 OH* 在约 4.5 Å 处不稳定地停留约 15 ps；最后 S-I 和 S-II 分别在 68 和 58 ps 后都稳定于距质心约 7 Å。驻留时间分布的共同峰也指向 7 Å；约 3 Å 与 8 Å 的峰分别对应 S-I、S-II 达平衡之前的阶段。体相水密度高于界面，界面上层水有约一半是空气分子，导致弯曲/穹顶形表面和毛细现象；液滴曲率与毛细力可改变气–水界面的组成、润湿直径和接触角。以体相水密度 50% 定义界面，凝并水滴的气–水界面位于 10.5 Å（图 3），故两体系最终容纳在 7 Å 的 OH* 并未达到界面。作者认为凝并水滴的碰撞密度限制了 OH* 迁移，使其停在界面下方；这与此前 200–300 K 普通水滴中 OH* 高度倾向界面的结果不同。
+
+<a id="F002"></a>
+### Fig. 2. OH*–COM distance and residence time
+
+**Placed near:** p.3 S007
+**Source:** p.3 C002
+
+![Fig. 2. OH*–COM distance and residence time](assets/fig2.png)
+
+**Original caption:** Fig. 2. (a) The distance between OH* and the center of mass (COM) of the condensed droplets during 80 ps for S-I and S-II systems. (b)The residence time dis tribution of OH* relative to the COM of condensed droplets for both S-I and S-II systems.
+
+**中文图注:** 图 2. OH*–质心距离与驻留时间
+
+**Reading note / 读图提示:** 两条轨迹最终都在约 7 Å 汇合，不能只凭初始的内外位置判断最终容纳位置。
+
+<a id="F003"></a>
+### Fig. 3. Water-density profile and interface definition
+
+**Placed near:** p.4 S007
+**Source:** p.4 C003
+
+![Fig. 3. Water-density profile and interface definition](assets/fig3.png)
+
+**Original caption:** Fig. 3. The density profile of water molecules as a function of distance from the droplet’s center of mass. A vertical dotted line at 10.5 indicates 50 % of bulk water density, defined as the air–water interface.
+
+**中文图注:** 图 3. 水密度剖面与界面定义
+
+**Reading note / 读图提示:** 以体相密度的 50%（10.5 Å）标出界面，与 OH* 最终 7 Å 的位置比较，支撑“停在界面下方”的结论。
+
+## 3.1. Hydrogen transfer / 氢转移自由能
+
+<a id="S008"></a>
+**Source:** p.4 S008
+
+**Original:** discrepancy is different orientations of the water molecule, Fig. 4. During the calculations, we found that the energy barrier during proton exchange reactions in the gas phase is about 12.0 kcal/mol, which is a considerable challenge at the atmospheric temperature. However, the possibility of hydrogen transfer to the surrounding OH can change significantly in the presence of condensed water droplets, which will be examined later. Several hydrogen transfers were detected during our MD simulations on the OH* in condensed droplets. Therefore, it can be expected that such successive hydrogen transfers done in condensed droplets will consume less energy than those performed in the gas phase. We con ducted a constrained MD calculation to calculate the energy required for these hydrogen transfers. Using the difference between the O–H and O*–H distances as the constraint variable R, slow-growth free energy calculations [45] were performed to quantify the free energy barrier of transferring hydrogen from neighboring water molecules to OH*. Henceforth, O and H will represent oxygen and hydrogen atoms ob tained from water molecules, respectively, while O* and H* will indicate those originating from the hydroxyl radical. The average constraint force was measured over a 4.8 picosecond trajectory, employing a growth rate of 0.00025 Å/fs. The free energy profile was derived through a thermodynamic integration performed over the specified co ordinate, R. As a result of the calculation, the calculated energy barrier was determined to be about 3.5 kcal/mol, Fig. 5, indicating that the possibility of hydrogen transfer in condensed droplets is more significant than in the gas phase (12.0 kcal/mol).
+
+**中文:** 氢转移对羟基自由基参与反应的机理和动力学至关重要。气相 OH*–H2O 的 DFT 给出两条因水分子取向不同而异的路径（图 4）；气相质子交换能垒约 12.0 kcal/mol，在大气温度下是显著障碍。凝并水滴存在时，向周围 OH 转移氢的可能性会显著改变，MD 已观察到多次氢转移。作者以 R = d(O–H) − d(O*–H) 作约束变量，进行了 slow-growth 约束 MD，并用热力学积分计算从相邻水分子向 OH* 转氢的自由能。这里 O、H 指水分子原子，O*、H* 指羟基自由基原子。4.8 ps 轨迹和 0.00025 Å/fs 增长率得到的能垒约 3.5 kcal/mol（图 5），远低于气相的 12.0 kcal/mol，说明凝并水滴中氢转移明显更易发生。
+
+<a id="F004"></a>
+### Fig. 4. Gas-phase OH*–H2O potential-energy profile
+
+**Placed near:** p.4 S008
+**Source:** p.4 C004
+
+![Fig. 4. Gas-phase OH*–H2O potential-energy profile](assets/fig4.png)
+
+**Original caption:** Fig. 4. Potential energy profile (kcal/mol) of the reaction between OH* and H2O in the gas phase.
+
+**中文图注:** 图 4. 气相 OH*–H2O 势能曲线
+
+**Reading note / 读图提示:** 这是凝并环境效应的气相基线：气相质子交换约 12.0 kcal/mol，而凝并水滴中降至约 3.5 kcal/mol。
+
+<a id="F005"></a>
+### Fig. 5. Free-energy barrier for hydrogen transfer
+
+**Placed near:** p.5 S008
+**Source:** p.5 C005
+
+![Fig. 5. Free-energy barrier for hydrogen transfer](assets/fig5.png)
+
+**Original caption:** Fig. 5. The free energy barrier related to hydrogen transfer between neighboring water molecules and OH*. Where R is the difference between the O–H and O*–H bonds.
+
+**中文图注:** 图 5. 氢转移自由能垒
+
+**Reading note / 读图提示:** 反应坐标 R 是 O–H 与 O*–H 键长差；请直接读取其约 3.5 kcal/mol 的自由能障碍。
+
+## 3.2. RDF and coordination / 径向分布与配位分析
+
+<a id="S009"></a>
+**Source:** p.5 S009
+
+**Original:** The probability distribution of water molecules around OH* within BOMD simulations was calculated using radial distribution functions (RDF) in light of the reactivity of the OH* during interaction with condensed droplets, Fig. 6. This can yield valuable information about the distance between neighboring water molecules and OH* based on the probability distribution of finding a particle’s center at a given po sition, r. The pair correlation function was described as g(r) = j∕=iδ(r −rij)〉, where δ and rij are the Dirac’s delta function and separation vector between radical-neighboring molecules. Here, O* and H* denote the oxygen and hydrogen atoms from hydroxyl radical, while O and H denote those from the water molecules, respectively. The results of the RDF analysis showed that the density of water molecules around the oxygen of hydroxyl radical (O*) is significantly higher than that of hydrogen (H*). On average, it can be seen that the O* makes a bond of about 1.5 Å with the hydrogen of neighboring water molecules, while the bond between the H* and the O is weaker (1.85 Å), Fig. 6(a). Investigation of RDF(O*–O) intensity peaks for both S-I and S-II systems occurred at more than 2.5 Å, indicating the absence of hemibond. Note that our previous studies on the OH* at the air–water interface in different temperatures confirmed the existence of hemibond by appearing unusual RDF(O*–O) peaks around 2.3 Å [27,28,31]. However, no unique peak around 2.3 Å is detected in RDF(O*–O) in this work, demonstrating the absence of hemibond in the condensed drop lets, Fig. 6(b). There is a need to emphasize that the bond created be tween O*–O is much stronger than the bond formed between O–O in the both S-I and S-II systems. The enhanced strength of O*–O bonds compared to O–O bonds can be attributed to two factors: the existence of unpaired electrons and electron delocalization within the bonds. We have used the coordination analysis to obtain detailed informa tion about the number of bonds created between OH* and neighboring water molecules, Fig. 7. Using this analysis, we determined accurately how many bonds are formed between OH* and H2O during BOMD simulation. The coordination analysis related to S-I and S-II systems shows that the hydroxyl radical has the most significant tendency to form 4 or 3 hydrogen bonds (O*–H ~ 1.8 Å) from its oxygen side with neighboring water molecules. While the formation of a hydrogen bond from the hydrogen side of the hydroxyl radical with other water mole cules is usually zero or ultimately limited to one hydrogen bond (H*–O ~ 1.8 Å). This suggests that the OH* is highly solvated in water and is capable of forming strong hydrogen bonds with neighboring water molecules (O*–H). This solvation behavior may be attributed to the high polarity of the hydroxyl group, which allows it to interact strongly with the polar water molecules. Moreover, coordination analysis showed no hemibond (O*–O ~ 2.3 Å) trace was found in both S-I and S-II systems during 80 ps of BOMD calculations.
+
+**中文:** 作者用径向分布函数（RDF）计算 BOMD 中 OH* 周围水的概率分布（图 6）；RDF 通过在给定 r 位置找到粒子中心的概率描述 OH* 与邻近水间距离，相关函数为 g(r) = V/(4πr²N²)〈Σ_iΣ_{j≠i}δ(r−r_ij)〉，其中 δ 和 r_ij 分别为 Dirac δ 函数和自由基–邻分子间分离矢量。O*、H* 分别为 OH* 的氧、氢，O、H 为水的氧、氢。OH* 氧端周围水密度显著高于氢端：O* 与邻水 H 的平均键距约 1.5 Å，而 H*–O 键较弱、约 1.85 Å。S-I、S-II 的 RDF(O*–O) 强度峰均大于 2.5 Å，说明无半键；作者先前在不同温度下的水滴气–水界面工作曾由约 2.3 Å 的异常峰识别半键。本文 RDF(O*–O) 也没有 2.3 Å 独特峰（图 6b）。O*–O 键比两个体系中的 O–O 键强，原因在于未成对电子和键内电子离域。配位分析（图 7）显示，OH* 最倾向从氧端与邻水形成 4 或 3 个氢键（O*–H 约 1.8 Å）；从氢端形成的氢键通常为零、最多一个（H*–O 约 1.8 Å）。这表明 OH* 被水强溶剂化，羟基高极性使其与极性水分子强相互作用；80 ps BOMD 的两体系均未见 O*–O 约 2.3 Å 的半键痕迹。
+
+<a id="F006"></a>
+### Fig. 6. Radial distribution functions
+
+**Placed near:** p.6 S009
+**Source:** p.6 C006
+
+![Fig. 6. Radial distribution functions](assets/fig6.png)
+
+**Original caption:** Fig. 6. Radial distribution functions for OH* and neighboring water molecules. Here, O* and H* denote the oxygen and hydrogen atoms from hydroxyl radical, while O and H denote those from the water molecules, respectively.
+
+**中文图注:** 图 6. 径向分布函数
+
+**Reading note / 读图提示:** 关注 O*–O 在约 2.3 Å 没有独特峰；这是否定凝并体系中半键的核心结构证据。
+
+<a id="F007"></a>
+### Fig. 7. O*–O, O*–H and H*–O coordination
+
+**Placed near:** p.6 S009
+**Source:** p.6 C007
+
+![Fig. 7. O*–O, O*–H and H*–O coordination](assets/fig7.png)
+
+**Original caption:** Fig. 7. The number of O*–O, O*–H and H*–O bonds created between the OH* and surrounding water molecules, related to S-I (a) and S-II (b) systems.
+
+**中文图注:** 图 7. O*–O、O*–H 与 H*–O 配位
+
+**Reading note / 读图提示:** 与 RDF 交叉验证：氧端常有 3–4 个强氢键，氢端通常为零或至多一个。
+
+## 3.3. Dominant structures / 主导溶剂化结构
+
+<a id="S010"></a>
+**Source:** p.6 S010
+
+**Original:** Population analysis is a powerful and versatile tool that can be used for various chemical research applications. It allows us to develop more accurate models of complex chemical reactions by providing insights into the behavior of chemical systems. Herein, population analysis was performed to investigate the dominant structures of OH*(H2O)n during the interaction process between the OH* and the condensed water droplet, Fig. 8. Where the (H2O)m…O*–H…(H2O)n is related to config urations in which water molecules are connected to the OH* either from O* or H. As can be seen, the dominant structure in the S-I system is related to the configuration in which the OH* from its oxygen side makes four-fold coordination (40 %) with neighboring water molecules.
+
+**中文:** 布居分析用于解析 OH* 与凝并水滴相互作用时 OH*(H2O)n 的主导结构（图 8）。(H2O)m…O*–H…(H2O)n 表示水分子从 O* 或 H 端连接至 OH* 的构型；S-I 的主导构型是 OH* 氧端与邻水形成四配位（40%），而 S-II 的主导构型是三个水分子在 OH* 氧端形成三配位（54.2%）。两个主导结构都不在 OH* 氢端与邻水形成氢键。这与作者此前普通水滴体系的结果根本不同：此前最常见的是 (H2O)2…O*–H…(H2O)1 并带一个 O*–O 半键的构型。
+
+<a id="F008"></a>
+### Fig. 8. Population analysis of OH*(H2O)n
+
+**Placed near:** p.6 S010
+**Source:** p.6 C008
+
+![Fig. 8. Population analysis of OH*(H2O)n](assets/fig8.png)
+
+**Original caption:** Fig. 8. The population analysis of (H2O)m…O*–H…(H2O)n configuration for S-I (a) and S-II(b) systems. The indices m and n represent the number of neighboring water molecules that interact with the oxygen and hydrogen components of the OH*, respectively.
+
+**中文图注:** 图 8. OH*(H2O)n 的布居分析
+
+**Reading note / 读图提示:** 比较 S-I 的四配位（40%）和 S-II 的三配位（54.2%），并注意 m、n 分别计数氧端和氢端邻水。
+
+## 3.3. Angular, LUMO and spin analyses / 角度、LUMO 与自旋分析
+
+<a id="S011"></a>
+**Source:** p.7 S011
+
+**Original:** In comparison, the dominant structure in the S-II system is related to the configuration in which three water molecules are attached to the oxygen side of the OH* through three-fold coordination (54.2 %). Notably, neither dominant structure in the S-I or S-II systems make hydrogen bonds between the hydrogen side of the OH* and the neighboring water molecule. The results of this study are fundamentally different from those of our previous study on the OH* in typical water droplets, where the (H2O)2…O*–H…(H2O)1 configuration along with one O*–O hemi bond was detected as the most common solvation structure [27]. Angular analysis is a crucial tool in structural chemistry because it provides a way to understand the 2D arrangement of atoms within molecules. These angles can give information on the conformational stability and reactivity of OH*(H2O)n. The two-dimensional (2D) dis tribution functions P(r,θ) related to the first hydration shell of the OH* were computed and depicted to accurately depict the structure of hy drated OH* during its accommodation, Fig. 9. An angle H–O*-X is defined as the angle between the nearest atoms of the neighboring water molecules (X) and the hydroxyl radical, where O* is set in the center of the coordinates and H of radical is maintained along the z-axis. The results of angle analysis showed that the angle between the OH* and the nearest neighboring water molecule is between 80◦and 100◦, so that the distance between the OH* and neighboring water molecule is about 2.0 Å–2.5 Å in both S-I and S-II systems. Accordingly, if the hydroxy radical be aligned with the z-axis, the nearest neighboring water molecule will be perpendicular to it in the xy plane. In other words, it means that more space will be available for other water molecules to interact with the OH* simultaneously. To fully understand the molecular stability of configurations, LUMO (lowest unoccupied molecular orbital) and spin density through the distribution of unpaired electrons are important electronic features. Upon analyzing Fig. 10, we can infer that the LUMO orbital formed around the W2 atom in the S-I system exhibits a delocalized form. This means that the electron density associated with this orbital is spread out over a larger region, rather than being localized solely around the W2 atom. This delocalization has significant consequences for the neigh boring W3 atom. The delocalized LUMO orbital of W2 interacts with the orbitals of W3, causing an overlap between them. This orbital overlap between W2 and W3 leads to a phenomenon known as stabilization, wherein the overall energy of the system is lowered. In other words, the interaction between the orbitals of W2 and W3 results in a more favorable and stable molecular configuration. Similarly, a similar interpretation can be applied to the S-II system. In this case, the orbital interaction between W1 and W3, along with their overlapping with W2, also contributes to the stability of the S-II configuration. According to the spin density analysis, the orbitals are symmetrical and the electrons have a symmetric distribution around OH*, proving the absence of hemibond in the condensed system. Our previous studies showed that the spin density orbitals reveal delocalized distribution around OH* at various temperatures due to the presence of hemibonds, resulting in an asymmetric distribution of electrons [27,28,31].
+
+**中文:** 角度分析能揭示分子二维排布、构象稳定性和 OH*(H2O)n 反应性。作者计算第一水合层的二维分布 P(r,θ)（图 9）：H–O*–X 表示 OH* 与邻水最近原子 X 的夹角，O* 在坐标原点且自由基 H 沿 z 轴。两体系 OH* 与最近邻水的夹角为 80°–100°、距离约 2.0–2.5 Å；若将羟基自由基沿 z 轴对齐，最近邻水在 xy 平面近乎垂直，给其他水同时与 OH* 相互作用留下空间。LUMO 与由未成对电子分布刻画的自旋密度是理解构型稳定性的关键电子特征。图 10 显示 S-I 中 W2 附近 LUMO 离域化，电子密度扩展而非局限于 W2；它与 W3 轨道重叠，使总能降低、构型稳定。S-II 中 W1 与 W3 的相互作用及其同 W2 的重叠也稳定构型。自旋密度显示轨道和 OH* 周围电子分布对称，证明凝并体系无半键；作者此前在不同温度水滴中因半键存在得到 OH* 周围离域且不对称的自旋密度。
+
+<a id="F009"></a>
+### Fig. 9. Angular analysis of dominant structures
+
+**Placed near:** p.7 S011
+**Source:** p.7 C009
+
+![Fig. 9. Angular analysis of dominant structures](assets/fig9.png)
+
+**Original caption:** Fig. 9. Angular analysis related to dominant structures in S-I (a) and S-II(b) systems. The notation H-O*–H is used to represent the angle between the oxygen atom of OH* and its nearest neighboring water molecule. Additionally, H-H indicates the bond formed between the hydrogen atoms of OH* and the nearest neighboring water molecule. The red area corresponds to the region that indicates the most probable state.
+
+**中文图注:** 图 9. 主导结构的角度分析
+
+**Reading note / 读图提示:** 红区给出最可能构型；结合 80°–100° 的夹角判断最近邻水相对 OH* 的近垂直排布。
+
+<a id="F010"></a>
+### Fig. 10. LUMO and spin-density snapshots
+
+**Placed near:** p.7 S011
+**Source:** p.7 C010
+
+![Fig. 10. LUMO and spin-density snapshots](assets/fig10.png)
+
+**Original caption:** Fig. 10. A snapshot of OH* during interactions with neighboring water mole cules in S-I and S-II systems: (a,d) intermolecular distance, (b,e) the lowest unoccupied molecular orbital (LUMO), (c,f) spin density distribution. Where W1, W2, W3, and W4 indicate neighboring water molecules.
+
+**中文图注:** 图 10. LUMO 与自旋密度快照
+
+**Reading note / 读图提示:** 检查 LUMO 离域/轨道重叠带来的稳定化，以及自旋密度的对称性如何支持无半键结论。
+
+## 4. Conclusion / 结论
+
+<a id="S012"></a>
+**Source:** p.8 S012
+
+**Original:** In this study, we investigated the behavior of the OH* in interactions with condensed water droplets. The results confirmed that the OH* tends to go to the outer layers but not the droplet surface. Hydroxyl radical mobility was determined by successive hydrogen transfers with a barrier energy of about 3.5 kcal/mol, which indicates hydrogen transfer is much more likely in condensed droplets. The radial distribution function and coordination analysis results showed that the dominant structures in S-I and S-II systems are related to the configurations in which the oxygen of the OH* establishes four-fold coordination (40 %) and three-fold coordination (54.2 %) with neighboring water molecules, respectively. As a matter of fact, the OH* is not likely to form hydrogen bonds from its hydrogen side with other water molecules. In contrast to our previous investigations at various temperatures, spin density anal ysis did not reveal hemibonds in this study. Furthermore, our simula tions showed that the presence of condensed droplets significantly affects the mobility of OH* during its interaction with water nano droplets. In fact, the collision density of the condensed droplets may have hampered OH’s mobility, resulting in an accommodation zone below the air–water interface. Despite the difficulties of measuring the OH* reactivity in condensed droplet systems and its short lifetime, experimental verification can now be carried out by utilizing the simulation results from the present study as a basis for experimental validation.
+
+**中文:** 本文研究了 OH* 与凝并水滴相互作用时的行为。OH* 倾向向外层移动，但不达水滴表面。连续氢转移决定其迁移，能垒约 3.5 kcal/mol，说明氢转移在凝并水滴中更可能发生。RDF 和配位分析表明，S-I 和 S-II 的主导结构分别为 OH* 氧端与邻水四配位（40%）和三配位（54.2%）；OH* 氢端不太可能与其他水形成氢键。不同于作者以往温度依赖水滴工作，自旋密度分析未发现半键。凝并水滴显著改变 OH* 与纳米水滴作用时的迁移：其碰撞密度可能阻碍 OH* 移动，使其容纳于气–水界面下方。虽然凝并水滴中 OH* 反应性测量困难且寿命短，但现有模拟可为未来实验验证提供基础。
+
+## Author roles, declarations and acknowledgments / 作者贡献、声明与致谢
+
+<a id="S013"></a>
+**Source:** p.8 S013
+
+**Original:** Mohammad Hassan Hadizadeh: Formal analysis, Methodology, Investigation. Fei Xu: Validation, Supervision. The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper. Data will be made available on request. This work was supported by National Natural Science Foundation of China (project Nos. 42350410435, 22076103).
+
+**中文:** 作者贡献：Mohammad Hassan Hadizadeh 负责正式分析、方法学和研究实施；Fei Xu 负责验证和监督。利益冲突：作者声明不存在可能影响本文工作的已知竞争性经济利益或个人关系。数据可用性：数据将在请求后提供。致谢：本工作获国家自然科学基金（项目号 42350410435、22076103）资助。
+
+## References / 参考文献（可提取书目信息）
+
+<a id="S014"></a>
+**Source:** p.8 S014
+
+**Original:** [1] G.E. Likens, R.F. Wright, J.N. Galloway, T.J. Butler, Acid rain, Sci. Am. 241 (4) (1979) 43–51. [2] A. Schwarzenboeck, J. Heintzenberg, S. Mertes, Incorporation of aerosol particles between 25 and 850 nm into cloud elements: measurements with a new complementary sampling system, Atmos. Res. 52 (4) (2000) 241–260. [3] M. Komppula, H. Lihavainen, V.M. Kerminen, M. Kulmala, Y. Viisanen, Measurements of cloud droplet activation of aerosol particles at a clean subarctic background site, J. Geophys. Res. Atmos. 110 (D6) (2005). [4] S. Henning, E. Weingartner, S. Schmidt, M. Wendisch, H. G¨aggeler, U. Baltensperger, Size-dependent aerosol activation at the high-alpine site Jungfraujoch (3580 m asl), Tellus B: Chem. Phys. Meteorol. 54 (1) (2002) 82–95. [5] J. Zhong, C. Zhu, L. Li, G.L. Richmond, J.S. Francisco, X.C. Zeng, Interaction of SO2 with the surface of a water nanodroplet, J. Am. Chem. Soc. 139 (47) (2017) 17168–17174. [6] J. Zhong, M. Kumar, J.S. Francisco, X.C. Zeng, Insight into chemistry on cloud/ aerosol water surfaces, Acc. Chem. Res. 51 (5) (2018) 1229–1237. [7] Y. Qian, J.B. Brown, Z.-C. Huang-Fu, T. Zhang, H. Wang, S. Wang, J.I. Dadap, Y. Rao, In situ analysis of the bulk and surface chemical compositions of organic aerosol particles, Commun. Chem. 5 (1) (2022) 58. [8] J. Zhong, M. Kumar, J. Anglada, M.T.C. Martins-Costa, M.F. Ruiz-L`opez, X.C. Zeng, J.S. Francisco, Atmospheric spectroscopy and photochemistry at environmental water interfaces, Annu. Rev. Phys. Chem. 70 (2019) 45–69. [9] V. Vaida, H. Kjaergaard, P. Hintze, D. Donaldson, Photolysis of sulfuric acid vapor by visible solar radiation, Science 299 (5612) (2003) 1566–1568. [10] A.W. Omta, M.F. Kropman, S. Woutersen, H.J. Bakker, Negligible effect of ions on the hydrogen-bond structure in liquid water, Science 301 (5631) (2003) 347–349. [11] Z. Zhou, Y. Shi, X. Zhou, Theoretical studies on the hydrogen bonding interaction of complexes of formic acid with water, Chem. A Eur. J. 108 (5) (2004) 813–822. [12] D.M. Chipman, Hydrogen-bonding effects on free-radical properties, Chem. A Eur. J. 104 (50) (2000) 11816–11821. [13] K.W. Kim, D.S. Rhee, Ozon/Hydrogen Peroxide System for Degradation of Humic Acid in Water, Advanced Materials Research, Trans Tech Publ, 2014, pp. 620–623. [14] H. Fu, Z. Zhou, X. Zhou, Hydrogen bonding between chlorine oxide and water (H2O⋅ ClO) radical complex, Chem. Phys. Lett. 382 (3–4) (2003) 466–474. [15] J.H. Seinfeld, S.N. Pandis, From air pollution to climate change, Atmos. Chem. Phys. 1326 (1998). [16] Y. Sun, M. Li, M.H. Hadizadeh, L. Liu, F. Xu, Theoretical insights into the degradation mechanisms, kinetics and eco-toxicity of oxcarbazepine initiated by OH radicals in aqueous environments, J. Environ. Sci. 129 (2023) 189–201. [17] Y. Sun, M. Li, M.H. Hadizadeh, F. Xu, OH/O3-initiated transformation of primidone in AOPs based on the theoretical calculations: Mechanisms, kinetics, and eco-toxicity assessments, J. Environ. Chem. Eng. 11 (1) (2023), 109167. [18] Y. Han, S. Zheng, Z. Teng, M.H. Hadizadeh, Q. Zhang, F. Xu, Y. Sun, Effect of water molecule on the complete series reactions of chlorothiobenzenes with H/⋅ OH: A theoretical study, Atmos. 13 (5) (2022) 849. [19] Z. Teng, X. Wang, M.H. Hadizadeh, Y. Han, X. Zhao, Q. Zhang, H. Wang, Y. Li, F. Xu, Y. Sun, Theoretical perspectives on the gas-phase oxidation mechanism and kinetics of carbazole initiated by OH radical in the atmosphere, Atmos. 13 (7) (2022) 1129. [20] D. Mihelcic, M. Heitlinger, D. Kley, P. Müsgen, A. Volz-Thomas, Formation of hydroxyl and hydroperoxy radicals in the gas-phase ozonolysis of ethene, Chem. Phys. Lett. 301 (5–6) (1999) 559–564. [21] S. Li, J. Matthews, A. Sinha, Atmospheric hydroxyl radical production from electronically excited NO2 and H2O, Science 319 (5870) (2008) 1657–1660. [22] P.S. Monks, Gas-phase radical chemistry in the troposphere, Chem. Soc. Rev. 34 (5) (2005) 376–395. [23] D.M. Chipman, Absorption spectrum of OH radical in water, Chem. A Eur. J. 112 (51) (2008) 13372–13381. [24] L. Pauling, The nature of the chemical bond. II. The one-electron bond and the three-electron bond, J. Am. Chem. Soc. 53 (9) (1931) 3225–3237. [25] P. Vassilev, M.J. Louwerse, E.J. Baerends, Ab initio molecular dynamics simulation of the OH radical in liquid water, Chem. Phys. Lett. 398 (1–3) (2004) 212–216. [26] E. Codorniu-Hernandez, P.G. Kusalik, Insights into the solvation and mobility of the hydroxyl radical in aqueous solution, J. Chem. Theory Comput. 7 (11) (2011) 3725–3732. [27] M.H. Hadizadeh, L. Yang, G. Fang, Z. Qiu, Z. Li, The mobility and solvation structure of a hydroxyl radical in a water nanodroplet: a Born-Oppenheimer molecular dynamics study, PCCP 23 (27) (2021) 14628–14635. [28] M.H. Hadizadeh, Z. Pan, J. Azamat, Investigation of OH radical in the water nanodroplet during vapor freezing process: An ab initio molecular dynamics study, J. Mol. Liq. 343 (2021), 117597. [29] B. Rana, J.M. Herbert, Hidden hemibonding in the aqueous hydroxyl radical, J. Phys. Chem. Lett. 12 (33) (2021) 8053–8060. [30] D.R. Hanson, A. Ravishankara, S. Solomon, Heterogeneous reactions in sulfuric acid aerosols: A framework for model calculations, J. Geophys. Res. Atmos. 99 (D2) (1994) 3615–3629. [31] M.H. Hadizadeh, Z. Pan, J. Azamat, A new insight into the interaction of hydroxyl radical with supercooled nanodroplet in the atmosphere, J. Mol. Liq. 359 (2022), 119261. [32] T.W.R. East, J. Marshall, Turbulence in clouds as a factor in precipitation, Q. J. R. Meteorolog. Soc. 80 (343) (1954) 26–47. [33] J. VandeVondele, M. Krack, F. Mohamed, M. Parrinello, T. Chassaing, J. Hutter, Quickstep: Fast and accurate density functional calculations using a mixed Gaussian and plane waves approach, Comput. Phys. Commun. 167 (2) (2005) 103–128. [34] B.G. Lippert, J.H. Parrinello, Michele, A hybrid Gaussian and plane wave density functional scheme, Mol. Phys. 92 (3) (1997) 477–488. [35] S. Grimme, J. Antony, S. Ehrlich, H. Krieg, A consistent and accurate ab initio parametrization of density functional dispersion correction (DFT-D) for the 94 elements H-Pu, J. Chem. Phys. 132 (15) (2010), 154104. [36] J. VandeVondele, J. Hutter, Gaussian basis sets for accurate calculations on molecular systems in gas and condensed phases, J. Chem. Phys. 127 (11) (2007), 114105. [37] S. Goedecker, M. Teter, J. Hutter, Separable dual-space Gaussian pseudopotentials, Phys. Rev. B 54 (3) (1996) 1703. [38] C. Hartwigsen, S. Gœdecker, J. Hutter, Relativistic separable dual-space Gaussian pseudopotentials from H to Rn, Phys. Rev. B 58 (7) (1998) 3641. [39] M. Frisch, G. Trucks, H. Schlegel, G. Scuseria, M. Robb, J. Cheeseman, G. Scalmani, V. Barone, G. Petersson, H. Nakatsuji, Gaussian 16, Revision C. 01. Gaussian, Inc., Wallingford CT. 2016, Google Scholar There is no corresponding record for this reference (2020). [40] C. Gonzalez, H.B. Schlegel, An improved algorithm for reaction path following, J. Chem. Phys. 90 (4) (1989) 2154–2161. [41] H.N.G. Nguyen, C.-F. Zhao, O. Millet, A. Selvadurai, Effects of surface roughness on liquid bridge capillarity and droplet wetting, Powder Technol. 378 (2021) 487–496. [42] P. Lin, Q. Chen, Y. Liu, X. Hu, Z. Zhu, Prediction of newtonian droplet breaking time from a capillary at low weber numbers, ACS Omega 7 (27) (2022) 23890–23898. [43] J. Zhong, Y. Zhao, L. Li, H. Li, J.S. Francisco, X.C. Zeng, Interaction of the NH2 radical with the surface of a water droplet, J. Am. Chem. Soc. 137 (37) (2015) 12070–12078.
+
+**中文:** 以下为原文可提取的参考文献书目信息，按出版信息原样保留；题名、作者、期刊、卷页与年份属于检索元数据，因此不改写。与本文机制直接相关的前置工作包括 Vassilev 等的液水 OH* AIMD、Codorniu-Hernandez 与 Kusalik 的 OH* 溶剂化/迁移研究，以及 Hadizadeh 等关于纳米水滴中 OH* 溶剂化结构与超冷液滴的研究。
+
+## Related Reading / 相关必读
+
+仅保留一篇直接前置文献，理由与完整书目信息见 [related_reading.md](related_reading.md)；今日不强行扩展清单。
+
+## Critical Reading Notes / 批判性阅读提示
+
+**English:** The paper provides an internally coherent computational mechanism, but its central mobility conclusion relies on finite 80 ps trajectories and a specific 191-water droplet geometry. The 3.5 kcal/mol value is a constrained-MD free-energy result, not a directly measured kinetic rate. The absence of a 2.3 Å RDF peak, coordination statistics, and symmetric spin density are complementary evidence for no hemibond in this model; they do not establish that hemibonding is impossible in every water-droplet regime.
+
+**中文:** 本文给出了内部一致的计算机理，但核心迁移结论依赖有限的 80 ps 轨迹和特定的 191 水分子水滴几何。3.5 kcal/mol 是约束 MD 自由能结果，并非直接测得的动力学速率。“无 2.3 Å RDF 峰 + 配位统计 + 对称自旋密度”是该模型中无半键的互补证据；它们并不等于证明半键在所有水滴条件下都不可能存在。
