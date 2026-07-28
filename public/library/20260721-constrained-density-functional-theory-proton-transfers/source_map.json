@@ -1,0 +1,283 @@
+{
+  "title": "Using Constrained Density Functional Theory to Track Proton Transfers and to Sample Their Associated Free Energy Surface",
+  "title_cn": "用约束密度泛函理论追踪质子转移并采样其相关自由能面",
+  "doi": "10.1021/acs.jctc.1c00609",
+  "zotero_key": "YFTNHP5I",
+  "attachment_key": "S3I5EV7W",
+  "source_pdf": "paper.pdf",
+  "source_type": "pdf-text",
+  "paragraph_count": 22,
+  "figure_count": 3,
+  "blocks": [
+    {
+      "id": "S001",
+      "type": "paragraph",
+      "page": 1,
+      "heading": "Abstract / 摘要",
+      "original": "Ab initio molecular dynamics (AIMD) and quantum mechanics/molecular mechanics (QM/MM) methods are powerful tools for studying proton solvation, transfer, and transport processes in various environments. However, due to the high computational cost of such methods, achieving sufficient sampling of rare events involving excess proton motion - especially when Grotthuss proton shuttling is involved - usually requires enhanced free energy sampling methods to obtain informative results. Moreover, an appropriate collective variable (CV) that describes the effective position of the net positive charge defect associated with an excess proton is essential both for tracking the trajectory of the defect and for the free energy sampling of the processes associated with the resulting proton transfer and transport. In this work, such a CV is derived from first principles using constrained density functional theory (CDFT). This CV is applicable to a broad array of proton transport and transfer processes as studied via AIMD and QM/MM simulations.",
+      "translation": "从头算分子动力学（AIMD）和量子力学/分子力学（QM/MM）是研究不同环境中质子溶剂化、转移和输运的有力工具。然而，这类方法的计算代价很高；要充分采样涉及过剩质子运动的稀有事件，尤其是含有 Grotthuss 质子穿梭的事件，通常必须采用增强自由能采样。与此同时，需要一个合适的集体变量（CV）来描述过剩质子所对应净正电荷缺陷的有效位置：它既用于追踪电荷缺陷的轨迹，也用于与质子转移和输运相关过程的自由能采样。本文从第一性原理出发，以约束密度泛函理论（CDFT）构建这样的 CV，并说明它可用于 AIMD 和 QM/MM 所研究的多类质子输运与转移过程。"
+    },
+    {
+      "id": "S002",
+      "type": "paragraph",
+      "page": 1,
+      "heading": "Introduction / 引言",
+      "original": "The accurate and efficient delineation of proton transport (PT) and its associated mechanism continues to be fundamentally important in chemistry, biology, and materials science. Excess proton transport in aqueous and biomolecular environments involves rearranging covalent and hydrogen bonds, which is known as the Grotthuss hopping or shuttle mechanism. Due to this chemically reactive nature of the process, the ab initio molecular dynamics (AIMD) method, which treats the electronic degrees of freedom explicitly and on the fly along with the dynamics of the nuclei, provides one popular approach for modeling PT at an atomistic level. Among the various possible electronic structure methods, density functional theory (DFT) represents a powerful approach for implementing AIMD, as DFT has a reasonable balance between accuracy and computational efficiency.",
+      "translation": "精确而高效地刻画质子输运（PT）及其机理，始终是化学、生物学和材料科学的基础问题。水相和生物分子环境中的过剩质子输运伴随共价键与氢键重排，即 Grotthuss 跳跃或穿梭机制。由于这一过程具有化学反应性，AIMD 在原子核运动过程中显式、实时处理电子自由度，因此是原子尺度模拟 PT 的常用途径。在各种电子结构方法中，密度泛函理论（DFT）在精度与计算效率之间取得了合理平衡，因而特别适合实现 AIMD。"
+    },
+    {
+      "id": "S003",
+      "type": "paragraph",
+      "page": 1,
+      "heading": "Introduction / 引言",
+      "original": "However, even when using the generalized gradient approximation (GGA) level of DFT, the high computational cost of AIMD typically limits the sampling of the MD to within the subnanosecond timescale for systems containing several hundreds of electrons. This limitation can prevent an adequate sampling of rare events, such as PT involving weak acids that are commonly found as protonatable amino acids in protein channels and transporters. In such cases, the high reaction barrier for proton dissociation from weak acids results in timescales that usually exceed nanoseconds; thus, enhanced free energy sampling methods to bias the PT process are necessary to obtain statistically and physically meaningful results.",
+      "translation": "即便采用广义梯度近似（GGA）水平的 DFT，AIMD 的高计算成本仍通常使含数百电子体系的采样停留在亚纳秒量级。这会妨碍对稀有事件的充分采样，例如蛋白通道和转运体中常见的可质子化氨基酸所涉及的弱酸 PT。弱酸去质子的反应势垒较高，对应时间尺度往往超过纳秒；因此，必须以增强自由能采样对 PT 过程施加偏置，才能得到具有统计意义和物理意义的结果。"
+    },
+    {
+      "id": "S004",
+      "type": "paragraph",
+      "page": 1,
+      "heading": "Introduction / 引言",
+      "original": "Common enhanced sampling methods, such as umbrella sampling, metadynamics, and adaptive biasing force, add bias to one or more collective variables (CVs) to accelerate the sampling along these degrees of freedom. In the context of PT, identifying an appropriate CV that represents the position of the net positive charge defect associated with the excess proton is important. Due to frequent bond breaking and forming events in Grotthuss proton shuttling, the identity of the charge carrier species (hydronium-like or protonated weak acids) is dynamically changing, and the excess protonic charge defect tends to be distributed among several solvation shells instead of localizing on a central hydronium structure or on a weak acid. As such, a CV cannot be associated with any specific proton in the system but is more appropriately assigned in some way to be the charge defect associated with the excess proton, often referred to as the center of excess charge (CEC). For AIMD simulations, there are several CEC definitions that have been proposed, namely, mCEC, the proton indicator, and the more recent rCEC. However, a more rigorous definition based on ab initio theory is preferred. In this work, we present a variant of the CEC definition derived from a diabatic electronic structure method, the constrained DFT (CDFT), and apply it to two case studies: an excess proton in water and glutamic acid in water. We conclude by unraveling the collective motions encoded in the CEC via computing its IR spectrum as well as illustrating its ability to accelerate the sampling of proton transfer when combined with metadynamics.",
+      "translation": "伞形采样、metadynamics 和自适应偏置力等增强采样方法，都是向一个或多个集体变量施加偏置，以加速相应自由度上的采样。对 PT 而言，关键是找到能表示过剩质子相关净正电荷缺陷位置的 CV。Grotthuss 穿梭中频繁断键、成键，使载流物种的身份（类水合氢离子或质子化弱酸）不断改变；过剩质子电荷缺陷也往往分布在多个溶剂化壳层中，而不是固定在中心水合氢离子或某个弱酸上。因此，CV 不应绑定到体系中某一颗特定“质子”，而应描述该过剩质子电荷缺陷，通常称为过剩电荷中心（CEC）。AIMD 已有 mCEC、proton indicator 和较新的 rCEC 等定义，但仍希望得到以从头算理论为基础的更严格定义。本文从双态电子结构方法 CDFT 导出一种 CEC 变体，并用于水中过剩质子和水中谷氨酸两类算例；随后借助 IR 谱解析 CEC 所编码的集体运动，并展示其与 metadynamics 联用时加速 PT 采样的能力。"
+    },
+    {
+      "id": "S005",
+      "type": "paragraph",
+      "page": 2,
+      "heading": "Theory of Constrained DFT / 约束 DFT 理论",
+      "original": "The CDFT framework was proposed for solving the electronic structure of a system subject to a constraint on electron density. Here, the constrained lowest-energy state is obtained with a Lagrange multiplier. In this work, the density functional is BLYP or omegaB97X, and the electron density from the constrained optimization differs from the constraint-free adiabatic ground-state density; it is therefore a diabatic state.",
+      "translation": "CDFT 框架用于求解满足电子密度约束的体系电子结构。借助拉格朗日乘子可得到受约束的最低能量态。本文使用 BLYP 或 omegaB97X 泛函；受约束优化得到的电子密度不同于无约束绝热基态密度，因此该状态属于 diabatic state（非绝热/定域化构型态）。"
+    },
+    {
+      "id": "S006",
+      "type": "paragraph",
+      "page": 2,
+      "heading": "Theory of Constrained DFT / 约束 DFT 理论",
+      "original": "As molecules in the condensed phase sample more compact geometries on average, the promolecule formalism approach was employed and the system was partitioned into two molecular fragments, A and B. The constraint target value was calculated from the total promolecule density by summing the ground-state electronic density of the two fragments as if they were independent. The Becke population scheme defines the weighting function, where the summation runs over atoms of the protonated species in each diabatic state, such as a hydronium or a neutral glutamate. The desired behavior of this promolecule constraint is that the resulting diabatic electronic density resembles as closely as possible the superposition of two pure fragments, for example a water molecule and a hydronium in the Zundel cation H5O2+.",
+      "translation": "凝聚相分子平均具有更紧凑的构型，因此作者采用 promolecule 形式，把体系分为 A、B 两个分子片段。约束目标值由两个彼此独立片段基态电子密度的和构成总 promolecule 密度后计算得到。权重函数使用 Becke population 方案定义，求和对象是每个 diabatic state 中质子化物种的原子，例如水合氢离子或中性谷氨酸。该约束希望得到的 diabatic 电子密度尽可能接近两个纯片段密度的叠加；以 Zundel 阳离子 H5O2+ 为例，就是纯水与水合氢离子密度的叠加。"
+    },
+    {
+      "id": "S007",
+      "type": "paragraph",
+      "page": 2,
+      "heading": "Theory of Constrained DFT / 约束 DFT 理论",
+      "original": "The coupling between two diabatic states is calculated from the Kohn-Sham determinants, and a 2 x 2 Hamiltonian is constructed with the diabatic energies as diagonal terms. The overlap matrix is defined analogously. CDFT configurational interaction is then performed by solving the generalized eigenvalue problem Hc = ESc. The resulting eigenvector c = {c1, c2} determines how much each diabatic state contributes to the CI ground state; this vector is used below to define the CEC.",
+      "translation": "两个 diabatic state 之间的耦合由 Kohn-Sham 行列式计算，并以各 diabatic 能量为对角元构造 2 x 2 Hamiltonian；重叠矩阵以同样方式定义。随后通过求解广义本征值问题 Hc = ESc 进行 CDFT configuration interaction。所得本征向量 c = {c1, c2} 给出每个 diabatic state 对 CI 基态的贡献，后文正用这一向量定义 CEC。"
+    },
+    {
+      "id": "S008",
+      "type": "paragraph",
+      "page": 3,
+      "heading": "Theory of Center of Excess Charge / 过剩电荷中心理论",
+      "original": "Assuming that each diabatic state defines a bonding topology, state |1> in Figure 1 can define neutral glutamate and two neutral water molecules, whereas state |2> can define a hydronium, a charged glutamate, and a neutral water molecule. Given the bonding topology of each diabatic state, the diabatic CEC within state |i> is simply the center of charge (COC) of the species carrying protonic charge, namely the hydronium or protonated weak acid.",
+      "translation": "假定每个 diabatic state 都定义一种成键拓扑，例如图 1 的 |1> 态可对应中性谷氨酸与两分子中性水，而 |2> 态可对应水合氢离子、带电谷氨酸与一分子中性水。既然每个态的成键拓扑已知，态 |i> 内的 diabatic CEC 就可简单定义为携带质子电荷物种的电荷中心（COC），即水合氢离子或质子化弱酸的 COC。"
+    },
+    {
+      "id": "S009",
+      "type": "paragraph",
+      "page": 3,
+      "heading": "Theory of Center of Excess Charge / 过剩电荷中心理论",
+      "original": "The diabatic excess charges are associated with atomic positions and modeled by fixed charges. In this example the fixed charge values are from the CHARMM36 force field and a previous study. For diabatic states with well-defined bonding topologies, fixed force-field charges are a reasonable description, while excess-charge delocalization and polarization from the excess proton are characterized by c. Since c gives the population of each diabatic state in the CI ground state, the adiabatic CEC is naturally the weighted average of all diabatic CECs (COCs).",
+      "translation": "diabatic 过剩电荷与原子位置关联，并由固定电荷建模。本文的固定电荷取自 CHARMM36 力场和既有工作。对于成键拓扑明确的 diabatic state，固定力场电荷是合理近似；过剩质子的电荷离域与极化则由系数向量 c 描述。由于 c 给出了每个 diabatic state 在 CI 基态中的布居，绝热 CEC 自然就是所有 diabatic CEC（COC）的加权平均。"
+    },
+    {
+      "id": "S010",
+      "type": "paragraph",
+      "page": 3,
+      "heading": "Theory of Center of Excess Charge / 过剩电荷中心理论",
+      "original": "The coefficients ci measure the extent of excess charge transfer. The charge-transfer factor fCT_ij represents charge distribution between states |i> and |j>. Because CDFT calculations are more expensive than the adiabatic electronic-structure calculations used in AIMD, the authors approximate the ground-state vector c for on-the-fly CEC evaluation. An exponential function of the proton-transfer coordinate delta provides a good fit to fCT_ij. Delta is the difference between the shared proton-to-donor-oxygen and proton-to-acceptor-oxygen distances. The parameters k and delta0 are least-squares calibrated against exact CDFT-CI charge transfer for protonated species and water in the gas phase using BLYP or omegaB97X.",
+      "translation": "系数 ci 衡量过剩电荷转移的程度，电荷转移因子 fCT_ij 表示 |i> 与 |j> 态之间的电荷分布。CDFT 比 AIMD 中通常采用的绝热电子结构计算昂贵得多，因此作者用近似的基态向量 c 实现在线 CEC 计算。质子转移坐标 delta 的指数函数可很好拟合 fCT_ij；delta 定义为共享质子到供体氧和受体氧距离之差。参数 k 与 delta0 则以 BLYP 或 omegaB97X 在气相中得到的、质子化物种与水之间的精确 CDFT-CI 电荷转移为标尺，经最小二乘拟合校准。"
+    },
+    {
+      "id": "S011",
+      "type": "paragraph",
+      "page": 3,
+      "heading": "Theory of Center of Excess Charge / 过剩电荷中心理论",
+      "original": "To generalize the CEC to condensed phases, the authors assume that solvating waters of hydronium or a protonated acid propagate the excess charge to more distant solvation shells according to the same exponential rule. Diabatic states are selected by searching three hydrogen-bond-acceptor solvation shells with a 2.5 A O-H criterion. Further shells are unnecessary because the computed ci values have already diminished by the fourth shell. After all donor-acceptor charge-transfer factors are resolved, the approximate ci^2 values follow from fCT_ij and normalization. Thus, the COC and weighted-average equations define the CEC, while the exponential fit and normalization give an inexpensive approximation to exact CDFT-CI coefficients.",
+      "translation": "为把 CEC 推广至凝聚相，作者假设水合氢离子或质子化酸周围的溶剂水，会按同一指数规则把过剩电荷传递到更外层溶剂化壳。diabatic state 通过搜索三层氢键受体溶剂化壳来选取，O-H 判据为 2.5 A；第四层时计算得到的 ci 已明显衰减，所以不需要更远壳层。求得所有供体-受体对的电荷转移因子后，近似 ci^2 由 fCT_ij 和归一化条件给出。也就是说，COC 与加权平均公式定义 CEC，而指数拟合和归一化让精确 CDFT-CI 系数得到低成本近似。"
+    },
+    {
+      "id": "S012",
+      "type": "paragraph",
+      "page": 3,
+      "heading": "Theory of Center of Excess Charge / 过剩电荷中心理论",
+      "original": "Another way of viewing the CEC is as the dipole moment of excess charges. The excess charge of atom I is its weighted average charge over diabatic states. Therefore, the excess-charge contribution to the IR spectrum can be calculated directly from the CEC velocity-correlation function.",
+      "translation": "CEC 也可理解为过剩电荷的偶极矩。原子 I 的过剩电荷是它在各 diabatic state 中电荷的加权平均。因此，过剩电荷对 IR 谱的贡献可以直接由 CEC 的速度相关函数计算。"
+    },
+    {
+      "id": "S013",
+      "type": "paragraph",
+      "page": 4,
+      "heading": "Simulation Details / 模拟细节",
+      "original": "The CDFT calculations were conducted for hydronium-water and glutamate-water. Both omegaB97X and BLYP were used for hydronium-water, whereas BLYP was used for glutamate-water. For hydronium-water, the promolecule density is the sum of hydronium and water fragment densities. For glutamate-water, one state is neutral glutamate plus neutral water, and the other is deprotonated glutamate plus hydronium. Becke populations use literature atomic radii. The hydronium-water fitting set contains six O-O distances and six proton positions at each distance, for 36 data points; the glutamate-water set has seven O-O distances and nine O-H distances, for 63 data points. Calculations use CP2K CDFT with Libxc and a 10^-3 au convergence criterion.",
+      "translation": "CDFT 计算针对水合氢离子-水和谷氨酸-水两类体系进行。前者同时使用 omegaB97X 与 BLYP，后者使用 BLYP。对水合氢离子-水，promolecule 密度为水合氢离子片段与水片段密度之和；对谷氨酸-水，一个态为中性谷氨酸加中性水，另一个态为去质子化谷氨酸加水合氢离子。Becke population 使用文献原子半径。水合氢离子-水训练集有 6 个 O-O 距离、每个距离 6 个质子位置，共 36 个数据点；谷氨酸-水训练集有 7 个 O-O 距离及 9 个 O-H 距离，共 63 个数据点。计算使用 CP2K 的 CDFT 实现和 Libxc，收敛阈值为 10^-3 au。"
+    },
+    {
+      "id": "S014",
+      "type": "paragraph",
+      "page": 4,
+      "heading": "Simulation Details / 模拟细节",
+      "original": "AIMD for the excess proton in water used 128 water molecules and one excess proton in a 15.64 A cubic box. Electronic structure was described with BLYP-D3, Goedecker-Teter-Hutter pseudopotentials, a GPW representation, TZV2P basis, a 400 Ry density cutoff, and OT/DIIS self-consistent-field optimization to 10^-6 au. An experiment-directed simulation (EDS) correction was applied as a minimal add-on bias to correct overly strong hydrogen bonding in common DFT functionals; with EDS, excess-proton and water diffusion agree better with experiment. The system was equilibrated at NVT, 298 K for 30 ps and switched to NVE for 200 ps to collect nonthermostatted dynamical data. A 0.5 fs time step was used. AIMD was performed in CP2K with a modified PLUMED implementation for EDS, and both BLYP- and omegaB97X-fitted CEC parameters were used in the analysis.",
+      "translation": "水中过剩质子的 AIMD 包含 128 个水分子和 1 个过剩质子，置于边长 15.64 A 的立方盒中。电子结构采用 BLYP-D3、Goedecker-Teter-Hutter 赝势、GPW 表示、TZV2P 基组和 400 Ry 密度截断；SCF 采用 OT/DIIS 并收敛至 10^-6 au。作者加入 experiment-directed simulation（EDS）这一最小附加偏置，用以修正常用 DFT 泛函过强的氢键；加入 EDS 后，过剩质子和水的扩散更接近实验。体系先在 298 K 的 NVT 系综平衡 30 ps，再切换到 NVE 系综采集 200 ps 非恒温动力学数据；时间步长 0.5 fs。AIMD 在 CP2K 中进行，并用改造的 PLUMED 施加 EDS；分析时同时采用 BLYP 与 omegaB97X 拟合的 CEC 参数。"
+    },
+    {
+      "id": "S015",
+      "type": "paragraph",
+      "page": 5,
+      "heading": "Simulation Details / 模拟细节",
+      "original": "The glutamate-water system consisted of one neutral glutamate and 110 water molecules in a 16 A cubic box. Its electronic-structure setup matched the proton-water simulation except that EDS was not used. Unbiased and well-tempered metadynamics simulations were carried out in NVT at 300 K in CP2K with PLUMED2. The BLYP-fitted hydronium-water and glutamate-water CEC parameters were used. The metadynamics CV was the smooth minimum distance between the CEC and the two glutamate carboxyl oxygens. Gaussians were deposited every 50 fs with initial height 0.2 kcal mol^-1 and width 0.1 A; the bias factor was 12, consistent with an approximately 9 kcal mol^-1 proton-dissociation barrier.",
+      "translation": "谷氨酸-水体系由 1 个中性谷氨酸与 110 个水分子组成，置于边长 16 A 的立方盒中。电子结构设置与质子-水体系相同，但不使用 EDS。无偏 AIMD 和 well-tempered metadynamics 均在 300 K、NVT 系综下，借助 CP2K 与 PLUMED2 进行。使用 BLYP 拟合的水合氢离子-水及谷氨酸-水 CEC 参数。metadynamics 的 CV 是 CEC 到两个谷氨酸羧基氧距离的平滑最小值。高斯势每 50 fs 沉积一次，初始高度 0.2 kcal mol^-1、宽度 0.1 A；偏置因子为 12，对应约 9 kcal mol^-1 的质子解离势垒。"
+    },
+    {
+      "id": "S016",
+      "type": "paragraph",
+      "page": 5,
+      "heading": "Results / 结果",
+      "original": "The CDFT charge-transfer factors and their exponential fits are shown in Figure 2A. The omegaB97X charge-transfer factor decays more quickly than BLYP because the range-separated hybrid omegaB97X has less charge delocalization than GGA BLYP. Nevertheless, the exponential function fits both cases well. At equal proton sharing, c1^2 = c2^2, so delta0 is set to zero. The omegaB97X fitted k is close to the parameter used in rCEC (4.898 versus 4.984 A^-1), which further justifies use of the MS-EVB-derived rCEC in AIMD.",
+      "translation": "图 2A 给出 CDFT 计算的电荷转移因子及其指数拟合。与 BLYP 相比，omegaB97X 的电荷转移因子衰减更快，这是因为长程分离杂化泛函 omegaB97X 的电荷离域小于 GGA BLYP。尽管如此，指数函数对两者都拟合良好。当质子在两水分子间均分时，c1^2 = c2^2，因此 delta0 设为零。omegaB97X 拟合得到的 k 与 rCEC 所用参数十分接近（4.898 对 4.984 A^-1），这进一步支持在 AIMD 中使用源于 MS-EVB 的 rCEC。"
+    },
+    {
+      "id": "S017",
+      "type": "paragraph",
+      "page": 5,
+      "heading": "Results / 结果",
+      "original": "The IR spectrum of excess-proton charge systematically measures CEC dynamics by exposing the collective motions encoded in the CV. The CDFT CEC spectra generally align with rCEC spectra (Figure 2B), even though BLYP and omegaB97X have different charge-transfer behavior; their CEC spectra are very similar. This indicates that a CEC parameterized with one functional may be used in AIMD with another functional. Relative to the experimental IR difference spectrum, the CEC spectra reproduce the 600-3200 cm^-1 acid continuum, including the proton-transfer mode near 1200 cm^-1 and flanking water bend near 1750 cm^-1. The 2300-3200 cm^-1 region decays because excess-proton charge decays in outer solvation shells, reducing intensity from red-shifted O-H stretch in second and third shells. Crucially, the CEC spectrum reaches zero at about 3200 cm^-1, just as the experimental difference spectrum does, demonstrating that it excludes bulk-like water O-H stretching. Thus CEC chiefly represents inner-core protonated-water motions, attenuates smoothly in outer shells, and switches off for bulk water: the desired behavior for a PT CV.",
+      "translation": "过剩质子电荷的 IR 谱可通过揭示 CV 中编码的集体运动，系统测量 CEC 动力学。尽管 BLYP 与 omegaB97X 的电荷转移行为不同，CDFT-CEC 的谱总体与 rCEC 谱一致（图 2B），两个泛函拟合的 CEC 谱也几乎相同。这说明由一种泛函参数化的 CEC 可能可用于另一种泛函的 AIMD。与实验 IR 差谱相比，CEC 谱再现了 600-3200 cm^-1 的酸连续带，其中包括约 1200 cm^-1 的质子转移模和约 1750 cm^-1 的相邻水弯曲模。2300-3200 cm^-1 区间会衰减，因为过剩质子电荷在外层溶剂化壳衰减，第二、三壳层红移 O-H 伸缩的强度随之降低。关键是，CEC 谱在约 3200 cm^-1 处和实验差谱一样降至零，表明它排除了类本体水 O-H 伸缩。因此 CEC 主要表示质子化水复合体内核的运动，在外层平滑衰减，并对本体水完全关断；这正是 PT 集体变量应有的性质。"
+    },
+    {
+      "id": "S018",
+      "type": "paragraph",
+      "page": 5,
+      "heading": "Results / 结果",
+      "original": "By contrast, mCEC has nonvanishing intensity in the pure-water region from 3200 to 4000 cm^-1, revealing sensitivity to bulk-water motions. This is undesirable because enhanced sampling with mCEC can bias bulk-water motions and produce artificial water autoionization far from the excess-proton reaction center. The proton indicator has nonzero absorption across the whole frequency range because it is discontinuous. Its nondifferentiability prevents use in MD-based enhanced free-energy sampling: biasing such a CV causes an energy-conservation problem and can violate detailed balance.",
+      "translation": "相反，mCEC 在 3200-4000 cm^-1 的纯水区仍有非零强度，说明它对本体水运动敏感。这是不利的，因为以 mCEC 做增强采样会偏置类本体水的运动，并可能在远离过剩质子反应中心处产生人为的水自电离。proton indicator 则由于不连续，在整个频率范围均有非零吸收；其不可微性使它不能用于基于 MD 的增强自由能采样，因为偏置此类 CV 会造成能量守恒问题，并可能破坏详细平衡。"
+    },
+    {
+      "id": "S019",
+      "type": "paragraph",
+      "page": 5,
+      "heading": "Results / 结果",
+      "original": "The authors next studied glutamate in water to test CEC as a CV for enhanced free-energy sampling. They parametrized CEC using CDFT charge transfer between glutamate and water. In this asymmetric transfer, delta0 is required. Figure 3A shows that the exponential function captures the glutamate-water charge-transfer behavior, suggesting that this form can be used for other weak-acid PT reactions. Other switching functions could be used if the exponential form does not accurately fit a particular CDFT system.",
+      "translation": "随后作者研究水中谷氨酸，以检验 CEC 能否作为增强自由能采样的 CV。他们以谷氨酸和水之间的 CDFT 电荷转移参数化 CEC。由于该转移不对称，需要 delta0。图 3A 表明指数函数能够刻画谷氨酸-水的电荷转移行为，提示该形式可用于其他弱酸 PT 反应。若指数形式无法准确拟合某个 CDFT 体系，也可以改用其他 switching function。"
+    },
+    {
+      "id": "S020",
+      "type": "paragraph",
+      "page": 5,
+      "heading": "Results / 结果",
+      "original": "Glutamate has a large proton-dissociation barrier, consistent with its experimental pKa of about 4.2, so dissociation is rare on accessible AIMD timescales. Figure 3B shows that the CV xi, the distance between CEC and the nearest carboxyl oxygen, produces a substantial sampling gain in metadynamics. During a 40 ps AIMD run, the unbiased simulation samples only the protonated-glutamate free-energy well, whereas metadynamics drives CEC to sample proton dissociation readily and nearly completes a round trip.",
+      "translation": "谷氨酸的质子解离势垒较高，与约 4.2 的实验 pKa 一致，因此在可及 AIMD 时间尺度上是稀有事件。图 3B 显示，以 CEC 到最近羧基氧距离为 CV 的 xi 在 metadynamics 中显著提升采样效率。在 40 ps AIMD 内，无偏模拟只采样到质子化谷氨酸对应的自由能势阱；而 metadynamics 能驱动 CEC 轻易采样质子从谷氨酸解离，且几乎完成一次“往返”。"
+    },
+    {
+      "id": "S021",
+      "type": "paragraph",
+      "page": 6,
+      "heading": "Conclusions / 结论",
+      "original": "In this work, the authors developed a collective variable that defines the charge-defect location and transfer properties for proton transfer and transport, giving a more rigorous ab initio definition of the center of excess charge. CDFT charge-transfer behavior can be approximated with an exponential function. The newly defined CEC was interrogated by its IR spectrum: reproduction of the full acid continuum shows that it captures excess-proton motions without contamination from irrelevant degrees of freedom.",
+      "translation": "本文构建了一个用于定义质子转移和输运中电荷缺陷位置及转移性质的集体变量，从而给出更严格的从头算 CEC 定义。CDFT 的电荷转移行为可以用指数函数近似。作者进一步通过 IR 谱检验这一新 CEC；它再现完整酸连续带，说明该变量能捕获过剩质子运动，而不混入无关自由度。"
+    },
+    {
+      "id": "S022",
+      "type": "paragraph",
+      "page": 6,
+      "heading": "Conclusions / 结论",
+      "original": "A glutamate-water simulation illustrates the new CEC in enhanced free-energy sampling for amino-acid ionization. AIMD metadynamics that biases CEC explores a much larger CV space than unbiased AIMD and efficiently samples glutamate proton dissociation. The present CDFT formalism is suitable for any charge-transfer reaction whose bonding topology changes between diabatic states, rather than being restricted to proton transfer. It can therefore be generalized to find appropriate CVs for other charge-transfer processes, such as ATP or GTP hydrolysis.",
+      "translation": "谷氨酸-水模拟展示了新 CEC 在氨基酸水中电离增强自由能采样中的用途。对 CEC 施加偏置的 AIMD metadynamics 比无偏 AIMD 探索到更大的 CV 空间，并高效采样谷氨酸的质子解离。该 CDFT 形式并不限于本文的质子转移；只要 diabatic state 间发生了成键拓扑变化，它都适用于电荷转移反应。因此，它还有望推广为 ATP 或 GTP 水解等其他电荷转移过程寻找合适 CV。"
+    },
+    {
+      "id": "E001",
+      "type": "equation",
+      "page": 2,
+      "original": "∫ w(r) rho(r) dr = N",
+      "translation": "电子密度约束：权重函数 w(r) 在密度 rho(r) 上的积分等于目标值 N。"
+    },
+    {
+      "id": "E002",
+      "type": "equation",
+      "page": 2,
+      "original": "min_rho max_lambda { E[rho(r)] + lambda [∫ w(r)rho(r)dr - N] }",
+      "translation": "以拉格朗日乘子 lambda 强制该电子密度约束，得到受约束最低能态。"
+    },
+    {
+      "id": "E003",
+      "type": "equation",
+      "page": 2,
+      "original": "N = ∫ w(r)[rho_A(r) + rho_B(r)] dr",
+      "translation": "promolecule 目标密度由两个独立片段 A 与 B 的基态密度相加而得。"
+    },
+    {
+      "id": "E004",
+      "type": "equation",
+      "page": 2,
+      "original": "H_12 = <Phi_1|H-hat|Phi_2>; H = [[E_1, H_12], [H_21, E_2]]",
+      "translation": "由两个 diabatic state 的 Kohn-Sham 行列式耦合和各自能量构造 CI Hamiltonian。"
+    },
+    {
+      "id": "E005",
+      "type": "equation",
+      "page": 3,
+      "original": "Hc = ESc",
+      "translation": "求解广义本征值问题，得到 diabatic state 的 CI 权重 c。"
+    },
+    {
+      "id": "E006",
+      "type": "equation",
+      "page": 3,
+      "original": "r_COC^i = Σ_I q_I^i r_I",
+      "translation": "每个 diabatic state 内，携带质子电荷物种的 COC 是固定原子电荷的加权位置平均。"
+    },
+    {
+      "id": "E007",
+      "type": "equation",
+      "page": 3,
+      "original": "r_CEC = Σ_i c_i^2 r_COC^i; f_CT,ij = c_j^2 / c_i^2",
+      "translation": "绝热 CEC 是 diabatic COC 按 CI 布居 c_i^2 的平均；f_CT 描述态间过剩电荷转移。"
+    },
+    {
+      "id": "E008",
+      "type": "equation",
+      "page": 3,
+      "original": "f_CT,ij ≈ [1 + exp(k(delta_ij - delta_0))]^-1; delta_ij = r_ij' - r_ij",
+      "translation": "电荷转移因子由质子到供体、受体氧距离差的指数函数近似。"
+    },
+    {
+      "id": "E009",
+      "type": "equation",
+      "page": 3,
+      "original": "c_1^2 = 1 / [1 + Σ_(i≠1) f_CT,1i]; c_i^2 = c_1^2 f_CT,1i",
+      "translation": "归一化条件把各供受体对的电荷转移因子还原为所有 diabatic state 的布居。"
+    },
+    {
+      "id": "E010",
+      "type": "equation",
+      "page": 4,
+      "original": "A(omega) ∝ ∫ <mu-dot_CEC(0) mu-dot_CEC(t)> exp(-i omega t) dt",
+      "translation": "CEC 的速度相关函数直接给出过剩电荷对 IR 谱的贡献。"
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "label": "Fig. 1",
+      "page": 2,
+      "asset": "assets/figure-1.png",
+      "placed_after": "S006"
+    },
+    {
+      "id": "F002",
+      "label": "Fig. 2",
+      "page": 4,
+      "asset": "assets/figure-2.png",
+      "placed_after": "S017"
+    },
+    {
+      "id": "F003",
+      "label": "Fig. 3",
+      "page": 4,
+      "asset": "assets/figure-3.png",
+      "placed_after": "S020"
+    }
+  ],
+  "equation_count": 10
+}

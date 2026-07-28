@@ -1,0 +1,398 @@
+# Weakened Interfacial Hydrogen Bond Connectivity Drives Selective Photocatalytic Water Oxidation toward H2O2 at Water/Brookite-TiO2 Interface
+
+# 减弱的界面氢键连通性驱动水/板钛矿 TiO2 界面光催化水氧化选择性生成 H2O2
+
+**Zotero key:** TWNWAP3Y<br />
+**Attachment key:** L8EUV77R<br />
+**Journal:** Journal of the American Chemical Society (JACS)<br />
+**DOI:** [10.1021/jacs.3c13402](https://doi.org/10.1021/jacs.3c13402)<br />
+**Publication date:** 2024-03-06<br />
+**Task date:** 2026-07-21<br />
+**Source PDF:** paper.pdf<br />
+**Source type:** selectable-text publisher PDF (`pdf-text`)
+
+## Page / Section Index / 页码与章节索引
+
+- **p.1-2:** Abstract, introduction, and computational methods / 摘要、引言与计算方法。
+- **p.3:** Mechanistic network and microkinetic selectivity / 反应网络与微观动力学选择性。
+- **p.4-7:** Interfacial water structure, OH deprotonation, and O-O coupling / 界面水结构、OH 去质子化与 O-O 偶联。
+- **p.8:** Conclusion and associated supporting-information note / 结论与补充信息说明。
+- **p.9-10:** Author information, acknowledgments, and references / 作者信息、致谢与参考文献。
+
+## Why This Paper / 为什么选这篇
+
+**English:** This paper turns a familiar crystal-phase comparison into a much sharper interface-chemistry question: not which TiO2 phase is intrinsically better, but how the adsorption-layer to near-adsorption-layer H-bond network controls radical coverage, proton loss, and O-O coupling. It is especially useful for thinking about water-interface chemistry because it separates an electronic quantity (hole trapping) from the solvent-network mechanism that actually changes selectivity.
+
+**中文：** 这篇文章把常见的 TiO2 晶相比较推进成更精确的界面化学问题：关键不在于哪一种晶相本征上更强，而在于吸附层到近吸附层的氢键网络如何控制自由基覆盖度、失质子和 O-O 偶联。它特别适合用来理解水界面化学，因为作者明确区分了电子学量（空穴捕获）与真正改变选择性的溶剂网络机制。
+
+## Reading Guide / 读前导读
+
+**English:** Read in four passes. (1) Start from Fig. 1 and identify the two kinetic levers: theta(OH radical)/theta(O radical anion) and OH/OH versus O/O coupling barriers. (2) Use Fig. 2-3 to see why brookite changes water density and orientation without simply becoming a more active dry surface. (3) Use Fig. 4 to follow H-bond-assisted OH radical deprotonation. (4) Use Fig. 5 to ask why an unfavorable Ti-Ti distance can still give favorable OH/OH coupling in solvent.
+
+**中文：** 建议分四遍读。第一遍从图 1 出发，先抓住两个动力学杠杆：theta(OH 自由基)/theta(O 自由基阴离子) 与 OH/OH 相对 O/O 偶联势垒。第二遍结合图 2-3，理解板钛矿为何通过改变水密度和取向起作用，而不是单纯成为更活跃的干表面。第三遍看图 4，跟随氢键如何协助或阻碍 OH 自由基去质子化。第四遍看图 5，思考在 Ti-Ti 距离并不理想时，为什么溶剂仍可使 OH/OH 偶联有利。
+
+## Terminology / 术语表
+
+| English | 中文 | Note |
+| --- | --- | --- |
+| water oxidation reaction (WOR) | 水氧化反应 | 本文讨论的光催化氧化半反应。 |
+| brookite TiO2 (b-TiO2) | 板钛矿 TiO2 | 本文比较的高 H2O2 选择性晶相。 |
+| rutile TiO2 (r-TiO2) | 金红石 TiO2 | 对照晶相。 |
+| hydrogen-bond connectivity | 氢键连通性 | 不是单根氢键强弱，而是界面水网络是否形成连续传递通道。 |
+| adsorption layer (AL) | 吸附层 | 直接与表面配位的第一层水。 |
+| near-adsorption layer (NAL) | 近吸附层 | 紧邻 AL 的下一层界面水。 |
+| hole trapping capacity (HTC) | 空穴捕获能力 | 这里用以衡量 OH- 被氧化为 OH 自由基的相对热力学驱动力。 |
+| OH radical / O radical anion | OH 自由基 / O 自由基阴离子 | 选择性受二者表面覆盖度和相互转化控制。 |
+| oxo-oxo coupling | oxo-oxo 偶联 | 两个含氧中间体形成 O-O 键的步骤。 |
+| MAP-MD | 多点平均分子动力学 | 对多个 AIMD 快照求能量平均以保留溶剂构型影响。 |
+
+## Full Text / 全文逐段对照
+
+<a id="S001"></a>
+### S001 | Abstract / 摘要
+
+**Source:** p.1
+
+**Original:** The formation of H2O2 through the two-electron photocatalytic water oxidation reaction (WOR) is significant but encounters the competition with the four-electron O2 evolution reaction. Recent studies showed a crystal-phase dependence in H2O2 selectivity, where high purity brookite TiO2 (b-TiO2) exhibits remarkable H2O2 selectivity in contrast to the common rutile phase TiO2 (r-TiO2). However, the origin of such a structure-induced selectivity preference remains elusive, primarily due to the complexities associated with the solid-liquid interface system and excited-state chemistry. Herein, we conducted a comprehensive investigation into the selectivity mechanism of WOR at the water/b-TiO2(210) and water/r-TiO2(110) interfaces, employing first-principles molecular dynamics simulations and microkinetic analyses. Intriguingly, our results reveal that the intrinsic catalytic ability of the b-TiO2(210) itself does not enhance H2O2 selectivity compared to r-TiO2(110). Instead, it is the weakened interfacial hydrogen bond connectivity, modulated by the herringbone-like local atomic structure of the b-TiO2(210) surface, that determines the selectivity. Specifically, this weakened H-bond connectivity (i.e., local low water density) at the interface, owing to the strong water adsorption and distinct adsorption orientation, can stabilize the OH radical and inhibit its deprotonation, leading to an improved H2O2 selectivity. By contrast, the relatively strong interface H-bond connectivity established over r-TiO2(110) accelerates the deprotonation of OH radical, with the OH radical coverage being 3 orders of magnitude lower than at the water/b-TiO2(210) interface. This study quantitatively demonstrates that the local H-bond structure (water density) at the liquid-solid interface significantly influences photocatalytic selectivity, and this insight may offer a rational approach to enhance the H2O2 selectivity.
+
+**中文：** 经由二电子光催化水氧化反应（WOR）制备 H2O2 很有意义，但它会与四电子析氧反应竞争。近期研究显示 H2O2 选择性具有晶相依赖性：高纯板钛矿 TiO2（b-TiO2）相较常见的金红石 TiO2（r-TiO2）表现出显著更高的 H2O2 选择性。然而，这种结构诱导的选择性偏好源于何处仍不清楚，主要因为固-液界面体系和激发态化学都很复杂。本文以第一性原理分子动力学和微观动力学分析，系统研究了水/b-TiO2(210) 与水/r-TiO2(110) 界面上的 WOR 选择性机理。结果出人意料：b-TiO2(210) 本身的本征催化能力并未比 r-TiO2(110) 更有利于 H2O2；决定选择性的，是 b-TiO2(210) 鱼骨状局域原子结构调制出的较弱界面氢键连通性。具体地，较强的水吸附和不同的吸附取向造成界面局部低水密度，从而削弱氢键连通性；这可稳定 OH 自由基并抑制其去质子化，最终提高 H2O2 选择性。相反，r-TiO2(110) 上较强的界面氢键连通性会加速 OH 自由基去质子化，其 OH 自由基覆盖度比 b-TiO2(210) 低 3 个数量级。该工作定量表明，固-液界面的局域氢键结构（即水密度）会显著影响光催化选择性，并为提升 H2O2 选择性提供了理性设计思路。
+
+<a id="S002"></a>
+### S002 | Introduction / 引言
+
+**Source:** p.1
+
+**Original:** The photocatalytic water oxidation reaction (WOR) to produce the high-value-added chemical H2O2 via a two-electron pathway (2H2O + 2h+ -> H2O2 + 2H+) has received increasing attention. However, it faces competition with the four-electron oxygen evolution process (2H2O + 4h+ -> O2 + 4H+) in practical application, despite the two-electron pathway requiring fewer electrons. Achieving a high H2O2 selectivity in this process has proven challenging, particularly for the widely used rutile phase TiO2-based materials (r-TiO2). Despite great efforts to improve the H2O2 selectivity through various methods, such as doping, surface modification, and the development of new catalysts, progress has fallen far short of expectations.
+
+**中文：** 通过二电子路径（2H2O + 2h+ -> H2O2 + 2H+）光催化水氧化来制备高附加值化学品 H2O2，正受到越来越多关注。尽管该路径所需电子数更少，但在实际体系中仍会受到四电子析氧过程（2H2O + 4h+ -> O2 + 4H+）的竞争。要获得高 H2O2 选择性一直很困难，尤其对应用最广的金红石 TiO2 基材料而言。掺杂、表面修饰和开发新催化剂等策略虽已投入大量努力，提升幅度仍远未达到预期。
+
+<a id="S003"></a>
+### S003 | Introduction / 引言
+
+**Source:** p.1
+
+**Original:** Interestingly, it has recently been shown by simple crystal phase control that brookite-phase TiO2 (b-TiO2) with high purity exhibits remarkable selectivity for H2O2 generation. This is particularly notable on the b-TiO2(210) surface, which has a high rate of OH radical formation, a key intermediate for H2O2 generation. This selectivity has not been observed on the extensively studied r-TiO2(110) surface. Considering the configuration of both crystal phases, which share the same composition and similar atomic coordination configurations and expose 5-fold coordinated surface Ti sites (Ti5c, a key active site for WOR), they may have a similar intrinsic catalytic ability. This raises the question: what is the key factor determining the reaction selectivity on different crystal phase surfaces?
+
+**中文：** 有趣的是，单纯通过晶相调控就发现高纯板钛矿 TiO2（b-TiO2）对生成 H2O2 具有很高选择性。其中 b-TiO2(210) 表面尤其突出，它能高速形成对 H2O2 生成至关重要的 OH 自由基。相反，这种选择性没有出现在已被广泛研究的 r-TiO2(110) 表面。两种晶相成分相同、原子配位构型相近，并都暴露五配位表面 Ti 位（Ti5c，是 WOR 的关键活性位），因而可能具有类似的本征催化能力。问题就变成：不同晶相表面的反应选择性究竟由什么关键因素决定？
+
+<a id="S004"></a>
+### S004 | Introduction / 引言
+
+**Source:** p.2
+
+**Original:** Peroxide intermediates can form through oxo-oxo coupling of OH radicals or O radical anions on two metal sites, alongside the water nucleophilic attack (WNA) on an M-O radical species. Subsequently, conversion of peroxide intermediates may lead to H2O2 formation through protonation or O2 production via deprotonation. The intricate nature of these competing reaction pathways poses a formidable challenge in discerning the mechanisms and kinetics governing H2O2 and O2 evolution. In addition, photocatalytic WOR involves intermediates in excited states, including OH radicals, O radical anions, and peroxide intermediates. Explicitly simulating these photoinduced intermediates and reaction on the catalyst surface remains difficult. Apart from photoexcitation, the solid-liquid interface introduces a complex hydrogen-bond network and dynamically fluctuating aqueous environment. Few studies have comprehensively addressed the impacts of these reaction environments on surface radicals and their conversion. Notably, liquid-solid interfacial environments including microdroplets, poorly wettable surfaces, and hydrophobic surfaces have demonstrated significant influences on H2O2 formation. Therefore, a rigorous examination of reaction-environment effects on the mechanism and kinetics of H2O2 and O2 evolution is imperative.
+
+**中文：** 过氧中间体可由两个金属位上 OH 自由基或 O 自由基阴离子的 oxo-oxo 偶联形成，也可经由水对 M-O 自由基物种的亲核进攻（WNA）形成。随后，过氧中间体可通过质子化转化为 H2O2，也可能经去质子化导向 O2。多条相互竞争的路径使 H2O2 与 O2 演化的机理和动力学难以辨别。WOR 还涉及 OH 自由基、O 自由基阴离子和过氧中间体等激发态物种；在催化剂表面显式模拟这些光生中间体及其反应仍很困难。除光激发外，固-液界面还引入复杂氢键网络与动态涨落的水环境。针对这些反应环境如何影响表面自由基及其转化，系统研究仍然很少。已有微液滴、低润湿表面和疏水表面等例子表明，液-固界面环境能显著影响 H2O2 生成。因此，必须严格考察反应环境对 H2O2/O2 演化机理和动力学的影响。
+
+<a id="S005"></a>
+### S005 | Introduction / 引言
+
+**Source:** p.2
+
+**Original:** In this study, the ab initio molecular dynamics (AIMD) simulations and first-principles microkinetic analysis were employed to systematically investigate the factors governing selective formation of H2O2 in the photocatalytic water oxidation reaction at the water/b-TiO2(210) interface. Our aim was to elucidate the origin of the crystal phase dependence in determining the product selectivity in the presence of an explicit water solution. We analyzed the overall activity trend and identified the dominant reaction pathway, surface coverages of crucial intermediates, and the major kinetic obstacles. Comparative analysis with the r-TiO2(110) catalyst revealed that b-TiO2(210) exhibits similar intrinsic activity for OH radical formation. However, the crucial factor improving the selectivity of H2O2 is the weakened H-bond network connectivity at the interface, which is modulated by the local atomic structure on b-TiO2(210). This interface environment significantly improves the selectivity by affecting the coverage of semihydrophobic OH radical and the oxo-oxo coupling behavior.
+
+**中文：** 本文采用从头算分子动力学（AIMD）与第一性原理微观动力学分析，系统考察水/b-TiO2(210) 界面光催化水氧化中 H2O2 选择性生成的控制因素。目标是在显式水溶液存在时，阐明晶相决定产物选择性的根源。作者分析了整体活性趋势，并识别主导反应路径、关键中间体表面覆盖度和主要动力学障碍。与 r-TiO2(110) 的对比表明，b-TiO2(210) 对 OH 自由基形成的本征活性相似；真正提高 H2O2 选择性的关键，是 b-TiO2(210) 局域原子结构调制出的较弱界面氢键网络连通性。该界面环境通过改变半疏水 OH 自由基的覆盖度和 oxo-oxo 偶联行为，显著提高选择性。
+
+<a id="S006"></a>
+### S006 | Methods: DFT Calculations and Radical Species Simulation / 方法：DFT 与自由基物种模拟
+
+**Source:** p.2
+
+**Original:** All spin-polarized calculations were performed with the Perdew-Burke-Ernzerhof (PBE) functional within the generalized gradient approximation using VASP (version 5.4.1). The projector augmented wave method represented the core-valence interaction, and the valence states were expanded in plane-wave basis sets with a 450 eV cutoff. PBE+U was used for molecular dynamics and structural optimization, with U = 6.3 eV for O 2p orbitals and U = 4.2 eV for Ti 3d orbitals. All atoms were relaxed until Hellmann-Feynman forces were below 0.05 eV/Angstrom. Van der Waals forces were included with PBE-D3 and Becke-Johnson damping. A constrained optimization scheme searched transition states by fixing the forming-bond distance and verifying that the structure is a maximum along the reaction coordinate but a minimum in all other directions.
+
+**中文：** 所有自旋极化计算均在 VASP 5.4.1 中采用广义梯度近似下的 PBE 泛函完成。芯-价电子相互作用用 PAW 方法描述，平面波截断能为 450 eV。分子动力学和结构优化使用 PBE+U：O 2p 轨道 U=6.3 eV，Ti 3d 轨道 U=4.2 eV；所有原子弛豫至 Hellmann-Feynman 力小于 0.05 eV/Angstrom。范德华作用采用带 Becke-Johnson 阻尼的 PBE-D3。过渡态用约束优化搜索：固定待成键原子距离，并验证该结构在反应坐标方向为极大值、在其余自由度方向为极小值。
+
+<a id="S007"></a>
+### S007 | Methods: DFT Calculations and Radical Species Simulation / 方法：DFT 与自由基物种模拟
+
+**Source:** p.2
+
+**Original:** To simulate a photogenerated hole while simplifying the complicated photoexcited system, an OH group was introduced as an electron acceptor on the bottom surface of the slab, resulting in a hole in the system. Hole localization was confirmed by electronic-structure analyses including site-projected magnetic moments and Bader charges. The uncertain and relatively small electron-hole interaction that varies with the trapping center in TiO2 was neglected while maintaining periodic-cell electroneutrality. The HSE06 hybrid functional with 25% exact exchange was also used to optimize or check hole-polaron properties and O-O bond-formation barriers, affirming the rationality of the calculation settings.
+
+**中文：** 为在简化复杂光激发体系的同时模拟光生空穴，作者在薄片底面引入 OH 基团作为电子受体，从而在体系中产生一个空穴。通过位点投影磁矩和 Bader 电荷等电子结构分析确认了空穴局域化。在保持周期性晶胞电中性的前提下，忽略了随 TiO2 捕获中心而变化、且相对较小的不确定电子-空穴相互作用。作者还用含 25% 精确交换的 HSE06 杂化泛函优化或检验空穴极化子性质及 O-O 成键势垒，以验证计算设置的合理性。
+
+<a id="S008"></a>
+### S008 | Methods: Water/TiO2 Interfaces and AIMD / 方法：水/TiO2 界面与 AIMD
+
+**Source:** p.2
+
+**Original:** All feasible pathways involved in photocatalytic WOR to produce O2 and H2O2 were investigated on b-TiO2(210) and r-TiO2(110) in explicit water. The water/b-TiO2(210) model contains a four-Ti-layer p(1 x 1) brookite(210) slab with 25 H2O molecules confined by Ar atoms and a 20 Angstrom vacuum layer; the water/r-TiO2(110) model contains a four-Ti-layer p(1 x 4) rutile(110) slab and about 10 Angstrom of water with 26 H2O molecules. AIMD used an NVT ensemble with local Nose-Hoover thermostats at 298 K and a 0.5 fs timestep. Reaction energetics were evaluated with multipoint averaging molecular dynamics (MAP-MD), selecting about 10 samples every 0.2 ps for each intermediate from an equilibrium AIMD structure.
+
+**中文：** 作者在显式水环境中考察 b-TiO2(210) 与 r-TiO2(110) 上所有可行的光催化 WOR 路径。水/b-TiO2(210) 模型包含四 Ti 层 p(1 x 1) 板钛矿(210) 薄片、25 个由 Ar 原子限域的 H2O 分子和 20 Angstrom 真空层；水/r-TiO2(110) 模型包含四 Ti 层 p(1 x 4) 金红石(110) 薄片及约 10 Angstrom 厚、含 26 个 H2O 的水层。AIMD 在 298 K、0.5 fs 步长下采用局域 Nose-Hoover 热浴的 NVT 系综。反应能量使用多点平均分子动力学（MAP-MD）求取：针对每个中间体，从平衡 AIMD 结构中每 0.2 ps 选取约 10 个构型。
+
+<a id="S009"></a>
+### S009 | Methods: MAP-MD Energetics / 方法：MAP-MD 能量处理
+
+**Source:** p.3
+
+**Original:** The sampled equilibrium structures were further optimized to obtain total energies. Because different water-network configurations affect the total energy, the water-solution contribution was deducted while retaining solvation effects. The resulting solvation-like energies were averaged over all samples for each intermediate and used as representative energies. This approach has been used previously and gives accuracy comparable to state-of-the-art but more time-consuming constrained molecular dynamics simulations.
+
+**中文：** 对采得的平衡构型进一步优化以得到总能量。由于不同水网络构型会影响总能量，作者扣除了水溶液本身的贡献，同时保留溶剂化效应；再对每个中间体的所有样本所得类溶剂化能量取平均，作为代表性能量。该做法此前已被采用，并可达到与更耗时的约束分子动力学相当的精度。
+
+<a id="S010"></a>
+### S010 | Results: Mechanism and Selectivity of WOR / 结果：WOR 机理与选择性
+
+**Source:** p.3
+
+**Original:** Scheme 1 outlines the possible pathways involved in photocatalytic WOR. In the first stage, adsorbed water (H2Oad) on a Ti5c site deprotonates to form interfacial OH-. Under photoirradiation, OH- is oxidized by a photohole to an OH radical, which can then release H+ to solution and become an O radical anion. In the second stage, OH radicals and O radical anions can couple by three oxo-oxo pairs: OH/OH, O/OH, and O/O; for comparison, water nucleophilic attack of aqueous H2O on O radical anion was also considered. In the third stage, adsorbed H2O2, OOH-, and O2(2-) peroxide intermediates transform into H2O2 or O2: H2O2 forms by direct OOH- protonation or sequential O2(2-) protonation, whereas O2 forms through sequential hole capture/deprotonation processes.
+
+**中文：** Scheme 1 概括了光催化 WOR 的可能路径。第一阶段，Ti5c 位上吸附水（H2Oad）去质子化，形成界面 OH-；光照下，OH- 被光生空穴氧化为 OH 自由基，后者可向溶液释放 H+，变为 O 自由基阴离子。第二阶段，OH 自由基和 O 自由基阴离子可通过 OH/OH、O/OH、O/O 三种 oxo-oxo 配对偶联；为比较起见，作者还考察了水相 H2O 对 O 自由基阴离子的亲核进攻。第三阶段，吸附 H2O2、OOH-、O2(2-) 等过氧中间体转化为 H2O2 或 O2：前者可来自 OOH- 直接质子化或 O2(2-) 逐步质子化，后者则由连续捕获空穴/去质子化的过程形成。
+
+
+<a id="F001"></a>
+#### F001 | Figure / 图
+
+**Source:** p.2<br />
+
+![Scheme 1. Coordination configurations of b-TiO2(210) and r-TiO2(110) and the general mechanism for photocatalytic WOR into H2O2/O2 at three key stages. (a) First stage, O-H bond dissociation. Second stage, O-O bond formation. Third stage, O2/H2O2 evolution. Gray, Ti; red, O; white, H.](assets/scheme-1.png)
+
+**Original caption:** Scheme 1. Coordination configurations of b-TiO2(210) and r-TiO2(110) and the general mechanism for photocatalytic WOR into H2O2/O2 at three key stages. (a) First stage, O-H bond dissociation. Second stage, O-O bond formation. Third stage, O2/H2O2 evolution. Gray, Ti; red, O; white, H.
+
+**中文图注：** 方案 1。b-TiO2(210) 与 r-TiO2(110) 的配位构型，以及光催化 WOR 生成 H2O2/O2 的三阶段通用机理。(a) 第一阶段：O-H 键断裂；第二阶段：O-O 键形成；第三阶段：O2/H2O2 演化。灰色为 Ti，红色为 O，白色为 H。
+
+**Reading note / 读图提示：** This is a direct crop from the source PDF; read it together with the preceding paragraph rather than as an independent schematic. 这是一张直接从原始 PDF 裁出的主图，请与紧邻的正文段落一起阅读，而不要把它当作独立示意图。
+
+<a id="S011"></a>
+### S011 | Results: Mechanism and Selectivity of WOR / 结果：WOR 机理与选择性
+
+**Source:** p.3
+
+**Original:** Microkinetic simulations under experimental conditions show that H2O2 is the primary product at the water/b-TiO2(210) interface, with a formation rate about 3.7 times that of O2. At water/r-TiO2(110), by contrast, O2 is the predominant product and accounts for 100%, consistent with experiment. The OH/OH coupling pathway is the fastest O-O bond-formation route on water/b-TiO2(210), with a 0.38 eV coupling barrier, whereas O/O, O/OH, and WNA have barriers of 0.59, 0.57, and 0.64 eV, respectively.
+
+**中文：** 实验条件下的微观动力学模拟显示，在水/b-TiO2(210) 界面，H2O2 是主产物，其生成速率约为 O2 的 3.7 倍；相反，在水/r-TiO2(110) 界面，O2 为主产物并占 100%，与实验一致。水/b-TiO2(210) 上 OH/OH 偶联是最快的 O-O 成键路线，偶联势垒仅 0.38 eV；O/O、O/OH 和 WNA 的势垒则分别为 0.59、0.57 和 0.64 eV。
+
+
+<a id="F002"></a>
+#### F002 | Figure / 图
+
+**Source:** p.3<br />
+
+![Figure 1. Kinetics analysis and proposed reaction mechanisms of WOR on the aqueous b-TiO2(210) and r-TiO2(110) surfaces. (a) Reaction rates of O2 and H2O2 at the water/b-TiO2(210) and water/r-TiO2(110) interfaces under Chole = 10^-9 ML, XH2O = 1, XO2 = 10^-7, pH = 7, and T = 298 K. (b) Reaction rates of four O-O-bond formation mechanisms and coverages of O radical anion and OH radical intermediates. (c) Favored mechanisms of H2O2 and O2 evolution at the two interfaces.](assets/figure-1.png)
+
+**Original caption:** Figure 1. Kinetics analysis and proposed reaction mechanisms of WOR on the aqueous b-TiO2(210) and r-TiO2(110) surfaces. (a) Reaction rates of O2 and H2O2 at the water/b-TiO2(210) and water/r-TiO2(110) interfaces under Chole = 10^-9 ML, XH2O = 1, XO2 = 10^-7, pH = 7, and T = 298 K. (b) Reaction rates of four O-O-bond formation mechanisms and coverages of O radical anion and OH radical intermediates. (c) Favored mechanisms of H2O2 and O2 evolution at the two interfaces.
+
+**中文图注：** 图 1。水相 b-TiO2(210) 与 r-TiO2(110) 表面 WOR 的动力学分析及反应机理。(a) 在 Chole = 10^-9 ML、XH2O = 1、XO2 = 10^-7、pH = 7、T = 298 K 下两个界面 O2 与 H2O2 的反应速率。(b) 四种 O-O 成键机制的反应速率，以及 O 自由基阴离子和 OH 自由基中间体的覆盖度。(c) 两个界面分别有利的 H2O2 与 O2 演化机制。
+
+**Reading note / 读图提示：** This is a direct crop from the source PDF; read it together with the preceding paragraph rather than as an independent schematic. 这是一张直接从原始 PDF 裁出的主图，请与紧邻的正文段落一起阅读，而不要把它当作独立示意图。
+
+<a id="S012"></a>
+### S012 | Results: Mechanism and Selectivity of WOR / 结果：WOR 机理与选择性
+
+**Source:** p.3
+
+**Original:** Although O radical anions have a higher coverage than OH radicals at water/b-TiO2(210) because OH radical deprotonation is exothermic (-0.43 eV), O/O coupling does not make H2O2 efficiently. The resulting O2(2-) is difficult to protonate to OOH- with a barrier above 1 eV, while OOH- tends to deprotonate; peroxide intermediates therefore finally convert to O2. Thus H2O2 is produced by OH/OH coupling whereas O2 is generated through O/O coupling at water/b-TiO2(210).
+
+**中文：** 尽管水/b-TiO2(210) 上 OH 自由基去质子化是放热的（-0.43 eV），使 O 自由基阴离子覆盖度高于 OH 自由基，但 O/O 偶联并不能高效产 H2O2。其生成的 O2(2-) 质子化为 OOH- 需要超过 1 eV 的势垒，而 OOH- 又倾向去质子化，因此过氧中间体最终会转化为 O2。也就是说，水/b-TiO2(210) 上 H2O2 来自 OH/OH 偶联，而 O2 来自 O/O 偶联。
+
+<a id="S013"></a>
+### S013 | Results: Mechanism and Selectivity of WOR / 结果：WOR 机理与选择性
+
+**Source:** p.4
+
+**Original:** At water/r-TiO2(110), surface O radical anion is the predominant peroxide precursor, with a coverage about 5 orders of magnitude higher than that of OH radical because OH radical deprotonation has a low 0.41 eV barrier and is exothermic by -0.53 eV. O/O coupling is the fastest O-O route, with a 0.25 eV barrier. The O2(2-) product then undergoes a strongly exothermic two-hole sequential oxidation to O2, about 3 orders of magnitude faster than O2(2-) protonation. Consequently O2 forms predominantly through O/O coupling and H2O2 production is negligible at water/r-TiO2(110).
+
+**中文：** 在水/r-TiO2(110) 界面，表面 O 自由基阴离子是主要过氧前体；由于 OH 自由基去质子化势垒低（0.41 eV）且放热（-0.53 eV），其覆盖度比 OH 自由基高约 5 个数量级。O/O 偶联是最快的 O-O 成键路线，势垒为 0.25 eV。生成的 O2(2-) 随后经历强放热的双空穴连续氧化形成 O2，其速率比 O2(2-) 质子化快约 3 个数量级。因此，水/r-TiO2(110) 上主要经 O/O 偶联形成 O2，而 H2O2 生成可以忽略。
+
+<a id="S014"></a>
+### S014 | Results: Major Obstacle to Selectivity / 结果：选择性的主要障碍
+
+**Source:** p.4
+
+**Original:** The H2O2/O2 formation-rate ratio can be written as r(H2O2)/r(O2) = k6+ x theta(OH radical)^2 / [k7+ x theta(O radical anion)^2], where k6+ and k7+ are the forward rate constants for OH/OH and O/O coupling. Accordingly, the main factors controlling WOR selectivity are the coverages theta(OH radical) and theta(O radical anion), and the respective barriers for OH/OH and O/O coupling.
+
+**中文：** H2O2/O2 生成速率比可写为 r(H2O2)/r(O2) = k6+ x theta(OH 自由基)^2 / [k7+ x theta(O 自由基阴离子)^2]，其中 k6+ 与 k7+ 分别是 OH/OH 和 O/O 偶联的正向速率常数。因此，WOR 选择性的主要控制因素有两类：theta(OH 自由基) 与 theta(O 自由基阴离子) 的覆盖度，以及 OH/OH 与 O/O 偶联各自的势垒。
+
+<a id="S015"></a>
+### S015 | Results: Formation of OH Radicals / 结果：OH 自由基形成
+
+**Source:** p.4
+
+**Original:** Under photoirradiation, a hole can trap at OH- on a Ti5c site and oxidize it into an OH radical. To evaluate the difficulty of OH radical formation at the water/catalyst interface, the hole trapping capacity (HTC) of OH radical in water surroundings relative to a self-trapped bulk hole was calculated.
+
+**中文：** 光照下，空穴可捕获在 Ti5c 位的 OH- 上并将其氧化为 OH 自由基。为评估水/催化剂界面上形成 OH 自由基的难易程度，作者计算了水环境中 OH 自由基相对于本体自陷空穴的空穴捕获能力（HTC）。
+
+<a id="S016"></a>
+### S016 | Results: Formation of OH Radicals / 结果：OH 自由基形成
+
+**Source:** p.5
+
+**Original:** The b-TiO2(210) surface consists of closely packed herringbone-like blocks separated by narrow gaps. It has Ti5cG sites at gap junctions and Ti5cB sites within blocks, whereas r-TiO2(110) has one Ti5c type. In water, the HTC of OH radical is -0.39 eV at Ti5cG and -0.43 eV at Ti5cB on b-TiO2(210), more negative than -0.19 eV on r-TiO2(110), in agreement with higher experimental OH-radical production on brookite. Without water, however, the HTC values (-0.85, -0.84, and -0.91 eV for Ti5cG, Ti5cB, and rutile Ti5c) are comparable. Thus the phase difference is not intrinsic radical-forming activity; water solvation weakens OH-radical formation much less on b-TiO2(210).
+
+**中文：** b-TiO2(210) 表面由紧密排列的鱼骨状结构块组成，其间有狭窄间隙；间隙连接处为 Ti5cG，块内为 Ti5cB，而 r-TiO2(110) 只有一种 Ti5c。在水中，b-TiO2(210) 的 OH 自由基 HTC 在 Ti5cG、Ti5cB 上分别为 -0.39、-0.43 eV，均比 r-TiO2(110) 上的 -0.19 eV 更负，与板钛矿上实验观察到的更高 OH 自由基生成相一致。然而无水时，Ti5cG、Ti5cB 与金红石 Ti5c 的 HTC 分别为 -0.85、-0.84、-0.91 eV，彼此相近。因此晶相差异并非来自本征自由基形成活性，而在于水溶剂化对 b-TiO2(210) 上 OH 自由基形成的削弱小得多。
+
+
+<a id="F003"></a>
+#### F003 | Figure / 图
+
+**Source:** p.4<br />
+
+![Figure 2. Formation of OH radicals at the liquid/solid interface. (a) Top view of b-TiO2(210); blue rectangles and gray shadows mark building blocks and gap junctions, respectively; light and dark gray denote Ti5cG and Ti5cB. (b) Hole-trapping capacity of OH- on b-TiO2(210) and r-TiO2(110) in solvent and gas. (c) Representative AIMD snapshots with water-density maps. (d) Water-density profiles perpendicular to the interfaces. (e) Angular distributions of adsorbed water at the adsorption layer, with near-adsorption-layer distributions inset. (f) Adsorption and solvation energies of adsorbed water at Ti5c sites.](assets/figure-2.png)
+
+**Original caption:** Figure 2. Formation of OH radicals at the liquid/solid interface. (a) Top view of b-TiO2(210); blue rectangles and gray shadows mark building blocks and gap junctions, respectively; light and dark gray denote Ti5cG and Ti5cB. (b) Hole-trapping capacity of OH- on b-TiO2(210) and r-TiO2(110) in solvent and gas. (c) Representative AIMD snapshots with water-density maps. (d) Water-density profiles perpendicular to the interfaces. (e) Angular distributions of adsorbed water at the adsorption layer, with near-adsorption-layer distributions inset. (f) Adsorption and solvation energies of adsorbed water at Ti5c sites.
+
+**中文图注：** 图 2。液-固界面 OH 自由基的形成。(a) b-TiO2(210) 顶视图；蓝色矩形和灰色阴影分别标记结构块与间隙连接，浅灰和深灰分别为 Ti5cG、Ti5cB。(b) b-TiO2(210) 与 r-TiO2(110) 上 OH- 在溶剂和气相条件下的空穴捕获能力。(c) 带水密度图的代表性 AIMD 构型。(d) 垂直于界面的水密度分布。(e) 吸附层 H2Oad 的取向角分布，插图为近吸附层分布。(f) Ti5c 位上吸附水的吸附能与溶剂化能。
+
+**Reading note / 读图提示：** This is a direct crop from the source PDF; read it together with the preceding paragraph rather than as an independent schematic. 这是一张直接从原始 PDF 裁出的主图，请与紧邻的正文段落一起阅读，而不要把它当作独立示意图。
+
+<a id="S017"></a>
+### S017 | Results: Interfacial Water Network / 结果：界面水网络
+
+**Source:** p.5
+
+**Original:** At both interfaces, adsorbed water in the adsorption layer (AL) lies about 1.8 Angstrom from the surface. However, near-adsorption-layer (NAL) water is farther from b-TiO2(210) (about 3.7 Angstrom) than from r-TiO2(110) (about 3.2 Angstrom), and the junction region between AL and NAL has lower water density on b-TiO2(210). Larger cells and thicker water layers give the same trend. These results show that H-bonding between AL and NAL water is weakened at water/b-TiO2(210), consistent with the smaller solvation influence on water adsorbed at Ti5cG and Ti5cB. The resulting OH radical coverage is about 3 orders of magnitude larger in the kinetic analysis.
+
+**中文：** 两种界面的吸附层（AL）水都位于距表面约 1.8 Angstrom 处。但 b-TiO2(210) 的近吸附层（NAL）水距离更远，约 3.7 Angstrom，而 r-TiO2(110) 约为 3.2 Angstrom；并且 b-TiO2(210) 上 AL 与 NAL 之间的间隙区域水密度更低。更大超胞和更厚水层给出相同趋势。这表明水/b-TiO2(210) 上 AL 与 NAL 之间的氢键被削弱，也与 Ti5cG、Ti5cB 吸附水受到的溶剂化影响更小一致。由此，在动力学结果中 OH 自由基覆盖度提高约 3 个数量级。
+
+<a id="S018"></a>
+### S018 | Results: Interfacial Water Network / 结果：界面水网络
+
+**Source:** p.5
+
+**Original:** The block arrangement of b-TiO2(210) strengthens H2O adsorption and exposes more active sites per unit area. Its H2O adsorption energy is -1.56 eV, stronger than -1.20 eV on r-TiO2(110). Most adsorbed water at water/b-TiO2(210) adopts a parallel orientation, with H pointing toward bridge oxygen and phi around 80 degrees. This reduces AL-NAL interaction; the preferential orientation gives NAL water a zigzag spatial distribution and creates a cavity that accommodates and stabilizes semihydrophobic OH radical. In contrast, adsorbed water at r-TiO2(110) is mainly oriented at phi = 30-60 degrees toward upper-layer water, producing stronger H-bond connectivity with NAL water.
+
+**中文：** b-TiO2(210) 的结构块排布增强 H2O 吸附并在单位面积暴露更多活性位；其水吸附能为 -1.56 eV，比 r-TiO2(110) 的 -1.20 eV 更强。水/b-TiO2(210) 上大多数吸附水平行于表面，H 指向桥氧，phi 约为 80 度；这会削弱 AL-NAL 相互作用。该优先取向使 NAL 水呈锯齿状空间分布，形成可容纳并稳定半疏水 OH 自由基的空腔。相反，r-TiO2(110) 上吸附水主要以 phi=30-60 度朝向上层水，从而与 NAL 水形成更强的氢键连通性。
+
+
+<a id="F004"></a>
+#### F004 | Figure / 图
+
+**Source:** p.5<br />
+
+![Figure 3. Statistical distribution probability of water molecules (Pwater, projected on the x and z axes) at the aqueous b-TiO2(210) interface for parallel (a) and H-up (b) H2Oad orientations. Each distribution uses 500 samples from the corresponding equilibrium stage of the AIMD simulation.](assets/figure-3.png)
+
+**Original caption:** Figure 3. Statistical distribution probability of water molecules (Pwater, projected on the x and z axes) at the aqueous b-TiO2(210) interface for parallel (a) and H-up (b) H2Oad orientations. Each distribution uses 500 samples from the corresponding equilibrium stage of the AIMD simulation.
+
+**中文图注：** 图 3。水相 b-TiO2(210) 界面水分子统计分布概率 Pwater（投影到 x、z 轴）：(a) 平行取向 H2Oad；(b) H-up 取向 H2Oad。每种情况均取自对应 AIMD 平衡阶段的 500 个样本。
+
+**Reading note / 读图提示：** This is a direct crop from the source PDF; read it together with the preceding paragraph rather than as an independent schematic. 这是一张直接从原始 PDF 裁出的主图，请与紧邻的正文段落一起阅读，而不要把它当作独立示意图。
+
+<a id="S019"></a>
+### S019 | Results: OH Radical Deprotonation / 结果：OH 自由基去质子化
+
+**Source:** p.6
+
+**Original:** OH radical deprotonation is a surface acid-base reaction, OH radical -> O radical anion + H+(sol), and determines the theta(OH radical)/theta(O radical anion) ratio. The process is exothermic at both solid-liquid interfaces: -0.44 and -0.42 eV at Ti5cG and Ti5cB of b-TiO2, and -0.53 eV at rutile Ti5c. Yet the barriers on b-TiO2(210) are higher (0.66 eV at Ti5cG and 0.56 eV at Ti5cB) than that on r-TiO2(110) (0.41 eV); this raises theta(OH radical)/theta(O radical anion) and thus favors H2O2 selectivity.
+
+**中文：** OH 自由基去质子化是表面酸碱反应：OH 自由基 -> O 自由基阴离子 + H+(sol)，它决定 theta(OH 自由基)/theta(O 自由基阴离子) 比值。两个固-液界面上该过程都放热：b-TiO2 的 Ti5cG、Ti5cB 分别为 -0.44、-0.42 eV，金红石 Ti5c 为 -0.53 eV。但 b-TiO2(210) 上势垒更高，Ti5cG 为 0.66 eV、Ti5cB 为 0.56 eV，而 r-TiO2(110) 为 0.41 eV；这提高 theta(OH 自由基)/theta(O 自由基阴离子)，因而有利于 H2O2 选择性。
+
+
+<a id="F005"></a>
+#### F005 | Figure / 图
+
+**Source:** p.6<br />
+
+![Figure 4. OH-radical deprotonation at the liquid/solid interface. Contours of log10(theta) for OH radical (a) and O radical anion (b) versus the deprotonation barrier Ea and enthalpy change DeltaH at water/b-TiO2(210). (c) H2O2 selectivity as affected by Ea and DeltaH. (d) H-bond strength and adsorption energy of surface OH radical at Ti5c sites, with corresponding Ea. (e) Spin-density plots (isovalue = 0.005) for initial and transition states at water/b-TiO2(210) and water/r-TiO2(110).](assets/figure-4.png)
+
+**Original caption:** Figure 4. OH-radical deprotonation at the liquid/solid interface. Contours of log10(theta) for OH radical (a) and O radical anion (b) versus the deprotonation barrier Ea and enthalpy change DeltaH at water/b-TiO2(210). (c) H2O2 selectivity as affected by Ea and DeltaH. (d) H-bond strength and adsorption energy of surface OH radical at Ti5c sites, with corresponding Ea. (e) Spin-density plots (isovalue = 0.005) for initial and transition states at water/b-TiO2(210) and water/r-TiO2(110).
+
+**中文图注：** 图 4。液-固界面 OH 自由基去质子化。(a,b) 水/b-TiO2(210) 上 OH 自由基与 O 自由基阴离子 log10(theta) 对去质子化势垒 Ea 和反应焓变 DeltaH 的等值图。(c) Ea、DeltaH 对 H2O2 选择性的影响。(d) 不同 Ti5c 位表面 OH 自由基的氢键强度、吸附能和对应 Ea。(e) 水/b-TiO2(210) 与水/r-TiO2(110) 上初态和过渡态的自旋密度图（等值面 0.005）。
+
+**Reading note / 读图提示：** This is a direct crop from the source PDF; read it together with the preceding paragraph rather than as an independent schematic. 这是一张直接从原始 PDF 裁出的主图，请与紧邻的正文段落一起阅读，而不要把它当作独立示意图。
+
+<a id="S020"></a>
+### S020 | Results: OH Radical Deprotonation / 结果：OH 自由基去质子化
+
+**Source:** p.6
+
+**Original:** During OH radical deprotonation, its O-H bond elongates toward the nearest NAL water molecule, which accepts the proton, while the O-Ti bond stabilizes the O atom. The O-Ti bond varies little among sites, but decreasing H-bond strength in the order rutile Ti5c > brookite Ti5cB > brookite Ti5cG lengthens the H-bond and increases the O-H cleavage barrier. The relatively strong H-bond at water/r-TiO2(110) (-0.95 eV, about 1.45 Angstrom) gives fast deprotonation, whereas weaker H-bonds on brookite (-0.72 and -0.73 eV; 1.54 and 1.52 Angstrom) raise the barrier. The barriers correlate linearly with H-bond strength, explaining why OH radicals are detected on brookite but not rutile after UV irradiation.
+
+**中文：** OH 自由基去质子化时，其 O-H 键向最近的 NAL 水分子伸长，后者接受质子；同时 O-Ti 键稳定 O 原子。不同位点间 O-Ti 键变化很小，但氢键强度按金红石 Ti5c > 板钛矿 Ti5cB > 板钛矿 Ti5cG 降低时，氢键变长、O-H 断裂势垒升高。水/r-TiO2(110) 上较强氢键（-0.95 eV，约 1.45 Angstrom）带来快速去质子化；板钛矿上较弱氢键（-0.72、-0.73 eV；1.54、1.52 Angstrom）则抬高势垒。势垒与氢键强度呈良好线性关联，解释了为何 UV 照射后可在板钛矿上检测到 OH 自由基、却难以在金红石上检测到。
+
+<a id="S021"></a>
+### S021 | Results: O-O Coupling / 结果：O-O 偶联
+
+**Source:** p.6
+
+**Original:** O-O-coupling barriers are another key selectivity factor. Short Ti-Ti distances would normally be expected to promote O-O coupling. However, the shortest Ti-Ti distance on b-TiO2(210), 3.55 Angstrom, is already too long for coupling relative to the roughly 1.5 Angstrom O-O distance in peroxide intermediates; without solvent its O-O-coupling barrier is therefore high compared with r-TiO2(110), whose Ti-Ti distance is 2.96 Angstrom.
+
+**中文：** O-O 偶联势垒是另一项关键选择性因素。通常较短 Ti-Ti 距离应有利于 O-O 偶联；但 b-TiO2(210) 上最短 Ti-Ti 距离也有 3.55 Angstrom，相对于过氧中间体约 1.5 Angstrom 的 O-O 距离已过长。因此在无溶剂时，它的 O-O 偶联势垒高于 Ti-Ti 距离为 2.96 Angstrom 的 r-TiO2(110)。
+
+<a id="S022"></a>
+### S022 | Results: O-O Coupling / 结果：O-O 偶联
+
+**Source:** p.7
+
+**Original:** At water/b-TiO2(210), H-bonds between NAL water and bridge oxygen critically shape O-O coupling. The OH/OH barrier falls from 0.71 to 0.38 eV, while O/OH falls from 0.62 to 0.57 eV and O/O falls from 0.64 to 0.59 eV. The herringbone structure and NAL H2O configuration place a water molecule over the gap-junction chain; it H-bonds to the adsorbed OH radicals at the center of the coupling pair and stabilizes the transition state, increasing the likelihood of OH/OH coupling and facilitating H2O2 generation.
+
+**中文：** 在水/b-TiO2(210) 上，NAL 水与桥氧之间的氢键显著塑造 O-O 偶联行为。OH/OH 势垒由 0.71 降至 0.38 eV，O/OH 由 0.62 降至 0.57 eV，O/O 由 0.64 降至 0.59 eV。鱼骨状结构与 NAL H2O 构型使一个水分子位于间隙连接链上方；它与偶联对中心的吸附 OH 自由基形成氢键、稳定过渡态，从而提高 OH/OH 偶联几率并促进 H2O2 生成。
+
+
+<a id="F006"></a>
+#### F006 | Figure / 图
+
+**Source:** p.7<br />
+
+![Figure 5. O-O coupling at the water/TiO2 interface. Reaction barriers and transition-state structures for three possible O-O-bond formation mechanisms on b-TiO2(210) (a) and r-TiO2(110) (b), in the presence and absence of solution. Insets in the histograms illustrate the effects of Ti-Ti distance and local H bonds on oxo-oxo coupling in the two systems.](assets/figure-5.png)
+
+**Original caption:** Figure 5. O-O coupling at the water/TiO2 interface. Reaction barriers and transition-state structures for three possible O-O-bond formation mechanisms on b-TiO2(210) (a) and r-TiO2(110) (b), in the presence and absence of solution. Insets in the histograms illustrate the effects of Ti-Ti distance and local H bonds on oxo-oxo coupling in the two systems.
+
+**中文图注：** 图 5。水/TiO2 界面的 O-O 偶联。(a) b-TiO2(210)、(b) r-TiO2(110) 上三种可能 O-O 成键机制在有/无溶液时的反应势垒和过渡态结构。直方图插图展示 Ti-Ti 距离和局域氢键对两个体系 oxo-oxo 偶联的影响。
+
+**Reading note / 读图提示：** This is a direct crop from the source PDF; read it together with the preceding paragraph rather than as an independent schematic. 这是一张直接从原始 PDF 裁出的主图，请与紧邻的正文段落一起阅读，而不要把它当作独立示意图。
+
+<a id="S023"></a>
+### S023 | Results: O-O Coupling / 结果：O-O 偶联
+
+**Source:** p.7
+
+**Original:** Conversely, at water/r-TiO2(110), NAL H2O forms H-bonds with OH radical or O radical anion intermediates, but the directions point toward the two sides of the coupling pair and make O-O bond formation more difficult. O/O coupling rises from 0.22 to 0.25 eV; because of strong directionality, OH/OH rises from 0.32 to 0.75 eV and O/OH rises from 0.16 to 0.71 eV. The solvent therefore plays a significant and opposite role: it facilitates OH/OH coupling on brookite but disfavors it on rutile.
+
+**中文：** 相反，在水/r-TiO2(110) 上，NAL H2O 会与 OH 自由基或 O 自由基阴离子中间体形成氢键，但氢键方向朝向偶联对两侧，反而增加 O-O 成键难度。O/O 偶联势垒从 0.22 升至 0.25 eV；由于强方向性，OH/OH 从 0.32 升至 0.75 eV，O/OH 从 0.16 升至 0.71 eV。因此溶剂发挥显著而相反的作用：它在板钛矿上促进 OH/OH 偶联，却在金红石上不利于该过程。
+
+<a id="S024"></a>
+### S024 | Results: Explanation of Experimental Observations / 结果：对实验观察的解释
+
+**Source:** p.7
+
+**Original:** The local-structure-modulated H-bond network controls WOR selectivity through OH radical coverage and the OH/OH-coupling barrier. First, weak H-bond connectivity at water/b-TiO2(210) enhances OH radical formation, explaining why poorly wettable interfacial water can improve charge separation and H2O2 selectivity, and offering a mechanistic link to microdroplet and hydrophobic-interface effects. Second, the same weak network hinders OH radical deprotonation and thereby increases its surface coverage. This emphasizes the key role of theta(OH radical) in H2O2 production and explains reports of 100% H2O2 selectivity after changing hydroxyl abundance on brookite TiO2.
+
+**中文：** 由局域结构调制的氢键网络，通过 OH 自由基覆盖度及 OH/OH 偶联势垒控制 WOR 选择性。首先，水/b-TiO2(210) 的弱氢键连通性增强 OH 自由基形成，这可解释低润湿界面水为何能提高电荷分离效率和 H2O2 选择性，并把微液滴、疏水界面等效应联系到同一机制。其次，这一弱网络阻碍 OH 自由基去质子化，从而增加其表面覆盖度。这凸显 theta(OH 自由基) 对 H2O2 生产的核心作用，也解释了通过调节板钛矿 TiO2 上羟基丰度而达到 100% H2O2 选择性的报道。
+
+<a id="S025"></a>
+### S025 | Conclusion / 结论
+
+**Source:** p.7
+
+**Original:** This study provides a comprehensive understanding of water-oxidation selectivity at water/b-TiO2(210) and water/r-TiO2(110). The brookite interface has higher OH radical coverage and is conducive to OH/OH coupling, yielding higher H2O2 selectivity. Rutile has much lower OH radical coverage, and its H-bond orientation impedes O-O coupling, leading to almost no H2O2 generation. The contrasting behavior is governed by weak H-bond network connectivity induced by the herringbone-like local atomic structure of b-TiO2(210).
+
+**中文：** 本研究系统阐明了水/b-TiO2(210) 与水/r-TiO2(110) 界面水氧化的选择性。板钛矿界面具有更高的 OH 自由基覆盖度，并有利于 OH/OH 偶联，因而给出更高 H2O2 选择性；金红石的 OH 自由基覆盖度明显更低，其氢键取向又阻碍 O-O 偶联，几乎不生成 H2O2。这种截然不同的行为由 b-TiO2(210) 鱼骨状局域原子结构诱导的弱氢键网络连通性所控制。
+
+<a id="S026"></a>
+### S026 | Conclusion / 结论
+
+**Source:** p.8
+
+**Original:** The weak H-bond connectivity at water/b-TiO2(210) can be summarized in three linked effects. (i) Stronger water adsorption and a distinct adsorption orientation weaken local H-bonding between adsorption-layer and near-adsorption-layer water. (ii) The weak connectivity enhances semihydrophobic OH radical formation and hinders OH radical deprotonation, improving theta(OH radical)/theta(O radical anion). (iii) The water structure over b-TiO2(210) is conducive to OH/OH coupling and therefore favors H2O2 generation. The work highlights a liquid-solid interface structure-selectivity relationship and identifies rational control of interfacial structure as a route to improve photocatalytic selectivity and efficiency.
+
+**中文：** 水/b-TiO2(210) 上的弱氢键连通性可归结为三个相互连接的效应：(i) 更强水吸附和独特吸附取向削弱了吸附层与近吸附层水之间的局域氢键；(ii) 弱连通性增强半疏水 OH 自由基形成并阻碍其去质子化，从而提高 theta(OH 自由基)/theta(O 自由基阴离子)；(iii) b-TiO2(210) 上的水结构有利于 OH/OH 偶联，进而偏向 H2O2 生成。该工作揭示了液-固界面上的结构-选择性关系，并指出理性调控界面结构是提高光催化选择性和效率的途径。
+
+<a id="S027"></a>
+### S027 | Associated Supporting Information / 补充信息
+
+**Source:** p.8
+
+**Original:** The Supporting Information provides DFT calculation details; water/TiO2 interface models; the MAP-MD method; free-energy and interface-energy calculations; microkinetic details; reaction energy profiles; activity/selectivity versus hole concentration; local density of states; enlarged water-layer tests; relationships among deprotonation barriers, adsorption energies, and H-bond strength; Bader-charge analysis; and bond-length changes during OH radical deprotonation.
+
+**中文：** 补充信息提供了 DFT 计算细节、水/TiO2 界面模型、MAP-MD 方法、自由能和界面能计算、微观动力学细节、反应能量剖面、活性/选择性对空穴浓度的依赖、局域态密度、更大水层测试、去质子化势垒/吸附能/氢键强度之间的关系、Bader 电荷分析，以及 OH 自由基去质子化时的键长变化。
+
+<a id="S028"></a>
+### S028 | Author Information / 作者信息
+
+**Source:** p.8
+
+**Original:** Haifeng Wang is the corresponding author at the State Key Laboratory of Green Chemical Engineering and Industrial Catalysis, Centre for Computational Chemistry and Research Institute of Industrial Catalysis, East China University of Science and Technology, Shanghai 200237, China; email: hfwang@ecust.edu.cn. Guanhua Ren and Min Zhou are affiliated with the same institutions. Guanhua Ren and Min Zhou contributed equally to this work. The authors declare no competing financial interest.
+
+**中文：** 通讯作者为华东理工大学绿色化学工程与工业催化国家重点实验室、计算化学中心及工业催化研究所的 Haifeng Wang（上海 200237；hfwang@ecust.edu.cn）。Guanhua Ren 与 Min Zhou 属于同一机构。Guanhua Ren 和 Min Zhou 对本工作贡献相等。作者声明不存在竞争性经济利益。
+
+<a id="S029"></a>
+### S029 | Acknowledgments / 致谢
+
+**Source:** p.8
+
+**Original:** This project was supported by the National Key R&D Program of China (Grant 2021YFA1500700), the National Natural Science Foundation of China (Grants 22202069 and 21873028), Special Support by the China Postdoctoral Science Foundation (Grant 2022TQ0106), the China Postdoctoral Science Foundation Funded Project (Grant 2022M721141), and the Fundamental Research Funds for the Central Universities.
+
+**中文：** 本项目得到国家重点研发计划（2021YFA1500700）、国家自然科学基金（22202069、21873028）、中国博士后科学基金特别资助（2022TQ0106）、中国博士后科学基金资助项目（2022M721141）以及中央高校基本科研业务费的支持。
+
+## Related Reading / 相关必读
+
+今天保留 1 篇直接前置文献，不为凑数添加其他条目。详见 [related_reading.md](related_reading.md)。

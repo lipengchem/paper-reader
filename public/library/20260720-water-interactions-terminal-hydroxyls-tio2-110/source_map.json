@@ -1,0 +1,560 @@
+{
+  "paper": {
+    "title": "Water Interactions with Terminal Hydroxyls on TiO2(110)",
+    "venue": "The Journal of Physical Chemistry C",
+    "source_type": "pdf",
+    "language": "en",
+    "source_path": "C:\\Users\\LP\\Zotero\\storage\\6MZ32582\\Du et al. - 2010 - Water Interactions with Terminal Hydroxyls on TiO2(110).pdf",
+    "doi": "10.1021/jp1036876",
+    "zotero_item_key": "PVGN46VV",
+    "zotero_attachment_key": "6MZ32582"
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "page": 1,
+      "type": "paragraph",
+      "section": "Abstract / 摘要",
+      "order": 1,
+      "original_text": "A combination of scanning tunneling microscopy and density functional theory has been used to investigate the interactions between water molecules and terminal hydroxyls (OHt’s) adsorbed on the TiO2(110) surface at 300 K. We show that OHt’s have a significant effect on the water reactivity. Two distinctive reaction pathways are unraveled depending on the whether H2O and OHt are on the same or adjacent Ti rows. The underlying reaction mechanisms involve proton transfer from H2O to OHt leading to the formation of new H2O molecules, accompanied by O scrambling and along- or across-row apparent motion of OHt’s.",
+      "translation": "作者结合扫描隧道显微镜（STM）和密度泛函理论（DFT），研究了 300 K 下吸附在 TiO2(110) 表面的水分子与端位羟基（OHt）的相互作用。OHt 会显著改变水的反应性；当 H2O 与 OHt 位于同一条或相邻 Ti 行时，会出现两条不同反应路径。其共同核心是 H2O 向 OHt 的质子转移，生成新的 H2O，同时伴随氧原子交换，并使 OHt 沿行或跨行产生表观移动。",
+      "bbox": [
+        109.42,
+        175.99,
+        547.46,
+        244.09
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S001"
+    },
+    {
+      "id": "S002",
+      "page": 1,
+      "type": "paragraph",
+      "section": "1. Introduction / 引言",
+      "order": 2,
+      "original_text": "Water over the rutile TiO2(110) surface is one of the most studied model system for the fundamental studies of metal oxide surface reactivity and has attracted much attention.1-6 Further- more, it plays an important role in various photocatalytic applications of titanium dioxide, including oxidation of organic pollutants and hydrogen production via water splitting.7-9",
+      "translation": "金红石 TiO2(110)-水界面是研究金属氧化物表面反应性的经典模型，也与 TiO2 光催化中的有机污染物氧化和水分解制氢直接相关。",
+      "bbox": [
+        43.42,
+        275.37,
+        283.56,
+        339.87
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S002"
+    },
+    {
+      "id": "S003",
+      "page": 1,
+      "type": "paragraph",
+      "section": "1. Introduction / 引言",
+      "order": 3,
+      "original_text": "Studies of hydroxylation of the TiO2(110) surface, reduced by annealing in ultrahigh vacuum (UHV), show that water pref- erentially dissociates at surface oxygen vacancy (VO) sites, generating bridging hydroxyl groups (OHb’s).10-12 Recent experimental evidence also reveals that H2O molecules at regular Ti sites are in a “pseudo-dissociated” state, rapidly switching between dissociated and molecular geometries that are in dynamical equilibrium.13-15 Water surface chemistry on TiO2(110) can be significantly affected by the coadsorbates. For example, H2O readily dissociates near oxygen adatoms (Oa’s),13,16 that form upon O2 oxidation of reduced TiO2(110).16-21 In addition, while water is very mobile on the TiO2(110) around 300 K,22 it can also induce motion of other coadsorbed species, e.g., the Oa’s and OHb’s.13,22 However, in general the interactions of water with coadsorbates have received much less attention so far. One of the most important coadsorbates is certainly oxygen, which is a common environmental reactant and also plays an important role in many photocatalytical processes.2,7,8 Reactions between O2 and H2O on catalytically active surfaces often involve intricate mechanisms with a number of possible surface- bound reactive intermediates.16,23-26 In our previous scanning tunneling microscopy (STM) study, we directly imaged for the first time Ti-bonded terminal hydroxyl (OHt) species formed upon oxygen interaction with a partially hydroxylated TiO2(110) surface at 300 K.27 In a separate study, we have demonstrated that the OHt’s can also form as a result of H2O interaction with Oa’s.13 We have also reported previously that in the case of O2 interaction with a fully hydroxylated TiO2(110), single OHt’s species have also been tentatively detected at the surface after large oxygen expositions.26 In addition, (OHt-H2O) pair dif- fusion was recently imaged with STM at low temperatures (170-200 K).28 Yet, the role of OHt’s in the reactivity of TiO2(110) is largely unknown.",
+      "translation": "超高真空退火还原后的 TiO2(110) 上，水优先在氧空位（VO）解离，形成桥位羟基（OHb）。常规 Ti 位上的水则处于分子构型与解离构型之间快速切换的“伪解离”动态平衡。共吸附物会显著改写这套表面水化学：水既能在氧吸附原子（Oa）附近解离，也可诱导 Oa 和 OHb 移动。作者指出，相比之下，水与共吸附物之间的相互作用仍被研究得不足。",
+      "bbox": [
+        43.42,
+        341.37,
+        283.63,
+        450.44
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S003"
+    },
+    {
+      "id": "S004",
+      "page": 1,
+      "type": "paragraph",
+      "section": "1. Introduction / 引言",
+      "order": 4,
+      "original_text": "In this studyIn this study, we investigate the interactions of water and terminal hydroxyls on TiO2(110) surfaces at 300 K using high- resolution STM and density functional theory (DFT) calcula- tions. We find that H2O readily reacts with OHt’s following one of two distinctive reaction pathways that result in an apparent motion of OHt’s. Our DFT calculations support the experimental results and reveal underlying mechanisms of the observed processes.",
+      "translation": "氧是该表面最重要的共吸附物之一，既是环境反应物，也参与多类光催化过程。作者此前已经用 STM 直接观察到：部分羟基化 TiO2(110) 与氧作用后会形成 Ti 键合的单个 OHt；水与 Oa 相互作用也能形成 OHt，而低温 STM 已观察到 (OHt-H2O) 对的扩散。本文因此在 300 K 下把高分辨 STM 与 DFT 结合，证明水会沿两条路径与 OHt 反应并产生 OHt 的表观迁移，同时由计算给出其微观机制。",
+      "bbox": [
+        307.42,
+        254.97,
+        547.46,
+        421.87
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S004"
+    },
+    {
+      "id": "S005",
+      "page": 1,
+      "type": "paragraph",
+      "section": "2. Experimental Section / 实验部分",
+      "order": 5,
+      "original_text": "Experiments in this study were performed in two UHV-STM systems that have similar setups,18,29 thus only one is described in a detail here. This system (base pressure 3 × 10-11 Torr) is equipped with a variable-temperature STM (Omicron), a semi- spherical electron energy analyzer (Omicron), a mass spectrom- eter (Ametek), and electron and ion guns (VG and SPECS, respectively). The single-crystal rutile TiO2(110)-(1 × 1) surface (Princeton Scientific) was prepared by multiple (∼few tens) cycles of Ar ion sputtering (2 keV) and UHV annealing (800-900 K), resulted in the initial VO coverage of ∼0.09 ML. At the beginning of each experiment, which was carried out at 300K, the sample was flash-annealed to 600 K. In order to form the OHt’s species, both Oa’s and OHb’s should be present on the surface. Hence, we exposed a reduced TiO2(110) surface to O2 dosing through a dedicated doser, and H2O either through another doser or by adsorption from UHV background (in both cases, the obtained results were similar). Coverages of surface species were determined by direct counting on the STM images and expressed in monolayer units (1 ML ) 5.2 × 1014 atoms/ cm2). We have analyzed the same surface area before and after adsorption, and this allowed us to monitor changes caused by the adsorption of individual molecules. STM tips were home- made from electrochemically etched W wire and cleaned in situ by the annealing and ion sputtering.30 Presented STM (empty state) images were collected in a constant-current (∼0.1 nA) mode at positive sample bias voltage of 1.5-1.8 V. The resulting images were processed using WSxM software.31",
+      "translation": "实验在两套相似的超高真空 STM 系统中进行。金红石 TiO2(110)-(1 x 1) 单晶经 Ar 离子溅射和退火制备，初始氧空位覆盖度约为 0.09 ML；每次 300 K 实验前都快速退火至 600 K。为形成 OHt，表面需要同时存在 Oa 与 OHb，因此将还原表面暴露于 O2，并通过定量进水或背景水吸附引入 H2O。研究者通过同一区域吸附前后的 STM 图像逐一计数表面物种，以追踪单分子吸附引起的变化；空态 STM 图像在 1.5-1.8 V 正偏压下采集，并用 WSxM 处理。",
+      "bbox": [
+        307.42,
+        452.87,
+        547.64,
+        726.37
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S005"
+    },
+    {
+      "id": "S006",
+      "page": 2,
+      "type": "paragraph",
+      "section": "3. Computational Details / 计算细节",
+      "order": 6,
+      "original_text": "We performed DFT calculations using a slab model with three-dimensional periodic boundary conditions to model several reactions of interest over the TiO2 (110) surface. A (4 × 2) supercell (13.12 Å by 11.96 Å), being four trilayers (or 12 atomic layers) thick, was used to describe the surface. We tested for vacuum space convergence by using vacuum spacings of 13 Å and 17 Å between slabs. The two vacuum spacings gave energies that agreed within 0.4 meV, indicating that the vacuum distances were sufficiently converged. Reciprocal space was treated by a single k-point, Γ, as our code currently only supports this k-point. We therefore ensured that the reciprocal space sampling density was converged by running calculations using larger supercells (or equivalently finer reciprocal space sampling density). We found energies for H-transfer processes using a (6 × 3) slab to agree within 2 meV of results using a (4 × 2) slab. All calculations were performed using the Perdew- Burke-Ernzerhof (PBE) exchange correlation functional.32",
+      "translation": "DFT 使用三维周期性 slab 模型：4 x 2 超胞、四个三层（12 原子层）厚度，并检查了 13 与 17 A 真空层的收敛性。由于代码限制只用 Gamma 点，作者通过更大超胞验证采样密度；对 H 转移过程，6 x 3 与 4 x 2 slab 的能量差小于 2 meV。所有计算采用 PBE 交换-相关泛函。",
+      "bbox": [
+        43.42,
+        91.12,
+        283.57,
+        276.62
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S006"
+    },
+    {
+      "id": "S007",
+      "page": 2,
+      "type": "paragraph",
+      "section": "3. Computational Details / 计算细节",
+      "order": 7,
+      "original_text": "Generalized gradient approximation (GGA) functionals have been shown to accurately model H2O-TiO2 surface chemistry in many instances,13,19,33 despite their inability to correctly describe the band gap. Hybrid functional calculations are rather time-consuming and there is still no agreement as to the best approach for modeling TiO2 with these functional, so we did not pursue using hybrid functionals. Core electrons were modeled by Goedecker-Teter-Hutter type pseudopoten- tials.34,35 Valence electrons were modeled by a dual basis set: plane waves to represent the electron density and Gaussian functions to represent the wave functions. This Gaussian and plane wave (GPW) method is implemented in the CP2K code.36-38 We utilized double-\u0001 Gaussian orbitals and plane waves up to a cutoff of 300 Ry. Optimized geometries were converged to below 0.05 eV/Å. Activation barriers were calculated using the nudged elastic band (NEB) method with typically 7-8 images for each elementary process.39 We did not perform vibrational analysis to fully confirm the transition states, since the minimal energy pathways were not very sharp, making exact transition state identification difficult. In such cases, identifying the exact transition state is computationally difficult. The NEB calculations however, as discussed below, indicate that the processes proceed readily at room temperature due to low barriers. A few select transition barriers were calculated using constrained optimization. We assessed the accuracy of our computational methodology by comparing with results available in the literature. We calculated the lone H2O adsorption energy over a stoichiometric surface to be -0.90 eV, similar to the -0.76 eV value calculated by Harris and Quong40 and the -0.92 eV value calculated by Perron et al.33 Our calculated OH2O-Ti bond length was calculated to be 2.23 Å, very similar to the calculated distance of 2.25 Å reported in the literature.33 These comparisons illustrate that our method generally agrees within 0.1 eV with available data (see also the computational results for H2O adsorption over a reduced surface in the Supporting Informa- tion).",
+      "translation": "尽管 GGA 不能正确给出 TiO2 带隙，它对 H2O-TiO2 表面化学在许多情形下仍足够准确；作者未使用更昂贵且尚无统一最佳方案的杂化泛函。计算采用 GTH 赝势、Gaussian and Plane Wave（GPW）表示、300 Ry 截断，并将结构优化至小于 0.05 eV/A。NEB 通常用 7-8 个图像计算势垒；因势能路径较平，作者不以振动分析强行指定精确过渡态。对照文献中单个 H2O 吸附能和 O(H2O)-Ti 键长的结果表明，该方法的典型精度约为 0.1 eV。",
+      "bbox": [
+        43.42,
+        278.12,
+        283.56,
+        683.62
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S007"
+    },
+    {
+      "id": "S008",
+      "page": 2,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 8,
+      "original_text": "Figure 1 shows a typical STM image of the starting surface prepared by sequential exposure to H2O and O2 at 300 K to create OHt species as discussed below and published previ- ously.22,29 The TiO2(110) surface is composed of alternative rows of bridging oxygen (Ob) atoms and terminal Ti atoms oriented along the [001] direction. The STM image is dominated by electronic contrast, making the Ob rows appear dark and Ti rows bright.2 Beyond the periodic surface structure, the unexposed TiO2(110) also contains VO defects (Figure 1, marked by dotted square). Following the H2O and O2 exposure, additional small separated surface species are also present and marked in Figure 1. The brightest features on the Ob rows are OHb’s (solid rectangular), which result from H2O dissociation at VO’s via following reaction, H2O + VO + Ob f 2 OHb.22,29 The small, bright features residing on the Ti rows (dotted circles) are Oa’s formed through O2 dissociation either at VO’s (O2 + VO f Ob + Oa),17-19 or at regular Ti sites (O2 f Oa + Oa).20,21 Finally, the largest and brightest features located on Ti rows (marked by solid circles) are single OHt species, which have been observed and identified in our recent STM work.27 We have shown that a single OHt can be formed as a result of hydrogen diffusion41 and proton transfer from OHb to Oa (OHb + Oa f Ob + OHt).27 The pairs of OHt’s can also be generated through H2O interaction with Oa (H2O + Oa f 2 OHt), but these paired OHt’s are short-lived, because of the facile recombination process at 300 K leading to water reformation.13 In contrast, single OHt species are stable and have a very low mobility at 300 K.27 However, upon subsequent exposure of this surface to H2O, we have observed a dramatic increase in the mobility of OHt’s, as further discussed below.",
+      "translation": "图 1 给出了用 H2O 和 O2 顺序处理后、含 OHt 的起始表面。TiO2(110) 由沿 [001] 方向的桥氧（Ob）行与端位 Ti 行交替组成；STM 中 Ob 行较暗、Ti 行较亮。图中还标出氧空位、由水在氧空位解离得到的 OHb、由 O2 解离形成的 Oa，以及最亮的单个 OHt。单个 OHt 在 300 K 本来稳定且迁移率低，但继续引入水后其迁移性显著增大。",
+      "bbox": [
+        43.42,
+        711.87,
+        283.54,
+        754.94
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S008"
+    },
+    {
+      "id": "S009",
+      "page": 2,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 9,
+      "original_text": "4.1. Motion4.1. Motion of OHt Species across Bridging O Rows. To investigate the surface reactions between OHt’s and H2O, we have followed a particular area containing OHt species before and after H2O dose, as shown in Figure 2. From the comparison of marked regions one can see that the OHt species has shifted to the adjacent Ti row on the right. The observation can be explained by considering the proton transfer from H2O across the Ob row to OHt. This mechanism implies that the process is mediated by water pseudodissociation (H2O T OHb + OHt).13,14,22 It has been shown recently that at 300 K H2O on TiO2(110) is indeed in a dynamic equilibrium between the molecular and dissociated states.13,14,22 The separate reaction steps are illustrated schematically in the ball models in Figure 2, whereas the model in the dotted box schematically shows an assumed initial event of H2O pseudodissociation and formation of short-lived inter- mediate state (OHt + OHb + OHt). If the newly formed OHt species could diffuse away, the H2O reformation reaction would not occur. However OHb and OHt diffusion at 300 K is very slow and does not provide for an efficient OHt separation.27",
+      "translation": "为考察水与 OHt 的跨行反应，作者比较了进水前后的同一表面区域：OHt 向右侧相邻 Ti 行移动。合理机制是水经桥氧行向 OHt 连续转移质子，即 H2O 先伪解离为 OHb + OHt；若新生 OHt 不能及时扩散，反向质子转移会重建水。OHb/OHt 自发扩散在 300 K 很慢，不足以有效拉开二者。",
+      "bbox": [
+        307.42,
+        282.86,
+        547.64,
+        667.37
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S009"
+    },
+    {
+      "id": "S010",
+      "page": 3,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 10,
+      "original_text": "Hence, the second proton transfer from the newly created OHb to OHt will lead to H2O reformation (OHb + OHt f Ob + H2O), as observed in our prior study.27 This proton transfer from OHb can result either in the formation of a new water molecule, leaving behind an OHt that originated from the initial H2O (schematically shown by ball models in Figure 2) or in the reformation of the original H2O (not shown). The former case results in oxygen scrambling and OHt across-row “motion”, while the latter case leaves the OHt in its original position. Finally, the reaction is completed by H2O diffusion, which at 300 K is too fast to be followed with STM.22 As a side comment, note that the oxygen scrambling also facilitates an apparent transfer of an H2O molecule from one Ti row to another. Also note, that in many aspects the interaction between OHt and H2O on adjacent rows is similar to the previously observed H2O interaction with Oa that resides on an adjacent row.13",
+      "translation": "第二次质子从新生成的 OHb 转移到 OHt 后会再生成 H2O。它既可能形成一枚带有初始水氧的新水，也可能复原原来的水；前一种情况造成氧原子交换，从而让 OHt 看起来跨行移动，后一种则使 OHt 停在原位。最后水分子快速扩散离开。作者也检查了探针效应：改变偏压和隧穿电流，或反复扫描同一区域，都没有改变 OHt 动力学。",
+      "bbox": [
+        43.42,
+        320.77,
+        283.59,
+        496.63
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S010"
+    },
+    {
+      "id": "S011",
+      "page": 3,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 11,
+      "original_text": "Particular care has been taken to evaluate possible tip-induced effects on OHt mobility. We have compared scanning at different bias voltages and tunneling currents, and also compared two areas of the same surface, whereas one has been scanned once and the other about 10-20 times more. No changes in the OHt dynamics have been observed in either case, indicating that tip effects were negligible under our experimental conditions. The interpretation of the STM data presented in Figure 2 is supported by DFT calculations. Figure 3 shows the energy profile and selected intermediate states for H2O dissociation in the presence of OHt species on the adjacent Ti row. The calculations indicate that across-row proton transfers from H2O to Ob and then to OHt occur readily at 300 K, in agreement with the STM results. Specifically, the activation barrier for the initial proton transfer from H2O to Ob is 0.37 eV in the presence of OHt, similar to 0.39 eV, calculated for H2O dissociation on a stoichiometric surface (not shown). The next proton transfer process from OHb to OHt to reform H2O can proceed in either direction due to the symmetry of this configuration with an activation barrier of 0.20 eV. Since the calculated barriers for both proton transfers are low, these processes are very facile at 300 K. Thus, the H exchange between these two states, OHt + H2O T OHt + OHb + OHt, can occur many times, until water diffuses to the next Ti site and terminates the reactions. Note, that the (H2O + OHt) configuration is 0.17 eV more stable than (OHt + OHb + OHt) configuration. Assuming Arrhenius behavior, under equilibrium conditions such an energy difference would on average result in the relative (OHt + OHb + OHt) population being only ∼0.2%. Also note that observation of the across-row OHt mobility may be viewed as further evidence of the spontaneous water dissociation on Ti sites.",
+      "translation": "DFT 支持该解释：在相邻 Ti 行存在 OHt 时，H2O 先向 Ob 转移质子的势垒为 0.37 eV，随后 OHb 向 OHt 的对称质子转移势垒为 0.20 eV，两者在 300 K 都很容易发生。OHt + H2O 与 OHt + OHb + OHt 两个状态可以多次交换，直到水扩散到下一 Ti 位而终止反应；前者热力学上低 0.17 eV，因此中间态平均占比约 0.2%。跨行移动本身也进一步佐证了 Ti 位水的自发解离。",
+      "bbox": [
+        43.42,
+        497.96,
+        283.56,
+        552.03
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S011"
+    },
+    {
+      "id": "S012",
+      "page": 3,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 12,
+      "original_text": "4.2. Motion4.2. Motion of OHt Species along Ti Rows. We have also observed high OHt mobility along the same Ti row in the presence of H2O. Remarkably, rather long OHt hops of up to seven lattice constants have been detected in this case. An example of the along-row OHt diffusion is illustrated in two consecutive STM images shown in Figure 4. From a comparison of Figure 4, panels a and b, the OHt is found to hop four lattice constants (in this particular case) from its original position. With the limited available data, no conclusive travel distance distribu- tion could be attained, while practically no one-unit-cell hops have been observed. To identify the mechanism of the long-range motion of OHt species along Ti rows, we have resorted to DFT calculations. Figure 5 shows the energy profile and selected intermediates",
+      "translation": "当 H2O 与 OHt 位于同一 Ti 行时，OHt 迁移同样很快，且可一次跳跃长达 7 个晶格常数；图 4 的实例显示其跨越了 4 个晶格常数。数据量还不足以给出完整的跃迁距离分布，但几乎看不到只跳一个晶胞的事件。作者于是用 DFT 寻找这种长程沿行迁移的机制。",
+      "bbox": [
+        307.42,
+        315.86,
+        547.63,
+        754.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S012"
+    },
+    {
+      "id": "S013",
+      "page": 4,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 13,
+      "original_text": "along the reaction path involving H2O diffusion toward OHt (snapshots 1-3), followed by H2O dissociation and proton transfer to OHt (3-5). The calculated energy barriers are low for both diffusion and dissociation (0.51 and 0.15 eV, respec- tively), indicating that both processes are facile at 300 K. The proton transfer also results in the formation of a new H2O molecule and an apparent OHt shift one lattice constant up. However, such process can not facilitate further OHt motion along the same direction. In contrast, since reverse proton transfer (5 f 3) also has a small barrier (0.15 eV) fast exchange between these two states, H2O + OHt T OHt + H2O, is expected. The calculations suggest that H2O becomes effectively trapped near the OHt, with the activation energy barrier for water to diffuse away from the OHt being ∼0.76 eV. The later also correlates with the adsorption energy gain of 0.25 eV upon bringing H2O and OHt together, which is close to a typical H bond strength. Of course, the net migration of OHt species across several sites may be accomplished by consecutive interactions with several H2O molecules, following the mechanism described above, or by interaction with water dimers.42 However, this would require rather a high concentration of H2O, and so it is unlikely to occur in the current studies. Otherwise, high H2O concentration would also result in multiple across-row OHt hops that have not been observed.",
+      "translation": "图 5 所示路径先是水向 OHt 扩散（构型 1-3），随后水解离并向 OHt 转移质子（3-5）。扩散和解离势垒分别为 0.51 和 0.15 eV，在 300 K 均很容易发生。该质子转移生成新水并使 OHt 表观前移一个晶格，但不能让它沿同一方向持续推进；因为反向 5 -> 3 的势垒也仅 0.15 eV，H2O 与 OHt 会快速交换。水会被 OHt 附近有效俘获，离开的势垒约 0.76 eV，对应二者靠近后约 0.25 eV 的吸附能增益。",
+      "bbox": [
+        43.42,
+        326.86,
+        283.61,
+        754.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S013"
+    },
+    {
+      "id": "S014",
+      "page": 4,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 14,
+      "original_text": "On the basisOn the basis of the experimental evidence and theoretical calculations described above, we speculate that the observed long-range OHt motion is a result of fast diffusion of H2O + OHt pairs. As already discussed (see Figure 5), the H2O + OHt T OHt + H2O reaction allows only for a single site motion of OHt’s along one direction while multiple site hops are observed in Figure 4. To accomplish multiple site hops, H2O molecule has to diffuse over the OHt, effectively reforming the starting configuration shown in snapshot 3 of Figure 5.",
+      "translation": "连续水分子或水二聚体原则上可重复上述过程并推动 OHt 跨多个位点，但这需要较高 H2O 浓度；若如此，也应观察到更多跨行跃迁，实验中并没有。综合实验和计算，作者推断长程 OHt 迁移来自 H2O + OHt 对的快速扩散。由于该交换本身只让 OHt 朝一个方向移动一个位点，要实现多位点跳跃，水必须越过 OHt，回到图 5 的起始型构型。图 6 给出了这条低能路径。",
+      "bbox": [
+        43.42,
+        326.86,
+        283.61,
+        754.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S014"
+    },
+    {
+      "id": "S015",
+      "page": 4,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 15,
+      "original_text": "Using DFTUsing DFT we have determined the following low-energy reaction path for the water hoping over the OHt, as illustrated in Figure 6. In the starting configuration (snapshot 1), H2O and OHt reside on neighboring Ti sites, with a hydrogen bond between them formed through one of the H2O protons. Next, both species rotate to the configuration, where a new H-bond is formed, with the proton provided by OHt (snapshot 3). The process is slightly energetically uphill (0.16 eV) and has a barrier of 0.37 eV, through the transition state shown in the snapshot 2. The process of concerted rotation is important because it sets out further H2O hopping. Subsequently, H2O hops over the adjacent in-plane O atom (snapshot 4), and then to a new configuration (snapshot 5), where an additional H-bond between H2O and nearest Ob likely stabilizes this intermediate state. Importantly, during this motion, the H-bond between the OHt and H2O is maintained and assists H2O hop. The transition state region is rather flat which makes it hard to unequivocally define the exact configuration of transition state. The calculated activation barrier for this state is ∼0.3 eV. After passing this symmetric midpoint (snapshot 5), the H2O can continue moving in a same way until it reaches the final configuration (snapshot 6) with the H2O on the “other” side of the OHt. Such H2O rollover motion, where intramolecular H bond formation plays an important role, resembles the mechanism recently reported for water dimer diffusion along the Ti row.42 The authors have shown there that H2O dimer diffusion is enhanced when such rollover motion occurs, while here we demonstrate that OHt diffusion is also enhanced by similar rollover motion. The resulting activation energy barrier for H2O diffusion over the OHt, obtained from the energy profile in Figure 6, is 0.46 eV, demonstrating that this process occurs readily at 300 K. Note, that direct H2O hoping over the OHt is unfavorable, with the activation energy barrier of 0.89 eV (not shown). Also note, that besides the H2O hopping over the OHt as described above, the water diffusion from one Ti row to another over a similar, H-containing OHb species has also been observed.22",
+      "translation": "计算表明，起始时 H2O 与 OHt 位于相邻 Ti 位并由一个水质子形成氢键。二者先协同旋转，形成由 OHt 提供质子的新的氢键；这一步吸热 0.16 eV、势垒 0.37 eV。随后 H2O 跨过相邻平面氧到达另一构型，新的 H2O-Ob 氢键可能稳定该中间态，且运动中 H2O-OHt 氢键始终保持并帮助水跃迁。越过平坦的过渡区后，H2O 到达 OHt 的另一侧；该翻越的总势垒为 0.46 eV，在 300 K 可行。直接越过 OHt 的路径反而不利，势垒为 0.89 eV。",
+      "bbox": [
+        43.42,
+        326.86,
+        283.61,
+        754.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S015"
+    },
+    {
+      "id": "S016",
+      "page": 4,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 16,
+      "original_text": "Repeated steps of proton transfer and H2O hopping over OHt, described in Figures 5 and 6, likely constitute the diffusion pathway for the observed long-range, water-mediated OHt mobility. Generally, this mechanism can also be considered as diffusion of the (OHt + H2O) pairs. Such (OHt + H2O) pair diffusion (there called OH_OH2) was recently imaged with STM at low temperatures (170-200 K)28 and, therefore, is expected to occur more readily at 300 K.",
+      "translation": "图 5 和图 6 所描述的反复质子转移与 H2O 越过 OHt 的步骤，很可能共同构成长程、水介导 OHt 迁移的扩散通道。更一般地说，它可以视为 (OHt + H2O) 对的扩散；同类对扩散此前已在 170-200 K 的低温 STM 中成像，因此在 300 K 更容易发生是合理的。",
+      "bbox": [
+        307.42,
+        667.88,
+        547.55,
+        754.38
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S016"
+    },
+    {
+      "id": "S017",
+      "page": 5,
+      "type": "paragraph",
+      "section": "4. Results and Discussion / 结果与讨论",
+      "order": 17,
+      "original_text": "We also considered the effect of the presence of O vacancies in our DFT calculations by removing one Ob per unit cell to create a surface vacancy ratio of 1/8. In our previous work we indicated that H transfer barriers between Oa and OHt were not affected by the presence of excess electrons.43 We calculated H transfer reaction energy barriers over reduced surface and found them to agree with ones over stoichiometric surface within 0.02 eV (H transfer between H2O and Ob) and 0.12 eV (H transfer between H2O and OHt), as shown in Figures S1 and S2 of the Supporting Information, respectively. For H2O hopping over OHt reaction pathway with VO nearby, the barrier drops only slightly (0.06 eV, Figure S3). (Note that this pathway is not very symmetrical due to the presence of the VO and is relatively flat, making an exact identification of the transition state rather difficult). However, while excess electrons can affect surface chemistry, in the current case H transfer reactions involving water and related species were not greatly affected, and our conclusions from the DFT calculations are the same regardless of whether stoichiometric or reduced surfaces were simulated.",
+      "translation": "作者还在 DFT 中通过每个超胞移除一个桥氧来加入 1/8 的氧空位比例。此前结果显示过量电子不显著影响 Oa 与 OHt 的 H 转移；本研究也发现还原表面与化学计量表面的势垒相差仅 0.02 eV（H2O 到 Ob）或 0.12 eV（H2O 到 OHt），而附近氧空位只使水越过 OHt 的势垒略降 0.06 eV。因此，本工作的机理结论不依赖于采用化学计量表面还是还原表面。",
+      "bbox": [
+        43.42,
+        42.37,
+        283.59,
+        260.87
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S017"
+    },
+    {
+      "id": "S018",
+      "page": 5,
+      "type": "paragraph",
+      "section": "5. Summary / 总结",
+      "order": 18,
+      "original_text": "We have performed a combined experimental and theoretical investigation of the reaction of molecular water with terminal hydroxyls on TiO2(110) at 300 K, and extracted molecular-level details about the underlying reaction mechanisms. By tracking the same surface area with high-resolution STM before and after water exposure, we have demonstrated that there are two distinctive reaction pathways involving multiple proton transfers. For water interaction with OHt on an adjacent Ti row, the proton can be transferred through bridging oxygen to OHt, which leads to the formation of a new water molecule and apparent across- row motion of OHt due to O scrambling. This process further manifests the existence of the equilibrium between molecular and dissociated states of water on TiO2 (110). If H2O interacts with OHt along the same Ti row, fast multistep OHt motion along the Ti row is observed. Our DFT results show that this process is caused by the fast diffusion of (OHt + H2O) pairs, whereby the underlying mechanism involves proton transfer and H2O hopping over OHt.",
+      "translation": "作者以 STM 和 DFT 联合解析了 300 K 下分子水与 TiO2(110) 端位羟基的反应。相邻 Ti 行的 H2O-OHt 相互作用经桥氧向 OHt 转移质子，生成新水并因氧交换造成 OHt 跨行表观移动；同一 Ti 行的相互作用则导致多步、快速的沿行 OHt 迁移。DFT 表明，后者本质是包含质子转移和水翻越 OHt 的 (OHt + H2O) 对快速扩散。",
+      "bbox": [
+        43.42,
+        286.24,
+        283.54,
+        483.31
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S018"
+    },
+    {
+      "id": "S019",
+      "page": 5,
+      "type": "paragraph",
+      "section": "Acknowledgment / 致谢",
+      "order": 19,
+      "original_text": "Acknowledgment. We thank M. A. Henderson, G. A. Kimmel, and N. G. Petrik for stimulating discussions. This work was supported by the U.S. Department of Energy (DOE) Office of Basic Energy Sciences, Division of Chemical Sciences, and performed at EMSL, a national scientific user facility sponsored by the DOE’s Office of Biological and Environmental Research and located at PNNL. Computational resources were provided by the National Energy Research Scientific Computing Center and the EMSL.",
+      "translation": "作者感谢 M. A. Henderson、G. A. Kimmel 和 N. G. Petrik 的讨论，并说明该工作由美国能源部基础能源科学办公室支持，在 PNNL 的 EMSL 用户设施完成；计算资源由 NERSC 和 EMSL 提供。",
+      "bbox": [
+        43.42,
+        494.15,
+        283.58,
+        591.74
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S019"
+    },
+    {
+      "id": "S020",
+      "page": 5,
+      "type": "paragraph",
+      "section": "Supporting Information / 补充信息",
+      "order": 20,
+      "original_text": "Supporting Information Available: Computational results for H2O adsorption, and energy profiles/selected intermediate states for reactions on reduced TiO2(110) surface. This informa- tion is available free of charge via the Internet at http:// pubs.acs.org.",
+      "translation": "补充信息包括 H2O 吸附的计算结果，以及还原 TiO2(110) 表面反应的能量剖面和中间构型，可从 ACS 网站免费获得。",
+      "bbox": [
+        43.42,
+        603.15,
+        283.6,
+        656.74
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S020"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "block_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005"
+      ]
+    },
+    {
+      "page": 2,
+      "block_ids": [
+        "S006",
+        "S007",
+        "S008",
+        "S009"
+      ]
+    },
+    {
+      "page": 3,
+      "block_ids": [
+        "S010",
+        "S011",
+        "S012"
+      ]
+    },
+    {
+      "page": 4,
+      "block_ids": [
+        "S013",
+        "S014",
+        "S015",
+        "S016"
+      ]
+    },
+    {
+      "page": 5,
+      "block_ids": [
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "page": 2,
+      "caption_id": "C001",
+      "image_path": "assets/fig1.png",
+      "bbox": [
+        307,
+        42,
+        548,
+        234
+      ],
+      "placement_hint": "near_first_mention",
+      "placed_after": "S008",
+      "alt_text": "Fig. 1. Partially hydroxylated TiO2(110) STM surface"
+    },
+    {
+      "id": "F002",
+      "page": 3,
+      "caption_id": "C002",
+      "image_path": "assets/fig2.png",
+      "bbox": [
+        43,
+        42,
+        285,
+        228
+      ],
+      "placement_hint": "near_first_mention",
+      "placed_after": "S009",
+      "alt_text": "Fig. 2. Across-row apparent OHt motion"
+    },
+    {
+      "id": "F003",
+      "page": 3,
+      "caption_id": "C003",
+      "image_path": "assets/fig3.png",
+      "bbox": [
+        43,
+        570,
+        300,
+        714
+      ],
+      "placement_hint": "near_first_mention",
+      "placed_after": "S011",
+      "alt_text": "Fig. 3. Neighbor-row proton-transfer energy profile"
+    },
+    {
+      "id": "F004",
+      "page": 3,
+      "caption_id": "C004",
+      "image_path": "assets/fig4.png",
+      "bbox": [
+        307,
+        42,
+        548,
+        270
+      ],
+      "placement_hint": "near_first_mention",
+      "placed_after": "S012",
+      "alt_text": "Fig. 4. Along-row apparent OHt motion"
+    },
+    {
+      "id": "F005",
+      "page": 4,
+      "caption_id": "C005",
+      "image_path": "assets/fig5.png",
+      "bbox": [
+        43,
+        42,
+        285,
+        278
+      ],
+      "placement_hint": "near_first_mention",
+      "placed_after": "S013",
+      "alt_text": "Fig. 5. Water diffusion, dissociation, and proton transfer"
+    },
+    {
+      "id": "F006",
+      "page": 4,
+      "caption_id": "C006",
+      "image_path": "assets/fig6.png",
+      "bbox": [
+        307,
+        42,
+        548,
+        304
+      ],
+      "placement_hint": "near_first_mention",
+      "placed_after": "S015",
+      "alt_text": "Fig. 6. H2O rollover over OHt"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "terminal hydroxyl (OHt)",
+      "translation": "端位羟基 (OHt)",
+      "note": "吸附在 TiO2(110) 表面 Ti 位上的羟基。"
+    },
+    {
+      "term": "bridging hydroxyl (OHb)",
+      "translation": "桥位羟基 (OHb)",
+      "note": "位于桥氧行的羟基，常由水在氧空位解离形成。"
+    },
+    {
+      "term": "oxygen adatom (Oa)",
+      "translation": "氧吸附原子 (Oa)",
+      "note": "由 O2 解离生成并吸附在 Ti 行上的氧原子。"
+    },
+    {
+      "term": "oxygen vacancy (VO)",
+      "translation": "氧空位 (VO)",
+      "note": "TiO2(110) 表面缺失桥氧形成的还原缺陷位。"
+    },
+    {
+      "term": "pseudodissociation",
+      "translation": "伪解离",
+      "note": "水分子在分子态与解离态之间快速切换的动态平衡。"
+    },
+    {
+      "term": "scanning tunneling microscopy (STM)",
+      "translation": "扫描隧道显微镜 (STM)",
+      "note": "通过隧穿电流追踪表面局域结构和动态过程。"
+    },
+    {
+      "term": "density functional theory (DFT)",
+      "translation": "密度泛函理论 (DFT)",
+      "note": "本文用来计算质子转移和水跃迁能垒的电子结构方法。"
+    },
+    {
+      "term": "nudged elastic band (NEB)",
+      "translation": "弹性带方法 (NEB)",
+      "note": "用于求取反应最小能量路径和活化势垒。"
+    }
+  ],
+  "validation": {
+    "body_pair_count": 20,
+    "figure_count": 6,
+    "source_pdf_sha256": "82053ff95a56217abef632ce51426b9dfdba12cdd8df0c320dfe7350dcd07927"
+  }
+}

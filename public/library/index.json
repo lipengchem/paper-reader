@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T09:48:52.813Z",
+  "generatedAt": "2026-07-28T09:41:30.770Z",
   "items": [
     {
       "slug": "20260702-redefining-co3-formation-zundel-switches",
@@ -205,6 +205,23 @@
       "figureCount": 4
     },
     {
+      "slug": "20260721-weakened-interfacial-hbond-connectivity-brookite-h2o2",
+      "title": "Weakened Interfacial Hydrogen Bond Connectivity Drives Selective Photocatalytic Water Oxidation toward H2O2 at Water/Brookite-TiO2 Interface",
+      "date": "2024-03-06",
+      "taskDate": "2026-07-21",
+      "uploadedAt": "2026-07-28T09:41:30.770Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "TWNWAP3Y",
+      "collections": [
+        "光热催化研究"
+      ],
+      "pdfPath": "library/20260721-weakened-interfacial-hbond-connectivity-brookite-h2o2/paper.pdf",
+      "markdownPath": "library/20260721-weakened-interfacial-hbond-connectivity-brookite-h2o2/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 29,
+      "figureCount": 6
+    },
+    {
       "slug": "20260722-hydroxyl-radicals-condensed-water-droplets-dft-md",
       "title": "First results from the interaction between hydroxyl radicals and condensed water droplets: A spin-polarized DFT-MD study",
       "date": "2024-01-01",
@@ -220,6 +237,38 @@
       "relatedReading": true,
       "paragraphCount": 14,
       "figureCount": 10
+    },
+    {
+      "slug": "20260729-tio2-water-dissociation-mlmd",
+      "title": "Mechanistic insight on water dissociation on pristine low-index TiO2 surfaces from machine learning molecular dynamics simulations",
+      "date": "2023-10-02",
+      "taskDate": "2026-07-29",
+      "uploadedAt": "2026-07-28T09:41:30.770Z",
+      "journal": "Nature Communications",
+      "zoteroKey": "XNHKI9Y6",
+      "collections": [],
+      "pdfPath": "library/20260729-tio2-water-dissociation-mlmd/paper.pdf",
+      "markdownPath": "library/20260729-tio2-water-dissociation-mlmd/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 41,
+      "figureCount": 3
+    },
+    {
+      "slug": "20260721-constrained-density-functional-theory-proton-transfers",
+      "title": "Using Constrained Density Functional Theory to Track Proton Transfers and to Sample Their Associated Free Energy Surface",
+      "date": "2021-09-01",
+      "taskDate": "2026-07-21",
+      "uploadedAt": "2026-07-28T09:41:30.770Z",
+      "journal": "Journal of Chemical Theory and Computation",
+      "zoteroKey": "YFTNHP5I",
+      "collections": [
+        "????"
+      ],
+      "pdfPath": "library/20260721-constrained-density-functional-theory-proton-transfers/paper.pdf",
+      "markdownPath": "library/20260721-constrained-density-functional-theory-proton-transfers/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 22,
+      "figureCount": 3
     },
     {
       "slug": "20260705-free-energy-proton-transfer-water-tio2",
@@ -250,6 +299,21 @@
       "relatedReading": true,
       "paragraphCount": 108,
       "figureCount": 4
+    },
+    {
+      "slug": "20260720-solvation-structure-hydrated-excess-proton",
+      "title": "Role of solvation structure in the shuttling of the hydrated excess proton",
+      "date": "2017-07-01",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-07-28T09:41:30.770Z",
+      "journal": "Journal of Chemical Sciences",
+      "zoteroKey": "6EKYCCTD",
+      "collections": [],
+      "pdfPath": "library/20260720-solvation-structure-hydrated-excess-proton/paper.pdf",
+      "markdownPath": "library/20260720-solvation-structure-hydrated-excess-proton/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 30,
+      "figureCount": 5
     },
     {
       "slug": "20260707-protons-hydroxide-ions-aqueous-systems",
@@ -316,6 +380,23 @@
       "figureCount": 5
     },
     {
+      "slug": "20260720-water-interactions-terminal-hydroxyls-tio2-110",
+      "title": "Water Interactions with Terminal Hydroxyls on TiO2(110)",
+      "date": "2010-10-14",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-07-28T09:41:30.770Z",
+      "journal": "The Journal of Physical Chemistry C",
+      "zoteroKey": "PVGN46VV",
+      "collections": [
+        "M3V6T5IZ"
+      ],
+      "pdfPath": "library/20260720-water-interactions-terminal-hydroxyls-tio2-110/paper.pdf",
+      "markdownPath": "library/20260720-water-interactions-terminal-hydroxyls-tio2-110/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 23,
+      "figureCount": 6
+    },
+    {
       "slug": "20260707-reorientation-mechanism-hydroxide-ions-water",
       "title": "The reorientation mechanism of hydroxide ions in water: A molecular dynamics study",
       "date": "2009-04-28",
@@ -359,6 +440,36 @@
       "relatedReading": true,
       "paragraphCount": 33,
       "figureCount": 4
+    },
+    {
+      "slug": "20260720-nature-hydrated-excess-proton-water",
+      "title": "The nature of the hydrated excess proton in water",
+      "date": "1999-02-18",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-07-28T09:41:30.770Z",
+      "journal": "Nature",
+      "zoteroKey": "R3HBR9DF",
+      "collections": [],
+      "pdfPath": "library/20260720-nature-hydrated-excess-proton-water/paper.pdf",
+      "markdownPath": "library/20260720-nature-hydrated-excess-proton-water/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 30,
+      "figureCount": 3
+    },
+    {
+      "slug": "20260720-grotthuss-mechanism",
+      "title": "The Grotthuss mechanism",
+      "date": "1995-10",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-07-28T09:41:30.770Z",
+      "journal": "Chemical Physics Letters",
+      "zoteroKey": "4TZTPZVW",
+      "collections": [],
+      "pdfPath": "library/20260720-grotthuss-mechanism/paper.pdf",
+      "markdownPath": "library/20260720-grotthuss-mechanism/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 90,
+      "figureCount": 2
     }
   ]
 }
