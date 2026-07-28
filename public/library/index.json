@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T09:41:30.770Z",
+  "generatedAt": "2026-07-28T09:45:18.051Z",
   "items": [
     {
       "slug": "20260702-redefining-co3-formation-zundel-switches",
@@ -246,7 +246,9 @@
       "uploadedAt": "2026-07-28T09:41:30.770Z",
       "journal": "Nature Communications",
       "zoteroKey": "XNHKI9Y6",
-      "collections": [],
+      "collections": [
+        "02课题/MD"
+      ],
       "pdfPath": "library/20260729-tio2-water-dissociation-mlmd/paper.pdf",
       "markdownPath": "library/20260729-tio2-water-dissociation-mlmd/paper.md",
       "relatedReading": true,
