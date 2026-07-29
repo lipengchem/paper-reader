@@ -1,0 +1,1636 @@
+{
+  "paper": {
+    "title": "High-order pair-reduced neural network architecture for global potential energy surface exploration across the periodic table",
+    "venue": "Science China Chemistry",
+    "source_type": "pdf",
+    "language": "en",
+    "source_path": "C:\\Users\\LP\\Zotero\\storage\\HTGLAKMC\\Yang et al. - 2026 - High-order pair-reduced neural network architecture for global potential energy surface exploration.pdf",
+    "zotero_key": "2TZCFVFY"
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "page": 1,
+      "type": "paragraph",
+      "order": 1,
+      "original_text": "https://doi.org/10.1007/s11426-025-3054-y",
+      "translation": "https://doi.org/10.1007/s11426-025-3054-y",
+      "bbox": [
+        451.22,
+        52.51,
+        562.47,
+        60.51
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S002",
+      "page": 1,
+      "type": "paragraph",
+      "order": 2,
+      "original_text": "ARTICLES High-order pair-reduced neural network architecture for global potential energy surface exploration across the periodic table",
+      "translation": "文章 用于跨周期表全局势能表面探索的高阶对减少神经网络架构",
+      "bbox": [
+        34.02,
+        88.63,
+        537.01,
+        148.61
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S003",
+      "page": 1,
+      "type": "paragraph",
+      "order": 3,
+      "original_text": "1State Key Laboratory of Porous Materials for Separation and Conversion, Collaborative Innovation Center of Chemistry for Energy Material, Shanghai Key Laboratory of Molecular Catalysis and Innovative Materials, Key Laboratory of Computational Physical Science, Department of Chemistry, Fudan University, Shanghai 200433, China 2State Key Laboratory of Metal Organic Chemistry, Shanghai Institute of Organic Chemistry, Chinese Academy of Sciences, Shanghai 200032, China †Equally contributed to this work. *Corresponding authors (email: cshang@fudan.edu.cn; zpliu@fudan.edu.cn)",
+      "translation": "1复旦大学化学系多孔材料分离与转化国家重点实验室、能源材料化学协同创新中心、上海市分子催化与创新材料重点实验室、计算物理科学重点实验室，上海 200433 2中国科学院上海有机化学研究所，金属有机化学国家重点实验室，中国上海 200032 †本工作同等贡献。 *通讯作者(email: cshang@fudan.edu.cn; zpliu@fudan.edu.cn)",
+      "bbox": [
+        34.02,
+        192.73,
+        562.52,
+        237.9
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S004",
+      "page": 1,
+      "type": "paragraph",
+      "order": 4,
+      "original_text": "Abstract One universal potential for all-purpose atomic simulations has been pursued for decades, but has faced extreme challenges in both reaching high representation capability of the model and constructing comprehensive potential energy surface (PES) data across the periodic table. Here we present a low-cost and high-accuracy machine learning (ML) model, namely high-order pair-reduced neural network (HPNN), which adopts a hierarchical angular interaction scheme with reduced pair dimension, enabling the incorporation of spherical harmonics up to l = 6 at a low cost. Using the architecture, we demonstrate the capability to train a generalized global neural network potential (GG-NN) using a comprehensive dataset of 5.84 million global PES configurations covering 83 elements in the periodic table collected from LASP project in the past decade, which reaches the root-mean-square errors of 7.3 meV/atom for energy and 0.16 eV/Å for force. By benchmarking with mainstream ML models on representative global PESs, e.g., Ti–O and C–H–O, we show the high performance of specially-trained HPNN and GG-NN both in the inference speed and in the accuracy. Our results pave the way to exploit the generalized global potential for large-scale atomic simulations to accelerate molecules and material prediction via global PES exploration.",
+      "translation": "摘要 几十年来，人们一直在追求一种通用原子模拟的潜力，但在达到模型的高表示能力和构建整个周期表的综合势能表面（PES）数据方面面临着巨大的挑战。在这里，我们提出了一种低成本、高精度的机器学习（ML）模型，即高阶对减少神经网络（HPNN），它采用减少对维度的分层角相互作用方案，能够以低成本结合高达 l = 6 的球谐函数。使用该架构，我们展示了使用过去十年从 LASP 项目收集的 584 万个全局 PES 配置的综合数据集（涵盖周期表中的 83 个元素）训练广义全局神经网络势（GG-NN）的能力，能量的均方根误差为 7.3 meV/atom，力的均方根误差为 0.16 eV/Å。通过在代表性的全局 PES（例如 Ti-O 和 C-H-O）上与主流 ML 模型进行基准测试，我们展示了经过特殊训练的 HPNN 和 GG-NN 在推理速度和准确性方面的高性能。我们的结果为利用大规模原子模拟的全球潜力铺平了道路，通过全球 PES 探索加速分子和材料预测。",
+      "bbox": [
+        34.02,
+        267.73,
+        562.9,
+        370.27
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S005",
+      "page": 1,
+      "type": "paragraph",
+      "order": 5,
+      "original_text": "1 Introduction",
+      "translation": "1 简介",
+      "bbox": [
+        34.02,
+        428.45,
+        118.03,
+        439.45
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S006",
+      "page": 1,
+      "type": "paragraph",
+      "order": 6,
+      "original_text": "[6,17]. For ML potentials using explicit function (no learnable parameters) structure descriptors [18] as input (also known as local descriptors), such as global neural network (G-NN) potential implemented in LASP project [19–21] by our group, the high-order (e.g., l = 6) spherical functions can be utilized directly to learn complex chemical environment and feasible to implement parallelly in CPU machines. However, these potentials can maximally handle the global PES data with fewer than 10 elements due to the limitation of CPU in training a large dataset (e.g., > 200 K). On the other hand, GPU-machines with massive computation units excel at handling large training datasets and expansive parameter spaces [22–26], e.g., massive learnable parameters in the non-local structure descriptors, holding the promise to achieve better generality and higher accuracy ML models than CPU-machines [27,28]. One major concern with GPU-based ML potentials is how to incorporate the nonlocal and complex spatial information effectively and efficiently. To date, a standard choice of GPU-based ML models for training potentials [29] is the graph neural network via message-passing, i.e., message passing neural network (MPNN), which represents atoms and bonds as nodes and edges in the graph, respectively, and extracts atomic features via iterative message passing between nodes. It was, however, soon realized that only two-body (pair-wise) distances between neighboring atoms, as first implemented in SchNet [22], cannot capture fine spatial information in structure.",
+      "translation": "[6,17]。对于使用显式函数（无可学习参数）结构描述符[18]作为输入（也称为局部描述符）的ML势，例如我们小组在LASP项目[19-21]中实现的全局神经网络（G-NN）势，高阶（例如，l = 6）球函数可以直接用于学习复杂的化学环境，并且可以在CPU机器中并行实现。然而，由于 CPU 在训练大型数据集（例如，> 200 K）方面的限制，这些潜力可以最大程度地处理少于 10 个元素的全局 PES 数据。另一方面，具有大量计算单元的 GPU 机器擅长处理大型训练数据集和扩展参数空间 [22-26]，例如，非局部结构描述符中的大量可学习参数，有望实现比 CPU 机器更好的通用性和更高精度的 ML 模型 [27,28]。基于 GPU 的 ML 潜力的一大问题是如何有效且高效地整合非局部且复杂的空间信息。迄今为止，用于训练潜力的基于 GPU 的 ML 模型的标准选择是通过消息传递的图神经网络，即消息传递神经网络（MPNN），它将原子和键分别表示为图中的节点和边，并通过节点之间的迭代消息传递来提取原子特征。然而，人们很快意识到，正如 SchNet [22] 中首次实现的那样，仅相邻原子之间的二体（成对）距离无法捕获结构中的精细空间信息。",
+      "bbox": [
+        306.14,
+        429.87,
+        563.27,
+        704.3
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S007",
+      "page": 1,
+      "type": "paragraph",
+      "order": 7,
+      "original_text": "Over the past decade, machine learning (ML) potentials have revolutionized large-scale atomic simulations by offering a sig nificant speedup in potential energy surface (PES) evaluation while maintaining the high accuracy comparable to quantum mechanics (QM) calculations [1–7]. It benefits particularly the fields requiring long-time simulations, such as molecular dynamics (MD) [8–10] and global PES exploration, aiming to predict the physicochemical properties of materials and reactions [11–13]. However, current ML potentials generally learn from relatively simple datasets dominated by stable local minima [14,15], lacking the structural diversity on the reaction intermediates (transition states), glassy and highenergy minima that are common in global PES data, and thus greatly hamper the predictive power of ML-based atomic simula tions [16]. This is partly because of the lack of a global PES dataset for all elements, but, more importantly, the great difficulty in developing a general and reliable ML model that can fit global PES data across the periodic table with high accuracy and high efficiency. The representation capability of an ML potential depends critically on the dataset to learn and the ML model employed to learn the dataset. The ML model, depending on the choice, can be implemented to suit different hardware platforms, i.e., central processing units (CPUs) and graphics processing units (GPUs)",
+      "translation": "在过去的十年中，机器学习 (ML) 势通过显着加速势能面 (PES) 评估，同时保持与量子力学 (QM) 计算相当的高精度，彻底改变了大规模原子模拟 [1-7]。它特别有利于需要长时间模拟的领域，例如分子动力学（MD）[8-10]和全球PES探索，旨在预测材料和反应的物理化学性质[11-13]。然而，当前的机器学习势通常从相对简单的数据集进行学习，这些数据集以稳定的局部最小值为主[14,15]，缺乏全局PES数据中常见的反应中间体（过渡态）、玻璃态和高能最小值的结构多样性，从而极大地阻碍了基于机器学习的原子模拟的预测能力[16]。部分原因是缺乏所有元素的全球 PES 数据集，但更重要的是，开发一个通用且可靠的机器学习模型非常困难，该模型可以高精度、高效率地拟合整个元素周期表的全球 PES 数据。机器学习潜力的表示能力主要取决于要学习的数据集以及用于学习数据集的机器学习模型。根据选择，可以实现 ML 模型以适应不同的硬件平台，即中央处理单元 (CPU) 和图形处理单元 (GPU)",
+      "bbox": [
+        34.02,
+        451.98,
+        291.27,
+        704.3
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S008",
+      "page": 1,
+      "type": "paragraph",
+      "order": 8,
+      "original_text": "Citation: Yang ZX, Xie XT, Wang ZX, Chen DX, Guo ZX, Du JJ, Liang QM, Liu QY, Shang C, Liu ZP. High-order pair-reduced neural network architecture for global potential energy surface exploration across the periodic table. Sci China Chem, 2026, 69: 3098–3106. https://doi.org/10.1007/s11426-025-3054-y",
+      "translation": "引用: 杨ZX，谢XT，王ZX，陈德兴，郭ZX，杜JJ，梁QM，刘QY，尚C，刘ZP。用于跨元素周期表的全局势能表面探索的高阶对减少神经网络架构。中国化学, 2026, 69: 3098–3106. https://doi.org/10.1007/s11426-025-3054-y",
+      "bbox": [
+        39.69,
+        726.49,
+        557.02,
+        741.88
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S009",
+      "page": 1,
+      "type": "paragraph",
+      "order": 9,
+      "original_text": "© Science China Press 2025 chem.scichina.com link.springer.com",
+      "translation": "© 中国科学出版社 2025 chem.scichina.com link.springer.com",
+      "bbox": [
+        34.02,
+        760.1,
+        562.37,
+        767.11
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S010",
+      "page": 2,
+      "type": "paragraph",
+      "order": 10,
+      "original_text": "Subsequently, extensive efforts have sought to integrate spatial information into MPNN models to enhance the ML potential accuracy in describing PES [30–32]. The early efforts by incorpor ating explicit three and four-body functions (angle and torsion information [33]) following those practiced in CPU-based ML potentials [34,35] did show encouraging progress, but these explicit functions significantly hurt the performance in speed on GPU computation [36]. Another idea to include angular spatial information by using spherical harmonics Y l,m with high-order angular moments (l > 0), as learning from atomic wave functions [18,37,38]. Equivariant graph neural networks (EGNNs) proposed by Satorras et al. [39] and implemented later in PaiNN [40] and ET [24] potentials demonstrate that the incorporation of first-order (l = 1) spherical harmonics, equivalent to three-body functions, can already achieve better performance than explicit function poten tials. By further increasing angular moment up to l = 3 using the Clebsch-Gordan (CG) tensor product formalism to realize the coupling between high-order vectors [41], a group of ML models, such as NequIP [42], Allegro [43], and MACE [44], do achieve the state-of-the-art performance, but, unfortunately, sacrifice signi ficantly the performance in speed because the CG tensor product is a heavy operation of O(l 6) complexity on atomic pairs (N p) [45], i.e., O(n × N p × l 6) for systems with n atoms. Specifically, Wang et al. [46] benchmarked the performance of different ML models on a Chignolin peptide (166 atoms), and showed that MACE [44] potential with only l = 2, while more accurate, is about one order of magnitude slower than PaiNN [40] with l = 1. Recent years have seen encouraging progress in using higher-order spherical harmo nics while reducing the intrinsic scaling, such as SO3KRATES and eSCN models [45,47], which can reduce the spherical-harmonicsrelated computational complexity to O(l 2) and O(l 3), respectively. Specifically, SO3KRATES separates the invariant and equivariant information to avoid the expensive tensor products on atomic pairs. To date, it remains largely elusive whether the high angular moment, e.g., l > 2, is essential to learn a global PES with many elements, and, if it is true, could the computational cost in incorporating such high angular moment spherical harmonics be reduced, considering the huge data to learn global PES of all elements? Here, we develop a low-cost GPU-based ML model, named the high-order pair-reduced neural network (HPNN), capable of learning the vast global PES data for elements across the periodic table. We show that the high-order spherical harmonics up to l = 6 are critical to describe complex PES, such as TiO 2 material lowconcentration defects and chemical reactions. Instead of performing the CG tensor product operation, we introduce effective schemes to incorporate high-order spherical harmonics and achieve a linear spherical-harmonics-related computational complexity O(2l) with balanced accuracy and speed performance. A generalized global neural network (GG-NN) potential with the HPNN architecture is obtained by training on a 5.8 million global PES dataset covering 83 elements (2025 August), which shows the great potential for structure and reaction prediction in general.",
+      "translation": "随后，人们广泛努力寻求将空间信息集成到 MPNN 模型中，以提高 ML 在描述 PES 时的潜在准确性 [30-32]。继基于 CPU 的 ML 势 [34,35] 实践之后，通过结合显式三体和四体函数（角度和扭转信息 [33]）的早期努力确实取得了令人鼓舞的进展，但这些显式函数显着损害了 GPU 计算速度的性能 [36]。另一种想法是通过使用具有高阶角矩 (l > 0) 的球谐函数 Y l,m 来包含角度空间信息，就像从原子波函数中学习一样 [18,37,38]。 Satorras 等人提出的等变图神经网络（EGNN）。 [39] 以及后来在 PaiNN [40] 和 ET [24] 势中实现的结果表明，一阶 (l = 1) 球谐函数的结合（相当于三体函数）已经可以实现比显式函数势更好的性能。通过使用 Clebsch-Gordan (CG) 张量积形式进一步将角矩增加到 l = 3 来实现高阶向量之间的耦合[41]，一组 ML 模型，例如 NequIP [42]、Allegro [43] 和 MACE [44]，确实实现了最先进的性能，但不幸的是，由于 CG 张量积是一个繁重的运算，因此显着牺牲了速度性能。原子对 (N p) [45] 的复杂度为 O(l 6)，即具有 n 个原子的系统为 O(n × N p × l 6)。具体来说，王等人。 [46] 对 Chignolin 肽（166 个原子）上不同 ML 模型的性能进行了基准测试，并表明仅 l = 2 时的 MACE [44] 潜力虽然更准确，但比 l = 1 时的 PaiNN [40] 慢了大约一个数量级。近年来，在使用高阶球谐函数同时减少内在标度方面取得了令人鼓舞的进展，例如 SO3KRATES 和 eSCN 模型 [45,47]，这可以将球谐函数相关的计算复杂度分别降低到 O(l 2) 和 O(l 3)。具体来说，SO3KRATES 将不变信息和等变信息分开，以避免原子对上昂贵的张量积。迄今为止，高角矩（例如 l > 2）对于学习具有许多元素的全局 PES 是否至关重要，仍然在很大程度上难以捉摸，如果是这样，考虑到学习所有元素的全局 PES 的大量数据，是否可以减少合并如此高角矩球谐函数的计算成本？在这里，我们开发了一种基于 GPU 的低成本 ML 模型，称为高阶对缩减神经网络 (HPNN)，能够学习周期表中元素的大量全局 PES 数据。我们表明，高达 l = 6 的高阶球谐函数对于描述复杂的 PES 至关重要，例如 TiO 2 材料的低浓度缺陷和化学反应。我们不执行 CG 张量乘积运算，而是引入有效的方案来合并高阶球谐波并实现线性球谐波相关的计算复杂度 O(2l)，同时具有平衡的精度和速度性能。通过对涵盖 83 个元素的 580 万个全球 PES 数据集（2025 年 8 月）进行训练，获得了具有 HPNN 架构的广义全局神经网络（GG-NN）潜力，这显示了结构和反应预测的巨大潜力。",
+      "bbox": [
+        34.02,
+        44.36,
+        291.2,
+        628.39
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S011",
+      "page": 2,
+      "type": "paragraph",
+      "order": 11,
+      "original_text": "2 Methods",
+      "translation": "2 方法",
+      "bbox": [
+        34.02,
+        645.64,
+        98.24,
+        656.64
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S012",
+      "page": 2,
+      "type": "paragraph",
+      "order": 12,
+      "original_text": "2.1 High-order pair-reduced neural network",
+      "translation": "2.1 高阶对减少神经网络",
+      "bbox": [
+        34.02,
+        667.75,
+        234.35,
+        678.75
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S013",
+      "page": 2,
+      "type": "paragraph",
+      "order": 13,
+      "original_text": "Aiming to explore the global PES of molecules and materials in general, which contains a large number of structures with distorted/disordered configurations, we here develop an HPNN model, focusing on solving the high spatial discrimination between structures and achieving high-speed performance in PES computa tion. As illustrated in Figure 1, our HPNN model includes an input",
+      "translation": "为了探索一般分子和材料的全局PES，其中包含大量具有扭曲/无序构型的结构，我们在此开发了HPNN模型，重点解决结构之间的高空间辨别性并实现PES计算的高速性能。如图 1 所示，我们的 HPNN 模型包括一个输入",
+      "bbox": [
+        34.02,
+        685.79,
+        291.16,
+        750.06
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S014",
+      "page": 2,
+      "type": "paragraph",
+      "order": 14,
+      "original_text": "sector to take structure information, an interaction block contain ing fixed three high-order pair-reduced (HP) layers to abstract molecular features, and a readout NN to obtain the energy of the system. HPNN follows the general scheme of GPU-based graph neural network models (Figure S1, Supporting Information online), but invents a new interaction layer to incorporate the neighboring information. Specifically, the HPNN does not utilize the message passing via CG tensor product, but includes different orders of spherical harmonics up to l max = 6 via concatenation. The HPNN architecture is now elaborated as follows. In the input module, we represent each atom i in a system by a",
+      "translation": "扇区获取结构信息，交互块包含固定的三个高阶对减少（HP）层以抽象分子特征，以及读出神经网络以获得系统的能量。 HPNN 遵循基于 GPU 的图神经网络模型的一般方案（图 S1，在线支持信息），但发明了一个新的交互层来合并相邻信息。具体来说，HPNN 不利用通过 CG 张量积传递的消息，而是通过级联包含不同阶的球谐函数，最高可达 l max = 6。 HPNN 架构现详细阐述如下。在输入模块中，我们用 a 来表示系统中的每个原子 i",
+      "bbox": [
+        306.14,
+        44.36,
+        563.19,
+        163.97
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S015",
+      "page": 2,
+      "type": "paragraph",
+      "order": 15,
+      "original_text": "node vector of length N n, { } x k N x = , = 1, 2, ... , i i k n . The node vector",
+      "translation": "长度为 N n, { } x k N x = , = 1, 2, ... , i i k n 的节点向量。节点向量",
+      "bbox": [
+        306.14,
+        162.49,
+        563.19,
+        180.24
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S016",
+      "page": 2,
+      "type": "paragraph",
+      "order": 16,
+      "original_text": "is initialized via an embedding layer with the element Z i as input, as shown in Eq. (1). In the meantime, another embedding layer is utilized for each element to yield a scalar value, Ei ref, the energy reference of the element, as shown in Eq. (2), which defines the energy baseline for the element. The introduction of Ei ref can speed up the convergence of training markedly.",
+      "translation": "通过嵌入层以元素 Z i 作为输入进行初始化，如式（1）所示。 (1).同时，每个元素使用另一个嵌入层来产生标量值 Ei ref，即元素的能量参考，如式（1）所示。 (2)，它定义了元素的能量基线。 Ei ref的引入可以显着加快训练的收敛速度。",
+      "bbox": [
+        306.14,
+        182.58,
+        563.19,
+        253.82
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S017",
+      "page": 2,
+      "type": "paragraph",
+      "order": 17,
+      "original_text": "v Z x = Embed ( ) (1) i i",
+      "translation": "v Z x = 嵌入 ( ) (1) i i",
+      "bbox": [
+        306.14,
+        258.21,
+        561.52,
+        270.83
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S018",
+      "page": 2,
+      "type": "paragraph",
+      "order": 18,
+      "original_text": "E s Z = Embed ( ) (2) i i ref",
+      "translation": "E s Z = 嵌入 ( ) (2) i i 参考",
+      "bbox": [
+        306.62,
+        278.47,
+        561.53,
+        292.83
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S019",
+      "page": 2,
+      "type": "paragraph",
+      "order": 19,
+      "original_text": "For the atomic pair within a preset cutoff r cut (typically below 5 Å), we employ Gaussian functions (G) to encode its distance r ij into a pair vector, { } R k N R0 = 0 , = 1, 2, ... , ij ij k p , of dimension N p, as",
+      "translation": "对于预设截止 r cut 内的原子对（通常低于 5 Å），我们使用高斯函数 (G) 将其距离 r ij 编码为维度 N p 的对向量 { } R k N R0 = 0 , = 1, 2, ... , ij ij k p ，​​如下",
+      "bbox": [
+        306.14,
+        298.86,
+        563.17,
+        335.72
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S020",
+      "page": 2,
+      "type": "paragraph",
+      "order": 20,
+      "original_text": "shown in Eqs. (3)–(5), where rk is the center of the Gaussian function, incremental from 0 to r cut, and is the Gaussian width. R0 ij is then utilized as the input for a two-layer NN, the pair-NN, which outputs the pair vector R ij for use in the interaction blocks.",
+      "translation": "如方程式所示。 (3)–(5)，其中rk是高斯函数的中心，从0到r切割增量，是高斯宽度。然后，R0 ij 用作两层神经网络（即对神经网络）的输入，该神经网络输出对向量 R ij 以在交互块中使用。",
+      "bbox": [
+        306.14,
+        336.82,
+        563.46,
+        381.3
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S021",
+      "page": 2,
+      "type": "paragraph",
+      "order": 21,
+      "original_text": "R r r r G 0 = ( ) = exp ( ) 2 (3) ij k k ij ij k 2",
+      "translation": "R r r r G 0 = ( ) = exp ( ) 2 (3) ij k k ij ij k 2",
+      "bbox": [
+        306.14,
+        388.38,
+        561.52,
+        415.36
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S022",
+      "page": 2,
+      "type": "paragraph",
+      "order": 22,
+      "original_text": "f r h r r r r",
+      "translation": "fr hr rr rr",
+      "bbox": [
+        307.7,
+        429.05,
+        455.64,
+        453.36
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S023",
+      "page": 2,
+      "type": "paragraph",
+      "order": 23,
+      "original_text": "3 cut",
+      "translation": "3 切",
+      "bbox": [
+        380.66,
+        433.93,
+        464.23,
+        448.17
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S024",
+      "page": 2,
+      "type": "paragraph",
+      "order": 24,
+      "original_text": "r r ( ) = 0.5 × tan 1 , for",
+      "translation": "r r ( ) = 0.5 × tan 1 ，对于",
+      "bbox": [
+        313.58,
+        435.53,
+        456.61,
+        463.32
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S025",
+      "page": 2,
+      "type": "paragraph",
+      "order": 25,
+      "original_text": "cut ij",
+      "translation": "切 ij",
+      "bbox": [
+        403.1,
+        440.41,
+        442.34,
+        451.18
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S026",
+      "page": 2,
+      "type": "paragraph",
+      "order": 26,
+      "original_text": "0, for > (4) c ij",
+      "translation": "0，对于 > (4) c ij",
+      "bbox": [
+        310.1,
+        442.6,
+        561.52,
+        463.32
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S027",
+      "page": 2,
+      "type": "paragraph",
+      "order": 27,
+      "original_text": "cut",
+      "translation": "切",
+      "bbox": [
+        456.13,
+        457.45,
+        465.2,
+        465.21
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S028",
+      "page": 2,
+      "type": "paragraph",
+      "order": 28,
+      "original_text": "f r R R0 = NN{ } ( ) (5) ij ij c ij",
+      "translation": "f r R R0 = NN{ } ( ) (5) ij ij c ij",
+      "bbox": [
+        306.14,
+        476.48,
+        561.52,
+        490.18
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S029",
+      "page": 2,
+      "type": "paragraph",
+      "order": 29,
+      "original_text": "2.1.1 Interaction block The interaction block performs the message passing to update the node vector xi. The message passing is pair-based by exploiting the geometrical information of atomic pairs, including the pair vector",
+      "translation": "2.1.1 交互块 交互块执行消息传递以更新节点向量xi。通过利用原子对的几何信息（包括对向量），消息传递是基于对的",
+      "bbox": [
+        306.14,
+        507.26,
+        563.19,
+        549.42
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S030",
+      "page": 2,
+      "type": "paragraph",
+      "order": 30,
+      "original_text": "Rij and the spherical function Y r( ) lm ij . The interaction block is",
+      "translation": "Rij 和球函数 Y r( ) lm ij 。交互块是",
+      "bbox": [
+        305.67,
+        550.65,
+        563.19,
+        565.87
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S031",
+      "page": 2,
+      "type": "paragraph",
+      "order": 31,
+      "original_text": "constituted by three HP layers, each containing a pair-based message passing followed by an atom-based two-layer NN. Compared to EGNN, the interaction block of HPNN, as shown in Figure 1b, has two major improvements implemented to balance the high efficiency and good accuracy. First, considering the high computational load of the pair operation in message passing, particularly in solid materials with many neighbors, we shrink the dimension of atomic features x i to p i with a shrinking linear layer upon entering the interaction block (see Eq. (6)), but restore the dimension to x i with an expanding linear layer once the pair operation is finished. In this way, the parameter space of HPNN will not be compromised at the expense of the pair operation since the subsequent atomic NN remains to operate at the full dimension x i. In practice, p i can be half or even a quarter of the original x i.",
+      "translation": "由三个 HP 层组成，每个层包含一个基于对的消息传递，后面跟着一个基于原子的两层神经网络。与 EGNN 相比，HPNN 的交互块（如图 1b 所示）有两个主要改进，以平衡高效率和良好的准确性。首先，考虑到消息传递中配对操作的高计算负载，特别是在具有许多邻居的固体材料中，我们在进入交互块时使用收缩线性层将原子特征 x i 的维度缩小到 p i （参见方程（6）），但一旦配对操作完成，就使用扩展线性层将维度恢复到 x i 。这样，HPNN 的参数空间不会因配对操作而受到损害，因为后续原子 NN 仍然在全维度 x i 上运行。实际上，p i 可以是原始 x i 的一半甚至四分之一。",
+      "bbox": [
+        306.14,
+        567.52,
+        563.36,
+        731.95
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S032",
+      "page": 2,
+      "type": "paragraph",
+      "order": 32,
+      "original_text": "p W x b = + (6) i i",
+      "translation": "p W x b = + (6) i i",
+      "bbox": [
+        306.62,
+        736.63,
+        561.51,
+        750.34
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C001",
+      "page": 3,
+      "type": "caption",
+      "order": 33,
+      "original_text": "Figure 1 (Color online) Architecture of the HPNN. (a) Overall scheme of HPNN. The model takes atomic numbers Z i and 3D coordinates (r 1, r 2, ..., r n) as inputs, and outputs the total energy (E tot) of the structure. (b) Illustration of the HP interaction layer, which realizes the separated messaging passing at various l orders, couples spherical harmonics of various orders into atomic features that pass atomic NN with layer normalization and activation.",
+      "translation": "图 1（在线彩色）HPNN 架构。 (a) HPNN总体方案。该模型以原子序数 Z i 和 3D 坐标 (r 1, r 2, ..., r n) 作为输入，并输出结构的总能量 (E tot)。 (b) HP 交互层的图示，它实现了在各个 l 阶传递的分离消息传递，将各种阶的球谐函数耦合成原子特征，这些原子特征通过层归一化和激活传递原子神经网络。",
+      "bbox": [
+        34.02,
+        310.92,
+        562.71,
+        336.56
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S033",
+      "page": 3,
+      "type": "paragraph",
+      "order": 34,
+      "original_text": "Second, as the CG tensor product is highly computationally intensive, which practically prevents the use of the high-order spherical functions, we adopt a variable angular interaction scheme to incorporate high-order angular information hierarchically with l max up to 6. The message in HPNN is formulated in Eqs. (7) and (8),",
+      "translation": "其次，由于 CG 张量积的计算量很大，这实际上阻碍了高阶球函数的使用，因此我们采用可变角度交互方案来分层合并高阶角度信息，l max 高达 6。HPNN 中的消息由等式 1 表示。 （7）和（8），",
+      "bbox": [
+        34.02,
+        361.9,
+        292.96,
+        415.77
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S034",
+      "page": 3,
+      "type": "paragraph",
+      "order": 35,
+      "original_text": "( ) Y m p p R r = ( ) (7) ij lm i j ij lm ij",
+      "translation": "( ) Y m p p R r = ( ) (7) ij lm i j ij lm ij",
+      "bbox": [
+        34.5,
+        419.02,
+        289.4,
+        441.69
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S035",
+      "page": 3,
+      "type": "paragraph",
+      "order": 36,
+      "original_text": "Nei",
+      "translation": "内",
+      "bbox": [
+        69.06,
+        450.91,
+        78.19,
+        458.67
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S036",
+      "page": 3,
+      "type": "paragraph",
+      "order": 37,
+      "original_text": "W l l e m = , ( = 0, 1, ) (8) i l l",
+      "translation": "W l l e m = , ( = 0, 1, ) (8) i l l",
+      "bbox": [
+        34.02,
+        457.87,
+        289.39,
+        472.11
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S037",
+      "page": 3,
+      "type": "paragraph",
+      "order": 38,
+      "original_text": "j ij lm h =1",
+      "translation": "j ij lm h =1",
+      "bbox": [
+        68.57,
+        457.87,
+        150.85,
+        477.15
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S038",
+      "page": 3,
+      "type": "paragraph",
+      "order": 39,
+      "original_text": "( ) x x e e e = + NN (9) i t i t i i i l +1 0 1 h",
+      "translation": "( ) x x e e e = + NN (9) i t i t i i i l +1 0 1 h",
+      "bbox": [
+        34.02,
+        487.93,
+        289.4,
+        506.45
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S039",
+      "page": 3,
+      "type": "paragraph",
+      "order": 40,
+      "original_text": "where the message mij lm is now written as the Hadamard product of",
+      "translation": "其中消息 mij lm 现在被写为 Hadamard 乘积",
+      "bbox": [
+        34.02,
+        515.08,
+        291.05,
+        529.55
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S040",
+      "page": 3,
+      "type": "paragraph",
+      "order": 41,
+      "original_text": "the shrunk atomic features, followed by the outer product with individual spherical harmonics of different orders. In each HP layer, we simultaneously perform l = 0, l = 1, and l = lh. Eq. (8) transforms",
+      "translation": "缩小的原子特征，然后是具有不同阶的各个球谐函数的外积。在每个 HP 层中，我们同时执行 l = 0、l = 1 和 l = lh。等式。 (8) 变换",
+      "bbox": [
+        34.02,
+        532.2,
+        291.07,
+        565.66
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S041",
+      "page": 3,
+      "type": "paragraph",
+      "order": 42,
+      "original_text": "aggregated angular messages into a scalar representation ei l within each HP layer by computing the magnitude of the spherical harmonic. The angular-dependent atomic features ei l (l = 0, 1, l h) are concatenated and pass the atomic NN (Eq. (9)) to yield the updated atomic feature xi t+1. By stacking the HP interaction layer three times with a varied l h, a hierarchical incorporation of highorder angular information is achieved. Specifically, the initial HP layer utilizes the spherical harmonic with l h = 6 to encode the highest resolution angular details, focusing on the local geometry, while the latter two layers adopt gradually reduced order harmonics with l h = 4 and l h = 2, respectively, aggregating the non-local geometry information of the overall structure. This design is inspired by convolutional neural networks (CNNs) [48], where early layers extract fine-grained, high-frequency local patterns and later layers capture broader, smoother contextual information. In Table S1 (Supporting Information online), we show that the",
+      "translation": "通过计算球谐函数的大小，将角度消息聚合为每个 HP 层内的标量表示 ei l 。角度相关的原子特征 ei l (l = 0, 1, l h) 被连接并传递原子 NN（方程（9））以产生更新的原子特征 xi t+1。通过以不同的 l h 堆叠 HP 交互层 3 次，实现了高阶角度信息的分层合并。具体来说，初始HP层利用l h = 6的球谐函数来编码最高分辨率的角度细节，重点关注局部几何结构，而后两层分别采用l h = 4和l h = 2的逐渐降阶谐波，聚合整体结构的非局部几何信息。这种设计的灵感来自于卷积神经网络（CNN）[48]，其中早期层提取细粒度的高频局部模式，后面的层捕获更广泛、更平滑的上下文信息。在表 S1（在线支持信息）中，我们表明",
+      "bbox": [
+        34.02,
+        565.19,
+        291.06,
+        753.18
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S042",
+      "page": 3,
+      "type": "paragraph",
+      "order": 43,
+      "original_text": "hierarchical HP architecture with three layers (l h being 6, 4, 2 consecutively) achieves the best performance in PES accuracy compared to other choices of l h. We emphasize that the HPNN architecture is a lightweight invariant model, where only node scalar information is iteratively updated in ResNet. It differs from the implementation in EGNN, where the vector components (l > 0) are preserved and updated throughout the interaction blocks but are eventually discarded before entering the output sector [42–45]. Our choice is, in fact, natural since only the total energy of the system, a scalar quantity, is to be predicted directly for the ML potential with the forces obtained by computing the derivatives of the total energy via network backpropagation.",
+      "translation": "与其他 l h 选择相比，具有三层（l h 连续为 6、4、2）的分层 HP 架构在 PES 精度方面实现了最佳性能。我们强调，HPNN 架构是一种轻量级不变模型，其中 ResNet 中仅迭代更新节点标量信息。它与 EGNN 中的实现不同，其中向量分量 (l > 0) 在整个交互块中被保留和更新，但最终在进入输出扇区之前被丢弃 [42-45]。事实上，我们的选择是很自然的，因为只有系统的总能量（标量）才能直接预测 ML 势，其中的力是通过网络反向传播计算总能量的导数获得的。",
+      "bbox": [
+        306.14,
+        364.68,
+        563.19,
+        506.39
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S043",
+      "page": 3,
+      "type": "paragraph",
+      "order": 44,
+      "original_text": "2.1.2 Output Similar to the previous ML models, a readout NN using three fully connected layers transforms the final atomic features x i from the interaction block into a scalar value, which represents the energy correction term of the atom in the chemical environment. The total energy of the system is then obtained by summing the energy correction terms together with all atomic Ei ref energies from the input sector, as shown in Eq. (10).",
+      "translation": "2.1.2 输出 与之前的ML模型类似，使用三个全连接层的读出神经网络将交互块中的最终原子特征x i 转换为标量值，该标量值表示化学环境中原子的能量校正项。然后，通过将能量校正项与来自输入扇区的所有原子 Ei 参考能量相加，获得系统的总能量，如式（1）所示。 （10）。",
+      "bbox": [
+        306.14,
+        519.5,
+        563.18,
+        609.4
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S044",
+      "page": 3,
+      "type": "paragraph",
+      "order": 45,
+      "original_text": "ref",
+      "translation": "参考",
+      "bbox": [
+        397.1,
+        618.65,
+        404.31,
+        626.41
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S045",
+      "page": 3,
+      "type": "paragraph",
+      "order": 46,
+      "original_text": "E E x = NN( ) + (10) i",
+      "translation": "E E x = NN( ) + (10) i",
+      "bbox": [
+        306.62,
+        620.25,
+        561.51,
+        637.92
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S046",
+      "page": 3,
+      "type": "paragraph",
+      "order": 47,
+      "original_text": "i i",
+      "translation": "我我",
+      "bbox": [
+        363.62,
+        625.13,
+        380.31,
+        637.92
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S047",
+      "page": 3,
+      "type": "paragraph",
+      "order": 48,
+      "original_text": "i tot =1 =1",
+      "translation": "我总共 =1 =1",
+      "bbox": [
+        312.62,
+        625.13,
+        397.83,
+        637.92
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S048",
+      "page": 3,
+      "type": "paragraph",
+      "order": 49,
+      "original_text": "2.2 Inference efficiency of HPNN",
+      "translation": "2.2 HPNN的推理效率",
+      "bbox": [
+        306.14,
+        659.08,
+        458.84,
+        670.08
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S049",
+      "page": 3,
+      "type": "paragraph",
+      "order": 50,
+      "original_text": "To assess the performance of HPNN in PES evaluation, we performed a series of benchmark inference calculations, as shown in Figure 2a, on a TiO 2 bulk crystal with different numbers of atoms (96 to 8,160 atoms) using a single GPU (NVIDIA GeForce RTX 4090). The performance of HPNN (3 layers, l max = 6) is compared with that of mainstream GPU models, e.g., PaiNN model [40] (3 layers, l max = 1), NequIP model [42] (3 layers, l max = 2), Allegro",
+      "translation": "为了评估 HPNN 在 PES 评估中的性能，我们使用单个 GPU (NVIDIA GeForce RTX 4090) 对具有不同原子数量（96 至 8,160 个原子）的 TiO 2 块体晶体进行了一系列基准推理计算，如图 2a 所示。 HPNN（3层，l max = 6）的性能与主流GPU模型的性能进行比较，例如PaiNN模型[40]（3层，l max = 1），NequIP模型[42]（3层，l max = 2），Allegro",
+      "bbox": [
+        306.14,
+        677.11,
+        563.27,
+        753.1
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S050",
+      "page": 4,
+      "type": "paragraph",
+      "order": 51,
+      "original_text": "model [43] (3 layers, l max = 2), MACE model [44] (3 layers, l max = 2), and a more recent SO3KRATES model [45] (3 layers, l max = 3) with a similar parameter size (~1.4 M). These representative models’ parameters and theoretical scaling with respect to key parameters (N p, l max) are listed in Table 1. Our results are summarized in Figure 2a and Table S2. We found that for the smallest system of 96 atoms, the SO3KRATES model achieves the fastest inference efficiency, specifically 8.00 ms per energy/force evaluation. The PaiNN model with the lowest order also has a high inference efficiency of 11.92 ms, slightly outperforming HPNN (13.65 ms). All of these are significantly faster than MACE, which requires 53.61 ms for the same task (NequIP and Allegro have the same scaling as MACE; NequIP results shown in Table S2). As the system size increases, the inference time of the MACE model (green) grows rapidly, being the longest among all tested models (Figure 2a) until reaching the limit of 1,920 atoms, the largest size capable of fitting in a single RTX 4090 GPU due to excessive memory consumption of tensor product operations. In contrast, HPNN (blue), PaiNN (orange), and SO3KRATES (purple) exhibit a good linear scaling up to 8,500, with HPNN surpassing PaiNN beyond 96 atoms and SO3KRATES beyond 3,840 atoms, revealing its superior scalability for large-scale atomistic simulation. This performance is consistent with the scaling data of different models, as listed in Table 1, where both HPNN and SO3KRATES achieve a low scaling with respect to l max. It might be mentioned that the inference of the SO3KRATES model utilizes the more efficient JAX package [49], which is intrinsically faster than the PyTorch package [50,51] used in our HPNN.",
+      "translation": "模型 [43]（3 层，l max = 2）、MACE 模型 [44]（3 层，l max = 2）和更新的 SO3KRATES 模型 [45]（3 层，l max = 3），具有相似的参数大小（~1.4 M）。表 1 列出了这些代表性模型的参数以及关键参数（N p、l max）的理论缩放。我们的结果总结在图 2a 和表 S2 中。我们发现，对于 96 个原子的最小系统，SO3KRATES 模型实现了最快的推理效率，特别是每次能量/力评估 8.00 毫秒。最低阶数的 PaiNN 模型也具有 11.92 ms 的高推理效率，略优于 HPNN（13.65 ms）。所有这些都比 MACE 快得多，MACE 完成相同的任务需要 53.61 毫秒（NequIP 和 Allegro 具有与 MACE 相同的缩放比例；NequIP 结果如表 S2 所示）。随着系统规模的增加，MACE模型（绿色）的推理时间迅速增长，是所有测试模型中最长的（图2a），直到达到1,920个原子的限制，这是由于张量乘积运算的内存消耗过多而能够适应单个RTX 4090 GPU的最大尺寸。相比之下，HPNN（蓝色）、PaiNN（橙色）和SO3KRATES（紫色）在高达8,500的范围内表现出良好的线性缩放，其中HPNN超过96个原子超过PaiNN，SO3KRATES超过3,840个原子，揭示了其在大规模原子模拟方面的卓越可扩展性。该性能与不同模型的缩放数据一致，如表 1 所示，其中 HPNN 和 SO3KRATES 均实现了相对于 l max 的低缩放。可能会提到，SO3KRATES 模型的推理利用了更高效的 JAX 包 [49]，本质上比我们 HPNN 中使用的 PyTorch 包 [50,51] 更快。",
+      "bbox": [
+        34.02,
+        44.36,
+        291.11,
+        351.96
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S051",
+      "page": 4,
+      "type": "paragraph",
+      "order": 52,
+      "original_text": "Figure 2b compares the performance of the multi-GPU version of HPNN (four GPU devices utilized in the figure) with that of a singleGPU version, with all data detailed in Table S3. Two techniques",
+      "translation": "图 2b 比较了 HPNN 的多 GPU 版本（图中使用了四个 GPU 设备）与单 GPU 版本的性能，表 S3 中详细列出了所有数据。两种技巧",
+      "bbox": [
+        34.02,
+        354.02,
+        291.06,
+        385.12
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C002",
+      "page": 4,
+      "type": "caption",
+      "order": 53,
+      "original_text": "Table 1 Hyperparameters and theoretical scaling of GPU-based ML potential models",
+      "translation": "表 1 基于 GPU 的 ML 潜在模型的超参数和理论扩展",
+      "bbox": [
+        34.02,
+        623.35,
+        282.74,
+        630.85
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S052",
+      "page": 4,
+      "type": "paragraph",
+      "order": 54,
+      "original_text": "enabling HPNN to handle systems containing more than ten thousand atoms are also illustrated in Table S3. Although multiGPU implementation incurs a higher latency due to the inter-GPU communication overhead (e.g., 64.34 ms for small systems), its inference performance surpasses that of the single-GPU version beyond the system size of 4,800 atoms. The computation time scales linearly with the system size, the curve of which has a smaller slope compared to that in the single-GPU version, demonstrating high scalability towards large-scale atomic simulations. Impressively, at a medium size of 8,160 atoms, the multi-GPU version reduces the inference time by nearly 50% (97.01 ms vs. 201.71 ms for singleGPU). Apart from the bulk Ti–O system, we also performed training and inference tests on an isolated system, i.e., the Chignolin mini protein, where the efficiency tests of some mainstream ML potential models are available from the literature. Briefly, on the chigonilin dataset, HPNN achieves a training time of 7.08 ms per structure on a single NVIDIA V100 GPU, which is significantly faster than other models (e.g., MACE: 101.6 ms, NequIP: 233.6 ms) [46], and related data are detailed in Table S4. The HPNN model also exhibits a good inference latency, i.e., 11.7 ms for energy and force calculations per structure (RTX 4090 GPU), which outperforms TensorNet [52] (26.5 ms) and ET [24] (26.8 ms) models. These results confirm the high speed and scalability of HPNN in both training and inference.",
+      "translation": "表 S3 还说明了 HPNN 能够处理包含超过一万个原子的系统。尽管由于 GPU 间通信开销，多 GPU 实现会产生较高的延迟（例如，小型系统为 64.34 毫秒），但其推理性能超过了超过 4,800 个原子的系统规模的单 GPU 版本。计算时间与系统规模成线性关系，与单GPU版本相比，其曲线斜率更小，表现出对大规模原子模拟的高可扩展性。令人印象深刻的是，在 8,160 个原子的中等大小下，多 GPU 版本将推理时间减少了近 50%（单 GPU 为 97.01 毫秒，而单 GPU 为 201.71 毫秒）。除了散装 Ti-O 系统之外，我们还对一个孤立的系统（即 Chignolin mini 蛋白）进行了训练和推理测试，其中一些主流 ML 潜在模型的效率测试可以从文献中获得。简而言之，在 chigonilin 数据集上，HPNN 在单个 NVIDIA V100 GPU 上实现了每个结构 7.08 ms 的训练时间，明显快于其他模型（例如，MACE：101.6 ms，NequIP：233.6 ms）[46]，相关数据详见表 S4。 HPNN 模型还表现出良好的推理延迟，即每个结构（RTX 4090 GPU）的能量和力计算为 11.7 毫秒，优于 TensorNet [52]（26.5 毫秒）和 ET [24]（26.8 毫秒）模型。这些结果证实了 HPNN 在训练和推理方面的高速性和可扩展性。",
+      "bbox": [
+        306.14,
+        44.36,
+        563.19,
+        307.68
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S053",
+      "page": 4,
+      "type": "paragraph",
+      "order": 55,
+      "original_text": "3 Results and discussion",
+      "translation": "3 结果与讨论",
+      "bbox": [
+        306.14,
+        324.93,
+        437.29,
+        335.93
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S054",
+      "page": 4,
+      "type": "paragraph",
+      "order": 56,
+      "original_text": "With the high performance of the HPNN architecture, we established a generalized global neural network (GG-NN) potential, leveraging all the datasets of the LASP project [19–21] that were utilized to generate more than 340 G-NN potentials of the G-NN",
+      "translation": "凭借 HPNN 架构的高性能，我们建立了广义全局神经网络（GG-NN）势，利用 LASP 项目 [19-21] 的所有数据集，这些数据集用于生成 G-NN 的 340 多个 G-NN 势",
+      "bbox": [
+        306.14,
+        342.96,
+        563.36,
+        385.12
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C003",
+      "page": 4,
+      "type": "caption",
+      "order": 57,
+      "original_text": "Figure 2 (Color online) Inference efficiency of HPNN on single and multi-GPU systems. (a) Single-GPU inference times for HPNN, MACE, and PaiNN on TiO 2 systems (96 to 8,160 atoms). See Table 1 for hyperparameters. For the MACE model, the cuEquivariance library is not utilized. (b) Inference times for single-GPU and multi-GPU (four cards) versions of HPNN.",
+      "translation": "图 2（在线彩色）HPNN 在单 GPU 和多 GPU 系统上的推理效率。 (a) HPNN、MACE 和 PaiNN 在 TiO 2 系统（96 至 8,160 个原子）上的单 GPU 推理时间。超参数请参见表 1。对于 MACE 模型，未使用 cuEquivariance 库。 (b) HPNN 的单 GPU 和多 GPU（四卡）版本的推理时间。",
+      "bbox": [
+        34.02,
+        589.16,
+        564.14,
+        605.68
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S055",
+      "page": 4,
+      "type": "paragraph",
+      "order": 58,
+      "original_text": "Model Params (M) N sca N vec N p l max N int Scaling a)",
+      "translation": "模型参数 (M) N sca N vec N p l max N int 缩放 a)",
+      "bbox": [
+        57.03,
+        634.65,
+        527.38,
+        644.24
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S056",
+      "page": 4,
+      "type": "paragraph",
+      "order": 59,
+      "original_text": "HPNN 1.51 256 0 128 6 3 O(n×N ei×(2l max+5)×N p)",
+      "translation": "HPNN 1.51 256 0 128 6 3 O(n×N ei×(2l max+5)×N p)",
+      "bbox": [
+        56.52,
+        648.8,
+        549.91,
+        656.83
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S057",
+      "page": 4,
+      "type": "paragraph",
+      "order": 60,
+      "original_text": "PaiNN 1.40 196 196×3 196 1 # 3 O(n×N ei×4×N p)",
+      "translation": "PaiNN 1.40 196 196×3 196 1 # 3 O(n×N ei×4×N p)",
+      "bbox": [
+        56.3,
+        659.42,
+        537.94,
+        669.01
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S058",
+      "page": 4,
+      "type": "paragraph",
+      "order": 61,
+      "original_text": "NequIP 1.44 64 64×8 64 2 3 O(n×N ei×(l max+1) 6×N p)",
+      "translation": "NequIP 1.44 64 64×8 64 2 3 O(n×N ei×(l max+1) 6×N p)",
+      "bbox": [
+        55.0,
+        671.67,
+        549.4,
+        681.2
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S059",
+      "page": 4,
+      "type": "paragraph",
+      "order": 62,
+      "original_text": "Allegro 1.30 64 64×8 64 2 3 O(n×N ei×(l max+1) 6×N p)",
+      "translation": "快板 1.30 64 64×8 64 2 3 O(n×N ei×(l max+1) 6×N p)",
+      "bbox": [
+        55.28,
+        683.86,
+        549.4,
+        693.45
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S060",
+      "page": 4,
+      "type": "paragraph",
+      "order": 63,
+      "original_text": "MACE 1.47 128 128×3 128 2 3 O(n×N ei×(l max+1) 6×N p)",
+      "translation": "MACE 1.47 128 128×3 128 2 3 O(n×N ei×(l max+1) 6×N p)",
+      "bbox": [
+        56.75,
+        696.05,
+        549.4,
+        705.64
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S061",
+      "page": 4,
+      "type": "paragraph",
+      "order": 64,
+      "original_text": "SO3KRATES 1.40 288 15 288 3 3 O(n×N ei×((l max+1) 2+N p))",
+      "translation": "SO3K 率 1.40 288 15 288 3 3 O(n×N ei×((l max+1) 2+N p))",
+      "bbox": [
+        47.57,
+        708.29,
+        551.58,
+        717.83
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S062",
+      "page": 4,
+      "type": "paragraph",
+      "order": 65,
+      "original_text": "a) n is the number of atoms; N ei is the number of neighbors; # PaiNN l max is fixed as 1 (Params: the number of model parameters, N sca: scalar node feature length, N vec: vector components node feature length, N p: pair feature length, l max: maximum degree of spherical harmonics, N int: the number of interaction layers). The cutoff radius for all listed models is the same, 5 Å.",
+      "translation": "a) n 是原子数； N ei 是邻居的数量； # PaiNN l max 固定为1（Params：模型参数个数，N sca：标量节点特征长度，N vec：向量分量节点特征长度，N p：对特征长度，l max：球谐函数最大次数，N int：交互层数）。所有列出的型号的截止半径均相同，均为 5 Å。",
+      "bbox": [
+        34.02,
+        723.06,
+        562.79,
+        749.48
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S063",
+      "page": 5,
+      "type": "paragraph",
+      "order": 66,
+      "original_text": "many users [55–58]. These results demonstrate a good learning ability of the HPNN model for the vast global PES data across the periodic table. Our previous work [53] have shown that the PES prediction using global NN potential is generally robust, but extra data on the target PES is essential in order to reach a very high accuracy for the target system (such as ~ 1 meV/atom), which can be achieved by re-training with expanded training data, or, more conveniently, by fine-tuning with newly-generated target PES dataset. To give a quick outlook of GG-NN performance, Figure 3b, c shows the zero-shot performance of the GG-NN calculations, predictions without system-specific training, in two complex surface systems recently investigated by our group [59,60], namely, CO activation in Fischer-Tropsch synthesis on iron carbide surfaces and the adsorption of diverse organic molecules on copper surfaces. Both systems are covered by the training dataset, and thus, the purpose is to examine the GG-NN potential performance against the previously published CPU-based G-NN potentials trained specifically on the target systems. As shown in Figure 3b, the GPU-based GG-NN potential predicts well the reaction pathway energetics for CO activation on the Fe 5C 2 (510) surface [61]. The mean absolute error (MAE) in the predicted Gibbs free energy along the pathway is 0.0501 eV compared to the DFT data, while our previous CPU-based G-NN potential has an MAE of 0.0768 eV. Detailed Gibbs free energies of initial, transition, and final states are provided in Table S5. For molecular adsorption on Cu surfaces [62], as shown in Figure 3c, we examined 10,000 molecules and fragments with unique functional group configura tions adsorbed on three low-index Cu surfaces: (111), (100), and (211). The composition distribution of these organic molecules and fragments is shown in Figure S3. The GPU-based GG-NN potential",
+      "translation": "许多用户[55–58]。这些结果证明了 HPNN 模型对于整个周期表中大量的全球 PES 数据具有良好的学习能力。我们之前的工作[53]表明，使用全局NN势的PES预测通常是鲁棒的，但是为了使目标系统达到非常高的精度（例如〜1meV/atom），目标PES上的额外数据是必不可少的，这可以通过使用扩展的训练数据进行重新训练来实现，或者更方便地通过使用新生成的目标PES数据集进行微调来实现。为了快速展望 GG-NN 的性能，图 3b、c 显示了我们小组最近研究的两个复杂表面系统中 GG-NN 计算的零样本性能，即无需系统特定训练的预测 [59,60]，即碳化铁表面费托合成中的 CO 活化和铜表面上不同有机分子的吸附。训练数据集涵盖了这两个系统，因此，目的是根据之前发布的专门在目标系统上训练的基于 CPU 的 G-NN 潜力来检查 GG-NN 的潜在性能。如图3b所示，基于GPU的GG-NN势很好地预测了Fe 5C 2 (510)表面上CO活化的反应途径能量学[61]。与 DFT 数据相比，沿路径预测的吉布斯自由能的平均绝对误差 (MAE) 为 0.0501 eV，而我们之前基于 CPU 的 G-NN 势的 MAE 为 0.0768 eV。表 S5 提供了初始、过渡和最终状态的详细吉布斯自由能。对于 Cu 表面上的分子吸附 [62]，如图 3c 所示，我们检查了吸附在三个低指数 Cu 表面上的 10,000 个具有独特官能团配置的分子和片段：(111)、(100) 和 (211)。这些有机分子和碎片的成分分布如图S3所示。基于 GPU 的 GG-NN 潜力",
+      "bbox": [
+        306.14,
+        43.88,
+        563.19,
+        385.13
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S064",
+      "page": 5,
+      "type": "paragraph",
+      "order": 67,
+      "original_text": "library (http://lasphub.com/#/lasp/gpunnLibrary) for the LASP software in the past decade. In the following, we first present the GG-NN potential (Sect. 3.1) and benchmark the performance of the GG-NN potential and the specifically trained HPNN potential against other mainstream GPU models in the challenging global PES system, aiming to predict TiO x solid energetics with low concentration defects (Sect. 3.2), and chemical reaction barriers of gas phase molecules (Table S8). The former one involves the longrange interaction (>10 Å) between low-content defects, and the latter one requires a high resolution to resolve the local geometry change during reaction. Both systems have been utilized previously to assess the performance of CPU-based LASP potentials [27,53]. In addition, to guide the practical use of GG-NN, we also illustrate the GG-NN performance in material prediction (Matbench [54]) in comparison with other universal foundation potential models (Sect. 3.3).",
+      "translation": "过去十年中 LASP 软件的库 (http://lasphub.com/#/lasp/gpunnLibrary)。接下来，我们首先介绍 GG-NN 势（第 3.1 节），并在具有挑战性的全球 PES 系统中将 GG-NN 势和经过专门训练的 HPNN 势与其他主流 GPU 模型的性能进行基准测试，旨在预测具有低浓度缺陷的 TiO x 固体能量学（第 3.2 节）和气相分子的化学反应势垒（表 S8）。前一种涉及低含量缺陷之间的长程相互作用（>10 Å），后一种需要高分辨率来解决反应过程中的局部几何变化。这两个系统之前都被用来评估基于 CPU 的 LASP 潜力的性能 [27,53]。此外，为了指导 GG-NN 的实际使用，我们还说明了 GG-NN 在材料预测中的性能（Matbench [54]）与其他通用基础势模型（第 3.3 节）的比较。",
+      "bbox": [
+        34.02,
+        44.36,
+        291.06,
+        219.24
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S065",
+      "page": 5,
+      "type": "paragraph",
+      "order": 68,
+      "original_text": "3.1 GG-NN potential",
+      "translation": "3.1 GG-NN潜力",
+      "bbox": [
+        34.02,
+        236.49,
+        132.15,
+        247.49
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S066",
+      "page": 5,
+      "type": "paragraph",
+      "order": 69,
+      "original_text": "The dataset for the GG-NN potential comprises 5,844,031 unique configurations over 83 elements, as summarized in Figure 3a, covering the most common elements in the periodic table. The generation scheme and density functional theory (DFT) setup are detailed in Figure S2. It should be mentioned that the spinpolarization was taken into account for structures containing 3d elements (V, Cr, Mn, Fe, Co, Ni) and f-block lanthanide elements. The final GG-NN potential exhibits good accuracy, namely, the root-mean-square errors (RMSE) of 7.348 meV/atom for energy, 0.163 eV/Å for atomic forces on the global training dataset. The levels of error are comparable to the CPU-based G-NN potentials utilized in the LASP project, which have been widely utilized by",
+      "translation": "GG-NN 势的数据集包含 83 个元素的 5,844,031 个独特配置，如图 3a 所示，涵盖了周期表中最常见的元素。图 S2 详细介绍了生成方案和密度泛函理论 (DFT) 设置。应该提到的是，对于包含 3d 元素（V、Cr、Mn、Fe、Co、Ni）和 f 区镧系元素的结构考虑了自旋极化。最终的 GG-NN 势表现出良好的精度，即在全局训练数据集上，能量的均方根误差 (RMSE) 为 7.348 meV/atom，原子力的均方根误差为 0.163 eV/Å。错误水平与 LASP 项目中使用的基于 CPU 的 G-NN 潜力相当，该项目已被广泛使用",
+      "bbox": [
+        34.02,
+        254.47,
+        291.07,
+        385.12
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C004",
+      "page": 5,
+      "type": "caption",
+      "order": 70,
+      "original_text": "Figure 3 (Color online) Generation and Performance of GG-NN. (a) Element distribution of generalized global datasets and RMSE accuracy of GG-NN potential. (b) Performance of GG-NN potential in predicting CO activation in Fischer-Tropsch synthesis on the Fe 5C 2 (510) surface. (c) Performance of the GG-NN potential in predicting the energies of 10,000 different organic molecules adsorbed on Cu surfaces. The atomic elements are color-coded as follows: C in grey, H in white, O in red, Fe in orange, N in blue, and Cu in coral.",
+      "translation": "图 3（在线彩色）GG-NN 的生成和性能。 (a) 广义全局数据集的元素分布和 GG-NN 潜力的 RMSE 准确性。 (b) GG-NN 潜力在预测 Fe 5C 2 (510) 表面费托合成中 CO 活化方面的性能。 (c) GG-NN 势在预测 Cu 表面吸附的 10,000 种不同有机分子的能量方面的性能。原子元素的颜色编码如下：C 为灰色，H 为白色，O 为红色，Fe 为橙色，N 为蓝色，Cu 为珊瑚色。",
+      "bbox": [
+        34.02,
+        725.0,
+        562.69,
+        750.47
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S067",
+      "page": 6,
+      "type": "paragraph",
+      "order": 71,
+      "original_text": "is the Ti–O binary global PES [63]. This dataset includes 27,278 global PES structures with various chemical compositions ranging from gas molecules to surface slabs and to bulk structures, including 6,187 Ti, 13,026 TiO 2, 6,820 TiO 2−x, 664 O 2, and 581 Ti 1−xO 2 structures in chemical formula. The TiO 2−x and Ti 1−xO 2 structures are mostly defective TiO 2 bulk crystals with O and Ti vacancies, respectively. Structural details, including chemical formulas, atom counts, and structure types (cluster, bulk, layer), are provided in Table S6. The complexity of the Ti–O global dataset can be visualized in Figure 4a, where the xand y-axes denote the distanceweighted Steinhardt order parameters (OP 2 and OP 4) [64], two different structural descriptors, and the z-axis represents the relative energy with respect to the stable elemental structures of Ti and O. It shows that the energy of the structures spans a wide range, from −1 to 6 eV/atom, with the stable structures, e.g., Ti crystal bulk, O 2, and TiO 2 crystal, located at the bottom, and the configurations, e.g., Ti clusters, defective Ti 1−xO 2, and TiO 2−x clusters at high-energy regions. The HPNN and other mainstream GPU models, including PaiNN, NequIP, Allegro, and MACE, were then trained on the same Ti–O global dataset with a randomly split train and test sets at a 95% to 5% ratio. The number of parameters for each model and the maximum order of spherical harmonics (l max) are summarized in Table 1. Figure 4b displays the performance of the different models. Performance and architectural details are provided in Table S7. Notably, our HPNN model (l max = 6) shows the best performance in terms of energy and force errors on the Ti–O test dataset, with RMSE",
+      "translation": "是 Ti-O 二元全局 PES [63]。该数据集包括 27,278 个全局 PES 结构，其化学成分范围从气体分子到表面板和块体结构，其中化学式中包括 6,187 个 Ti、13,026 TiO 2、6,820 TiO 2−x、664 O 2 和 581 Ti 1−xO 2 结构。 TiO 2−x 和Ti 1−xO 2 结构主要是分别具有O和Ti空位的有缺陷的TiO 2 块状晶体。表 S6 提供了结构细节，包括化学式、原子数和结构类型（簇、块、层）。 Ti-O全局数据集的复杂性可以在图4a中可视化，其中x和y轴表示距离加权斯坦哈特阶参数（OP 2和OP 4）[64]，两个不同的结构描述符，z轴表示相对于Ti和O的稳定元素结构的相对能量。它表明结构的能量跨越很宽的范围，从-1到6 eV/原子，具有稳定的结构，例如，位于底部的Ti晶体块、O 2 和TiO 2 晶体，以及高能区域的构型，例如Ti簇、有缺陷的Ti 1−xO 2 和TiO 2−x 簇。然后，HPNN 和其他主流 GPU 模型（包括 PaiNN、NequIP、Allegro 和 MACE）在相同的 Ti-O 全局数据集上进行训练，并以 95% 到 5% 的比例随机分割训练集和测试集。表 1 总结了每个模型的参数数量和球谐函数的最大阶数 (l max)。图 4b 显示了不同模型的性能。表 S7 中提供了性能和架构详细信息。值得注意的是，我们的 HPNN 模型（l max = 6）在 Ti-O 测试数据集上显示出能量和力误差方面的最佳性能，且 RMSE",
+      "bbox": [
+        306.14,
+        43.88,
+        563.2,
+        340.9
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S068",
+      "page": 6,
+      "type": "paragraph",
+      "order": 72,
+      "original_text": "achieves an MAE of 2.27 meV/atom for the energies of these adsorbed structures and an R 2 coefficient near 1 (0.99999), compared to 3.00 meV/atom and 0.99998 for the CPU-based GNN potential. These two examples demonstrate the good agreement among GG-NN, CPU-based G-NN, and DFT calculations, and confirm a robust performance of GG-NN across different surfaces and molecular configurations. Considering the vast global PES data across the periodic table can now be learned into one model with only 1.5 million parameters, the GG-NN-based atomic simulation offers a convenient and unified platform to handle different PES problems. Apart from that, we performed MD simulations to examine the GG-NN model’s numerical stability on evaluating the kinetics of two example systems, namely the anatase TiO 2(101) surface [53], and the water droplet on quartz a-SiO 2 (110), a large system with 8,541 atoms, which are detailed in Figure S4 For the anatase TiO 2(101) surface, the GG-NN predictions exhibit excellent agreement with reference DFT calculations, achieving an RMSE of relative energy as low as 1.70 meV/atom. For the water droplet, the GG-NN model maintains stable dynamics over long simulation times, i.e., max energy deviation is 0.045 meV/atom, further demonstrating its robustness in handling large and complex systems.",
+      "translation": "这些吸附结构的能量的 MAE 为 2.27 meV/atom，R 2 系数接近 1 (0.99999)，而基于 CPU 的 GNN 势为 3.00 meV/atom 和 0.99998。这两个例子证明了 GG-NN、基于 CPU 的 G-NN 和 DFT 计算之间的良好一致性，并证实了 GG-NN 在不同表面和分子构型上的稳健性能。考虑到现在可以将整个元素周期表中的大量全球 PES 数据学习到一个仅具有 150 万个参数的模型中，基于 GG-NN 的原子模拟提供了一个方便且统一的平台来处理不同的 PES 问题。除此之外，我们还进行了 MD 模拟，以检查 GG-NN 模型在评估两个示例系统的动力学时的数值稳定性，即锐钛矿 TiO 2(101) 表面 [53] 和石英 a-SiO 2 (110) 上的水滴，这是一个具有 8,541 个原子的大型系统，详细信息如图 S4 所示。对于锐钛矿 TiO 2(101) 表面，GG-NN 预测与参考 DFT 表现出极好的一致性计算，相对能量的 RMSE 低至 1.70 meV/atom。对于水滴，GG-NN模型在长时间的模拟时间内保持稳定的动力学，即最大能量偏差为0.045 meV/原子，进一步证明了其在处理大型复杂系统时的鲁棒性。",
+      "bbox": [
+        34.02,
+        44.36,
+        291.08,
+        285.57
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S069",
+      "page": 6,
+      "type": "paragraph",
+      "order": 73,
+      "original_text": "3.2 Global PES of Ti–O binary systems",
+      "translation": "3.2 Ti-O二元系的全局PES",
+      "bbox": [
+        34.02,
+        302.82,
+        206.57,
+        313.82
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S070",
+      "page": 6,
+      "type": "paragraph",
+      "order": 74,
+      "original_text": "We then evaluated the performance of the GG-NN and specificallytrained HPNN model on two challenging systems. The first example",
+      "translation": "然后，我们在两个具有挑战性的系统上评估了 GG-NN 和经过专门训练的 HPNN 模型的性能。第一个例子",
+      "bbox": [
+        34.02,
+        320.85,
+        291.06,
+        340.9
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C005",
+      "page": 6,
+      "type": "caption",
+      "order": 75,
+      "original_text": "Figure 4 (Color online) Ti–O Global PES and Model Performance. (a) Distribution of the Ti–O global dataset (including O 2, Ti, TiO 2, TiO 2−x, and Ti 1−xO 2). The xand y-axes represent Steinhardt order parameters (OP 2, OP 4), and the z-axis shows relative energy relative to the reference values for the Ti crystal and the O 2 molecule. (b) Performance comparison of HPNN, PaiNN, NequIP, Allegro, MACE, and GG-NN on the test set, including errors in energy and forces. See Table 1 for hyperparameters. (c) Four defective TiO 2 (rutile) structures. (d) The error in predicting vacancy formation energy (ΔΔE) by HPNN, PaiNN, NequIP, Allegro, MACE, and GG-NN on the defective bulk structures in reference to DFT values.",
+      "translation": "图 4（在线彩色）Ti-O 全球 PES 和模型性能。 （a）Ti-O全球数据集的分布（包括O 2 、Ti、TiO 2 、TiO 2−x 和Ti 1−xO 2 ）。 x轴和y轴代表斯坦哈特阶参数(OP 2、OP 4)，z轴显示相对于Ti晶体和O 2 分子的参考值的相对能量。 (b) HPNN、PaiNN、NequIP、Allegro、MACE 和 GG-NN 在测试集上的性能比较，包括能量和力的误差。超参数请参见表 1。 (c) 四种有缺陷的TiO 2 （金红石）结构。 (d) HPNN、PaiNN、NequIP、Allegro、MACE 和 GG-NN 参考 DFT 值对缺陷体结构预测空位形成能 (ΔΔE) 时的误差。",
+      "bbox": [
+        34.02,
+        716.56,
+        562.73,
+        751.21
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S071",
+      "page": 7,
+      "type": "paragraph",
+      "order": 76,
+      "original_text": "of 6.4 meV for energy and 0.125 eV/Å for forces. The MACE model, which employs CG tensor product and the spherical harmonics l max = 2, ranks second with RMSE values of 10.3 meV for energy and 0.131 eV/Å for forces, where the force accuracy approaches HPNN’s force accuracy. The PaiNN model and NequIP model perform relatively poorly, with RMSE values of 15.6 meV/atom and 0.213 eV/Å for PaiNN, and 18.3 meV/atom and 0.205 eV/Å for NequIP, primarily due to PaiNN’s limited spherical harmonic order (l max = 1) and NequIP’s lower atomic feature dimensions (64 per order). Meanwhile, Allegro, incorporating two-body energy terms, outperforms both PaiNN and NequIP with RMSE values of 13.9 meV/atom for energy and 0.186 eV/Å for forces, though it remains less accurate than MACE. We also note that the zero-shot GG-NN performs better than PaiNN, NequIP, Allegro models, and is slightly worse than MACE in the force prediction. This is encouraging, considering that no extra training is required to utilize the generalized potential. Considering that defective sites in oxides, such as oxygen vacancies, play a crucial role in determining material properties, we also assessed the predictive ability of different models in calculating the defect formation energy (ΔE) of defective TiO 2 systems. We constructed defective structures based on a 192-atom rutile TiO 2 crystal by systematically removing oxygen (O) or titanium (Ti) atoms, as shown in Figure 4c. Bulk-1 is the bulk structure with a single O defect, Bulk-2 has double O defects, Bulk-3 contains a single Ti defect, and Bulk-4 has one O vacancy and one Ti vacancy. The performance of various models in predicting the defect formation energy error (ΔΔE) for defective TiO 2 structures with respect to DFT results is summarized in Figure 4d. Again, our HPNN model achieves the best accuracy across defective structures (bulk-1 to bulk-4), with a defect formation energy error of less than 5 meV/atom. In contrast, PaiNN, NequIP, Allegro, and MACE exhibit higher errors, particularly on Ti vacancy structures (bulk-3 and bulk-4), where their error is greater than 10 meV/atom. This suggests the high-order spherical functions are critical in capturing the cation vacancy-associated long-range interactions. It is interesting to note that the zero-shot GG-NN outperforms in this test case, with the best performance in ΔΔE across Bulk-2, Bulk-3, and Bulk-4, which could be due to the success of transfer learning in the large dataset, where cation vacancies are well represented in structures containing other elements. We should emphasize that although the cutoff radius in HPNN is not large, being 5 Å, the non-local effect can be enveloped",
+      "translation": "能量为 6.4 meV，力为 0.125 eV/Å。 MACE 模型采用 CG 张量积和球谐函数 l max = 2，排名第二，能量 RMSE 值为 10.3 meV，力值为 0.131 eV/Å，其力精度接近 HPNN 的力精度。 PaiNN 模型和 NequIP 模型的表现相对较差，PaiNN 的 RMSE 值为 15.6 meV/atom 和 0.213 eV/Å，NequiIP 的 RMSE 值为 18.3 meV/atom 和 0.205 eV/Å，这主要是由于 PaiNN 有限的球谐阶 (l max = 1) 和 NequIP 较低的原子特征维度 (每阶 64)。与此同时，Allegro 结合了二体能量项，其性能优于 PaiNN 和 NequIP，能量的 RMSE 值为 13.9 meV/atom，力的 RMSE 值为 0.186 eV/Å，但其准确度仍然低于 MACE。我们还注意到，零样本 GG-NN 在力预测方面比 PaiNN、NequIP、Allegro 模型表现更好，但比 MACE 稍差。考虑到利用普遍潜力不需要额外的培训，这是令人鼓舞的。考虑到氧化物中的缺陷位点（例如氧空位）在确定材料性能方面起着至关重要的作用，我们还评估了不同模型在计算缺陷TiO 2 系统的缺陷形成能（ΔE）时的预测能力。我们通过系统地去除氧 (O) 或钛 (Ti) 原子，基于 192 个原子的金红石 TiO 2 晶体构建了有缺陷的结构，如图 4c 所示。 Bulk-1是具有单个O缺陷的块体结构，Bulk-2具有双O缺陷，Bulk-3包含单个Ti缺陷，Bulk-4具有1个O空位和1个Ti空位。图4d总结了各种模型在预测缺陷TiO 2 结构的缺陷形成能误差(ΔΔE)方面相对于DFT结果的性能。同样，我们的 HPNN 模型在缺陷结构（bulk-1 到bulk-4）上实现了最佳精度，缺陷形成能量误差小于 5 meV/原子。相比之下，PaiNN、NequIP、Allegro 和 MACE 表现出较高的误差，特别是在 Ti 空位结构（bulk-3 和bulk-4）上，其误差大于 10 meV/原子。这表明高阶球函数对于捕获阳离子空位相关的长程相互作用至关重要。有趣的是，零样本 GG-NN 在此测试用例中表现出色，在 Bulk-2、Bulk-3 和 Bulk-4 中的 ΔΔE 方面表现最佳，这可能是由于迁移学习在大型数据集中的成功，其中阳离子空位在包含其他元素的结构中得到了很好的表示。需要强调的是，虽然 HPNN 的截止半径不大，为 5 Å，但可以覆盖非局部效应",
+      "bbox": [
+        34.02,
+        44.36,
+        291.23,
+        517.84
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S072",
+      "page": 7,
+      "type": "paragraph",
+      "order": 77,
+      "original_text": "via the stacking of three HP layers, leading to an overall perception range of 15 Å, which is enough for the TiO 2 example. If the defect concentration is further reduced, we expect that the vacancy formation energetics would be difficult to predict, even for HPNN.",
+      "translation": "通过三个 HP 层的堆叠，产生 15 Å 的整体感知范围，这对于 TiO 2 示例来说已经足够了。如果缺陷浓度进一步降低，我们预计空位形成能量学将难以预测，即使对于 HPNN 也是如此。",
+      "bbox": [
+        306.14,
+        44.36,
+        563.19,
+        86.52
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S073",
+      "page": 7,
+      "type": "paragraph",
+      "order": 78,
+      "original_text": "3.3 Material prediction in matbench",
+      "translation": "3.3 Matbench中的材料预测",
+      "bbox": [
+        306.14,
+        103.77,
+        472.46,
+        114.77
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S074",
+      "page": 7,
+      "type": "paragraph",
+      "order": 79,
+      "original_text": "It would be interesting to further compare our GG-NN model with other universal foundation potential models. For this purpose, we chose the Matbench Discovery leaderboard [61] that was estab lished as a test of a model’s ability for the high-throughput discovery of stable inorganic crystals. Since the training dataset utilized in generating GG-NN is different from the open-source dataset (e.g., DFT calculation setup, Periodic Table element types), we have to retrain our GG-NN using the MPtrj dataset (1.58 M data) to cover 89 elements and rescale to the new energy scale of MPtrj. The performance benchmark on the WBM test set [62] (0.26 M) is thus finally obtained for the MPtrj-retrained GG-NN.",
+      "translation": "进一步将我们的 GG-NN 模型与其他通用基础潜力模型进行比较将会很有趣。为此，我们选择了 Matbench Discovery 排行榜 [61]，该排行榜是为了测试模型高通量发现稳定无机晶体的能力而建立的。由于生成 GG-NN 所使用的训练数据集与开源数据集不同（例如，DFT 计算设置、元素周期表元素类型），因此我们必须使用 MPtrj 数据集（1.58 M 数据）重新训练 GG-NN 以覆盖 89 个元素，并重新缩放到 MPtrj 的新能量规模。最终获得 MPtrj 重新训练的 GG-NN 在 WBM 测试集 [62] (0.26 M) 上的性能基准。",
+      "bbox": [
+        306.14,
+        121.75,
+        563.19,
+        241.35
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S075",
+      "page": 7,
+      "type": "paragraph",
+      "order": 80,
+      "original_text": "Figure 5a summarizes the MAE (x-axis in the figure), R 2 (color of the circle), and RMSD (y-axis in the figure) results for GG-NN and other top-performance models [54,65–73]. MAE and R 2 are from single-point energy calculations in evaluating the formation energy of crystals by comparing ML potential with DFT results, and RMSD measures the difference between the ML potential optimized structure and the DFT optimized structure, also recommended in the Matbench Discovery leaderboard. Our GG-NN results are as follows: MAE is 0.041, R 2 is 0.832, and RMSD is 0.056. Figure 5a shows that it is generally true that the larger the model (the size of the circle) is, the better the performance (the left-bottom of the figure) would be: the largest model, eSEN-30M-MP (30.2 M parameters), achieves the impressive performance in MAE (0.018) and the top RMSD (0.061). The energy performance (MAE) of GG-NN is comparable with other models that have a similar parameter size, including SevenNet-l3i5 (1.17 M) and Eqnorm MPtrj (1.31 M), but, interestingly, the geometry (RMSD) from GG-NN ranks the best among them, which might be due to the fact that our GG-NN is a retrained model that inherits the knowledge from the global PES dataset. Apart from the energetics and geometrical accuracy, we also compared the inference efficiency of GG-NN with other open-source universal foundation models at the comparable parameter size, namely SevenNet-l3i5 and MACE-MP-0 (small and medium), using the same system and a single GPU (NVIDIA GeForce RTX 4090) as",
+      "translation": "图 5a 总结了 GG-NN 和其他顶级性能模型的 MAE（图中的 x 轴）、R 2（圆圈的颜色）和 RMSD（图中的 y 轴）结果 [54,65–73]。 MAE 和 R 2 来自单点能量计算，通过比较 ML 势与 DFT 结果来评估晶体的形成能，RMSD 衡量 ML 势优化结构与 DFT 优化结构之间的差异，也在 Matbench Discovery 排行榜中推荐。我们的 GG-NN 结果如下：MAE 为 0.041，R 2 为 0.832，RMSD 为 0.056。图 5a 显示，模型（圆圈的大小）越大，性能（图的左下角）通常就越好：最大的模型 eSEN-30M-MP（30.2 M 参数）在 MAE（0.018）和顶级 RMSD（0.061）方面实现了令人印象深刻的性能。 GG-NN 的能量性能（MAE）与具有相似参数大小的其他模型相当，包括 SevenNet-l3i5（1.17 M）和 Eqnorm MPtrj（1.31 M），但有趣的是，GG-NN 的几何（RMSD）在其中排名最好，这可能是因为我们的 GG-NN 是一个重新训练的模型，继承了全局 PES 数据集的知识。除了能量学和几何精度之外，我们还使用相同的系统和单个 GPU (NVIDIA GeForce RTX 4090) 将 GG-NN 的推理效率与具有可比参数大小的其他开源通用基础模型（即 SevenNet-l3i5 和 MACE-MP-0（小型和中型））进行了比较。",
+      "bbox": [
+        306.14,
+        241.57,
+        563.22,
+        517.84
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "C006",
+      "page": 7,
+      "type": "caption",
+      "order": 81,
+      "original_text": "Figure 5 (Color online) Benchmarks of GG-NN with other universal foundation models. (a) Matbench results (MAE, RMSD, and R 2) for GG-NN and some representative models from the Matbench Discovery leaderboard on the WBM test set. The circle size indicates the number of parameters and (↑/↓) stands for the higher/lower, the better the model. (b) Inference efficiency of GG-NN compared with three universal foundation models (SevenNet-l3i5, MACE-MP-0) on a single GPU (RTX 4090).",
+      "translation": "图 5（在线彩色）GG-NN 与其他通用基础模型的基准。 (a) GG-NN 的 Matbench 结果（MAE、RMSD 和 R 2）以及 WBM 测试集上 Matbench Discovery 排行榜的一些代表性模型。圆圈大小表示参数数量，(↑/↓)代表越高/越低，模型越好。 (b) GG-NN 与单个 GPU (RTX 4090) 上的三种通用基础模型（SevenNet-l3i5、MACE-MP-0）相比的推理效率。",
+      "bbox": [
+        34.02,
+        723.94,
+        562.7,
+        751.04
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S076",
+      "page": 8,
+      "type": "paragraph",
+      "order": 82,
+      "original_text": "described in Sect. 2.2. SevenNet-l3i5 with l max = 3 has a similar parameter size (1.17 M) as GG-NN; MACE-MP-0 has two versions available, small (l max = 2, 3.85 M parameters) and medium (l max = 2, 5.73 M parameters). Figure 5b shows that GG-NN exhibits the best performance, maintaining the lowest scaling across different system sizes. Remarkably, the runtime of GG-NN for systems with ~9,600 atoms is comparable to that of other universal foundation models for systems with only a few hundred atoms, which allows GG-NN to be used directly for the production of large-scale atomic simulations. The inference efficiency on multiple GPUs for SevenNet-l3i5 and GG-NN is also compared, where the literature runtime is available. As shown in Table S9, SevenNet-l3i5 can only reach 8,160 atoms due to the memory limit on four GPU cards, taking 1,083.56 ms, whilst GG-NN costs only 201.55 ms to evaluate the same 8,160-atom structure.",
+      "translation": "节中描述。 2.2. l max = 3 的 SevenNet-l3i5 与 GG-NN 具有相似的参数大小（1.17 M）； MACE-MP-0 有两个版本，小型（l max = 2，3.85 M 参数）和中型（l max = 2，5.73 M 参数）。图 5b 显示 GG-NN 表现出最佳性能，在不同系统规模上保持最低的缩放比例。值得注意的是，具有约 9,600 个原子的系统的 GG-NN 运行时间与仅具有数百个原子的系统的其他通用基础模型的运行时间相当，这使得 GG-NN 可以直接用于大规模原子模拟的产生。还比较了 SevenNet-l3i5 和 GG-NN 在多个 GPU 上的推理效率，其中文献运行时间可用。如表 S9 所示，由于四块 GPU 卡的内存限制，SevenNet-l3i5 只能达到 8,160 个原子，需要 1,083.56 毫秒，而 GG-NN 评估相同的 8,160 个原子结构只需要 201.55 毫秒。",
+      "bbox": [
+        34.02,
+        44.36,
+        291.26,
+        208.19
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S077",
+      "page": 8,
+      "type": "paragraph",
+      "order": 83,
+      "original_text": "4 Conclusions",
+      "translation": "4 结论",
+      "bbox": [
+        34.02,
+        222.43,
+        114.95,
+        233.43
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S078",
+      "page": 8,
+      "type": "paragraph",
+      "order": 84,
+      "original_text": "This work proposes a low-cost and high-accuracy ML potential framework, namely HPNN, to learn the vast global PES across the periodic table. The HPNN features a hierarchical atom interaction scheme with reduced pair dimension that enables the incorporation of spherical harmonics up to l = 6 without sacrificing the computation speed. Using the HPNN architecture, a GG-NN potential with 1.5 M parameters is obtained by training an extensive dataset of 5.84 M global PES structures spanning 83 elements across the periodic table, which is ready for generalized global PES exploration. We show that the GG-NN achieves a high speed in the inference and a high accuracy comparable to previous CPU-based G-NN potentials specifically trained for Fischer-Tropsch reactions on ironcarbide surface and molecular adsorption on metal surfaces. The performance of GG-NN is also benchmarked against HPNN and other mainstream ML potentials (e.g., PaiNN and MACE) specifically trained in two systems, which shows that zero-shot GG-NN reaches an accuracy level comparable to specifically-trained potentials, while the specifically-trained HPNN outperforms all other models. By further benchmarking with other top-performance universal foundation models using Matbench, we demonstrate that GG-NN is among the top-ranked models and, importantly, being a fast, lightweight, gradient-based-force model, can be directly utilized for large-scale atomic simulations.",
+      "translation": "这项工作提出了一种低成本、高精度的机器学习潜在框架，即 HPNN，来学习整个元素周期表中庞大的全球 PES。 HPNN 采用分层原子相互作用方案，减少了对维度，可以在不牺牲计算速度的情况下合并高达 l = 6 的球谐函数。使用 HPNN 架构，通过训练涵盖周期表中 83 个元素的 5.84 M 全局 PES 结构的广泛数据集，获得具有 1.5 M 参数的 GG-NN 潜力，为广义的全局 PES 探索做好准备。我们表明，与之前专门针对碳化铁表面的费托反应和金属表面的分子吸附进行训练的基于 CPU 的 G-NN 势相比，GG-NN 实现了高速推理和高精度。 GG-NN 的性能还与在两个系统中专门训练的 HPNN 和其他主流 ML 潜力（例如 PaiNN 和 MACE）进行了基准测试，这表明零样本 GG-NN 达到了与专门训练的潜力相当的准确度水平，而经过专门训练的 HPNN 优于所有其他模型。通过使用 Matbench 与其他顶级性能通用基础模型进一步进行基准测试，我们证明 GG-NN 属于顶级模型之一，重要的是，它是一种快速、轻量级、基于梯度的力模型，可以直接用于大规模原子模拟。",
+      "bbox": [
+        34.02,
+        240.41,
+        291.12,
+        503.78
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S079",
+      "page": 8,
+      "type": "heading",
+      "order": 85,
+      "original_text": "Conflict of interest The authors declare no conflict of interest.",
+      "translation": "利益冲突 作者声明不存在利益冲突。",
+      "bbox": [
+        34.02,
+        510.42,
+        144.96,
+        527.44
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S080",
+      "page": 8,
+      "type": "paragraph",
+      "order": 86,
+      "original_text": "Acknowledgement This work was supported by the National Key Research and Development Program of China (2024YFA1509600), the National Natural Science Foundation of China (12188101, 22033003, 92472113), the Fundamental Research Funds for the Central Universities (20720250005, 20720220011), the Science & Technology Commission of Shanghai Municipality (2024ZDSYS02), the Robotic AI-Scientist Platform of Chinese Academy of Sciences and the Tencent Foundation for XPLORER PRIZE. The computations in this research were performed using the CFFF platform of Fudan University.",
+      "translation": "致谢本文工作得到了国家重点研发计划（2024YFA1509600）、国家自然科学基金（12188101、22033003、92472113）、中央高校基本科研业务费专项资金（20720250005、20720220011）、上海市科委（2024ZDSYS02）、中科院机器人人工智能科学家平台、腾讯探索者奖基金会。本研究的计算采用复旦大学CFFF平台进行。",
+      "bbox": [
+        34.02,
+        536.95,
+        290.42,
+        607.04
+      ],
+      "confidence": "high",
+      "refs": []
+    },
+    {
+      "id": "S081",
+      "page": 8,
+      "type": "paragraph",
+      "order": 87,
+      "original_text": "Supporting information The supporting information is available online at http://chem.scichina.com and http://link.springer. com/journal/11426. The supporting materials are published as submitted, without typesetting or editing. The responsibility for scientific accuracy and content remains entirely with the authors.",
+      "translation": "支持信息 支持信息可在线获取：http://chem.scichina.com 和http://link.springer。 com/journal/11426。证明材料按提交的原样出版，未经排版或编辑。作者对科学准确性和内容的责任完全承担。",
+      "bbox": [
+        34.02,
+        616.6,
+        290.4,
+        651.32
+      ],
+      "confidence": "high",
+      "refs": []
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "block_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009"
+      ]
+    },
+    {
+      "page": 2,
+      "block_ids": [
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020",
+        "S021",
+        "S022",
+        "S023",
+        "S024",
+        "S025",
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030",
+        "S031",
+        "S032"
+      ]
+    },
+    {
+      "page": 3,
+      "block_ids": [
+        "C001",
+        "S033",
+        "S034",
+        "S035",
+        "S036",
+        "S037",
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S042",
+        "S043",
+        "S044",
+        "S045",
+        "S046",
+        "S047",
+        "S048",
+        "S049"
+      ]
+    },
+    {
+      "page": 4,
+      "block_ids": [
+        "S050",
+        "S051",
+        "C002",
+        "S052",
+        "S053",
+        "S054",
+        "C003",
+        "S055",
+        "S056",
+        "S057",
+        "S058",
+        "S059",
+        "S060",
+        "S061",
+        "S062"
+      ]
+    },
+    {
+      "page": 5,
+      "block_ids": [
+        "S063",
+        "S064",
+        "S065",
+        "S066",
+        "C004"
+      ]
+    },
+    {
+      "page": 6,
+      "block_ids": [
+        "S067",
+        "S068",
+        "S069",
+        "S070",
+        "C005"
+      ]
+    },
+    {
+      "page": 7,
+      "block_ids": [
+        "S071",
+        "S072",
+        "S073",
+        "S074",
+        "S075",
+        "C006"
+      ]
+    },
+    {
+      "page": 8,
+      "block_ids": [
+        "S076",
+        "S077",
+        "S078",
+        "S079",
+        "S080",
+        "S081"
+      ]
+    },
+    {
+      "page": 9,
+      "block_ids": []
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "page": 3,
+      "caption_id": "C001",
+      "image_path": "assets/f001.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S013",
+      "alt_text": "Fig. 1"
+    },
+    {
+      "id": "F002",
+      "page": 4,
+      "caption_id": "C003",
+      "image_path": "assets/f002.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S062",
+      "alt_text": "Fig. 2"
+    },
+    {
+      "id": "T001",
+      "page": 4,
+      "caption_id": "C002",
+      "image_path": "assets/t001.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S013",
+      "alt_text": "Table 1"
+    },
+    {
+      "id": "F003",
+      "page": 5,
+      "caption_id": "C004",
+      "image_path": "assets/f003.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S066",
+      "alt_text": "Fig. 3"
+    },
+    {
+      "id": "F004",
+      "page": 6,
+      "caption_id": "C005",
+      "image_path": "assets/f004.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S070",
+      "alt_text": "Fig. 4"
+    },
+    {
+      "id": "F005",
+      "page": 7,
+      "caption_id": "C006",
+      "image_path": "assets/f005.png",
+      "bbox": [],
+      "placement_hint": "near_first_substantive_mention",
+      "placed_after": "S075",
+      "alt_text": "Fig. 5"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "potential energy surface (PES)",
+      "translation": "势能面（PES）",
+      "note": "原子构型与其势能之间的高维映射。"
+    },
+    {
+      "term": "high-order pair-reduced neural network (HPNN)",
+      "translation": "高阶对约化神经网络（HPNN）",
+      "note": "本文提出的、以分层角向相互作用降低高阶球谐计算成本的势函数架构。"
+    },
+    {
+      "term": "generalized global neural network (GG-NN)",
+      "translation": "广义全局神经网络（GG-NN）",
+      "note": "用覆盖多元素全局 PES 的 584 万构型数据集训练的通用模型。"
+    },
+    {
+      "term": "spherical harmonics",
+      "translation": "球谐函数",
+      "note": "表征邻域角向信息的数学基；本文将角动量展开到 l = 6。"
+    },
+    {
+      "term": "message passing neural network (MPNN)",
+      "translation": "消息传递神经网络（MPNN）",
+      "note": "通过原子邻接图交换局部环境信息的图神经网络。"
+    },
+    {
+      "term": "root-mean-square error (RMSE)",
+      "translation": "均方根误差（RMSE）",
+      "note": "用于量化能量或力预测与参考值差异的统计量。"
+    },
+    {
+      "term": "global PES exploration",
+      "translation": "全局势能面探索",
+      "note": "在宽广构型空间中搜索稳定结构和反应路径，而非只拟合单一局部相。"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T09:45:18.051Z",
+  "generatedAt": "2026-07-29T09:45:28.553Z",
   "items": [
     {
       "slug": "20260702-redefining-co3-formation-zundel-switches",
@@ -15,6 +15,23 @@
       "relatedReading": true,
       "paragraphCount": 41,
       "figureCount": 5
+    },
+    {
+      "slug": "20260730-high-order-pair-reduced-neural-network-pes",
+      "title": "High-order pair-reduced neural network architecture for global potential energy surface exploration across the periodic table",
+      "date": "2026-06-01",
+      "taskDate": "2026-07-30",
+      "uploadedAt": "2026-07-29T09:45:28.553Z",
+      "journal": "Science China Chemistry",
+      "zoteroKey": "2TZCFVFY",
+      "collections": [
+        "07LASP"
+      ],
+      "pdfPath": "library/20260730-high-order-pair-reduced-neural-network-pes/paper.pdf",
+      "markdownPath": "library/20260730-high-order-pair-reduced-neural-network-pes/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 82,
+      "figureCount": 6
     },
     {
       "slug": "20260611-band-matching-sulfur-electrocatalysts",
