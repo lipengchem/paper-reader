@@ -1,6 +1,21 @@
 {
-  "generatedAt": "2026-07-29T09:45:28.553Z",
+  "generatedAt": "2026-07-30T09:41:49.197Z",
   "items": [
+    {
+      "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
+      "title": "Water dissociation at the water-rutile TiO2(110) interface from ab initio-based deep neural network simulations",
+      "date": "2026-07-31",
+      "taskDate": "2026-07-31",
+      "uploadedAt": "2026-07-30T09:41:49.197Z",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "zoteroKey": "4LURCMCW",
+      "collections": [],
+      "pdfPath": "library/20260731-water-dissociation-rutile-tio2-110-dnn/paper.pdf",
+      "markdownPath": "library/20260731-water-dissociation-rutile-tio2-110-dnn/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 26,
+      "figureCount": 4
+    },
     {
       "slug": "20260702-redefining-co3-formation-zundel-switches",
       "title": "Redefining ·CO3– Formation Chemistry: Zundel-like Switches Drive Carbonate-·OH Interfacial Reactivity",
