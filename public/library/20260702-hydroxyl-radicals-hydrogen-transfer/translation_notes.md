@@ -1,6 +1,6 @@
-# Translation Notes
+## Translation notes / 翻译说明
 
-- Source format: selectable-text publisher PDF.
-- This reader reuses the local curated figure crops and paragraph-level bilingual interpretation for the same Zotero PDF, then upgrades the front matter to the current paper-reader requirements.
-- Figures are individual crops from the PDF, not full-page screenshots.
-- No embedded annotations were detected in the Zotero PDF.
+- Full PDF-text reconstruction: 42 body blocks, 4 figure captions and 0 table captions across 7 pages.
+- Every reader source block is copied directly from the selectable PDF text layer; no English summary is used as an original-text substitute.
+- Translation is block-level and terminology-normalized. Two-column fragments remain separately anchored when the PDF text layer splits a source paragraph.
+- Publisher figure/table assets were retained only when an original caption could be identified; unmatched visual assets are not silently presented as a complete figure set.
