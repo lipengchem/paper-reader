@@ -1,343 +1,1360 @@
 {
-  "paper": "A Band-Matching Descriptor Breaks Scaling Relations for Sulfur Electrocatalysts",
-  "zotero_item_key": "EHSLLWP7",
-  "zotero_attachment_key": "JLA7YI9K",
-  "doi": "10.1021/jacs.6c02040",
-  "task_date": "2026-06-11",
-  "source_pdf": "D:\\codex\\文献阅读\\自动化文献阅读\\20260611-band-matching-sulfur-electrocatalysts\\paper.pdf",
-  "entries": [
+  "paper": {
+    "title": "A Band-Matching Descriptor Breaks Scaling Relations for Sulfur Electrocatalysts",
+    "venue": "Journal of the American Chemical Society",
+    "source_type": "pdf-text",
+    "language": "en",
+    "source_path": "paper.pdf",
+    "doi": "10.1021/jacs.6c02040",
+    "zotero_item_key": "EHSLLWP7"
+  },
+  "blocks": [
     {
+      "page": 1,
+      "type": "paragraph",
+      "section": "Article information / 文章信息",
+      "order": 1,
+      "original_text": "A Band-Matching Descriptor Breaks Scaling Relations for Sulfur Electrocatalysts",
+      "translation": "一种能带匹配描述符打破硫电催化中的标度关系",
+      "bbox": [
+        51.48,
+        111.18,
+        527.71,
+        146.21
+      ],
+      "confidence": "high",
+      "refs": [],
       "id": "S001",
-      "page": "p.1",
-      "type": "text",
-      "section": "Metadata And Abstract",
-      "original": "A Band-Matching Descriptor Breaks Scaling Relations for Sulfur Electrocatalysts. Xin Jiang, Wenjia Qu, Ruiqing Ye, Chuannan Geng, Jiwei Shi, Qiang Li, Zhonghao Hu, Yufei Zhao, Haotian Yang, Weichao Wang, Li Wang, Wei Lv, and Quan-Hong Yang. J. Am. Chem. Soc. 2026, 148, 19048-19060.",
-      "translation": "题目为《一种能带匹配描述符打破硫电催化中的标度关系》。作者来自天津大学、清华深研院等单位，发表于 2026 年《Journal of the American Chemical Society》。",
-      "reading_order": 1,
-      "confidence": "high"
+      "insert_after": "S001"
     },
     {
+      "page": 1,
+      "type": "paragraph",
+      "section": "Article information / 文章信息",
+      "order": 2,
+      "original_text": "Xin Jiang,# Wenjia Qu,# Ruiqing Ye,# Chuannan Geng, Jiwei Shi, Qiang Li, Zhonghao Hu, Yufei Zhao, Haotian Yang, Weichao Wang, Li Wang,* Wei Lv,* and Quan-Hong Yang*",
+      "translation": "Xin Jiang#、Wenjia Qu#、Ruiqing Ye#、Chuannan Geng、Jiwei Shi、Qiang Li、Zhonghao Hu、Yufei Zhao、Haotian Yang、Weichao Wang、Li Wang*、Wei Lv* 和 Quan-Hong Yang*。",
+      "bbox": [
+        51.48,
+        147.31,
+        555.45,
+        180.1
+      ],
+      "confidence": "high",
+      "refs": [],
       "id": "S002",
-      "page": "p.1",
-      "type": "text",
-      "section": "Metadata And Abstract",
-      "original": "The abstract states that conventional sulfur-electrocatalysis descriptors are still trapped by the adsorption-activity trade-off. The authors propose a d/p band-matching ratio between metal centers and surface sulfur atoms in transition-metal sulfides. This ratio correlates linearly with the overpotentials of sulfur reduction and evolution, and NbS2 reaches 99.2% matching with a minimal bifunctional overpotential of 0.70 V, far better than WS2 at 46.0% and 2.85 V.",
-      "translation": "摘要的核心信息是：传统硫电催化描述符仍被“吸附越强不一定越活、吸附越弱又抓不住中间体”的权衡困住。作者提出层状过渡金属硫化物中金属中心与表面硫原子的 d/p 能带匹配比，将其作为可预测的电子结构描述符。这个匹配比与硫还原和硫析出反应的过电位呈线性关系，其中 NbS2 的匹配比高达 99.2%，双功能过电位仅 0.70 V，显著优于 WS2 的 46.0% 和 2.85 V。",
-      "reading_order": 2,
-      "confidence": "high"
+      "insert_after": "S002"
     },
     {
+      "page": 1,
+      "type": "paragraph",
+      "section": "Article information / 文章信息",
+      "order": 3,
+      "original_text": "Cite This: J. Am. Chem. Soc. 2026, 148, 19048−19060 Read Online",
+      "translation": "引用信息：J. Am. Chem. Soc. 2026, 148, 19048−19060；在线阅读。",
+      "bbox": [
+        75.17,
+        193.66,
+        385.89,
+        202.66
+      ],
+      "confidence": "high",
+      "refs": [],
       "id": "S003",
-      "page": "p.1-2",
-      "type": "text",
-      "section": "Introduction",
-      "original": "The introduction revisits the classical scaling-relation framework derived from adsorption energies and Brønsted-Evans-Polanyi ideas. In Li-S batteries, sulfur conversion involves a 16-electron pathway with solid-liquid-solid transitions, so the kinetics bottleneck and shuttle suppression problem are much harder than in simpler electrocatalytic systems.",
-      "translation": "引言首先回到经典的标度关系框架：它原本依赖吸附能之间的线性相关以及 BEP 关系来预测催化活性。但在锂硫电池里，硫转化是一个 16 电子、多中间体、伴随固-液-固相变的复杂网络，因此动力学瓶颈和 shuttle 效应远比简单电催化体系更难同时处理。",
-      "reading_order": 3,
-      "confidence": "high"
+      "insert_after": "S003"
     },
     {
+      "page": 1,
+      "type": "paragraph",
+      "section": "Article information / 文章信息",
+      "order": 4,
+      "original_text": "The scaling relationship, initially developed to estimate hydrogenation and dehydrogenation reaction energies, has evolved into a universal framework in heterogeneous catalysis for predicting intermediate binding energies.1,2 By further integrating with the Brønsted−Evans−Polanyi relation linking activation barriers and reaction energies, the complete potential energy diagrams for transition-metal-catalyzed surface reactions can be determined, thereby constituting a powerful tool for screening novel catalysts in multielectron and multiphase transfer reactions.3 A prototypical case is sulfur electrochemistry in batteries, which features a 16-electron transfer mechanism and complex solid−liquid−solid phase transitions. They have attracted intense interest for their potential to deliver ultrahigh energy densities in nextgeneration batteries for electric vehicles and related applications. Consequently, sulfur electrocatalysis has emerged as a vibrant research field focused on fundamentally overcoming the kinetic bottlenecks of sulfur conversion reactions and suppressing the shuttle effect.4−7",
+      "translation": "标度关系最初是为了估计加氢和脱氢反应能而开发的，现已发展成为多相催化中预测中间结合能的通用框架。1,2 通过进一步整合连接活化势垒和反应能的 Brønsted−Evans−Polanyi 关系，可以确定过渡金属催化表面反应的完整势能图，从而构成筛选多电子和多相新型催化剂的强大工具转移反应。3 一个典型案例是电池中的硫电化学，其特点是 16 电子转移机制和复杂的固-液-固相变。它们在电动汽车和相关应用的下一代电池中提供超高能量密度的潜力引起了人们的浓厚兴趣。因此，硫电催化已成为一个充满活力的研究领域，致力于从根本上克服硫转化反应的动力学瓶颈并抑制穿梭效应。4−7",
+      "bbox": [
+        51.48,
+        490.59,
+        291.48,
+        704.28
+      ],
+      "confidence": "high",
+      "refs": [],
       "id": "S004",
-      "page": "p.1-2",
-      "type": "text",
-      "section": "Introduction",
-      "original": "The authors argue that for sulfur electrocatalysis, merely tuning the adsorption of one key intermediate cannot break the intrinsic scaling constraint. Polysulfides are chemically unstable and even Li2S4 can disproportionate under realistic concentrations. Therefore, the more direct strategy is pathway engineering around the rate-determining steps and the multiple electronic-structure variables that control them.",
-      "translation": "作者特别强调：对 Li-S 体系来说，只去调一个“关键中间体”的吸附并不足以打破标度关系。多硫化锂本身就不稳定，例如 Li2S4 在实际工作浓度下会自发歧化成可溶的 Li2S6 和固态 Li2S。所以真正直接的策略是围绕限速步骤做路径工程，同时调控带结构、电负性、功函数、离子电导、表面态密度等多个电子结构变量。",
-      "reading_order": 4,
-      "confidence": "high"
+      "insert_after": "S004"
     },
     {
+      "page": 1,
+      "type": "paragraph",
+      "section": "Article information / 文章信息",
+      "order": 5,
+      "original_text": "Based on the bond-order conservation theory, when a catalyst exhibits strong d-p or s-p orbital coupling with a particular intermediate species, it generally demonstrates comparable adsorption strength toward another intermediate,",
+      "translation": "根据键序守恒理论，当催化剂与特定中间体表现出强 d-p 或 s-p 轨道耦合时，它通常表现出对另一种中间体相当的吸附强度，",
+      "bbox": [
+        51.48,
+        705.45,
+        291.48,
+        749.36
+      ],
+      "confidence": "high",
+      "refs": [],
       "id": "S005",
-      "page": "p.2-3",
-      "type": "text",
-      "section": "Results - Revealing The Scaling Relationship",
-      "original": "The study chooses layered transition-metal sulfides from groups IVB to VIIB as model catalysts. Theoretical screening removes HfS2, TcS2, and CrS2 for conductivity, practicality, or overbinding reasons. For the remaining TMSs, the active plane is the (001) surface, band gaps stay within 0-1.64 eV, and lithium-ion diffusion barriers are all below 0.26 eV.",
-      "translation": "在模型体系选择上，作者把 IVB 到 VIIB 的层状过渡金属硫化物作为统一比较平台。HfS2 因带隙过大、电导差被排除，TcS2 因放射性和难合成被排除，CrS2 则因 Li2S 吸附过强、功函数过高和潜在毒性不适合作为可逆催化剂。保留下来的体系都以 (001) 面作为催化活性面，带隙处于 0-1.64 eV 之间，Li+ 扩散势垒全部低于 0.26 eV。",
-      "reading_order": 5,
-      "confidence": "high"
+      "insert_after": "S005"
     },
     {
+      "page": 1,
+      "type": "paragraph",
+      "section": "Article information / 文章信息",
+      "order": 6,
+      "original_text": "yielding intrinsic linear correlations that simplify screening. For multielectron transfer reactions in lithium−sulfur (Li−S) batteries, when such a relationship holds, it allows for the prediction of the theoretical upper limit on catalytic activity (Figure 1a).8,9 In contrast, the absence of a linear correlation enables tuning and optimization of the catalytic performance by modulating the binding strengths of the key intermediate. However, comprehensive mechanistic investigations capable of verifying whether a linear scaling relationship exists among the binding energies of various polysulfide intermediates are still lacking. This gap severely hinders the rational design and optimization of efficient electrocatalysts for Li−S batteries. Consequently, elucidating the electronic-structure origins of these scaling relationships and developing strategies to break them are critical for achieving breakthroughs in sulfur electrocatalysis.10,11",
+      "translation": "产生简化筛选的内在线性相关性。对于锂硫 (Li−S) 电池中的多电子转移反应，当这种关系成立时，可以预测催化活性的理论上限（图 1a）。8,9 相反，线性相关性的缺失使得可以通过调节关键中间体的结合强度来调整和优化催化性能。然而，仍然缺乏能够验证各种多硫化物中间体的结合能之间是否存在线性标度关系的全面的机理研究。这一差距严重阻碍了锂硫电池高效电催化剂的合理设计和优化。因此，阐明这些标度关系的电子结构起源并制定打破它们的策略对于实现硫电催化的突破至关重要。 10,11",
+      "bbox": [
+        315.44,
+        474.55,
+        555.48,
+        665.05
+      ],
+      "confidence": "high",
+      "refs": [],
       "id": "S006",
-      "page": "p.3",
-      "type": "text",
-      "section": "Results - Revealing The Scaling Relationship",
-      "original": "DFT-D3 adsorption calculations show that LiPSs bind to TMS surfaces through Li-S interactions with moderate adsorption energies below -3.90 eV. More importantly, the binding energies of Li2S8, Li2S6, Li2S4, and Li2S all scale linearly with that of Li2S2, meaning that strengthening one intermediate generally strengthens the others as well and traps catalyst optimization inside the scaling relation.",
-      "translation": "DFT-D3 计算表明，LiPS 与 TMS 表面主要通过 Li-S 相互作用吸附，吸附能总体处在适中的强度范围内。但更关键的是：Li2S8、Li2S6、Li2S4 和 Li2S 的吸附能都与 Li2S2 的吸附能呈线性相关。这意味着你一旦增强某一个中间体的吸附，其他中间体往往也会同步增强，优化自由度被重新压回到标度关系里。",
-      "reading_order": 6,
-      "confidence": "high"
+      "insert_after": "S006"
     },
     {
+      "page": 1,
+      "type": "paragraph",
+      "section": "Article information / 文章信息",
+      "order": 7,
+      "original_text": "Received: January 28, 2026 Revised: April 20, 2026 Accepted: April 24, 2026 Published: May 4, 2026",
+      "translation": "收稿日期: 2026年1月28日 修改日期: 2026年4月20日 接受日期: 2026年4月24日 发布日期: 2026年5月4日",
+      "bbox": [
+        315.44,
+        681.24,
+        418.35,
+        723.24
+      ],
+      "confidence": "high",
+      "refs": [],
       "id": "S007",
-      "page": "p.3-4",
-      "type": "text",
-      "section": "Results - Pathway Descriptor",
-      "original": "To get past single-intermediate descriptors, the authors correlate catalytic overpotentials with Gibbs free-energy differences along the conversion pathway. NbS2 gives the lowest SRR and SER overpotentials because it lowers the liquid-solid Li2S4 to Li2S2 barrier in reduction and the Li2S/Li2S2 oxidation barrier in evolution.",
-      "translation": "为了跳出“单一中间体吸附能”的思路，作者把注意力转向整条转化路径上的自由能差。结果显示，NbS2 在 SRR 和 SER 两个方向上都给出了最低过电位，原因在于它一方面降低了还原方向 Li2S4 到 Li2S2 的液-固转化势垒，另一方面又显著降低了充电方向 Li2S/Li2S2 的氧化势垒。",
-      "reading_order": 7,
-      "confidence": "high"
+      "insert_after": "S007"
     },
     {
+      "page": 1,
+      "type": "paragraph",
+      "section": "Introduction / 引言",
+      "order": 8,
+      "original_text": "ABSTRACT: A predictive descriptor is crucial for the rational design of catalysts that enable fast and reversible sulfur redox in lithium− sulfur (Li−S) batteries. Although several descriptors have been proposed, most remain constrained by the conventional adsorption− activity trade-off and the associated volcano-type behavior. Here, we uncover that the catalytic activity of widely used transition-metal sulfides is dictated by the d/p band-matching ratio between metal centers and surface sulfur atoms, thereby going beyond this limitation. By tuning the band-matching ratio, which modulates the interaction between lithium polysulfides and the catalyst surface, a linear correlation with the overpotentials of both sulfur reduction and evolution reactions is established, accelerating the sulfur conversion kinetics. NbS2, with a band-matching ratio of 99.2%, delivers a minimal bifunctional overpotential of 0.70 V (the sum of sulfur reduction reaction (SRR) and sulfur evolution reaction (SER) overpotentials), 4-fold lower than that of WS2 (2.85 V, with a bandmatching ratio of 46.0%). The Li−S battery that delivers a high initial areal capacity of 10.98 mAh cm−2 with the NbS2 catalyst exhibits an exceptionally high retention of 90.29% after 100 cycles, surpassing most of the reports. This work establishes band matching as a general principle for sulfur electrocatalysis, providing a predictive design rule that transcends classical scaling relations for metal−sulfur batteries. ■INTRODUCTION",
+      "translation": "摘要：预测描述符对于催化剂的合理设计至关重要，该催化剂能够在锂硫（Li−S）电池中实现快速且可逆的硫氧化还原。尽管已经提出了几种描述符，但大多数描述符仍然受到传统吸附-活性权衡和相关火山型行为的限制。在这里，我们发现广泛使用的过渡金属硫化物的催化活性由金属中心和表面硫原子之间的 d/p 能带匹配比决定，从而超越了这一限制。通过调节能带匹配比（调节多硫化锂与催化剂表面之间的相互作用），建立了与硫还原和析出反应的过电势的线性相关性，从而加速了硫转化动力学。 NbS2 的能带匹配率为 99.2%，可提供 0.70 V 的最小双功能过电势（硫还原反应 (SRR) 和硫析出反应 (SER) 过电势之和），比 WS2（2.85 V，能带匹配率为 46.0%）低 4 倍。使用 NbS2 催化剂的 Li−S 电池可提供 10.98 mAh cm−2 的高初始面积容量，在 100 次循环后表现出 90.29% 的极高保留率，超过了大多数报告。这项工作将能带匹配建立为硫电催化的一般原理，提供了超越金属硫电池经典标度关系的预测设计规则。 ■简介",
+      "bbox": [
+        51.48,
+        253.04,
+        555.49,
+        496.05
+      ],
+      "confidence": "high",
+      "refs": [],
       "id": "S008",
-      "page": "p.4",
-      "type": "text",
-      "section": "Results - Pathway Descriptor",
-      "original": "The paper shows that individual LiPS adsorption energies correlate poorly with SRR overpotentials and only partially with SER. In contrast, the Gibbs free-energy differences for Li2S4 -> Li2S2 in SRR and Li2S2 -> Li2S4 in SER track the experimentally identified rate-determining steps and produce a clean linear relationship with activity.",
-      "translation": "作者进一步证明：单个 LiPS 吸附能与 SRR 过电位的相关性很弱，与 SER 的相关性也只是局部成立。真正与活性形成清晰线性关系的，是 Li2S4 -> Li2S2（放电）和 Li2S2 -> Li2S4（充电）这两个限速转化步骤对应的自由能差。这就是本文所谓的“路径依赖描述符”，它把还原和氧化放在同一个能量学框架下统一评估。",
-      "reading_order": 8,
-      "confidence": "high"
+      "insert_after": "S008"
     },
     {
-      "id": "S009",
-      "page": "p.5-6",
-      "type": "text",
-      "section": "Results - Electronic Structure Origin",
-      "original": "Charge-density maps and Bader analysis reveal that NbS2 shows the strongest electronic interaction with Li2S2 and Li2S4. Before adsorption, surface sulfur atoms already gain charge from subsurface metals. After adsorption, Nb continues to donate electrons effectively, whereas Ti weakens and W changes little. This makes NbS2 the most favorable platform for interfacial charge redistribution.",
-      "translation": "差分电荷密度图和 Bader 电荷分析说明，NbS2 与 Li2S2 / Li2S4 的电子相互作用最强。在吸附前，表面硫原子就已经从次表层金属获得电子；吸附后，Nb 仍然能继续高效向表面硫供电子，而 Ti 的供电子能力下降、W 则几乎不变。因此 NbS2 对界面电荷重分布最有利，这正是其动力学优势的电子结构根源之一。",
-      "reading_order": 9,
-      "confidence": "high"
-    },
-    {
-      "id": "S010",
-      "page": "p.6",
-      "type": "text",
-      "section": "Results - Electronic Structure Origin",
-      "original": "ICOHP analysis shows a competition between subsurface metal-sulfur d-p coupling and Li-S s-p coupling at the adsorbate interface. If M-S bonding is too strong, Li-S interaction becomes too weak and kinetics slow down. If d-p separation is too large, the surface can overadsorb sulfur species and poison itself. The desired regime is balanced orbital coupling.",
-      "translation": "ICOHP 分析把核心竞争关系讲得很清楚：次表层金属-表面硫的 d-p 成键，与吸附物 Li-S 的 s-p 成键之间存在此消彼长。如果 M-S 太强，Li-S 就会被削弱，电子转移变慢；如果 d-p 分离过大，又会导致多硫物种吸附过强、催化位点被“毒化”。所以最优催化并不是越强越好，而是要把轨道耦合调到平衡区间。",
-      "reading_order": 10,
-      "confidence": "high"
-    },
-    {
-      "id": "S011",
-      "page": "p.6-7",
-      "type": "text",
-      "section": "Results - Descriptor Construction",
-      "original": "Among several electronic features, the sulfur-metal electronegativity difference and the d-p band-center descriptor show the highest correlation with bifunctional overpotential. Multiple linear regression captures the trend reasonably well, but the authors argue that catalytic activity is really co-governed by electronegativity, band-center alignment, and metal valence-electron configuration.",
-      "translation": "在多个候选电子结构特征中，表面硫与金属的电负性差，以及 d-p 带心相关参数，与双功能过电位的相关性最高。多元线性回归已经能给出较合理的趋势，但作者认为真正控制活性的，不是某一个特征，而是电负性、带心匹配和金属价电子构型这三者的联合作用。",
-      "reading_order": 11,
-      "confidence": "high"
-    },
-    {
-      "id": "S012",
-      "page": "p.7",
-      "type": "text",
-      "section": "Results - Descriptor Construction",
-      "original": "The band-matching ratio is then constructed from three statistically identified ingredients: an optimal d-p band-center difference near 3.11 eV, an optimal d-orbital period number of 4, and an optimal valence-electron count of 5. A higher ratio means the catalyst sits closer to this electronic optimum and therefore tends to give a lower bifunctional overpotential.",
-      "translation": "接下来作者把“d/p 能带匹配比”正式定义出来：它由三个统计上最关键的电子结构因子共同构成，分别是最优 d-p 带心差约 3.11 eV、最优 d 轨道周期数为 4、以及最优价电子数为 5。一个催化剂的匹配比越高，就说明它的电子结构越接近这个最优状态，因此通常会给出更低的双功能过电位。",
-      "reading_order": 12,
-      "confidence": "high"
-    },
-    {
-      "id": "S013",
-      "page": "p.7",
-      "type": "text",
-      "section": "Results - Descriptor Construction",
-      "original": "Across the TMS series, raising the band-matching ratio from 46.0% for WS2 to 99.2% for NbS2 lowers the bifunctional overpotential from 2.84-2.85 V to about 0.70 V. The same descriptor also gives a sensible point for nonlayered Ni3S2, suggesting it is not restricted to one crystal family. The authors therefore interpret 0.701 V as the intrinsic performance ceiling for pristine TMS sulfur redox catalysis.",
-      "translation": "在整个 TMS 序列里，匹配比从 WS2 的 46.0% 提升到 NbS2 的 99.2%，双功能过电位就从约 2.85 V 降到约 0.70 V。作者还把这个描述符外推到非层状的 Ni3S2，发现它仍然落在线性关系附近，说明这个框架并不局限于某一种晶体家族。因此文中把 0.701 V 解释为原始 TMS 体系硫氧化还原催化的一个内禀性能上限。",
-      "reading_order": 13,
-      "confidence": "high"
-    },
-    {
-      "id": "S014",
-      "page": "p.7-8",
-      "type": "text",
-      "section": "Results - Experimental Validation",
-      "original": "Experimentally, TiS2, NbS2, and WS2 are chosen as representative catalysts. SEM and XRD confirm the expected layered morphologies and phases, and conductivity measurements follow the DFT trend: NbS2 is by far the most conductive, ahead of TiS2 and then WS2.",
-      "translation": "实验验证部分选取 TiS2、NbS2 和 WS2 作为代表。SEM 和 XRD 都证明它们具有预期的层状形貌和晶相，而电导测试也与 DFT 预测一致：NbS2 的电导最高，TiS2 居中，WS2 最低。",
-      "reading_order": 14,
-      "confidence": "high"
-    },
-    {
-      "id": "S015",
-      "page": "p.8-9",
-      "type": "text",
-      "section": "Results - Experimental Validation",
-      "original": "UV-vis adsorption, lithium-ion diffusion analysis, cyclic voltammetry, and Tafel plots all point in the same direction. NbS2 adsorbs LiPSs more effectively, gives the highest lithium-ion diffusion coefficient, shifts cathodic and anodic peaks toward more favorable potentials, and shows the lowest Tafel slopes for key reduction and oxidation steps.",
-      "translation": "无论是 UV-vis 吸附实验、Li+ 扩散系数分析、循环伏安还是 Tafel 斜率，证据都指向同一个结论：NbS2 的动力学表现最佳。它对 LiPS 的吸附更强、Li+ 传输更快、阴极和阳极峰位都向更有利的方向移动，而且关键还原/氧化步骤的 Tafel 斜率最低。",
-      "reading_order": 15,
-      "confidence": "high"
-    },
-    {
-      "id": "S016",
-      "page": "p.9",
-      "type": "text",
-      "section": "Results - Experimental Validation",
-      "original": "Decoupled LSV measurements for Li2S4 and Li2S2 conversion, Li2S potentiostatic nucleation tests, and temperature-dependent EIS all confirm that NbS2 lowers both reduction and oxidation barriers. Its activation energy remains the lowest across the relevant potential window, including a value as low as 0.40 eV at 2.3 V for sulfur evolution.",
-      "translation": "进一步把路径拆开看，针对 Li2S4 和 Li2S2 转化的 LSV、Li2S 恒电位成核实验、以及变温 EIS 全都说明 NbS2 同时降低了还原和氧化两端的势垒。在关键电位窗口里，它的表观活化能始终最低；在 2.3 V 的硫析出方向上甚至低到 0.40 eV。",
-      "reading_order": 16,
-      "confidence": "high"
-    },
-    {
-      "id": "S017",
-      "page": "p.9-10",
-      "type": "text",
-      "section": "Results - Battery Performance",
-      "original": "When integrated into Li-S cells, NbS2 gives the highest specific capacity, the highest QL/QH ratio, the smallest voltage polarization, the best rate capability, and the best cycling stability. Even at 9.89 mg cm-2 sulfur loading, the cell starts from 10.98 mAh cm-2 and retains 90.29% capacity after 100 cycles. A multilayer pouch cell also delivers 2.16 Ah and 401 Wh kg-1 initially.",
-      "translation": "把催化剂真正放进 Li-S 电池后，NbS2 仍然在所有关键指标上领先：容量最高、QL/QH 最大、充放电极化最小、倍率性能最好、循环稳定性也最好。即使在 9.89 mg cm^-2 的高硫负载下，初始面容量仍达到 10.98 mAh cm^-2，100 圈后还能保留 90.29%。作者还组装了多层软包电池，初始总容量达到 2.16 Ah、比能量达到 401 Wh kg^-1。",
-      "reading_order": 17,
-      "confidence": "high"
-    },
-    {
-      "id": "S018",
-      "page": "p.9-10",
-      "type": "text",
-      "section": "Conclusion",
-      "original": "The conclusion is that d/p band matching provides a predictive electronic-structure principle that goes beyond the classical adsorption-activity volcano. By jointly encoding band alignment and metal electronic configuration, it explains why NbS2 lowers sulfur-redox barriers and offers a transferable design rule for broader electrochemical energy-conversion catalysts.",
-      "translation": "结论部分把全文压缩成一句方法学判断：d/p 能带匹配提供了一个超越传统吸附-活性火山图的预测性电子结构原则。它同时编码了带对齐和金属电子构型，因此不仅解释了为什么 NbS2 能降低硫氧化还原势垒，也给更广泛电化学能量转化催化剂提供了可迁移的设计规则。",
-      "reading_order": 18,
-      "confidence": "high"
-    },
-    {
-      "id": "S019",
-      "page": "p.10",
-      "type": "text",
-      "section": "Supporting And End Matter",
-      "original": "The associated-content section states that the Supporting Information contains the detailed DFT setup, Gibbs free-energy calculations, Pearson-correlation workflow, sulfur-cathode preparation, electrochemical measurements, and supplementary figures and tables.",
-      "translation": "附加内容部分说明，Supporting Information 里包含了完整的 DFT 计算设置、Gibbs 自由能计算、Pearson 相关分析流程、硫正极制备、电化学测试方法以及全部补充图表。对希望复现实验与计算细节的读者，这些 SI 信息非常关键。",
-      "reading_order": 19,
-      "confidence": "high"
-    },
-    {
-      "id": "S020",
-      "page": "p.10-11",
-      "type": "text",
-      "section": "Author Information And Notes",
-      "original": "Corresponding authors are Li Wang, Wei Lv, and Quan-Hong Yang. The author list is dominated by the Nanoyang Group at Tianjin University, with additional participation from Tsinghua Shenzhen International Graduate School and Nankai University. The authors declare no competing financial interest.",
-      "translation": "通讯作者为 Li Wang、Wei Lv 和 Quan-Hong Yang。作者团队主体来自天津大学 Nanoyang Group，并有清华大学深圳国际研究生院和南开大学等单位参与。作者声明不存在竞争性经济利益冲突。",
-      "reading_order": 20,
-      "confidence": "high"
-    },
-    {
-      "id": "S021",
-      "page": "p.11-13",
-      "type": "text",
-      "section": "Acknowledgements And References Note",
-      "original": "The acknowledgements list support from the National Natural Science Foundation of China, the National Key R&D Program of China, and Shenzhen and Guangdong funding programs. The reference list then spans catalytic scaling relations, Li-S sulfur-redox mechanisms, and transition-metal-sulfide catalyst studies.",
-      "translation": "致谢部分列出了国家自然科学基金、国家重点研发计划以及深圳和广东地方项目的支持。其后的参考文献覆盖了催化标度关系、Li-S 硫氧化还原机理、以及过渡金属硫化物催化研究等多个脉络。按本次 reader 规则，参考文献列表会作为书目信息保留，不逐条展开翻译。",
-      "reading_order": 21,
-      "confidence": "high"
-    },
-    {
-      "id": "F001",
       "page": 2,
-      "type": "figure",
-      "file": "assets/fig1_scaling_descriptor.png",
-      "caption": "Figure 1 introduces the conceptual problem. Panel (a) illustrates how orbital-coupling-derived linear correlations among LiPS adsorption energies impose an activity upper bound. Panel (b) summarizes Pearson correlations between sulfur-redox activity and multiple electronic descriptors.",
-      "caption_translation": "图 1 用来搭建全文概念框架。图 (a) 说明由轨道耦合导致的 LiPS 吸附能线性相关会把催化活性压在一个理论上限内；图 (b) 则汇总了硫氧化还原活性与多种电子结构描述符之间的 Pearson 相关性。",
-      "placed_near": "p.2 S004",
-      "confidence": "high"
+      "type": "paragraph",
+      "section": "Introduction / 引言",
+      "order": 10,
+      "original_text": "Overcoming such intrinsic scaling limitations in complex multielectron systems requires directly targeting the fundamental electronic features of the reaction pathway constraints. Recent studies reveal that constructing a Ni−Fe2 dual-site molecular catalyst enables dynamic evolution of the Ni site, which effectively modulates the electronic structure of adjacent Fe active centers, thereby breaking the scaling relationship in the oxygen evolution reaction. Meanwhile, a fluorine-doped carbon-supported Pt catalyst was developed, in which interfacial polarity and a superhydrophobic microenvironment decouple the *OOH/*OH adsorption energy scaling relation in oxygen reduction.12−20 However, unlike oxygen electrocatalysis involving 2-electron or 4-electron transfer pathways, sulfur electrocatalysis features a more complex reaction network with diverse intermediates (Li2Sn, 2 ≤n ≤8). Such complexity is further compounded by the inherent chemical instability of polysulfide intermediates. Specifically, at concentrations relevant to battery operation, nominal Li2S4 undergoes spontaneous disproportionation into soluble Li2S6 and solid Li2S.21−23 Merely modulating the single electronic structure of the key intermediate is insufficient to break the scaling relationship in Li−S batteries.24,25 The most direct strategy of breaking the scaling relationship is achieved through pathway engineering focused on the rate-determining step (RDS), which essentially requires the regulation of multiple electronic structures, including band structure, atomic electronegativity, work function, ionic conductivity, surface density of states, and so on (Figure 1b). As the RDSs govern both the overpotential and the kinetic bottlenecks, constructing a descriptor that quantitatively reflects the energy difference between these critical steps and correlates with the catalyst’s electronic structure is essential for breaking scaling relationships through pathway-level mechanistic regulation. In this work, we introduce a d/p band-matching ratio, which is defined by the electronic states of metal centers and surface sulfur atoms in layered transition-metal sulfides (TMSs), as a predictive descriptor for sulfur electrocatalysis. We show that",
+      "translation": "克服复杂多电子系统中这种固有的尺度限制需要直接针对反应途径约束的基本电子特征。最近的研究表明，构建Ni−Fe2双位点分子催化剂可以实现Ni位点的动态演化，有效调节相邻Fe活性中心的电子结构，从而打破析氧反应中的尺度关系。同时，开发了一种氟掺杂碳负载 Pt 催化剂，其中界面极性和超疏水微环境解耦了氧还原中 *OOH/*OH 吸附能的标度关系。12−20 然而，与涉及 2 电子或 4 电子转移途径的氧电催化不同，硫电催化具有更复杂的反应网络，具有多种中间体（Li2Sn，2 ≤ n ≤ 8）。多硫化物中间体固有的化学不稳定性进一步加剧了这种复杂性。具体来说，在与电池操作相关的浓度下，标称Li2S4会自发歧化成可溶性Li2S6和固体Li2S。21−23仅调节关键中间体的单一电子结构不足以打破Li−S电池中的标度关系。24,25打破标度关系的最直接策略是通过专注于速率决定步骤（RDS）的路径工程来实现，这本质上需要调节多个电子结构，包括能带结构、原子电负性、功函数、离子电导率、表面态密度等（图 1b）。由于 RDS 控制着过电势和动力学瓶颈，因此构建一个描述符来定量反映这些关键步骤之间的能量差异并与催化剂的电子结构相关联，对于通过路径级机械调节打破尺度关系至关重要。在这项工作中，我们引入了 d/p 能带匹配比，该比由层状过渡金属硫化物 (TMS) 中金属中心和表面硫原子的电子态定义，作为硫电催化的预测描述符。我们表明",
+      "bbox": [
+        51.48,
+        346.36,
+        291.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S009",
+      "insert_after": "S009"
     },
     {
-      "id": "F002",
+      "page": 2,
+      "type": "paragraph",
+      "section": "Results and Discussion / 结果与讨论",
+      "order": 11,
+      "original_text": "this band-matching ratio exhibits a linear correlation with the overpotentials of both sulfur reduction and sulfur evolution, enabling quantitative ranking across TMS catalysts. This descriptor captures the coupled effects of the intrinsic electronic configuration of the metal center and the degree of metal−sulfur d-p alignment (quantified by the separation of their band-center energies), providing a pathway-dependent metric that goes beyond the conventional adsorption−activity volcano paradigm. Optimizing band matching enhances the electronic density at surface sulfur sites and facilitates interfacial charge transfer, thereby lowering the kinetic barriers to sulfur conversion. Guided by this descriptor, NbS2 (bandmatching ratio of 99.2%) is identified as an optimal TMS catalyst, enabling Li−S cells to cycle stably for 1,000 cycles with a decay rate of 0.086% per cycle. Even under a high sulfur loading (9.89 mg cm−2), 90.29% of their areal capacity is retained after 100 cycles. Overall, these results establish bandmatching as a unified design principle to circumvent scaling constraints in metal−sulfur batteries. ■RESULTS AND DISCUSSION",
+      "translation": "该能带匹配比与硫还原和硫析出的过电势呈线性相关，从而能够对 TMS 催化剂进行定量排序。该描述符捕获了金属中心的固有电子构型和金属-硫 d-p 排列程度（通过其带中心能量的分离来量化）的耦合效应，提供了超越传统吸附活性火山范式的路径依赖度量。优化能带匹配可提高表面硫位点的电子密度并促进界面电荷转移，从而降低硫转化的动力学障碍。在此描述符的指导下，NbS2（能带匹配率为99.2％）被确定为最佳TMS催化剂，使Li−S电池能够稳定循环1,000个循环，每个循环的衰减率为0.086％。即使在高硫负载量（9.89 mg cm−2）下，100次循环后仍保留90.29%的面积容量。总体而言，这些结果将能带匹配确立为统一的设计原则，以规避金属硫电池的尺寸限制。结果与讨论",
+      "bbox": [
+        315.44,
+        346.36,
+        555.48,
+        589.54
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S010",
+      "insert_after": "S010"
+    },
+    {
+      "page": 2,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 12,
+      "original_text": "Revealing the Scaling Relationship",
+      "translation": "揭示尺度关系",
+      "bbox": [
+        315.44,
+        586.62,
+        460.56,
+        596.12
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S011",
+      "insert_after": "S011"
+    },
+    {
+      "page": 2,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 13,
+      "original_text": "TMSs have been extensively explored in conventional industrial and Li−S battery catalysis.26−29 Layered TMSs from Groups IVB to VIIB were selected as model catalysts, including TiS2, VS2, MnS2, ZrS2, NbS2, MoS2, TaS2, and WS2. HfS2, despite being a typical layered TMS, possesses a relatively large band gap (∼1.96 eV), indicating poor electronic conductivity, and was therefore excluded.30,31 TcS2 was not considered due to the radioactive nature of technetium and the limited synthetic accessibility of Tc-based compounds, which makes it impractical for catalyst design.32 CrS2 was also excluded because of its excessively strong Li2S adsorption energy (5.24 eV), high work function (∼7.03 eV), and potential biological toxicity, all of which are unfavorable for reversible polysulfide conversion (Figure 2a).33−35 In theoreti-",
+      "translation": "TMS 在传统工业和 Li−S 电池催化中得到了广泛的探索。26−29 选择 IVB 至 VIIB 族的层状 TMS 作为模型催化剂，包括 TiS2、VS2、MnS2、ZrS2、NbS2、MoS2、TaS2 和 WS2。 HfS2 尽管是一种典型的层状 TMS，但具有相对较大的带隙（∼1.96 eV），表明电子传导性较差，因此被排除在外。30,31 TcS2 未被考虑，因为锝的放射性性质以及 Tc 基化合物的合成可及性有限，这使得其在催化剂设计中不切实际。32 CrS2 也被排除在外，因为其过强的 Li2S 吸附能（5.24 eV）、高功函（∼7.03 eV）和潜在的生物毒性，所有这些都不利于可逆多硫化物转化（图2a）。33−35 理论上",
+      "bbox": [
+        315.44,
+        602.16,
+        555.48,
+        755.2
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S012",
+      "insert_after": "S012"
+    },
+    {
       "page": 3,
-      "type": "figure",
-      "file": "assets/fig2_tms_screening_scaling.png",
-      "caption": "Figure 2 combines catalyst screening, conductivity and Li-ion transport checks, adsorption strengths, and the actual scaling plots among sulfur species.",
-      "caption_translation": "图 2 把候选催化剂筛选、电导与锂离子传输、吸附强度以及多硫物种之间的标度关系画在了一起。",
-      "placed_near": "p.3 S006",
-      "confidence": "high"
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 15,
+      "original_text": "cal calculations, the primary step entails the identification of the thermodynamically most stable crystalline phase of the catalyst. Among all TMSs, only MoS2 and WS2 exhibit the stable 2H phase, while the others adopt the 1T phase (Figure S2).36 Furthermore, the catalytically active exposed surfaces of all TMSs correspond to the (001) crystal plane. Electrical conductivity and lithium-ion conductivity are the prerequisites for catalyst selection in batteries.37,38 The generalized gradient approximation with the Perdew−Burke−Ernzerhof (GGAPBE) method was employed to calculate the band structures (Figure S3) and density of states (DOS) of the TMS (Figure S4). Figure 2b shows that small band gaps (0−1.64 eV) are generally present between the valence band maximum (VBM) and the conduction band minimum (CBM) of TMSs. Notably, NbS2 and VS2 exhibit a band gap of 0 eV, demonstrating excellent electrical conductivity. The migration ability of lithium ions was calculated using the climbing image nudged elastic band (CI-NEB) method.39 For all TMSs, the maximum lithium-ion diffusion energy barrier does not exceed 0.26 eV, demonstrating excellent lithium-ion conductivity (Figures 2c and S6). A systematic computational analysis incorporating van der Waals corrections (DFT-D3) was then conducted to evaluate their anchoring ability for polysulfides, and a graphene layer with a (30 × 30 × 20) Å3 supercell was built as a comparison. As shown in Figure S7, lithium polysulfides (LiPSs) are adsorbed on the TMS surface via Li−S bonds, with bond lengths ranging from 2.37 to 2.89 Å. The binding energies are all below −3.90 eV, indicating moderate adsorption strength",
+      "translation": "计算时，第一步需要确定催化剂的热力学最稳定的结晶相。在所有TMS中，只有MoS2和WS2表现出稳定的2H相，而其他则采用1T相（图S2）。36此外，所有TMS的催化活性暴露表面都对应于（001）晶面。电导率和锂离子电导率是电池中催化剂选择的先决条件。37,38 采用 Perdew−Burke−Ernzerhof (GGAPBE) 方法的广义梯度近似来计算 TMS 的能带结构（图 S3）和态密度（DOS）（图 S4）。图 2b 显示，TMS 的价带最大值 (VBM) 和导带最小值 (CBM) 之间通常存在小带隙 (0−1.64 eV)。值得注意的是，NbS2 和 VS2 的带隙为 0 eV，表现出优异的导电性。使用攀爬图像微移弹性带 (CI-NEB) 方法计算锂离子的迁移能力。 39 对于所有 TMS，最大锂离子扩散能垒不超过 0.26 eV，表现出优异的锂离子电导率（图 2c 和 S6）。然后进行了结合范德华校正 (DFT-D3) 的系统计算分析，以评估它们对多硫化物的锚定能力，并构建了具有 (30 × 30 × 20) Å3 超级晶胞的石墨烯层作为比较。如图 S7 所示，多硫化锂 (LiPS) 通过 Li−S 键吸附在 TMS 表面，键长范围为 2.37 至 2.89 Å。结合能均低于-3.90 eV，表明吸附强度适中",
+      "bbox": [
+        51.48,
+        434.23,
+        291.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S013",
+      "insert_after": "S013"
     },
     {
-      "id": "F003",
+      "page": 3,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 16,
+      "original_text": "between LiPSs and TMSs (Figure 2d).40 Elucidating the relationships between the binding energies of polysulfides is crucial for regulating the catalytic activity. As shown in Figure 2e, the binding energies of Li2S8, Li2S6, Li2S4, and Li2S exhibit linear correlations with that of Li2S2, where the increased binding energy of Li2S2 is accompanied by proportionally enhanced binding strengths of other polysulfide intermediates. This scaling relationship highlights intrinsic constraints among polysulfide adsorption behaviors on TMS surfaces.2 Besides, a recent study on the 3d transition metals into the nitrogendoped defective black phosphorus carbide catalyst demonstrated strong adsorption energy scaling relations among sulfur intermediates, with correlation coefficients of about 0.9.41 This also indicates that modifying the binding energy of one intermediate will concurrently influence the binding energies of other LiPSs. Thus, solely regulating the adsorption strength of a single intermediate cannot regulate the conversion route to realize a high catalytic activity.",
+      "translation": "LiPS 和 TMS 之间的关系（图 2d）。40 阐明多硫化物结合能之间的关系对于调节催化活性至关重要。如图2e所示，Li2S8、Li2S6、Li2S4和Li2S的结合能与Li2S2的结合能呈线性相关，其中Li2S2的结合能增加伴随着其他多硫化物中间体的结合强度成比例增强。这种标度关系凸显了多硫化物在 TMS 表面吸附行为的内在限制。2 此外，最近一项关于氮掺杂缺陷黑磷碳化物催化剂的 3d 过渡金属的研究表明，硫中间体之间存在很强的吸附能标度关系，相关系数约为 0.9.41。这也表明，改变一种中间体的结合能将同时影响其他 LiPS 的结合能。因此，仅调节单一中间体的吸附强度并不能调节转化路线以实现高催化活性。",
+      "bbox": [
+        315.44,
+        429.76,
+        555.48,
+        635.57
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S014",
+      "insert_after": "S014"
+    },
+    {
+      "page": 3,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 17,
+      "original_text": "Catalytic Activity Regulation Inspired by the Scaling Relationship",
+      "translation": "受尺度关系启发的催化活性调节",
+      "bbox": [
+        315.44,
+        639.91,
+        534.11,
+        659.9
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S015",
+      "insert_after": "S015"
+    },
+    {
+      "page": 3,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 18,
+      "original_text": "Inspired by oxygen electrocatalysis, in which the Gibbs free energy of an elementary reaction pathway (e.g., ΔGOOH* and ΔGO*) serves as a critical descriptor for reaction overpotential, we thus propose that establishing a correlation between the reaction overpotential and the Gibbs free energy difference associated with the LiPS conversion pathway could be an effective approach to break the scaling relationship. The overpotential (Figure 3a) derived from Gibbs free energy for",
+      "translation": "受氧电催化的启发，其中基本反应途径的吉布斯自由能（例如，ΔGOOH*和ΔGO*）作为反应过电势的关键描述符，因此我们提出，在反应过电势和与LiPS转化途径相关的吉布斯自由能差之间建立相关性可能是打破标度关系的有效方法。过电位（图 3a）源自吉布斯自由能",
+      "bbox": [
+        315.44,
+        666.39,
+        555.47,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S016",
+      "insert_after": "S016"
+    },
+    {
       "page": 4,
-      "type": "figure",
-      "file": "assets/fig3_pathway_descriptor.png",
-      "caption": "Figure 3 links sulfur-redox overpotentials to Gibbs free-energy differences for the Li2S4/Li2S2 bottleneck pair, showing how pathway regulation breaks away from single-adsorbate descriptors.",
-      "caption_translation": "图 3 把硫氧化还原过电位与 Li2S4/Li2S2 这一对关键瓶颈步骤的 Gibbs 自由能差联系起来，说明路径调控如何跳出单一吸附物描述符。",
-      "placed_near": "p.4 S008",
-      "confidence": "high"
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 20,
+      "original_text": "each conversion step of SRR and sulfur evolution reaction (SER) (Figures S8 and S9) shows that compared to the relatively high SRR overpotential (2.27 V) and SER overpotential (1.24 V) of carbon-based materials, the overpotential of TMS systems is significantly decreased.42,43 Among TMSs, NbS2 exhibits the lowest overpotentials for both SRR (0.48 V) and SER (0.23 V), indicating its superior catalytic activity.44",
+      "translation": "SRR和硫析出反应（SER）的每个转化步骤（图S8和S9）表明，与碳基材料相对较高的SRR过电势（2.27 V）和SER过电势（1.24 V）相比，TMS系统的过电势显着降低。42,43在TMS中，NbS2对SRR（0.48 V）和SER（0.23 V）表现出最低的过电势，表明其优越的催化活性。 44",
+      "bbox": [
+        51.48,
+        460.88,
+        291.47,
+        539.14
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S017",
+      "insert_after": "S017"
     },
     {
-      "id": "F004",
+      "page": 4,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 21,
+      "original_text": "Specifically, NbS2 reduces the energy barrier of the liquid− solid conversion process of Li2S4 to Li2S2 and shifts the ratedetermining step of SRR to the subsequent solid−solid conversion step of Li2S2 to Li2S, effectively enhancing sulfur conversion efficiency. Furthermore, NbS2 significantly lowers the oxidation reaction barrier of the Li2S/Li2S2 in the SER. In contrast, other TMSs maintain their rate-determining steps at earlier stages (e.g., the Li2S4−Li2S2 conversion process), resulting in notably higher overpotentials. The LiPS adsorption energies have been widely recognized as a key factor affecting the overpotential. Figure 3b shows the correlation between the binding energy of LiPSs and the overpotential of SRR and SER. For SRR, the binding energy of individual polysulfides exhibits insignificant correlations with overpotential, with all calculated coefficients below 0.5.45 For the SER, all LiPS binding energies exhibit significant correlations with overpotential, with Li2S2 showing the strongest correlation (R = 0.99). These suggest that the catalytic activity of SRR and SER cannot be effectively",
+      "translation": "具体来说，NbS2降低了Li2S4到Li2S2的液固转化过程的能垒，并将SRR的速率决定步骤转移到随后的Li2S2到Li2S的固固转化步骤，有效提高了硫转化效率。此外，NbS2 显着降低了 SER 中 Li2S/Li2S2 的氧化反应势垒。相比之下，其他 TMS 在早期阶段保持其速率决定步骤（例如 Li2S4−Li2S2 转换过程），从而产生明显更高的过电势。 LiPS吸附能已被广泛认为是影响过电势的关键因素。图3b显示了LiPS的结合能与SRR和SER的过电势之间的相关性。对于SRR，各个多硫化物的结合能与过电势的相关性不显着，所有计算的系数均低于0.5.45 对于SER，所有LiPS结合能与过电势均表现出显着的相关性，其中Li2S2显示出最强的相关性（R = 0.99）。这些表明SRR和SER的催化活性不能有效地发挥作用。",
+      "bbox": [
+        51.48,
+        539.81,
+        291.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S018",
+      "insert_after": "S018"
+    },
+    {
+      "page": 4,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 22,
+      "original_text": "regulated or predicted by the adsorption strength of a single intermediate. This finding corroborates the constraints imposed by the scaling relationship among binding energies of LiPSs proposed in the preceding section. Pearson correlation analysis revealed that among all LiPSs, the binding energies of Li2S4 and Li2S2 exhibit the highest correlation of 0.97 (Figure 3c). Consequently, we correlated the reaction overpotentials with the Gibbs free energy differences for both the liquid−solid conversion (Li2S4 → Li2S2) in SRR and the corresponding solid−liquid conversion (Li2S2 →Li2S4) in SER. These two processes precisely match the experimentally identified rate-determining steps, confirming their roles as intrinsic energetic bottlenecks that simultaneously constrain reduction and oxidation reactions. By explicitly associating catalytic activity with these ratedetermining conversion pathways, we successfully proposed the linear relationship observed in Figure 3d. In this relationship, a decreasing Gibbs free energy difference corresponds to enhanced catalytic activity with NbS2 located at the optimal point. This pathway-dependent descriptor effectively couples the sulfur reduction and oxidation processes, enabling a unified assessment of catalytic performance across the full redox pathway. Therefore, the linear relationship provides clear theoretical guidance: narrowing the Gibbs energy difference between the rate-determining conversion pathway flattens the reaction energy profile,",
+      "translation": "由单个中间体的吸附强度调节或预测。这一发现证实了前一节中提出的 LiPS 结合能之间的标度关系所施加的约束。 Pearson相关分析显示，在所有LiPS中，Li2S4和Li2S2的结合能表现出最高的相关性，为0.97（图3c）。因此，我们将 SRR 中液固转化（Li2S4 → Li2S2）和 SER 中相应固液转化（Li2S2 →Li2S4）的反应过电位与吉布斯自由能差相关联。这两个过程与实验确定的速率决定步骤精确匹配，证实它们作为同时限制还原和氧化反应的内在能量瓶颈的作用。通过将催化活性与这些决定速率的转化途径明确关联，我们成功地提出了图 3d 中观察到的线性关系。在这种关系中，吉布斯自由能差的减小对应于 NbS2 位于最佳点的催化活性的增强。这种依赖于途径的描述符有效地耦合了硫还原和氧化过程，从而能够对整个氧化还原途径的催化性能进行统一评估。因此，线性关系提供了明确的理论指导：缩小决定速率的转化途径之间的吉布斯能量差使反应能量分布平坦，",
+      "bbox": [
+        315.44,
+        460.88,
+        555.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S019",
+      "insert_after": "S019"
+    },
+    {
       "page": 5,
-      "type": "figure",
-      "file": "assets/fig4_charge_transfer_icohp.png",
-      "caption": "Figure 4 visualizes differential charge density, charge transfer, M-S bond strength, Li-S bond strength, and the competition between d-p and s-p orbital coupling.",
-      "caption_translation": "图 4 可视化了差分电荷密度、电荷转移、M-S 键强、Li-S 键强以及 d-p / s-p 轨道耦合之间的竞争关系。",
-      "placed_near": "p.5 S010",
-      "confidence": "high"
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 24,
+      "original_text": "effectively reducing reaction overpotentials and enhancing catalytic performance (Figure 3e). This pathway-dependent descriptor circumvented the intrinsic limitations imposed by the scaling relationships, underscoring the importance of minimizing the energy barrier differences between these critical conversion steps. Electronic Structure Origin of the Catalytic Activity To show the origin of the pathway-dependent descriptor and catalytic activity of TMSs, we analyzed the electronic structure of Li2S4 and Li2S2 adsorbed on the TMS surface (Figures 4a,b and S10). The blue regions around the Li atoms indicate electron loss, while the yellow regions near the S atoms in the TMS indicate electron gain. Meanwhile, the presence of fewer yellow and blue regions between atoms in Li2S2 and Li2S4 suggests that charge redistribution has occurred within themselves. The two-dimensional charge density maps of three representative TMSs (M = Ti, Nb, W) from different periods and groups further illustrate that the largest amount of electron transfer occurs between NbS2 and Li2S2 or Li2S4, followed by TiS2, with WS2 showing the least. This indicates that NbS2 exhibits the strongest electronic interactions with LiPSs, which facilitates enhanced reaction kinetics.46,47 Bader",
+      "translation": "有效降低反应过电势并增强催化性能（图3e）。这种依赖于路径的描述符规避了缩放关系所施加的内在限制，强调了最小化这些关键转换步骤之间的能垒差异的重要性。催化活性的电子结构起源为了显示TMS的路径依赖性描述符和催化活性的起源，我们分析了吸附在TMS表面上的Li2S4和Li2S2的电子结构（图4a、b和S10）。 TMS 中，Li 原子周围的蓝色区域表示电子损失，而 S 原子附近的黄色区域表示电子增益。同时，Li2S2 和 Li2S4 原子之间存在较少的黄色和蓝色区域，表明它们内部发生了电荷重新分布。不同时期和群体的三种代表性TMS（M = Ti、Nb、W）的二维电荷密度图进一步表明，电子转移量最大发生在NbS2和Li2S2或Li2S4之间，其次是TiS2，WS2显示最少。这表明 NbS2 与 LiPS 表现出最强的电子相互作用，有利于增强反应动力学。 46,47 Bader",
+      "bbox": [
+        51.48,
+        507.88,
+        291.47,
+        755.2
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S020",
+      "insert_after": "S020"
     },
     {
-      "id": "F005",
+      "page": 5,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 25,
+      "original_text": "charge analysis quantitatively assessed the charge transfer. Before Li2S2 or Li2S4 adsorption, the surface sulfur atoms of TMSs gain electrons from subsurface transition-metal atoms.48",
+      "translation": "电荷分析定量评估电荷转移。在 Li2S2 或 Li2S4 吸附之前，TMS 的表面硫原子从地下过渡金属原子获得电子。 48",
+      "bbox": [
+        315.44,
+        507.88,
+        555.48,
+        540.5
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S021",
+      "insert_after": "S021"
+    },
+    {
+      "page": 5,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 26,
+      "original_text": "The greater the electronegativity difference between the sulfur and transition metal atoms (TiS2 > NbS2 > WS2), the more electrons acquired by the sulfur atoms (Figure 4c,d). The electron numbers gained by sulfur atoms in TiS2, NbS2, and WS2 are 0.85, 0.82, and 0.62 e, respectively (Figure 4c). After the adsorption of Li2S2 and Li2S4, the number of electrons gained by the S atoms on the catalyst surface was further increased due to the transfer of electrons from the surfaceadsorbed Li atoms to the S atoms, in addition to the electron supply from the transition metal atoms. In the three TMS systems, the electron loss by Li atoms shows a consistent trend before and after LiPS adsorption with minimal differences. Therefore, the main variation in the electron gain by sulfur atoms is attributed to the electrons provided by the transition metal atoms. Specifically, the number of electrons supplied by Ti atoms to surface sulfur atoms decreases after LiPS adsorption (from 1.70 to 1.68 e), while the electron contribution from Nb atoms increases significantly (from 1.67 to 1.71 e), and that from W atoms remains 1.27 e nearly",
+      "translation": "硫和过渡金属原子之间的电负性差异越大（TiS2 > NbS2 > WS2），硫原子获得的电子就越​​多（图4c，d）。 TiS2、NbS2 和 WS2 中硫原子获得的电子数分别为 0.85、0.82 和 0.62 e（图 4c）。 Li2S2和Li2S4吸附后，除了过渡金属原子提供的电子外，由于电子从表面吸附的Li原子向S原子的转移，催化剂表面S原子获得的电子数量进一步增加。在三个TMS系统中，Li原子的电子损失在LiPS吸附前后表现出一致的趋势，差异极小。因此，硫原子的电子增益的主要变化归因于过渡金属原子提供的电子。具体来说，LiPS吸附后，Ti原子向表面硫原子提供的电子数量减少（从1.70 e到1.68 e），而Nb原子提供的电子数量显着增加（从1.67 e到1.71 e），W原子的电子贡献几乎保持在1.27 e左右。",
+      "bbox": [
+        315.44,
+        541.78,
+        555.47,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S022",
+      "insert_after": "S022"
+    },
+    {
       "page": 6,
-      "type": "figure",
-      "file": "assets/fig5_band_matching_model.png",
-      "caption": "Figure 5 moves from qualitative orbital arguments to a statistical descriptor, relating electronegativity difference, d-p band-center alignment, and the resulting band-matching percentage to theoretical bifunctional overpotential.",
-      "caption_translation": "图 5 把前面的定性轨道图景推进到定量描述符层面，展示了电负性差、d-p 带心匹配和最终能带匹配百分比如何共同决定理论双功能过电位。",
-      "placed_near": "p.6-7 S012",
-      "confidence": "high"
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 28,
+      "original_text": "unchanged. Among the investigated catalysts, NbS2 possesses the most favorable electronic structure for facilitating charge redistribution, as reflected by its strongest electronic interaction with LiPSs and the significant increase in electron donation from Nb atoms after adsorption. Crystal orbital Hamilton population (COHP) analysis (Figure S11) shows that TMS predominantly exist in bonding states below the Fermi level; the strength of the M−S bond is further quantified by the integrated crystal orbital Hamilton population (ICOHP) value. A higher −ICOHP value corresponds to a stronger M−S bonding strength.37 The Nb−S bond exhibits the highest bonding strength (−1.00), followed by the W−S bond (−0.97), while the Ti−S bond has the weakest bond strength (−0.87) (Figure 4d). This explains that after the adsorption of LiPSs, Nb atoms are still able to donate electrons to S atoms, while Ti atoms exhibit a decreased electron donation capacity. The electron transfer behavior between the catalyst and polysulfides is consistent during the adsorption of Li2S4 and Li2S2. Beyond evaluating intrinsic M−S bonding in TMS, we quantified Li−S interactions between LiPSs and the TMS surfaces. ICOHP analysis reveals an inverse correlation between M−S and Li−S bond strengths postadsorption (Figure 4e, S12 and S13). Enhanced M−S bonding weakens Li−S interactions, impeding Li−S electron transfer and slowing reaction kinetics. The negative correlation between the M−S and Li−S bonding strengths reflects a competitive relationship between d-p orbital coupling and s-p orbital coupling (Figure 4f), where excessive d-p orbital overlap suppresses s-p interactions. Optimal catalytic performance therefore requires balanced orbital coupling to prevent extreme sulfur species adsorption.",
+      "translation": "不变。在所研究的催化剂中，NbS2 具有最有利于促进电荷重新分布的电子结构，这反映在其与 LiPS 最强的电子相互作用以及吸附后 Nb 原子的电子捐赠显着增加。晶体轨道哈密尔顿布居（COHP）分析（图S11）表明TMS主要存在于费米能级以下的成键态； M−S 键的强度通过积分晶体轨道哈密顿布居 (ICOHP) 值进一步量化。 −ICOHP 值越高，M−S 键合强度就越强。 37 Nb−S 键的键合强度最高 (−1.00)，其次是 W−S 键 (−0.97)，而 Ti−S 键的键合强度最弱 (−0.87)（图 4d）。这解释了在LiPSs吸附后，Nb原子仍然能够向S原子捐赠电子，而Ti原子则表现出下降的电子捐赠能力。在吸附Li2S4和Li2S2过程中，催化剂与多硫化物之间的电子传递行为是一致的。除了评估 TMS 中固有的 M−S 键合之外，我们还量化了 LiPS 和 TMS 表面之间的 Li−S 相互作用。 ICOHP 分析揭示了吸附后 M−S 和 Li−S 键强度之间的负相关性（图 4e，S12 和 S13）。增强的 M−S 键合削弱了 Li−S 相互作用，阻碍了 Li−S 电子转移并减慢了反应动力学。 M−S 和 Li−S 键合强度之间的负相关反映了 d-p 轨道耦合和 s-p 轨道耦合之间的竞争关系（图 4f），其中过多的 d-p 轨道重叠会抑制 s-p 相互作用。因此，最佳催化性能需要平衡轨道耦合以防止极端的硫物种吸附。",
+      "bbox": [
+        51.48,
+        403.0,
+        291.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S023",
+      "insert_after": "S023"
     },
     {
-      "id": "F006",
+      "page": 6,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 29,
+      "original_text": "Correlation between Redox Kinetics and Band Matching",
+      "translation": "氧化还原动力学与能带匹配之间的相关性",
+      "bbox": [
+        315.44,
+        402.2,
+        551.25,
+        411.7
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S024",
+      "insert_after": "S024"
+    },
+    {
+      "page": 6,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 30,
+      "original_text": "The competitive d-p and s-p orbital coupling regulates sulfur species adsorption and electron transfer by catalyst electronic modulation.49,50 As shown in Figure 5a, hybridization between the s orbital of Li and the p orbital of S forms bonding and antibonding orbitals during LiPS adsorption. The relative positioning of the d-band center of the metal atom and the pband center of the surface sulfur atom (d-p band center) critically determines the coupling strength. Close d-p band center proximity strengthens d-p interactions but suppresses the s-p orbital coupling between Li and S through the competitive mechanism, weakening adsorption, hindering the suppression of the shuttle effect and slowing kinetics. Moderate d-p separation optimizes s-p hybridization, enhancing Li−S bonding to boost electron transfer and reduce reaction barriers. Excessive separation, however, triggers overadsorption that poisons catalytic sites, demonstrating the necessity for balanced d-p band engineering to optimize adsorption strength and catalytic efficiency. To identify intrinsic electronic structure descriptors that are directly related to catalytic activity, conductivity, lithium-ion conductivity, work function, d-p band center, and M−S electronegativity difference were selected as features to correlate with the overpotential of the sulfur conversion reaction, the sum of the overpotential for the SRR and SER (η) was set as the target value (Figure S14 and Table S1). Based on the five features, we calculated the Pearson correlation coefficient between each feature and the overpotential (η; Figure 5b). The result shows that the reaction overpotential is influenced by multiple features, and thus, a single feature is inadequate for effectively screening and predicting high-",
+      "translation": "竞争性 d-p 和 s-p 轨道耦合通过催化剂电子调制来调节硫物种的吸附和电子转移。49,50 如图 5a 所示，LiPS 吸附过程中，Li 的 s 轨道与 S 的 p 轨道之间的杂化形成键合和反键合轨道。金属原子的d带中心和表面硫原子的p带中心（d-p带中心）的相对位置关键决定耦合强度。 d-p带中心靠近增强了d-p相互作用，但通过竞争机制抑制了Li和S之间的s-p轨道耦合，削弱了吸附，阻碍了对穿梭效应的抑制并减慢了动力学。适度的 d-p 分离可优化 s-p 杂化，增强 Li−S 键合，从而促进电子转移并减少反应势垒。然而，过度分离会引发过度吸附，从而毒害催化位点，这表明需要平衡 d-p 带工程来优化吸附强度和催化效率。为了识别与催化活性、电导率、锂离子电导率、功函数、d-p带中心和MS电负性差直接相关的固有电子结构描述符，选择作为与硫转化反应的过电势相关的特征，将SRR和SER（η）的过电势之和设置为目标值（图S14和表S1）。基于这五个特征，我们计算了每个特征与过电位之间的皮尔逊相关系数（η；图5b）。结果表明，反应过电势受多个特征的影响，单一特征不足以有效筛选和预测高过电势。",
+      "bbox": [
+        315.44,
+        418.13,
+        555.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S025",
+      "insert_after": "S025"
+    },
+    {
+      "page": 7,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 31,
+      "original_text": "performance catalysts. The Pearson correlation coefficient between the M−S electronegativity difference and η is −0.84, while that for the d-p band center is −0.71. These two parameters were chosen as the intrinsic electronic structure descriptors because they have the most significant influence on the catalytic activity. Figure 5c shows that under the synergistic influence of these two electronic structural parameters, NbS2 exhibits the lowest reaction overpotential, demonstrating the optimal catalytic activity. A predictive equation for catalytic activity was then constructed using multiple linear regression:",
+      "translation": "性能催化剂。 MS电负性差与η之间的皮尔逊相关系数为-0.84，而d-p带中心的皮尔逊相关系数为-0.71。选择这两个参数作为本征电子结构描述符，因为它们对催化活性具有最显着的影响。图5c显示，在这两个电子结构参数的协同影响下，NbS2表现出最低的反应过电势，表现出最佳的催化活性。然后使用多元线性回归构建催化活性的预测方程：",
+      "bbox": [
+        51.48,
+        60.18,
+        291.48,
+        169.16
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S026",
+      "insert_after": "S026"
+    },
+    {
+      "page": 7,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 32,
+      "original_text": "k d p k k ( band center) ( ) 1 2 S M 3 = × × +",
+      "translation": "k d p k k (能带中心) ( ) 1 2 S M 3 = × × +",
+      "bbox": [
+        71.36,
+        174.24,
+        275.92,
+        187.32
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S027",
+      "insert_after": "S027"
+    },
+    {
+      "page": 7,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 33,
+      "original_text": "where k1, k2, and k3 are 0.087, 1.811, and 3.034, respectively. The R2 value of the model is 0.712. The model indicates that a larger χS−χM in TMS allows sulfur atoms to acquire more electrons from the transition metal atoms, placing the sulfur atoms in an electron-rich state. This electron-rich sulfur is more likely to adsorb Li+ from polysulfide anions, thereby enhancing the anchoring capacity of the LiPSs. Meanwhile, an appropriate increase in the d-p band center strengthens the Li−S bonding, promotes interfacial electron transfer, and lowers the energy barrier of the sulfur conversion reaction, thereby significantly improving the catalytic activity. To validate the accuracy of the model, we compared the predicted overpotential values with those obtained from the DFT calculations. Since the catalytic activity of the catalysts is strongly related to the d orbitals in their valence electron configuration, we classified the catalysts based on their delectron number. Figure 5d shows a high degree of consistency between the predicted values and the DFT-calculated values, confirming the reliability of the model in predicting the catalytic activity of the catalysts.51 However, owing to the limited size of the current data set, the predictive performance of the model still has room for further improvement. Therefore, expanding the data set to improve the model’s applicability and generalization ability will be an important direction for future research. The incorporation of more diverse and representative data is expected to further increase the R2 value of the model, thereby enabling more accurate and robust predictions of the catalytic activity. These results demonstrate that catalytic activity is jointly governed by the d-p band center position, the M−S electronegativity difference, and the valence electron configuration of the metal atoms, reflecting variations in the coupling strength between the metal d orbitals and sulfur p orbitals. Based on a systematic statistical analysis of the calculated results for all TMS systems, we introduce the concept of d/p band matching to quantitatively capture the influence of the electronic structure on catalytic activity. Specifically, our statistical analysis reveals a well-defined quadratic correlation between the d-p band center energy difference and the corresponding overpotential (Figure S1). Together with the statistically identified optimal d-orbital period number of 4 and the valence electron number of 5, these three key electronicstructure descriptors are used to construct the band-matching ratio. The optimal catalytic activity is achieved when the d-p band center energy difference approaches 3.11 eV. Therefore, the band-matching ratio reflects the extent to which the electronic structure of a given TMS approaches this optimal matching state. A higher band-matching ratio indicates a closer match to the optimal electronic configuration and is generally associated with a lower bifunctional overpotential. The detailed",
+      "translation": "其中 k1、k2 和 k3 分别为 0.087、1.811 和 3.034。模型的 R2 值为 0.712。该模型表明，TMS 中较大的 χS−χM 允许硫原子从过渡金属原子获得更多电子，使硫原子处于富电子状态。这种富电子的硫更有可能从多硫化物阴离子中吸附Li+，从而增强LiPS的锚定能力。同时，d-p带中心的适当增加增强了Li−S键合，促进了界面电子转移，降低了硫转化反应的能垒，从而显着提高了催化活性。为了验证模型的准确性，我们将预测的过电势值与 DFT 计算获得的值进行了比较。由于催化剂的催化活性与其价电子构型中的d轨道密切相关，因此我们根据催化剂的电子数对催化剂进行分类。图 5d 显示预测值与 DFT 计算值之间高度一致，证实了模型在预测催化剂催化活性方面的可靠性。 51 但由于当前数据集规模有限，模型的预测性能仍有进一步改进的空间。因此，扩大数据集以提高模型的适用性和泛化能力将是未来研究的重要方向。纳入更多样化和更具代表性的数据预计将进一步提高模型的 R2 值，从而能够更准确、更稳健地预测催化活性。这些结果表明，催化活性由d-p带中心位置、MS电负性差和金属原子的价电子构型共同控制，反映了金属d轨道和硫p轨道之间耦合强度的变化。基于对所有TMS系统计算结果的系统统计分析，我们引入了d/p能带匹配的概念来定量捕获电子结构对催化活性的影响。具体来说，我们的统计分析揭示了 d-p 带中心能量差和相应的过电势之间存在明确的二次相关性（图 S1）。与统计确定的最佳 d 轨道周期数 4 和价电子数 5 一起，这三个关键电子结构描述符用于构建能带匹配比。当d-p带中心能量差接近3.11 eV时，实现最佳催化活性。因此，能带匹配率反映了给定TMS的电子结构接近这种最佳匹配状态的程度。较高的能带匹配比表明与最佳电子配置更接近，并且通常与较低的双功能过电势相关。详细的",
+      "bbox": [
+        51.48,
+        195.16,
+        291.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S028",
+      "insert_after": "S028"
+    },
+    {
+      "page": 7,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 34,
+      "original_text": "calculation formula is provided in Supplementary Note 5. As shown in Figure 5e, increasing the d/p band-matching ratio from 46.0% for WS2 to 52.2% for MoS2, 59.4% for TiS2, and 63.8% for ZrS2 leads to a pronounced decrease in the bifunctional overpotential from 2.84 to 1.35 V. NbS2 exhibits the highest band-matching ratio (99.2%) and delivers the lowest overpotential (0.703 V). This behavior is consistent with the lattice-matching effect previously identified, indicating that improved electronic or geometric matching strengthens reactant−active-site interactions and accelerates sulfur conversion kinetics.34",
+      "translation": "补充说明5中提供了计算公式。如图5e所示，将d/p能带匹配比从WS2的46.0%增加到MoS2的52.2%、TiS2的59.4%和ZrS2的63.8%导致双功能过电势从2.84 V显着降低到1.35 V。NbS2表现出最高的能带匹配比率（99.2%）并提供最低的过电势（0.703 V）。这种行为与之前确定的晶格匹配效应一致，表明改进的电子或几何匹配增强了反应物与活性位点的相互作用并加速了硫转化动力学。 34",
+      "bbox": [
+        315.44,
+        60.18,
+        555.49,
+        181.18
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S029",
+      "insert_after": "S029"
+    },
+    {
+      "page": 7,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 35,
+      "original_text": "Based on this quantitative relationship, it can be predicted that when the energy difference between the metal d-band center and the surface sulfur p-band center is 3.11 eV, the dorbital period number is 4, and the valence electron count is 5, the system achieves 100% d/p band-matching, corresponding to a lower bound of 0.701 V for the bifunctional overpotential. This value defines the intrinsic performance ceiling of sulfur redox catalysis in pristine TMSs. Notably, this descriptor is not limited to layered TMS systems. When extended to a representative nonlayered sulfide (Ni3S2), it yields an overpotential (η) of 1.76 V with a corresponding d/p bandmatching ratio of 68.5%, which falls well within the established linear correlation between the d/p band-matching ratio and overpotential (Figure S15). This observation indicates that the relationship holds across different crystal structures and coordination environments. Compared with previously proposed descriptors, our d/p band-matching descriptor combines the d-p band center, d-orbital period, and valence electron. These three factors jointly determine, from the perspectives of both covalency and ionicity, the orbital coupling strength between transition-metal compounds and adsorbed intermediates as well as the charge-transfer capability and therefore constitute the fundamental electronic-structure factors governing catalytic activity. Therefore, this concept can, in principle, be extended to other classes of sulfur hosts or even broader material systems, such as metal carbides, nitrides, and singleatom catalysts, where analogous orbital hybridization mechanisms play a critical role in catalytic processes.52,53",
+      "translation": "根据这一定量关系，可以预测，当金属d带中心与表面硫p带中心之间的能量差为3.11 eV、轨道周期数为4、价电子数为5时，系统实现100% d/p能带匹配，对应双功能过电位的下限为0.701 V。该值定义了原始 TMS 中硫氧化还原催化的内在性能上限。值得注意的是，该描述符并不限于分层 TMS 系统。当扩展到代表性的非层状硫化物 (Ni3S2) 时，它产生 1.76 V 的过电势 (η)，相应的 d/p 能带匹配比为 68.5%，完全符合 d/p 能带匹配比和过电势之间已建立的线性相关性（图 S15）。这一观察结果表明这种关系在不同的晶体结构和配位环境中都成立。与之前提出的描述符相比，我们的 d/p 能带匹配描述符结合了 d-p 能带中心、d 轨道周期和价电子。这三个因素从共价性和离子性的角度共同决定了过渡金属化合物与吸附中间体之间的轨道耦合强度以及电荷转移能力，从而构成了控制催化活性的基本电子结构因素。因此，这个概念原则上可以扩展到其他类别的硫主体或更广泛的材料系统，例如金属碳化物、氮化物和单原子催化剂，其中类似的轨道杂化机制在催化过程中发挥着关键作用。 52,53",
+      "bbox": [
+        315.44,
+        182.23,
+        555.48,
+        491.86
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S030",
+      "insert_after": "S030"
+    },
+    {
+      "page": 7,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 36,
+      "original_text": "Experimental Validation of the Catalyst Performance",
+      "translation": "催化剂性能的实验验证",
+      "bbox": [
+        315.44,
+        496.2,
+        536.44,
+        505.7
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S031",
+      "insert_after": "S031"
+    },
+    {
+      "page": 7,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 37,
+      "original_text": "TiS2, NbS2, and WS2 were typical catalysts to verify catalytic enhancements from breaking the scaling relationships. To ensure structural consistency between the experimental catalysts and theoretical models, comprehensive characterizations were conducted. TiS2, NbS2, and WS2 exhibited typical layered nanosheet morphologies, as confirmed by scanning electron microscopy (SEM) (Figure S16). X-ray diffraction (XRD) analysis further verified the crystallographic phases of the materials: TiS2 and NbS2 exhibit the thermodynamically stable 1T phase, while WS2 adopts the 2H phase, which is in full agreement with the DFT-selected crystal structures (Figure S17). In addition, electrical conductivity measurements were performed, showing that NbS2 possessed the highest conductivity (201.91 S cm−1), followed by TiS2 (6.14 S cm−1) and WS2 (0.086 S cm−1), in agreement with the trend of the calculated band gaps shown in Figure S3. These results collectively validate the suitability of the DFT structural models and the reliability of subsequent theoretical and kinetic analyses. Systematic assessments of LiPS interactions focused on the adsorption strength, lithium-ion migration dynamics, and the redox kinetics of the rate-determining step. Ultraviolet−visible (UV−vis) adsorption spectroscopy (Figure 6a)",
+      "translation": "TiS2、NbS2 和 WS2 是典型的催化剂，用于验证打破标度关系的催化增强作用。为了确保实验催化剂和理论模型之间的结构一致性，进行了全面的表征。 TiS2、NbS2 和 WS2 表现出典型的层状纳米片形貌，经扫描电子显微镜 (SEM) 证实（图 S16）。 X射线衍射（XRD）分析进一步验证了材料的晶相：TiS2和NbS2表现出热力学稳定的1T相，而WS2采用2H相，这与DFT选择的晶体结构完全一致（图S17）。此外，进行电导率测量，结果表明NbS2具有最高的电导率（201.91 S cm−1），其次是TiS2（6.14 S cm−1）和WS2（0.086 S cm−1），与图S3所示计算的带隙趋势一致。这些结果共同验证了DFT结构模型的适用性以及后续理论和动力学分析的可靠性。 LiPS 相互作用的系统评估侧重于吸附强度、锂离子迁移动力学和速率决定步骤的氧化还原动力学。紫外可见 (UV-vis) 吸收光谱（图 6a）",
+      "bbox": [
+        315.44,
+        512.13,
+        555.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S032",
+      "insert_after": "S032"
+    },
+    {
       "page": 8,
-      "type": "figure",
-      "file": "assets/fig6_kinetics_battery_validation.png",
-      "caption": "Figure 6 gathers UV-vis adsorption, Li-ion diffusion, CV, Tafel analysis, activation energies, galvanostatic profiles, QL/QH ratios, and high-loading cycling stability to validate the descriptor experimentally.",
-      "caption_translation": "图 6 把 UV-vis 吸附、Li+ 扩散、CV、Tafel 分析、活化能、恒流充放电曲线、QL/QH 比值以及高负载循环稳定性集中展示出来，用实验把描述符闭环验证。",
-      "placed_near": "p.8-9 S017",
-      "confidence": "high"
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 39,
+      "original_text": "shows that compared to TiS2 and WS2, the NbS2 in 0.01 M Li2S6 (DME/DOL = 1:1) solution exhibited a significantly reduced absorbance intensity at 420 and 460 nm,54",
+      "translation": "结果表明，与 TiS2 和 WS2 相比，0.01 M Li2S6 (DME/DOL = 1:1) 溶液中的 NbS2 在 420 和 460 nm 处的吸光度强度显着降低，54",
+      "bbox": [
+        51.48,
+        527.55,
+        291.43,
+        560.51
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S033",
+      "insert_after": "S033"
+    },
+    {
+      "page": 8,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 40,
+      "original_text": "corresponding to the characteristic peaks of S4 2−and S6 2−. This result suggests a stronger interaction between NbS2 and LiPSs. This pronounced adsorption behavior can be attributed to the enhanced orbital hybridization between S 3p orbitals and the Li 2s orbitals in LiPSs. The lithium-ion diffusion coefficient (DLi +) was then calculated using the Randles-Sevcik equation based on cyclic voltammetry at varying scan rates (Figure 6b). A linear relationship between the peak current and the square root of the scan rate confirmed diffusioncontrolled kinetics in these catalysts (Figures S18 and S19). Compared with WS2 and TiS2, NbS2 showed the highest DLi +",
+      "translation": "对应于S4 2- 和S6 2- 的特征峰。这一结果表明 NbS2 和 LiPS 之间存在更强的相互作用。这种明显的吸附行为可归因于 LiPS 中 S 3p 轨道和 Li 2s 轨道之间增强的轨道杂化。然后使用基于循环伏安法的 Randles-Sevcik 方程在不同扫描速率下计算锂离子扩散系数 (DLi +)（图 6b）。峰值电流和扫描速率平方根之间的线性关系证实了这些催化剂中的扩散控制动力学（图S18和S19）。与 WS2 和 TiS2 相比，NbS2 显示出最高的 DLi +",
+      "bbox": [
+        51.48,
+        559.81,
+        291.48,
+        688.64
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S034",
+      "insert_after": "S034"
+    },
+    {
+      "page": 8,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 41,
+      "original_text": "and best Li+ transport capability, which is consistent with the CI-NEB calculation result. Subsequently, we conducted a series of kinetic tests to establish a specific correlation between sulfur conversion performance and the pathway-dependent descriptor. The cyclic voltammetry (CV) curves show two distinct redox peaks",
+      "translation": "和最佳的Li+传输能力，与CI-NEB计算结果一致。随后，我们进行了一系列动力学测试，以建立硫转化性能和路径依赖性描述符之间的特定相关性。循环伏安 (CV) 曲线显示两个不同的氧化还原峰",
+      "bbox": [
+        51.48,
+        684.19,
+        291.47,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S035",
+      "insert_after": "S035"
+    },
+    {
+      "page": 8,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 42,
+      "original_text": "(Figure 6c). The two cathodic peaks at ∼2.3 V (C1) and ∼2.1 V (C2) correspond to the reduction of elemental sulfur to long-chain LiPSs and their further conversion to Li2S, respectively, while the two anodic peaks at ∼2.3 V (A1) and ∼2.4 V (A2) are associated with the reverse oxidation of Li2S and LiPSs. Compared to TiS2 and WS2, the cathodic peak of NbS2 shifted significantly toward higher potential, while the anodic peak shifted toward lower potential, with higher peak currents, indicating a significant enhancement in sulfur redox kinetics. The Tafel slope fitted from the second cathodic peak (C2) was as low as 19 mV dec−1 for NbS2, which is substantially lower than that of TiS2 (28 mV dec−1) and WS2 (30 mV dec−1), further confirming its superior kinetic performance (Figure 6d). The nucleation-to-transformation ratio (NTR) was employed as a semiquantitative descriptor, calculated by comparing the integrated CV charges corresponding to the formation of Li2S4 at the C1 peak and the subsequent conversion to Li2S at the C2 peak. A higher NTR value indicates a more complete utilization of Li2S4 and more efficient liquid-to-solid phase transformation. NbS2 exhibited",
+      "translation": "（图 6c）。 ~2.3 V (C1) 和~2.1 V (C2) 处的两个阴极峰分别对应于元素硫还原为长链LiPS 及其进一步转化为Li2S，而~2.3 V (A1) 和~2.4 V (A2) 处的两个阳极峰与Li2S 和LiPSs 的反向氧化有关。与TiS2和WS2相比，NbS2的阴极峰显着向更高电位移动，而阳极峰向更低电位移动，峰值电流更高，表明硫氧化还原动力学显着增强。 NbS2 从第二个阴极峰 (C2) 拟合的塔菲尔斜率低至 19 mV dec−1，远低于 TiS2 (28 mV dec−1) 和 WS2 (30 mV dec−1)，进一步证实了其优越的动力学性能（图 6d）。成核转化比 (NTR) 被用作半定量描述符，通过比较对应于 C1 峰处 Li2S4 形成和随后在 C2 峰处转化为 Li2S 的积分 CV 电荷来计算。 NTR值越高，表明Li2S4的利用越充分，液固相转变越有效。 NbS2 展出",
+      "bbox": [
+        315.44,
+        526.83,
+        555.48,
+        757.18
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S036",
+      "insert_after": "S036"
+    },
+    {
+      "page": 9,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 43,
+      "original_text": "consistently higher NTR values over a range of scan rates, indicating its superior capability to promote efficient LiPSs conversion (Figure S20).55 Furthermore, linear sweep voltammetry (LSV) measurements were conducted in electrolytes containing either 0.2 M Li2S4 or 0.2 M Li2S2 (Figure S21) to decouple the catalytic contributions of TMS toward the conversion of Li2S4 and Li2S2. In both cases, NbS2 exhibits the highest peak current, demonstrating its excellent catalytic activity toward the two corresponding transformation pathways, which is consistent with the catalytic activity described by the ΔGLi d2S d4 −ΔGLi d2S d2 and ΔGLi d2S d2 −ΔGLi d2S d4 in the linear relationship. The potentiostatic nucleation experiment with Li2S further validated the role of TMS in regulating Li2S conversion kinetics. NbS2 exhibited the highest deposition specific capacity (576.98 mAh g−1) compared with TiS2 (512.78 mAh g−1) and WS2 (332.54 mAh g−1), indicating its effective promotion of Li2S nucleation and growth (Figure S22). Based on our calculated Li2S adsorption energies, TiS2 possesses the strongest Li2S binding energy among the three catalysts (TiS2 > NbS2 > WS2), which may impede the dynamic rearrangement and growth of Li2S nuclei due to overly strong surface adsorption. In contrast, the moderate binding strength of NbS2 appears to be more favorable for balancing nucleation and subsequent growth during the deposition process. Guided by the previously established linear relationship, which links the catalytic activity toward both Li2S formation and decomposition with reaction energetics, we further evaluated the dissociation kinetics of Li2S through LSV analysis. NbS2 exhibited a significantly higher onset potential than TiS2 and WS2 (Figure S23). Tafel plots were derived by fitting the initial region of the oxidation peak in the LSV curves (Figure 6e). The Tafel slopes of NbS2, TiS2, and WS2 are 49, 88, and 235 mV dec−1, respectively, further confirming the kinetic advantage of NbS2 in accelerating the sulfur evolution reaction. To comprehensively investigate the changes in the activation energy (Ea) during the sulfur redox process, temperaturedependent electrochemical impedance spectroscopy (EIS) measurements were conducted at various potentials. Nyquist plots recorded at 10, 20, 30, 40, and 50 °C were fitted using an equivalent circuit model to extract the charge-transfer resistance (Rct) (Figure S24). The Ea for both the SRR and SER was calculated based on the Arrhenius equation. For the SRR, particularly in the liquid-to-solid phase transformation (LiPSs to Li2S2 or Li2S), a relatively high Ea was observed due to the phase transformation resistance. Within this potential range (2.1−1.9 V), NbS2 exhibited significantly lower Ea compared to TiS2 and WS2.46 In contrast, during the solidto-liquid phase transition in the SER, the inherently insulating nature of Li2S results in a high oxidative energy barrier. Notably, the Ea for NbS2 decreased to 0.40 eV at 2.3 V, suggesting that the comproportionation reaction facilitates the oxidation of Li2S. Overall, NbS2 consistently exhibits the lowest Ea across the entire potential range, indicating its strong capability to lower reaction energy barriers and accelerate sulfur redox kinetics. TiS2 shows middle activation energy, while WS2 displays the highest, in good agreement with the theoretical predictions.56,57",
+      "translation": "在一系列扫描速率下始终保持较高的 NTR 值，表明其促进高效 LiPS 转化的卓越能力（图 S20）。55 此外，在含有 0.2 M Li2S4 或 0.2 M Li2S2 的电解质中进行线性扫描伏安法 (LSV) 测量（图 S21），以解耦 TMS 对 Li2S4 和 Li2S2 转化的催化贡献。在这两种情况下，NbS2都表现出最高的峰值电流，展示了其对两个相应转化途径的优异催化活性，这与ΔGLi d2S d4 -ΔGLi d2S d2和ΔGLi d2S d2 -ΔGLi d2S d4描述的催化活性呈线性关系一致。 Li2S的恒电位成核实验进一步验证了TMS在调节Li2S转化动力学中的作用。与TiS2（512.78 mAh g−1）和WS2（332.54 mAh g−1）相比，NbS2表现出最高的沉积比容量（576.98 mAh g−1），表明其有效促进Li2S成核和生长（图S22）。根据我们计算的Li2S吸附能，TiS2在三种催化剂中具有最强的Li2S结合能（TiS2>NbS2>WS2），这可能由于过强的表面吸附而阻碍Li2S核的动态重排和生长。相比之下，NbS2 的中等结合强度似乎更有利于平衡沉积过程中的成核和随后的生长。在先前建立的线性关系（将 Li2S 形成和分解的催化活性与反应能量学联系起来）的指导下，我们通过 LSV 分析进一步评估了 Li2S 的解离动力学。 NbS2 表现出比 TiS2 和 WS2 显着更高的起始潜力（图 S23）。塔菲尔图是通过拟合 LSV 曲线中氧化峰的初始区域得出的（图 6e）。 NbS2、TiS2和WS2的塔菲尔斜率分别为49、88和235 mV dec−1，进一步证实了NbS2在加速硫析出反应方面的动力学优势。为了全面研究硫氧化还原过程中活化能 (Ea) 的变化，在不同电位下进行了温度依赖性电化学阻抗谱 (EIS) 测量。使用等效电路模型拟合在 10、20、30、40 和 50 °C 下记录的奈奎斯特图，以提取电荷转移电阻 (Rct)（图 S24）。 SRR 和 SER 的 Ea 都是根据阿伦尼乌斯方程计算的。对于SRR，特别是在液固相变（LiPSs 到Li2S2 或Li2S）中，由于相变阻力而观察到相对较高的Ea。在此电势范围 (2.1−1.9 V) 内，NbS2 与 TiS2 和 WS2.46 相比表现出显着较低的 Ea。相反，在 SER 中的固相到液相变过程中，Li2S 固有的绝缘性质导致高氧化能垒。值得注意的是，NbS2 的 Ea 在 2.3 V 时下降至 0.40 eV，表明歧化反应促进了 Li2S 的氧化。 总体而言，NbS2 在整个电位范围内始终表现出最低的 Ea，表明其具有降低反应能垒和加速硫氧化还原动力学的强大能力。 TiS2 显示出中等活化能，而 WS2 显示出最高活化能，与理论预测非常吻合。 56,57",
+      "bbox": [
+        51.48,
+        60.18,
+        291.48,
+        710.52
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S037",
+      "insert_after": "S037"
+    },
+    {
+      "page": 9,
+      "type": "paragraph",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 44,
+      "original_text": "The electrochemical performance of Li−S cells using NbS2, TiS2, and WS2 as sulfur cathode catalysts was evaluated to elucidate the catalytic effects of TMSs on sulfur redox reactions (catalyst content in cathode: 3%, sulfur mass loading: ∼1 mg",
+      "translation": "评估使用 NbS2、TiS2 和 WS2 作为硫阴极催化剂的 Li−S 电池的电化学性能，以阐明 TMS 对硫氧化还原反应的催化作用（阴极催化剂含量：3%，硫质量负载量：∼1 mg）",
+      "bbox": [
+        51.48,
+        710.91,
+        291.46,
+        755.14
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S038",
+      "insert_after": "S038"
+    },
+    {
+      "page": 9,
+      "type": "paragraph",
+      "section": "Conclusion / 结论",
+      "order": 45,
+      "original_text": "cm−2). As shown in Figure 6g, the cell with NbS2 exhibited the highest specific capacity. The high voltage plateau corresponds to the reduction of elemental sulfur to LiPSs, while the low voltage plateau is associated with the further conversion of LiPSs to Li2S. The capacity ratio between the two plateaus (QL/QH) reflects the extent of sulfur utilization. The QL/QH value of NbS2 is the highest at 2.81, followed by TiS2 (2.73), and WS2 showed the lowest value of 2.55 (Figure 6h). Moreover, the voltage polarization between the charge and discharge plateaus of NbS2 is lower (157 mV) than that of TiS2 (178 mV) and WS2 (181 mV). The reduced polarization of the NbS2-based cathode can be primarily attributed to the lower kinetic barriers for both Li2Sn reduction and Li2S oxidation, which is consistent with theoretical predictions. The NbS2 cathode also has excellent rate performance (Figure S25). Even at a high rate of 3.0 C, it maintained a specific capacity of 678 mAh g−1, which is higher than that of TiS2 (620 mAh g−1) and WS2 (445 mAh g−1). When the rate was returned from 3.0 to 1.0 C, the capacity nearly recovered to its initial value, indicating excellent rate reversibility. In addition, in situ XRD measurements show that the characteristic peaks of the 1TNbS2 phase remain stable during discharge and charge (Figure S26), indicating its good structural stability during the electrochemical process. The cell with NbS2 maintained a capacity of 470 mAh g−1 after 1000 cycles at 1.0 C, with a minimal capacity decay rate of 0.086% per cycle, outperforming TiS2 (400 mAh g−1, 0.23%) and WS2 (333 mAh g−1, 0.18%) (Figure S27). Furthermore, at a high areal sulfur loading of 9.89 mg cm−2, the cell with NbS2 delivers an initial areal capacity of 10.98 mAh cm−2 at 0.1 C, and it still retains 8.13 mAh cm−2 after 100 cycles, corresponding to 90.29% capacity retention. This performance significantly outperforms the cells with TiS2 and WS2 cathodes (Figure 6i) and exceeds that of most reported TMS-based cathode systems for Li−S batteries, further validating the effectiveness of the NbS2 catalyst screened by the d/p band-matching descriptor (Table S5).56,57 Moreover, a multilayer pouch cell with a sulfur loading of 5.1 mg cm−2 was assembled, delivering a total capacity of 2.16 Ah and an initial specific energy of 401 Wh kg−1 at 129.1 mA, while also exhibiting stable charge/discharge profiles and reversible cycling over about 20 cycles with high Coulombic efficiency (Figure S28). ■CONCLUSION In summary, this work establishes d/p band-matching as a predictive electronic-structure descriptor that overcomes the conventional adsorption−activity scaling relations limiting multistep sulfur redox kinetics in transition-metal sulfide (TMS) model catalysts. By jointly considering the intrinsic electronic properties of the transition metal and the degree of d−p band alignment between metal and surface sulfur, a linear relationship between the band-matching ratio and the overpotentials of sulfur reduction and evolution reactions is uncovered, enabling quantitative activity prediction beyond volcano-type behavior. Engineering the band-matching ratio drives surface sulfur atoms into an electron-rich state, strengthens orbital coupling with lithium polysulfides, and lowers the kinetic barriers for sulfur conversion. Among TMSs, NbS2 achieves an exceptionally high band-matching ratio of 99.2%, delivering the lowest bifunctional overpotential (0.70 V), 4-fold lower than WS2 with a band-matching ratio of 46.0%. The Li−S battery employing NbS2 enables the lowest electrochemical barriers for LiPS reduction and oxidation and",
+      "translation": "厘米−2)。如图6g所示，含有NbS2的电池表现出最高的比容量。高压平台对应于元素硫还原为LiPS，而低压平台与LiPS进一步转化为Li2S相关。两个平台之间的容量比（QL/QH）反映了硫磺利用率的程度。 NbS2 的 QL/QH 值最高，为 2.81，其次是 TiS2（2.73），WS2 的 QL/QH 值最低，为 2.55（图 6h）。此外，NbS2 充电和放电平台之间的电压极化 (157 mV) 低于 TiS2 (178 mV) 和 WS2 (181 mV)。 NbS2 基阴极的极化降低主要归因于 Li2Sn 还原和 Li2S 氧化的动力学势垒较低，这与理论预测一致。 NbS2 阴极还具有出色的倍率性能（图 S25）。即使在3.0 C的高倍率下，它仍保持678 mAh g−1的比容量，高于TiS2（620 mAh g−1）和WS2（445 mAh g−1）的比容量。当倍率从3.0 C恢复到1.0 C时，容量几乎恢复到其初始值，表明优异的倍率可逆性。此外，原位XRD测量表明，1TNbS2相的特征峰在放电和充电过程中保持稳定（图S26），表明其在电化学过程中具有良好的结构稳定性。采用 NbS2 的电池在 1.0 C 下循环 1000 次后容量仍保持在 470 mAh g−1，每次循环容量衰减率为 0.086%，优于 TiS2（400 mAh g−1，0.23%）和 WS2（333 mAh g−1，0.18%）（图 S27）。此外，在9.89 mg cm−2的高面积硫负载量下，含有NbS2的电池在0.1 C下的初始面积容量为10.98 mAh cm−2，并且在100次循环后仍保留8.13 mAh cm−2，相当于90.29%的容量保持率。该性能显着优于采用 TiS2 和 WS2 阴极的电池（图 6i），并超过大多数报道的基于 TMS 的 Li−S 电池阴极系统，进一步验证了通过 d/p 能带匹配描述符筛选的 NbS2 催化剂的有效性（表 S5）。56,57 此外，组装了硫负载量为 5.1 mg cm−2 的多层软包电池，总容量为 2.16 Ah，初始比容量为129.1 mA 时的能量为 401 Wh kg−1，同时还表现出稳定的充电/放电曲线和约 20 个循环的可逆循环，并具有高库仑效率（图 S28）。结论 总之，这项工作将d/p能带匹配建立为一种预测电子结构描述符，克服了限制过渡金属硫化物（TMS）模型催化剂中多步硫氧化还原动力学的传统吸附-活性标度关系。通过共同考虑过渡金属的固有电子特性以及金属和表面硫之间的 d−p 能带排列程度，揭示了能带匹配比与硫还原和演化反应的过电位之间的线性关系，从而能够实现超越火山型行为的定量活动预测。 设计能带匹配比可促使表面硫原子进入富电子状态，增强与多硫化锂的轨道耦合，并降低硫转化的动力学势垒。在TMS中，NbS2实现了99.2%的极高能带匹配率，提供了最低的双功能过电势（0.70 V），比能带匹配率为46.0%的WS2低4倍。采用 NbS2 的 Li−S 电池可实现 LiPS 还原和氧化的最低电化学势垒，",
+      "bbox": [
+        315.44,
+        58.02,
+        555.48,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S039",
+      "insert_after": "S039"
+    },
+    {
+      "page": 10,
+      "type": "paragraph",
+      "section": "Associated Content / 关联内容",
+      "order": 46,
+      "original_text": "exhibits superior cycling stability, even at a high sulfur loading of 9.89 mg cm−2. Beyond identifying an optimal TMS catalyst, this work defines an intrinsic performance ceiling for sulfur redox catalysis in pristine TMSs, providing a general electronic structure design principle for tuning the catalytic activity in Li−S batteries. The concept of d/p band-matching further offers a transferable framework for the rational design of highperformance catalysts in broader electrochemical energyconversion reactions. ■ASSOCIATED CONTENT * sı Supporting Information The Supporting Information is available free of charge at https://pubs.acs.org/doi/10.1021/jacs.6c02040. Details of materials, chemicals, and methods used in this work, including the DFT calculations, Gibbs free energy calculations, Pearson correlation analysis, preparation of the sulfur cathode, electrochemical measurements and materials characterizations, as well as supplementary figures and tables (PDF) ■AUTHOR INFORMATION Corresponding Authors",
+      "translation": "即使在 9.89 mg cm−2 的高硫负载量下，也表现出优异的循环稳定性。除了确定最佳的 TMS 催化剂之外，这项工作还定义了原始 TMS 中硫氧化还原催化的内在性能上限，为调节 Li−S 电池中的催化活性提供了通用的电子结构设计原理。 d/p 能带匹配的概念进一步为更广泛的电化学能量转换反应中高性能催化剂的合理设计提供了可转移的框架。 ■相关内容 * 支持信息 支持信息可在 https://pubs.acs.org/doi/10.1021/jacs.6c02040 免费获取。本工作中使用的材料、化学品和方法的详细信息，包括 DFT 计算、吉布斯自由能计算、皮尔逊相关分析、硫阴极的制备、电化学测量和材料表征，以及补充图表 (PDF) ■作者信息 通讯作者",
+      "bbox": [
+        51.48,
+        60.18,
+        291.48,
+        322.92
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S040",
+      "insert_after": "S040"
+    },
+    {
+      "page": 10,
+      "type": "paragraph",
+      "section": "Associated Content / 关联内容",
+      "order": 47,
+      "original_text": "Li Wang −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China; orcid.org/ 0000-0002-6888-0660; Email: liwangcn@tju.edu.cn Wei Lv −Shenzhen Geim Graphene Center, Engineering Laboratory for Functionalized Carbon Materials, Tsinghua Shenzhen International Graduate School, Tsinghua University, Shenzhen 518055, China; orcid.org/00000003-0874-3477; Email: lv.wei@sz.tsinghua.edu.cn Quan-Hong Yang −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China; Joint School of National University of Singapore and Tianjin University, International Campus of Tianjin University, Fuzhou 350207, China; orcid.org/00000003-2882-3968; Email: qhyangcn@tju.edu.cn",
+      "translation": "李旺-天津大学纳米阳课题组、天津市先进碳与电化学储能重点实验室、化学工程与低碳技术国家重点实验室、化学工程与技术学院、国家储能产教平台、化学科学与工程协同创新中心（天津），天津 300072；海河可持续化学转化实验室, 天津 300192; orcid.org/0000-0002-6888-0660； Email: liwangcn@tju.edu.cn 吕伟 - 清华大学深圳国际研究生院、深圳海姆石墨烯中心、功能化碳材料工程实验室，深圳 518055； orcid.org/00000003-0874-3477；杨全红-纳米阳课题组、天津大学先进碳与电化学储能重点实验室、化学工程与低碳技术国家重点实验室、化学工程与技术学院、国家储能产教平台、化学科学与工程协同创新中心（天津），天津 300072；海河可持续化学转化实验室, 天津 300192;新加坡国立大学-天津大学联合学院，天津大学国际校区，福州 350207； orcid.org/00000003-2882-3968；邮箱：qhyangcn@tju.edu.cn",
+      "bbox": [
+        61.46,
+        327.1,
+        291.48,
+        634.84
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S041",
+      "insert_after": "S041"
+    },
+    {
+      "page": 10,
+      "type": "paragraph",
+      "section": "Associated Content / 关联内容",
+      "order": 48,
+      "original_text": "Authors",
+      "translation": "作者",
+      "bbox": [
+        51.48,
+        642.75,
+        84.39,
+        652.25
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S042",
+      "insert_after": "S042"
+    },
+    {
+      "page": 10,
+      "type": "paragraph",
+      "section": "Associated Content / 关联内容",
+      "order": 49,
+      "original_text": "Xin Jiang −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China",
+      "translation": "天津大学新疆纳米阳集团、天津市先进碳与电化学储能重点实验室、化学工程与低碳技术国家重点实验室、化学工程与技术学院、国家储能产教平台、化学科学与工程协同创新中心（天津），天津 300072；海河可持续化学转化实验室, 天津 300192",
+      "bbox": [
+        61.46,
+        656.43,
+        291.45,
+        755.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S043",
+      "insert_after": "S043"
+    },
+    {
+      "page": 10,
+      "type": "paragraph",
+      "section": "Associated Content / 关联内容",
+      "order": 50,
+      "original_text": "Wenjia Qu −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China; Joint School of National University of Singapore and Tianjin University, International Campus of Tianjin University, Fuzhou 350207, China Ruiqing Ye −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China Chuannan Geng −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and LowCarbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China; Shenzhen Geim Graphene Center, Engineering Laboratory for Functionalized Carbon Materials, Tsinghua Shenzhen International Graduate School, Tsinghua University, Shenzhen 518055, China; orcid.org/00000001-8596-237X Jiwei Shi −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China; Joint School of National University of Singapore and Tianjin University, International Campus of Tianjin University, Fuzhou 350207, China Qiang Li −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China Zhonghao Hu −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072,",
+      "translation": "曲文佳-纳米阳课题组、天津市先进碳与电化学储能重点实验室、化学工程与低碳技术国家重点实验室、化学工程与技术学院、国家储能产教平台、化学科学与工程协同创新中心（天津），天津 300072；海河可持续化学转化实验室, 天津 300192;新加坡国立大学-天津大学联合学院，天津大学国际校区，福州 350207，中国瑞清叶－纳阳集团，天津市先进碳与电化学储能重点实验室，化学工程与低碳技术国家重点实验室，化学工程与技术学院，国家储能产教平台，化学科学与工程协同创新中心（天津），天津大学，天津 300072；天津大学海河可持续化学转化实验室，天津 300192，中国川南耿-纳阳集团，天津市先进碳与电化学储能重点实验室，化学工程与低碳技术国家重点实验室，化学工程与技术学院，国家储能产教平台，化学科学与工程协同创新中心（天津），天津 300072；海河可持续化学转化实验室, 天津 300192;清华大学深圳海姆石墨烯中心, 功能化碳材料工程实验室, 清华大学深圳国际研究生院, 深圳 518055; orcid.org/00000001-8596-237X 石吉伟-纳米阳集团、天津大学先进碳与电化学储能重点实验室、化学工程与低碳技术国家重点实验室、化学工程与技术学院、国家储能产教平台、化学科学与工程协同创新中心（天津），天津 300072；海河可持续化学转化实验室, 天津 300192;新加坡国立大学-天津大学联合学院，天津大学国际校区，福州 350207，中国强力纳米阳集团，天津市先进碳与电化学储能重点实验室，化学工程与低碳技术国家重点实验室，化学工程与技术学院，国家储能产教平台，化学科学与工程协同创新中心（天津），天津大学，天津 300072；天津大学海河可持续化学转化实验室，天津 300192，中国中昊纳米阳集团，天津市先进碳与电化学储能重点实验室，化学工程与低碳技术国家重点实验室，化学工程与技术学院，国家储能产教平台，化学科学与工程协同创新中心（天津），天津 300072",
+      "bbox": [
+        325.47,
+        59.46,
+        555.47,
+        752.19
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S044",
+      "insert_after": "S044"
+    },
+    {
+      "page": 11,
+      "type": "paragraph",
+      "section": "Associated Content / 关联内容",
+      "order": 51,
+      "original_text": "China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China; Shenzhen Geim Graphene Center, Engineering Laboratory for Functionalized Carbon Materials, Tsinghua Shenzhen International Graduate School, Tsinghua University, Shenzhen 518055, China Yufei Zhao −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China; Joint School of National University of Singapore and Tianjin University, International Campus of Tianjin University, Fuzhou 350207, China; orcid.org/0009-0001-4321-3407 Haotian Yang −Nanoyang Group, Tianjin Key Laboratory of Advanced Carbon and Electrochemical Energy Storage, State Key Laboratory of Chemical Engineering and Low-Carbon Technology, School of Chemical Engineering and Technology, National Industry-Education Platform for Energy Storage, and Collaborative Innovation Center of Chemical Science and Engineering (Tianjin), Tianjin University, Tianjin 300072, China; Haihe Laboratory of Sustainable Chemical Transformations, Tianjin 300192, China; Joint School of National University of Singapore and Tianjin University, International Campus of Tianjin University, Fuzhou 350207, China Weichao Wang −College of Electronic Information and Optical Engineering, Nankai University, Tianjin 300071, China; orcid.org/0000-0001-5931-212X",
+      "translation": "中国;海河可持续化学转化实验室, 天津 300192;深圳海姆石墨烯中心、功能化碳材料工程实验室、清华大学深圳国际研究生院，深圳 518055 赵宇飞纳米阳课题组、天津市先进碳与电化学储能重点实验室、化学工程与低碳技术国家重点实验室、化学工程与技术学院、国家储能产业教育平台、化学科学与工程（天津）协同创新中心，天津大学中国 300072；海河可持续化学转化实验室, 天津 300192;新加坡国立大学-天津大学联合学院，天津大学国际校区，福州 350207； orcid.org/0009-0001-4321-3407 杨浩天-纳米阳课题组，天津大学天津市先进碳与电化学储能重点实验室、化学工程与低碳技术国家重点实验室、化学工程与技术学院、国家储能产教平台、化学科学与工程协同创新中心（天津），天津 300072；海河可持续化学转化实验室, 天津 300192;新加坡国立大学-天津大学联合学院，天津大学国际校区，中国福州 350207 王伟超 - 南开大学电子信息与光学工程学院，中国天津 300071； orcid.org/0000-0001-5931-212X",
+      "bbox": [
+        61.46,
+        60.18,
+        291.45,
+        422.18
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S045",
+      "insert_after": "S045"
+    },
+    {
+      "page": 11,
+      "type": "paragraph",
+      "section": "Associated Content / 关联内容",
+      "order": 52,
+      "original_text": "Complete contact information is available at: https://pubs.acs.org/10.1021/jacs.6c02040",
+      "translation": "完整的联系信息请访问：https://pubs.acs.org/10.1021/jacs.6c02040",
+      "bbox": [
+        51.48,
+        427.2,
+        226.82,
+        448.2
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S046",
+      "insert_after": "S046"
+    },
+    {
+      "page": 11,
+      "type": "paragraph",
+      "section": "Acknowledgments / 致谢",
+      "order": 53,
+      "original_text": "Author Contributions #X.J., W.Q., and R.Y. contributed equally to this work, and all authors participated in the discussion of the article. Notes The authors declare no competing financial interest. ■ACKNOWLEDGMENTS We appreciate the support from the National Natural Science Foundation of China (Nos. 52432005 and 52302300), the National Key R&D Program of China (No. 2021YFF0500600), Shenzhen Outstanding Talents Training Fund, Guangdong Basic and Applied Basic Research Foundation (2023B1515120047 and 2021B1515120079), Shenzhen Science and Technology Program (JCYJ20220818101008018). ■REFERENCES",
+      "translation": "作者贡献#X.J.、W.Q. 和 R.Y.对这项工作做出了同等贡献，所有作者都参与了文章的讨论。注释 作者声明不存在竞争性经济利益。 ■致谢感谢国家自然科学基金（52432005和52302300）、国家重点研发计划（2021YFF0500600）、深圳市优秀人才培养基金、广东省基础与应用基础研究基金（2023B1515120047和2021B1515120079），深圳市科技计划（JCYJ20220818101008018）。 ■参考文献",
+      "bbox": [
+        51.48,
+        459.74,
+        291.48,
+        672.53
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S047",
+      "insert_after": "S047"
+    },
+    {
+      "page": 11,
+      "type": "paragraph",
+      "section": "Acknowledgments / 致谢",
+      "order": 54,
+      "original_text": "(1) Wang, Q.; Hung, S.-F.; Lao, K.; Huang, X.; Li, F.; Tao, H. B.; Yang, H. B.; Liu, W.; Wang, W.; Cheng, Y.; Hiraoka, N.; Zhang, L.; Zhang, J.; Liu, Y.; Chen, J.; Xu, Y.; Su, C.; Chen, J. G.; Liu, B. Breaking the Linear Scaling Limit in Multi-Electron-Transfer Electrocatalysis through Intermediate Spillover. Nat. Catal. 2025, 8, 378−388. (2) Abild-Pedersen, F.; Greeley, J.; Studt, F.; Rossmeisl, J.; Munter, T. R.; Moses, P. G.; Skúlason, E.; Bligaard, T.; Nørskov, J. K. Scaling Properties of Adsorption Energies for Hydrogen-Containing Mole-",
+      "translation": "(1) 王琪；洪，S.-F.；劳，K.；黄X。李，F。陶，H.B.；杨，H.B.；刘，W.；王，W。程，Y。平冈，N.；张L。张，J。刘，Y。陈，J。徐，Y。苏，C。陈，J.G.； Liu，B。通过中间溢出打破多电子转移电催化中的线性缩放极限。纳特。加塔尔。 2025, 8, 378−388。 (2) 阿比尔德-佩德森，F.；格里利，J.；斯图特，F.；罗斯梅斯尔，J.；蒙特，T.R.；摩西，P.G.；斯库拉森，E.；布利加德，T.； Nørskov，J.K. 含氢分子吸附能的标度特性",
+      "bbox": [
+        51.48,
+        665.88,
+        291.48,
+        754.87
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S048",
+      "insert_after": "S048"
+    },
+    {
+      "page": 11,
+      "type": "paragraph",
+      "section": "Acknowledgments / 致谢",
+      "order": 55,
+      "original_text": "cules on Transition-Metal Surfaces. Phys. Rev. Lett. 2007, 99 (1), No. 016105. (3) Bligaard, T.; Nørskov, J. K.; Dahl, S.; Matthiesen, J.; Christensen, C. H.; Sehested, J. The Bro̷nsted−Evans−Polanyi Relation and the Volcano Curve in Heterogeneous Catalysis. J. Catal. 2004, 224 (1), 206−217. (4) Liu, R.; Wei, Z.; Peng, L.; Zhang, L.; Zohar, A.; Schoeppner, R.; Wang, P.; Wan, C.; Zhu, D.; Liu, H.; Wang, Z.; Tolbert, S. H.; Dunn, B.; Huang, Y.; Sautet, P.; Duan, X. Establishing Reaction Networks in the 16-Electron Sulfur Reduction Reaction. Nature 2024, 626 (7997), 98−104. (5) Peng, L.; Wei, Z.; Wan, C.; Li, J.; Chen, Z.; Zhu, D.; Baumann, D.; Liu, H.; Allen, C. S.; Xu, X.; Kirkland, A. I.; Shakir, I.; Almutairi, Z.; Tolbert, S.; Dunn, B.; Huang, Y.; Sautet, P.; Duan, X. A Fundamental Look at Electrocatalytic Sulfur Reduction Reaction. Nat. Catal. 2020, 3 (9), 762−770. (6) Liu, D.; Zhang, C.; Zhou, G.; Lv, W.; Ling, G.; Zhi, L.; Yang, Q. Catalytic Effects in Lithium-Sulfur Batteries: Promoted Sulfur Transformation and Reduced Shuttle Effect. Adv. Sci. 2018, 5 (1), No. 1700270. (7) Bruce, P. G.; Freunberger, S. A.; Hardwick, L. J.; Tarascon, J.-M. Li−O2 and Li−S Batteries with High Energy Storage. Nat. Mater. 2012, 11 (1), 19−29. (8) Zhao, Z.-J.; Liu, S.; Zha, S.; Cheng, D.; Studt, F.; Henkelman, G.; Gong, J. Theory-Guided Design of Catalytic Materials Using Scaling Relationships and Reactivity Descriptors. Nat. Rev. Mater. 2019, 4 (12), 792−804. (9) Zhou, W.; Su, H.; Cheng, W.; Li, Y.; Jiang, J.; Liu, M.; Yu, F.; Wang, W.; Wei, S.; Liu, Q. Regulating the Scaling Relationship for High Catalytic Kinetics and Selectivity of the Oxygen Reduction Reaction. Nat. Commun. 2022, 13 (1), 6414. (10) Sours, T.; Patel, A.; Nørskov, J.; Siahrostami, S.; Kulkarni, A. Circumventing Scaling Relations in Oxygen Electrochemistry Using Metal−Organic Frameworks. J. Phys. Chem. Lett. 2020, 11 (23), 10029−10036. (11) Yao, Z.; Zou, Y.; Liu, S.; Li, Y.; Guo, Q.; Zheng, C.; Sun, W. Reactivity Descriptors for Sulfur Redox Kinetics in Lithium−Sulfur Batteries: From Mechanistic Insights to Machine Learning Driven Catalyst Design. Chem. Soc. Rev. 2025, 54 (20), 9161−9191. (12) Liang, J.; Liang, L.; Zeng, B.; Feng, B.; Du, L.; Qiu, X.; Wang, Y.; Song, H.; Liao, S.; Shao, M.; Cui, Z. Fluorine-Doped Carbon Support Enables Superfast Oxygen Reduction Kinetics by Breaking the Scaling Relationship. Angew. Chem., Int. Ed. 2024, 63 (47), No. e202412825. (13) Shen, F.; He, S.; Tang, X.; Liu, Y.; Wang, Y.; Yin, Y.; Lv, X.; Fu, W.; Zou, Y.; Jiang, G.; Hou, L. Breaking Linear Scaling Relation Limitations on a Dual-Driven Single-Atom Copper-Tungsten Oxide Catalyst for Ammonia Synthesis. Angew. Chem., Int. Ed. 2025, 64, No. e202423154. (14) Cao, X.; Qin, H.; Zhang, J.; Chen, X.; Jiao, L. Regulation of Oxide Pathway Mechanism for Sustainable Acidic Water Oxidation. J. Am. Chem. Soc. 2024, 146 (46), 32049−32058. (15) Huang, Z. F.; Xi, S.; Song, J.; Dou, S.; Li, X.; Du, Y.; Diao, C.; Xu, Z. J.; Wang, X. Tuning of Lattice Oxygen Reactivity and Scaling Relation to Construct Better Oxygen Evolution Electrocatalyst. Nat. Commun. 2021, 12 (1), 3992. (16) Yang, Y.; Zhu, X.; Wang, L.; Lang, J.; Yao, G.; Qin, T.; Ren, Z.; Chen, L.; Liu, X.; Li, W.; Wan, Y. Breaking Scaling Relationships in Alkynol Semi-Hydrogenation by Manipulating Interstitial Atoms in Pd with d-Electron Gain. Nat. Commun. 2022, 13 (1), 2754. (17) Vasileff, A.; Xu, C.; Jiao, Y.; Zheng, Y.; Qiao, S.-Z. Surface and Interface Engineering in Copper-Based Bimetallic Materials for Selective CO2 Electroreduction. Chem. 2018, 4 (8), 1809−1831. (18) Wu, W.; Niu, C.; Yan, P.; Shi, F.; Ma, C.; Yang, X.; Jia, Y.; Chen, J.; Ahmed, M. I.; Zhao, C.; Xu, Q. Building of Sub-Monolayer MoS2-x Structure to Circumvent the Scaling Relations in N2-to-NH3 Electrocatalysis. Appl. Catal., B 2021, 298, No. 120615. (19) Zhao, Y.; Wen, Q.; Huang, D.; Jiao, C.; Liu, Y.; Liu, Y.; Fang, J.; Sun, M.; Yu, L. Operando Reconstruction toward Dual-Cation-",
+      "translation": "过渡金属表面上的颗粒。物理。莱特牧师。 2007 年，99 (1)，第 016105 号。(3) Bligaard，T.；诺斯科夫，J.K.；达尔，S.；马蒂森，J.；克里斯滕森，C.H.； Sehested, J. 多相催化中的布朗斯特德-埃文斯-波兰尼关系和火山曲线。 J·卡特勒。 2004，224（1），206−217。 (4)刘R.；魏，Z.；彭，L.；张L。佐哈尔，A.；舍普纳，R.；王，P。万，C.；朱，D。刘，H.；王，Z。托尔伯特，S.H.；邓恩，B.；黄，Y。索泰，P.； Duan, X. 建立 16 电子硫还原反应中的反应网络。 《自然》2024 年，626 (7997)，98−104。 (5)彭L.；魏，Z.；万，C.；李，J。陈，Z.；朱，D。鲍曼，D.；刘，H.；艾伦，C.S.；徐，X。柯克兰，A.I.；沙基尔，I。阿尔穆泰里，Z.；托尔伯特，S.；邓恩，B.；黄，Y。索泰，P.； Duan, X. 电催化硫还原反应的基本原理。纳特。加塔尔。 2020, 3 (9), 762−770。 (6) 刘丹；张，C.；周，G.；吕，W。凌，G。支，L.； Yang, Q. 锂硫电池中的催化作用：促进硫转化并减少穿梭效应。副词。科学。 2018 年，5 (1)，第 1700270 号。(7) Bruce, P. G.；弗罗恩伯格，S.A.；哈德威克，L.J.；塔拉斯孔，J.-M。具有高能量存储的 Li−O2 和 Li−S 电池。纳特。马特。 2012, 11 (1), 19−29。 (8) 赵志杰；刘，S。查，S。程，D。斯图特，F.；亨克尔曼，G.；龚，J。使用标度关系和反应性描述符的催化材料的理论指导设计。纳特。马特牧师。 2019, 4 (12), 792−804。 （9）周文；苏，H。郑，W.；李，Y。蒋，J。刘，M.；于，F。王，W。魏，S。刘，Q。调节氧还原反应的高催化动力学和选择性的标度关系。纳特。交流。 2022, 13 (1), 6414。(10) Sours, T.；帕特尔，A.；诺斯科夫，J.；西亚罗斯塔米，S.； Kulkarni, A. 使用金属有机框架规避氧电化学中的缩放关系。 J. Phys。化学。莱特。 2020, 11 (23), 10029−10036。 (11)姚Z.;邹，Y。刘，S。李，Y。郭，Q。郑，C.； Sun, W. 锂硫电池中硫氧化还原动力学的反应描述符：从机理洞察到机器学习驱动的催化剂设计。化学。苏克。 2025 年修订版，54 (20)，9161−9191。 (12)梁杰；梁，L.；曾，B.；冯，B.；杜，L。邱X。王，Y。宋，H.；廖S.；邵，M。 Cui, Z. 掺氟碳载体通过打破标度关系实现超快氧还原动力学。安吉乌。化学，国际。埃德。 2024，63（47），编号：e202412825。 (13)沉F.；他，S。唐X.；刘，Y。王，Y。尹，Y。 Lv，X.；傅，W。邹，Y。江，G。 Hou, L. 打破用于氨合成的双驱动单原子铜-钨氧化物催化剂的线性标度关系限制。安吉乌。化学，国际。埃德。 2025, 64, 第 e202423154 号。 (14)曹X.；秦H.；张，J。陈X.； Jiao，L.可持续酸性水氧化的氧化物途径机制的调节。 J. Am.化学。苏克。 2024, 146 (46), 32049−32058。 (15) 黄正峰；习，S。宋，J。窦，S。李，X。杜，Y。刁，C.；徐志杰； Wang, X. 调整晶格氧反应性和标度关系以构建更好的析氧电催化剂。纳特。交流。 2021, 12 (1), 3992。 (16)杨，Y.；朱X。王L.；朗，J.；姚，G。秦，T。任，Z。陈L.；刘X。李，W。 Wan, Y. 通过利用 d 电子增益操纵 Pd 中的间隙原子来打破炔醇半氢化中的标度关系。纳特。交流。 2022, 13 (1), 2754。 (17) 瓦西里夫，A.；徐，C.；焦，Y。郑，Y。乔，S.-Z。用于选择性 CO2 电还原的铜基双金属材料的表面和界面工程。化学。 2018，4（8），1809−1831。 (18)吴文；牛，C.；严，P。石，F。苹果。;杨X。贾，Y。陈，J。艾哈迈德，M.I.；赵，C。 Xu, Q. 构建亚单层 MoS2-x 结构以避免 N2-to-NH3 电催化中的缩放关系。应用。 Catal., B 2021, 298, No. 120615。 (19) 赵，Y.；文Q。黄，D.；焦，C.；刘，Y。刘，Y。方，J。孙，M.； Yu, L. 针对双阳离子的 Operando 重建-",
+      "bbox": [
+        315.44,
+        59.83,
+        555.49,
+        754.87
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S049",
+      "insert_after": "S049"
+    },
+    {
+      "page": 12,
+      "type": "paragraph",
+      "section": "Acknowledgments / 致谢",
+      "order": 56,
+      "original_text": "Defects Co-Containing NiFe Oxyhydroxide for Ultralow Energy Consumption Industrial Water Splitting Electrolyzer. Adv. Energy Mater. 2023, 13 (10), No. 2203595. (20) Sun, Q.; Yue, X.; Yu, L.; Li, F.-Z.; Zheng, Y.; Liu, M.-T.; Peng, J.-Z.; Hu, X.; Chen, H. M.; Li, L.; Gu, J. Well-Defined Co2 Dual-Atom Catalyst Breaks Scaling Relations of Oxygen Reduction Reaction. J. Am. Chem. Soc. 2024, 146 (51), 35295−35304. (21) Yang, Y.; Zhong, Y.; Shi, Q.; Wang, Z.; Sun, K.; Wang, H. Electrocatalysis in Lithium Sulfur Batteries under Lean Electrolyte Conditions. Angew. Chem., Int. Ed. 2018, 57 (47), 15549−15552. (22) Zhong, Y.; Wang, Q.; Bak, S.-M.; Hwang, S.; Du, Y.; Wang, H. Identification and Catalysis of the Potential-Limiting Step in LithiumSulfur Batteries. J. Am. Chem. Soc. 2023, 145 (13), 7390−7396. (23) Schaefer, S.; Wang, H.; Ren, L.; Fu, S.; Wang, H. Investigation of Lithium Polysulfide Reduction Associated with the PotentialLimiting Step in Lithium−Sulfur Batteries. ACS Appl. Mater. Interfaces 2025, 17 (7), 10629−10636. (24) Han, Z.; Gao, R.; Jia, Y.; Zhang, M.; Lao, Z.; Chen, B.; Zhang, Q.; Li, C.; Lv, W.; Zhou, G. Catalytic Effect in Li-S Batteries: From Band Theory to Practical Application. Mater. Today 2022, 57, 84− 120. (25) Lao, Z.; Han, Z.; Ma, J.; Zhang, M.; Wu, X.; Jia, Y.; Gao, R.; Zhu, Y.; Xiao, X.; Yu, K.; Zhou, G. Band Structure Engineering and Orbital Orientation Control Constructing Dual Active Sites for Efficient Sulfur Redox Reaction. Adv. Mater. 2023, 36, No. 2309024. (26) Liang, Q.; Wang, S.; Yao, Y.; Dong, P.; Song, H. Transition Metal Compounds Family for Li−S Batteries: The DFT-Guide for Suppressing Polysulfides Shuttle. Adv. Funct. Mater. 2023, 33, No. 2300825. (27) Geng, P.; Zheng, S.; Tang, H.; Zhu, R.; Zhang, L.; Cao, S.; Xue, H.; Pang, H. Transition Metal Sulfides Based on Graphene for Electrochemical Energy Storage. Adv. Energy Mater. 2018, 8 (15), No. 1703259. (28) Seh, Z. W.; Yu, J. H.; Li, W.; Hsu, P.-C.; Wang, H.; Sun, Y.; Yao, H.; Zhang, Q.; Cui, Y. Two-Dimensional Layered Transition Metal Disulphides for Effective Encapsulation of High-Capacity Lithium Sulphide Cathodes. Nat. Commun. 2014, 5 (1), 5017. (29) Wu, J.; Ye, T.; Wang, Y.; Yang, P.; Wang, Q.; Kuang, W.; Chen, X.; Duan, G.; Yu, L.; Jin, Z.; Qin, J.; Lei, Y. Understanding the Catalytic Kinetics of Polysulfide Redox Reactions on Transition Metal Compounds in Li−S Batteries. ACS Nano 2022, 16 (10), 15734− 15759. (30) Zhao, Q.; Guo, Y.; Si, K.; Ren, Z.; Bai, J.; Xu, X. Elastic, Electronic, and Dielectric Properties of Bulk and Monolayer ZrS2, ZrSe2, HfS2, HfSe2 from van Der Waals Density-functional Theory. Phys. Status Solidi (b) 2017, 254 (9), No. 1700033. (31) Gaiser, C.; Zandt, T.; Krapf, A.; Serverin, R.; Janowitz, C.; Manzke, R. Band-Gap Engineering with HfS x Se 2 −x. Phys. Rev. B 2004, 69 (7), No. 075205. (32) Fan, D.; Anitori, R. P.; Tebo, B. M.; Tratnyek, P. G.; Lezama Pacheco, J. S.; Kukkadapu, R. K.; Engelhard, M. H.; Bowden, M. E.; Kovarik, L.; Arey, B. W. Reductive Sequestration of Pertechnetate (99",
+      "translation": "用于超低能耗工业水分解电解槽的缺陷共含NiFe羟基氧化物。副词。能源材料。 2023，13（10），第 2203595 号。（20）孙 Q.；岳，X。于L.；李，F.-Z.；郑，Y。刘，M.-T.；彭，J.-Z.；胡X.；陈，H.M.；李，L。 Gu, J. 明确的 Co2 双原子催化剂打破了氧还原反应的标度关系。 J. Am.化学。苏克。 2024, 146 (51), 35295−35304。 (21)杨，Y.；钟，Y。施Q。王，Z。孙，K.； Wang, H. 贫电解质条件下锂硫电池的电催化。安吉乌。化学，国际。埃德。 2018，57（47），15549−15552。 (22)钟宇；王Q。巴克，S.-M.；黄，S。杜，Y。 Wang, H. 锂硫电池中电位限制步骤的识别和催化。 J. Am.化学。苏克。 2023, 145 (13), 7390−7396。 (23)谢弗，S.；王，H。任，L.；傅，S。 Wang, H. 与锂硫电池中的电位限制步骤相关的多硫化锂还原研究。 ACS 应用马特。接口 2025、17 (7)、10629−10636。 (24) 韩志；高，R。贾，Y。张，M。老挝，Z.；陈，B.；张，Q。李，C。吕，W。 Zhou，G。Li-S电池的催化效应：从能带理论到实际应用。马特。今天 2022, 57, 84− 120。 (25) Lao, Z.；汉，Z。马，J。张，M。吴，X。贾，Y。高，R。朱，Y。肖，X。于，K。 Zhou，G.能带结构工程和轨道取向控制构建高效硫氧化还原反应的双活性位点。副词。马特。 2023, 36, No. 2309024。 (26) 梁Q.;王，S。姚，Y。董，P。 Song, H. Li−S 电池的过渡金属化合物家族：抑制多硫化物穿梭的 DFT 指南。副词。功能。马特。 2023, 33, No. 2300825。 (27) 耿平；郑S.；唐，H。朱R.；张L。曹S.；薛，H.； Pang, H. 基于石墨烯的过渡金属硫化物用于电化学储能。副词。能源材料。 2018，8（15），第 1703259 号。（28）Seh，Z.W.；于，J.H.；李，W。许，P.-C.；王，H。孙，Y。姚，H.；张，Q。 Cui, Y. 用于有效封装高容量硫化锂阴极的二维层状过渡金属二硫化物。纳特。交流。 2014, 5(1), 5017. (29) 吴静;然而。;王，Y。杨，P。王Q。匡，W.；陈X.；段，G.；于L.；金，Z。秦，J.； Lei, Y. 了解 Li−S 电池中过渡金属化合物多硫化物氧化还原反应的催化动力学。 ACS Nano 2022, 16 (10), 15734− 15759。 (30) 赵 Q.；郭，Y。西，K。任，Z。白，J。 Xu, X. 范德华密度泛函理论中块状和单层 ZrS2、ZrSe2、HfS2、HfSe2 的弹性、电子和介电特性。物理。 Status Solidi (b) 2017, 254 (9), No. 1700033。 (31) Gaiser, C.；赞特，T.；克拉普夫，A.；塞林，R.；贾诺维茨，C.； Manzke, R. HfS x Se 2 -x 的带隙工程。物理。 Rev. B 2004, 69 (7), No. 075205。 (32) Fan, D.；安尼托里，R.P.；特博，B.M.；特拉特尼克，P.G.；莱萨马·帕切科，J.S.；库卡达普，R.K.；安格哈德，M.H.；鲍登，M.E.；科瓦里克，L.； Arey, B.W. 高锝酸盐的还原封存 (99",
+      "bbox": [
+        51.48,
+        59.83,
+        291.48,
+        591.03
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S050",
+      "insert_after": "S050"
+    },
+    {
+      "page": 12,
+      "type": "paragraph",
+      "section": "Acknowledgments / 致谢",
+      "order": 57,
+      "original_text": "TcO4 −) by Nano Zerovalent Iron (nZVI) Transformed by Abiotic Sulfide. Environ. Sci. Technol. 2013, 47 (10), 5302−5310. (33) Jana, M.; Xu, R.; Cheng, X.-B.; Yeon, J. S.; Park, J. M.; Huang, J.-Q.; Zhang, Q.; Park, H. S. Rational Design of Two-Dimensional Nanomaterials for Lithium−Sulfur Batteries. Energy Environ. Sci. 2020, 13 (4), 1049−1075. (34) Li, Y.; Su, L.; Lu, Y.; Luo, Q.; Liang, P.; Shu, H.; Chen, X. High-throughput Screening of Phase-engineered Atomically Thin Transition-metal Dichalcogenides for van Der Waals Contacts at the SCHOTTKY−MOTT Limit. InfoMat 2023, 5 (7), No. e12407. (35) Safeer, A.; Ghorbani-Asl, M.; Jolie, W.; Krasheninnikov, A. V.; Michely, T.; Fischer, J. Which Chromium−Sulfur Compounds Exist as 2D Material? Adv. Funct. Mater. 2025, 35 (49), No. e00907. (36) Manzeli, S.; Ovchinnikov, D.; Pasquier, D.; Yazyev, O. V.; Kis, A. 2D Transition Metal Dichalcogenides. Nat. Rev. Mater. 2017, 2 (8), 17033.",
+      "translation": "TcO4 −) 由非生物硫化物转化的纳米零价铁 (nZVI) 制成。环境。科学。技术。 2013，47（10），5302−5310。 (33)贾娜，M.；徐，R。程，X.-B.；延，J.S.；帕克，J.M.；黄，J.-Q.；张，Q。 Park, H.S. 锂硫电池二维纳米材料的合理设计。能源环境。科学。 2020, 13 (4), 1049−1075。 (34)李Y.;苏，L。卢，Y。罗，Q。梁，P。舒，H.； Chen, X. 在肖特基-莫特极限下对范德华接触的相工程原子薄过渡金属二硫化物进行高通量筛选。 InfoMat 2023，5 (7)，编号 e12407。 (35) 萨菲尔，A.；戈尔巴尼-阿斯尔，M.；朱莉，W.；克拉申尼尼科夫，A.V.；米歇尔，T.； Fischer, J. 哪些铬硫化合物作为二维材料存在？副词。功能。马特。 2025 年，35 (49)，编号 e00907。 (36) 曼泽利，S.；奥夫钦尼科夫，D.；帕斯基耶，D.；亚济耶夫，O.V.； Kis，A. 二维过渡金属二硫属化物。纳特。马特牧师。 2017，2（8），17033。",
+      "bbox": [
+        51.48,
+        590.41,
+        291.47,
+        754.87
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S051",
+      "insert_after": "S051"
+    },
+    {
+      "page": 12,
+      "type": "paragraph",
+      "section": "Acknowledgments / 致谢",
+      "order": 58,
+      "original_text": "(37) Geng, C.; Jiang, X.; Hong, S.; Wang, L.; Zhao, Y.; Qi, J.; Shi, J.; Wang, J.; Peng, L.; Hu, Z.; Guo, Y.; Jin, F.; Yang, Q.; Lv, W. Unveiling the Role of Electric Double-Layer in Sulfur Catalysis for Batteries. Adv. Mater. 2024, 36, No. 2407741. (38) Hua, W.; Shang, T.; Li, H.; Sun, Y.; Guo, Y.; Xia, J.; Geng, C.; Hu, Z.; Peng, L.; Han, Z.; Zhang, C.; Lv, W.; Wan, Y. Optimizing the p Charge of S in P-Block Metal Sulfides for Sulfur Reduction Electrocatalysis. Nat. Catal. 2023, 6 (2), 174−184. (39) Zhou, G.; Tian, H.; Jin, Y.; Tao, X.; Liu, B.; Zhang, R.; Seh, Z. W.; Zhuo, D.; Liu, Y.; Sun, J.; Zhao, J.; Zu, C.; Wu, D. S.; Zhang, Q.; Cui, Y. Catalytic Oxidation of Li 2 S on the Surface of Metal Sulfides for Li−S Batteries. Proc. Natl. Acad. Sci. U.S.A. 2017, 114 (5), 840− 845. (40) Hu, S.; Li, W.-X. Sabatier Principle of Metal-Support Interaction for Design of Ultrastable Metal Nanocatalysts. Science 2021, 374 (6573), 1360−1365. (41) Xia, J.; Cao, R.; Zhao, L.; Wu, Q. Structural Screening and Descriptor Exploration of Black Phosphorus Carbide Supported Bifunctional Catalysts for Lithium-Sulfur Batteries. J. Colloid Interface Sci. 2023, 630, 317−327. (42) Nørskov, J. K.; Rossmeisl, J.; Logadottir, A.; Lindqvist, L.; Kitchin, J. R.; Bligaard, T.; Jónsson, H. Origin of the Overpotential for Oxygen Reduction at a Fuel-Cell Cathode. J. Phys. Chem. B 2004, 108 (46), 17886−17892. (43) Man, I. C.; Su, H.; Calle-Vallejo, F.; Hansen, H. A.; Martínez, J. I.; Inoglu, N. G.; Kitchin, J.; Jaramillo, T. F.; No̷rskov, J. K.; Rossmeisl, J. Universality in Oxygen Evolution Electrocatalysis on Oxide Surfaces. ChemCatChem 2011, 3 (7), 1159−1165. (44) Wang, L.; Hua, W.; Wan, X.; Feng, Z.; Hu, Z.; Li, H.; Niu, J.; Wang, L.; Wang, A.; Liu, J.; Lang, X.; Wang, G.; Li, W.; Yang, Q.; Wang, W. Design Rules of a Sulfur Redox Electrocatalyst for Lithium−Sulfur Batteries. Adv. Mater. 2022, 34 (14), No. 2110279. (45) Wang, L.; Hu, Z.; Wan, X.; Hua, W.; Li, H.; Yang, Q.; Wang, W. Li 2 S 4 Anchoring Governs the Catalytic Sulfur Reduction on Defective SmMn 2 O 5 in Lithium−Sulfur Battery. Adv. Energy Mater. 2022, 12 (20), No. 2200340. (46) Qu, W.; Lu, Z.; Geng, C.; Wang, L.; Guo, Y.; Zhang, Y.; Wang, W.; Lv, W.; Yang, Q. Targeted Catalysis of the Sulfur Evolution Reaction for High-Performance Lithium-Sulfur Batteries. Adv. Energy Mater. 2022, 12 (38), No. 2202232. (47) Xia, J.; Hua, W.; Wang, L.; Sun, Y.; Geng, C.; Zhang, C.; Wang, W.; Wan, Y.; Yang, Q. Boosting Catalytic Activity by Seeding Nanocatalysts onto Interlayers to Inhibit Polysulfide Shuttling in Li−S Batteries. Adv. Funct. Mater. 2021, 31 (26), No. 2101980. (48) Zhou, Y.; Duan, R.; Li, H.; Zhao, M.; Ding, C.; Li, C. Boosting Electrocatalytic Nitrate Reduction to Ammonia via Promoting Water Dissociation. ACS Catal. 2023, 13 (16), 10846−10854. (49) Zhang, Y.; Kang, C.; Zhao, W.; Song, Y.; Zhu, J.; Huo, H.; Ma, Y.; Du, C.; Zuo, P.; Lou, S.; Yin, G. D-p Hybridization-Induced “Trapping−Coupling−Conversion” Enables High-Efficiency Nb Single-Atom Catalysis for Li−S Batteries. J. Am. Chem. Soc. 2023, 145 (3), 1728−1739. (50) Yuan, C.; Wang, L.; Zeng, P.; Cheng, C.; Li, H.; Yan, T.; Liu, G.; Zhao, G.; Ma, X.; Chan, T.-S.; Zhang, L. Steering Sulfur Reduction Kinetics of Lithium-Sulfur Batteries by Interfacial Microenvironment Modulation. Energy Storage Mater. 2024, 71, No. 103622. (51) Fang, M.; Han, J.; He, S.; Ren, J.-C.; Li, S.; Liu, W. Effective Screening Descriptor for MXenes to Enhance Sulfur Reduction in Lithium−Sulfur Batteries. J. Am. Chem. Soc. 2023, 145 (23), 12601− 12608. (52) Su, P.; Pei, W.; Wang, X.; Ma, Y.; Jiang, Q.; Liang, J.; Zhou, S.; Zhao, J.; Liu, J.; Lu, G. Q. Exceptional Electrochemical HER Performance with Enhanced Electron Transfer between Ru Nanoparticles and Single Atoms Dispersed on a Carbon Substrate. Angew. Chem., Int. Ed. 2021, 60 (29), 16044−16050. (53) Xu, P.; Han, J.; Chen, W.; Ren, J.; Li, S.; Xia, H. An Effective Single-Atom Catalytic Descriptor for Accelerating Sulfur Reduction",
+      "translation": "(37)耿，C.；蒋X；洪，S。王L.；赵，Y。齐，J.；石，J.；王，J。彭，L.；胡，Z。郭，Y。金，F。杨，Q。 Lv, W. 揭示双电层在电池硫催化中的作用。副词。马特。 2024, 36, No. 2407741。 (38) 华文;尚，T。李，H。孙，Y。郭，Y。夏，J。耿，C.；胡，Z。彭，L.；汉，Z。张，C.；吕，W。 Wan, Y. 优化 P 区金属硫化物中 S 的 p 电荷用于硫还原电催化。纳特。加塔尔。 2023, 6 (2), 174−184。 (39)周G.；田，H.；金，Y。陶，X.；刘，B.；张，R。 Seh，Z.W.；卓，D.；刘，Y。孙，J。赵，J。祖，C.；吴，D.S.；张，Q。 Cui, Y. Li−S 电池金属硫化物表面 Li 2 S 的催化氧化。过程。国家。阿卡德。科学。美国 2017, 114 (5), 840−845。 (40) Hu, S.；李，W.-X。用于超稳定金属纳米催化剂设计的金属-载体相互作用的萨巴蒂尔原理。科学 2021, 374 (6573), 1360−1365。 (41)夏杰；曹，R。赵L.；吴，Q。黑碳化磷负载的锂硫电池双功能催化剂的结构筛选和描述符探索。 J.胶体界面科学。 2023, 630, 317−327。 (42) 诺斯科夫，J.K.；罗斯梅斯尔，J.；洛加多蒂尔，A.；林奎斯特，L.；基钦，J.R.；布利加德，T.； Jónsson, H. 燃料电池阴极氧还原过电势的起源。 J. Phys。化学。 B 2004, 108 (46), 17886−17892。 (43) 曼，I.C.；苏，H。卡勒-瓦列霍，F.；汉森，H.A.；马丁内斯，J.I.；伊诺格鲁，N.G.；基钦，J.；哈拉米洛，T.F.；诺尔斯科夫，J.K.； Rossmeisl, J. 氧化物表面析氧电催化的普遍性。化学猫化学 2011, 3 (7), 1159−1165。 (44)王L.；华，W。万X；冯，Z.；胡，Z。李，H。牛，J。王L.；王，A。刘，J。朗，X.；王，G。李，W。杨，Q。 Wang, W. 锂硫电池硫氧化还原电催化剂的设计规则。副词。马特。 2022, 34(14), No. 2110279。 (45) 王丽;胡，Z。万X；华，W。李，H。杨，Q。 Wang, W. Li 2 S 4 锚定控制锂硫电池中缺陷 SmMn 2 O 5 的催化硫还原。副词。能源材料。 2022, 12(20), No. 2200340。 (46) 曲文;卢，Z。耿，C.；王L.；郭，Y。张，Y。王，W。吕，W。高性能锂硫电池硫析出反应的靶向催化。副词。能源材料。 2022, 12 (38), No. 2202232。 (47) 夏静;华，W。王L.；孙，Y。耿，C.；张，C.；王，W。万，Y。 Yang, Q. 通过在中间层上接种纳米催化剂来抑制 Li−S 电池中的多硫化物穿梭来提高催化活性。副词。功能。马特。 2021, 31(26), No. 2101980。 (48) 周宇;段，R。李，H。赵，M。丁，C.； Li, C. 通过促进水解离促进电催化硝酸盐还原为氨。 ACS目录。 2023, 13 (16), 10846−10854。 (49)张Y.；康，C.；赵W。宋，Y。朱，J。霍，H。可能。;杜，C。左，P。卢，S。 Yin, G. D-p 杂交诱导的“捕获-耦合-转换”实现了 Li−S 电池的高效 Nb 单原子催化。 J. Am.化学。苏克。 2023, 145 (3), 1728−1739。 (50) 袁 C.；王L.；曾，P。程，C.；李，H。严，T。刘，G.；赵，G。最大限度。;陈，T.-S.；张L。通过界面微环境调节引导锂硫电池的硫还原动力学。储能材料。 2024, 71, No. 103622。 (51) 方明;韩，J。他，S。任，J.-C.；李，S。 Liu, W. 有效筛选 MXene 描述符以增强锂硫电池中的硫还原。 J. Am.化学。苏克。 2023, 145 (23), 12601−12608。 (52) Su, P.；裴，W.；王X；可能。;姜Q。梁，J。周，S。赵，J。刘，J。 Lu, G. Q. 卓越的电化学 HER 性能，增强了 Ru 纳米粒子和分散在碳基底上的单原子之间的电子转移。安吉乌。化学，国际。埃德。 2021, 60 (29), 16044−16050。 (53)徐平；韩，J。陈，W。任，J。李，S。 Xia, H. 用于加速硫还原的有效单原子催化描述符",
+      "bbox": [
+        315.44,
+        59.83,
+        555.49,
+        754.87
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S052",
+      "insert_after": "S052"
+    },
+    {
+      "page": 13,
+      "type": "paragraph",
+      "section": "Acknowledgments / 致谢",
+      "order": 59,
+      "original_text": "Reaction in Lithium-Sulfur Batteries. Adv. Mater. 2026, 38 (10), No. e15380. (54) Zou, Q.; Sun, Y.; Liang, Z.; Wang, W.; Lu, Y. Achieving Efficient Magnesium−Sulfur Battery Chemistry via Polysulfide Mediation. Adv. Energy Mater. 2021, 11 (31), No. 2101552. (55) Xu, R.; Tang, H.; Zhou, Y.; Wang, F.; Wang, H.; Shao, M.; Li, C.; Wei, Z. Enhanced Catalysis of Radical-to-Polysulfide Interconversion via Increased Sulfur Vacancies in Lithium−Sulfur Batteries. Chem. Sci. 2022, 13 (21), 6224−6232. (56) Chen, Z.-X.; Cheng, Q.; Li, X.-Y.; Li, Z.; Song, Y.-W.; Sun, F.; Zhao, M.; Zhang, X.-Q.; Li, B.-Q.; Huang, J.-Q. Cathode Kinetics Evaluation in Lean-Electrolyte Lithium−Sulfur Batteries. J. Am. Chem. Soc. 2023, 145 (30), 16449−16457. (57) Chen, J.; Zhang, H.; Yang, H.; Lei, J.; Naveed, A.; Yang, J.; Nuli, Y.; Wang, J. Towards Practical Li−S Battery with Dense and Flexible Electrode Containing Lean Electrolyte. Energy Storage Mater. 2020, 27, 307−315.",
+      "translation": "锂硫电池中的反应。副词。马特。 2026 年，38（10），第 e15380 号。 (54)邹Q.；孙，Y。梁，Z。王，W。 Lu, Y. 通过多硫化物介导实现高效的镁硫电池化学。副词。能源材料。 2021, 11(31), No. 2101552。 (55) 徐瑞;唐，H。周，Y。王，F。王，H。邵，M。李，C。 Wei, Z.通过增加锂硫电池中的硫空位增强自由基与多硫化物相互转化的催化。化学。科学。 2022, 13 (21), 6224−6232。 (56)陈Z.-X.；程，Q。李，X.-Y.；李，Z。宋，Y.-W.；孙F.；赵，M。张X.-Q.；李，B.-Q.；黄，J.-Q。贫电解质锂硫电池的阴极动力学评估。 J. Am.化学。苏克。 2023, 145 (30), 16449−16457。 (57)陈杰；张，H。杨，H。雷，J。纳维德，A.；杨，J。努利，Y.； Wang, J. 采用含有贫电解质的致密且柔性电极的实用锂硫电池。储能材料。 2020, 27, 307−315。",
+      "bbox": [
+        51.48,
+        59.83,
+        291.48,
+        228.88
+      ],
+      "confidence": "high",
+      "refs": [],
+      "id": "S053",
+      "insert_after": "S053"
+    },
+    {
+      "page": 2,
+      "type": "caption",
+      "section": "Introduction / 引言",
+      "order": 9,
+      "original_text": "Figure 1. Scaling relationships originating from orbital coupling govern catalytic activity in Li−S chemistry. (a) Orbital-derived linear correlation of adsorption energies among LiPSs limits activity optimization. (b) Pearson correlation analysis of catalytic activity with multiple electronic descriptors for sulfur reduction and oxidation reactions.",
+      "translation": "图 1. 源于轨道耦合的标度关系支配 Li−S 化学中的催化活性。(a) LiPS 之间吸附能的、由轨道耦合导出的线性相关限制了活性优化。(b) 硫还原与硫析出反应的催化活性与多个电子描述符之间的 Pearson 相关分析。",
+      "bbox": [
+        51.48,
+        304.89,
+        555.48,
+        334.55
+      ],
+      "confidence": "high",
+      "refs": [
+        "F001"
+      ],
+      "id": "C001",
+      "insert_after": "C001"
+    },
+    {
+      "page": 3,
+      "type": "caption",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 14,
+      "original_text": "Figure 2. Electronic structure, lithium-ion transport properties, and adsorption characteristics of TMSs. (a) Catalysts investigated in this study. (b) Calculated bandgaps of TMSs. (c) Lithium-ion migration energy barriers in TMSs. (d) Computational results of TMS adsorption capacities for various sulfur species. (e) Scaling relationship among adsorption energies of sulfur species.",
+      "translation": "图 2. TMS 的电子结构、锂离子传输性质和吸附特性。(a) 本研究考察的催化剂。(b) 计算得到的 TMS 带隙。(c) TMS 中锂离子迁移能垒。(d) TMS 对不同硫物种吸附能力的计算结果。(e) 硫物种吸附能之间的标度关系。",
+      "bbox": [
+        51.48,
+        393.41,
+        555.48,
+        422.37
+      ],
+      "confidence": "high",
+      "refs": [
+        "F002"
+      ],
+      "id": "C002",
+      "insert_after": "C002"
+    },
+    {
+      "page": 4,
+      "type": "caption",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 19,
+      "original_text": "Figure 3. Correlating polysulfide adsorption and catalytic activity of TMSs: toward breaking scaling relationships through conversion-pathway regulation. (a) Theoretical overpotentials of TMSs for SRR and SER. (b) Pearson correlation between theoretical overpotentials and binding energies of sulfur species. (c) Pearson correlation between the adsorption energies of other sulfur species and those of Li2S2. (d) Linear relationship between overpotential and the Gibbs free energy difference for both the liquid−solid conversion (Li2S4 →Li2S2) in the SRR and the corresponding solid−liquid conversion (Li2S2 →Li2S4) in the SER. (e) Mechanistic illustration of conversion-pathway regulation to overcome scaling constraints in SRR and SER.",
+      "translation": "图 3. 多硫化物吸附与 TMS 催化活性的关联：通过转化路径调控打破标度关系。(a) TMS 的 SRR 与 SER 理论过电位。(b) 理论过电位与硫物种结合能之间的 Pearson 相关。(c) 其他硫物种吸附能与 Li2S2 吸附能之间的 Pearson 相关。(d) SRR 中液−固转化（Li2S4 → Li2S2）以及 SER 中对应固−液转化（Li2S2 → Li2S4）的过电位与 Gibbs 自由能差之间的线性关系。(e) 通过转化路径调控克服 SRR 与 SER 标度约束的机理示意图。",
+      "bbox": [
+        51.48,
+        390.01,
+        555.48,
+        449.01
+      ],
+      "confidence": "high",
+      "refs": [
+        "F003"
+      ],
+      "id": "C003",
+      "insert_after": "C003"
+    },
+    {
+      "page": 5,
+      "type": "caption",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 23,
+      "original_text": "Figure 4. Electronic structure origin of TMS on the catalytic activity. Differential charge and 2D charge density maps of TiS2, NbS2, and WS2 upon adsorption of (a) Li2S2 and (b) Li2S4. The yellow and blue regions represent charge accumulation and charge depletion (isosurface value: 0.02 e Å−3), respectively. (c) Charge transfer of TiS2, NbS2, and WS2 before and after the adsorption of Li2S2 and Li2S4. (d) Relationship between the M− S electronegativity difference and M−S bond strength (ICOHP) for TiS2, NbS2, and WS2. (e) Correlation between the bonding strength (−ICOHP) of subsurface metal-surface sulfur (M−S) bonds and that of Li−S interactions formed between LiPSs and the TMS surface. (f) Competitive relationship between d-p orbital coupling and s-p orbital coupling.",
+      "translation": "图 4. TMS 催化活性的电子结构起源。TiS2、NbS2 与 WS2 吸附 (a) Li2S2 和 (b) Li2S4 时的差分电荷与二维电荷密度图；黄色和蓝色区域分别表示电荷积累和电荷耗尽（等值面值：0.02 e Å−3）。(c) 三种 TMS 在吸附 Li2S2 和 Li2S4 前后的电荷转移。(d) 三种 TMS 的 M−S 电负性差与 M−S 键强度（ICOHP）之间的关系。(e) 次表层金属−表面硫（M−S）键的键合强度（−ICOHP）与 LiPS 在 TMS 表面形成的 Li−S 相互作用强度之间的相关性。(f) d-p 轨道耦合与 s-p 轨道耦合之间的竞争关系。",
+      "bbox": [
+        51.48,
+        437.07,
+        555.49,
+        496.07
+      ],
+      "confidence": "high",
+      "refs": [
+        "F004"
+      ],
+      "id": "C004",
+      "insert_after": "C004"
+    },
+    {
+      "page": 6,
+      "type": "caption",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 27,
+      "original_text": "Figure 5. Electronic descriptors highly correlated with TMS catalytic activity and theoretical model predictions. (a) The effect of the d-p band center of TMS on the bonding between Li atoms in LiPSs and sulfur atoms on the TMS surface. (b) Pearson correlation analysis between five electronic structural features and the theoretical overpotential (the sum of SRR and SER overpotentials). (c) The relationship of the electronegativity difference (χS−χM) and d-p band center of TMS on theoretical overpotential. (d) Consistency between theoretical model predictions and DFT calculation results. (e) Relationship between the theoretical overpotential of TMS and the corresponding d-p band-matching percentage.",
+      "translation": "图 5. 与 TMS 催化活性高度相关的电子描述符及理论模型预测。(a) TMS 的 d-p 带中心对 LiPS 中 Li 原子与 TMS 表面硫原子之间成键的影响。(b) 五个电子结构特征与理论过电位（SRR 与 SER 过电位之和）之间的 Pearson 相关分析。(c) TMS 电负性差（χS−χM）及 d-p 带中心与理论过电位之间的关系。(d) 理论模型预测与 DFT 计算结果的一致性。(e) TMS 理论过电位与相应 d-p 能带匹配百分比之间的关系。",
+      "bbox": [
+        51.48,
+        332.18,
+        555.48,
+        391.19
+      ],
+      "confidence": "high",
+      "refs": [
+        "F005"
+      ],
+      "id": "C005",
+      "insert_after": "C005"
+    },
+    {
+      "page": 8,
+      "type": "caption",
+      "section": "Results and Discussion — Revealing the Scaling Relationship / 结果与讨论",
+      "order": 38,
+      "original_text": "Figure 6. Reaction kinetics analysis and electrochemical performance of Li−S batteries containing TMSs. (a) UV−vis spectra of Li2S6 solution with TiS2, Nb S2, and WS2. (b) Lithium-ion diffusion coefficient of TiS2, NbS2, and WS. (c) Cyclic voltammetry curves of lithium−sulfur full batteries containing TiS2, NbS2, and WS2. (d) The fitted Tafel plots corresponding to the reduction peak from LiPSs to Li2S in CV curves. (e) The fitted Tafel plots corresponding to LSV curves. (f) Activation energies of TiS2, NbS2 and WS2 at given voltages. (g) Galvanostatic discharge−charge profiles at 0.1 C with TiS2, NbS2, and WS2. (h) Capacity ratio of the low-voltage region and the high-voltage region (QL/QH). (i) Cycling stability of the batteries with high-sulfur loading at 0.1 C.",
+      "translation": "图 6. 含 TMS 的 Li−S 电池的反应动力学分析及电化学性能。(a) 加入 TiS2、NbS2 和 WS2 后 Li2S6 溶液的 UV−vis 光谱。(b) TiS2、NbS2 和 WS2 的锂离子扩散系数。(c) 含三种 TMS 的锂硫全电池循环伏安曲线。(d) CV 曲线中 LiPS 向 Li2S 还原峰对应的拟合 Tafel 图。(e) LSV 曲线对应的拟合 Tafel 图。(f) 三种 TMS 在给定电压下的活化能。(g) 0.1 C 下三种 TMS 的恒流放电−充电曲线。(h) 低电压区与高电压区容量比（QL/QH）。(i) 高硫负载电池在 0.1 C 下的循环稳定性。",
+      "bbox": [
+        51.48,
+        456.09,
+        555.47,
+        515.74
+      ],
+      "confidence": "high",
+      "refs": [
+        "F006"
+      ],
+      "id": "C006",
+      "insert_after": "C006"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "block_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008"
+      ]
+    },
+    {
+      "page": 2,
+      "block_ids": [
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "C001"
+      ]
+    },
+    {
+      "page": 3,
+      "block_ids": [
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "C002"
+      ]
+    },
+    {
+      "page": 4,
+      "block_ids": [
+        "S017",
+        "S018",
+        "S019",
+        "C003"
+      ]
+    },
+    {
+      "page": 5,
+      "block_ids": [
+        "S020",
+        "S021",
+        "S022",
+        "C004"
+      ]
+    },
+    {
+      "page": 6,
+      "block_ids": [
+        "S023",
+        "S024",
+        "S025",
+        "C005"
+      ]
+    },
+    {
+      "page": 7,
+      "block_ids": [
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030",
+        "S031",
+        "S032"
+      ]
+    },
+    {
+      "page": 8,
+      "block_ids": [
+        "S033",
+        "S034",
+        "S035",
+        "S036",
+        "C006"
+      ]
+    },
+    {
+      "page": 9,
+      "block_ids": [
+        "S037",
+        "S038",
+        "S039"
+      ]
+    },
+    {
+      "page": 10,
+      "block_ids": [
+        "S040",
+        "S041",
+        "S042",
+        "S043",
+        "S044"
+      ]
+    },
+    {
+      "page": 11,
+      "block_ids": [
+        "S045",
+        "S046",
+        "S047",
+        "S048",
+        "S049"
+      ]
+    },
+    {
+      "page": 12,
+      "block_ids": [
+        "S050",
+        "S051",
+        "S052"
+      ]
+    },
+    {
+      "page": 13,
+      "block_ids": [
+        "S053"
+      ]
     }
   ],
   "figures": [
     {
       "id": "F001",
       "page": 2,
-      "file": "assets/fig1_scaling_descriptor.png",
-      "title": "Fig. 1. Orbital-coupling scaling and descriptor landscape",
-      "caption": "Figure 1 introduces the conceptual problem. Panel (a) illustrates how orbital-coupling-derived linear correlations among LiPS adsorption energies impose an activity upper bound. Panel (b) summarizes Pearson correlations between sulfur-redox activity and multiple electronic descriptors.",
-      "caption_zh": "图 1 用来搭建全文概念框架。图 (a) 说明由轨道耦合导致的 LiPS 吸附能线性相关会把催化活性压在一个理论上限内；图 (b) 则汇总了硫氧化还原活性与多种电子结构描述符之间的 Pearson 相关性。",
-      "placed_near": "p.2 S004",
-      "extraction": "individual figure crop from source PDF"
+      "caption_id": "C001",
+      "image_path": "assets/fig1_scaling_descriptor.png",
+      "bbox": [
+        51.48,
+        304.89,
+        555.48,
+        334.55
+      ],
+      "placement_hint": "near_first_substantive_discussion",
+      "placed_after": "S008",
+      "placed_near": "p.2 S008",
+      "alt_text": "Figure 1 from the publisher PDF"
     },
     {
       "id": "F002",
       "page": 3,
-      "file": "assets/fig2_tms_screening_scaling.png",
-      "title": "Fig. 2. Screening TMSs and identifying adsorption scaling",
-      "caption": "Figure 2 combines catalyst screening, conductivity and Li-ion transport checks, adsorption strengths, and the actual scaling plots among sulfur species.",
-      "caption_zh": "图 2 把候选催化剂筛选、电导与锂离子传输、吸附强度以及多硫物种之间的标度关系画在了一起。",
-      "placed_near": "p.3 S006",
-      "extraction": "individual figure crop from source PDF"
+      "caption_id": "C002",
+      "image_path": "assets/fig2_tms_screening_scaling.png",
+      "bbox": [
+        51.48,
+        393.41,
+        555.48,
+        422.37
+      ],
+      "placement_hint": "near_first_substantive_discussion",
+      "placed_after": "S012",
+      "placed_near": "p.3 S012",
+      "alt_text": "Figure 2 from the publisher PDF"
     },
     {
       "id": "F003",
       "page": 4,
-      "file": "assets/fig3_pathway_descriptor.png",
-      "title": "Fig. 3. Pathway-dependent free-energy descriptor",
-      "caption": "Figure 3 links sulfur-redox overpotentials to Gibbs free-energy differences for the Li2S4/Li2S2 bottleneck pair, showing how pathway regulation breaks away from single-adsorbate descriptors.",
-      "caption_zh": "图 3 把硫氧化还原过电位与 Li2S4/Li2S2 这一对关键瓶颈步骤的 Gibbs 自由能差联系起来，说明路径调控如何跳出单一吸附物描述符。",
-      "placed_near": "p.4 S008",
-      "extraction": "individual figure crop from source PDF"
+      "caption_id": "C003",
+      "image_path": "assets/fig3_pathway_descriptor.png",
+      "bbox": [
+        51.48,
+        390.01,
+        555.48,
+        449.01
+      ],
+      "placement_hint": "near_first_substantive_discussion",
+      "placed_after": "S016",
+      "placed_near": "p.4 S016",
+      "alt_text": "Figure 3 from the publisher PDF"
     },
     {
       "id": "F004",
       "page": 5,
-      "file": "assets/fig4_charge_transfer_icohp.png",
-      "title": "Fig. 4. Charge transfer and orbital-competition origin",
-      "caption": "Figure 4 visualizes differential charge density, charge transfer, M-S bond strength, Li-S bond strength, and the competition between d-p and s-p orbital coupling.",
-      "caption_zh": "图 4 可视化了差分电荷密度、电荷转移、M-S 键强、Li-S 键强以及 d-p / s-p 轨道耦合之间的竞争关系。",
-      "placed_near": "p.5 S010",
-      "extraction": "individual figure crop from source PDF"
+      "caption_id": "C004",
+      "image_path": "assets/fig4_charge_transfer_icohp.png",
+      "bbox": [
+        51.48,
+        437.07,
+        555.49,
+        496.07
+      ],
+      "placement_hint": "near_first_substantive_discussion",
+      "placed_after": "S019",
+      "placed_near": "p.5 S019",
+      "alt_text": "Figure 4 from the publisher PDF"
     },
     {
       "id": "F005",
       "page": 6,
-      "file": "assets/fig5_band_matching_model.png",
-      "title": "Fig. 5. Building the d/p band-matching descriptor",
-      "caption": "Figure 5 moves from qualitative orbital arguments to a statistical descriptor, relating electronegativity difference, d-p band-center alignment, and the resulting band-matching percentage to theoretical bifunctional overpotential.",
-      "caption_zh": "图 5 把前面的定性轨道图景推进到定量描述符层面，展示了电负性差、d-p 带心匹配和最终能带匹配百分比如何共同决定理论双功能过电位。",
-      "placed_near": "p.6-7 S012",
-      "extraction": "individual figure crop from source PDF"
+      "caption_id": "C005",
+      "image_path": "assets/fig5_band_matching_model.png",
+      "bbox": [
+        51.48,
+        332.18,
+        555.48,
+        391.19
+      ],
+      "placement_hint": "near_first_substantive_discussion",
+      "placed_after": "S022",
+      "placed_near": "p.6 S022",
+      "alt_text": "Figure 5 from the publisher PDF"
     },
     {
       "id": "F006",
       "page": 8,
-      "file": "assets/fig6_kinetics_battery_validation.png",
-      "title": "Fig. 6. Kinetics and battery-performance validation",
-      "caption": "Figure 6 gathers UV-vis adsorption, Li-ion diffusion, CV, Tafel analysis, activation energies, galvanostatic profiles, QL/QH ratios, and high-loading cycling stability to validate the descriptor experimentally.",
-      "caption_zh": "图 6 把 UV-vis 吸附、Li+ 扩散、CV、Tafel 分析、活化能、恒流充放电曲线、QL/QH 比值以及高负载循环稳定性集中展示出来，用实验把描述符闭环验证。",
-      "placed_near": "p.8-9 S017",
-      "extraction": "individual figure crop from source PDF"
+      "caption_id": "C006",
+      "image_path": "assets/fig6_kinetics_battery_validation.png",
+      "bbox": [
+        51.48,
+        456.09,
+        555.47,
+        515.74
+      ],
+      "placement_hint": "near_first_substantive_discussion",
+      "placed_after": "S032",
+      "placed_near": "p.8 S032",
+      "alt_text": "Figure 6 from the publisher PDF"
     }
   ],
-  "figure_count": 6
+  "glossary": [
+    {
+      "term": "band-matching ratio",
+      "translation": "能带匹配比",
+      "note": "金属中心 d 态与表面硫 p 态的电子结构匹配程度。"
+    },
+    {
+      "term": "transition-metal sulfide (TMS)",
+      "translation": "过渡金属硫化物（TMS）",
+      "note": "本文的催化剂模型家族。"
+    },
+    {
+      "term": "lithium polysulfide (LiPS)",
+      "translation": "多硫化锂（LiPS）",
+      "note": "Li2Sn，2 ≤ n ≤ 8。"
+    },
+    {
+      "term": "sulfur reduction reaction (SRR)",
+      "translation": "硫还原反应（SRR）",
+      "note": "放电过程中的硫物种还原。"
+    },
+    {
+      "term": "sulfur evolution reaction (SER)",
+      "translation": "硫析出反应（SER）",
+      "note": "充电过程中的硫物种氧化。"
+    },
+    {
+      "term": "scaling relationship",
+      "translation": "标度关系",
+      "note": "不同吸附物或反应能之间的线性相关。"
+    },
+    {
+      "term": "Brønsted-Evans-Polanyi relation",
+      "translation": "Brønsted-Evans-Polanyi（BEP）关系",
+      "note": "活化能与反应能之间的经验关联。"
+    },
+    {
+      "term": "integrated crystal orbital Hamilton population (ICOHP)",
+      "translation": "积分晶体轨道哈密顿布居（ICOHP）",
+      "note": "用于分析成键强度的电子结构指标。"
+    }
+  ],
+  "validation": {
+    "body_pair_count": 53,
+    "caption_pair_count": 6,
+    "figure_count": 6,
+    "source_pdf_sha256": "e570823a382044ba2aa0a42e4d54714424e0b2fb5dbdc007eab9316e15949569",
+    "source_pdf_annotation_count": 0
+  }
 }
