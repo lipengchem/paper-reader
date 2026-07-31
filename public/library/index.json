@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T09:41:49.197Z",
+  "generatedAt": "2026-07-31T09:54:41.442Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -98,6 +98,21 @@
       "relatedReading": true,
       "paragraphCount": 41,
       "figureCount": 14
+    },
+    {
+      "slug": "20260801-enhanced-sampling-ml-algorithms-applications",
+      "title": "Enhanced Sampling in the Age of Machine Learning: Algorithms and Applications",
+      "date": "2026-01-14",
+      "taskDate": "2026-08-01",
+      "uploadedAt": "2026-07-31T09:54:41.442Z",
+      "journal": "Chemical Reviews",
+      "zoteroKey": "IPH6XJAZ",
+      "collections": [],
+      "pdfPath": "library/20260801-enhanced-sampling-ml-algorithms-applications/paper.pdf",
+      "markdownPath": "library/20260801-enhanced-sampling-ml-algorithms-applications/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 398,
+      "figureCount": 26
     },
     {
       "slug": "20260611-bep-mxenes-water-gas-shift",
