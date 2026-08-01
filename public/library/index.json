@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T09:57:52.353Z",
+  "generatedAt": "2026-08-01T09:42:05.860Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -147,6 +147,21 @@
       "relatedReading": true,
       "paragraphCount": 29,
       "figureCount": 5
+    },
+    {
+      "slug": "20260802-ag-nanocluster-ml-force-field",
+      "title": "Capturing Dynamic Core Reconstruction and Ligand Desorption of Atomically Precise Ag Nanoclusters with Machine Learning Force Field",
+      "date": "2025-12-17",
+      "taskDate": "2026-08-02",
+      "uploadedAt": "2026-08-01T09:42:05.860Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "XHLNFBGE",
+      "collections": [],
+      "pdfPath": "library/20260802-ag-nanocluster-ml-force-field/paper.pdf",
+      "markdownPath": "library/20260802-ag-nanocluster-ml-force-field/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 45,
+      "figureCount": 7
     },
     {
       "slug": "20260611-diatomic-catalyst-oxygen-reduction",
