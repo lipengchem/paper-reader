@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T09:42:05.860Z",
+  "generatedAt": "2026-08-02T09:42:05.917Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -81,6 +81,21 @@
       "relatedReading": true,
       "paragraphCount": 22,
       "figureCount": 5
+    },
+    {
+      "slug": "20260803-pmpa-md-solvation-interactions",
+      "title": "Unveiling the projection nature of solvation interactions yields a robust PMPA-MD method for efficient modeling of liquid-phase reactions: A case study on H2PtCl6 hydrolysis",
+      "date": "2026-04-01",
+      "taskDate": "2026-08-03",
+      "uploadedAt": "2026-08-02T09:42:05.917Z",
+      "journal": "The Journal of Chemical Physics",
+      "zoteroKey": "HX5FVZ88",
+      "collections": [],
+      "pdfPath": "library/20260803-pmpa-md-solvation-interactions/paper.pdf",
+      "markdownPath": "library/20260803-pmpa-md-solvation-interactions/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 143,
+      "figureCount": 6
     },
     {
       "slug": "20260719-ml-md-bulk-interfacial-aqueous-systems",
