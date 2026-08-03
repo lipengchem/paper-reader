@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T09:42:05.917Z",
+  "generatedAt": "2026-08-03T09:43:53.149Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -113,6 +113,23 @@
       "relatedReading": true,
       "paragraphCount": 41,
       "figureCount": 14
+    },
+    {
+      "slug": "20260804-charge-separation-hot-spots-ru-ni-zro2",
+      "title": "Charge Separation and/or Hot Spots: Clarification of Efficient CO2 Reduction over Ru-Ni Nanoparticles Compared to Photocatalysis on Ru-Ni-ZrO2 Composites",
+      "date": "2026-03-20",
+      "taskDate": "2026-08-04",
+      "uploadedAt": "2026-08-03T09:43:53.149Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "XPNDGRHB",
+      "collections": [
+        "02课题/光热催化研究"
+      ],
+      "pdfPath": "library/20260804-charge-separation-hot-spots-ru-ni-zro2/paper.pdf",
+      "markdownPath": "library/20260804-charge-separation-hot-spots-ru-ni-zro2/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 90,
+      "figureCount": 6
     },
     {
       "slug": "20260801-enhanced-sampling-ml-algorithms-applications",
