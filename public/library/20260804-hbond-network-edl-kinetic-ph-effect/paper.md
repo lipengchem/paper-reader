@@ -1,0 +1,1753 @@
+# Hydrogen bond network connectivity in the electric double layer dominates the kinetic pH effect in hydrogen electrocatalysis on Pt
+
+## Metadata / 元数据
+
+- **Journal / 期刊：** *Nature Catalysis*
+- **Published / 发表：** 2022-09-29
+- **DOI：** 10.1038/s41929-022-00846-8
+- **Zotero key：** II27ECCC
+- **Collection / 集合：** 02课题/H2O
+- **Source / 来源：** Zotero 本地的出版商 PDF 附件（可选取文本层，11 页）。
+
+## Why this paper / 为什么选这篇
+
+**English:** This eligible six-marker backfill directly addresses a central aqueous-electrocatalysis question: why HER/HOR kinetics depend strongly on pH even when common adsorption descriptors are similar. It links AIMD descriptions of the Pt-water electric double layer, operando SEIRAS signatures, and hydrogen-bond connectivity to a kinetic interpretation. After recent ML and solution-method readers, it returns to a mechanistic interfacial-water paper with unusually explicit experimental-computational cross-checks.
+
+**中文：** 这篇具有六个旧蓝色菱形优先标记的回填文献直接讨论水相电催化的核心问题：在常用吸附描述符近似时，为何 HER/HOR 动力学仍强烈依赖 pH。它将 Pt-水双电层的 AIMD 图像、原位 SEIRAS 证据与氢键网络连通性联系到同一动力学解释中。在近期机器学习和溶液方法学阅读之后，它把主题带回具有明确实验-计算交叉验证的界面水机制问题。
+
+## Terminology / 术语表
+
+| English | 中文 | Note / 说明 |
+|---|---|---|
+| electric double layer (EDL) | 双电层（EDL） | 电极表面与电解液之间形成的带电界面结构。 |
+| hydrogen bond network | 氢键网络 | 水分子之间连续的定向氢键连接。 |
+| hydrogen evolution/oxidation reaction (HER/HOR) | 析氢/氢氧化反应（HER/HOR） | 氢电催化的正、逆反应。 |
+| in situ surface-enhanced infrared absorption spectroscopy (SEIRAS) | 原位表面增强红外吸收光谱（SEIRAS） | 用于探测电极界面吸附物和水结构。 |
+| ab initio molecular dynamics (AIMD) | 第一性原理分子动力学（AIMD） | 由电子结构计算提供力的分子动力学。 |
+| hot spot | 热点位点 | 本文指在光照下出现局域升温、可推动表面反应的金属位点；并非自动等同于热电子。 |
+| charge separation | 电荷分离 | 光激发后电子与空穴在半导体/界面上空间或寿命上的分离。 |
+| photocatalysis | 光催化 | 由光激发产生的电荷参与反应的催化路径。 |
+| photothermal catalysis | 光热催化 | 光能先转化为局域或整体热，再由热驱动反应的催化路径。 |
+| Debye-Waller factor | 德拜-沃勒因子 | XAFS 中表征散射路径无序或热振动的因子，本文用其估计局域温度。 |
+| X-ray absorption fine structure (XAFS) | X 射线吸收精细结构（XAFS） | 利用吸收边附近结构探测元素局域配位和热振动的方法。 |
+| oxygen vacancy | 氧空位 | ZrO2 表面的缺陷位点；本文用 V_O 表示并讨论其对 CO2 吸附/转移的作用。 |
+| CI-NEB | 爬山图像弹簧法（CI-NEB） | 用于寻找反应路径鞍点与活化能的过渡态搜索方法。 |
+| activation energy (Eact) | 活化能（Eact） | 反应跨越势垒所需的能量；须与给定路径和模型对应。 |
+| isotopic labeling | 同位素标记 | 通过 13CO2、13CO、13CH4 等区分碳源和反应路径的实验策略。 |
+
+## Reading guide / 阅读提示
+
+**English:** Read the paper as a connectivity argument. First compare acid and alkaline EDL structures (Fig. 1), then identify the proposed H-bond gap and reactive-water coordinate (Fig. 2). Treat the SEIRAS and vibrational analyses (Figs. 3-4) as interfacial-structure evidence, and ask whether the Pt-Ru/OHad perturbations in Fig. 5 test the same causal link. Keep pH, potential, adsorbate coverage, and electrode identity explicit.
+
+**中文：** 建议把本文读成一条“连通性”论证链：先比较酸性和碱性双电层结构（图 1），再识别作者提出的氢键间隙与反应水坐标（图 2）。把 SEIRAS 与振动分析（图 3–4）视为界面结构证据，并检验图 5 中 Pt-Ru/OHad 扰动是否测试了同一因果联系。比较时务必显式区分 pH、电位、吸附物覆盖度和电极种类。
+
+## Page / Section Index
+
+- [p.1](#page-1)
+- [p.2](#page-2)
+- [p.3](#page-3)
+- [p.4](#page-4)
+- [p.5](#page-5)
+- [p.6](#page-6)
+- [p.7](#page-7)
+- [p.8](#page-8)
+- [p.9](#page-9)
+- [p.10](#page-10)
+
+## Related Reading / 延伸阅读
+
+**English:** No strongly recommended related paper today. The paper itself supplies the necessary mechanistic contrast between photocatalytic and thermal paths; adding a broad hot-carrier or photothermal review without a specific prerequisite role would dilute that comparison.
+
+**中文：** 今天没有必须额外推荐的相关论文。本文已自带光催化与热催化路径的必要机制对照；若没有明确的前置作用，泛泛加入热载流子或光热综述反而会稀释这一比较。
+
+# Bilingual Reader / 逐段中英文对照
+
+## Page 1
+<a id="page-1"></a>
+
+<a id="S001"></a>
+**Source:** p.1 S001
+
+**Original:** nature catalysis
+
+**中文:** 自然催化
+
+<a id="S002"></a>
+**Source:** p.1 S002
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8 Hydrogen bond network connectivity in the electric double layer dominates the kinetic pH effect in hydrogen electrocatalysis on Pt
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8 双电层中的氢键网络连通性主导着 Pt 氢电催化中的动力学 pH 效应
+
+<a id="S003"></a>
+**Source:** p.1 S003
+
+**Original:** Accepted: 18 August 2022
+
+**中文:** 接受日期：2022 年 8 月 18 日
+
+<a id="S004"></a>
+**Source:** p.1 S004
+
+**Original:** Published online: 29 September 2022
+
+**中文:** 在线发布：2022 年 9 月 29 日
+
+<a id="S005"></a>
+**Source:** p.1 S005
+
+**Original:** The origin of the large kinetic pH effect in hydrogen electrocatalysis, that is, the approximately two orders of magnitude decrease in reaction kinetics when moving from acid to alkaline, remains far from having a consensus. Here we show that it is the significantly different connectivity of hydrogen-bond networks in electric double layers that causes the large kinetic pH effect. This result has been obtained by meticulously comparing the electric double layers of acid and alkaline interfaces from ab initio molecular dynamics simulations, and the computed vibrational density of states of water molecules in the interfaces simulated with ab initio molecular dynamics, with the results of in situ surface-enhanced infrared absorption spectroscopy. Using a Pt–Ru alloy as a model catalyst, we further reveal an unanticipated role of OH adsorption in improving the kinetics of alkaline hydrogen electrocatalysis, namely, by increasing the connectivity of hydrogen-bond networks in electric double layers rather than by merely affecting the energetics of surface reaction steps. These findings highlight the key roles of electric double layer structures in electrocatalysis.
+
+**中文:** 氢电催化中大动力学pH效应的起源，即从酸性变为碱性时反应动力学大约降低两个数量级，目前还没有达成共识。在这里，我们表明，双电层中氢键网络的显着不同的连通性导致了大的动力学 pH 效应。这一结果是通过仔细比较从头分子动力学模拟得到的酸碱界面的双电层、从头算分子动力学模拟计算出的界面中水分子的振动态密度与原位表面增强红外吸收光谱的结果而获得的。使用 Pt-Ru 合金作为模型催化剂，我们进一步揭示了 OH 吸附在改善碱性氢电催化动力学方面的意想不到的作用，即通过增加双电层中氢键网络的连通性，而不是仅仅影响表面反应步骤的能量。这些发现强调了双电层结构在电催化中的关键作用。
+
+<a id="S006"></a>
+**Source:** p.1 S006
+
+**Original:** Due to its high energy density and carbon-free nature, hydrogen is considered the most promising energy carrier of the future1,2. The hydrogen evolution reaction (HER) and hydrogen oxidation reaction (HOR) are the cornerstones of the hydrogen energy approach. Besides their technological importance in water electrolysis and fuel cells, the HER and HOR have long served as the model reactions in electrochemistry due to their relatively simple reaction mechanisms3,4. A standing puzzle in the fundamental chemistry of hydrogen electrocatalysis is the origin of the orders of magnitude decrease in reaction kinetics when moving from acid to alkaline, which has seriously retarded the further development of electrochemical energy technologies based on alkaline electrolytes, and therefore has attracted great recent research interest5–9. So far, several schools of thought exist to explain the kinetic sluggishness of HER/HOR in alkaline environments. Yan and coworkers attributed it to the pH-dependent hydrogen binding energy (HBE)10–14.
+
+**中文:** 由于其高能量密度和无碳特性，氢被认为是未来最有前途的能源载体1,2。析氢反应（HER）和氢氧化反应（HOR）是氢能方法的基石。除了在水电解和燃料电池中的技术重要性外，HER 和 HOR 由于其相对简单的反应机制，长期以来一直作为电化学中的模型反应3,4。氢电催化基础化学中的一个长期难题是从酸性到碱性时反应动力学数量级下降的根源，这严重阻碍了基于碱性电解质的电化学能源技术的进一步发展，因此引起了最近的研究兴趣5-9。迄今为止，存在多种观点来解释 HER/HOR 在碱性环境中的动力学迟缓现象。 Yan 和同事将其归因于 pH 依赖性氢结合能 (HBE)10-14。
+
+<a id="S007"></a>
+**Source:** p.1 S007
+
+**Original:** They found that the apparent HBE values, inferred from the potential of underpotential-deposited hydrogen (Hupd) peaks in cyclic voltammetry plots, linearly increase with the pH, while the experimental HER/HOR activity decreases with the pH. On this basis, the HBE has been proposed to be the sole descriptor for the HER/HOR activity. However, it has been argued that the shift of the voltametric peak for Hupd is due to the change in the hydroxyl adsorption strength15,16. Additionally, the HBE theory cannot explain the pH-dependence of HER/HOR kinetics on a Pt(111) surface, at which the cyclic voltammetry peak for Hupd hardly shifts with pH17. What’s more, the results from in situ surface-enhanced infrared adsorption spectroscopy (SEIRAS) and surface-enhanced Raman spectroscopy have indicated that the H binding strength is weakened as pH increases, thus challenging the foundation of the HBE theory18,19. Another prevailing school of thought suggests that the high activation barrier of an alkaline Volmer step (H2O + e− ↔ *H + OH−, where e– is an electron) derived from the cleavage/formation of a H–OH
+
+**中文:** 他们发现，根据循环伏安图中欠电势沉积氢 (Hupd) 峰的电位推断出的表观 HBE 值随 pH 值线性增加，而实验 HER/HOR 活性随 pH 值降低。在此基础上，HBE被提议作为HER/HOR活动的唯一描述符。然而，有人认为 Hupd 伏安峰的移动是由于羟基吸附强度的变化造成的15,16。此外，HBE 理论无法解释 Pt(111) 表面上 HER/HOR 动力学的 pH 依赖性，在该表面上，Hupd 的循环伏安峰几乎不随 pH17 变化。此外，原位表面增强红外吸收光谱（SEIRAS）和表面增强拉曼光谱的结果表明，随着pH的增加，H结合强度减弱，从而挑战了HBE理论的基础18,19。另一种流行的思想流派认为，碱性 Volmer 步骤（H2O + e− ↔ *H + OH−，其中 e– 是电子）的高活化势垒源自 H–OH 的裂解/形成
+
+<a id="S008"></a>
+**Source:** p.1 S008
+
+**Original:** 1College of Chemistry and Molecular Sciences, Wuhan University, Wuhan, China. 2Department of Chemistry, Fudan University, Shanghai, China.
+
+**中文:** 1武汉大学化学与分子科学学院，中国武汉。 2复旦大学化学系，上海，中国。
+
+<a id="S009"></a>
+**Source:** p.1 S009
+
+**Original:** 3These authors contributed equally: Peng Li, Yaling Jiang. e-mail: slchen@whu.edu.cn
+
+**中文:** 3 这些作者做出了同等贡献：李鹏、蒋亚凌。邮箱：slchen@whu.edu.cn
+
+<a id="S010"></a>
+**Source:** p.1 S010
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 900
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 900
+
+
+## Page 2
+<a id="page-2"></a>
+
+<a id="S011"></a>
+**Source:** p.2 S011
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+
+<a id="S012"></a>
+**Source:** p.2 S012
+
+**Original:** Results Acid and alkaline EDLs in hydrogen electrocatalysis For the interface models with a 4 × 4 orthogonal Pt(111) slab used in the present study (Supplementary Figs. 1–3), the introduction of two H3O+ or four Na+ cations into the water layers, and the same number of electrons into the electrode, can drive the electrode potentials (U) to values corresponding to the HER potentials for acid and alkaline systems, that is, approximately –0.20 V for pH = 0 and approximately –0.32 V for pH = 14 (unless stated, potentials in this work are referenced to the reversible hydrogen electrode, RHE). The much higher electron density on the electrode surface for the alkaline system is easy to understand when considering that the HER potentials are much further away from the PZC. As stated in the Methods, the co-ions and the Gouy–Chapman diffusion layer can be neglected in the strong acid and alkaline systems. Therefore, we focus on the differences between the EDL structures at the acid and alkaline interfaces associated with the profiles of cations. Figure 1a,b show the representative AIMD snapshots for the acid and alkaline interfaces, respectively. The statistic concentration profiles and trajectory analyses of H3O+ and Na+ distinctly demonstrate a layered distribution of cation in both acid and alkaline EDLs (Supplementary Fig. 4). The planes consisting of the cations closest to the electrode surface are defined as the closest ion planes (CIPs), which are at distances of ~4.26 Å and ~2.92 Å away from the electrode surface for acid and alkaline systems, respectively. The alkaline CIP bears a much higher ion concentration than the acid one. The crowded cations at the alkaline CIP lose considerably their solvation molecules, which can be seen from the Na–O radial distribution functions (gNa–O) shown in Supplementary Fig. 5. In addition, one hardly sees water molecules within the alkaline CIP. At the acid interface, by contrast, the protons are well solvated and the CIP is separated from the electrode surface by water molecules. The different cation and water distributions in the acid and alkaline EDLs imply that the CIP corresponds to the inner Helmholtz plane at the alkaline interface but the outer Helmholtz plane at the acid interface, which agrees with previous studies39–42. This difference should be associated with the partial loss of the solvation shell of Na+ cations and the asymmetric H-bonding nature of H3O+. At the alkaline interface, a relatively large number of Na+ cations are brought to the EDL to counterbalance the high density of negative charges at the electrode surface, which makes them partially desolvated. These cations prefer the inner Helmholtz plane location so that the interaction between the alkaline cations and electrode surface can make up for the loss of solvation interaction39,40. As for the H3O+ cations at the acid interface, they prefer the outer Helmholtz plane location because the water molecules in the layer immediately adjacent to the electrode surface (the inner Helmholtz plane) are all in H-down configurations and thereby serve as the H-bond acceptor sites, which can offer an asymmetric solvation environment that matches well with the asymmetric H-bonding properties of H3O+ cations at the outer Helmholtz plane42. In addition, the position of the CIP in alkaline media agrees well with that measured through surface X-ray scattering technology43,44, which rationalizes our simulated EDL structures. The interfacial distributions of water molecules, represented by the oxygen concentration profiles along the surface normal direction, are further illustrated (Fig. 1c). It is apparent that at the distance of ~3.30 Å away from the Pt surface, both acid and alkaline interfaces exhibit a sharp peak of water concentration, which is within the acid CIP while out of the alkaline CIP, again suggesting that no water molecules are present between the cations and electrode surface at the alkaline interface. As marked by the shaded areas in the figure, both the acid and alkaline interfaces possess a gap zone above the CIP in which the water concentration is fairly low and beyond which the water concentration fluctuates around the bulk value (0.056 mol cm–3). The gap zone at the alkaline interface is apparently larger in width and more depleted in water concentration than that at the acid interface. One can imagine
+
+**中文:** 结果 氢电催化中的酸性和碱性 EDL 对于本研究中使用的 4 × 4 正交 Pt(111) 板的界面模型（补充图 1-3），将两个 H3O+ 或四个 Na+ 阳离子引入水层，并将相同数量的电子引入电极，可以将电极电势（U）驱动到与酸性和碱性系统的 HER 电势相对应的值，即大约pH = 0 时约为 –0.20 V，pH = 14 时约为 –0.32 V（除非另有说明，本工作中的电势参考可逆氢电极 RHE）。考虑到 HER 电势距离 PZC 更远，碱性系统电极表面上的电子密度要高得多，这一点很容易理解。如方法中所述，在强酸和强碱体系中，共离子和古伊-查普曼扩散层可以忽略不计。因此，我们重点关注与阳离子分布相关的酸和碱界面上的 EDL 结构之间的差异。图 1a、b 分别显示了酸性和碱性界面的代表性 AIMD 快照。 H3O+ 和 Na+ 的统计浓度分布和轨迹分析清楚地证明了酸性和碱性 EDL 中阳离子的分层分布（补充图 4）。由最靠近电极表面的阳离子组成的平面被定义为最近离子平面 (CIP)，对于酸性和碱性系统，它们距电极表面的距离分别为 ~4.26 Å 和 ~2.92 Å。碱性 CIP 的离子浓度比酸性 CIP 高得多。碱性 CIP 中拥挤的阳离子大量损失了溶剂化分子，这可以从补充图 5 中显示的 Na-O 径向分布函数 (gNa-O) 中看出。此外，在碱性 CIP 中几乎看不到水分子。相比之下，在酸界面处，质子被充分溶剂化，并且 CIP 通过水分子与电极表面分离。酸性和碱性 EDL 中不同的阳离子和水分布意味着 CIP 对应于碱性界面的内亥姆霍兹平面，但对应于酸性界面的外亥姆霍兹平面，这与之前的研究一致39-42。这种差异应该与 Na+ 阳离子溶剂化壳的部分损失和 H3O+ 的不对称氢键性质有关。在碱性界面，相对大量的Na+阳离子被带到EDL以平衡电极表面的高密度负电荷，这使得它们部分去溶剂化。这些阳离子更喜欢内部亥姆霍兹平面位置，因此碱性阳离子和电极表面之间的相互作用可以弥补溶剂化相互作用的损失39,40。至于酸界面处的 H3O+ 阳离子，它们更喜欢外亥姆霍兹平面位置，因为该层中的水分子立即与电极表面（内亥姆霍兹平面）相邻的所有位置均处于 H-向下构型，从而作为氢键受体位点，可以提供与外亥姆霍兹平面上 H3O+ 阳离子的不对称氢键特性很好匹配的不对称溶剂化环境。此外，CIP 在碱性介质中的位置与通过表面 X 射线散射技术测量的位置非常吻合43,44，这使我们模拟的 EDL 结构合理化。进一步说明了水分子的界面分布，以沿表面法线方向的氧浓度分布表示（图1c）。很明显，在距 Pt 表面约 3.30 Å 的距离处，酸和碱界面均表现出水浓度的尖峰，该水浓度在酸性 CIP 内，而在碱性 CIP 外，再次表明在碱性界面处的阳离子和电极表面之间不存在水分子。如图中阴影区域所示，酸和碱界面在 CIP 上方都有一个间隙区域，其中水浓度相当低，超过该区域水浓度在体积值 (0.056 mol cm–3) 附近波动。碱性界面处的间隙区明显比酸性界面处的间隙区宽度更大且水浓度更贫化。人们可以想象
+
+<a id="F004"></a>
+### Fig. 4. 图4|不同界面水分子的光谱分析
+
+**Placed near:** p.2 S012
+
+**Source:** p.6 C004
+
+![Fig. 4](assets/v004.png)
+
+**Original caption:** Fig. 4 | Spectroscopic analysis of different interfacial water molecules. a, Schematic diagram of region division for the alkaline system. Region 2 represents the gap of H-bond networks. b, The computational VDOS of the water molecules at various distances from the electrode surface under alkaline conditions.
+
+**中文图注:** 图4|不同界面水分子的光谱分析。 a、碱性体系区域划分示意图。区域 2 代表氢键网络的间隙。 b，碱性条件下距电极表面不同距离的水分子的计算 VDOS。
+
+**Reading note:** Compare the visual evidence with the nearby text; it is not an independent substitute for the stated experimental conditions or computational model.
+
+<a id="F005"></a>
+### Fig. 5. 图5 | OHad 改善界面氢键网络的连通性
+
+**Placed near:** p.2 S012
+
+**Source:** p.7 C005
+
+![Fig. 5](assets/v005.png)
+
+**Original caption:** Fig. 5 | Improvement of the connectivity of interfacial H-bond networks by OHad. a–c, Representative snapshots of the AIMD-simulated interface structures on a Pt3Ru(111) electrode with (a) and without (b) OH adsorption, and that on a Pt(111) electrode (c) at hydrogen oxidation potentials. The coverage of Had is set at 0.25 ML (defined per surface Pt atom). The Pt, Ru, H, Na+, O of water, O of
+
+**中文图注:** 图5 | OHad 改善界面氢键网络的连通性。 a–c，AIMD 模拟的 Pt3Ru(111) 电极上具有 (a) 和不具有 (b) OH 吸附的界面结构的代表性快照，以及在氢氧化电位下 Pt(111) 电极上 (c) 的界面结构的代表性快照。 Had 的覆盖范围设置为 0.25 ML（按表面 Pt 原子定义）。水的Pt、Ru、H、Na+、O、O
+
+**Reading note:** Compare the visual evidence with the nearby text; it is not an independent substitute for the stated experimental conditions or computational model.
+
+<a id="S013"></a>
+**Source:** p.2 S013
+
+**Original:** bond is the origin of the pH effect on HER/HOR kinetics6. By contrast, having hydronium ions as the proton donors in an acidic environment implies an unobstructed Volmer step (H3O+ + e− ↔ *H + H2O). Markovic and coworkers reported that the combination of Pt with components having high oxophilicity, such as hydroxides, oxides, Ru and so on, can distinctly promote the dissociation of water and/or the adsorption of hydroxyl species, thereby enhancing HER/HOR kinetics in an alkaline environment20–22. The so-called bi-functional mechanism thus proposed has been widely used nowadays to guide the design of high-efficiency alkaline HER/HOR electrocatalysts23,24. However, this view was questioned by some results that imply that the electronic effect of Ru is responsible for the enhanced hydrogen reaction kinetics at high pH7,25. Meanwhile, the role of hydroxyl species (OH− or adsorbed OH (OHad)) in alkaline hydrogen electrocatalysis are still elusive and the subject of extensive debate26–29. The pH-dependent kinetics of HER/HOR have also been attributed to the variation in interfacial environment with pH. Koper and coworkers contended that the great deviation of electrode potential from the potential of zero charge (PZC) leads to a strong interfacial electrical field, which significantly increases the water-reorganization energy, and thus impedes the proton/hydroxide transfer in the electrical double layer (EDL)17. Following this idea, the pH-dependent kinetics on the Pt(111) electrode and the activity improvement of alkaline hydrogen electrocatalytic reactions by introducing Ni(OH)2 on Pt have been explained in terms of interfacial rigidity associated with the PZC. Other EDL factors, such as electrostatic interactions and water dynamics, also have been proposed to contribute to the pH-dependent kinetics of HER/HOR30,31. In addition, the solvation of reaction species also can crucially contribute to the reaction free energy at electrified interfaces, as accounted for in a mean-field way by the Marcus theory of electron transfer, which has also been highlighted in recent studies32–35. Last but not least, some researchers have recently proposed that the interfacial hydrogen-bond (H-bond) networks may play a critical role in the kinetics of interfacial proton-coupled electron transfer reactions36–38. So far, these EDL propositions lack atomicor molecular-level evidence. In this study, taking the HER/HOR on Pt as the model system, the underlying origin of the pH-dependent reaction kinetics is investigated by combining ab initio molecular dynamics (AIMD) simulation and in situ SEIRAS with the attenuated total reflection (ATR) configuration. The AIMD simulation results imply that neither the hydrogen adsorption strength nor the water dissociation/formation barrier is responsible for the greatly reduced kinetics of hydrogen electrocatalysis in alkaline solution. Interestingly, by carefully analysing the AIMD-simulated EDL structures, we notice that a visible gap of water exists at the alkaline interface, which should result in greatly reduced connectivity of H-bond networks and therefore an increased hydrogen transfer barrier in the interfacial region. More importantly, the simulated interfacial structures are unequivocally verified by the agreement between the computational vibrational density of states (VDOS) and the experimental SEIRAS results. What’s more, the AIMD simulations for a Pt–Ru alloy show that the OHad on a Ru site can significantly improve the connectivity of H-bond networks at the alkaline interface. This unanticipated role of OHad explains well why Pt–Ru is much more active than Pt for hydrogen electrocatalytic reactions in alkaline conditions, and further confirms the critical role of interfacial H-bond connectivity in HER/HOR kinetics. These findings should add important insight into the critical role of the interfacial EDL in electrocatalytic kinetics and provide a unique perspective to understand the electrocatalytic pH effects, which are of general significance in various energy conversion reactions such as HER/HOR, CO2 reduction and nitrogen reduction. Meanwhile, this study also offers a research paradigm for reference, for exploring the structures and processes at electrochemical interfaces by combining AIMD simulations, computational spectroscopy and experimental spectroscopy.
+
+**中文:** 键是 pH 对 HER/HOR 动力学影响的根源 6。相比之下，在酸性环境中以水合氢离子作为质子供体意味着无阻碍的 Volmer 步骤 (H3O+ + e− ↔ *H + H2O)。 Markovic 及其同事报道，Pt 与具有高亲氧性的组分（如氢氧化物、氧化物、Ru 等）结合，可以明显促进水的解离和/或羟基物种的吸附，从而增强碱性环境中的 HER/HOR 动力学20-22。由此提出的所谓双功能机制现已广泛用于指导高效碱性 HER/HOR 电催化剂的设计23,24。然而，这一观点受到了一些结果的质疑，这些结果表明，Ru 的电子效应是导致高 pH7 下氢反应动力学增强的原因，25。与此同时，羟基物种（OH− 或吸附 OH (OHad)）在碱性氢电催化中的作用仍然难以捉摸，并且是广泛争论的主题26-29。 HER/HOR 的 pH 依赖性动力学也归因于界面环境随 pH 的变化。 Koper 及其同事认为，电极电势与零电荷电势（PZC）的巨大偏差会导致强大的界面电场，从而显着增加水重组能，从而阻碍双电层（EDL）中的质子/氢氧化物转移17。根据这一想法，Pt(111) 电极上的 pH 依赖性动力学以及通过在 Pt 上引入 Ni(OH)2 来提高碱性氢电催化反应的活性已经用与 PZC 相关的界面刚性来解释。其他 EDL 因素，例如静电相互作用和水动力学，也被认为有助于 HER/HOR30,31 的 pH 依赖性动力学。此外，反应物质的溶剂化也对带电界面的反应自由能做出了至关重要的贡献，正如马库斯电子转移理论以平均场方式解释的那样，这在最近的研究中也得到了强调32-35。最后但并非最不重要的一点是，一些研究人员最近提出，界面氢键（H-bond）网络可能在界面质子耦合电子转移反应的动力学中发挥关键作用36-38。到目前为止，这些 EDL 命题缺乏原子或分子水平的证据。本研究以Pt上的HER/HOR为模型系统，通过将从头算分子动力学（AIMD）模拟和原位SEIRAS与衰减全反射（ATR）配置相结合，研究了pH依赖性反应动力学的根本起源。 AIMD 模拟结果表明，氢吸附强度和水解离/形成势垒都不是导致碱性溶液中氢电催化动力学大大降低的原因。有趣的是，通过仔细分析 AIMD 模拟的 EDL 结构，我们注意到可见的碱性界面处存在水间隙，这将导致氢键网络的连通性大大降低，从而增加界面区域的氢转移势垒。更重要的是，计算振动态密度 (VDOS) 与实验 SEIRAS 结果之间的一致性明确验证了模拟的界面结构。此外，Pt-Ru 合金的 AIMD 模拟表明，Ru 位点上的 OHad 可以显着改善碱性界面处氢键网络的连通性。 OHad 的这种意想不到的作用很好地解释了为什么 Pt-Ru 在碱性条件下的氢电催化反应中比 Pt 活性更高，并进一步证实了界面氢键连接在 HER/HOR 动力学中的关键作用。这些发现应该有助于深入了解界面 EDL 在电催化动力学中的关键作用，并为理解电催化 pH 效应提供独特的视角，这在 HER/HOR、CO2 还原和氮还原等各种能量转换反应中具有普遍意义。同时，本研究还为结合AIMD模拟、计算光谱和实验光谱探索电化学界面的结构和过程提供了可供参考的研究范式。
+
+<a id="S014"></a>
+**Source:** p.2 S014
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 901
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 901
+
+
+## Page 3
+<a id="page-3"></a>
+
+<a id="S015"></a>
+**Source:** p.3 S015
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+
+<a id="S016"></a>
+**Source:** p.3 S016
+
+**Original:** a b
+
+**中文:** 乙
+
+<a id="S017"></a>
+**Source:** p.3 S017
+
+**Original:** Acid Alkaline
+
+**中文:** 酸碱
+
+<a id="S018"></a>
+**Source:** p.3 S018
+
+**Original:** c d
+
+**中文:** 光盘
+
+<a id="S019"></a>
+**Source:** p.3 S019
+
+**Original:** CIP
+
+**中文:** 就地清洗
+
+<a id="S020"></a>
+**Source:** p.3 S020
+
+**Original:** Acid
+
+**中文:** 酸
+
+<a id="S021"></a>
+**Source:** p.3 S021
+
+**Original:** 0.3
+
+**中文:** 0.3
+
+<a id="S022"></a>
+**Source:** p.3 S022
+
+**Original:** Concentration of O atoms (mol cm–3)
+
+**中文:** O原子浓度 (mol cm–3)
+
+<a id="S023"></a>
+**Source:** p.3 S023
+
+**Original:** 0.2
+
+**中文:** 0.2
+
+<a id="S024"></a>
+**Source:** p.3 S024
+
+**Original:** 0.056 mol cm–3
+
+**中文:** 0.056 摩尔厘米–3
+
+<a id="S025"></a>
+**Source:** p.3 S025
+
+**Original:** 0.1
+
+**中文:** 0.1
+
+<a id="S026"></a>
+**Source:** p.3 S026
+
+**Original:** CIP Alkaline
+
+**中文:** CIP 碱性
+
+<a id="S027"></a>
+**Source:** p.3 S027
+
+**Original:** 0.3
+
+**中文:** 0.3
+
+<a id="S028"></a>
+**Source:** p.3 S028
+
+**Original:** 0.2
+
+**中文:** 0.2
+
+<a id="S029"></a>
+**Source:** p.3 S029
+
+**Original:** 0.1
+
+**中文:** 0.1
+
+<a id="S030"></a>
+**Source:** p.3 S030
+
+**Original:** 0 2 4 6 8 10
+
+**中文:** 0 2 4 6 8 10
+
+<a id="S031"></a>
+**Source:** p.3 S031
+
+**Original:** Distance to metal surface (Å)
+
+**中文:** 到金属表面的距离 (Å)
+
+<a id="S032"></a>
+**Source:** p.3 S032
+
+**Original:** that the severe depletion of water molecules would reduce the connectivity of the H-bond networks at the alkaline interface, which is verified by the statistical distribution of H bonds along the surface normal direction (Fig. 1d). A region is seen to exist ~4.2 Å away from the Pt(111) surface (orange shading) at the alkaline interface, in which the number of H bonds is significantly diminished as compared with the neighbouring regions. On the contrary, the number of H bonds at the acid interface is similar to that in the bulk region. Such EDL features at the alkaline interface are proved to be independent of surface size (Supplementary Fig. 6). In addition, considering that realistic electrode surfaces under electrochemical conditions often contain plentiful defect and step sites, the alkaline interfaces on the Pt(100) and Pt(553) surfaces at HER potentials have also been simulated to further confirm the scarcity of H-bond networks in the alkaline EDL. As shown in Supplementary Fig. 7, the gap zones of interfacial water are obviously seen for both Pt(100) and Pt(553) surfaces, in which the number of H bonds is also greatly diminished. Such a diminishment in H bonds should be due to the large decrease in the number of solvated water molecules of the crowded CIP cations and the strong interaction between the CIP cations and their solvated water molecules, which significantly reduce the ability of these water molecules to form H bonds with others.
+
+**中文:** 水分子的严重耗尽会降低碱性界面处氢键网络的连通性，这通过氢键沿表面法线方向的统计分布得到了验证（图1d）。在碱性界面处，可以看到距离 Pt(111) 表面约 4.2 Å 的区域（橙色阴影），其中氢键的数量与邻近区域相比显着减少。相反，酸界面处的氢键数量与本体区域中的相似。碱性界面处的这种 EDL 特征被证明与表面尺寸无关（补充图 6）。此外，考虑到电化学条件下的实际电极表面通常含有大量缺陷和台阶位点，还模拟了 HER 电位下 Pt(100) 和 Pt(553) 表面上的碱性界面，以进一步证实碱性 EDL 中氢键网络的稀缺性。如补充图7所示，Pt(100)和Pt(553)表面均明显可见界面水的间隙区域，其中H键的数量也大大减少。 H键的减少应该是由于拥挤的CIP阳离子的溶剂化水分子数量大幅减少以及CIP阳离子与其溶剂化水分子之间的强烈相互作用，从而显着降低了这些水分子与其他水分子形成H键的能力。
+
+<a id="S033"></a>
+**Source:** p.3 S033
+
+**Original:** CIP
+
+**中文:** 就地清洗
+
+<a id="S034"></a>
+**Source:** p.3 S034
+
+**Original:** Number of H bonds
+
+**中文:** H键数量
+
+<a id="S035"></a>
+**Source:** p.3 S035
+
+**Original:** Acid
+
+**中文:** 酸
+
+<a id="S036"></a>
+**Source:** p.3 S036
+
+**Original:** Alkaline
+
+**中文:** 碱性
+
+<a id="S037"></a>
+**Source:** p.3 S037
+
+**Original:** 2.4 3.6 4.8 6.0 7.2 8.4 9.6 10.8 12.0
+
+**中文:** 2.4 3.6 4.8 6.0 7.2 8.4 9.6 10.8 12.0
+
+<a id="S038"></a>
+**Source:** p.3 S038
+
+**Original:** Distance to metal surface (Å)
+
+**中文:** 到金属表面的距离 (Å)
+
+<a id="S039"></a>
+**Source:** p.3 S039
+
+**Original:** distribution profiles of O atoms in water along the surface normal direction. The vertical dashed lines represent the CIPs. The horizontal black dashed lines represent the bulk water concentration (0.056 mol cm–3). d, Statistical distribution of the number of H bonds along the surface normal direction. The shaded areas represent the gap zones of interfacial water and H-bond networks.
+
+**中文:** 水中O原子沿表面法线方向的分布剖面。垂直虚线代表 CIP。水平黑色虚线代表总体水浓度（0.056 mol cm–3）。 d，H键数量沿表面法线方向的统计分布。阴影区域代表界面水和氢键网络的间隙区域。
+
+<a id="S040"></a>
+**Source:** p.3 S040
+
+**Original:** To verify the universality of the discontinuity of H-bond networks in an alkaline EDL in hydrogen electrocatalytic systems including HER and HOR, the alkaline interface on a Pt(111) electrode is further simulated under HOR conditions (Supplementary Fig. 8a). It is apparent that the features of the alkaline interface in the HOR regime agree well with that in the HER regime; namely, the gap zone of interfacial water and the discontinuity of H-bond networks in the EDL are distinctly present (Supplementary Fig. 8b,c). This unequivocally indicates that the discontinuity of H-bond networks in the EDL is a general feature at alkaline interfaces of hydrogen electrocatalytic systems. Although the surface charge densities and electrode potentials between the HER and HOR systems are markedly different, the alkaline EDLs possess fairly similar features (Fig. 1 and Supplementary Fig. 8), implying that the discontinuity of H-bond networks should be mainly attributed to the presence of crowded alkali metal cations, rather than the surface charge densities related to the electrode potentials. It is conceivable that the greatly reduced connectivity of H-bond networks near the electrode surface would severely inhibit the hydrogen electrocatalytic reactions, since the H-bond networks constitute highways for delivering protons to the surface, which, as will be shown in the following, is vital in hydrogen electrocatalysis.
+
+**中文:** 为了验证包括 HER 和 HOR 在内的氢电催化系统中碱性 EDL 中氢键网络不连续性的普遍性，在 HOR 条件下进一步模拟 Pt(111) 电极上的碱性界面（补充图 8a）。很明显，HOR 体系中的碱性界面特征与 HER 体系中的碱性界面特征非常吻合；也就是说，界面水的间隙区和 EDL 中氢键网络的不连续性明显存在（补充图 8b，c）。这明确表明 EDL 中氢键网络的不连续性是氢电催化系统碱性界面的普遍特征。尽管HER和HOR系统之间的表面电荷密度和电极电位明显不同，但碱性EDL具有相当相似的特征（图1和补充图8），这意味着氢键网络的不连续性应主要归因于拥挤的碱金属阳离子的存在，而不是与电极电位相关的表面电荷密度。可以想象，电极表面附近氢键网络的连通性大大降低将严重抑制氢电催化反应，因为氢键网络构成了将质子传递到表面的高速公路，这在氢电催化中至关重要，如下所示。
+
+<a id="F001"></a>
+### Fig. 1. 图1|酸和碱界面处的 EDL 结构
+
+**Placed near:** p.3 S040
+
+**Source:** p.3 C001
+
+![Fig. 1](assets/v001.png)
+
+**Original caption:** Fig. 1 | EDL structures at acid and alkaline interfaces. a,b, Representative snapshots of the EDL structures at hydrogen evolution potentials on the Pt(111) electrode surface for an acid system (a) and alkaline system (b). The Pt, O, H, H3O+, Na+ and Had are coloured in grey, red, white, green, purple and yellow, respectively. The blue dashed lines represent the H bonds. c, Concentration
+
+**中文图注:** 图1|酸和碱界面处的 EDL 结构。 a,b，酸体系 (a) 和碱体系 (b) 的 Pt(111) 电极表面析氢电位下 EDL 结构的代表性快照。 Pt、O、H、H3O+、Na+ 和 Had 分别为灰色、红色、白色、绿色、紫色和黄色。蓝色虚线代表H键。 c、浓度
+
+**Reading note:** Compare the visual evidence with the nearby text; it is not an independent substitute for the stated experimental conditions or computational model.
+
+<a id="S041"></a>
+**Source:** p.3 S041
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 902
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 902
+
+
+## Page 4
+<a id="page-4"></a>
+
+<a id="S042"></a>
+**Source:** p.4 S042
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+
+<a id="S043"></a>
+**Source:** p.4 S043
+
+**Original:** a b c
+
+**中文:** ABC
+
+<a id="S044"></a>
+**Source:** p.4 S044
+
+**Original:** ∆G‡ – – – – – – – – – – – – – – – – –
+
+**中文:** ΔG‡ – – – – – – – – – – – – – – – – –
+
+<a id="S045"></a>
+**Source:** p.4 S045
+
+**Original:** Acid
+
+**中文:** 酸
+
+<a id="S046"></a>
+**Source:** p.4 S046
+
+**Original:** 0.8
+
+**中文:** 0.8
+
+<a id="S047"></a>
+**Source:** p.4 S047
+
+**Original:** Alkaline
+
+**中文:** 碱性
+
+<a id="S048"></a>
+**Source:** p.4 S048
+
+**Original:** Electrode
+
+**中文:** 电极
+
+<a id="S049"></a>
+**Source:** p.4 S049
+
+**Original:** 0.6
+
+**中文:** 0.6
+
+<a id="S050"></a>
+**Source:** p.4 S050
+
+**Original:** ∆G‡ (eV)
+
+**中文:** ΔG‡ (eV)
+
+<a id="S051"></a>
+**Source:** p.4 S051
+
+**Original:** 0.4
+
+**中文:** 0.4
+
+<a id="S052"></a>
+**Source:** p.4 S052
+
+**Original:** 0.2
+
+**中文:** 0.2
+
+<a id="S053"></a>
+**Source:** p.4 S053
+
+**Original:** Helmholtz layer
+
+**中文:** 亥姆霍兹层
+
+<a id="S054"></a>
+**Source:** p.4 S054
+
+**Original:** 0 2 4 6 8 10
+
+**中文:** 0 2 4 6 8 10
+
+<a id="S055"></a>
+**Source:** p.4 S055
+
+**Original:** Index of reactive water molecule
+
+**中文:** 活性水分子指数
+
+<a id="S056"></a>
+**Source:** p.4 S056
+
+**Original:** Origin of the great kinetic pH effect in HER/HOR The HER/HOR essentially involves a hydrogen transfer (HT) process, via the Volmer and/or Heyrovsky reaction, which consists of roughly two HT steps in series: the HT between the electrode surface and the interfacial species closest to it (HT-1), and the HT between the bulk and the closest interfacial species through the H-bond networks in the EDL (HT-2). Taking HER as the example, it has been argued that the great difference between the HER kinetics at acid and alkaline interfaces is due to the different hydrogen sources, namely, hydronium cations (H3O+) at the acid interface and water molecules at the alkaline interface. HT through water dissociation is traditionally believed to have a higher energy barrier than that through H3O+. As implied in the simulated EDL structures (Fig. 1a,b), the closest hydronium cations (H3O+) at the acid interface are separated from the electrode surface by interfacial water molecules. Therefore, it should be the water molecules closest to the electrode surface rather than the H3O+ that directly participate in the HT-1 step in acidic HER. Thus, the HER kinetics at the acid and alkaline interfaces may be compared by investigating the HT processes of the water molecules closest to the electrode surface. We consider the Volmer reaction for simplicity. The slow-growth method is used to evaluate the free energy barriers (ΔG‡) of the individual Volmer reaction, with each closest water molecule serving as the direct dissociative reactant to form Had (Supplementary Fig. 9). At the acid interface, the collective variable (CV) is defined as the combination of several O–H distances connecting the H-bond networks from H3O+ to the closest water molecule, while the O–H bond length of the interface water molecule is directly used as the CV in alkaline media (Supplementary Fig. 10). The lateral proton transfer parallel to the surface is also included in the definition of CV at the acid interface (Supplementary Fig. 11), which has been reported to be important for the evaluation of reaction energetics45. To ensure the accuracy and reliability of the free energy barrier comparison, the slow-growth simulation for each water molecule has been performed three times independently to obtain the error analysis. In acidic Volmer reactions, the hydronium at CIP transfers H to the dissociated water molecules closest to the electrode surface through the H-bond networks in the EDL (Supplementary Fig. 12); in alkaline reactions, the dissociated water molecules closest to the surface gain H through the H-bond networks in the EDL, and meanwhile a hydroxyl anion (OH–) is produced in the region out of the CIP (Supplementary Fig. 13). As illustrated in Fig. 2a, surprisingly, the Volmer reactions of various water molecules at the acid interface have higher free energy barriers than those at the alkaline interface. We have also conducted slow-growth simulations for the Volmer reaction at the acid interface by using the O–H bond length of the interface water molecules closest
+
+**中文:** HER/HOR 中巨大动力学 pH 效应的起源 HER/HOR 本质上涉及通过 Volmer 和/或 Heyrovsky 反应进行的氢转移 (HT) 过程，该过程由大约两个串联的 HT 步骤组成：电极表面和最接近它的界面物质之间的 HT (HT-1)，以及通过 EDL 中的氢键网络在本体和最接近的界面物质之间的 HT (HT-2)。以HER为例，有人认为酸界面和碱界面HER动力学的巨大差异是由于氢源不同，即酸界面处的水合氢阳离子（H3O+）和碱界面处的水分子造成的。传统上认为通过水解离进行的高温处理比通过 H3O+ 进行的高温处理具有更高的能垒。正如模拟 EDL 结构（图 1a、b）所示，酸界面处最接近的水合氢阳离子 (H3O+) 通过界面水分子与电极表面分离。因此，直接参与酸性HER中HT-1步骤的应该是最靠近电极表面的水分子，而不是H3O+。因此，可以通过研究最接近电极表面的水分子的 HT 过程来比较酸和碱界面处的 HER 动力学。为简单起见，我们考虑 Volmer 反应。缓慢增长方法用于评估单个 Volmer 反应的自由能垒 (ΔG‡)，每个最接近的水分子充当形成 Had 的直接解离反应物（补充图 9）。在酸性界面，集体变量（CV）被定义为连接从H3O+到最近的水分子的氢键网络的几个O-H距离的组合，而界面水分子的O-H键长度直接用作碱性介质中的CV（补充图10）。平行于表面的横向质子转移也包含在酸界面处 CV 的定义中（补充图 11），据报道这对于反应能量学的评估很重要45。为了保证自由能垒比较的准确性和可靠性，对每个水分子进行了3次独立的缓慢增长模拟，以获得误差分析。在酸性 Volmer 反应中，CIP 处的水合氢通过 EDL 中的氢键网络将 H 转移到最靠近电极表面的解离水分子（补充图 12）；在碱性反应中，最接近表面的解离水分子通过EDL中的氢键网络获得H，同时在CIP之外的区域产生羟基阴离子（OH-）（补充图13）。如图2a所示，令人惊讶的是，各种水分子在酸性界面处的Volmer反应比在碱性界面处的自由能垒更高。我们还对酸下的 Volmer 反应进行了缓慢增长模拟界面，利用最接近界面水分子的O-H键长度
+
+<a id="S057"></a>
+**Source:** p.4 S057
+
+**Original:** –0.18
+
+**中文:** –0.18
+
+<a id="S058"></a>
+**Source:** p.4 S058
+
+**Original:** –0.15
+
+**中文:** –0.15
+
+<a id="S059"></a>
+**Source:** p.4 S059
+
+**Original:** Solvated ions
+
+**中文:** 溶剂化离子
+
+<a id="S060"></a>
+**Source:** p.4 S060
+
+**Original:** HBE (eV)
+
+**中文:** HBE（电子伏特）
+
+<a id="S061"></a>
+**Source:** p.4 S061
+
+**Original:** + +
+
+**中文:** + +
+
+<a id="S062"></a>
+**Source:** p.4 S062
+
+**Original:** OH–
+
+**中文:** 哦-
+
+<a id="S063"></a>
+**Source:** p.4 S063
+
+**Original:** –0.12
+
+**中文:** –0.12
+
+<a id="S064"></a>
+**Source:** p.4 S064
+
+**Original:** H2O
+
+**中文:** 水
+
+<a id="S065"></a>
+**Source:** p.4 S065
+
+**Original:** + –
+
+**中文:** + –
+
+<a id="S066"></a>
+**Source:** p.4 S066
+
+**Original:** –0.09
+
+**中文:** –0.09
+
+<a id="S067"></a>
+**Source:** p.4 S067
+
+**Original:** Alkaline interface
+
+**中文:** 碱性界面
+
+<a id="S068"></a>
+**Source:** p.4 S068
+
+**Original:** –0.06
+
+**中文:** –0.06
+
+<a id="S069"></a>
+**Source:** p.4 S069
+
+**Original:** Acid
+
+**中文:** 酸
+
+<a id="S070"></a>
+**Source:** p.4 S070
+
+**Original:** Alkaline
+
+**中文:** 碱性
+
+<a id="S071"></a>
+**Source:** p.4 S071
+
+**Original:** b, Schematic diagram of the alkaline EDL structure and the proton transfer from bulk to interface across the H-bond gap. c, The calculated HBE values at the acid and alkaline interfaces.
+
+**中文:** b，碱性EDL结构和质子穿过H键间隙从本体转移到界面的示意图。 c，计算出的酸和碱界面处的HBE值。
+
+<a id="S072"></a>
+**Source:** p.4 S072
+
+**Original:** to the electrode surface as the CV (Supplementary Fig. 14), as we did at the alkaline interface. The results continue to suggest higher free energy barriers at the acid interface than at the alkaline interface. In addition, the alkaline interface with an additional NaOH being inserted into the electrolyte is also simulated (Supplementary Fig. 15), and the results show that the presence of explicit OH– anions doesn’t affect the simulation results or the conclusions drawn from them (Supplementary Fig. 16), which contradicts the long-established belief that the alkaline HT processes should be more energy demanding than the acidic ones through the dissociation of interfacial hydronium21. When considering the EDL structures, however, the lower free energy barrier of the individual HT-1 step in alkaline conditions becomes reasonable. As mentioned above, it is the water molecules closely neighbouring the electrode surface rather than the H3O+ cations that directly act as the HT sources to form Had at the acid interface. That is, the HT-1 steps at both the acid and alkaline interfaces should be the dissociation of the closest water molecules. At the alkaline interface, these water molecules are strongly polarized by cations, which will significantly weaken the O–H bond strength and thereby lower the dissociation barrier. The facilitated reactivity by the interacting metal cations has been corroborated experimentally46. In addition, the electrode surface with a much higher negative charge density should strongly attract the hydrogen atoms in water, which further facilitates the breakage of the O–H bond of the nearby water molecules. Consequently, the approximately two orders of magnitude lowering in the alkaline HER activity cannot be simply attributed to the change of H source from hydronium ions to water molecules. Besides the HT from the closest interfacial water molecules to the electrode surface (HT-1), the HT from the bulk region to interfacial water molecules through the H-bond networks in the EDL (HT-2) is also essential to the whole HER process. As revealed in the simulated EDL structures (Fig. 1d) and the corresponding schematic diagram (Fig. 2b), the number of H bonds is significantly diminished in the region near the alkaline Helmholtz plane. The scarcity of H bonds drastically reduces the HT channels, thereby leading to significant HT congestion around the Helmholtz plane. On the other hand, the insufficient supply of protons to the inner interface may result in the accumulation of OH– ions, which can further increase the free energy barrier of the water dissociation. The present finding highlights immense opportunities to regulate the electrochemical reaction kinetics in an alkaline environment by optimizing the interfacial water distribution and the connectivity of H-bond networks. It can explain well why bringing down the electrode PZC4,17 and/or adding protic ionic liquids (or organic molecules)36,38 as the electrolyte components can be effective strategies to improve the
+
+**中文:** 到电极表面作为 CV（补充图 14），就像我们在碱性界面处所做的那样。结果继续表明酸性界面处的自由能垒高于碱性界面处的自由能垒。此外，还模拟了在电解质中插入额外的 NaOH 的碱性界面（补充图 15），结果表明显式 OH- 阴离子的存在不会影响模拟结果或从中得出的结论（补充图 16），这与长期以来的观点相矛盾，即通过界面水合氢的离解，碱性 HT 过程应该比酸性 HT 过程需要更多的能量。然而，当考虑 EDL 结构时，碱性条件下单个 HT-1 步骤的较低自由能垒变得合理。如上所述，直接作为HT源在酸界面形成Had的是紧邻电极表面的水分子而不是H3O+阳离子。也就是说，酸和碱界面处的HT-1步骤应该是最接近的水分子的解离。在碱性界面，这些水分子被阳离子强烈极化，这将显着削弱O-H键强度，从而降低解离势垒。相互作用的金属阳离子促进的反应性已通过实验得到证实46。此外，具有更高负电荷密度的电极表面应该强烈吸引水中的氢原子，这进一步促进附近水分子的O-H键的断裂。因此，碱性 HER 活性大约两个数量级的降低不能简单地归因于 H 源从水合氢离子到水分子的变化。除了从最近的界面水分子到电极表面的 HT（HT-1）之外，通过 EDL 中的氢键网络从本体区域到界面水分子的 HT（HT-2）对于整个 HER 过程也至关重要。正如模拟的 EDL 结构（图 1d）和相应的示意图（图 2b）所示，在碱性亥姆霍兹平面附近的区域，氢键的数量显着减少。 H 键的稀缺极大地减少了 HT 通道，从而导致亥姆霍兹平面周围的 HT 严重拥塞。另一方面，内界面质子供应不足可能会导致OH-离子的积累，这会进一步增加水解离的自由能垒。目前的发现凸显了通过优化界面水分布和氢键网络的连通性来调节碱性环境中电化学反应动力学的巨大机会。它可以很好地解释为什么可以降低电极 PZC4,17 和/或添加质子离子液体（或有机分子）36,38 作为电解质组分改善的有效策略
+
+<a id="S073"></a>
+**Source:** p.4 S073
+
+**Original:** Diffuse layer H-bond gap
+
+**中文:** 扩散层氢键间隙
+
+<a id="S074"></a>
+**Source:** p.4 S074
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 903
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 903
+
+<a id="F002"></a>
+### Fig. 2. 图2| Volmer 屏障和 HBE 在酸和碱界面处的比较
+
+**Placed near:** p.4 S074
+
+**Source:** p.4 C002
+
+![Fig. 2](assets/v002.png)
+
+**Original caption:** Fig. 2 | Comparison of Volmer barriers and HBEs at acid and alkaline interfaces. a, The calculated free energy barrier ΔG‡ of the individual Volmer reaction for the closest water molecules at the acid and alkaline interfaces. Error bars (s.d.) are calculated based on three individual slow-growth simulations.
+
+**中文图注:** 图2| Volmer 屏障和 HBE 在酸和碱界面处的比较。 a，计算出的酸和碱界面处最接近水分子的单个 Volmer 反应的自由能垒 ΔG‡。误差线 (s.d.) 是根据三个单独的缓慢增长模拟计算的。
+
+**Reading note:** Compare the visual evidence with the nearby text; it is not an independent substitute for the stated experimental conditions or computational model.
+
+
+## Page 5
+<a id="page-5"></a>
+
+<a id="S075"></a>
+**Source:** p.5 S075
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+
+<a id="S076"></a>
+**Source:** p.5 S076
+
+**Original:** Abs. 0.0025 0.1 M NaOH At Pt
+
+**中文:** 绝对值。 0.0025 0.1 M NaOH 在铂上
+
+<a id="S077"></a>
+**Source:** p.5 S077
+
+**Original:** 0.1 M HClO4 At Pt
+
+**中文:** 0.1 M HClO4 在铂上
+
+<a id="S078"></a>
+**Source:** p.5 S078
+
+**Original:** 1,614
+
+**中文:** 1,614
+
+<a id="S079"></a>
+**Source:** p.5 S079
+
+**Original:** 1,624
+
+**中文:** 1,624
+
+<a id="S080"></a>
+**Source:** p.5 S080
+
+**Original:** 0.20 V
+
+**中文:** 0.20V
+
+<a id="S081"></a>
+**Source:** p.5 S081
+
+**Original:** 0 .15V
+
+**中文:** 0.15V
+
+<a id="S082"></a>
+**Source:** p.5 S082
+
+**Original:** 0.10 V
+
+**中文:** 0.10V
+
+<a id="S083"></a>
+**Source:** p.5 S083
+
+**Original:** 0.05 V
+
+**中文:** 0.05V
+
+<a id="S084"></a>
+**Source:** p.5 S084
+
+**Original:** 0 V
+
+**中文:** 0V
+
+<a id="S085"></a>
+**Source:** p.5 S085
+
+**Original:** 1,625
+
+**中文:** 1,625
+
+<a id="S086"></a>
+**Source:** p.5 S086
+
+**Original:** 1,628
+
+**中文:** 1,628
+
+<a id="S087"></a>
+**Source:** p.5 S087
+
+**Original:** –0.05 V
+
+**中文:** –0.05V
+
+<a id="S088"></a>
+**Source:** p.5 S088
+
+**Original:** 1,500 1,600 1,700 3,000 3,300 3,600 3,900
+
+**中文:** 1,500 1,600 1,700 3,000 3,300 3,600 3,900
+
+<a id="S089"></a>
+**Source:** p.5 S089
+
+**Original:** Wave number (cm–1)
+
+**中文:** 波数 (cm–1)
+
+<a id="S090"></a>
+**Source:** p.5 S090
+
+**Original:** Wave number (cm–1)
+
+**中文:** 波数 (cm–1)
+
+<a id="S091"></a>
+**Source:** p.5 S091
+
+**Original:** Alkaline
+
+**中文:** 碱性
+
+<a id="S092"></a>
+**Source:** p.5 S092
+
+**Original:** VDOS (a.u.)
+
+**中文:** VDOS（a.u.）
+
+<a id="S093"></a>
+**Source:** p.5 S093
+
+**Original:** VDOS (a.u.)
+
+**中文:** VDOS（a.u.）
+
+<a id="S094"></a>
+**Source:** p.5 S094
+
+**Original:** 1,200 1,600 2,800 3,200 3,600 4,000
+
+**中文:** 1,200 1,600 2,800 3,200 3,600 4,000
+
+<a id="S095"></a>
+**Source:** p.5 S095
+
+**Original:** hydrogen electrocatalytic kinetics. The former can reduce the negative charge density on the electrode surface, thereby decreasing the cation concentration required to establish the EDL and eventually improving the interfacial water distribution and H-bond networks. The latter can construct and strengthen the interfacial H-bond networks and serve as the role of proton pump to efficiently transfer the protons in the EDL. We also evaluated the HBEs at acid and alkaline interfaces, through the calculation method introduced in Supplementary Note 1 and Supplementary Fig. 17. Figure 2c shows that the hydrogen binding strength at the acid interface is stronger than that in an alkaline environment, agreeing well with the recent voltammetric and spectroscopic experiments17–19. This demonstrates that the pH-dependent HER kinetics cannot be described aptly by the difference in hydrogen binding strength.
+
+**中文:** 氢电催化动力学。前者可以降低电极表面的负电荷密度，从而降低建立EDL所需的阳离子浓度，最终改善界面水分布和氢键网络。后者可以构建和强化界面氢键网络，并起到质子泵的作用，有效地传输 EDL 中的质子。我们还通过补充说明1和补充图17中介绍的计算方法评估了酸和碱界面的HBE。图2c显示酸界面处的氢结合强度比碱性环境中的氢结合强度更强，这与最近的伏安和光谱实验17-19吻合很好。这表明 pH 依赖性 HER 动力学不能通过氢结合强度的差异来恰当地描述。
+
+<a id="S096"></a>
+**Source:** p.5 S096
+
+**Original:** Rationalization of the H-bond network gap using in situ SEIRAS To corroborate the H-bond network gap in the alkaline EDL, we conducted in situ SEIRAS measurements in ATR mode and compared the experimental vibration responses with the computational VDOS of interfacial water molecules in the simulated EDLs. The ATR-SEIRAS results, given in the form of difference spectra, usually show an excellent surface enhancement effect and sensitivity within ~5–10 nm from
+
+**中文:** 使用原位SEIRAS合理化氢键网络间隙为了证实碱性EDL中的氢键网络间隙，我们在ATR模式下进行了原位SEIRAS测量，并将实验振动响应与模拟EDL中界面水分子的计算VDOS进行比较。 ATR-SEIRAS 结果以差异光谱的形式给出，通常在 ~5–10 nm 范围内显示出优异的表面增强效果和灵敏度
+
+<a id="S097"></a>
+**Source:** p.5 S097
+
+**Original:** Abs. 0.0015
+
+**中文:** 绝对值。 0.0015
+
+<a id="S098"></a>
+**Source:** p.5 S098
+
+**Original:** 0.1 M NaOH, Pt, at –0.05 V
+
+**中文:** 0.1 M NaOH，Pt，–0.05 V
+
+<a id="S099"></a>
+**Source:** p.5 S099
+
+**Original:** H2O(above-gap) 3,451
+
+**中文:** H2O（间隙以上）3,451
+
+<a id="S100"></a>
+**Source:** p.5 S100
+
+**Original:** Abs. 1 × 10 –3
+
+**中文:** 绝对值。 1×10-3
+
+<a id="S101"></a>
+**Source:** p.5 S101
+
+**Original:** 0.20 V
+
+**中文:** 0.20V
+
+<a id="S102"></a>
+**Source:** p.5 S102
+
+**Original:** Na.H2O(Pt) 3,272
+
+**中文:** Na.H2O(铂) 3,272
+
+<a id="S103"></a>
+**Source:** p.5 S103
+
+**Original:** H2O(gap) 3,592
+
+**中文:** H2O(间隙) 3,592
+
+<a id="S104"></a>
+**Source:** p.5 S104
+
+**Original:** 0.15 V
+
+**中文:** 0.15V
+
+<a id="S105"></a>
+**Source:** p.5 S105
+
+**Original:** 0.10 V
+
+**中文:** 0.10V
+
+<a id="S106"></a>
+**Source:** p.5 S106
+
+**Original:** 0.1 M HCIO4, Pt, at –0.05 V
+
+**中文:** 0.1 M HCIO4，Pt，–0.05 V
+
+<a id="S107"></a>
+**Source:** p.5 S107
+
+**Original:** Abs. 5 × 10 –4
+
+**中文:** 绝对值。 5 × 10 –4
+
+<a id="S108"></a>
+**Source:** p.5 S108
+
+**Original:** 0.05 V
+
+**中文:** 0.05V
+
+<a id="S109"></a>
+**Source:** p.5 S109
+
+**Original:** H2O(none-gap) 3,449
+
+**中文:** H2O(无间隙) 3,449
+
+<a id="S110"></a>
+**Source:** p.5 S110
+
+**Original:** H2O(gap) 3,537
+
+**中文:** H2O(间隙) 3,537
+
+<a id="S111"></a>
+**Source:** p.5 S111
+
+**Original:** 0 V
+
+**中文:** 0V
+
+<a id="S112"></a>
+**Source:** p.5 S112
+
+**Original:** –0.05 V
+
+**中文:** –0.05V
+
+<a id="S113"></a>
+**Source:** p.5 S113
+
+**Original:** 3,000 3,200 3,400 3,600 3,800
+
+**中文:** 3,000 3,200 3,400 3,600 3,800
+
+<a id="S114"></a>
+**Source:** p.5 S114
+
+**Original:** Wave number (cm–1)
+
+**中文:** 波数 (cm–1)
+
+<a id="S115"></a>
+**Source:** p.5 S115
+
+**Original:** Alkaline
+
+**中文:** 碱性
+
+<a id="S116"></a>
+**Source:** p.5 S116
+
+**Original:** Acid
+
+**中文:** 酸
+
+<a id="S117"></a>
+**Source:** p.5 S117
+
+**Original:** Acid
+
+**中文:** 酸
+
+<a id="S118"></a>
+**Source:** p.5 S118
+
+**Original:** 2,400 2,800 3,200 3,600 4,000
+
+**中文:** 2,400 2,800 3,200 3,600 4,000
+
+<a id="S119"></a>
+**Source:** p.5 S119
+
+**Original:** molecules within ~6.6 Å from the electrode surface at alkaline (c) and acid (d) interfaces. The orange and blue lines are the Gaussian fittings of computational VDOS. e,f, Deconvolution of the experimental O–H stretching vibration peak at –0.05 V (versus RHE) in NaOH (e) and HClO4 (f) solutions. g,h, Deconvolution of the computational O–H stretching vibration peak at alkaline (g) and acid (h) interfaces.
+
+**中文:** 碱性 (c) 和酸性 (d) 界面处距电极表面约 6.6 Å 范围内的分子。橙色和蓝色线是计算 VDOS 的高斯拟合。 e,f，NaOH (e) 和 HClO4 (f) 溶液中 –0.05 V（相对于 RHE）的实验 O-H 伸缩振动峰的解卷积。 g,h，碱性 (g) 和酸性 (h) 界面处计算 O-H 伸缩振动峰的反卷积。
+
+<a id="S120"></a>
+**Source:** p.5 S120
+
+**Original:** the electrode surface47, thus enabling the accurate detection of the EDL structures at electrochemical interfaces. A chemically deposited Pt thin film electrode is used as the working electrode in SEIRAS. The typical cyclic voltammograms of the Pt thin film electrode in 0.1 M HClO4 and NaOH solutions are shown in Supplementary Fig. 18, and both are identical to those of polycrystalline Pt in the corresponding environments18. Atomic force microscopy images show that the Pt thin film electrode possesses a rough surface with islands composed of Pt nanoparticles (Supplementary Fig. 19). In addition, the spectrum measured in CO-saturated 0.1 M HClO4 solution exhibits only two peaks centred at 2,073 cm–1 and 1,871 cm–1 (Supplementary Fig. 20), which are assigned to the C–O stretching modes of CO adsorbed on the top and bridge sites of Pt surface, respectively48,49. This indicates that the Au substrate is completely covered by the deposited Pt film and thus creates negligible interference in the infrared spectra measurement. Figure 3a,b show the in situ SEIRAS spectra of interfacial water molecules on Pt at various potentials in Ar-saturated 0.1 M NaOH and HClO4 solutions, respectively. The spectra are given in the form of difference spectra, with that collected at potentials of 0.9 V in alkaline and 0.5 V in acid as the references, due to such potentials having been widely used in previous reports18,50,51. Moreover, we find that the spectra recorded in a wide potential range (from 1.10 V to –0.05 V) exhibit approximately a
+
+**中文:** 电极表面47，从而能够准确检测电化学界面处的EDL结构。 SEIRAS 中使用化学沉积的 Pt 薄膜电极作为工作电极。补充图 18 显示了 Pt 薄膜电极在 0.1 M HClO4 和 NaOH 溶液中的典型循环伏安图，两者与相应环境中的多晶 Pt 的循环伏安图相同。原子力显微镜图像显示，Pt 薄膜电极具有粗糙的表面，其岛状结构由 Pt 纳米颗粒组成（补充图 19）。此外，在 CO 饱和的 0.1 M HClO4 溶液中测量的光谱仅显示出两个中心位于 2,073 cm–1 和 1,871 cm–1 处的峰（补充图 20），这两个峰分别对应于吸附在 Pt 表面顶部和桥位上的 CO 的 C-O 拉伸模式48,49。这表明金基板完全被沉积的 Pt 薄膜覆盖，因此在红外光谱测量中产生的干扰可以忽略不计。图 3a、b 分别显示了 Ar 饱和的 0.1 M NaOH 和 HClO4 溶液中不同电位下 Pt 上界面水分子的原位 SEIRAS 谱。光谱以差分光谱的形式给出，以在碱性 0.9 V 和酸性 0.5 V 电位下收集的光谱作为参考，因为这种电位在以前的报告中已被广泛使用18,50,51。此外，我们发现在宽电位范围（从 1.10 V 到 –0.05 V）记录的光谱表现出大约
+
+<a id="S121"></a>
+**Source:** p.5 S121
+
+**Original:** 1,500 1,600 1,700 3,000 3,300 3,600 3,900
+
+**中文:** 1,500 1,600 1,700 3,000 3,300 3,600 3,900
+
+<a id="S122"></a>
+**Source:** p.5 S122
+
+**Original:** 1,200 1,600 2,800 3,200 3,600 4,000
+
+**中文:** 1,200 1,600 2,800 3,200 3,600 4,000
+
+<a id="S123"></a>
+**Source:** p.5 S123
+
+**Original:** Wave number (cm–1) Wave number (cm–1) Wave number (cm–1)
+
+**中文:** 波数 (cm–1) 波数 (cm–1) 波数 (cm–1)
+
+<a id="S124"></a>
+**Source:** p.5 S124
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 904
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 904
+
+<a id="F003"></a>
+### Fig. 3. 图3|红外光谱
+
+**Placed near:** p.5 S124
+
+**Source:** p.5 C003
+
+![Fig. 3](assets/v003.png)
+
+**Original caption:** Fig. 3 | Infrared spectra. a,b, In situ SEIRAS spectra recorded at potentials from 0.20 V to –0.05 V for a Pt electrode in Ar-saturated solutions of 0.1 M NaOH (a) and 0.1 M HClO4 (b). Spectra subtracted by the reference spectrum taken at 0.90 V and 0.50 V for alkaline and acid systems, respectively. The spectra recorded at potentials from 1.10 V to –0.05 V are available in Supplementary Fig. 21. c,d, The computational VDOS (grey jagged lines) of interfacial water
+
+**中文图注:** 图3|红外光谱。 a,b，在 0.1 M NaOH (a) 和 0.1 M HClO4 (b) 的 Ar 饱和溶液中，在 0.20 V 至 –0.05 V 电位范围内记录的 Pt 电极的原位 SEIRAS 光谱。光谱减去碱性和酸性系统分别在 0.90 V 和 0.50 V 下获取的参考光谱。补充图 21 中提供了在 1.10 V 至 –0.05 V 电位下记录的光谱。c,d，界面水的计算 VDOS（灰色锯齿线）
+
+**Reading note:** Compare the visual evidence with the nearby text; it is not an independent substitute for the stated experimental conditions or computational model.
+
+
+## Page 6
+<a id="page-6"></a>
+
+<a id="S125"></a>
+**Source:** p.6 S125
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+
+<a id="S126"></a>
+**Source:** p.6 S126
+
+**Original:** a b
+
+**中文:** 乙
+
+<a id="S127"></a>
+**Source:** p.6 S127
+
+**Original:** Alkaline
+
+**中文:** 碱性
+
+<a id="S128"></a>
+**Source:** p.6 S128
+
+**Original:** 10.8
+
+**中文:** 10.8
+
+<a id="S129"></a>
+**Source:** p.6 S129
+
+**Original:** Region 6
+
+**中文:** 6区
+
+<a id="S130"></a>
+**Source:** p.6 S130
+
+**Original:** 9.4
+
+**中文:** 9.4
+
+<a id="S131"></a>
+**Source:** p.6 S131
+
+**Original:** Distance to metal surface (Å)
+
+**中文:** 到金属表面的距离 (Å)
+
+<a id="S132"></a>
+**Source:** p.6 S132
+
+**Original:** Region 5
+
+**中文:** 5区
+
+<a id="S133"></a>
+**Source:** p.6 S133
+
+**Original:** 8.0
+
+**中文:** 8.0
+
+<a id="S134"></a>
+**Source:** p.6 S134
+
+**Original:** Region 4
+
+**中文:** 4区
+
+<a id="S135"></a>
+**Source:** p.6 S135
+
+**Original:** 6.6
+
+**中文:** 6.6
+
+<a id="S136"></a>
+**Source:** p.6 S136
+
+**Original:** Region 3
+
+**中文:** 区域3
+
+<a id="S137"></a>
+**Source:** p.6 S137
+
+**Original:** 5.2
+
+**中文:** 5.2
+
+<a id="S138"></a>
+**Source:** p.6 S138
+
+**Original:** Region 2
+
+**中文:** 区域2
+
+<a id="S139"></a>
+**Source:** p.6 S139
+
+**Original:** 3.8
+
+**中文:** 3.8
+
+<a id="S140"></a>
+**Source:** p.6 S140
+
+**Original:** Region 1
+
+**中文:** 区域1
+
+<a id="S141"></a>
+**Source:** p.6 S141
+
+**Original:** 2.4
+
+**中文:** 2.4
+
+<a id="S142"></a>
+**Source:** p.6 S142
+
+**Original:** Pt(111) electrode
+
+**中文:** 铂(111)电极
+
+<a id="S143"></a>
+**Source:** p.6 S143
+
+**Original:** 0.4 0.3 0.2 0.1 0
+
+**中文:** 0.4 0.3 0.2 0.1 0
+
+<a id="S144"></a>
+**Source:** p.6 S144
+
+**Original:** c d
+
+**中文:** 光盘
+
+<a id="S145"></a>
+**Source:** p.6 S145
+
+**Original:** SEIRAS
+
+**中文:** 塞拉斯
+
+<a id="S146"></a>
+**Source:** p.6 S146
+
+**Original:** Proportion of H2O(gap) (%)
+
+**中文:** H2O(间隙)比例(%)
+
+<a id="S147"></a>
+**Source:** p.6 S147
+
+**Original:** Alkaline
+
+**中文:** 碱性
+
+<a id="S148"></a>
+**Source:** p.6 S148
+
+**Original:** –0.05 0 0.05 0.10 0.15 0.20
+
+**中文:** –0.05 0 0.05 0.10 0.15 0.20
+
+<a id="S149"></a>
+**Source:** p.6 S149
+
+**Original:** Potential (V versus RHE)
+
+**中文:** 电势（V 与 RHE）
+
+<a id="S150"></a>
+**Source:** p.6 S150
+
+**Original:** watershed at 0.9 V in alkaline and 0.5 V in acid (Supplementary Fig. 21), which implies that the water molecules in EDLs undergo a substantial change in adsorption configurations49. Thus, taking 0.9 V in alkaline and 0.5 V in acid as the reference potentials can avoid the interference of a configuration change on the difference spectra of interfacial water molecules. Although taking the spectra at any potentials below 0.9 V as the reference in alkaline may not involve the interference of the water configuration change, significant accumulation of cations at the inner Helmholtz plane already occurs if the potential deviates too much from the PZC, for example, 0.5 V versus RHE (the PZC is around 1.0 V versus RHE in alkaline)29. This will result in the partial loss of spectral information of interfacial water associated with the cation crowding effect in an alkaline system. In addition, we have calculated the VDOS values for the interfacial water molecules within ~6.6 Å from the Pt surface in the AIMD-simulated EDLs at alkaline and acid interfaces. As shown in Fig. 3c,d, the computational spectra possess very similar shapes to that of the experimental SEIRAS spectra. Specifically, the O–H stretching peak of interfacial water displays a broader and symmetric shape in an alkaline system but a more asymmetric shape extending towards the lower frequency region in an acidic system. In addition, the experimental O–H stretching peak in NaOH solution can be deconvoluted into three distinct components through Gaussian fitting (Fig. 3e and Supplementary Fig. 22a); in HClO4 solution, the O–H stretching band can only be resolved into two
+
+**中文:** 碱性电压为 0.9 V，酸性电压为 0.5 V（补充图 21），这意味着 EDL 中的水分子的吸附构型发生了实质性变化49。因此，以碱性0.9 V和酸性0.5 V为参考电位可以避免构型变化对界面水分子差异光谱的干扰。尽管以低于 0.9 V 的任何电位的光谱作为碱性条件下的参考可能不会涉及水构型变化的干扰，但如果电位偏离 PZC 太多，例如，0.5 V 与 RHE（碱性条件下 PZC 相对于 RHE 约为 1.0 V）29，内亥姆霍兹平面上的阳离子就会发生显着积累。这将导致与碱性系统中的阳离子拥挤效应相关的界面水的光谱信息的部分丢失。此外，我们还计算了 AIMD 模拟的 EDL 中碱性和酸性界面处距 Pt 表面约 6.6 Å 范围内的界面水分子的 VDOS 值。如图 3c、d 所示，计算光谱具有与实验 SEIRAS 光谱非常相似的形状。具体来说，界面水的O-H伸缩峰在碱性体系中表现出更宽且对称的形状，但在酸性体系中表现出向低频区域延伸的更不对称的形状。此外，NaOH溶液中的实验O-H伸缩峰可以通过高斯拟合解卷积为三个不同的分量（图3e和补充图22a）；在HClO4溶液中，O-H伸缩带只能分解成两个
+
+<a id="S151"></a>
+**Source:** p.6 S151
+
+**Original:** 1,200
+
+**中文:** 1,200
+
+<a id="S152"></a>
+**Source:** p.6 S152
+
+**Original:** 1,600
+
+**中文:** 1,600
+
+<a id="S153"></a>
+**Source:** p.6 S153
+
+**Original:** 2,800
+
+**中文:** 2,800
+
+<a id="S154"></a>
+**Source:** p.6 S154
+
+**Original:** 3,200
+
+**中文:** 3,200
+
+<a id="S155"></a>
+**Source:** p.6 S155
+
+**Original:** 3,600
+
+**中文:** 3,600
+
+<a id="S156"></a>
+**Source:** p.6 S156
+
+**Original:** 4,000
+
+**中文:** 4,000
+
+<a id="S157"></a>
+**Source:** p.6 S157
+
+**Original:** Region 6
+
+**中文:** 6区
+
+<a id="S158"></a>
+**Source:** p.6 S158
+
+**Original:** Region 5
+
+**中文:** 5区
+
+<a id="S159"></a>
+**Source:** p.6 S159
+
+**Original:** Region 4
+
+**中文:** 4区
+
+<a id="S160"></a>
+**Source:** p.6 S160
+
+**Original:** VDOS (a.u.)
+
+**中文:** VDOS（a.u.）
+
+<a id="S161"></a>
+**Source:** p.6 S161
+
+**Original:** Region 3
+
+**中文:** 区域3
+
+<a id="S162"></a>
+**Source:** p.6 S162
+
+**Original:** H2O(above-gap)
+
+**中文:** H2O(间隙上方)
+
+<a id="S163"></a>
+**Source:** p.6 S163
+
+**Original:** Region 2
+
+**中文:** 区域2
+
+<a id="S164"></a>
+**Source:** p.6 S164
+
+**Original:** H2O(gap)
+
+**中文:** H2O(间隙)
+
+<a id="S165"></a>
+**Source:** p.6 S165
+
+**Original:** Region 1
+
+**中文:** 区域1
+
+<a id="S166"></a>
+**Source:** p.6 S166
+
+**Original:** Na.H2O(Pt)
+
+**中文:** Na·H2O(铂)
+
+<a id="S167"></a>
+**Source:** p.6 S167
+
+**Original:** 1,200
+
+**中文:** 1,200
+
+<a id="S168"></a>
+**Source:** p.6 S168
+
+**Original:** 1,600
+
+**中文:** 1,600
+
+<a id="S169"></a>
+**Source:** p.6 S169
+
+**Original:** 2,800
+
+**中文:** 2,800
+
+<a id="S170"></a>
+**Source:** p.6 S170
+
+**Original:** 3,200
+
+**中文:** 3,200
+
+<a id="S171"></a>
+**Source:** p.6 S171
+
+**Original:** 3,600
+
+**中文:** 3,600
+
+<a id="S172"></a>
+**Source:** p.6 S172
+
+**Original:** 4,000
+
+**中文:** 4,000
+
+<a id="S173"></a>
+**Source:** p.6 S173
+
+**Original:** SEIRAS
+
+**中文:** 塞拉斯
+
+<a id="S174"></a>
+**Source:** p.6 S174
+
+**Original:** Proportion of H2O(gap) (%)
+
+**中文:** H2O(间隙)比例(%)
+
+<a id="S175"></a>
+**Source:** p.6 S175
+
+**Original:** Acid
+
+**中文:** 酸
+
+<a id="S176"></a>
+**Source:** p.6 S176
+
+**Original:** –0.05 0 0.05 0.10 0.15 0.20 20
+
+**中文:** –0.05 0 0.05 0.10 0.15 0.20 20
+
+<a id="S177"></a>
+**Source:** p.6 S177
+
+**Original:** Potential (V versus RHE)
+
+**中文:** 电势（V 与 RHE）
+
+<a id="S178"></a>
+**Source:** p.6 S178
+
+**Original:** The blue dashed lines represent the peak positions. c,d, Potential-dependent proportion of H2O(gap) from in situ SEIRAS spectra at alkaline (c) and acid (d) interfaces.
+
+**中文:** 蓝色虚线代表峰值位置。 c,d，来自碱性 (c) 和酸性 (d) 界面处原位 SEIRAS 光谱的 H2O（间隙）的电势相关比例。
+
+<a id="S179"></a>
+**Source:** p.6 S179
+
+**Original:** components (Fig. 3f and Supplementary Fig. 22b). The deconvolution of the computational VDOS of the O–H stretching mode exhibits nearly identical features (Fig. 3g,h). These consistencies not only indicate that the ATR-SEIRAS signals were mainly derived from the first few layers of water molecules close to the electrode surface, but also confirm that the AIMD-simulated EDL structures reasonably represent structures at the real electrochemical interfaces. Therefore, the existence of a H-bond network gap at the alkaline interfaces can be proven. To further understand the experimental and computed vibrational spectra, the VDOS of interfacial water molecules at different distances from the electrode surface have been calculated. Figure 4a shows the schematic diagram of the division into regions, in which region 2 is the gap region of H-bond networks. As shown in Fig. 4b, the O–H stretching vibration peak of water molecules at the alkaline interface exhibits first a blueshift and then a redshift with the location moving away from the electrode surface. The water molecules located in the gap region (denoted H2O(gap)) have the highest O–H stretching vibration frequency, while those above the gap region (denoted H2O(above-gap)) and those nearest to the electrode surface (denoted Na.H2O(Pt)) have the second and lowest O–H stretching vibration frequencies, respectively. The blueshift of the O–H stretching mode of water within the gap region can be explained with the presence of a quasi-dangling OH group, as suggested by the sum frequency generation spectra52. In addition, these features of theoretical spectra seem to agree well with
+
+**中文:** 组件（图3f和补充图22b）。 O-H 拉伸模式的计算 VDOS 的反卷积表现出几乎相同的特征（图 3g，h）。这些一致性不仅表明 ATR-SEIRAS 信号主要来自靠近电极表面的前几层水分子，而且证实 AIMD 模拟的 EDL 结构合理地代表了真实电化学界面的结构。因此，可以证明碱性界面处存在氢键网络间隙。为了进一步了解实验和计算的振动光谱，计算了距电极表面不同距离处界面水分子的 VDOS。图4a为区域划分示意图，其中区域2为氢键网络的间隙区域。如图4b所示，碱性界面处水分子的O-H伸缩振动峰首先出现蓝移，然后随着位置远离电极表面而出现红移。位于间隙区域的水分子（记为H2O(gap)）具有最高的O-H伸缩振动频率，而间隙区域上方的水分子（记为H2O(above-gap)）和最靠近电极表面的水分子（记为Na.H2O(Pt)）分别具有第二和最低的O-H伸缩振动频率。间隙区域内水的 O-H 伸缩模式的蓝移可以用准悬挂 OH 基团的存在来解释，如和频生成谱所示52。此外，理论光谱的这些特征似乎与
+
+<a id="S180"></a>
+**Source:** p.6 S180
+
+**Original:** Concentration of O (mol cm–3) Wave number (cm–1)
+
+**中文:** O 浓度 (mol cm–3) 波数 (cm–1)
+
+<a id="S181"></a>
+**Source:** p.6 S181
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 905
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 905
+
+
+## Page 7
+<a id="page-7"></a>
+
+<a id="S182"></a>
+**Source:** p.7 S182
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+
+<a id="S183"></a>
+**Source:** p.7 S183
+
+**Original:** a b c
+
+**中文:** ABC
+
+<a id="S184"></a>
+**Source:** p.7 S184
+
+**Original:** Pt3Ru(111)–OHad Pt3Ru(111) Pt(111)
+
+**中文:** Pt3Ru(111)–OHad Pt3Ru(111) Pt(111)
+
+<a id="S185"></a>
+**Source:** p.7 S185
+
+**Original:** CIP
+
+**中文:** 就地清洗
+
+<a id="S186"></a>
+**Source:** p.7 S186
+
+**Original:** OHad
+
+**中文:** 奥哈德
+
+<a id="S187"></a>
+**Source:** p.7 S187
+
+**Original:** d e
+
+**中文:** 德
+
+<a id="S188"></a>
+**Source:** p.7 S188
+
+**Original:** 0.40
+
+**中文:** 0.40
+
+<a id="S189"></a>
+**Source:** p.7 S189
+
+**Original:** Pt(111)
+
+**中文:** 铂(111)
+
+<a id="S190"></a>
+**Source:** p.7 S190
+
+**Original:** Pt3Ru(111)
+
+**中文:** Pt3Ru(111)
+
+<a id="S191"></a>
+**Source:** p.7 S191
+
+**Original:** Concentration of O (mol cm–3)
+
+**中文:** O 浓度 (mol cm–3)
+
+<a id="S192"></a>
+**Source:** p.7 S192
+
+**Original:** 0.32
+
+**中文:** 0.32
+
+<a id="S193"></a>
+**Source:** p.7 S193
+
+**Original:** Pt3Ru(111)–OHad
+
+**中文:** Pt3Ru(111)–OHad
+
+<a id="S194"></a>
+**Source:** p.7 S194
+
+**Original:** 0.24
+
+**中文:** 0.24
+
+<a id="S195"></a>
+**Source:** p.7 S195
+
+**Original:** 0.16
+
+**中文:** 0.16
+
+<a id="S196"></a>
+**Source:** p.7 S196
+
+**Original:** 0.056 mol cm–3
+
+**中文:** 0.056 摩尔厘米–3
+
+<a id="S197"></a>
+**Source:** p.7 S197
+
+**Original:** 0.08
+
+**中文:** 0.08
+
+<a id="S198"></a>
+**Source:** p.7 S198
+
+**Original:** 2 4 6 8 10 12
+
+**中文:** 2 4 6 8 10 12
+
+<a id="S199"></a>
+**Source:** p.7 S199
+
+**Original:** Distance to metal surface (Å)
+
+**中文:** 到金属表面的距离 (Å)
+
+<a id="S200"></a>
+**Source:** p.7 S200
+
+**Original:** the above experimental observation that the O–H stretching spectra for water molecules at the alkaline interface can be deconvoluted into three distinct components. Consequently, the high wave-number component (green shading), main component (yellow shading) and low wave-number component (blue shading) in Fig. 3e,g are associated with H2O(gap), H2O(above-gap) and Na.H2O(Pt), respectively. In an acidic system, the H2O(gap) gives a slightly higher theoretical O–H stretching wave number, while the other interfacial water molecules (denoted as H2O(none-gap)) exhibit nearly the same O–H stretching vibration frequency (Supplementary Fig. 23), which seems to explain well why the experimental spectra for the acidic system can only be deconvoluted into two distinct components (Fig. 3f,h). These results reveal that the H2O(gap) usually has a stronger O–H stretching vibration when comparing to the adjacent water molecules, which should further suggest the relative scarcity of H-bond networks in the gap region. In addition, the partial VDOS of interfacial water molecules at various distances from the electrode are analysed, to verify the accuracy and reliability of the above deconvolutions and peak assignments of the experimental SEIRAS and theoretical VDOS. As shown in Supplementary Figs. 24 and 25, it is apparent that either at the alkaline interface or the acidic interface, the variation trends of the O–H stretching vibration frequencies obtained from the partial VDOS of O atoms at different distances from the electrode surface are fully in line with those obtained from the partial VDOS of H atoms and the total VDOS (Fig. 4b and Supplementary Fig. 23b), which further rationalizes the deconvolutions of the experimental SEIRAS and theoretical VDOS and their peak assignments.
+
+**中文:** 上述实验观察表明，碱性界面处水分子的 O-H 伸缩光谱可以解卷积为三个不同的分量。因此，图3e、g中的高波数分量（绿色阴影）、主要分量（黄色阴影）和低波数分量（蓝色阴影）分别与H2O（间隙）、H2O（间隙上方）和Na·H2O（Pt）相关。在酸性体系中，H2O（间隙）给出了稍高的理论O-H伸缩波数，而其他界面水分子（表示为H2O（无间隙））表现出几乎相同的O-H伸缩振动频率（补充图23），这似乎很好地解释了为什么酸性体系的实验光谱只能解卷积为两个不同的分量（图3f，h）。这些结果表明，与相邻的水分子相比，H2O（间隙）通常具有更强的O-H伸缩振动，这进一步表明间隙区域氢键网络的相对稀缺性。此外，还分析了距电极不同距离处界面水分子的部分VDOS，以验证上述实验SEIRAS和理论VDOS的反卷积和峰分配的准确性和可靠性。如补充图中所示。从图24和图25可以看出，无论是在碱性界面还是酸性界面，从距离电极表面不同距离的O原子的部分VDOS获得的O-H伸缩振动频率的变化趋势与从H原子的部分VDOS和总VDOS获得的O-H伸缩振动频率的变化趋势完全一致（图4b和补充图23b），这进一步合理化了实验SEIRAS和理论VDOS的反卷积及其峰分配。
+
+<a id="S201"></a>
+**Source:** p.7 S201
+
+**Original:** Number of H bonds
+
+**中文:** H键数量
+
+<a id="S202"></a>
+**Source:** p.7 S202
+
+**Original:** Pt(111)
+
+**中文:** 铂(111)
+
+<a id="S203"></a>
+**Source:** p.7 S203
+
+**Original:** Pt3Ru(111)
+
+**中文:** Pt3Ru(111)
+
+<a id="S204"></a>
+**Source:** p.7 S204
+
+**Original:** Pt3Ru(111)–OHad
+
+**中文:** Pt3Ru(111)–OHad
+
+<a id="S205"></a>
+**Source:** p.7 S205
+
+**Original:** 2.5 3.8 5.1 6.4 7.7 9.0 10.3 11.5 12.8
+
+**中文:** 2.5 3.8 5.1 6.4 7.7 9.0 10.3 11.5 12.8
+
+<a id="S206"></a>
+**Source:** p.7 S206
+
+**Original:** Distance to metal surface (Å)
+
+**中文:** 到金属表面的距离 (Å)
+
+<a id="S207"></a>
+**Source:** p.7 S207
+
+**Original:** OHad and Had are coloured in grey, blue, white, purple, red, orange and yellow, respectively. d, The concentration distribution profiles of O atoms of water along the surface normal direction. e, Statistical distribution of the number of H bonds along the surface normal direction. The green shadings represent the gap regions of interfacial water and H-bond networks.
+
+**中文:** OHad 和 Had 分别为灰色、蓝色、白色、紫色、红色、橙色和黄色。 d，水O原子沿表面法线方向的浓度分布剖面。 e，H键数量沿表面法线方向的统计分布。绿色阴影代表界面水和氢键网络的间隙区域。
+
+<a id="S208"></a>
+**Source:** p.7 S208
+
+**Original:** To further compare the degrees of the H-bond network gap at alkaline and acidic interfaces, the potential dependences of O–H stretching vibration frequencies of each type of interfacial water molecules at alkaline and acidic interfaces are compared (Supplementary Fig. 26). In addition to the frequency shift due to the vibrational Stark effect53, the difference in the O–H stretching wave numbers between H2O(gap) and H2O(above-gap) in an alkaline system (~150 cm–1) is much higher than that between H2O(gap) and H2O(none-gap) in an acidic system (~72 cm–1), demonstrating the much more severe scarcity of H-bond networks in an alkaline EDL. On the other hand, the potential-dependent proportions of the deconvoluted peak for H2O(gap) in alkaline and acidic environments have been analysed. The proportion of H2O(gap) molecules at the alkaline interface gradually decreases with decreasing potential (Fig. 4c), which should be due to the more serious depletion of water molecules and H-bond networks caused by the increased Na+ concentration in the EDL. By contrast, the proportion of H2O(gap) molecules at the acidic interface not only is much higher than that at the alkaline interface, but also shows negligible change with potential (Fig. 4d), which suggests that the discontinuity of H-bond networks is almost negligible in the acidic system. To check whether the choice of reference spectra affects the above discussions and conclusions, the spectra recorded at 0.90 V was used as the reference in acid. The difference spectra obtained have similar shapes but a larger line-width (Supplementary Fig. 27a) as compared to that shown in Fig. 3b. However, as shown in Supplementary Fig. 27b–d, the O–H stretching bands can only be resolved into two components and exhibit the same
+
+**中文:** 为了进一步比较碱性和酸性界面处氢键网络间隙的程度，比较了碱性和酸性界面处每种类型界面水分子的O-H伸缩振动频率的潜在依赖性（补充图26）。除了振动斯塔克效应导致的频移53之外，碱性体系（~150 cm-1）中H2O（间隙）和H2O（间隙以上）之间的O-H伸缩波数差异远高于酸性体系（~72 cm-1）中H2O（间隙）和H2O（无间隙）之间的O-H伸缩波数差异，这表明碱性EDL中氢键网络的稀缺性要严重得多。另一方面，分析了碱性和酸性环境中 H2O(gap) 解卷积峰的电势相关比例。随着电势的降低，碱性界面上的H2O（间隙）分子的比例逐渐减少（图4c），这应该是由于EDL中Na+浓度的增加导致水分子和氢键网络的消耗更加严重。相比之下，酸性界面上的H2O（间隙）分子比例不仅远高于碱性界面，而且随电势的变化可以忽略不计（图4d），这表明酸性体系中氢键网络的不连续性几乎可以忽略不计。为了检验参考光谱的选择是否影响上述讨论和结论，使用0.90 V 下记录的光谱作为酸中的参考。与图 3b 相比，获得的差异光谱具有相似的形状，但线宽更大（补充图 27a）。然而，如补充图27b-d所示，O-H拉伸带只能分解为两个分量并表现出相同的
+
+<a id="S209"></a>
+**Source:** p.7 S209
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 906
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 906
+
+
+## Page 8
+<a id="page-8"></a>
+
+<a id="S210"></a>
+**Source:** p.8 S210
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+
+<a id="S211"></a>
+**Source:** p.8 S211
+
+**Original:** features as that shown in Fig. 4d and Supplementary Fig. 26, which confirms that the discontinuity of H-bond networks in the EDL is evident in alkaline, while being almost negligible in acid. Finally, the analysis of the experimental spectra and its correlations with the EDL structures are not unassailable, and we should be fairly cautious, because there still exist great challenges and limitations in high-quality acquisition of interface spectroscopy signals, spectral peak deconvolutions and assignments, and so on. However, the combination of experimental and computational spectra can provide an avenue for exploring electrochemical interface structures more accurately.
+
+**中文:** 其特征如图 4d 和补充图 26 所示，这证实了 EDL 中氢键网络的不连续性在碱性条件下很明显，而在酸性条件下几乎可以忽略不计。最后，对实验光谱及其与EDL结构的相关性的分析并非无懈可击，我们应该相当谨慎，因为在界面光谱信号的高质量采集、光谱峰解卷积和分配等方面仍然存在很大的挑战和限制。然而，实验和计算光谱的结合可以为更准确地探索电化学界面结构提供途径。
+
+<a id="S212"></a>
+**Source:** p.8 S212
+
+**Original:** Improving the H-bond network connectivity by OH adsorption Numerous recent studies have revealed that alloying Pt with Ru can significantly enhance the HOR/HER kinetics in alkaline electrolyte, which has been ascribed to the facilitated water formation/dissociation due to the increased OH/H2O adsorption on the more oxophilic Ru atoms20,27. As shown in the previous section, the water dissociation may not be the major cause of the decreased activity of Pt in the hydrogen electrocatalytic reaction in alkaline electrolyte, while the connectivity of H-bond networks near CIP may be a dominant factor of the kinetic pH effect. Therefore, we investigate the effect of OH adsorption on the connectivity of interfacial H-bond networks, using Pt3Ru(111) as a model surface. First, the alkaline interfaces on the Pt3Ru(111) electrodes with and without OH adsorption in the HOR scenario are simulated (Fig. 5a,b), and the electrode potentials at pH = 14 are calculated as ~0.40 V and ~0.14 V, respectively. Meanwhile, the interface on the Pt(111) electrode under alkaline HOR conditions is also shown for comparison (Fig. 5c and Supplementary Fig. 8). As shown in Fig. 5d,e, the distributions of water concentration and number of H bonds at the interface on the Pt3Ru(111) electrode without OH adsorption are very similar to those on the Pt(111) electrode, both exhibiting fairly low water concentrations and scarce H bonds within the green shaded region (namely, the gap zone above the CIP). By contrast, at the interface on the Pt3Ru(111) electrode with OH adsorbed on Ru sites, the water concentration within the green shaded region is apparently higher, which therefore leads to the remarkable increase in the number of H-bonds. This suggests that the OH adsorption can significantly increase the water connectivity and improve the H-bond networks in the EDL. Then, to further verify this role of OH adsorption, the alkaline interfaces on Pt3Ru(111) and stepped Ru–Pt(553) electrodes in the HER scenario are also simulated. The results indicate that the interfacial water concentration and number of H bonds in the gap zone increase significantly on the electrodes with OHad (Supplementary Figs. 28 and 29). In addition, in situ SEIRAS measurements are also performed for the Pt–Ru electrode in alkaline media (Supplementary Fig. 30). The spectral results show that, compared to that on the Pt electrode, the proportion of H2O(gap) molecules at the alkaline interface on the Pt–Ru electrode becomes distinctly higher and the O–H stretching band of H2O(gap) is redshifted by ~15 cm–1 (Supplementary Fig. 31), which suggests that the water concentration in the gap zone is increased and the H-bond networks in the EDL are enhanced accordingly. The combination of in situ SEIRAS experiments and AIMD simulations thus provides a solid support for the role of OH adsorption in improving the connectivity of interfacial water distribution and H-bond networks in an alkaline EDL on Pt–Ru. Furthermore, all the above results imply that the proposed connectivity of H-bond networks in the EDL could serve as the universal descriptor for the kinetic pH effect in both the HER and HOR. To understand this phenomenon, the EDL structures of the interfaces on Pt3Ru(111) electrodes with and without OH adsorption are carefully compared. First, on the Pt3Ru(111) electrode with OH adsorption, the Na+ ions mainly gather around the adsorbed OH species due to the coordination interaction, rather than being more spread over the electrode surface as on bare Pt3Ru(111), as shown in Fig. 5a,b and Supplementary Fig. 32. The aggregation of cations around OH would increase the space for water molecules in the CIP region. On the other hand, the coordination between Na+ ions and adsorbed OH leaves more free water
+
+**中文:** 通过 OH 吸附改善氢键网络连通性 最近的大量研究表明，将 Pt 与 Ru 合金化可以显着增强碱性电解质中的 HOR/HER 动力学，这归因于由于亲氧性更强的 Ru 原子上 OH/H2O 吸附的增加而促进了水的形成/解离20,27。如上一节所示，水解离可能不是碱性电解液中氢电催化反应中 Pt 活性降低的主要原因，而 CIP 附近氢键网络的连通性可能是动力学 pH 效应的主导因素。因此，我们使用 Pt3Ru(111) 作为模型表面，研究 OH 吸附对界面氢键网络连通性的影响。首先，模拟了HOR场景中具有和不具有OH吸附的Pt3Ru(111)电极上的碱性界面（图5a，b），并且pH = 14时的电极电势分别计算为~0.40 V和~0.14 V。同时，还显示了碱性 HOR 条件下 Pt(111) 电极上的界面以进行比较（图 5c 和补充图 8）。如图5d、e所示，没有OH吸附的Pt3Ru(111)电极界面上的水浓度和H键数量分布与Pt(111)电极上的非常相似，两者在绿色阴影区域(即CIP上方的间隙区域)都表现出相当低的水浓度和稀有的H键。相比之下，在Ru位点上吸附有OH的Pt3Ru(111)电极的界面处，绿色阴影区域内的水浓度明显较高，因此导致氢键数量显着增加。这表明 OH 吸附可以显着增加水的连通性并改善 EDL 中的氢键网络。然后，为了进一步验证 OH 吸附的作用，还模拟了 HER 场景中 Pt3Ru(111) 和阶梯式 Ru-Pt(553) 电极上的碱性界面。结果表明，具有 OHad 的电极上，间隙区的界面水浓度和氢键数量显着增加（补充图 28 和 29）。此外，还在碱性介质中对 Pt-Ru 电极进行了原位 SEIRAS 测量（补充图 30）。光谱结果表明，与Pt电极上的相比，Pt-Ru电极上碱性界面处的H2O（间隙）分子比例明显更高，并且H2O（间隙）的O-H伸缩带红移了~15 cm-1（补充图31），这表明间隙区的水浓度增加，EDL中的氢键网络相应增强。因此，原位 SEIRAS 实验和 AIMD 模拟的结合为 OH 吸附在改善 Pt-Ru 上碱性 EDL 中界面水分布和氢键网络的连通性方面的作用提供了坚实的支持。此外，所有上述结果表明，所提出的 EDL 中氢键网络的连通性可以作为 HER 和 HOR 中动力学 pH 效应的通用描述符。为了理解这种现象，仔细比较了有和没有 OH 吸附的 Pt3Ru(111) 电极上界面的 EDL 结构。首先，在具有 OH 吸附的 Pt3Ru(111) 电极上，由于配位相互作用，Na+ 离子主要聚集在吸附的 OH 物种周围，而不是像裸 Pt3Ru(111) 上那样更多地分布在电极表面上，如图 5a、b 和补充图 32 所示。 OH 周围阳离子的聚集会增加 CIP 区域中水分子的空间。另一方面，Na+离子和吸附的OH之间的配位留下更多的自由水
+
+<a id="S213"></a>
+**Source:** p.8 S213
+
+**Original:** molecules (Supplementary Fig. 32), which possess a stronger ability to form an H bond with others. Several recent studies have reported that adding more cations into alkaline solution can improve the HER activity of PtNi, Pt(111)/Ni(OH)2 and other electrodes, and different models, for example, 2B theory and bi-functional theory6,54,55, have been proposed to explain these experimental observations. These results, at first sight, seemingly contradict the current viewpoint that the crowded cations inhibit the HER/HOR by causing the interfacial H-bond gap. However, these observations are mainly obtained on electrodes that have considerable surface affinity for OH species54–56. As shown here, the presence of OHad can significantly offset the depletion effect of crowded cations on the H-bond networks. With the significant improvement of H-bond networks, the other effects of cations on the electrocatalytic kinetics may become important, for example, through the recently proposed 2B and bi-functional mechanisms. Thus, the observed increase in the activity of the OH-adsorbing electrodes with increasing cation concentrations somewhat supports our proposition that OH adsorption enhances the alkaline HER/HOR activity of Pt-based alloys through offsetting the depletion effect of cations on the H-bond networks in EDLs. In addition, the cation concentrations may also impact the HER kinetics by changing the compactness of the EDLs. The cations may have multiple and complicated roles in the kinetics of electrocatalytic reactions, which deserve further detailed studies. In addition, Synder et al. have shown recently that the adsorption of caffeine on the Pt(111) electrode could significantly enhance the HER/ HOR kinetics in alkaline57, but the mechanism is still unclear. In this regard, the alkaline interface on the Pt(111) electrode with an adsorbed caffeine molecule is investigated. As illustrated in Supplementary Fig. 33, the adsorbed caffeine molecule can coordinate with the Na+ cations and therefore lead to the formation of a water domain with rich H-bond networks at the interface, thereby facilitating the alkaline HER/ HOR. This explanation should also be supported by the experimental observation that caffeine adsorption enhances only the alkaline HER/ HOR while inhibiting the acidic HER/HOR. Specifically, due to the good connectivity of H-bond networks in an acidic EDL, the introduction of caffeine would decrease the kinetics mainly by blocking the active sites. The mechanism with which the caffeine improves the hydrogen electrocatalytic kinetics is similar to that of OHad, which further suggests the dominating role of the connectivity of H-bond networks in the kinetic pH effect of hydrogen electrocatalysis.
+
+**中文:** 分子（补充图32），具有更强的与其他分子形成H键的能力。最近的一些研究报道，在碱性溶液中添加更多的阳离子可以提高 PtNi、Pt(111)/Ni(OH)2 和其他电极的 HER 活性，并提出了不同的模型，例如 2B 理论和双功能理论 6,54,55 来解释这些实验观察结果。乍一看，这些结果似乎与当前的观点相矛盾，即拥挤的阳离子通过引起界面氢键间隙来抑制 HER/HOR。然而，这些观察结果主要是在对 OH 物质具有相当大表面亲和力的电极上获得的54-56。如图所示，OHad 的存在可以显着抵消氢键网络上拥挤阳离子的耗尽效应。随着氢键网络的显着改善，阳离子对电催化动力学的其他影响可能变得重要，例如通过最近提出的2B和双功能机制。因此，观察到的 OH 吸附电极的活性随着阳离子浓度的增加而增加，这在一定程度上支持了我们的观点，即 OH 吸附通过抵消 EDL 中氢键网络上阳离子的耗尽效应来增强 Pt 基合金的碱性 HER/HOR 活性。此外，阳离子浓度还可能通过改变 EDL 的致密性来影响 HER 动力学。阳离子在电催化反应动力学中可能具有多种复杂的作用，值得进一步详细研究。此外，Synder 等人。最近表明咖啡因在 Pt(111) 电极上的吸附可以显着增强碱性 57 中的 HER/HOR 动力学，但其机制仍不清楚。在这方面，研究了 Pt(111) 电极上吸附咖啡因分子的碱性界面。如补充图33所示，吸附的咖啡因分子可以与Na+阳离子配位，从而导致界面处形成具有丰富氢键网络的水域，从而促进碱性HER/HOR。这一解释也应该得到实验观察的支持，即咖啡因吸附仅增强碱性 HER/HOR，同时抑制酸性 HER/HOR。具体来说，由于酸性 EDL 中氢键网络的良好连通性，咖啡因的引入将主要通过阻断活性位点来降低动力学。咖啡因改善氢电催化动力学的机制与OHad相似，这进一步表明氢键网络的连通性在氢电催化的动力学pH效应中起主导作用。
+
+<a id="S214"></a>
+**Source:** p.8 S214
+
+**Original:** Conclusions The roles of the EDL structure in the kinetic pH effect of hydrogen electrocatalysis on Pt-based electrodes have been elucidated by combining AIMD simulations and in situ SEIRAS measurements. The results suggest that neither the hydrogen adsorption strength nor the water dissociation/formation barrier is responsible for the greatly reduced kinetics of hydrogen electrocatalysis in alkaline solution; rather, the water distribution and the connectivity of H-bond networks in the EDL play a dominant role. We also revealed an unanticipated role of the adsorbed OH in impacting the electrocatalytic activity, namely, by modulating the water connectivity and improving the H-bond networks in the EDL, rather than by merely affecting the energetics of surface reaction steps (such as water dissociation/formation). Our findings highlight the significance of EDL microstructures in the electrocatalytic reaction kinetics and could provide innovative guidance for designing pH-oriented electrocatalysts. This study may also offer a research model for reference in the future exploration of atomic structures of electrochemical interfaces by combining experimental and computational spectroscopies.
+
+**中文:** 结论 通过结合 AIMD 模拟和原位 SEIRAS 测量，阐明了 EDL 结构在 Pt 基电极氢电催化动力学 pH 效应中的作用。结果表明，氢吸附强度和水解离/形成势垒都不是导致碱性溶液中氢电催化动力学大大降低的原因；相反，EDL 中的水分布和氢键网络的连通性起着主导作用。我们还揭示了吸附的 OH 在影响电催化活性方面的意想不到的作用，即通过调节水的连通性和改善 EDL 中的氢键网络，而不是仅仅影响表面反应步骤的能量（例如水的解离/形成）。我们的研究结果强调了 EDL 微观结构在电催化反应动力学中的重要性，并可为设计 pH 导向的电催化剂提供创新指导。该研究也可为未来结合实验和计算光谱探索电化学界面原子结构提供参考模型。
+
+<a id="S215"></a>
+**Source:** p.8 S215
+
+**Original:** Methods Computations and models All AIMD simulations are performed using the Vienna Ab initio Simulation Package, a plane-wave pseudopotential code58,59.
+
+**中文:** 方法 计算和模型 所有 AIMD 模拟均使用 Vienna Ab initio 模拟包（平面波赝势代码 58,59）进行。
+
+<a id="S216"></a>
+**Source:** p.8 S216
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 907
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 907
+
+
+## Page 9
+<a id="page-9"></a>
+
+<a id="S217"></a>
+**Source:** p.9 S217
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+
+<a id="S218"></a>
+**Source:** p.9 S218
+
+**Original:** The Perdew–Burke–Ernzerhof functional within the generalized gradient approximation is applied to evaluate the exchange and correlation energies60. The wavefunctions are expanded up to a cut-off energy of 400 eV, and the first-order Methfessel–Paxton scheme with a smearing width of 0.2 eV is employed. The van der Waals interaction is considered through the semi-empirical D3 dispersion correction scheme of Grimme61. Non-spin polarization is included in all simulations, because it has almost no effect on the overall energies. The time step is set as 1.0 fs, and only the gamma point of the Brillouin zone with no consideration of symmetry is used. A Nose–Hoover thermostat is applied to keep the temperature of the canonical ensemble at 298 K. The Pt(111)/water interface is modelled by adding 60 water molecules above a four-layer 4 × 4 orthogonal Pt(111) slab with a surface area of 1.10 nm2. The thickness of the water film and vacuum layer are ~1.6 nm and ~2.4 nm, respectively, and the size of the whole simulation box is ~4.9 nm along the z axis. To fully equilibrate the H-bond networks of the water layer and reduce the AIMD simulation time, we first perform a 250 ps classical molecular dynamics simulation with a reactive force field at 298 K by using the Large-scale Atomic/Molecular Massively Parallel Simulator with user package Reax/C (refs. 62,63). The Pt–O–H reactive force field developed by Shin et al. is applied to describe the interaction between the water and metal surface64. The pre-equilibrated Pt(111)/water interface given by the classical molecular dynamics simulations is used as the initial configuration to perform the AIMD simulations. All AIMD trajectories are sampled for runtimes of up to 15–25 ps to ensure that the interface systems are well equilibrated, and the snapshots in the last 10 ps are implied for statistical analyses. For other flattened and stepped Pt surfaces and Pt–Ru systems, the interface models are similar. The atomic coordinates of the initial and final configurations of the trajectories in the AIMD simulations for the systems shown in Fig. 1 and Fig. 5 are provided as Supplementary Data. The work functions (∅) of various metal/electrolyte interfaces are calculated with a standard approach, that is, according to the energy difference between the vacuum level (Evac) and Fermi level (EF). The energy value of Evac is extracted from the planar-averaged electrostatic potential profile, with 10–5 e– Å–3 being chosen as the cut-off value of electron density. This cut-off method is similar to that in the implicit solvation/electrolyte models, in which a cut-off charge density is set to determine the boundary of the dielectric cavity65. Then, according to USHE = ∅ – ∅SHE, where ∅SHE is the work function of the standard hydrogen electrode (SHE; 4.44 V)66, the PZC of the Pt(111)/water interface is calculated as ~0.21 V, a value well in line with the experimental measurements and other molecular dynamics simulations67–69. The VDOS values of interfacial water molecules (within ~6.6 Å away from the Pt surface) were calculated by the Fourier transformation of the velocity auto-correlation functions in the AIMD trajectories. To simulate the acidic and alkaline environments, we explicitly insert hydronium ion (H3O+) and Na ion (Na+), respectively, into a water film. These ions are initially positioned ~3–4 Å away from the Pt(111) surface to model the compact Helmholtz layer. The Gouy–Chapman diffusion layer is omitted when considering the relatively high ion concentration of electrolytes in experiments. The co-ions are also neglected because the electrode surfaces should be highly charged at HER potentials and the co-ions should be repelled away from the Helmholtz plane. Meanwhile, since the whole system is kept charge neutral, the same number of electrons as that of inserted ions will be introduced into the metal surface to tune the Fermi level. Thus, we can vary the number of inserted ions to control the surface charge density and then the electrode potential to reach the potential range of hydrogen evolution. The electrode potentials with respect to that of the RHE are estimated according to URHE =
+
+**中文:** 广义梯度近似中的 Perdew-Burke-Ernzerhof 函数用于评估交换能和相关能 60。波函数扩展到400 eV的截止能量，并采用涂抹宽度为0.2 eV的一阶Methfessel-Paxton格式。通过 Grimme61 的半经验 D3 色散校正方案考虑范德华相互作用。所有模拟中都包含非自旋极化，因为它对整体能量几乎没有影响。时间步长设置为1.0 fs，仅使用布里渊区的伽马点，不考虑对称性。使用 Nose-Hoover 恒温器将规范系综的温度保持在 298 K。通过在表面积为 1.10 nm2 的四层 4 × 4 正交 Pt(111) 板上方添加 60 个水分子来模拟 Pt(111)/水界面。水膜和真空层的厚度分别为~1.6 nm和~2.4 nm，整个模拟盒沿z轴的尺寸为~4.9 nm。为了完全平衡水层的氢键网络并减少 AIMD 模拟时间，我们首先使用带有用户包 Reax/C 的大型原子/分子大规模并行模拟器（参考文献 62,63），在 298 K 的反作用力场下进行 250 ps 的经典分子动力学模拟（参考文献 62,63）。 Shin 等人开发的 Pt-O-H 反作用力场。用于描述水和金属表面之间的相互作用64。经典分子动力学模拟给出的预平衡 Pt(111)/水界面被用作执行 AIMD 模拟的初始配置。所有 AIMD 轨迹均在长达 15-25 ps 的运行时间内进行采样，以确保接口系统良好平衡，并且最后 10 ps 中的快照用于统计分析。对于其他平坦和阶梯状的 Pt 表面和 Pt-Ru 系统，界面模型是相似的。图 1 和图 5 所示系统的 AIMD 模拟中轨迹的初始和最终配置的原子坐标作为补充数据提供。各种金属/电解质界面的功函数（∅）是用标准方法计算的，即根据真空能级（Evac）和费米能级（EF）之间的能量差来计算。 Evac 的能量值是从平面平均静电势分布中提取的，选择 10–5 e– Å–3 作为电子密度的截止值。这种截止方法类似于隐式溶剂化/电解质模型中的方法，其中设置截止电荷密度来确定介电腔的边界65。然后，根据 USHE = ∅ – ∅SHE，其中 ∅SHE 是标准氢电极（SHE；4.44 V）66 的功函数，Pt(111)/水界面的 PZC 计算为 ~0.21 V，该值与实验测量和其他分子动力学模拟非常一致67-69。这通过 AIMD 轨迹中速度自相关函数的傅立叶变换计算界面水分子的 VDOS 值（距 Pt 表面约 6.6 Å 范围内）。为了模拟酸性和碱性环境，我们分别明确地将水合氢离子 (H3O+) 和钠离子 (Na+) 插入水膜中。这些离子最初位于距 Pt(111) 表面约 3-4 Å 的位置，以模拟致密的亥姆霍兹层。考虑到实验中电解质离子浓度相对较高，古伊-查普曼扩散层被省略。共离子也被忽略，因为电极表面在 HER 电势下应高度充电，并且共离子应被排斥远离亥姆霍兹平面。同时，由于整个系统保持电荷中性，与插入离子相同数量的电子将被引入金属表面以调节费米能级。因此，我们可以改变插入离子的数量来控制表面电荷密度，然后控制电极电位以达到析氢的电位范围。相对于 RHE 的电极电势根据 URHE = 估算
+
+<a id="S219"></a>
+**Source:** p.9 S219
+
+**Original:** ∅−∅SHE
+
+**中文:** ∅−∅SHE
+
+<a id="S220"></a>
+**Source:** p.9 S220
+
+**Original:** e + 0.059 × pH , where e is the electron charge. In addition, the hydrogen adsorption intermediate (Had) is taken into account to describe the surface state of the Pt(111) electrode under the hydrogen evolution potential as truthfully as possible, and the
+
+**中文:** e + 0.059 × pH ，其中 e 是电子电荷。此外，还考虑了氢吸附中间体（Had），尽可能真实地描述析氢电位下Pt（111）电极的表面状态，并且
+
+<a id="S221"></a>
+**Source:** p.9 S221
+
+**Original:** coverages are set as 0.88 monolayer (ML, defined per surface Pt atom) and 0.63 ML for acidic and alkaline systems, respectively, according to previous experimental results70. The peculiar advantage of our theoretical model lies in that the electrode potential, the properties and ion concentrations of acidic/alkaline EDLs and the species adsorbed on the electrode surface are approximately self-consistent, which will provide a reasonable description of the pH-dependent reaction kinetics. The slow-growth approach71, within the constrained molecular dynamics framework, is utilized to calculate the free energy profile of the Had formation process (Volmer step), namely the H3O+ dissociation (H3O+ + e− ↔ *H + H2O) in acidic solution and H2O dissociation (H2O + e− ↔ *H + OH−) in alkaline solution. The increment of 0.0008 Å fs–
+
+**中文:** 根据之前的实验结果，酸性和碱性体系的覆盖率分别设置为 0.88 单层（ML，每个表面 Pt 原子定义）和 0.63 ML70。我们的理论模型的独特优势在于电极电位、酸性/碱性EDL的性质和离子浓度以及电极表面吸附的物质近似自洽，这将为pH依赖的反应动力学提供合理的描述。在受限分子动力学框架内，慢增长方法71用于计算Had形成过程（Volmer步骤）的自由能曲线，即酸性溶液中的H3O+解离（H3O+ + e− ↔ *H + H2O）和碱性溶液中的H2O解离（H2O + e− ↔ *H + OH−）。 0.0008 Å fs 的增量–
+
+<a id="S222"></a>
+**Source:** p.9 S222
+
+**Original:** 1 for CV is set to drive the chemical reactions. Three independent simulations are performed for each reaction to ensure the accuracy and reliability of the free energy barrier results. In addition, all constrained molecular dynamics simulations are carried out under constant charge conditions, meaning that the work functions will change along the reaction pathway. To gain the constant potential results and compare with experiments, the correction procedure proposed by Chan and Nørskov is employed to remove any artefacts due to work function changes during the simulation72,73. The detailed principles of the slow-growth approach and constant potential correction can be found in Supplementary Notes 2 and 3.
+
+**中文:** 1 CV 设置为驱动化学反应。每个反应都进行三个独立的模拟，以确保自由能垒结果的准确性和可靠性。此外，所有约束分子动力学模拟都是在恒定电荷条件下进行的，这意味着功函数将沿着反应路径发生变化。为了获得恒定的电势结果并与实验进行比较，采用 Chan 和 Nørskov 提出的校正程序来消除模拟过程中由于功函数变化而产生的任何伪影72,73。慢增长方法和恒定电位校正的详细原理可以在补充说明2和补充说明3中找到。
+
+<a id="S223"></a>
+**Source:** p.9 S223
+
+**Original:** Preparation of Pt and Pt–Ru thin film electrodes The Pt thin film working electrode was prepared by a typical two-step deposition method18,74, involving the chemical deposition of a Au thin film on a hemispheric Si prism followed by the galvanostatic electrodeposition of a Pt thin film on the Au substrate. Before the chemical deposition of Au, the Si prism was first polished gradually using 1.0, 0.3 and 0.05 μm Al2O3 powder for about 30 min until the surface became totally hydrophobic, and then sonicated and rinsed several times with acetone/ethanol (Sinopharm Chemical Reagent, analytical reagent grade (AR)) mixed solution (volume ratio, v/v = 1:1) and double deionized–distilled water (ULUPURE, 18.2 MΩ). After that, the hydrophobic and clean Si prism underwent hydroxylation treatment with piranha solution (the volume ratio between concentrated H2SO4 and 30% H2O2 is 1:1) for 20 min and then was sonicated with distilled water several times. The infrared reflection plane of the Si prism was then dried by Ar (ultra-high purity grade) flow and treated by 40% NH4F (Sinopharm Chemical Reagent, AR) for 2 min to make the surface be terminated with hydrogen. The thin Au film was then deposited on the hydrogen-terminated surface by immediately immersing this plane into a mixture of 9.2 ml Au plating solution and 124 μl 50% HF solution (Sinopharm Chemical Reagent, AR) at 55–60 °C for 6 min. A voltmeter was used to measure the conductivity of the Au film, showing an ohmic resistance lower than 10 Ω. The Au-coated prism was mounted into a homemade spectro-electrochemical cell as the working electrode; a calibrated saturated calomel electrode (SCE) was assembled near the working electrode via a Luggin capillary as the reference electrode; and a Pt mesh with a size of 0.8 cm × 1.0 cm was used as the counter electrode. The Au film was electrochemically cleaned with cyclic voltammetry between 0.0 and 1.4 V (versus SCE) with a scan rate of 50 mV s–1 in the Ar-saturated 0.1 M HClO4 (KESHI, general reagent grade (GR)) solution until a repeatable cyclic voltammetry curve was obtained. After rinsing with sufficient water, electrodeposition of the Pt thin film was carried out in an Ar-saturated solution of 4 mM H2PtCl6 (Kunming Sino-Platinum, >98%) plus 0.7 M Na2HPO4 (Aladdin Chemicals, GR) at a current density of –0.75 mA cm–2 for 900 s followed by –0.4 mA cm–2 for 480 s. The prepared Pt thin film was carefully washed with distilled water several times and used immediately. The Ru-modified Pt film electrode was prepared by immersing the preprepared Pt film electrode in a 1 mM RuCl3 (Aladdin; Ru content, 45–55%) plus 50 mM H2SO4 (Sinopharm Chemical Reagent, GR) solution for 2 min, according to previous reports27,50,54,75.
+
+**中文:** Pt 和 Pt-Ru 薄膜电极的制备 Pt 薄膜工作电极是通过典型的两步沉积方法 18,74 制备的，包括在半球形 Si 棱镜上化学沉积 Au 薄膜，然后在 Au 基底上恒电流电沉积 Pt 薄膜。在化学沉积金之前，首先使用 1.0、0.3 和 0.05 μm Al2O3 粉末逐渐抛光硅棱镜约 30 分钟，直至表面完全疏水，然后用丙酮/乙醇（国药化学试剂，分析纯（AR））混合溶液（体积比，v/v = 1:1）和双去离子蒸馏水（ULUPURE， 18.2兆欧）。然后，用食人鱼溶液（浓H2SO4与30%H2O2的体积比为1:1）对疏水且干净的Si棱镜进行羟基化处理20min，然后用蒸馏水超声处理数次。然后用Ar（超高纯级）气流干燥Si棱镜的红外反射面，并用40%NH4F（国药化学试剂，AR）处理2min，使表面氢封端。然后立即将该平面浸入 9.2 ml 镀金溶液和 124 μl 50% HF 溶液（国药化学试剂，AR）的混合物中，在 55-60 °C 下保持 6 分钟，从而在氢封端表面上沉积薄金膜。使用电压表测量Au膜的电导率，显示欧姆电阻低于10Ω。将镀金棱镜安装到自制的光谱电化学池中作为工作电极；通过鲁金毛细管在工作电极附近组装校准的饱和甘汞电极（SCE）作为参比电极；对电极采用尺寸为0.8 cm×1.0 cm的Pt网。在 Ar 饱和的 0.1 M HClO4（KESHI，通用试剂级 (GR)）溶液中，使用 0.0 至 1.4 V（相对于 SCE）的循环伏安法对金膜进行电化学清洗，扫描速率为 50 mV s–1，直到获得可重复的循环伏安曲线。用足够的水冲洗后，在 4 mM H2PtCl6（昆明华铂，>98%）加 0.7 M Na2HPO4（Aladdin Chemicals，GR）的 Ar 饱和溶液中以 –0.75 mA cm–2 的电流密度电沉积 900 秒，然后以 –0.4 mA cm–2 电沉积 480 秒。将制备好的铂薄膜用蒸馏水仔细清洗数次并立即使用。根据之前的报道27、50、54、75，Ru修饰的Pt膜电极的制备方法是将预先准备好的Pt膜电极浸入1 mM RuCl3（阿拉丁；Ru含量，45-55%）加50 mM H2SO4（国药化学试剂，GR）溶液中2分钟。
+
+<a id="S224"></a>
+**Source:** p.9 S224
+
+**Original:** Nature Catalysis | Volume 5 | October 2022 | 900–911 908
+
+**中文:** 自然催化|第 5 卷 | 2022 年 10 月 | 900–911 908
+
+
+## Page 10
+<a id="page-10"></a>
+
+<a id="S225"></a>
+**Source:** p.10 S225
+
+**Original:** Article https://doi.org/10.1038/s41929-022-00846-8
+
+**中文:** 文章 https://doi.org/10.1038/s41929-022-00846-8
+

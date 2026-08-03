@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T09:43:53.149Z",
+  "generatedAt": "2026-08-03T09:58:08.828Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -348,6 +348,23 @@
       "relatedReading": true,
       "paragraphCount": 41,
       "figureCount": 3
+    },
+    {
+      "slug": "20260804-hbond-network-edl-kinetic-ph-effect",
+      "title": "Hydrogen bond network connectivity in the electric double layer dominates the kinetic pH effect in hydrogen electrocatalysis on Pt",
+      "date": "2022-09-29",
+      "taskDate": "2026-08-04",
+      "uploadedAt": "2026-08-03T09:58:08.828Z",
+      "journal": "Nature Catalysis",
+      "zoteroKey": "II27ECCC",
+      "collections": [
+        "02课题/H2O"
+      ],
+      "pdfPath": "library/20260804-hbond-network-edl-kinetic-ph-effect/paper.pdf",
+      "markdownPath": "library/20260804-hbond-network-edl-kinetic-ph-effect/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 225,
+      "figureCount": 5
     },
     {
       "slug": "20260721-constrained-density-functional-theory-proton-transfers",
