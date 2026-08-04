@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T09:58:08.828Z",
+  "generatedAt": "2026-08-04T09:39:57.806Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -130,6 +130,21 @@
       "relatedReading": true,
       "paragraphCount": 90,
       "figureCount": 6
+    },
+    {
+      "slug": "20260805-boosting-computational-catalysis-ai",
+      "title": "Boosting Computational Catalysis and Chemical Reactivity with Artificial Intelligence",
+      "date": "2026-03-11",
+      "taskDate": "2026-08-05",
+      "uploadedAt": "2026-08-04T09:39:57.806Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "BJXHSL2A",
+      "collections": [],
+      "pdfPath": "library/20260805-boosting-computational-catalysis-ai/paper.pdf",
+      "markdownPath": "library/20260805-boosting-computational-catalysis-ai/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 52,
+      "figureCount": 1
     },
     {
       "slug": "20260801-enhanced-sampling-ml-algorithms-applications",
