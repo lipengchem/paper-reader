@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T09:39:57.806Z",
+  "generatedAt": "2026-08-05T09:47:07.861Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -145,6 +145,23 @@
       "relatedReading": true,
       "paragraphCount": 52,
       "figureCount": 1
+    },
+    {
+      "slug": "20260806-methanol-water-tio2-free-energies",
+      "title": "Methanol at Water–TiO2 Interfaces: Free Energies of Water and Methanol Dissociation",
+      "date": "2026-01-16",
+      "taskDate": "2026-08-06",
+      "uploadedAt": "2026-08-05T09:47:07.861Z",
+      "journal": "ACS Catalysis",
+      "zoteroKey": "986TFCN4",
+      "collections": [
+        "02课题/MD"
+      ],
+      "pdfPath": "library/20260806-methanol-water-tio2-free-energies/paper.pdf",
+      "markdownPath": "library/20260806-methanol-water-tio2-free-energies/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 43,
+      "figureCount": 7
     },
     {
       "slug": "20260801-enhanced-sampling-ml-algorithms-applications",
