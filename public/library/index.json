@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T09:47:07.861Z",
+  "generatedAt": "2026-08-06T09:43:45.023Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -444,6 +444,21 @@
       "relatedReading": true,
       "paragraphCount": 108,
       "figureCount": 4
+    },
+    {
+      "slug": "20260807-identifying-key-obstacle-rutile-tio2-oer",
+      "title": "Identifying the key obstacle in photocatalytic oxygen evolution on rutile TiO2",
+      "date": "2018-04-16",
+      "taskDate": "2026-08-07",
+      "uploadedAt": "2026-08-06T09:43:45.023Z",
+      "journal": "Nature Catalysis",
+      "zoteroKey": "6SQKD7I9",
+      "collections": [],
+      "pdfPath": "library/20260807-identifying-key-obstacle-rutile-tio2-oer/paper.pdf",
+      "markdownPath": "library/20260807-identifying-key-obstacle-rutile-tio2-oer/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 280,
+      "figureCount": 8
     },
     {
       "slug": "20260720-solvation-structure-hydrated-excess-proton",
