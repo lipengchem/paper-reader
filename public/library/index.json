@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T09:42:52.508Z",
+  "generatedAt": "2026-08-07T09:45:20.623Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -532,7 +532,9 @@
       "uploadedAt": "2026-08-07T09:42:52.508Z",
       "journal": "Journal of Chemical Theory and Computation",
       "zoteroKey": "RQ8D5E27",
-      "collections": [],
+      "collections": [
+        "07LASP"
+      ],
       "pdfPath": "library/20260808-stochastic-surface-walking-structure-pathway/paper.pdf",
       "markdownPath": "library/20260808-stochastic-surface-walking-structure-pathway/paper.md",
       "relatedReading": true,
