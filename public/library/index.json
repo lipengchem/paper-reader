@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06T09:43:45.023Z",
+  "generatedAt": "2026-08-07T09:42:52.508Z",
   "items": [
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
@@ -523,6 +523,21 @@
       "relatedReading": true,
       "paragraphCount": 30,
       "figureCount": 7
+    },
+    {
+      "slug": "20260808-stochastic-surface-walking-structure-pathway",
+      "title": "Stochastic Surface Walking Method for Structure Prediction and Pathway Searching",
+      "date": "2013-03-12",
+      "taskDate": "2026-08-08",
+      "uploadedAt": "2026-08-07T09:42:52.508Z",
+      "journal": "Journal of Chemical Theory and Computation",
+      "zoteroKey": "RQ8D5E27",
+      "collections": [],
+      "pdfPath": "library/20260808-stochastic-surface-walking-structure-pathway/paper.pdf",
+      "markdownPath": "library/20260808-stochastic-surface-walking-structure-pathway/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 105,
+      "figureCount": 8
     },
     {
       "slug": "20260702-hydroxyl-radicals-hydrogen-transfer",
