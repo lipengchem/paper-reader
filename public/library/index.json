@@ -1,6 +1,21 @@
 {
-  "generatedAt": "2026-08-07T09:45:20.623Z",
+  "generatedAt": "2026-08-25T09:48:44.358Z",
   "items": [
+    {
+      "slug": "20260826-accurate-vdw-interactions-electron-density",
+      "title": "Accurate Molecular Van Der Waals Interactions from Ground-State Electron Density and Free-Atom Reference Data",
+      "date": "2026-08-26",
+      "taskDate": "2026-08-26",
+      "uploadedAt": "2026-08-25T09:48:44.358Z",
+      "journal": "Unknown journal",
+      "zoteroKey": "NH2XNN8X",
+      "collections": [],
+      "pdfPath": "library/20260826-accurate-vdw-interactions-electron-density/paper.pdf",
+      "markdownPath": "library/20260826-accurate-vdw-interactions-electron-density/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 33,
+      "figureCount": 3
+    },
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
       "title": "Water dissociation at the water-rutile TiO2(110) interface from ab initio-based deep neural network simulations",
