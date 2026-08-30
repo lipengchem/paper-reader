@@ -1,21 +1,6 @@
 {
-  "generatedAt": "2026-08-30T09:43:26.357Z",
+  "generatedAt": "2026-08-30T09:47:55.006Z",
   "items": [
-    {
-      "slug": "20260829-photothermal-catalysis-fundamentals-practical-applications",
-      "title": "Photothermal catalysis: From fundamentals to practical applications",
-      "date": "2026-08-29",
-      "taskDate": "2026-08-29",
-      "uploadedAt": "2026-08-30T09:43:26.357Z",
-      "journal": "Unknown journal",
-      "zoteroKey": "2WMFZJB4",
-      "collections": [],
-      "pdfPath": "library/20260829-photothermal-catalysis-fundamentals-practical-applications/paper.pdf",
-      "markdownPath": "library/20260829-photothermal-catalysis-fundamentals-practical-applications/paper.md",
-      "relatedReading": true,
-      "paragraphCount": 86,
-      "figureCount": 12
-    },
     {
       "slug": "20260826-accurate-vdw-interactions-electron-density",
       "title": "Accurate Molecular Van Der Waals Interactions from Ground-State Electron Density and Free-Atom Reference Data",
@@ -401,6 +386,23 @@
       "relatedReading": true,
       "paragraphCount": 41,
       "figureCount": 3
+    },
+    {
+      "slug": "20260829-photothermal-catalysis-fundamentals-practical-applications",
+      "title": "Photothermal catalysis: From fundamentals to practical applications",
+      "date": "2023-09-01",
+      "taskDate": "2026-08-29",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Materials Today",
+      "zoteroKey": "2WMFZJB4",
+      "collections": [
+        "02课题/光热催化研究"
+      ],
+      "pdfPath": "library/20260829-photothermal-catalysis-fundamentals-practical-applications/paper.pdf",
+      "markdownPath": "library/20260829-photothermal-catalysis-fundamentals-practical-applications/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 86,
+      "figureCount": 12
     },
     {
       "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
