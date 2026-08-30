@@ -1,6 +1,458 @@
 {
-  "generatedAt": "2026-08-27T10:03:30.135Z",
+  "generatedAt": "2026-08-30T09:43:26.357Z",
   "items": [
+    {
+      "slug": "20260829-photothermal-catalysis-fundamentals-practical-applications",
+      "title": "Photothermal catalysis: From fundamentals to practical applications",
+      "date": "2026-08-29",
+      "taskDate": "2026-08-29",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Unknown journal",
+      "zoteroKey": "2WMFZJB4",
+      "collections": [],
+      "pdfPath": "library/20260829-photothermal-catalysis-fundamentals-practical-applications/paper.pdf",
+      "markdownPath": "library/20260829-photothermal-catalysis-fundamentals-practical-applications/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 86,
+      "figureCount": 12
+    },
+    {
+      "slug": "20260826-accurate-vdw-interactions-electron-density",
+      "title": "Accurate Molecular Van Der Waals Interactions from Ground-State Electron Density and Free-Atom Reference Data",
+      "date": "2026-08-26",
+      "taskDate": "2026-08-26",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Unknown journal",
+      "zoteroKey": "NH2XNN8X",
+      "collections": [],
+      "pdfPath": "library/20260826-accurate-vdw-interactions-electron-density/paper.pdf",
+      "markdownPath": "library/20260826-accurate-vdw-interactions-electron-density/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 33,
+      "figureCount": 3
+    },
+    {
+      "slug": "20260702-redefining-co3-formation-zundel-switches",
+      "title": "Redefining ·CO3– Formation Chemistry: Zundel-like Switches Drive Carbonate-·OH Interfacial Reactivity",
+      "date": "2026-06-17",
+      "taskDate": "2026-07-02",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "8R59K9XG",
+      "collections": [],
+      "pdfPath": "library/20260702-redefining-co3-formation-zundel-switches/paper.pdf",
+      "markdownPath": "library/20260702-redefining-co3-formation-zundel-switches/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 41,
+      "figureCount": 5
+    },
+    {
+      "slug": "20260730-high-order-pair-reduced-neural-network-pes",
+      "title": "High-order pair-reduced neural network architecture for global potential energy surface exploration across the periodic table",
+      "date": "2026-06-01",
+      "taskDate": "2026-07-30",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Science China Chemistry",
+      "zoteroKey": "2TZCFVFY",
+      "collections": [
+        "07LASP"
+      ],
+      "pdfPath": "library/20260730-high-order-pair-reduced-neural-network-pes/paper.pdf",
+      "markdownPath": "library/20260730-high-order-pair-reduced-neural-network-pes/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 82,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260611-band-matching-sulfur-electrocatalysts",
+      "title": "A Band-Matching Descriptor Breaks Scaling Relations for Sulfur Electrocatalysts",
+      "date": "2026-05-13",
+      "taskDate": "2026-06-11",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "EHSLLWP7",
+      "collections": [
+        "06Recommendation"
+      ],
+      "pdfPath": "library/20260611-band-matching-sulfur-electrocatalysts/paper.pdf",
+      "markdownPath": "library/20260611-band-matching-sulfur-electrocatalysts/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 54,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260702-charge-separation-hot-spots-ru-ni-zro2",
+      "title": "Charge Separation and/or Hot Spots: Clarification of Efficient CO2 Reduction over Ru-Ni Nanoparticles Compared to Photocatalysis on Ru-Ni-ZrO2 Composites",
+      "date": "2026-04-08",
+      "taskDate": "2026-07-02",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "XPNDGRHB",
+      "collections": [
+        "02??/??????"
+      ],
+      "pdfPath": "library/20260702-charge-separation-hot-spots-ru-ni-zro2/paper.pdf",
+      "markdownPath": "library/20260702-charge-separation-hot-spots-ru-ni-zro2/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 116,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260803-pmpa-md-solvation-interactions",
+      "title": "Unveiling the projection nature of solvation interactions yields a robust PMPA-MD method for efficient modeling of liquid-phase reactions: A case study on H2PtCl6 hydrolysis",
+      "date": "2026-04-01",
+      "taskDate": "2026-08-03",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "The Journal of Chemical Physics",
+      "zoteroKey": "HX5FVZ88",
+      "collections": [
+        "01课题组"
+      ],
+      "pdfPath": "library/20260803-pmpa-md-solvation-interactions/paper.pdf",
+      "markdownPath": "library/20260803-pmpa-md-solvation-interactions/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 143,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260719-ml-md-bulk-interfacial-aqueous-systems",
+      "title": "Machine Learning Driven Advances in Molecular Dynamics of Bulk and Interfacial Aqueous Systems",
+      "date": "2026-03-25",
+      "taskDate": "2026-07-19",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Chemical Reviews",
+      "zoteroKey": "9I9BK6TM",
+      "collections": [
+        "02课题/H2O"
+      ],
+      "pdfPath": "library/20260719-ml-md-bulk-interfacial-aqueous-systems/paper.pdf",
+      "markdownPath": "library/20260719-ml-md-bulk-interfacial-aqueous-systems/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 41,
+      "figureCount": 14
+    },
+    {
+      "slug": "20260804-charge-separation-hot-spots-ru-ni-zro2",
+      "title": "Charge Separation and/or Hot Spots: Clarification of Efficient CO2 Reduction over Ru-Ni Nanoparticles Compared to Photocatalysis on Ru-Ni-ZrO2 Composites",
+      "date": "2026-03-20",
+      "taskDate": "2026-08-04",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "XPNDGRHB",
+      "collections": [
+        "02课题/光热催化研究"
+      ],
+      "pdfPath": "library/20260804-charge-separation-hot-spots-ru-ni-zro2/paper.pdf",
+      "markdownPath": "library/20260804-charge-separation-hot-spots-ru-ni-zro2/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 90,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260805-boosting-computational-catalysis-ai",
+      "title": "Boosting Computational Catalysis and Chemical Reactivity with Artificial Intelligence",
+      "date": "2026-03-11",
+      "taskDate": "2026-08-05",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "BJXHSL2A",
+      "collections": [
+        "03AI4S/综述"
+      ],
+      "pdfPath": "library/20260805-boosting-computational-catalysis-ai/paper.pdf",
+      "markdownPath": "library/20260805-boosting-computational-catalysis-ai/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 52,
+      "figureCount": 1
+    },
+    {
+      "slug": "20260806-methanol-water-tio2-free-energies",
+      "title": "Methanol at Water–TiO2 Interfaces: Free Energies of Water and Methanol Dissociation",
+      "date": "2026-01-16",
+      "taskDate": "2026-08-06",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "ACS Catalysis",
+      "zoteroKey": "986TFCN4",
+      "collections": [
+        "02课题/MD"
+      ],
+      "pdfPath": "library/20260806-methanol-water-tio2-free-energies/paper.pdf",
+      "markdownPath": "library/20260806-methanol-water-tio2-free-energies/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 43,
+      "figureCount": 7
+    },
+    {
+      "slug": "20260801-enhanced-sampling-ml-algorithms-applications",
+      "title": "Enhanced Sampling in the Age of Machine Learning: Algorithms and Applications",
+      "date": "2026-01-14",
+      "taskDate": "2026-08-01",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Chemical Reviews",
+      "zoteroKey": "IPH6XJAZ",
+      "collections": [],
+      "pdfPath": "library/20260801-enhanced-sampling-ml-algorithms-applications/paper.pdf",
+      "markdownPath": "library/20260801-enhanced-sampling-ml-algorithms-applications/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 395,
+      "figureCount": 26
+    },
+    {
+      "slug": "20260611-bep-mxenes-water-gas-shift",
+      "title": "A Machine Learning Perspective on the Brønsted–Evans–Polanyi Relation in Water‐Gas Shift Catalysis on MXenes",
+      "date": "2026",
+      "taskDate": "2026-06-11",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Advanced Intelligent Discovery",
+      "zoteroKey": "XC3FBWIL",
+      "collections": [
+        "03AI4S"
+      ],
+      "pdfPath": "library/20260611-bep-mxenes-water-gas-shift/paper.pdf",
+      "markdownPath": "library/20260611-bep-mxenes-water-gas-shift/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 268,
+      "figureCount": 11
+    },
+    {
+      "slug": "20260718-surface-oxide-pd-cocatalyst-co2-photoreduction",
+      "title": "Surface Oxide Species on Metal Cocatalysts Mediate Pathways in Water-Oxidation-Coupled CO2 Photoreduction: Insights From Pd",
+      "date": "2026",
+      "taskDate": "2026-07-18",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Angewandte Chemie International Edition",
+      "zoteroKey": "6TTHZ7BK",
+      "collections": [
+        "02课题/H2O"
+      ],
+      "pdfPath": "library/20260718-surface-oxide-pd-cocatalyst-co2-photoreduction/paper.pdf",
+      "markdownPath": "library/20260718-surface-oxide-pd-cocatalyst-co2-photoreduction/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 29,
+      "figureCount": 5
+    },
+    {
+      "slug": "20260802-ag-nanocluster-ml-force-field",
+      "title": "Capturing Dynamic Core Reconstruction and Ligand Desorption of Atomically Precise Ag Nanoclusters with Machine Learning Force Field",
+      "date": "2025-12-17",
+      "taskDate": "2026-08-02",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "XHLNFBGE",
+      "collections": [
+        "03AI4S/DPMD"
+      ],
+      "pdfPath": "library/20260802-ag-nanocluster-ml-force-field/paper.pdf",
+      "markdownPath": "library/20260802-ag-nanocluster-ml-force-field/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 45,
+      "figureCount": 7
+    },
+    {
+      "slug": "20260611-diatomic-catalyst-oxygen-reduction",
+      "title": "The geometric-electronic coupled design of diatomic catalyst towards oxygen reduction reaction",
+      "date": "2025-06-04",
+      "taskDate": "2026-06-11",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature Communications",
+      "zoteroKey": "26VVUJJU",
+      "collections": [
+        "Machine Learning",
+        "04组会"
+      ],
+      "pdfPath": "library/20260611-diatomic-catalyst-oxygen-reduction/paper.pdf",
+      "markdownPath": "library/20260611-diatomic-catalyst-oxygen-reduction/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 54,
+      "figureCount": 8
+    },
+    {
+      "slug": "20260603-mattergen-inorganic-materials-design",
+      "title": "A generative model for inorganic materials design",
+      "date": "2025-03",
+      "taskDate": "2026-06-03",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature",
+      "zoteroKey": "DBBM9ACZ",
+      "collections": [
+        "03AI4S/Machine Learning"
+      ],
+      "pdfPath": "library/20260603-mattergen-inorganic-materials-design/paper.pdf",
+      "markdownPath": "library/20260603-mattergen-inorganic-materials-design/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 41,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260604-ml-potentials-heterogeneous-catalysis",
+      "title": "Machine Learning Potentials for Heterogeneous Catalysis",
+      "date": "2025-02-07",
+      "taskDate": "2026-06-04",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "ACS Catalysis",
+      "zoteroKey": "B597ITY7",
+      "collections": [
+        "03AI4S/Machine Learning"
+      ],
+      "pdfPath": "library/20260604-ml-potentials-heterogeneous-catalysis/paper.pdf",
+      "markdownPath": "library/20260604-ml-potentials-heterogeneous-catalysis/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 150,
+      "figureCount": 2
+    },
+    {
+      "slug": "20260605-metal-support-interaction-oxide-supports",
+      "title": "Nature of metal-support interaction for metal catalysts on oxide supports",
+      "date": "2024-11-22",
+      "taskDate": "2026-06-05",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Science",
+      "zoteroKey": "FPFCDLGA",
+      "collections": [
+        "03AI4S/Machine Learning"
+      ],
+      "pdfPath": "library/20260605-metal-support-interaction-oxide-supports/paper.pdf",
+      "markdownPath": "library/20260605-metal-support-interaction-oxide-supports/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 246,
+      "figureCount": 3
+    },
+    {
+      "slug": "20260609-proton-transport-water-sequential-hbond-exchange",
+      "title": "Neural-network-based molecular dynamics simulations reveal that proton transport in water is doubly gated by sequential hydrogen-bond exchange",
+      "date": "2024-11",
+      "taskDate": "2026-06-09",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature Chemistry",
+      "zoteroKey": "FTDJFF56",
+      "collections": [
+        "02课题/质子转移"
+      ],
+      "pdfPath": "library/20260609-proton-transport-water-sequential-hbond-exchange/paper.pdf",
+      "markdownPath": "library/20260609-proton-transport-water-sequential-hbond-exchange/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 68,
+      "figureCount": 9
+    },
+    {
+      "slug": "20260611-bubble-water-triphase-photocatalytic-oer",
+      "title": "Bubble-water/catalyst triphase interface microenvironment accelerates photocatalytic OER via optimizing semi-hydrophobic OH radical",
+      "date": "2024-03-15",
+      "taskDate": "2026-06-11",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature Communications",
+      "zoteroKey": "IS6WHUPC",
+      "collections": [
+        "光热催化研究"
+      ],
+      "pdfPath": "library/20260611-bubble-water-triphase-photocatalytic-oer/paper.pdf",
+      "markdownPath": "library/20260611-bubble-water-triphase-photocatalytic-oer/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 45,
+      "figureCount": 4
+    },
+    {
+      "slug": "20260721-weakened-interfacial-hbond-connectivity-brookite-h2o2",
+      "title": "Weakened Interfacial Hydrogen Bond Connectivity Drives Selective Photocatalytic Water Oxidation toward H2O2 at Water/Brookite-TiO2 Interface",
+      "date": "2024-03-06",
+      "taskDate": "2026-07-21",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "TWNWAP3Y",
+      "collections": [
+        "光热催化研究"
+      ],
+      "pdfPath": "library/20260721-weakened-interfacial-hbond-connectivity-brookite-h2o2/paper.pdf",
+      "markdownPath": "library/20260721-weakened-interfacial-hbond-connectivity-brookite-h2o2/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 29,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260722-hydroxyl-radicals-condensed-water-droplets-dft-md",
+      "title": "First results from the interaction between hydroxyl radicals and condensed water droplets: A spin-polarized DFT-MD study",
+      "date": "2024-01-01",
+      "taskDate": "2026-07-22",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of Molecular Liquids",
+      "zoteroKey": "WI8UDPZM",
+      "collections": [
+        "02课题/OH"
+      ],
+      "pdfPath": "library/20260722-hydroxyl-radicals-condensed-water-droplets-dft-md/paper.pdf",
+      "markdownPath": "library/20260722-hydroxyl-radicals-condensed-water-droplets-dft-md/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 16,
+      "figureCount": 10
+    },
+    {
+      "slug": "20260729-tio2-water-dissociation-mlmd",
+      "title": "Mechanistic insight on water dissociation on pristine low-index TiO2 surfaces from machine learning molecular dynamics simulations",
+      "date": "2023-10-02",
+      "taskDate": "2026-07-29",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature Communications",
+      "zoteroKey": "XNHKI9Y6",
+      "collections": [
+        "02课题/MD"
+      ],
+      "pdfPath": "library/20260729-tio2-water-dissociation-mlmd/paper.pdf",
+      "markdownPath": "library/20260729-tio2-water-dissociation-mlmd/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 41,
+      "figureCount": 3
+    },
+    {
+      "slug": "20260731-water-dissociation-rutile-tio2-110-dnn",
+      "title": "Water dissociation at the water-rutile TiO2(110) interface from ab initio-based deep neural network simulations",
+      "date": "2023-01-10",
+      "taskDate": "2026-07-31",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Proceedings of the National Academy of Sciences",
+      "zoteroKey": "4LURCMCW",
+      "collections": [
+        "02课题/TiO2-OH-sol"
+      ],
+      "pdfPath": "library/20260731-water-dissociation-rutile-tio2-110-dnn/paper.pdf",
+      "markdownPath": "library/20260731-water-dissociation-rutile-tio2-110-dnn/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 26,
+      "figureCount": 4
+    },
+    {
+      "slug": "20260804-hbond-network-edl-kinetic-ph-effect",
+      "title": "Hydrogen bond network connectivity in the electric double layer dominates the kinetic pH effect in hydrogen electrocatalysis on Pt",
+      "date": "2022-09-29",
+      "taskDate": "2026-08-04",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature Catalysis",
+      "zoteroKey": "II27ECCC",
+      "collections": [
+        "02课题/H2O"
+      ],
+      "pdfPath": "library/20260804-hbond-network-edl-kinetic-ph-effect/paper.pdf",
+      "markdownPath": "library/20260804-hbond-network-edl-kinetic-ph-effect/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 225,
+      "figureCount": 5
+    },
+    {
+      "slug": "20260721-constrained-density-functional-theory-proton-transfers",
+      "title": "Using Constrained Density Functional Theory to Track Proton Transfers and to Sample Their Associated Free Energy Surface",
+      "date": "2021-09-01",
+      "taskDate": "2026-07-21",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of Chemical Theory and Computation",
+      "zoteroKey": "YFTNHP5I",
+      "collections": [
+        "????"
+      ],
+      "pdfPath": "library/20260721-constrained-density-functional-theory-proton-transfers/paper.pdf",
+      "markdownPath": "library/20260721-constrained-density-functional-theory-proton-transfers/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 22,
+      "figureCount": 3
+    },
     {
       "slug": "20260827-enhanced-solar-photothermal-catalysis-spp-tio2",
       "title": "Enhanced Solar Photothermal Catalysis over Solution Plasma Activated TiO2",
@@ -17,6 +469,239 @@
       "relatedReading": true,
       "paragraphCount": 75,
       "figureCount": 7
+    },
+    {
+      "slug": "20260705-free-energy-proton-transfer-water-tio2",
+      "title": "Free energy of proton transfer at the water-TiO2 interface from ab initio deep potential molecular dynamics",
+      "date": "2020-01-28",
+      "taskDate": "2026-07-05",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Chemical Science",
+      "zoteroKey": "HYZYYYHR",
+      "collections": [],
+      "pdfPath": "library/20260705-free-energy-proton-transfer-water-tio2/paper.pdf",
+      "markdownPath": "library/20260705-free-energy-proton-transfer-water-tio2/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 65,
+      "figureCount": 4
+    },
+    {
+      "slug": "20260707-hydroxide-diffuses-slower-than-hydronium",
+      "title": "Hydroxide diffuses slower than hydronium in water because its solvated structure inhibits correlated proton transfer",
+      "date": "2018-10-22",
+      "taskDate": "2026-07-07",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature Chemistry",
+      "zoteroKey": "2GSY9S3R",
+      "collections": [],
+      "pdfPath": "library/20260707-hydroxide-diffuses-slower-than-hydronium/paper.pdf",
+      "markdownPath": "library/20260707-hydroxide-diffuses-slower-than-hydronium/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 108,
+      "figureCount": 4
+    },
+    {
+      "slug": "20260807-identifying-key-obstacle-rutile-tio2-oer",
+      "title": "Identifying the key obstacle in photocatalytic oxygen evolution on rutile TiO2",
+      "date": "2018-04-16",
+      "taskDate": "2026-08-07",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature Catalysis",
+      "zoteroKey": "6SQKD7I9",
+      "collections": [],
+      "pdfPath": "library/20260807-identifying-key-obstacle-rutile-tio2-oer/paper.pdf",
+      "markdownPath": "library/20260807-identifying-key-obstacle-rutile-tio2-oer/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 280,
+      "figureCount": 8
+    },
+    {
+      "slug": "20260720-solvation-structure-hydrated-excess-proton",
+      "title": "Role of solvation structure in the shuttling of the hydrated excess proton",
+      "date": "2017-07-01",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of Chemical Sciences",
+      "zoteroKey": "6EKYCCTD",
+      "collections": [],
+      "pdfPath": "library/20260720-solvation-structure-hydrated-excess-proton/paper.pdf",
+      "markdownPath": "library/20260720-solvation-structure-hydrated-excess-proton/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 30,
+      "figureCount": 5
+    },
+    {
+      "slug": "20260707-protons-hydroxide-ions-aqueous-systems",
+      "title": "Protons and Hydroxide Ions in Aqueous Systems",
+      "date": "2016-12-27",
+      "taskDate": "2026-07-07",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Chemical Reviews",
+      "zoteroKey": "QUT75QES",
+      "collections": [],
+      "pdfPath": "library/20260707-protons-hydroxide-ions-aqueous-systems/paper.pdf",
+      "markdownPath": "library/20260707-protons-hydroxide-ions-aqueous-systems/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 206,
+      "figureCount": 37
+    },
+    {
+      "slug": "20260717-chemical-dynamics-pcet-water-oxidation-tio2-anatase",
+      "title": "Chemical Dynamics of the First Proton-Coupled Electron Transfer of Water Oxidation on TiO2 Anatase",
+      "date": "2013-12-05",
+      "taskDate": "2026-07-17",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "UB3DMTHN",
+      "collections": [
+        "02课题/TiO2-OH-sol"
+      ],
+      "pdfPath": "library/20260717-chemical-dynamics-pcet-water-oxidation-tio2-anatase/paper.pdf",
+      "markdownPath": "library/20260717-chemical-dynamics-pcet-water-oxidation-tio2-anatase/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 26,
+      "figureCount": 4
+    },
+    {
+      "slug": "20260720-proton-transfer-water-gossamer",
+      "title": "Proton transfer through the water gossamer",
+      "date": "2013-08-20",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "zoteroKey": "3VD5U9XI",
+      "collections": [
+        "02课题/OH"
+      ],
+      "pdfPath": "library/20260720-proton-transfer-water-gossamer/paper.pdf",
+      "markdownPath": "library/20260720-proton-transfer-water-gossamer/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 30,
+      "figureCount": 7
+    },
+    {
+      "slug": "20260808-stochastic-surface-walking-structure-pathway",
+      "title": "Stochastic Surface Walking Method for Structure Prediction and Pathway Searching",
+      "date": "2013-03-12",
+      "taskDate": "2026-08-08",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of Chemical Theory and Computation",
+      "zoteroKey": "RQ8D5E27",
+      "collections": [
+        "07LASP"
+      ],
+      "pdfPath": "library/20260808-stochastic-surface-walking-structure-pathway/paper.pdf",
+      "markdownPath": "library/20260808-stochastic-surface-walking-structure-pathway/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 105,
+      "figureCount": 8
+    },
+    {
+      "slug": "20260702-hydroxyl-radicals-hydrogen-transfer",
+      "title": "Mobility Mechanism of Hydroxyl Radicals in Aqueous Solution via Hydrogen Transfer",
+      "date": "2011-12-05",
+      "taskDate": "2026-07-02",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Journal of the American Chemical Society",
+      "zoteroKey": "C5VF7EZX",
+      "collections": [],
+      "pdfPath": "library/20260702-hydroxyl-radicals-hydrogen-transfer/paper.pdf",
+      "markdownPath": "library/20260702-hydroxyl-radicals-hydrogen-transfer/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 44,
+      "figureCount": 4
+    },
+    {
+      "slug": "20260720-water-interactions-terminal-hydroxyls-tio2-110",
+      "title": "Water Interactions with Terminal Hydroxyls on TiO2(110)",
+      "date": "2010-10-14",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "The Journal of Physical Chemistry C",
+      "zoteroKey": "PVGN46VV",
+      "collections": [
+        "M3V6T5IZ"
+      ],
+      "pdfPath": "library/20260720-water-interactions-terminal-hydroxyls-tio2-110/paper.pdf",
+      "markdownPath": "library/20260720-water-interactions-terminal-hydroxyls-tio2-110/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 23,
+      "figureCount": 6
+    },
+    {
+      "slug": "20260707-reorientation-mechanism-hydroxide-ions-water",
+      "title": "The reorientation mechanism of hydroxide ions in water: A molecular dynamics study",
+      "date": "2009-04-28",
+      "taskDate": "2026-07-07",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Chemical Physics Letters",
+      "zoteroKey": "ZC65UUZ7",
+      "collections": [],
+      "pdfPath": "library/20260707-reorientation-mechanism-hydroxide-ions-water/paper.pdf",
+      "markdownPath": "library/20260707-reorientation-mechanism-hydroxide-ions-water/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 72,
+      "figureCount": 7
+    },
+    {
+      "slug": "20260707-proton-solvation-transport-aqueous-biomolecular",
+      "title": "Proton Solvation and Transport in Aqueous and Biomolecular Systems: Insights from Computer Simulations",
+      "date": "2007-05-05",
+      "taskDate": "2026-07-07",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "The Journal of Physical Chemistry B",
+      "zoteroKey": "86XBHE8Y",
+      "collections": [],
+      "pdfPath": "library/20260707-proton-solvation-transport-aqueous-biomolecular/paper.pdf",
+      "markdownPath": "library/20260707-proton-solvation-transport-aqueous-biomolecular/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 207,
+      "figureCount": 9
+    },
+    {
+      "slug": "20260707-hydrated-hydroxide-ions-aqueous-solution",
+      "title": "The nature and transport mechanism of hydrated hydroxide ions in aqueous solution",
+      "date": "2002-06-27",
+      "taskDate": "2026-07-07",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature",
+      "zoteroKey": "QXM43Q3S",
+      "collections": [],
+      "pdfPath": "library/20260707-hydrated-hydroxide-ions-aqueous-solution/paper.pdf",
+      "markdownPath": "library/20260707-hydrated-hydroxide-ions-aqueous-solution/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 33,
+      "figureCount": 4
+    },
+    {
+      "slug": "20260720-nature-hydrated-excess-proton-water",
+      "title": "The nature of the hydrated excess proton in water",
+      "date": "1999-02-18",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Nature",
+      "zoteroKey": "R3HBR9DF",
+      "collections": [],
+      "pdfPath": "library/20260720-nature-hydrated-excess-proton-water/paper.pdf",
+      "markdownPath": "library/20260720-nature-hydrated-excess-proton-water/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 30,
+      "figureCount": 3
+    },
+    {
+      "slug": "20260720-grotthuss-mechanism",
+      "title": "The Grotthuss mechanism",
+      "date": "1995-10",
+      "taskDate": "2026-07-20",
+      "uploadedAt": "2026-08-30T09:43:26.357Z",
+      "journal": "Chemical Physics Letters",
+      "zoteroKey": "4TZTPZVW",
+      "collections": [],
+      "pdfPath": "library/20260720-grotthuss-mechanism/paper.pdf",
+      "markdownPath": "library/20260720-grotthuss-mechanism/paper.md",
+      "relatedReading": true,
+      "paragraphCount": 90,
+      "figureCount": 2
     }
   ]
 }

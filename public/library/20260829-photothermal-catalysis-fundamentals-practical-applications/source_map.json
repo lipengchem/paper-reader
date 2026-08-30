@@ -1,0 +1,3374 @@
+{
+  "paper": {
+    "title": "Photothermal catalysis: From fundamentals to practical applications",
+    "zotero_key": "2WMFZJB4",
+    "attachment_key": "LTE9VILJ",
+    "journal": "Materials Today",
+    "date": "2023-09-01",
+    "doi": "10.1016/j.mattod.2023.06.017",
+    "collections": [
+      "02课题/光热催化研究"
+    ],
+    "rights": "🔷🔷🔷🔷🔷🔷",
+    "source_type": "pdf-text",
+    "source_path": "C:\\Users\\LP\\Zotero\\storage\\LTE9VILJ\\main.pdf",
+    "source_pdf_sha256": "ca6a85e1f89ef60f26bb7733729be4788c146c96509b0a22f66c258e8e7490ea"
+  },
+  "paragraph_count": 86,
+  "caption_count": 12,
+  "figure_count": 11,
+  "table_count": 1,
+  "blocks": [
+    {
+      "id": "S001",
+      "page": 1,
+      "type": "paragraph",
+      "order": 1,
+      "original_text": "Introduction Our world has been experiencing a global energy crisis, which has become exacerbated in the aftermath of the COVID-19 pandemic, with widespread shortages and soaring prices in oil, gas, and electricity markets worldwide. Although the world possesses 46.6 times as high as its annual consumption levels of proven oil reserves, the depletion of fossil fuels as non-renewable energy is inevitable [1]. Additionally, burning fossil fuels emits a vast amount of carbon dioxide into the atmosphere, causing global warming and climate change [2,3]. It is estimated that human",
+      "bbox": [
+        36.85,
+        586.01,
+        294.84,
+        704.43
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "简介 我们的世界一直在经历一场全球能源危机，在 COVID-19 大流行之后，这场危机变得更加严重，全球石油、天然气和电力市场普遍短缺，价格飙升。尽管全球已探明石油储量是其年消耗量的46.6倍，但化石燃料作为不可再生能源的枯竭是不可避免的[1]。此外，燃烧化石燃料会向大气中排放大量二氧化碳，导致全球变暖和气候变化[2,3]。据估计，人类"
+    },
+    {
+      "id": "S002",
+      "page": 1,
+      "type": "paragraph",
+      "order": 2,
+      "original_text": "⇑Corresponding authors. E-mail addresses: Chen, H. (chenhj@njtech.edu.cn), Sun, H. (h.sun@ecu.edu.au), Wang, S. (shaobin.wang@adelaide.edu.au).",
+      "bbox": [
+        36.85,
+        726.04,
+        294.82,
+        752.65
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "⇑通讯作者。电子邮件地址：陈 H. (chenhj@njtech.edu.cn)、孙 H. (h.sun@ecu.edu.au)、王 S. (shaobin.wang@adelaide.edu.au)。"
+    },
+    {
+      "id": "S003",
+      "page": 1,
+      "type": "paragraph",
+      "order": 3,
+      "original_text": "activities, especially the combustion of fossil fuels, have increased the Earth’s global average temperature by approximately 1 \u0001C since the pre-industrial period, and this number is currently increasing by more than 0.2 \u0001C per decade. The effects of climate change on the environment are already noticeable, with glaciers and ice sheets reducing, river and lake ice breaking up earlier, and plant and animal ranges shifting. As a result, it is crucial to transform the conventional framework of energy utilization, which relies mainly on fossil fuels, into clean and renewable energy sources. Solar energy is a highly sustainable source of energy that can be captured using various technologies such as solar photovoltaics (PV) [4], solar thermal converters [5], and concentrated solar power (CSP) systems [6]. At the top of the Earth’s",
+      "bbox": [
+        311.81,
+        586.26,
+        569.79,
+        750.3
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "自前工业化时期以来，各种活动，特别是化石燃料的燃烧，使地球全球平均温度升高了约 1℃，目前这一数字每十年增加超过 0.2℃。气候变化对环境的影响已经很明显，冰川和冰盖减少，河流和湖冰提前融化，动植物分布范围发生变化。因此，将主要依赖化石燃料的传统能源利用框架转变为清洁可再生能源至关重要。太阳能是一种高度可持续的能源，可以使用各种技术来捕获，例如太阳能光伏（PV）[4]、太阳能热转换器[5]和聚光太阳能发电（CSP）系统[6]。在地球的顶端"
+    },
+    {
+      "id": "S004",
+      "page": 1,
+      "type": "paragraph",
+      "order": 4,
+      "original_text": "https://doi.org/10.1016/j.mattod.2023.06.017",
+      "bbox": [
+        448.89,
+        774.51,
+        569.77,
+        780.56
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "文献 DOI 链接：https://doi.org/10.1016/j.mattod.2023.06.017"
+    },
+    {
+      "id": "S005",
+      "page": 1,
+      "type": "note",
+      "order": 5,
+      "original_text": "Photothermal catalysis: From fundamentals to practical applications",
+      "bbox": [
+        35.72,
+        188.94,
+        519.19,
+        246.71
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热催化：从基础到实际应用"
+    },
+    {
+      "id": "S006",
+      "page": 1,
+      "type": "note",
+      "order": 6,
+      "original_text": "Jinqiang Zhang a, Haijun Chen b,⇑, Xiaoguang Duan a, Hongqi Sun c,⇑, Shaobin Wang a,⇑",
+      "bbox": [
+        37.02,
+        257.08,
+        569.77,
+        274.05
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "张金强a、陈海军b、⇑、段晓光a、孙红旗c、⇑、王少斌a、⇑"
+    },
+    {
+      "id": "S007",
+      "page": 1,
+      "type": "note",
+      "order": 7,
+      "original_text": "a School of Chemical Engineering, The University of Adelaide, Adelaide, SA 5005, Australia b Jiangsu Key Laboratory of Process Enhancement and New Energy Equipment Technology, School of Mechanical and Power Engineering, Nanjing Tech University, Nanjing 211816, Jiangsu, China c School of Science, Edith Cowan University, 270 Joondalup Drive, Joondalup, WA 6027, Australia",
+      "bbox": [
+        36.85,
+        289.53,
+        569.75,
+        331.05
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "a 阿德莱德大学化学工程学院，阿德莱德，SA 5005，澳大利亚 b 南京工业大学机械与动力工程学院，江苏省工艺强化与新能源装备技术重点实验室，中国江苏南京 211816 c 埃迪斯科文大学理学院，270 Joondalup Drive, Joondalup, WA 6027，澳大利亚"
+    },
+    {
+      "id": "S008",
+      "page": 1,
+      "type": "paragraph",
+      "order": 8,
+      "original_text": "Photothermal catalysis is an innovative approach that integrates photochemical and thermocatalytic processes to enable an efficient use of full-spectrum sunlight in catalyzing various chemical reactions for energy conversion and environmental governance. This approach has demonstrated competitive performance and energy efficiency compared to conventional techniques, making it suitable for largescale applications. In this review, we will comprehensively examine the fundamentals and classification of photothermal catalysis and discuss detailed design principles of various types of photothermal catalysts, focusing on enhancing solar light absorption, improving internal electric field for more energetic hot carriers (EHC) and localized thermal energy (LTE), interfacial engineering for robust and directed EHC transferring, and regulating EHC and LTE for continuous 24/7 operation. We will also report photothermal catalysis in a diverse range of chemical reactions. Moreover, we will introduce the latest technologies for synthesizing robust photothermal catalysts and advanced solar concentrators for pilot testing in the production of solar fuels at scale. Finally, the future opportunities and challenges of the promising but fledging field will be discussed, which is expected to transform conventional chemical industries into a clean and sustainable manner.",
+      "bbox": [
+        36.85,
+        345.57,
+        569.84,
+        537.53
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热催化是一种集成光化学和热催化过程的创新方法，能够有效利用全光谱太阳光催化各种化学反应，实现能源转换和环境治理。与传统技术相比，这种方法表现出了具有竞争力的性能和能源效率，使其适合大规模应用。在这篇综述中，我们将全面研究光热催化的基本原理和分类，并讨论各种类型光热催化剂的详细设计原理，重点关注增强太阳光吸收、改善内部电场以获得更多能量的热载流子（EHC）和局域热能（LTE）、用于稳健和定向EHC传输的界面工程以及调节EHC和LTE以实现连续24/7运行。我们还将报告各种化学反应中的光热催化。此外，我们将介绍合成强大的光热催化剂和先进的太阳能聚光器的最新技术，用于大规模生产太阳能燃料的试点测试。最后，将讨论这个有前景但新兴领域的未来机遇和挑战，该领域有望将传统化学工业转变为清洁和可持续的方式。"
+    },
+    {
+      "id": "S009",
+      "page": 1,
+      "type": "note",
+      "order": 9,
+      "original_text": "Keywords: Photothermal catalysts; Design principles; Solar conversion; Chemical fuel production; Upscaling technology",
+      "bbox": [
+        36.85,
+        551.93,
+        569.74,
+        570.99
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "关键词：光热催化剂；设计原则；太阳能转换；化学燃料生产；升级技术"
+    },
+    {
+      "id": "S010",
+      "page": 1,
+      "type": "paragraph",
+      "order": 10,
+      "original_text": "234 1369-7021/\u0003 2023 The Author(s). Published by Elsevier Ltd. This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).",
+      "bbox": [
+        36.85,
+        765.79,
+        569.82,
+        774.03
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "234 1369-7021/2023 作者。由 Elsevier Ltd 出版。这是一篇基于 CC BY 许可证 (http://creativecommons.org/licenses/by/4.0/) 的开放获取文章。"
+    },
+    {
+      "id": "S011",
+      "page": 2,
+      "type": "paragraph",
+      "order": 11,
+      "original_text": "atmosphere, about 1360 W per square meter (W/m2) of solar radiation can be received on average, while the amount of solar radiation on the Earth’s surface is around 1000 to 1200 W/m2",
+      "bbox": [
+        42.52,
+        61.35,
+        300.49,
+        95.66
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "大气中，平均每平方米（W/m2）可接收约1360瓦的太阳辐射，而地球表面的太阳辐射量约为1000至1200瓦/平方米"
+    },
+    {
+      "id": "S012",
+      "page": 2,
+      "type": "paragraph",
+      "order": 12,
+      "original_text": "due to atmospheric absorption and scattering [7]. Despite the abundance of solar energy available, it only accounts for a small portion of the global primary energy supply. In 2020, the international energy agency reported that combined solar PV and solar thermal power accounted for merely 2% of the world’s total primary energy supply. As such, highly efficient solar energy capturing and converting technologies are required to maximize the utilization efficiency of full-spectrum sunlight. One of the promising pathways for the efficient transportation of solar energy is solar fuels, which are synthetic fuels produced from solar energy driven chemical reactions [8]. Solar fuels are considered to be the most economically viable and efficient solution for clean energy transportation and can be produced at a scale in an environmentally friendly way [9]. There are two pathways for solar energy to be converted into useful forms: solar-to-energetic hot carriers (EHC) [10] and photo-tolocalized thermal energy (LTE) [11]. Photocatalysis is an example of a solar-to-EHC process where light irradiation is used to excite EHC in photocatalysts for chemical reactions [12,13]. The emergence of photocatalysis technology is a milestone in environmentally sustainable energy research [14]. However, the low reaction rate of photocatalysis (Rphoto / I0.5, I represents light intensity) and the unfavourable selectivity to the target products significantly limit the widespread utilization of solar energy resources [15]. Additionally, most photo-induced thermal energy in a photocatalytic process is lost by cooling systems, leading to inefficient energy utilization. Therefore, a well-designed photodriven catalytic system with a high catalytic activity and minimal energy loss is essential for maximizing the utilization efficiency of global solar irradiance and mitigating the dependence on conventional fossil fuels. Photothermal catalysis has been proposed as a promising alternative to conventional photocatalysis and thermocatalysis for energy transformation and environmental remediation due to its unprecedented light harvesting efficiency, superior throughputs, and moderate reaction conditions [16,17]. This technology integrates solar energy mediated photochemical processes and solar light-induced thermocatalysis into a single unit, creating a complementing and synergistic effect. When the catalyst materials absorb light, EHC are generated to directly participate in chemical reactions [18,19], while those that fail to participate in will be converted into heat by thermalization [20]. Consequently, photothermal catalysis compensates for the disadvantages of photocatalysis and thermocatalysis, improving reaction selectivity and reducing reaction barriers. By using full-spectrum solar light, photothermal catalysis has raised the reaction rates to an industrial level, making it a promising solution for a large-scale production of solar fuels [21,22]. To upscale photothermal catalysis technology, two key components are required: efficient and stable photothermal catalysts that are scalable and precise for high-throughput processes, and development of green and cost-effective technological processes that minimize energy loss [23]. To achieve these objectives, researchers have been utilizing materials science, nanotechnol-",
+      "bbox": [
+        42.52,
+        99.05,
+        300.52,
+        741.23
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "由于大气吸收和散射[7]。尽管太阳能资源丰富，但仅占全球一次能源供应的一小部分。 2020年，国际能源机构报告称，太阳能光伏和光热发电仅占全球一次能源供应总量的2%。因此，需要高效的太阳能捕获和转换技术，以最大限度地提高全光谱太阳光的利用效率。太阳能高效传输的有前途的途径之一是太阳能燃料，它是由太阳能驱动的化学反应产生的合成燃料[8]。太阳能燃料被认为是清洁能源运输最经济可行和最有效的解决方案，并且可以以环保的方式大规模生产[9]。将太阳能转化为有用形式有两种途径：太阳能到高能热载流子（EHC）[10]和光到局部热能（LTE）[11]。光催化是太阳能到 EHC 过程的一个例子，其中光照射用于激发光催化剂中的 EHC 进行化学反应 [12,13]。光催化技术的出现是环境可持续能源研究的里程碑[14]。但光催化的反应速率较低（Rphoto/I0.5，I代表光强）且对目标产品的不利选择性严重限制了太阳能资源的广泛利用[15]。此外，光催化过程中的大部分光致热能都被冷却系统损失掉，导致能源利用效率低下。因此，精心设计的具有高催化活性和最小能量损失的光驱动催化系统对于最大限度地提高全球太阳辐照度的利用效率和减轻对传统化石燃料的依赖至关重要。光热催化因其前所未有的光捕获效率、卓越的通量和温和的反应条件而被认为是传统光催化和热催化的一种有前景的替代品，用于能量转化和环境修复[16,17]。该技术将太阳能介导的光化学过程和太阳光诱导的热催化集成到一个单元中，产生互补和协同效应。当催化剂材料吸收光时，会产生EHC直接参与化学反应[18,19]，而那些未能参与的则会通过热化转化为热量[20]。因此，光热催化弥补了光催化和热催化的缺点，提高了反应选择性并减少了反应势垒。通过使用全光谱太阳光，光热催化已将反应速率提高到工业水平，使其成为大规模生产太阳能燃料的有前途的解决方案[21,22]。要实现高档光热催化技术，需要两个关键组成部分：高效稳定的光热催化剂，可扩展且精确，适用于高通量工艺；以及开发绿色且具有成本效益的技术工艺，最大限度地减少能量损失[23]。为了实现这些目标，研究人员一直在利用材料科学、纳米技术"
+    },
+    {
+      "id": "S013",
+      "page": 2,
+      "type": "paragraph",
+      "order": 13,
+      "original_text": "ogy, and computational modelling to engineer various photothermal materials such as metal-, semiconductor-, carbonbased and single atom materials, as well as their hybrids [24– 26]. Furthermore, cutting-edge technologies such as 3D printing have been successfully utilized for a precise and large-scale preparation of photothermal materials [27,28]. The design and optimization of reaction facilities also play a crucial role in determining the efficiency of solar energy conversion and mass distribution and transfer [23]. Light-focusing devices, for instance, significantly impact the intensity and duration of light to activate the catalyst and drive the reaction, thus its integration with reactors have been designed to reduce energy loss [29]. Although photothermal catalysis has witnessed rapid growth and remarkable performance improvements, as a field in its infancy, the concept of photothermal catalysis is still not clearly defined and catalyst design strategies are still lacking. Therefore, a comprehensive review of fundamental investigations and largescale applications is both necessary and timely. In this review, we aim to present the fundamental principles underlying photothermal catalytic processes, explore the key considerations in catalyst design and discuss the technological processes involved in scaling up the production of solar fuels through the photothermal catalytic processes (Fig. 1). The review begins with a brief introduction to the fundamentals of photothermal catalytic technology, including the origins of EHC, LTE and their interactions, as well as the classification of this technology. Emphasis will be put on the development of new types of photothermal materials for intensified full-spectrum sunlight absorption, enhanced generation and directed accumulation of EHC and LTE and their efficient regulations. The goal is to achieve highly efficient and stable harvesting of solar energy for robust and continuous contribution to photothermal catalysis. The versatile applications of photothermal catalysis in chemical reactions towards green energy generation are then systematically discussed, including liquid–solid, gas–solid and solid–solid phase reactions. Additionally, the technological process involved in material scaling manufacture and high-flux sunlight capture for catalyzing chemical reactions on a large scale is briefly reviewed. Further perspectives are presented on the integration of photothermal catalytic technology into traditional chemical blocks, aiming at exploring efficient photothermal catalysts for high solar energy conversion efficiency and yields of solar fuels, while renovating traditional facilities of chemical industry production in cost-effective and low energy loss manners. This review is anticipated to provide new insights toward the understanding and engineering of the key components in upscaling applications of photothermal catalysis, further accelerating the development of this important research area.",
+      "bbox": [
+        317.48,
+        63.16,
+        575.47,
+        633.62
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "科学和计算建模来设计各种光热材料，例如金属、半导体、碳基和单原子材料及其混合物[24-26]。此外，3D打印等尖端技术已成功用于光热材料的精确和大规模制备[27,28]。反应设施的设计和优化在确定太阳能转换和质量分配和转移的效率方面也发挥着至关重要的作用[23]。例如，光聚焦装置会显着影响光的强度和持续时间，以激活催化剂并驱动反应，因此其与反应器的集成旨在减少能量损失[29]。尽管光热催化已经快速发展并取得显着的性能提升，但作为一个处于起步阶段的领域，光热催化的概念仍然没有明确定义，催化剂设计策略仍然缺乏。因此，对基础研究和大规模应用进行全面回顾是必要且及时的。在这篇综述中，我们的目的是介绍光热催化过程的基本原理，探讨催化剂设计的关键考虑因素，并讨论通过光热催化扩大太阳能燃料生产的技术过程。流程（图1）。综述首先简要介绍了光热催化技术的基础知识，包括EHC、LTE的起源及其相互作用，以及该技术的分类。重点开发新型光热材料，增强全光谱太阳光吸收，增强EHC和LTE的产生和定向积累及其高效调控。目标是实现高效、稳定的太阳能收集，为光热催化做出稳健、持续的贡献。然后系统地讨论了光热催化在绿色能源化学反应中的多种应用，包括液-固、气-固和固-固相反应。此外，还简要回顾了材料规模制造和大规模催化化学反应的高通量阳光捕获所涉及的技术过程。进一步展望了光热催化技术与传统化工领域的融合，旨在探索高效的光热催化剂，以实现高太阳能转换效率和太阳能燃料产率，同时以经济高效和低能量损失的方式改造传统化工生产设施。此次审查预计将提供对光热催化升级应用中关键组件的理解和工程设计的新见解，进一步加速了这一重要研究领域的发展。"
+    },
+    {
+      "id": "S014",
+      "page": 2,
+      "type": "paragraph",
+      "order": 14,
+      "original_text": "Fundamentals of photothermal catalysis Photothermal catalysis is a technique sharing the same goal with photocatalysis to harvest solar energy for initiation of chemical processes, but completely differs from photocatalysis in reaction mechanism. In this process, when a catalyst absorbs photons, it converts solar energy into two essential components: EHC and LTE (Fig. 2) [30]. The EHC can be used to directly inject into",
+      "bbox": [
+        317.48,
+        658.86,
+        575.45,
+        741.45
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热催化的基础知识光热催化是一种与光催化具有相同目标的技术，旨在收集太阳能以引发化学过程，但在反应机理上与光催化完全不同。在此过程中，当催化剂吸收光子时，它将太阳能转化为两个重要组成部分：EHC 和 LTE（图 2）[30]。 EHC可用于直接注入"
+    },
+    {
+      "id": "C001",
+      "page": 3,
+      "type": "caption",
+      "order": 15,
+      "original_text": "Schematic illustration of the photothermal catalysis from fundamentals, catalyst design and application in diverse chemical reactions for industrial production of solar fuels.",
+      "bbox": [
+        36.85,
+        260.73,
+        569.81,
+        278.73
+      ],
+      "confidence": "high",
+      "refs": [
+        "F001"
+      ],
+      "translation": "光热催化原理、催化剂设计以及在太阳能燃料工业生产的各种化学反应中的应用的示意图。"
+    },
+    {
+      "id": "S015",
+      "page": 3,
+      "type": "paragraph",
+      "order": 16,
+      "original_text": "Photochemical processes A photo-to-electron process is a term widely referred in photovoltaics and photocatalytic technologies to describe the conversion of solar energy into electrical energy [45]. This process involves the absorption of photons (light energy) by a material, such as a semiconductor or plasmonic metal nanoparticles, to excite electrons and generate a flow of electric current [46–48]. The mechanism of semiconductor-based photocatalysis involves the excitation of electron-hole pairs due to the suitable band structure upon absorbing equivalent photons of light [49]. As a result, the excited electrons and holes can participate in chemical reactions with adsorbed molecules, generating reactive intermediates that lead to the desired reaction [50]. More specifically, when a photocatalyst is exposed to light, it absorbs photons to excite electrons from the valence band (VB) to the conduction band (CB), creating electron-hole pairs [51]. These excited electrons and holes can separate and move to the surface of the photocatalyst, where they participate in redox reactions with adsorbed molecules on the surface (Fig. 2a) [43]. Inorganic (e.g., metal oxides [52,53], transition metal dichalcogenides [54–56], and black phosphorus [57]) and organic semiconductor-based photocatalysts (e.g., carbon nitride [58,59], metal organic frameworks [60,61] and covalent organic frameworks [62]) have been developed and used in various applications, including water splitting [21,63,64], CO2 reduction [65], and organic pollutant degradation [66]. Despite the promising potential, the weak internal electrical field in semiconductorbased photocatalysis always results in fatigue charge carriers and short diffusion length of EHC, thereby leading to poor photo-to-electron conversion efficiencies [67]. Plasmonic metal nanoparticles, especially those made of Au, Ag, and Cu, have demonstrated the great potential as photo-toelectron conversion materials [68]. The localized surface plasmon resonance (LSPR) effect plays a crucial role in plasmonic catalysis and allows it to be distinguished from semiconductor-based photocatalysis [24,69]. When sunlight strikes plasmonic nanometals and the photon’s energy matches the metal’s work function, the energy becomes stored in the collective resonant oscillations of",
+      "bbox": [
+        311.81,
+        299.48,
+        569.81,
+        751.66
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光化学过程光电子过程是光伏和光催化技术中广泛引用的一个术语，用于描述太阳能转化为电能的过程[45]。该过程涉及半导体或等离子体金属纳米颗粒等材料吸收光子（光能），以激发电子并产生电流[46-48]。基于半导体的光催化机制涉及在吸收等效光子时由于合适的能带结构而激发电子-空穴对[49]。因此，激发的电子和空穴可以参与与吸附分子的化学反应，产生反应中间体，从而导致所需的反应[50]。更具体地说，当光催化剂暴露在光下时，它吸收光子将电子从价带（VB）激发到导带（CB），产生电子-空穴对[51]。这些激发的电子和空穴可以分离并移动到光催化剂的表面，在那里它们与表面吸附的分子参与氧化还原反应（图2a）[43]。无机（例如金属氧化物[52,53]、过渡金属二硫属化物[54-56]和黑磷[57]）和有机半导体光催化剂（例如氮化碳[58,59]、金属有机框架[60,61]和共价有机光催化剂）框架[62]）已被开发并用于各种应用，包括水分解[21,63,64]、二氧化碳减排[65]和有机污染物降解[66]。尽管潜力巨大，但半导体光催化中的弱内电场总是会导致载流子疲劳和EHC扩散长度短，从而导致光电子转换效率较差[67]。等离激元金属纳米粒子，特别是由金、银和铜制成的纳米粒子，已经证明了作为光电子转换材料的巨大潜力[68]。局域表面等离子体共振（LSPR）效应在等离子体催化中发挥着至关重要的作用，并使其与基于半导体的光催化区分开来[24,69]。当阳光照射到等离子体纳米金属并且光子的能量与金属的功函数相匹配时，能量就会存储在"
+    },
+    {
+      "id": "S016",
+      "page": 3,
+      "type": "paragraph",
+      "order": 17,
+      "original_text": "the highest occupied molecular orbital (HOMO) and lowest unoccupied molecular orbital (LUMO) of the reactants for redox reactions or assist in lowering the specific bonding energy required for thermocatalytic processes [20]. Meanwhile, the LTE obtained from the cooling of hot carriers can be utilized to overcome energy barriers that prevent reaction initiation or accelerate reaction kinetics and photo-excited charge dynamics in photochemical processes [31]. The participation of these two components makes photothermal catalysis more advantageous than single component-driven conventional photocatalytic and thermocatalytic processes. For instance, dry reforming of methane with CO2 (DRM) is an industrialized route to produce syngas that can be used for hydrogen generation and Fischer-Tropsch synthesis of high value-added chemicals and fuels, such as methanol and gasoline [2,32,33]. As a highly endothermic reaction, critical temperatures and pressures are required to overcome the thermodynamic energy barrier of DRM [34]. Here, photothermal catalysis can help highlight benefits in terms of energy efficiency, cost, safety, and environmental impact by triggering the DRM process at ambient conditions of room temperature and pressure [35,36]. In addition, coupling photochemical processes with thermocatalysis has been shown to yield better performance and selectivity for syngas than photocatalysis or thermocatalysis alone [37–39]. Moreover, the photothermal catalytic technology offers greater control over reaction conditions compared to thermocatalysis, as the temperature of the photothermal catalytic reaction can be precisely adjusted by modifying the wavelength and intensity of the light source [33,40– 42]. Therefore, photothermal catalysis is an exciting area of research with great potential for advancing our understanding of catalytic processes and developing new technologies for energy conversion. In the following sections of the paper, the origins and interactions of EHC and LTE in photothermal catalytic processes will be elucidated. The types of photothermal catalysis will also be clarified to help design and develop highly efficient catalysts for energy conversion and preparation.",
+      "bbox": [
+        36.85,
+        299.8,
+        294.84,
+        750.69
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "氧化还原反应反应物的最高占据分子轨道（HOMO）和最低未占据分子轨道（LUMO）或有助于降低热催化过程所需的比键能[20]。同时，通过热载流子冷却获得的LTE可用于克服阻碍反应引发或加速光化学过程中的反应动力学和光激发电荷动力学的能量势垒[31]。这两种组分的参与使得光热催化比单一组分驱动的传统光催化和热催化过程更具优势。例如，用二氧化碳干重整甲烷（DRM）是一种生产合成气的工业化路线，合成气可用于制氢以及甲醇和汽油等高附加值化学品和燃料的费托合成[2,32,33]。作为一种高吸热反应，需要临界温度和压力来克服 DRM 的热力学能垒[34]。在这里，光热催化可以通过在室温和压力的环境条件下触发 DRM 过程来帮助突出能源效率、成本、安全性和环境影响方面的好处[35,36]。此外，光化学过程与热催化的耦合已被证明可以产生比合成气更好的性能和选择性。单独的光催化或热催化[37-39]。此外，与热催化相比，光热催化技术可以更好地控制反应条件，因为光热催化反应的温度可以通过改变光源的波长和强度来精确调节[33,40–42]。因此，光热催化是一个令人兴奋的研究领域，在增进我们对催化过程的理解和开发能量转换新技术方面具有巨大潜力。在本文的以下部分中，将阐明 EHC 和 LTE 在光热催化过程中的起源和相互作用。光热催化的类型也将被阐明，以帮助设计和开发用于能量转换和制备的高效催化剂。"
+    },
+    {
+      "id": "S017",
+      "page": 4,
+      "type": "paragraph",
+      "order": 18,
+      "original_text": "conduction electrons, resulting in the LSPR effect. Although only a tiny fraction of photo-excited hot electrons is emitted in the form of radiative emission, most of these electrons generate photo-excited charge carriers through intraband or interband extinction, also known as Landau damping [70]. These hot carriers are capable of driving catalytic reactions, provided their energy is sufficient to exceed the LUMO of the reactant molecules. Plasmonic hot carrier-induced catalysis follows a transient negative ion (TNI) mechanism [71]. The adsorbate begins on its ground-state potential energy surface, followed by electronscattering leading to the formation of TNI (Fig. 2b). The adsorbate then follows the potential energy surface of TNI and obtains kinetic energy along the reaction coordinate. After a short duration, the electrons decay back to the metal Fermi level, and the adsorbate returns to the ground-state potential energy surface with increased vibrational energy (Fig. 2c). If the energy transfer exceeds the activation energy, the reaction takes place.",
+      "bbox": [
+        42.52,
+        551.17,
+        300.51,
+        751.03
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "传导电子，产生局域表面等离子体共振效应。尽管只有一小部分光激发热电子以辐射发射的形式发射，但大多数电子通过带内或带间消光产生光激发电荷载流子，也称为朗道阻尼[70]。这些热载流子能够驱动催化反应，只要它们的能量足以超过反应物分子的 LUMO。等离子体热载流子诱导催化遵循瞬态负离子（TNI）机制[71]。吸附物从其基态势能表面开始，随后发生电子散射，导致 TNI 的形成（图 2b）。然后吸附物沿着 TNI 的势能面移动，并沿着反应坐标获得动能。短暂的持续时间后，电子衰变回到金属费米能级，吸附物返回到基态势能表面，振动能量增加（图2c）。如果能量转移超过活化能，就会发生反应。"
+    },
+    {
+      "id": "S018",
+      "page": 4,
+      "type": "paragraph",
+      "order": 19,
+      "original_text": "In comparison to semiconductor photocatalysts, a critical feature of plasmonic photocatalysis is that the plasmonic nanoparticles exhibit stronger capability to absorb light in the visible and near-infrared regions, enabling a full-spectrum sunlight utilization. Additionally, plasmonic-enhanced EHC driven photocatalysis exhibits a linear dependence on the reaction rate with respect to light intensity (Rphoto / In, where I represents light intensity and n > 1), leading to significant activities [72]. However, the use of nanometals, particularly coinage metals, in plasmonic photocatalysis raises concerns due to their scarcity and environmental impact. Alternatively, titanium nitride (TiN) emerges as a promising plasmonic material to exhibit superior solar light harvesting efficiency and satisfactory catalytic performance [73–75]. Notably, TiN holds a promise for future large-scale applications due to its significantly higher natural abundance compared to costly materials like Au or Ag. By utilizing TiN, plasmonic photocatalysis can achieve efficient",
+      "bbox": [
+        317.48,
+        551.17,
+        575.47,
+        751.03
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "与半导体光催化剂相比，等离子体光催化的一个关键特征是等离子体纳米粒子表现出更强的吸收可见光和近红外区域光的能力，从而实现全光谱太阳光利用。此外，等离子体增强 EHC 驱动的光催化表现出反应速率与光强度的线性相关性（Rphoto / In，其中 I 代表光强度且 n > 1），从而产生显着的活性 [72]。然而，纳米金属，特别是造币金属，在等离子体光催化中的使用因其稀缺性和环境影响而引起人们的担忧。另外，氮化钛（TiN）作为一种有前途的等离子体材料出现，具有优异的太阳光收集效率和令人满意的催化性能[73-75]。值得注意的是，与金或银等昂贵的材料相比，氮化钛具有明显更高的自然丰度，因此有望在未来大规模应用。通过利用TiN，等离子体光催化可以实现高效"
+    },
+    {
+      "id": "C002",
+      "page": 4,
+      "type": "caption",
+      "order": 20,
+      "original_text": "Fundamentals in photothermal catalysis, including (a-c) EHC excitation, (d-f) EHC limitation for injection into HOMO/LUMO of reactants, and (g-i) EHC thermalization. (a) Mechanism of EHC generation in a semiconductor-based catalyst [43]. (b-c) EHC excitation pathway of a plasmonic nanometal [19]. Proposed mechanism for electron-induced reactant molecular dissociation on a photo-excited plasmonic metal. Ea stands as the activation barrier for dissociation [44]. (d-f) Requirements for EHC to be injected into a semiconductor and an adsorbate [20]. Photothermal effect of (g) plasmonic nanometal, (h) semiconductor and (i) carbon-based and organic materials [7].",
+      "bbox": [
+        42.52,
+        485.06,
+        575.47,
+        532.99
+      ],
+      "confidence": "high",
+      "refs": [
+        "F002"
+      ],
+      "translation": "光热催化基础知识，包括 (a-c) EHC 激发、(d-f) EHC 注入反应物 HOMO/LUMO 的限制，以及 (g-i) EHC 热化。 (a) 半导体催化剂中 EHC 产生的机制 [43]。 (b-c) 等离子体纳米金属的 EHC 激发途径 [19]。提出的光激发等离子体金属上电子诱导反应物分子解离的机制。 Ea 代表解离的激活屏障[44]。 (d-f) 将 EHC 注入半导体和吸附物的要求 [20]。 (g) 等离子体纳米金属、(h) 半导体和 (i) 碳基和有机材料的光热效应 [7]。"
+    },
+    {
+      "id": "S019",
+      "page": 5,
+      "type": "paragraph",
+      "order": 21,
+      "original_text": "light absorption and catalysis while addressing environmental and scalability issues.",
+      "bbox": [
+        36.85,
+        63.16,
+        294.83,
+        83.7
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光吸收和催化，同时解决环境和可扩展性问题。"
+    },
+    {
+      "id": "S020",
+      "page": 5,
+      "type": "paragraph",
+      "order": 22,
+      "original_text": "Photo-to-thermal processes Photo-to-thermal conversion is an innovative technology that harnesses solar energy to produce heat in a sustainable and eco-friendly manner. The process relies on the non-radiative relaxation, which indirectly converts irradiation into heat, as well as absorption of infrared (IR) radiation, which directly converts solar radiation into thermal energy. In a Schottky heterojunction, the energy of the excited electrons in plasmonic nanometals must be within the limitations of EF + ћx \u0002 E \u0002 EF + EB and p2 z/2m > EB + EF for the hot electrons to be injected into the semiconductor (Fig. 2d-e) [20]. However, if the hot carriers fail to overcome the Schottky barrier or the anti-bonding orbital of the reactant molecule (Fig. 2f), hot electrons will release their energy through Ohmic damping and transfer them to phonon modes, leading to an increase of temperature on the nanometals and their surroundings (Fig. 2g). Additionally, non-radiative relaxation occurs on semiconductor-based catalysts through either Auger recombination or Shockley-Read-Hall recombination (Fig. 2h). This leads to the dissipation of excessive energy as lattice vibrations or phonons, resulting in heat generation. The dissipation of energy in the form of phonons can cause the local heating of the lattice, resulting in a temperature distribution reliant on optical absorption and bulk/surface recombination. The optically excited charge carriers then diffuse and recombine, establishing a temperature distribution that leads to the photothermal effect of semiconductor materials. Furthermore, carbonaceous and organic materials exhibit a photothermal effect that is highly dependent on the p to the p* orbitals, which requires a lower energy input (Fig. 2i) [76]. When a material is illuminated by light whose energy matches an electronic transition within the molecule, an electron would be promoted from the ground state to a higher energy orbital. The excited electrons relax by means of electron phonon coupling, hence, the light energy absorbed is transferred from the excited electrons to vibrational modes throughout the atomic lattices, leading to a temperature rise in the material. Consequently, the photo-to-thermal process always follows the photoelectrical process in photothermal catalysis. Only the hot carriers that are not effectively output for redox reactions can be decayed into LTE, which forms the foundation regarding the classification of photothermal catalysis and the design and development of photothermal catalysts. Besides, advanced technologies, such as transient absorption spectroscopy, are highly required to distinguish the photochemical and photo-tothermal processes for mechanistic investigations, considering the varying lifetimes of hot carriers ranging from fs to ns in the photothermal catalysis.",
+      "bbox": [
+        36.85,
+        98.1,
+        294.84,
+        669.85
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热过程光热转换是一项创新技术，利用太阳能以可持续且环保的方式产生热量。该过程依赖于非辐射弛豫（间接将辐射转化为热量）以及红外（IR）辐射的吸收（直接将太阳辐射转化为热能）。在肖特基异质结中，等离子体纳米金属中激发电子的能量必须在 EF + ћx E EF + EB 和 p2 z/2m > EB + EF 的限制内，以便热电子注入半导体中（图 2d-e）[20]。然而，如果热载流子未能克服肖特基势垒或反应物分子的反键轨道（图2f），热电子将通过欧姆阻尼释放能量并将其转移到声子模式，导致纳米金属及其周围环境的温度升高（图2g）。此外，通过俄歇复合或肖克利-里德-霍尔复合，半导体催化剂上会发生非辐射弛豫（图2h）。这导致过多的能量以晶格振动或声子的形式耗散，从而产生热量。以声子形式耗散的能量会导致晶格局部加热，从而导致依赖于光学吸收和体积/表面的温度分布重组。然后，光激发的电荷载流子扩散并重新组合，建立导致半导体材料光热效应的温度分布。此外，碳质和有机材料表现出的光热效应高度依赖于p至p*轨道，这需要较低的能量输入（图2i）[76]。当材料被能量与分子内电子跃迁相匹配的光照射时，电子将从基态提升到更高能量的轨道。受激电子通过电子声子耦合而弛豫，因此吸收的光能从受激电子转移到整个原子晶格的振动模式，导致材料的温度升高。因此，光热催化中的光热过程始终遵循光电过程。只有那些不能有效输出氧化还原反应的热载流子才能衰变成LTE，这为光热催化的分类和光热催化剂的设计和开发奠定了基础。此外，考虑到热载流子的不同寿命，非常需要先进的技术（例如瞬态吸收光谱）来区分光化学和光热过程以进行机械研究。光热催化从 fs 到 ns。"
+    },
+    {
+      "id": "S021",
+      "page": 5,
+      "type": "paragraph",
+      "order": 23,
+      "original_text": "Interactions between photochemical and thermocatalytic processes Photocatalysis and photo-driven thermocatalysis are two interrelated processes and significantly contribute to photothermal catalytic performance. The difference is that photocatalysis employs solar energy to excite electrons, elevating their energy levels and",
+      "bbox": [
+        36.85,
+        684.25,
+        294.83,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光化学和热催化过程之间的相互作用光催化和光驱动热催化是两个相互关联的过程，对光热催化性能有显着贡献。不同之处在于光催化利用太阳能激发电子，提高其能级并"
+    },
+    {
+      "id": "S022",
+      "page": 5,
+      "type": "paragraph",
+      "order": 24,
+      "original_text": "resulting in reactive intermediates such as free radicals and TNI for chemical reactions, while photo-driven thermocatalysis utilizes solar energy to generate localized heat and thereby initiate chemical processes. Combining these two processes in a single photothermal catalytic unit can have a multifaceted promoting effect. Specifically, traditional thermocatalytic reactions typically require critical reaction conditions, such as high temperature and pressure. However, photoexcitation has been harnessed to unlock low-temperature equilibrium regimes and increase catalyst temperature, thereby promoting thermocatalytic reactions [77]. Additionally, EHC’s participation in thermocatalytic processes increases selectivity by injecting into specific reactive intermediates [40]. Thermal energy, in turn, can be used to overcome the limitations of photocatalysis and promote the excitation and generation of EHC [78,79]. Thus, visible and near infrared light can be used to drive photochemical reactions when thermal energy is supplied to the photothermal catalytic system [80]. Moreover, this cooperation is effective because elevated reaction temperature significantly reduces the redox potentials of reactants, enabling EHC’s involvement in redox reactions [81]. Nonetheless, suppressing effects between photochemical and thermocatalytic processes in photothermal catalysis also exist. Specifically, at higher temperature, the charge dynamics will slow down and EHC decay rates promote. The contribution from EHC to photothermal catalysis in such conditions therefore remains a topic of debate. Additionally, we have experimentally found that photochemical and thermocatalytic processes compete for active sites on a photothermal catalyst, with thermocatalysis occupying more active sites when the temperature reaches the minimum onset temperature of thermocatalysis, resulting in a diminished EHC output [82]. As such, it is vital to quantify the contributions of EHC and LTE to photothermal catalysis and optimize their interactions to maximize light harvesting efficiency and photothermal catalytic performance.",
+      "bbox": [
+        311.81,
+        63.16,
+        569.8,
+        466.27
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "产生自由基和 TNI 等反应中间体进行化学反应，而光驱动热催化利用太阳能产生局部热量，从而引发化学过程。将这两个过程结合在一个光热催化单元中可以产生多方面的促进作用。具体而言，传统的热催化反应通常需要关键的反应条件，例如高温和高压。然而，光激发已被用来解锁低温平衡状态并提高催化剂温度，从而促进热催化反应[77]。此外，EHC 参与热催化过程，通过注入特定的反应中间体来提高选择性 [40]。反过来，热能可以用来克服光催化的局限性，促进EHC的激发和生成[78,79]。因此，当向光热催化系统提供热能时，可见光和近红外光可用于驱动光化学反应[80]。此外，这种合作是有效的，因为升高的反应温度显着降低了反应物的氧化还原电位，使得EHC能够参与氧化还原反应[81]。尽管如此，光热催化中光化学过程和热催化过程之间也存在抑制作用。具体来说，在较高温度下，电荷动力学会减慢，EHC 衰减速率会加快。因此，在这种条件下，EHC 对​​光热催化的贡献仍然是一个争论的话题。此外，我们通过实验发现光化学和热催化过程会竞争光热催化剂上的活性位点，当温度达到热催化的最低起始温度时，热催化会占据更多的活性位点，导致EHC输出减少[82]。因此，量化 EHC 和 LTE 对光热催化的贡献并优化它们的相互作用以最大限度地提高光捕获效率和光热催化性能至关重要。"
+    },
+    {
+      "id": "S023",
+      "page": 5,
+      "type": "paragraph",
+      "order": 25,
+      "original_text": "Classification of photothermal catalysis Based on the above discussions on photochemical and photo-tothermal processes, photothermal catalysis can be categorized into three groups, depending on the extent of the contribution from thermal energy to the catalytic process. These categories are thermal-dominated photothermal catalysis (TPT), carrierthermal coupling catalysis (CTC), and hot carriers dominated photothermal catalysis (CPT) (see Fig. 3). It is important to note that externally heated photocatalysis represents a distinct type of photothermal catalysis where a portion of the thermal energy is supplied through external heating [82]. With the advancement of light-concentrating devices, solar concentrating technology is expected to eventually replace the need for external heating, initiating chemical reactions in a more sustainable and cleaner manner [83,84]. This particular process can be further classified into TPT and CTC processes based on the combined contribution of thermal energy, including both photo-generated thermal energy and externally supplied thermal energy, to the overall catalytic efficiency. In TPT, most of the photo-excited hot carriers cannot be injected into the HOMO/LUMO of the reactants and decay in the form of heat due to ohmic damping. Consequently, the contribution of most hot carriers to TPT catalytic throughput is",
+      "bbox": [
+        311.81,
+        480.33,
+        569.8,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热催化的分类基于上述对光化学和光热过程的讨论，根据热能对催化过程的贡献程度，光热催化可分为三类。这些类别是热主导光热催化（TPT）、载流子热耦合催化（CTC）和热载流子主导光热催化（CPT）（见图3）。值得注意的是，外部加热光催化代表了一种独特的光热催化类型，其中一部分热能是通过外部加热提供的[82]。随着聚光装置的进步，太阳能聚光技术有望最终取代外部加热的需要，以更可持续和更清洁的方式引发化学反应[83,84]。根据热能（包括光生热能和外部提供的热能）对整体催化效率的综合贡献，该特定过程可以进一步分为 TPT 和 CTC 过程。在TPT中，大多数光激发热载流子无法注入反应物的HOMO/LUMO中，并且由于欧姆阻尼而以热的形式衰变。因此，大多数热载流子对 TPT 催化通量的贡献为"
+    },
+    {
+      "id": "S024",
+      "page": 6,
+      "type": "paragraph",
+      "order": 26,
+      "original_text": "predominantly attributed to induced thermal energy rather than direct injection. Only the EHC with enough energy to weaken or break specific bonding for intermediates are responsible for catalytic activity. For instance, Group VIII transition metal nanoparticles (e.g., iron, cobalt, and nickel) on Al2O3 exhibit weaker plasmonic properties in the visible and near-infrared spectral range due to the filled d-band [85,86]. This, in turn, reduces the efficiency of directly reducing/oxidizing adsorbed molecules. Instead, the localized temperature on the catalyst can be rapidly elevated to \u0003400 \u0001C within half an hour of light illumination, leading to an efficient DRM by TPT for syngas production. By contrast, once the photo-excited hot carriers are energetic enough and photo-generated LTE in a photothermal catalytic process fails to overcome the thermodynamic reaction barrier of chemical processes, the yield or throughput of the reaction is highly dependent on photo-excited hot carriers for directly participating into the redox reactions of reactants. This is known as a CPT process. The essence of CPT is a photochemical process, where thermal energy exists for accelerating the dynamics of photo-induced charge carriers and lowering the redox potentials of reactants. The CPT technology has been widely applied in water splitting related processes, such as water splitting for green hydrogen and CO2/N2 reduction reaction with water, where photo-induced EHC serves as the main driving force to realize",
+      "bbox": [
+        42.52,
+        467.44,
+        300.51,
+        750.98
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "主要归因于感应热能而不是直接喷射。只有具有足够能量削弱或破坏中间体特定键合的 EHC 才具有催化活性。例如，由于填充了 d 波段，Al2O3 上的第 VIII 族过渡金属纳米颗粒（例如铁、钴和镍）在可见光和近红外光谱范围内表现出较弱的等离子体特性 [85,86]。这反过来又降低了直接还原/氧化吸附分子的效率。相反，催化剂上的局部温度可以在光照半小时内迅速升至 400°C，从而通过 TPT 实现高效的 DRM 合成气生产。相比之下，一旦光激发热载流子能量足够，并且光热催化过程中的光生LTE无法克服化学过程的热力学反应势垒，则反应的产率或吞吐量高度依赖于光激发热载流子直接参与反应物的氧化还原反应。这称为 CPT 过程。 CPT的本质是一种光化学过程，其中热能的存在加速了光生载流子的动力学并降低了反应物的氧化还原电位。 CPT技术已广泛应用于水分解相关工艺，例如水分解用于绿色环保氢气和CO2/N2与水发生还原反应，其中光诱导EHC是实现这一过程的主要驱动力"
+    },
+    {
+      "id": "S025",
+      "page": 6,
+      "type": "paragraph",
+      "order": 27,
+      "original_text": "water dissociation. Catalysts involved in the CPT process include semiconductor-based (e.g., TiO2 [87], C3N4 [88] and CdS [54]) or classical plasmonic metal (e.g., Ag, Au and Cu) materials [89]. In most cases, especially gas–solid phase reactions, contributions of EHC and thermal energy co-exist, and the process is known as CTC. In a CTC process, a part of hot carriers is used for photocatalysis, while the others recombine with the liberation of heat for thermocatalysis. Consequently, photocatalysis mediated by hot carriers from Landau damping and the thermal catalysis process induced through Ohmic damping jointly determine the synergistic catalysis in CTC. A bimetallic system integrating an coinage metal and a transition metal is a typical CTC catalyst [90]. The photocatalytic process on the IB metal and photo-driven thermocatalysis on the transition metal collectively determine the photothermal catalytic performance. Although experimental results have confirmed the existence of EHC and LTE in CTC processes, accurately quantifying the contributions from photothermal and photocatalytic processes to the overall catalytic throughput remains a challenge. Many studies focus on determining the localized temperature to differentiate the thermocatalytic contribution from the CTC processes. However, there are several challenges related to reactor setup, measurement instrumentation, and categorization of catalytic systems [91]. These challenges lead to unduplicated",
+      "bbox": [
+        317.48,
+        467.44,
+        575.47,
+        750.98
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "水离解。 CPT 过程中涉及的催化剂包括半导体基材料（例如 TiO2 [87]、C3N4 [88] 和 CdS [54]）或经典等离子体金属（例如 Ag、Au 和 Cu）材料 [89]。在大多数情况下，尤其是气固相反应，EHC和热能的贡献同时存在，该过程称为CTC。在CTC过程中，一部分热载流子用于光催化，而另一部分热载流子重新结合并释放热量用于热催化。因此，朗道阻尼热载流子介导的光催化作用和欧姆阻尼诱导的热催化过程共同决定了CTC中的协同催化作用。集成造币金属和过渡金属的双金属体系是典型的CTC催化剂[90]。 IB金属的光催化过程和过渡金属的光驱动热催化共同决定了光热催化性能。尽管实验结果已经证实了 CTC 过程中 EHC 和 LTE 的存在，但准确量化光热和光催化过程对整体催化通量的贡献仍然是一个挑战。许多研究侧重于确定局部温度，以区分 CTC 过程的热催化贡献。然而，存在与反应器设置、测量仪器、和催化系统的分类[91]。这些挑战导致不可重复"
+    },
+    {
+      "id": "C003",
+      "page": 6,
+      "type": "caption",
+      "order": 28,
+      "original_text": "Classification of photothermal catalysis into (a) thermal-dominated photothermal catalysis (a representative catalyst of Ni12P5@SiO2 [93]), (b) carrier-thermal coupling catalysis (a representative catalyst of AuPt@MOF [90]) and (c) hot carriers dominated photothermal catalysis (a representative catalyst of SrTiO3:Al [21]).",
+      "bbox": [
+        42.52,
+        418.39,
+        575.47,
+        446.37
+      ],
+      "confidence": "high",
+      "refs": [
+        "F003"
+      ],
+      "translation": "光热催化分为（a）热主导的光热催化（Ni12P5@SiO2的代表性催化剂[93]），（b）载流子-热耦合催化（AuPt@MOF的代表性催化剂[90]）和（c）热载流子主导的光热催化（SrTiO3:Al的代表性催化剂[21]）。"
+    },
+    {
+      "id": "S026",
+      "page": 7,
+      "type": "paragraph",
+      "order": 29,
+      "original_text": "temperature gradients within the catalyst bed under light irradiation in thermocatalysis, thereby resulting in controversial mechanistic studies within CTC processes [16,92]. Therefore, it is imperative to rationally design catalysts and reactors to unravel the intrinsic solar conversion mechanism in photothermal catalytic reactions. By addressing these design considerations, a deeper understanding of the complex interplay between photothermal, photocatalytic, and thermocatalytic processes can be achieved, enabling the development of more efficient and sustainable catalytic systems for solar energy conversion.",
+      "bbox": [
+        36.85,
+        63.16,
+        294.83,
+        179.34
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "热催化光照射下催化剂床内的温度梯度，从而导致 CTC 过程中存在争议的机理研究 [16,92]。因此，必须合理设计催化剂和反应器，以揭示光热催化反应中固有的太阳能转换机制。通过解决这些设计考虑因素，可以更深入地了解光热、光催化和热催化过程之间复杂的相互作用，从而能够开发更高效和可持续的太阳能转换催化系统。"
+    },
+    {
+      "id": "S027",
+      "page": 7,
+      "type": "paragraph",
+      "order": 30,
+      "original_text": "Design strategies for photothermal catalysts The success of photothermal catalytic reactions depends on the interplay between EHC and LTE. As such, a photothermal catalyst plays a crucial role in choreographing these two ‘dancers’ by inducing different behaviors. Developing efficient photothermal catalysts is therefore necessary to promote the scaling application of photothermal catalysis. However, despite the rapid growth of the field, there is still a lack of clarity in the concept and design principles of photothermal catalysts, which can cause confusion for those new researchers to the field. To address this gap in knowledge, we aim to provide a comprehensive concept of photothermal catalysts by categorizing them into different types that contribute to various photothermal processes, such as CPT, TPT, and CTC. Additionally, we propose strategies for optimizing photothermal catalysts to control and enhance the contributions of EHC and LTE, maximizing solar harvesting and the efficient production of solar fuels. These optimized strategies will ultimately lead to more robust and efficient photothermal catalytic operations.",
+      "bbox": [
+        36.85,
+        200.55,
+        294.83,
+        426.64
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热催化剂的设计策略光热催化反应的成功取决于EHC 和LTE 之间的相互作用。因此，光热催化剂在通过诱导不同的行为来编排这两个“舞者”方面发挥着至关重要的作用。因此，开发高效的光热催化剂对于促进光热催化的规模化应用是必要的。然而，尽管该领域发展迅速，但光热催化剂的概念和设计原理仍然缺乏明确性，这可能会给该领域的新研究人员带来困惑。为了弥补这一知识差距，我们的目标是通过将光热催化剂分为有助于各种光热过程的不同类型（例如 CPT、TPT 和 CTC）来提供光热催化剂的全面概念。此外，我们提出了优化光热催化剂的策略，以控制和增强 EHC 和 LTE 的贡献，最大限度地提高太阳能收集和太阳能燃料的高效生产。这些优化策略最终将带来更稳健、更高效的光热催化操作。"
+    },
+    {
+      "id": "S028",
+      "page": 7,
+      "type": "paragraph",
+      "order": 31,
+      "original_text": "Concept of photothermal catalysts Photothermal catalytic activities have been observed in a wide range of materials, including semiconductors, nanometals, black materials, and their hybrids. To gain a deeper understanding of the above classified CPT, TPT and CTC processes, we can describe photothermal catalysts as PxB1-x, which consists of photo-toelectron components and/or black materials (Fig. 4a). When x is close to 1, the photothermal catalyst is mainly a photocatalyst and is commonly used in the CPT process. However, in most photocatalytic systems, photothermal effect is often overlooked due to the dissipation of thermal energy by the cooling water system. An experimental work has revealed that the temperature of water solution can be increased from 25 to 57 \u0001C in 4 h with a 300 W xenon lamp irradiation during a solar driven water splitting reaction using semiconductors (i.e., TiO2 and g-C3N4) as catalysts [88]. Besides, the enhancement of photothermal effect on chemical synthesis was also observed when heating was left in photocatalysis in the absence of cooling system, fully confirming the nonnegligible photothermal effect in a CPT process [45]. When x is close to 0, the photothermal catalyst is always a black material such as carbon, amorphous boron, MXene, thermoelectric, transition nanometal, and their hybrids [94,95]. This material is highly effective in converting full spectrum sunlight into thermal energy and is often used in TPT processes. For example, amorphous boron has demonstrated outstanding TPT catalytic performance in CO2 reduction by rapidly increasing the localized",
+      "bbox": [
+        36.85,
+        444.61,
+        294.84,
+        754.78
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热催化剂的概念光热催化活性已在多种材料中观察到，包括半导体、纳米金属、黑色材料及其混合物。为了更深入地了解上述分类的CPT、TPT和CTC过程，我们可以将光热催化剂描述为PxB1-x，它由光电子成分和/或黑色材料组成（图4a）。当x接近1时，光热催化剂主要是光催化剂，常用于CPT工艺。然而，在大多数光催化系统中，由于冷却水系统的热能耗散，光热效应常常被忽视。一项实验工作表明，在使用半导体（即 TiO2 和 g-C3N4）作为催化剂的太阳能驱动水分解反应中，在 300 W 氙灯照射下，水溶液的温度可以在 4 小时内从 25°C 升高到 57°C [88]。此外，在没有冷却系统的情况下，当光催化过程中继续加热时，也观察到光热效应对化学合成的增强，充分证实了CPT过程中不可忽略的光热效应[45]。当x接近0时，光热催化剂总是黑色材料，如碳、无定形硼、MXene、热电、过渡纳米金属及其混合物[94,95]。这种材料在转化方面非常有效全光谱阳光转化为热能，常用于 TPT 工艺。例如，无定形硼通过快速提高局部催化活性，在 CO2 还原中表现出出色的 TPT 催化性能。"
+    },
+    {
+      "id": "S029",
+      "page": 7,
+      "type": "paragraph",
+      "order": 32,
+      "original_text": "temperature to 462 \u0001C in just 10 min [96]. For 0 < x < 1, the photothermal catalyst is a hybrid that combines both a photocatalyst and a black material, allowing EHC from the former to synergize with the LTE of the latter [97]. This hybridization is popular in CTC processes, where it takes advantage of both EHC and LTE. Numerous materials have been used in these hybrids, such as bimetallic integration of coinage and transition metals (e.g., Au-Pt [90], Cu-Ru [42], and Au-Ru [36]), transition metal/semiconductor hybrids (e.g., Pt/TiO2 [82] and Ru/HNb3O8 [98]), and semiconductor/black material hybrids (e.g., TiO2/graphene [99] and Bi2Se3/g-C3N4 [100]). Defining different types of photothermal catalysts is not straightforward due to the varying contributions of EHC and LTE in different chemical reactions. For instance, transition nanometal-loaded carbon (e.g., Fe@C hybrid [94]) or insulator materials (e.g., VIII group nanometal/Al2O3 [86]) are generally black and have been reported as TPT catalysts in CO2 reduction processes but are considered as CTC catalysts (e.g., Ru/C [10]) in ammonia synthesis processes. Similarly, a modified semiconductor material can function as a CPT catalyst (e.g., C3N4 and TiO2 [88]) in water splitting reactions but may act as a CTC catalyst (e.g., In2O3\u0004x/ In2O3 [101]) in gas–solid phase reactions. Therefore, accurately classifying a photothermal catalyst depends on understanding the specific contributions of EHC and LTE in a chemical reaction.",
+      "bbox": [
+        311.81,
+        62.79,
+        569.8,
+        358.66
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "只需 10 分钟即可将温度升至 462°C [96]。对于 0 < x < 1，光热催化剂是一种结合了光催化剂和黑色材料的混合体，使前者的 EHC 与后者的 LTE 协同作用[97]。这种混合在 CTC 流程中很流行，它同时利用了 EHC 和 LTE。在这些混合材料中使用了许多材料，例如造币和过渡金属的双金属集成（例如Au-Pt [90]、Cu-Ru [42]和Au-Ru [36]）、过渡金属/半导体混合材料（例如Pt/TiO2 [82]和Ru/HNb3O8 [98]）以及半导体/黑色材料混合材料（例如TiO2/石墨烯） [99]和Bi2Se3/g-C3N4 [100]）。由于 EHC 和 LTE 在不同化学反应中的贡献不同，定义不同类型的光热催化剂并不简单。例如，负载过渡纳米金属的碳（例如Fe@C杂化物[94]）或绝缘体材料（例如VIII族纳米金属/Al2O3[86]）通常是黑色的，并已被报道为CO2还原过程中的TPT催化剂，但在氨合成过程中被认为是CTC催化剂（例如Ru/C[10]）。同样，改性半导体材料可以在水分解反应中充当 CPT 催化剂（例如 C3N4 和 TiO2 [88]），但在气固相反应中可以充当 CTC 催化剂（例如 In2O3 x/ In2O3 [101]）。因此，准确分类光热催化剂取决于对 EHC 和 LTE 在化学反应中的具体贡献的理解。"
+    },
+    {
+      "id": "S030",
+      "page": 7,
+      "type": "paragraph",
+      "order": 33,
+      "original_text": "Catalyst design strategy Photothermal catalysts play a crucial role in converting solar light into useful energy through photochemical and thermocatalytic processes. Such catalysts must possess several key factors, including a high absorption ability to induce and regulate electron and lattice heating (EHC and LTE), and catalytic sites. While the latter component has been extensively discussed in the literature [102], we will here focus on broadening the response of full-spectrum sunlight, internal electric field (IEF) modulation for more generation of EHC and LTE, interfacial engineering for directional transferring of EHC and LTE, and management of EHC and LTE in exploring highly efficient photothermal catalysts for 24/7 photothermal catalytic operations (Fig. 4b).",
+      "bbox": [
+        311.81,
+        374.82,
+        569.81,
+        528.29
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "催化剂设计策略光热催化剂在通过光化学和热催化过程将太阳光转化为有用能量方面发挥着至关重要的作用。此类催化剂必须具备几个关键因素，包括诱导和调节电子和晶格加热（EHC 和 LTE）的高吸收能力以及催化位点。虽然后一个组成部分已在文献[102]中进行了广泛讨论，但我们在这里将重点关注拓宽全光谱太阳光的响应、用于更多代EHC和LTE的内部电场（IEF）调制、用于EHC和LTE定向转移的界面工程以及EHC和LTE的管理，以探索用于24/7光热催化操作的高效光热催化剂（图4b）。"
+    },
+    {
+      "id": "S031",
+      "page": 7,
+      "type": "paragraph",
+      "order": 34,
+      "original_text": "Enhancing absorption of full spectrum sunlight Photon absorption is the initial and essential step for enhancing the efficiency of photothermal catalysis. For optimizing the absorption of full-spectrum sunlight, several tactics can be considered for the different components of PxB1-x (Fig. 5).",
+      "bbox": [
+        311.81,
+        544.65,
+        569.79,
+        602.33
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "增强全光谱太阳光的吸收光子吸收是提高光热催化效率的初始且重要的步骤。为了优化全光谱阳光的吸收，可以针对 PxB1-x 的不同成分考虑多种策略（图 5）。"
+    },
+    {
+      "id": "S032",
+      "page": 7,
+      "type": "paragraph",
+      "order": 35,
+      "original_text": "An energy band gap exists between the CB and VB of semiconductor materials, and this gap affects the light wavelengths that a material can absorb. As such, band regulation plays an imperative role in determining the extent of a material’s exposure to light. Heteroatom doping is a frequently-used strategy for introducing impurities into a semiconductor’s crystal lattice intentionally. Various changes can be induced in the electronic band structure of the semiconductors (Fig. 5a), including (i) creation of an extra intraband energy states; (ii) narrow of the bandgap; and (iii) impurity band formation in degenerately doped",
+      "bbox": [
+        311.81,
+        637.17,
+        569.79,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "半导体材料的CB和VB之间存在能带隙，该能带隙影响材料可以吸收的光波长。因此，能带调节在确定材料的光暴露程度方面起着至关重要的作用。杂原子掺杂是一种常用的有意将杂质引入半导体晶格的策略。半导体的电子能带结构可以引起各种变化（图5a），包括（i）产生额外的带内能态； (ii) 窄带隙； (iii) 简并掺杂中的杂质能带形成"
+    },
+    {
+      "id": "S033",
+      "page": 8,
+      "type": "paragraph",
+      "order": 36,
+      "original_text": "transition metal semiconductors, which will broaden the absorption range of the materials and thereby refine the lightharvesting efficiency. In general, metal doping tends to have a greater impact on the optical properties of a material than nonmetal doping despite of the negative environmental and economic impact of metals [103,104]. In the same way, vacancy engineering is used to transform the band structure of a semiconductor by introducing defects or vacancies in the crystal lattice. In a perfect crystal lattice, each atom has a specific position and coordination number with its neighbouring atoms. When a vacancy is introduced, it creates an empty space, leading to a defect in the lattice, and can alter the electronic properties of the semiconductor. The introduction",
+      "bbox": [
+        42.52,
+        596.07,
+        300.5,
+        748.14
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "过渡金属半导体，这将拓宽材料的吸收范围，从而提高光捕获效率。一般来说，尽管金属对环境和经济产生负面影响，但金属掺杂往往比非金属掺杂对材料的光学性能产生更大的影响[103,104]。同样，空位工程通过在晶格中引入缺陷或空位来改变半导体的能带结构。在完美的晶格中，每个原子与其相邻原子都有特定的位置和配位数。当引入空位时，会产生一个空的空间，导致晶格缺陷，并可能改变半导体的电子特性。简介"
+    },
+    {
+      "id": "S034",
+      "page": 8,
+      "type": "paragraph",
+      "order": 37,
+      "original_text": "of vacancies always results in the formation of mid-gap states within the band gap, modifying the semiconductor’s lightresponsive ability and its photo-to-electron/thermal abilities, thereby affecting photothermal catalytic throughput. The defects created always function as catalytic sites in thermocatalytic processes. Zhao et al. prepared a three-dimensionally ordered macroporous structured materials, LaSrCoFeO6-d, with a visible light response ability, and the oxygen vacancies on its surface allowed the material to be employed in thermal catalysis [105]. As such, the more EHC and LTE by oxygen engineering hastened the activation of CO2 nonpolar molecules, leading to higher selectivity and conversion yield of CO2 to CH4 in comparison to thermal catalysis.",
+      "bbox": [
+        317.48,
+        596.07,
+        575.45,
+        748.14
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "空位总是导致带隙内形成中带隙态，从而改变半导体的光响应能力及其光电子/热能力，从而影响光热催化通量。产生的缺陷总是在热催化过程中充当催化位点。赵等人。制备了一种具有可见光响应能力的三维有序大孔结构材料LaSrCoFeO6-d，其表面的氧空位使得该材料可用于热催化[105]。因此，氧工程更多的EHC和LTE加速了CO2非极性分子的活化，与热催化相比，导致CO2到CH4的选择性和转化率更高。"
+    },
+    {
+      "id": "C004",
+      "page": 8,
+      "type": "caption",
+      "order": 38,
+      "original_text": "(a) Definition of a photothermal catalyst of PxB1-x. (b) Design principles of photothermal catalysts for enhancing performance at each step, including light absorption, EHC excitation, EHC control, EHC regulation and thermal management, in photothermal catalysis.",
+      "bbox": [
+        42.52,
+        545.67,
+        575.42,
+        563.72
+      ],
+      "confidence": "high",
+      "refs": [
+        "F004"
+      ],
+      "translation": "(a) PxB1-x 光热催化剂的定义。 (b)光热催化剂的设计原理，用于提高光热催化中每个步骤的性能，包括光吸收、EHC激发、EHC控制、EHC调节和热管理。"
+    },
+    {
+      "id": "S035",
+      "page": 9,
+      "type": "paragraph",
+      "order": 39,
+      "original_text": "While band controlling can narrow the band gap and improve the solar light absorption of semiconductors, it can also result in a loss of redox potentials due to lowered band structures. Elevation of the redox ability is a competing process that must be considered to improve the light harvesting efficiency.",
+      "bbox": [
+        36.85,
+        405.87,
+        294.83,
+        462.3
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "虽然能带控制可以缩小带隙并改善半导体的太阳光吸收，但它也可能因能带结构降低而导致氧化还原电位损失。氧化还原能力的提升是一个竞争过程，必须考虑提高光捕获效率。"
+    },
+    {
+      "id": "S036",
+      "page": 9,
+      "type": "paragraph",
+      "order": 40,
+      "original_text": "(2) Optimization of geometric features",
+      "bbox": [
+        48.81,
+        476.11,
+        203.57,
+        484.69
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "(2)几何特征优化"
+    },
+    {
+      "id": "S037",
+      "page": 9,
+      "type": "paragraph",
+      "order": 41,
+      "original_text": "Unlike the dependency of light absorption in semiconductors on band structure, the absorption cross-section of plasmonic nanometals is significantly influenced by the metal nature, size and shape (Fig. 5b). When a plasmonic metal nanoparticle is illuminated by light, the electric field of the light can drive collective oscillations of the free electrons in the nanoparticle, generating a resonance termed as LSPR. The LSPR of IB-group metals engender strong interactions between light and the matter, thereby elevating light absorption in specific regions of the electromagnetic spectrum. Initially, the light responsive ability of a nanometal is determined by the nature. It can be clearly seen from Fig. 5b that Au and Ag are strong plasmonic metals that can effectively scatter and absorb light in the visible and near-infrared regions, while Cu has a relatively weak plasmonic response but a high electron mobility. Besides, the wavelength of light that matches the LSPR resonance of a metal nanoparticle depends on the particle’s size. Specifically, the LSPR resonance shifts to longer wavelengths with an increasing nanoparticle size, owing to the reduced confinement of electrons. As a result, smaller nanoparticles exhibit higher absorption efficiency than larger nanoparticles resonant at",
+      "bbox": [
+        36.85,
+        498.56,
+        294.84,
+        746.21
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "与半导体中的光吸收对能带结构的依赖性不同，等离子体纳米金属的吸收截面受金属性质、尺寸和形状的显着影响（图5b）。当等离子体金属纳米颗粒被光照射时，光的电场可以驱动纳米颗粒中自由电子的集体振荡，产生称为局域表面等离子体共振的共振。 IB族金属的局域表面等离子体共振会在光与物质之间产生强烈的相互作用，从而提高电磁波谱特定区域的光吸收。最初，纳米金属的光响应能力是由性质决定的。从图5b可以清楚地看出，Au和Ag是强等离子体金属，可以有效地散射和吸收可见光和近红外区域的光，而Cu具有相对较弱的等离子体响应但具有较高的电子迁移率。此外，与金属纳米颗粒的局域表面等离子体共振相匹配的光的波长取决于颗粒的尺寸。具体来说，由于电子限制的减少，随着纳米粒子尺寸的增加，局域表面等离子体共振共振转移到更长的波长。因此，较小的纳米颗粒比较大的纳米颗粒在共振频率下表现出更高的吸收效率。"
+    },
+    {
+      "id": "S038",
+      "page": 9,
+      "type": "paragraph",
+      "order": 42,
+      "original_text": "longer wavelengths, for a given wavelength of incident light [106]. In addition, the light-absorption properties of plasmonic metal nanoparticles are influenced by their geometric parameters, such as shape and crystal structure. Different shapes can lead to different resonant modes, affecting the absorption properties. For instance, spherical nanoparticles exhibit a dipolar resonance mode, while nanorods can exhibit both dipolar and quadrupolar resonance modes. Asymmetric shapes, like nanocrescents or nanostars, can display multiple resonance modes, resulting in enhanced absorption over a wider swath of wavelengths [106].",
+      "bbox": [
+        311.81,
+        405.87,
+        569.79,
+        534.01
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "对于给定的入射光波长，更长的波长[106]。此外，等离子体金属纳米粒子的光吸收特性受到其几何参数（例如形状和晶体结构）的影响。不同的形状会导致不同的谐振模式，影响吸收性能。例如，球形纳米粒子表现出偶极共振模式，而纳米棒可以表现出偶极和四极共振模式。不对称形状，如纳米新月或纳米星，可以显示多种共振模式，从而在更广泛的波长范围内增强吸收[106]。"
+    },
+    {
+      "id": "S039",
+      "page": 9,
+      "type": "paragraph",
+      "order": 43,
+      "original_text": "(3) Morphology engineering",
+      "bbox": [
+        323.77,
+        547.88,
+        437.78,
+        556.46
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "(3)形态工程"
+    },
+    {
+      "id": "S040",
+      "page": 9,
+      "type": "paragraph",
+      "order": 44,
+      "original_text": "Morphology engineering is a common method to increase light harvesting and minimize surface light reflection in black materials, which are typically narrow band gap semiconductors or conductors (Fig. 5c). One effective way to accomplish this is through introducing confined spaces, such as porous nanostructures, which can decrease the effective refractive index of the material and minimize the angular dependence of the incident light. Additionally, the pores in nanostructures act as optical microcavities to enhance light-material interaction through multiple light reflection and scattering, further improving the harvesting efficiency of full spectrum sunlight. For instance, carbon nanotubes demonstrate strong one-dimensional excitonic absorption in the near-infrared range due to their unique electronic structure, which enables strong light absorption properties.",
+      "bbox": [
+        311.81,
+        570.28,
+        569.8,
+        746.21
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "形态工程是增加光收集并最大限度地减少黑色材料表面光反射的常用方法，黑色材料通常是窄带隙半导体或导体（图 5c）。实现这一目标的一种有效方法是引入有限空间，例如多孔纳米结构，它可以降低材料的有效折射率并最大限度地减少入射光的角度依赖性。此外，纳米结构中的孔隙充当光学微腔，通过多次光反射和散射增强光与材料的相互作用，进一步提高全光谱太阳光的收集效率。例如，碳纳米管由于其独特的电子结构而在近红外范围内表现出很强的一维激子吸收，从而具有很强的光吸收特性。"
+    },
+    {
+      "id": "C005",
+      "page": 9,
+      "type": "caption",
+      "order": 45,
+      "original_text": "Strategies for broadening sunlight absorption. (a) Band modulation of a semiconductor. (b) Geometric optimisation of a nanometal. (c) Morphology engineering of black materials.",
+      "bbox": [
+        36.85,
+        375.36,
+        569.79,
+        393.36
+      ],
+      "confidence": "high",
+      "refs": [
+        "F005"
+      ],
+      "translation": "扩大阳光吸收的策略。 (a) 半导体的能带调制。 (b) 纳米金属的几何优化。 (c) 黑色材料的形态工程。"
+    },
+    {
+      "id": "S041",
+      "page": 10,
+      "type": "paragraph",
+      "order": 46,
+      "original_text": "Overall, band regulation, geometric optimization and morphology engineering can effectively improve the light responsive capability of semiconductor, nanometal and black materials, respectively. However, challenges remain in realizing fullspectrum sunlight absorption. Combining these approaches is a prudent path towards achieving maximal efficiency. The success of heterojunctions, such as rhodium (Rh), chromium oxide (Cr2O3), and cobalt oxide (Co3O4) on InGaN/GaN nanowires, suggests that more combinations of different components and related modification strategies can lead to a high utilisation efficiency sunlight [107]. Therefore, attempts on more combinations are expected to achieve 100% harvesting efficiency for full spectrum sunlight.",
+      "bbox": [
+        42.52,
+        63.16,
+        300.51,
+        215.23
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "总体而言，能带调控、几何优化和形貌工程分别可以有效提高半导体、纳米金属和黑色材料的光响应能力。然而，实现全光谱阳光吸收仍面临挑战。结合这些方法是实现最大效率的谨慎途径。 InGaN/GaN纳米线上的铑（Rh）、氧化铬（Cr2O3）和氧化钴（Co3O4）等异质结的成功表明，不同成分的更多组合和相关的改性策略可以带来高太阳光利用率[107]。因此，尝试更多的组合有望实现全光谱阳光100%的收集效率。"
+    },
+    {
+      "id": "S042",
+      "page": 10,
+      "type": "paragraph",
+      "order": 47,
+      "original_text": "Modulation of IEF for more EHC and LTE The generation of efficient EHC and LTE is a core requirement for photothermal catalytic activity, for which the IEF of the photothermal catalyst plays a central role. Various IEF modulation strategies are used in different types of photothermal catalysts to achieve effective EHC and LTE generation for chemical reactions, which will be reviewed and discussed below. IEF manipulation is a process of breaking the symmetry of materials, which can be easily realized by the heterostructure fabrication technique in semiconductors. The Fermi level equilibrium at the contact area is formed by different semiconductors with distinct work functions, leading to electron transfer and creating IEF to drive photo-excited charge carriers separated by the heterojunction. Currently, type II, Z-, and S-scheme heterostructures are predominantly reported for semiconductor-based heterojunctions (Fig. 6a). In the type II regime, photo-excited hot carriers move from a higher CB/VB to a lower CB/VB, resulting in faster separation of charge carriers but reduced redox abilities and a higher possibility of LTE. On the other hand, the Z- or S-scheme heterosystem permits photo-excited hot electron transfer from a semiconductor with a lower CB to the VB of another semiconductor for combination, leaving hot carriers at higher redox potentials for more EHC. An intensified electric field can also be achieved at the interface between a metal and a semiconductor in Schottky heterojunctions, leading to more EHC and LTE for photothermal catalysis. When a metal is brought into contact with a semiconductor, a depletion region is formed at the interface due to the difference in work function. This depletion region results in a built-in electric field, which promotes the charge separation and improves the charge dynamics. In a Schottky heterojunction for an enhanced electric field, the metal and support materials are carefully chosen to optimize the electric field at the interface. For example, platinum with a high work function can be used in contact with TiO2 to create a Schottky heterojunction with a high built-in electric field (Fig. 6b). However, interfacial charge separation channels cannot be created when Pt is loaded on Al2O3, which leaves an enhanced electric field on the surface of Pt nanoparticles [108]. Bimetallic structures can also be used to enhance the electric field as Schottky heterojunctions. A LSPR effect can be produced by combining two different metals, resulting in a strong electromagnetic field enhancement at the interface. Accordingly, a range of bimetallic nanoparticles (e.g., PtAu, RuCu, and CoNi)",
+      "bbox": [
+        42.52,
+        230.86,
+        300.5,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "调节 IEF 以实现更多 EHC 和 LTE 高效 EHC 和 LTE 的产生是光热催化活性的核心要求，其中光热催化剂的 IEF 起着核心作用。不同类型的光热催化剂中使用了各种 IEF 调制策略，以实现化学反应的有效 EHC 和 LTE 生成，下面将对此进行回顾和讨论。 IEF操控是打破材料对称性的过程，可以通过半导体异质结构制造技术轻松实现。接触区域的费米能级平衡由具有不同功函数的不同半导体形成，导致电子转移并产生 IEF 来驱动由异质结分离的光激发电荷载流子。目前，II型、Z型和S型异质结构主要用于基于半导体的异质结（图6a）。在 II 型体系中，光激发热载流子从较高的 CB/VB 移动到较低的 CB/VB，导致电荷载流子的分离更快，但氧化还原能力降低，并且 LTE 的可能性更高。另一方面，Z型或S型异质系统允许光激发热电子从具有较低CB的半导体转移到另一个半导体的VB进行组合，从而使热载流子处于较高的氧化还原电势以获得更多的EHC。一场愈演愈烈的肖特基异质结中的金属和半导体之间的界面也可以实现电场，从而导致更多的 EHC 和 LTE 用于光热催化。当金属与半导体接触时，由于功函数的差异，在界面处形成耗尽区。该耗尽区会产生内置电场，从而促进电荷分离并改善电荷动力学。在用于增强电场的肖特基异质结中，精心选择金属和支撑材料以优化界面处的电场。例如，具有高功函数的铂可以与 TiO2 接触来创建具有高内置电场的肖特基异质结（图 6b）。然而，当 Pt 负载在 Al2O3 上时，无法产生界面电荷分离通道，从而在 Pt 纳米颗粒表面留下增强的电场[108]。双金属结构也可用于增强肖特基异质结的电场。通过结合两种不同的金属可以产生局域表面等离子体共振效应，从而在界面处产生强烈的电磁场增强。因此，一系列双金属纳米颗粒（例如 PtAu、RuCu 和 CoNi）"
+    },
+    {
+      "id": "S043",
+      "page": 10,
+      "type": "paragraph",
+      "order": 48,
+      "original_text": "have been manufactured. As an example, a RuAu bimetallic catalyst was constructed and showed significantly strengthened electrical field compared to the monometallic materials, despite lacking a contact interface (Fig. 6c) [36]. Consequently, a higher photothermal catalytic DRM performance was achieved due to the increase of EHC and LTE. In contrast, a metal alloy as a homogenous solid material composed of two or more metallic elements displayed different properties (e.g., reflective index) from those of the individual metals, allowing for optimized IEF. Thus, AgPt alloy nanoparticles with controlled geometric features have been studied, showing promising IEF enhancement and modulation principles (Fig. 6d) [110]. In general, the IEF of photothermal catalysts can be notably improved using various modification strategies, which significantly promote more EHC and LTE to participate into chemical reactions. However, selectively generating EHC and LTE remains a challenge and needs to be overcome, particularly considering their paradoxical contributions in photothermal catalysis, which lacks precise characterization techniques and reaction design. Recently, a significant study from Linic’s group demonstrated that the plasmon-induced activation of reactants via electronic excitation or photothermal heating plays a critical role in driving LSPR-induced chemical reactions [111]. Therefore, future efforts should focus on the precise generation and contribution of EHC/LTE to specific reactions to rationally utilize solar energy.",
+      "bbox": [
+        317.48,
+        63.16,
+        575.48,
+        370.63
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "已被制造。例如，构建了 RuAu 双金属催化剂，尽管缺乏接触界面，但与单金属材料相比，其电场显着增强（图 6c）[36]。因此，由于EHC和LTE的增加，实现了更高的光热催化DRM性能。相比之下，金属合金作为由两种或多种金属元素组成的均质固体材料，表现出与单个金属不同的特性（例如反射率），从而可以优化 IEF。因此，人们对具有受控几何特征的AgPt合金纳米粒子进行了研究，显示出有前景的IEF增强和调制原理（图6d）[110]。总的来说，使用各种修饰策略可以显着提高光热催化剂的IEF，从而显着促进更多的EHC和LTE参与化学反应。然而，选择性生成 EHC 和 LTE 仍然是一个挑战，需要克服，特别是考虑到它们在光热催化中的矛盾贡献，而光热催化缺乏精确的表征技术和反应设计。最近，Linic 小组的一项重要研究表明，通过电子激发或光热加热等离激元诱导的反应物活化在驱动 LSPR 诱导的化学反应中发挥着关键作用 [111]。因此，未来的努力应集中在EHC/LTE的精确生成和对特定反应的贡献上，以合理利用太阳能。"
+    },
+    {
+      "id": "S044",
+      "page": 10,
+      "type": "paragraph",
+      "order": 49,
+      "original_text": "Interfacial effect on electron transfer The efficiency of a photothermal catalytic process is determined by two factors: hot spots, the region of energy accumulated, and catalytic sites, the region with a low thermodynamic barrier. EHC and LTE are the driving forces to support the photochemical and thermocatalytic processes, respectively, and both are accumulated at the hot spots of the catalyst [112]. Therefore, a unification of hot spots and catalytic sites can double the effectiveness of the photothermal catalytic process, otherwise will reduce the effectiveness by half (Fig. 7a) [113]. The interfacial effect plays a crucial role in determining the accumulation region of EHC and LTE and is essential for controlling the transfer of EHC after generation. However, the random directions of IEF at the interface of semiconductor heterojunctions pose a challenge in achieving effective charge accumulation at the active sites. For addressing this issue, an integrated carbon nitride homojunction with a tandem IEF was developed to achieve fast charge separation and effective accumulation of hot electrons on the catalyst surface for efficient hydrogen reduction (as shown in Fig. 6a) [109]. The same problem also occurs at the Schottky barrier, where an induced IEF is always employed for a rapid separation of EHC. Manipulating IEF at the metal-support interface is highly desired to accumulate more EHC and LTE at the catalytic sites for highly efficient outputs. The reaction temperature has been evidenced to play a crucial role in changing the accumulation region of EHC and LTE. At low temperatures, the interfacial effect plays a decisive role in EHC assembly and TPT catalysis, while it weakens as the temperature increases owing to the weakened charge dynamics (Fig. 7b) [108]. Modulating the electronic structure of the support can also tune the interfacial effect and",
+      "bbox": [
+        317.48,
+        386.25,
+        575.47,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "电子转移的界面效应光热催化过程的效率由两个因素决定：热点（能量积累的区域）和催化位点（热力学势垒较低的区域）。 EHC和LTE分别是支持光化学和热催化过程的驱动力，两者都在催化剂的热点处积累[112]。因此，热点和催化位点的统一可以使光热催化过程的效率加倍，否则效率将降低一半（图7a）[113]。界面效应在确定EHC和LTE的积累区域中起着至关重要的作用，并且对于控制EHC在生成后的转移至关重要。然而，半导体异质结界面处 IEF 的随机方向对在活性位点实现有效的电荷积累提出了挑战。为了解决这个问题，开发了一种带有串联等电聚焦的集成氮化碳同质结，以实现快速电荷分离和催化剂表面热电子的有效积累，从而实现有效的氢还原（如图6a所示）[109]。同样的问题也发生在肖特基势垒处，其中总是采用诱导 IEF 来快速分离 EHC。非常需要在金属支撑界面上操纵 IEF在催化位点积累更多的 EHC 和 LTE，以实现高效输出。事实证明，反应温度在改变 EHC 和 LTE 的积累区域方面发挥着至关重要的作用。在低温下，界面效应在EHC组装和TPT催化中起决定性作用，而随着温度升高，由于电荷动力学减弱，界面效应减弱（图7b）[108]。调节支撑物的电子结构还可以调节界面效应和"
+    },
+    {
+      "id": "C006",
+      "page": 11,
+      "type": "caption",
+      "order": 50,
+      "original_text": "IEF enhancement for more EHC and LTE. (a) Tandem IEF for a directed charge flow in a semiconductor [109]. (b) Schottky barrier for charge intensification at metal support interface [108]. Bimetal nanoparticle (c) [36] and its morphology engineering (d) [110] for enhanced IEF.",
+      "bbox": [
+        36.85,
+        476.73,
+        569.79,
+        494.73
+      ],
+      "confidence": "high",
+      "refs": [
+        "F006"
+      ],
+      "translation": "IEF 增强可实现更多 EHC 和 LTE。 (a) 用于半导体中定向电荷流的串联 IEF [109]。 (b) 金属支撑界面电荷强化的肖特基势垒[108]。用于增强 IEF 的双金属纳米颗粒 (c) [36] 及其形态工程 (d) [110]。"
+    },
+    {
+      "id": "S045",
+      "page": 11,
+      "type": "paragraph",
+      "order": 51,
+      "original_text": "improve photothermal catalytic performance. For example, the classical support metal strong interaction (SMSI) effect observed in Ru/TiO2 increases the electron density of Ru nanoparticles (NPs) under illumination [114]. However, in the DRM reaction process, the dissociation of CAH bonds of CH4 occurs on electron-deficient sites on the metal surfaces and is the ratedetermining step. Consequently, an inconsistency between hot spots and catalytic sites inhibits the SMSI effect on solar-driven photothermal DRM. To address this issue, Jia et al. modified the electronic structure of the TiO2 support by introducing oxygen vacancy, creating an interfacial effect to manipulate the photo-induced electrons transfer to the support. The resultant suppressive SMSI effect created electron-deficient sites on Ru NPs, improving CH4 dissociation and intensifying photothermal catalytic DRM (Fig. 7c). Additionally, the strength and configuration of interfacial coordination play a critical role in the dynamic motion of a metal on a support, thus determining the catalyst stability. Single atom catalysts (SACs) have a simple metal-support configuration",
+      "bbox": [
+        36.85,
+        529.57,
+        294.85,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "提高光热催化性能。例如，在 Ru/TiO2 中观察到的经典支撑金属强相互作用 (SMSI) 效应增加了照明下 Ru 纳米颗粒 (NP) 的电子密度 [114]。然而，在DRM反应过程中，CH4的CAH键的解离发生在金属表面的缺电子位点，并且是速率决定步骤。因此，热点和催化位点之间的不一致会抑制 SMSI 对太阳能驱动光热 DRM 的影响。为了解决这个问题，Jia 等人。通过引入氧空位来修改 TiO2 载体的电子结构，产生界面效应来操纵光诱导电子转移到载体。由此产生的抑制性SMSI效应在Ru NPs上产生了缺电子位点，改善了CH4解离并增强了光热催化DRM（图7c）。此外，界面配位的强度和构型在载体上金属的动态运动中起着至关重要的作用，从而决定了催化剂的稳定性。单原子催化剂 (SAC) 具有简单的金属载体结构"
+    },
+    {
+      "id": "S046",
+      "page": 11,
+      "type": "paragraph",
+      "order": 52,
+      "original_text": "that is useful in probing catalytic mechanisms. A Pd-SAC, for instance, displays exceptional activity and stability in photothermal catalytic hydrogenation of C2H2 with H2 when atomically dispersed Pd on nitrogen-doped graphene (Fig. 7d) [115]. This is because of the strong coordination between the Pd and nitrogen atoms and the lower EHC accumulation at the metal-support interface, which results in less Pd aggregation. However, when an atomic metal is immobilized on semiconductor-based materials such as TiO2 and g-C3N4, metal aggregation tends to occur after photothermal catalytic chemical reactions (Fig. 7e). It has been discovered that surface migration of metal-SACs can be accelerated by the initial SAC loading, photogenerated electrons, and reactive intermediates, leading to metal nanoparticle agglomeration [88,116,117]. Therefore, accurate modulation of the interfacial effect to control charge transfer is critical for achieving highly efficient and stable photothermal catalysis for chemical reactions. Overall, interfacial engineering is an effective approach for controlling the directional flow of EHC and LTE. However, there",
+      "bbox": [
+        311.81,
+        529.57,
+        569.81,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "这对于探测催化机制很有用。例如，当 Pd 以原子方式分散在氮掺杂石墨烯上时，Pd-SAC 在 C2H2 与 H2 的光热催化氢化中表现出优异的活性和稳定性（图 7d）[115]。这是因为 Pd 和氮原子之间的强配位以及金属-载体界面上较低的 EHC 积累，从而导致 Pd 聚集较少。然而，当原子金属固定在TiO2和g-C3N4等半导体材料上时，光热催化化学反应后往往会发生金属聚集（图7e）。人们发现，初始SAC负载、光生电子和反应中间体可以加速金属SAC的表面迁移，从而导致金属纳米颗粒团聚[88,116,117]。因此，准确调节界面效应来控制电荷转移对于实现高效稳定的化学反应光热催化至关重要。总体而言，界面工程是控制 EHC 和 LTE 定向流的有效方法。然而，有"
+    },
+    {
+      "id": "S047",
+      "page": 12,
+      "type": "paragraph",
+      "order": 53,
+      "original_text": "is a lack of research focused on distinguishing between the hot spot and catalytic site in photothermal catalysts. In some cases, these two concepts have been confused. It is crucial to determine the hot spot and catalytic site during the design of a highly efficient photothermal catalyst, not just for the development of",
+      "bbox": [
+        42.52,
+        687.06,
+        300.5,
+        743.49
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "缺乏专注于区分光热催化剂中的热点和催化位点的研究。在某些情况下，这两个概念被混淆了。在高效光热催化剂的设计过程中，确定热点和催化位点至关重要，而不仅仅是为了开发"
+    },
+    {
+      "id": "S048",
+      "page": 12,
+      "type": "paragraph",
+      "order": 54,
+      "original_text": "photothermal hybrid catalysts and the mechanistic investigations. Moreover, the presence of EHC at the metal-support interface can impact catalyst stability, thus it is essential to pay close attention to the catalyst reconstruction process in photothermal catalysis to accurately elucidate the reaction mechanism.",
+      "bbox": [
+        317.48,
+        687.06,
+        575.48,
+        743.49
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热杂化催化剂及其机理研究。此外，金属-载体界面上EHC的存在会影响催化剂的稳定性，因此有必要密切关注光热催化中的催化剂重构过程，以准确阐明反应机理。"
+    },
+    {
+      "id": "C007",
+      "page": 12,
+      "type": "caption",
+      "order": 55,
+      "original_text": "(a) Relationship between hot spots and catalytic sites in photothermal catalysis [113]. (b) Temperature dependent interfacial effect on photothermal catalysis [108]. (c) Suppressing SMSI of Ru/TiO2 to tailor electron transferring pathway in photothermal catalytic DRM [114]. (d) Pd/N-graphene single atom catalyst for photothermal catalytic hydrogenating C2H2 with H2 [115]. (e) Photothermal effect induced atomic metal aggregation to nanoparticle [116]. (f) Solar fuels production in the dark using supercapacitor CO2 photocatalysts when the sun does not shine, circumventing intermittency and cloud cover. (g) Mechanism of a persistent photocatalyst system on the storage and release of photo-induced electrons [118].",
+      "bbox": [
+        42.52,
+        618.12,
+        575.5,
+        666.05
+      ],
+      "confidence": "high",
+      "refs": [
+        "F007"
+      ],
+      "translation": "(a)光热催化中热点与催化位点的关系[113]。 (b) 光热催化的温度依赖性界面效应[108]。 (c) 抑制 Ru/TiO2 的 SMSI 以定制光热催化 DRM 中的电子转移途径 [114]。 (d) Pd/N-石墨烯单原子催化剂用于光热催化氢化 C2H2 和 H2 [115]。 （e）光热效应诱导原子金属聚集到纳米粒子[116]。 (f) 当太阳不发光时，利用超级电容器二氧化碳光催化剂在黑暗中生产太阳能燃料，避免间歇性和云层覆盖。 （g）持久性光催化剂系统存储和释放光生电子的机制[118]。"
+    },
+    {
+      "id": "S049",
+      "page": 13,
+      "type": "paragraph",
+      "order": 56,
+      "original_text": "Photo-carriers regulation Photothermal catalysis has demonstrated great potentials to large-scale productions of solar fuels. Whereas, intermittent availability of sunlight is the biggest obstacle for 24/7 solardriven catalytic operations. It has been reported that 40% of power losses occur in photovoltaic systems during overcast days, so EHC cannot be excited in the dark (Fig. 7f) [119]. As a result, regulation of EHCs enabled by catalyst design for robust participation into photothermal catalysis is highly important but challenging for practical application of photothermal catalysis. To address this, researchers are proposing the modification of photocatalysts with energy-storing materials to generate electrons or holes persistently, even in the absence of sunlight. Pseudocapacitance, which determines the surface electrochemical charge storage by surface redox reactions or ion adsorption/desorption, plays a vital role in these photocatalysts (Fig. 7g) [118]. When hot electrons serve as the primary charge carriers for catalysis and the intensity of light exceeds a certain threshold, photoexcited hot electrons migrate across the heterojunction of the photocatalyst and accumulate within the pseudocapacitor, typically composed of electron-storing materials like WO3, SnO2, or TiO2. Meanwhile, excessive holes are effectively eliminated by hole scavengers. During periods of darkness, the discharge of electrons from the pseudocapacitor drives the reduction reaction, ensuring continuous catalytic operations even in the absence of light. Conversely, hole-storing materials such as Ni(OH)2 are employed to facilitate a continuous oxidation process. This inherent 24/7 capability of energy-storing materials offers a more compact and efficient alternative to integrating photovoltaic and battery systems, thereby minimizing energy losses. Presently, researchers are dedicated to enhancing the electron storage capacity of these photocatalysts through advancements in materials science and engineering. These ongoing efforts aim to extend the post-illumination catalytic period beyond the current limit of eight hours. Furthermore, the emerging field of photothermal catalysis presents significant opportunities for further research and development, with the potential to achieve even longer post-illumination catalytic periods.",
+      "bbox": [
+        36.85,
+        62.93,
+        294.84,
+        513.72
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光载流子调控光热催化已在大规模生产太阳能燃料方面展现出巨大的潜力。然而，间歇性的阳光供应是 24/7 太阳能驱动催化操作的最大障碍。据报道，光伏系统40%的功率损耗发生在阴天，因此EHC无法在黑暗中激发（图7f）[119]。因此，通过催化剂设计实现对 EHC 的调节，以实现光热催化的稳健参与，这一点非常重要，但对于光热催化的实际应用来说却具有挑战性。为了解决这个问题，研究人员提出用储能材料对光催化剂进行改性，即使在没有阳光的情况下也能持续产生电子或空穴。赝电容通过表面氧化还原反应或离子吸附/解吸决定表面电化学电荷存储，在这些光催化剂中起着至关重要的作用（图7g）[118]。当热电子作为催化的主要载流子并且光强度超过一定阈值时，光激发的热电子会迁移穿过光催化剂的异质结并在赝电容器内积聚，赝电容器通常由 WO3、SnO2 或 TiO2 等电子存储材料组成。同时，过多的孔洞被清孔剂有效消除。期间在黑暗中，赝电容器的电子放电驱动还原反应，即使在没有光的情况下也能确保连续的催化操作。相反，采用 Ni(OH)2 等空穴存储材料来促进连续氧化过程。储能材料固有的 24/7 能力为集成光伏和电池系统提供了一种更紧凑、更高效的替代方案，从而最大限度地减少能量损失。目前，研究人员致力于通过材料科学和工程的进步来增强这些光催化剂的电子存储能力。这些正在进行的努力旨在将照明后催化时间延长到目前八小时以上的限制。此外，新兴的光热催化领域为进一步研究和开发提供了重要机会，有可能实现更长的光照后催化周期。"
+    },
+    {
+      "id": "S050",
+      "page": 13,
+      "type": "paragraph",
+      "order": 57,
+      "original_text": "Photo-thermal management As another indispensable anticipator in photothermal catalysis, efficient heat management by catalyst modification is crucial for achieving high catalytic activity and selectivity. Several strategies reported can enhance the light-to-thermal energy efficiency, including insulation, prohibition of infrared radiation, and thermal storage. Thermal insulator substrates, which have low thermal conductivity, can trap the heat generated by the catalyst, resulting in increased temperature and process efficiency. Common insulator substrates such as SiO2, Al2O3, and ZrO2 can be shaped and sized to optimize the substrate for specific catalytic processes. Interesting works have been reported by Ozin et al. in encapsulating a nanometal into SiO2 shell and SiO2 sphere pore channel (Fig. 8a) [83,120]. The high light transmittance and heat insulation effect of SiO2 slow down the heat conduction between the catalyst and the glass fibre filter for a high localized catalyst temperature. Similarly, a ZIF material with strong light absorbance and heat insulating has been employed to iso-",
+      "bbox": [
+        36.85,
+        541.7,
+        294.83,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "光热管理作为光热催化中另一个不可或缺的预期因素，通过催化剂改性进行有效的热管理对于实现高催化活性和选择性至关重要。报道的几种策略可以提高光热能效率，包括隔热、禁止红外辐射和热储存。热绝缘体基材具有低导热率，可以捕获催化剂产生的热量，从而提高温度和工艺效率。常见的绝缘体基材（例如 SiO2、Al2O3 和 ZrO2）可以进行形状和尺寸调整，以优化特定催化过程的基材。 Ozin 等人报道了有趣的作品。将纳米金属封装到 SiO2 壳和 SiO2 球孔通道中（图 8a）[83,120]。 SiO2的高透光率和隔热效果减缓了催化剂与玻璃纤维过滤器之间的热传导，从而实现了较高的局部催化剂温度。同样，具有强吸光性和隔热性的ZIF材料已被用于隔离"
+    },
+    {
+      "id": "S051",
+      "page": 13,
+      "type": "paragraph",
+      "order": 58,
+      "original_text": "late graphene, which can not only lower thermal conduction but also enhance the light-to-thermal efficiency (Fig. 8b) [121]. Additionally, a significant amount of heat is always lost in the form of infrared radiation in photothermal catalysis, which reduces the catalyst temperature and process efficiency. To enhance photothermal catalysis, it is possible to prohibit or limit infrared radiation by using materials or coatings that are reflective to or absorbing infrared radiation. Cu with near-zero IR radiation was coated on Bi2Te3 film. The superior solar-to-thermal conversion from Bi2Te3 and low-IR radiation from Cu can increase the temperature of the catalyst (Fig. 8c) [122]. Thermal storage is a similar process with persistent photocatalysis for mitigating the problem of intermittent sunlight. Phase change materials (PCMs) are one of the latent heat storage materials that can store significant amounts of heat without temperature fluctuation. However, organic solid–liquid PCMs have limitations such as low thermal conductivity, leakage, and lack of energy conversion ability, which challenge their practical use [124]. 2D MXenes, specifically Ti3C2Tx, have an internal light-to-heat conversion efficiency of up to 100% [124]. Its unique 2D and lamellar structure enables the highly anisotropic heat transfer process, where interlayer heat transfer processes occur with larger thermal resistance than intralayer transfers as it involves more complicated transfer pathways (Fig. 8d). The superior light-to-thermal efficiency and unique nanostructure of MXenes make them potential candidate for thermal conversion and storage. Therefore, Tang et al. fabricated a new phase change composite made up of stacked Ti3C2Tx nanosheets and polyethylene glycol (PEG). The resulting composite showed excellent photo-to-thermal storage efficiencies of up to 94.5% under actual solar light irradiation (Fig. 8e). Despite a significant progress being made on thermal storage materials, their use is still confined to laboratory scale. Furthermore, combining thermal storage materials with photothermal catalysts remains an area of active research. In summary, various strategies have been successfully implemented to enhance specific steps in photothermal catalytic processes, such as solar absorption, modulation of IEF, and regulation of EHC and LTE, resulting in more robust and efficient catalysis. However, since photothermal catalysis is a chain process, improving one step may inhibit another. For instance, narrowing the band gap of a semiconductor to improve solar absorption may hinder the generation of EHC. Moreover, achieving enhancements in all steps of photothermal catalysis requires precise fabrication of multi-component heterojunctions. Therefore, the optimization and integration of different approaches in a photothermal hybrid catalyst are essential to maximize light harvesting efficiency, catalytic throughput, and postillumination catalysis in photothermal catalysis.",
+      "bbox": [
+        311.81,
+        63.16,
+        569.8,
+        645.59
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "晚期石墨烯，不仅可以降低热传导，还可以提高光热效率（图8b）[121]。此外，光热催化中总是以红外辐射的形式损失大量的热量，这降低了催化剂温度和过程效率。为了增强光热催化，可以通过使用反射或吸收红外辐射的材料或涂层来禁止或限制红外辐射。将具有近零红外辐射的Cu涂覆在Bi2Te3薄膜上。 Bi2Te3 优异的太阳热能转换和 Cu 的低红外辐射可以提高催化剂的温度（图 8c）[122]。热存储是一个与持久光催化类似的过程，用于缓解间歇性阳光的问题。相变材料（PCM）是潜热储存材料之一，可以在不发生温度波动的情况下储存大量热量。然而，有机固液相变材料存在导热系数低、泄漏和缺乏能量转换能力等局限性，这对其实际应用提出了挑战[124]。 2D MXene，特别是 Ti3C2TX，具有高达 100% 的内部光热转换效率 [124]。其独特的二维和层状结构可实现高度各向异性的传热过程，其中层间传热过程发生在较大的热比层内转移的阻力更大，因为它涉及更复杂的转移途径（图8d）。 MXene 卓越的光热效率和独特的纳米结构使其成为热转换和存储的潜在候选者。因此，唐等人。制造了一种由堆叠的 Ti3C2TX 纳米片和聚乙二醇（PEG）组成的新型相变复合材料。所得复合材料在实际太阳光照射下表现出高达 94.5% 的优异光热存储效率（图 8e）。尽管蓄热材料取得了重大进展，但其使用仍然仅限于实验室规模。此外，将储热材料与光热催化剂相结合仍然是一个活跃的研究领域。总之，已经成功实施了各种策略来增强光热催化过程中的特定步骤，例如太阳能吸收、IEF 调节以及 EHC 和 LTE 调节，从而实现更稳健和更高效的催化。然而，由于光热催化是一个链式过程，改进一个步骤可能会抑制另一个步骤。例如，缩小半导体的带隙以提高太阳能吸收可能会阻碍 EHC 的产生。此外，实现光热催化所有步骤的增强需要精确制造多组分异质结。因此，优化和整合光热混合催化剂中不同方法的结合对于最大限度地提高光热催化中的光捕获效率、催化通量和照明后催化至关重要。"
+    },
+    {
+      "id": "S052",
+      "page": 13,
+      "type": "paragraph",
+      "order": 59,
+      "original_text": "Applications Photothermal catalysis is a promising field that combines the benefits of photothermal heating and catalysis to facilitate powerful chemical reactions. Its mild reaction conditions and superior efficiency make it a potential candidate for revolutionizing different industries in a financially viable and eco-friendly man-",
+      "bbox": [
+        311.81,
+        682.72,
+        569.79,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "应用光热催化是一个很有前景的领域，它结合了光热加热和催化的优点，以促进强大的化学反应。其温和的反应条件和卓越的效率使其成为以经济可行且环保的方式彻底改变不同行业的潜在候选者。"
+    },
+    {
+      "id": "S053",
+      "page": 14,
+      "type": "paragraph",
+      "order": 60,
+      "original_text": "ner, thus overcoming many of the obstacles facing the world today. However, the photothermal effect in a catalytic process is highly dependent on the surrounding medium. When a nanometal catalyst is immersed in water, heat can be rapidly dissipated into both the substrate and the surrounding medium. This heat dissipation can be expressed using Fourier’s law.",
+      "bbox": [
+        42.52,
+        550.32,
+        300.46,
+        630.62
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "ner，从而克服了当今世界面临的许多障碍。然而，催化过程中的光热效应高度依赖于周围介质。当纳米金属催化剂浸入水中时，热量可以快速消散到基底和周围介质中。这种散热可以用傅里叶定律来表达。"
+    },
+    {
+      "id": "S054",
+      "page": 14,
+      "type": "paragraph",
+      "order": 61,
+      "original_text": "where, q is the total heat dissipation (or total heat generation because the system is at a steady state), ki is the thermal conductivity of the material at surface Ai, which is the surface area of heat dissipation, and (oT/ox) is the thermal gradient. Hence, the temperature gradient occurs due to the heat transfer within the catalyst and the surrounding medium. In a liquid– solid phase reaction, the temperature rise of the bulk solution is generally limited due to the large specific heat capacity of water",
+      "bbox": [
+        42.52,
+        666.22,
+        300.55,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "其中，q 是总散热量（或总产热量，因为系统处于稳定状态），ki 是表面 Ai 处材料的导热系数，即散热表面积，(oT/ox) 是热梯度。因此，由于催化剂和周围介质内的热传递而出现温度梯度。在液固相反应中，由于水的比热容较大，本体溶液的温升通常受到限制"
+    },
+    {
+      "id": "S055",
+      "page": 14,
+      "type": "paragraph",
+      "order": 62,
+      "original_text": "(4200 J kg\u00041 K\u00041). By contrast, gases exhibit lower heat transfer coefficients than solids and liquids, resulting in an indiscernible temperature gradient when photothermal catalysts are surrounded by a gas. Therefore, the surface of the nanometal experiences an obvious increase in temperature compared to the minimal change experienced by the substrate. The different temperature leads to different photothermal effects. Based on the effect of the surrounding medium of the catalyst on the photothermal effect, we here divide the application of photothermal catalysis into liquid–solid phase, gas–solid phase, and solid–solid phase reactions (Fig. 9).",
+      "bbox": [
+        317.48,
+        546.58,
+        575.48,
+        678.47
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "（4200 J·kg 1 K 1）。相比之下，气体的传热系数低于固体和液体，当光热催化剂被气体包围时，会导致难以察觉的温度梯度。因此，与基底经历的最小变化相比，纳米金属表面经历了明显的温度升高。不同的温度导致不同的光热效应。根据催化剂周围介质对光热效应的影响，我们将光热催化的应用分为液固相反应、气固相反应和固固相反应（图9）。"
+    },
+    {
+      "id": "S056",
+      "page": 14,
+      "type": "paragraph",
+      "order": 63,
+      "original_text": "Liquid-solid phase reactions Photothermal catalytic liquid–solid phase reactions mainly occur at low temperatures in the bulk solution, which is typically less than 100 \u0001C. Although the low thermal driving force may not be sufficient to overcome the activation barriers of thermocatal-",
+      "bbox": [
+        317.48,
+        695.7,
+        575.47,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "液固相反应光热催化液固相反应主要发生在本体溶液的低温下，通常低于100℃。尽管低热驱动力可能不足以克服热催化的活化障碍"
+    },
+    {
+      "id": "C008",
+      "page": 14,
+      "type": "caption",
+      "order": 64,
+      "original_text": "(a) SiO2 confinement [83,120] and (b) ZIF layer coating for decreasing thermal conduction rate [121]. (c) Cu coating for reducing infrared radiation [122]. (d) Heat conduction mechanism in 2D MXene [123]. (e) PEG/MXene for thermal storage [124].",
+      "bbox": [
+        42.52,
+        511.25,
+        575.45,
+        529.31
+      ],
+      "confidence": "high",
+      "refs": [
+        "F008"
+      ],
+      "translation": "(a) SiO2 限制[83,120]和(b)用于降低热传导率的ZIF层涂层[121]。 (c) 用于减少红外辐射的铜涂层[122]。 (d) 2D MXene 中的热传导机制[123]。 (e) 用于热储存的 PEG/MXene [124]。"
+    },
+    {
+      "id": "S057",
+      "page": 15,
+      "type": "paragraph",
+      "order": 65,
+      "original_text": "ysis, it can improve the physical properties of catalysts, enhance charge dynamics and intensify reaction thermodynamics and kinetics. These reactions are useful in various applications, such as pharmaceutical synthesis [45], wastewater treatment [125], and the production of renewable energy through photothermal catalytic water splitting [107]. Hydrogen, which is an eco-friendly and promising renewable energy option with a high energy density of approximately 120 MJ/kg, has captured a significant attention. In photothermal catalytic water splitting, the process may be primarily dependent on CPT, where EHC acts as the primary driver for hydrogen reduction. Photothermal effects in this process, such as lowering the electrical impedance, reducing the band gap, and increased light absorption of the photothermal catalyst, can significantly enhance the hydrogen evolution performance [88]. Furthermore, the photothermal effect can increase catalyst wetting ability, which in turn decreases bubble adhesion and bubble radius for detachment from the surface, leading to vivid improvements in reaction kinetics [126]. For liquid–solid phase chemical synthesis, EHC plays a vital role in producing high-value chemicals and fuels and LTE promotes the injection of EHC into HOMO and LUMO of adsorbents. For instance, CPT catalysis has been utilized in the selective oxidation of 1,4-dihydro-2,6-dimethylpyridine-3,5-dic arboxylate (1,4-DHP) to produce bioactive compounds such as antihypertensive agents and calcium channel blockers. Increased temperature in the CPT process not only enhances charge dynamics and band structures but also reduces the reduction potential of 1,4-DHP, which is beneficial for the output of EHC into the HOMO/LUMO of 1,4-DHP [45]. Additionally, the photothermal effect has demonstrated its capability in TPT processes to improve reaction kinetics, as evidenced by a photothermal nanoconfinement reactor with high localized temperatures inside hollow carbon nanospheres for improved micropollutant degradation and modulated degradation pathways [125].",
+      "bbox": [
+        36.85,
+        336.99,
+        294.85,
+        752.0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "理论上，它可以改善催化剂的物理性能，增强电荷动力学并强化反应热力学和动力学。这些反应可用于多种应用，例如药物合成[45]、废水处理[125]以及通过光热催化水分解生产可再生能源[107]。氢是一种环境友好、前景广阔的可再生能源，其能量密度高达约 120 MJ/kg，引起了人们的广泛关注。在光热催化水分解中，该过程可能主要依赖于 CPT，其中 EHC 充当氢还原的主要驱动力。该过程中的光热效应，例如降低电阻抗、减小带隙、增加光热催化剂的光吸收等，可以显着增强析氢性能[88]。此外，光热效应可以提高催化剂润湿能力，从而降低气泡粘附力和气泡从表面脱离的半径，从而显着改善反应动力学[126]。对于液固相化学合成，EHC 在生产高价值化学品和燃料方面发挥着至关重要的作用，LTE 促进 EHC 注入吸附剂的 HOMO 和 LUMO 中。例如，CPT催化已被用于选择性氧化1,4-二氢-2,6-二甲基吡啶-3,5-二羧酸酯 (1,4-DHP) 可生产生物活性化合物，如抗高血压药和钙通道阻滞剂。 CPT过程中温度升高不仅增强了电荷动力学和能带结构，而且降低了1,4-DHP的还原电位，这有利于EHC输出到1,4-DHP的HOMO/LUMO中[45]。此外，光热效应已证明其在 TPT 过程中改善反应动力学的能力，空心碳纳米球内具有局部高温的光热纳米限制反应器可改善微污染物降解和调节降解途径就证明了这一点 [125]。"
+    },
+    {
+      "id": "S058",
+      "page": 15,
+      "type": "paragraph",
+      "order": 66,
+      "original_text": "Despite the significant improvements in the performance of liquid–solid phase reactions by photothermal catalysis, understanding the actual reaction mechanism on the catalyst surface remains elusive. While photothermal catalysis can dissipate heat into the bulk solution in a liquid–solid phase reaction, superheating always occurs at the liquid–solid interface [127], heating the liquid above its boiling point and enabling reactant molecules metastable. Therefore, it is crucial to reveal the surface temperature of the catalyst using advanced characterization and monitoring techniques underlying the real reaction mechanism on catalyst surface, which is beneficial for catalyst developments and reaction optimizations [91].",
+      "bbox": [
+        311.81,
+        336.61,
+        569.8,
+        477.04
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "尽管光热催化显着改善了液固相反应的性能，但了解催化剂表面的实际反应机制仍然难以捉摸。虽然光热催化可以在液固相反应中将热量消散到本体溶液中，但过热总是发生在液固界面[127]，将液体加热到沸点以上并使反应物分子亚稳态。因此，利用先进的表征和监测技术来揭示催化剂表面的温度至关重要，这有利于催化剂的开发和反应优化[91]。"
+    },
+    {
+      "id": "S059",
+      "page": 15,
+      "type": "paragraph",
+      "order": 67,
+      "original_text": "Gas-solid phase reactions Catalytic gas–solid phase processes are commonly used in the chemical industry to produce fertilizers, chemicals, and fuels by accelerating the conversion of gases (reactants) into other gases (products). However, traditional gas–solid phase catalysis often requires high temperature, high pressure, and significant energy consumption. Photothermal gas–solid phase catalysis has emerged as a promising approach to convert fossil fuels into cleaner energy sources at ambient conditions using photothermal catalysts. Due to the low heat conduction coefficient of gases, the temperature of the catalysts can be rapidly increased and is positively correlated with the intensity of light irradiation. By concentrating sunlight using a light concentrator, the intensity can be increased up to 1000 to 10000 mW/cm2, resulting in the temperature of over one thousand degrees on the catalyst surface, which can easily initiate the conversion of stubborn molecules such as CO2 and CH4. For instance, DRM reaction, which is highly endothermic, can only occur at high temperatures and pressures in the presence of a catalyst. However, the high temperature and pressure required for this reaction are energy-intensive, and the catalysts used are expensive and subject to deactivation over time. As a result,",
+      "bbox": [
+        311.81,
+        492.46,
+        569.8,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "气固相反应催化气固相过程通常用于化学工业，通过加速气体（反应物）转化为其他气体（产品）来生产肥料、化学品和燃料。然而，传统的气固相催化往往需要高温、高压，并且消耗大量能源。光热气固相催化已成为一种在环境条件下使用光热催化剂将化石燃料转化为清洁能源的有前途的方法。由于气体的导热系数较低，催化剂的温度可以迅速升高，且与光照射的强度呈正相关。通过使用聚光器聚集太阳光，强度可提高至1000至10000 mW/cm2，导致催化剂表面温度超过千度，很容易引发CO2和CH4等顽固分子的转化。例如，DRM反应是高度吸热的，只能在高温高压和催化剂存在下发生。然而，该反应所需的高温和高压是能源密集型的，并且所使用的催化剂价格昂贵并且随着时间的推移会失活。因此，"
+    },
+    {
+      "id": "C009",
+      "page": 15,
+      "type": "caption",
+      "order": 68,
+      "original_text": "Photothermal transfer in a diverse range of chemical reactions, including gas–solid, liquid–solid and solid–solid phase reactions, with related photothermal effects.",
+      "bbox": [
+        36.85,
+        309.12,
+        569.81,
+        327.25
+      ],
+      "confidence": "high",
+      "refs": [
+        "F009"
+      ],
+      "translation": "各种化学反应中的光热传递，包括气-固、液-固和固-固相反应，以及相关的光热效应。"
+    },
+    {
+      "id": "S060",
+      "page": 16,
+      "type": "paragraph",
+      "order": 69,
+      "original_text": "researchers have developed a series of photothermal DRM catalysts, including group VIII nanometals and their bimetallic systems with coinage metals. These state-of-the-art photothermal catalytic DRM processes surpass conventional thermocatalysis while using mild conditions, ensuring highly efficient conversion of the two greenhouse gases to energy-rich syngas in a green and sustainable manner [35,128–130]. Photothermal catalysis not only enhances performance but also changes the reaction pathway. Two photothermal catalytic mechanisms, CTC and TPT, have been widely reported, with the latter actually being a thermocatalytic process. In the TPT process, reaction selectivity can only be controlled by modifying the catalyst, whereas EHC in the CTC process can selectively decrease the activation energy for specific intermediates, thus increasing reaction selectivity. CO2, produced as a by-product of human activities such as burning fossil fuels, is an important feedstock for fuel production, and a high product selectivity is highly desirable in this process. Liu et al. utilized rhodium nanoparticles to improve performance in the CTC for catalytic carbon dioxide hydrogenation reaction, reducing the activation energy and producing selectively a desired but kinetically unfavourable product (Fig. 9) [72]. Mild illumination of rhodium nanoparticles resulted in almost exclusive methane production, as hot electrons were injected into the anti-bonding orbital of a critical intermediate. Without illumination, CO and CH4 were equally produced. The reduced activation energy and superlinear dependence on light intensity led to the photothermal catalytic methane production rate at ambient conditions exceeding the thermocatalytic rate at 350 \u0001C. EHC and LTE have demonstrated excellent reactant conversion and better product selectivity in photothermal (CTC and TPT) catalytic gas–solid phase reactions at moderate conditions. Although thermal energy promoted EHC has made significant contributions to the CTC process, temperature can also accelerate the excited state decay and charge recombination processes. Additionally, competition between EHC and LTE exists on the active site of the photothermal catalyst in the CTC process. Therefore, optimizing reaction conditions and precisely quantifying the contributions of EHC and LTE are crucial to maximize solar energy utilization and catalytic throughput.",
+      "bbox": [
+        42.52,
+        63.16,
+        300.5,
+        537.98
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "研究人员开发了一系列光热DRM催化剂，包括第VIII族纳米金属及其与造币金属的双金属系统。这些最先进的光热催化DRM工艺超越了传统的热催化，同时使用温和的条件，确保以绿色和可持续的方式将两种温室气体高效转化为富含能量的合成气[35,128–130]。光热催化不仅提高性能，而且改变反应途径。两种光热催化机制CTC和TPT已被广泛报道，后者实际上是一种热催化过程。在TPT工艺中，反应选择性只能通过改进催化剂来控制，而CTC工艺中的EHC可以选择性地降低特定中间体的活化能，从而提高反应选择性。二氧化碳是人类活动（例如燃烧化石燃料）的副产品，是燃料生产的重要原料，在此过程中非常需要高产品选择性。刘等人。利用铑纳米粒子来提高 CTC 催化二氧化碳氢化反应的性能，降低活化能并选择性地产生所需但动力学不利的产物（图 9）[72]。铑纳米颗粒的温和照射导致几乎完全产生甲烷当热电子被注入关键中间体的反键轨道时。在没有光照的情况下，CO 和 CH4 的产生量是相等的。活化能的降低和对光强度的超线性依赖性导致环境条件下的光热催化甲烷生成速率超过了 350℃ 下的热催化速率。 EHC 和 LTE 在温和条件下的光热（CTC 和 TPT）催化气固相反应中表现出出色的反应物转化率和更好的产物选择性。尽管热能促进的EHC对CTC过程做出了重大贡献，但温度也会加速激发态衰变和电荷复合过程。此外，EHC和LTE之间在CTC过程中光热催化剂的活性位点上存在竞争。因此，优化反应条件并精确量化 EHC 和 LTE 的贡献对于最大化太阳能利用率和催化通量至关重要。"
+    },
+    {
+      "id": "S061",
+      "page": 16,
+      "type": "paragraph",
+      "order": 70,
+      "original_text": "Solid-solid phase reactions Solid-solid phase reactions involve the interaction between two or more solid materials, resulting in the formation of new chemical compounds. One example is the pyrolysis of waste plastics, which can convert the wastes into chemicals or high-value products. However, this process often requires high electricity or fuel consumption, making it inefficient and environmentally unfriendly. To address this, Luo et al. have applied photothermal catalysis to convert plastic waste into high-value fuels. By optimizing the catalyst, they were able to control the selectivity of gas and liquid products (Fig. 9) [131]. While photothermal catalysis offers a promising approach to achieving a clean and sustainable environment, more research is needed to fully understand the mechanisms of this technology in solid–solid phase reactions. With further development, photothermal catalysis could play a significant role in turning waste into valuable resources.",
+      "bbox": [
+        42.52,
+        564.17,
+        300.52,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "固-固相反应 固-固相反应涉及两种或多种固体材料之间的相互作用，从而形成新的化合物。一个例子是废塑料的热解，它可以将废物转化为化学品或高价值产品。然而，这个过程通常需要大量电力或燃料消耗，导致效率低下且不环保。为了解决这个问题，罗等人。应用光热催化将塑料废物转化为高价值燃料。通过优化催化剂，他们能够控制气体和液体产物的选择性（图9）[131]。虽然光热催化为实现清洁和可持续的环境提供了一种有前途的方法，但需要更多的研究来充分了解该技术在固-固相反应中的机制。随着进一步发展，光热催化可以在将废物转化为宝贵资源方面发挥重要作用。"
+    },
+    {
+      "id": "S062",
+      "page": 16,
+      "type": "paragraph",
+      "order": 71,
+      "original_text": "Table 1 demonstrates the efficacy of various types of photothermal catalysis for chemical reactions, highlighting the potential of this technology for energy conversion and environmental governance. However, it is worth noting that the photothermal catalytic performance varies depending on factors such as light intensity, reaction type, and chemical process. Therefore, optimizing reaction conditions and expanding the use of photothermal catalysis to more critical chemical processes is the next step.",
+      "bbox": [
+        317.48,
+        62.79,
+        575.47,
+        167.38
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "表1展示了各种类型的光热催化对化学反应的功效，凸显了该技术在能源转换和环境治理方面的潜力。然而，值得注意的是，光热催化性能根据光强度、反应类型和化学过程等因素而变化。因此，下一步是优化反应条件并将光热催化的使用扩展到更关键的化学过程。"
+    },
+    {
+      "id": "S063",
+      "page": 16,
+      "type": "paragraph",
+      "order": 72,
+      "original_text": "Upscaling photothermal catalysis Photothermal catalysis is a process that utilizes solar light to produce EHC and LTE for catalytic chemical reactions. The application of photothermal catalysis in sustainable chemistry has been proposed as a strategy to renovate the traditional chemical processes and color ‘green’ to fuel production. A few pilot studies of photothermal catalysis have been conducted, which involve two different types: a rooftop demonstrator that uses a waveguide photoreactor coated with a supercapacitor photocatalyst (Fig. 10a) and a solar fuel farm that uses either a plate-type catalyst bed or a concentrator (Fig. 10b-c) [22,119]. Therefore, light concentrators and catalyst scaling manufacture technologies are essential to realize photothermal catalysis for an industrialscale production.",
+      "bbox": [
+        317.48,
+        183.32,
+        575.45,
+        349.59
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "升级光热催化 光热催化是一种利用太阳光产生 EHC 和 LTE 进行催化化学反应的过程。光热催化在可持续化学中的应用已被提出作为革新传统化学工艺和为燃料生产着色“绿色”的策略。已经进行了一些光热催化的试点研究，其中涉及两种不同的类型：使用涂有超级电容器光催化剂的波导光反应器的屋顶演示器（图10a）和使用板式催化剂床或聚光器的太阳能燃料场（图10b-c）[22,119]。因此，聚光器和催化剂规模制造技术对于实现工业规模生产的光热催化至关重要。"
+    },
+    {
+      "id": "S064",
+      "page": 16,
+      "type": "paragraph",
+      "order": 73,
+      "original_text": "Solar concentrators For the photothermal catalytic reaction to occur, an efficient, reliable, and suitable light source is required to provide the necessary intensity and wavelength of light. Solar concentrator systems have been developed to concentrate sunlight and provide the required energy for the reaction. These systems fall into four categories: parabolic trough, central power tower, parabolic dish, and double concentration, which can facilitate temperatures in the range of 500–700, 1600, over 1800, and over 1500 K, respectively. The selection of the corresponding system depends on the required temperature for the reaction. Stephane et al. utilized a parabolic dish to concentrate solar light, resulting in the delivery of 16 MW/m2 flux of solar irradiation to the chemical reactor [134]. To decrease the energy loss within solar concentrator systems, they further integrated a solar light concentration system with the reaction into one solar reactor. This was achieved by coupling a primary sun-tracking paraboloidal concentrator to a secondary planar rotating reflector [84]. As a result, the reaction temperature could be ramped up to above 1400 \u0001C, which allowed the use of the full solar light spectrum (Fig. 10d).",
+      "bbox": [
+        317.48,
+        362.29,
+        575.47,
+        599.49
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "太阳能聚光器 为了发生光热催化反应，需要高效、可靠且合适的光源来提供必要的光强度和波长。太阳能聚光系统已被开发用于聚集阳光并提供反应所需的能量。这些系统分为四类：抛物槽式、中央电力塔式、抛物面式和双聚光式，可分别将温度提高到 500-700、1600、1800 以上和 1500 K 以上。相应系统的选择取决于反应所需的温度。斯蒂芬等人。利用抛物面盘来聚集太阳光，从而向化学反应器输送 16 MW/m2 的太阳辐射通量 [134]。为了减少太阳能聚光系统内的能量损失，他们进一步将太阳光聚光系统与反应集成到一个太阳能反应器中。这是通过将主太阳跟踪抛物面聚光器耦合到辅助平面旋转反射器来实现的[84]。结果，反应温度可以升至 1400 C 以上，从而可以使用完整的太阳光谱（图 10d）。"
+    },
+    {
+      "id": "S065",
+      "page": 16,
+      "type": "paragraph",
+      "order": 74,
+      "original_text": "Scaling synthesis technology Scaling up the synthesis of photothermal catalysts is essential for their practical use in various industrial applications. Advanced manufacturing technologies are necessary to ensure costeffective and reproducible manufacturing, which can also reduce the cost of the catalyst and make it more accessible for a wider range of applications. In addition, minimizing variations in the catalyst's composition, size, and shape can improve the reliability of the catalytic process. Photolithography is an advanced technique for batch manufacturing plate-type catalysts with a wide range of patterns and shapes, including complex geometries and high-resolution fea-",
+      "bbox": [
+        317.48,
+        612.02,
+        575.46,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "放大合成技术放大光热催化剂的合成对于其在各种工业应用中的实际应用至关重要。先进的制造技术对于确保成本效益和可重复的制造是必要的，这也可以降低催化剂的成本并使其更容易获得更广泛的应用。此外，最大限度地减少催化剂成分、尺寸和形状的变化可以提高催化过程的可靠性。光刻是一种先进的技术，用于批量制造具有各种图案和形状的板式催化剂，包括复杂的几何形状和高分辨率特征。"
+    },
+    {
+      "id": "C010",
+      "page": 17,
+      "type": "caption",
+      "order": 75,
+      "original_text": "Typical examples of different types of photothermal catalysis for chemical reactions.",
+      "bbox": [
+        36.85,
+        76.73,
+        341.59,
+        84.7
+      ],
+      "confidence": "high",
+      "refs": [
+        "T001"
+      ],
+      "translation": "化学反应的不同类型光热催化的典型例子。"
+    },
+    {
+      "id": "S066",
+      "page": 17,
+      "type": "paragraph",
+      "order": 76,
+      "original_text": "Reaction type Catalyst Solar light Reaction Activity",
+      "bbox": [
+        45.35,
+        91.55,
+        467.14,
+        99.63
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "反应类型 催化剂 太阳光反应活性"
+    },
+    {
+      "id": "S067",
+      "page": 17,
+      "type": "paragraph",
+      "order": 77,
+      "original_text": "CPT-liquid solid phase Rh/Cr2O3/Co3O4/InGaN/GaN NWs [107] 3,800 mW cm\u00042 water splitting H2: \u00035 mmol cm-2h CPT-liquid solid phase SAAg-g-CN [117] 300 W Xe lamp water splitting H2: 498 lmol h\u00041 g\u00041",
+      "bbox": [
+        45.35,
+        103.65,
+        514.3,
+        124.14
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "CPT-液态固相 Rh/Cr2O3/Co3O4/InGaN/GaN NWs [107] 3,800 mW cm 2 水分解 H2：5 mmol cm-2h CPT-液态固相 SAAg-g-CN [117] 300 W Xe 灯水分解 H2：498 lmol h 1 g 1"
+    },
+    {
+      "id": "S068",
+      "page": 17,
+      "type": "paragraph",
+      "order": 78,
+      "original_text": "CPT-liquid solid phase Bi2Se3/g-C3N4 [100] 300 W Xe lamp CO2 reduction CO: 8.2 lmol h\u00041 g\u00041",
+      "bbox": [
+        45.35,
+        121.72,
+        513.68,
+        134.67
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "CPT-液固相 Bi2Se3/g-C3N4 [100] 300 W Xe 灯 CO2 还原 CO：8.2 lmol h 1 g 1"
+    },
+    {
+      "id": "S069",
+      "page": 17,
+      "type": "paragraph",
+      "order": 79,
+      "original_text": "TPT-liquid solid phase Hollow carbon nanospheres [125] 300 mW cm\u00042 Phenol removal Phenol: 0.09 min\u00041",
+      "bbox": [
+        45.35,
+        133.52,
+        504.89,
+        143.29
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "TPT-液固相 中空碳纳米球 [125] 300 mW cm 2 苯酚去除 苯酚：0.09 min 1"
+    },
+    {
+      "id": "S070",
+      "page": 17,
+      "type": "paragraph",
+      "order": 80,
+      "original_text": "TPT-gas solid phase Ru/Al2O3 [86] 846.5 mW cm\u00042 Sabatier reaction CO2: 18.16 mol h\u00041 g\u00041",
+      "bbox": [
+        45.35,
+        141.62,
+        520.6,
+        154.57
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "TPT-气固相 Ru/Al2O3 [86] 846.5 mW cm 2 Sabatier 反应 CO2：18.16 mol h 1 g 1"
+    },
+    {
+      "id": "S071",
+      "page": 17,
+      "type": "paragraph",
+      "order": 81,
+      "original_text": "TPT-gas solid phase Pd@Nb2O5 [97] 25 kW cm\u00042 Reverse water gas shift CO: 4.9 mol h\u00041 g\u00041",
+      "bbox": [
+        45.35,
+        151.59,
+        509.2,
+        164.55
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "TPT-气固相 Pd@Nb2O5 [97] 25 kW cm 2 逆水煤气变换 CO: 4.9 mol h 1 g 1"
+    },
+    {
+      "id": "S072",
+      "page": 17,
+      "type": "paragraph",
+      "order": 82,
+      "original_text": "CTC-gas solid phase Ru/graphene [132] 0.5 W cm\u00042 Fischer-Tropsch synthesis CO: 14.4 mol\u0005molRu \u00041 \u0005h\u00041",
+      "bbox": [
+        45.35,
+        161.43,
+        523.72,
+        173.91
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "CTC-气固相Ru/石墨烯 [132] 0.5 W cm 2 费托合成 CO: 14.4 mol molRu 1 h 1"
+    },
+    {
+      "id": "S073",
+      "page": 17,
+      "type": "paragraph",
+      "order": 83,
+      "original_text": "CTC-gas solid phase Cu-Ru alloy [16] 9.6 W cm\u00042 Ammonia decomposition H2: 1200 lmol s\u00041 g\u00041",
+      "bbox": [
+        45.35,
+        171.49,
+        517.2,
+        183.89
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "CTC-气固相Cu-Ru合金[16] 9.6 W cm 2 氨分解H2：1200 lmol s 1 g 1"
+    },
+    {
+      "id": "S074",
+      "page": 17,
+      "type": "paragraph",
+      "order": 84,
+      "original_text": "CTC-gas solid phase Rh/SrTiO3 [42] 19.2 W cm\u00042 Dry reforming of methane H2: 34 mol (mol Ru)\u00041 s\u00041",
+      "bbox": [
+        45.35,
+        181.47,
+        528.93,
+        194.42
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "CTC-气固相 Rh/SrTiO3 [42] 19.2 W cm 2 甲烷干重整 H2：34 mol (mol Ru) 1 s 1"
+    },
+    {
+      "id": "S075",
+      "page": 17,
+      "type": "paragraph",
+      "order": 85,
+      "original_text": "CTC-gas solid phase copper/zinc oxide/alumina [133] 600 mW cm\u00042 CO2 hydrogenation MeOH: 245 g kgcat. \u00041h\u00041",
+      "bbox": [
+        45.35,
+        193.33,
+        516.57,
+        204.4
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "CTC-气固相铜/氧化锌/氧化铝[133] 600 mW cm 2 CO2 加氢MeOH：245 g kgcat。 1小时1"
+    },
+    {
+      "id": "S076",
+      "page": 17,
+      "type": "paragraph",
+      "order": 86,
+      "original_text": "CTC-solid solid phase Ni-TiO2-c-Al2O3 [131] 1.5 mW m\u00042 Plastic pyrolysis Selectivity for hydrocarbon: 53.46%",
+      "bbox": [
+        45.35,
+        203.1,
+        561.26,
+        214.32
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "CTC-solid 固相 Ni-TiO2-c-Al2O3 [131] 1.5 mW m 2 塑料热解 烃选择性：53.46%"
+    },
+    {
+      "id": "C011",
+      "page": 17,
+      "type": "caption",
+      "order": 87,
+      "original_text": "Pilot tests of photothermal catalysis. (a) A rooftop demonstrator that uses a waveguide photoreactor coated with a supercapacitor photocatalyst [119]. (b) A solar fuel farm uses a plate-type catalyst bed [22]. (c) A solar concentrator system for photothermal catalysis [23]. (d) An integral reactor for photothermal catalysis [84].",
+      "bbox": [
+        36.85,
+        582.8,
+        569.81,
+        610.83
+      ],
+      "confidence": "high",
+      "refs": [
+        "F010"
+      ],
+      "translation": "光热催化的中试。 （a）屋顶演示器使用涂有超级电容器光催化剂的波导光反应器[119]。 (b) 太阳能燃料场使用板式催化剂床[22]。 (c) 用于光热催化的太阳能聚光系统[23]。 (d) 光热催化一体化反应器[84]。"
+    },
+    {
+      "id": "S077",
+      "page": 17,
+      "type": "paragraph",
+      "order": 88,
+      "original_text": "tures. This technique is ideal for creating precise and reproducible patterns of catalysts on a substrate, including semiconductor and heterojunction based photothermal catalysts. For example, Au microelectrode chips were successfully fabricated on a glass slide using photolithography (Fig. 11a) [135]. Additionally, electrospinning is a versatile and widely used technique for scaling up the synthesis of flexible materials. This process involves generating a jet of polymer solution or melt using an electrostatic field, which can be adapted to incorporate catalyst particles or nanoparticles into the resulting fibers. Electrospin-",
+      "bbox": [
+        36.85,
+        631.85,
+        294.82,
+        748.03
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "真实。该技术非常适合在基材上创建精确且可重复的催化剂图案，包括基于半导体和异质结的光热催化剂。例如，使用光刻法在载玻片上成功制造了金微电极芯片（图11a）[135]。此外，静电纺丝是一种通用且广泛使用的技术，用于扩大柔性材料的合成规模。该过程涉及使用静电场产生聚合物溶液或熔体的射流，该射流可适用于将催化剂颗粒或纳米颗粒掺入所得纤维中。静电纺丝-"
+    },
+    {
+      "id": "S078",
+      "page": 17,
+      "type": "paragraph",
+      "order": 89,
+      "original_text": "ning technology has been widely used for the fabrication of almost all types of nanostructured photothermal catalysts, including carbonaceous, semiconductor-based, heterojunction, and supported metallic catalysts (Fig. 11b) [136]. Chemical vapor deposition (CVD) is also a popular technique for scaling up the synthesis of two-dimensional photothermal catalyst films. This versatile and efficient process can deposit thin films of catalyst materials onto a variety of substrates. The technique involves the reaction of one or more precursor gases in a hightemperature chamber, resulting in the formation of a solid or",
+      "bbox": [
+        311.81,
+        631.85,
+        569.79,
+        748.03
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "宁技术已广泛用于制造几乎所有类型的纳米结构光热催化剂，包括碳质、半导体基、异质结和负载金属催化剂（图11b）[136]。化学气相沉积（CVD）也是扩大二维光热催化剂薄膜合成规模的流行技术。这种多功能且高效的工艺可以将催化剂材料薄膜沉积到各种基材上。该技术涉及一种或多种前体气体在高温室中发生反应，从而形成固体或固体。"
+    },
+    {
+      "id": "S079",
+      "page": 18,
+      "type": "paragraph",
+      "order": 90,
+      "original_text": "semi-solid film on the substrate surface. CVD has been applied for the synthesis of graphene, heterojunction, and thermoelectric materials [137–139]. In addition, 3D printing is a promising approach to scaling up the synthesis of photothermal catalysts. This advanced technology can print three-dimensional structures with high surface area and porous architecture, allowing the incorporation of multiple materials with different properties to create hybrid catalyst systems. Based on this advanced technology, a photothermal Aunanorod/TiO2 aerogel was precisely printed, exhibiting superior photothermal properties (Fig. 11c) [28]. Overall, various advanced scaling synthesis technologies are available for the preparation of photothermal catalysts, tailored to specific properties. In future, coupling various technologies can be expected to enable scaling synthesis of a broader range of photothermal catalysts with different properties.",
+      "bbox": [
+        42.52,
+        438.49,
+        300.5,
+        626.76
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "基材表面形成半固态薄膜。 CVD已应用于石墨烯、异质结和热电材料的合成[137-139]。此外，3D打印是扩大光热催化剂合成规模的一种有前途的方法。这项先进技术可以打印具有高表面积和多孔结构的三维结构，允许结合具有不同特性的多种材料来创建混合催化剂系统。基于这项先进技术，精确打印了光热Aunanorod/TiO2气凝胶，表现出优异的光热性能（图11c）[28]。总体而言，各种先进的缩放合成技术可用于根据特定性能定制光热催化剂的制备。未来，结合各种技术有望实现更广泛的具有不同性能的光热催化剂的规模合成。"
+    },
+    {
+      "id": "S080",
+      "page": 18,
+      "type": "paragraph",
+      "order": 91,
+      "original_text": "Conclusions and outlook This perspective review provides a comprehensive introduction and clear classification of photothermal catalysis and a systematic catalyst design principle for better catalysis. By implementing various modification strategies, such as broadening solar light absorption, IEF modulation for enhanced EHC and LTE, and interfacial engineering for a directional charge flow and EHC/LTE management, highly efficient and stable photothermal catalysts can be developed. The review also discusses the pho-",
+      "bbox": [
+        42.52,
+        646.84,
+        300.52,
+        753.36
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "结论与展望这篇综述对光热催化进行了全面的介绍和清晰的分类，并为更好的催化提供了系统的催化剂设计原理。通过实施各种修饰策略，例如扩大太阳光吸收、增强 EHC 和 LTE 的 IEF 调制以及定向电荷流和 EHC/LTE 管理的界面工程，可以开发高效且稳定的光热催化剂。该评论还讨论了照片"
+    },
+    {
+      "id": "S081",
+      "page": 18,
+      "type": "paragraph",
+      "order": 92,
+      "original_text": "tothermal effect in different types of chemical reactions. Key technologies for upscaling photothermal catalysis, based on limited pilot test cases, are briefly introduced. Overall, the review offers a solid foundation of fundamental knowledge and applied technology progress, which could accelerate the large-scale production of solar fuels and facilitate sustainable and efficient chemical transformations. While the field of photothermal catalysis has experienced significant growth since its emergence, several challenges remain.",
+      "bbox": [
+        317.48,
+        438.86,
+        575.47,
+        543.09
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "不同类型化学反应中的热效应。基于有限的中试案例，简要介绍了光热催化升级的关键技术。总体而言，该综述为基础知识和应用技术进步奠定了坚实的基础，可以加速太阳能燃料的大规模生产并促进可持续和高效的化学转化。尽管光热催化领域自出现以来经历了显着的增长，但仍然存在一些挑战。"
+    },
+    {
+      "id": "S082",
+      "page": 18,
+      "type": "paragraph",
+      "order": 93,
+      "original_text": "(i) A progress has been made in developing highly efficient photothermal catalysts, robust catalysts for 24/7 successive operations remain lacking. Efforts are underway to efficiently harvest full-spectrum sunlight, maximize the generation of EHC and LTE, and better manage EHC and LTE to extend post-illumination catalytic periods. Machine learning can be used for catalyst screening and prediction, given the numerous factors that need to be optimized. Additionally, standardizing the evaluation of photothermal catalysts can accelerate the development of efficient photothermal catalysts, considering that photothermal catalytic performance varies with light intensity, light bands, and reactor type. (ii) Understanding the underlying reaction mechanism can guide the optimization of photothermal catalysis. One key to selectively generating EHC and LTE for different",
+      "bbox": [
+        326.67,
+        556.58,
+        575.48,
+        744.85
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "(i) 在开发高效光热催化剂方面已取得进展，但仍缺乏适合 24/7 连续运行的稳健催化剂。目前正在努力有效地收集全光谱太阳光，最大限度地产生 EHC 和 LTE，并更好地管理 EHC 和 LTE 以延长照明后催化期。鉴于需要优化的因素众多，机器学习可用于催化剂筛选和预测。此外，考虑到光热催化性能随光强度、光波段和反应器类型的变化而变化，标准化光热催化剂的评估可以加速高效光热催化剂的开发。 （ii）了解潜在的反应机制可以指导光热催化的优化。一键选择性生成 EHC 和 LTE 以满足不同需求"
+    },
+    {
+      "id": "C012",
+      "page": 18,
+      "type": "caption",
+      "order": 94,
+      "original_text": "Technologies for scaling synthesis of photothermal catalysts. (a) Photolithography for Au microelectrode chips [135]. (b) Electrospinning technology for flexible film. (c) 3D printing for Au-nanorod/TiO2 [28].",
+      "bbox": [
+        42.52,
+        399.79,
+        575.41,
+        419.15
+      ],
+      "confidence": "high",
+      "refs": [
+        "F011"
+      ],
+      "translation": "光热催化剂的缩放合成技术。 （a）金微电极芯片的光刻[135]。 (b)柔性薄膜静电纺丝技术。 (c) Au-nanorod/TiO2 的 3D 打印 [28]。"
+    },
+    {
+      "id": "S083",
+      "page": 19,
+      "type": "paragraph",
+      "order": 95,
+      "original_text": "chemical reactions is to differentiate the contribution of EHC to photothermal catalytic throughput. However, the existence of EHC in the photothermal catalytic process is still under debate. Rational experimental design and exploring high-resolution microscopy are necessary to resolve this issue. Meanwhile, unifying hot spots and catalytic sites on photothermal catalysts can yield a double output. While most research has focused only on the active site, the importance of hot spots has been overlooked. Distinguishing these two essential regions via multiscale computational simulation and in situ/operando characterizations is highly important. (iii) Photothermal catalysis possesses considerable potential for expanding its application beyond its current scope. While its role in the reduction and conversion of CO2 into lowcarbon molecules is crucial for addressing greenhouse gas emissions and achieving carbon neutrality, there is further potential for the development of higher-value fuels. Photothermal tandem catalysis, in particular, holds a promise for high efficiency and selectivity in coupling C–C bonds and generating multi-carbon products, thereby presenting an encouraging pathway for green chemical synthesis. Through the integration of photothermal catalysis with other catalytic processes, the conversion of CO2 can be optimized to produce valuable fuels and feedstocks, advancing the goal of a sustainable and resource-efficient future. (iv) In accelerating the industrialization of photothermal catalysis, it is necessary to develop safe and energy-efficient assembly reactors. In addition, there is a need for coupling technologies that can scale the synthesis of different types of photothermal catalysts. To ensure consistent and reliable performance of photothermal catalytic reactions at a large scale, accurate process control is essential. Advanced monitoring and control systems must be used to measure key process parameters and adjust operating conditions in real-time as needed. By addressing these challenges, photothermal catalysis can be rapidly advanced towards commercialization and implementation in a wide range of industrial applications.",
+      "bbox": [
+        43.43,
+        63.16,
+        294.84,
+        537.98
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "化学反应的目的是为了区分 EHC 对​​光热催化通量的贡献。然而，EHC在光热催化过程中是否存在仍存在争议。合理的实验设计和探索高分辨率显微镜对于解决这个问题是必要的。同时，将光热催化剂上的热点和催化位点统一起来可以产生双倍的输出。虽然大多数研究只关注活性位点，但热点的重要性却被忽视了。通过多尺度计算模拟和原位/操作表征来区分这两个基本区域非常重要。 (iii) 光热催化具有巨大的潜力，可以将其应用扩展到目前的范围之外。虽然它在减少二氧化碳并将其转化为低碳分子方面的作用对于解决温室气体排放和实现碳中和至关重要，但开发更高价值的燃料还有进一步的潜力。尤其是光热串联催化，有望在偶联 C-C 键和生成多碳产物方面实现高效率和选择性，从而为绿色化学合成提供了一条令人鼓舞的途径。通过将光热催化与其他催化过程相结合，可以优化二氧化碳的转化，以生产有价值的燃料和原料，推进可持续和资源节约型未来的目标。 （四）加快光热催化产业化，需要开发安全节能的组装反应器。此外，还需要能够大规模合成不同类型光热催化剂的耦合技术。为了确保大规模光热催化反应的一致和可靠的性能，精确的过程控制至关重要。必须使用先进的监测和控制系统来测量关键过程参数并根据需要实时调整操作条件。通过解决这些挑战，光热催化可以快速推进商业化并在广泛的工业应用中实施。"
+    },
+    {
+      "id": "S084",
+      "page": 19,
+      "type": "paragraph",
+      "order": 96,
+      "original_text": "Data availability No data was used for the research described in the article.",
+      "bbox": [
+        36.85,
+        564.46,
+        265.43,
+        586.03
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "数据可用性 本文描述的研究未使用任何数据。"
+    },
+    {
+      "id": "S085",
+      "page": 19,
+      "type": "paragraph",
+      "order": 97,
+      "original_text": "Declaration of Competing Interest The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.",
+      "bbox": [
+        36.85,
+        600.01,
+        294.86,
+        642.5
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "竞争利益声明 作者声明，他们没有已知的可能影响本文报告工作的竞争经济利益或个人关系。"
+    },
+    {
+      "id": "S086",
+      "page": 19,
+      "type": "paragraph",
+      "order": 98,
+      "original_text": "Acknowledgement This work was supported by the Australian Research Council (DP200103206).",
+      "bbox": [
+        36.85,
+        656.48,
+        294.82,
+        691.28
+      ],
+      "confidence": "high",
+      "refs": [],
+      "translation": "致谢 这项工作得到了澳大利亚研究委员会 (DP200103206) 的支持。"
+    },
+    {
+      "id": "E001",
+      "page": 14,
+      "type": "equation",
+      "order": 99,
+      "original_text": "p p g q 1⁄4 X ikiAirT ð1Þ",
+      "translation": "公式（1）的数学符号与变量保持原文；请结合相邻段落的定义理解其物理含义。",
+      "bbox": [
+        43,
+        630,
+        302,
+        662
+      ],
+      "confidence": "low",
+      "refs": [],
+      "equation_number": "1",
+      "latex": null,
+      "image_path": "assets/equations/E001.png"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010"
+      ]
+    },
+    {
+      "page": 2,
+      "layout": "two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S011",
+        "S012",
+        "S013",
+        "S014"
+      ]
+    },
+    {
+      "page": 3,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "C001",
+        "S015",
+        "S016"
+      ]
+    },
+    {
+      "page": 4,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S017",
+        "S018",
+        "C002"
+      ]
+    },
+    {
+      "page": 5,
+      "layout": "two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S019",
+        "S020",
+        "S021",
+        "S022",
+        "S023"
+      ]
+    },
+    {
+      "page": 6,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S024",
+        "S025",
+        "C003"
+      ]
+    },
+    {
+      "page": 7,
+      "layout": "two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030",
+        "S031",
+        "S032"
+      ]
+    },
+    {
+      "page": 8,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S033",
+        "S034",
+        "C004"
+      ]
+    },
+    {
+      "page": 9,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S035",
+        "S036",
+        "S037",
+        "S038",
+        "S039",
+        "S040",
+        "C005"
+      ]
+    },
+    {
+      "page": 10,
+      "layout": "two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S041",
+        "S042",
+        "S043",
+        "S044"
+      ]
+    },
+    {
+      "page": 11,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "C006",
+        "S045",
+        "S046"
+      ]
+    },
+    {
+      "page": 12,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S047",
+        "S048",
+        "C007"
+      ]
+    },
+    {
+      "page": 13,
+      "layout": "two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S049",
+        "S050",
+        "S051",
+        "S052"
+      ]
+    },
+    {
+      "page": 14,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S053",
+        "S054",
+        "S055",
+        "S056",
+        "C008",
+        "E001"
+      ]
+    },
+    {
+      "page": 15,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S057",
+        "S058",
+        "S059",
+        "C009"
+      ]
+    },
+    {
+      "page": 16,
+      "layout": "two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S060",
+        "S061",
+        "S062",
+        "S063",
+        "S064",
+        "S065"
+      ]
+    },
+    {
+      "page": 17,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "C010",
+        "S066",
+        "S067",
+        "S068",
+        "S069",
+        "S070",
+        "S071",
+        "S072",
+        "S073",
+        "S074",
+        "S075",
+        "S076",
+        "C011",
+        "S077",
+        "S078"
+      ]
+    },
+    {
+      "page": 18,
+      "layout": "mixed full-width/two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S079",
+        "S080",
+        "S081",
+        "S082",
+        "C012"
+      ]
+    },
+    {
+      "page": 19,
+      "layout": "two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": [
+        "S083",
+        "S084",
+        "S085",
+        "S086"
+      ]
+    },
+    {
+      "page": 20,
+      "layout": "two-column",
+      "reading_order": "full-width content, then left column top-to-bottom, then right column top-to-bottom; no cross-column automatic merging",
+      "block_ids": []
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "label": "Fig. 1",
+      "kind": "figure",
+      "page": 3,
+      "bbox": [
+        37,
+        45,
+        575,
+        250
+      ],
+      "caption_prefix": "SCHEMATIC ILLUSTRATION OF THE PHOTOTHERMAL CATALYSIS",
+      "image_path": "assets/f001.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C001",
+      "first_mention_block_id": "S013",
+      "placed_after": "S013",
+      "first_mention_evidence": "Fig. 1 is named in S013",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "光热催化原理、催化剂设计以及在太阳能燃料工业生产的各种化学反应中的应用的示意图。"
+    },
+    {
+      "id": "F002",
+      "label": "Fig. 2",
+      "kind": "figure",
+      "page": 4,
+      "bbox": [
+        43,
+        45,
+        575,
+        468
+      ],
+      "caption_prefix": "FUNDAMENTALS IN PHOTOTHERMAL CATALYSIS",
+      "image_path": "assets/f002.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C002",
+      "first_mention_block_id": "S014",
+      "placed_after": "S014",
+      "first_mention_evidence": "Fig. 2 is named in S014",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "光热催化基础知识，包括 (a-c) EHC 激发、(d-f) EHC 注入反应物 HOMO/LUMO 的限制，以及 (g-i) EHC 热化。 (a) 半导体催化剂中 EHC 产生的机制 [43]。 (b-c) 等离子体纳米金属的 EHC 激发途径 [19]。提出的光激发等离子体金属上电子诱导反应物分子解离的机制。 Ea 代表解离的激活屏障[44]。 (d-f) 将 EHC 注入半导体和吸附物的要求 [20]。 (g) 等离子体纳米金属、(h) 半导体和 (i) 碳基和有机材料的光热效应 [7]。"
+    },
+    {
+      "id": "F003",
+      "label": "Fig. 3",
+      "kind": "figure",
+      "page": 6,
+      "bbox": [
+        43,
+        48,
+        575,
+        403
+      ],
+      "caption_prefix": "CLASSIFICATION OF PHOTOTHERMAL CATALYSIS INTO",
+      "image_path": "assets/f003.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C003",
+      "first_mention_block_id": "S023",
+      "placed_after": "S023",
+      "first_mention_evidence": "Fig. 3 is named in S023",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "光热催化分为（a）热主导的光热催化（Ni12P5@SiO2的代表性催化剂[93]），（b）载流子-热耦合催化（AuPt@MOF的代表性催化剂[90]）和（c）热载流子主导的光热催化（SrTiO3:Al的代表性催化剂[21]）。"
+    },
+    {
+      "id": "F004",
+      "label": "Fig. 4",
+      "kind": "figure",
+      "page": 8,
+      "bbox": [
+        43,
+        48,
+        575,
+        528
+      ],
+      "caption_prefix": "(A) DEFINITION OF A PHOTOTHERMAL CATALYST",
+      "image_path": "assets/f004.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C004",
+      "first_mention_block_id": "S034",
+      "placed_after": "S034",
+      "first_mention_evidence": "Fig. 4 is named in S034",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "(a) PxB1-x 光热催化剂的定义。 (b)光热催化剂的设计原理，用于提高光热催化中每个步骤的性能，包括光吸收、EHC激发、EHC控制、EHC调节和热管理。"
+    },
+    {
+      "id": "F005",
+      "label": "Fig. 5",
+      "kind": "figure",
+      "page": 9,
+      "bbox": [
+        37,
+        48,
+        570,
+        355
+      ],
+      "caption_prefix": "STRATEGIES FOR BROADENING SUNLIGHT ABSORPTION",
+      "image_path": "assets/f005.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C005",
+      "first_mention_block_id": "S031",
+      "placed_after": "S031",
+      "first_mention_evidence": "Fig. 5 is named in S031",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "扩大阳光吸收的策略。 (a) 半导体的能带调制。 (b) 纳米金属的几何优化。 (c) 黑色材料的形态工程。"
+    },
+    {
+      "id": "F006",
+      "label": "Fig. 6",
+      "kind": "figure",
+      "page": 11,
+      "bbox": [
+        37,
+        48,
+        570,
+        458
+      ],
+      "caption_prefix": "IEF ENHANCEMENT FOR MORE EHC AND LTE",
+      "image_path": "assets/f006.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C006",
+      "first_mention_block_id": "S046",
+      "placed_after": "S046",
+      "first_mention_evidence": "Fig. 6 is named in S046",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "IEF 增强可实现更多 EHC 和 LTE。 (a) 用于半导体中定向电荷流的串联 IEF [109]。 (b) 金属支撑界面电荷强化的肖特基势垒[108]。用于增强 IEF 的双金属纳米颗粒 (c) [36] 及其形态工程 (d) [110]。"
+    },
+    {
+      "id": "F007",
+      "label": "Fig. 7",
+      "kind": "figure",
+      "page": 12,
+      "bbox": [
+        43,
+        48,
+        575,
+        598
+      ],
+      "caption_prefix": "(A) RELATIONSHIP BETWEEN HOT SPOTS AND CATALYTIC SITES",
+      "image_path": "assets/f007.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C007",
+      "first_mention_block_id": "S048",
+      "placed_after": "S048",
+      "first_mention_evidence": "Fig. 7 is named in S048",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "(a)光热催化中热点与催化位点的关系[113]。 (b) 光热催化的温度依赖性界面效应[108]。 (c) 抑制 Ru/TiO2 的 SMSI 以定制光热催化 DRM 中的电子转移途径 [114]。 (d) Pd/N-石墨烯单原子催化剂用于光热催化氢化 C2H2 和 H2 [115]。 （e）光热效应诱导原子金属聚集到纳米粒子[116]。 (f) 当太阳不发光时，利用超级电容器二氧化碳光催化剂在黑暗中生产太阳能燃料，避免间歇性和云层覆盖。 （g）持久性光催化剂系统存储和释放光生电子的机制[118]。"
+    },
+    {
+      "id": "F008",
+      "label": "Fig. 8",
+      "kind": "figure",
+      "page": 14,
+      "bbox": [
+        43,
+        48,
+        575,
+        490
+      ],
+      "caption_prefix": "(A) SIO2 CONFINEMENT",
+      "image_path": "assets/f008.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C008",
+      "first_mention_block_id": "S056",
+      "placed_after": "S056",
+      "first_mention_evidence": "Fig. 8 is named in S056",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "(a) SiO2 限制[83,120]和(b)用于降低热传导率的ZIF层涂层[121]。 (c) 用于减少红外辐射的铜涂层[122]。 (d) 2D MXene 中的热传导机制[123]。 (e) 用于热储存的 PEG/MXene [124]。"
+    },
+    {
+      "id": "F009",
+      "label": "Fig. 9",
+      "kind": "figure",
+      "page": 15,
+      "bbox": [
+        37,
+        48,
+        570,
+        295
+      ],
+      "caption_prefix": "PHOTOTHERMAL TRANSFER IN A DIVERSE RANGE",
+      "image_path": "assets/f009.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C009",
+      "first_mention_block_id": "S055",
+      "placed_after": "S055",
+      "first_mention_evidence": "Fig. 9 is named in S055",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "各种化学反应中的光热传递，包括气-固、液-固和固-固相反应，以及相关的光热效应。"
+    },
+    {
+      "id": "F010",
+      "label": "Fig. 10",
+      "kind": "figure",
+      "page": 17,
+      "bbox": [
+        37,
+        245,
+        570,
+        565
+      ],
+      "caption_prefix": "PILOT TESTS OF PHOTOTHERMAL CATALYSIS",
+      "image_path": "assets/f010.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C011",
+      "first_mention_block_id": "S078",
+      "placed_after": "S078",
+      "first_mention_evidence": "Fig. 10 is named in S078",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "光热催化的中试。 （a）屋顶演示器使用涂有超级电容器光催化剂的波导光反应器[119]。 (b) 太阳能燃料场使用板式催化剂床[22]。 (c) 用于光热催化的太阳能聚光系统[23]。 (d) 光热催化一体化反应器[84]。"
+    },
+    {
+      "id": "F011",
+      "label": "Fig. 11",
+      "kind": "figure",
+      "page": 18,
+      "bbox": [
+        43,
+        48,
+        575,
+        382
+      ],
+      "caption_prefix": "TECHNOLOGIES FOR SCALING SYNTHESIS OF PHOTOTHERMAL CATALYSTS",
+      "image_path": "assets/f011.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C012",
+      "first_mention_block_id": "S082",
+      "placed_after": "S082",
+      "first_mention_evidence": "Fig. 11 is named in S082",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "光热催化剂的缩放合成技术。 （a）金微电极芯片的光刻[135]。 (b)柔性薄膜静电纺丝技术。 (c) Au-nanorod/TiO2 的 3D 打印 [28]。"
+    }
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "label": "Table 1",
+      "kind": "table",
+      "page": 17,
+      "bbox": [
+        43,
+        72,
+        562,
+        217
+      ],
+      "caption_prefix": "TYPICAL EXAMPLES OF DIFFERENT TYPES OF PHOTOTHERMAL CATALYSIS",
+      "image_path": "assets/t001.png",
+      "crop_confidence": "high",
+      "crop_reviewed": true,
+      "caption_id": "C010",
+      "first_mention_block_id": "S062",
+      "placed_after": "S062",
+      "first_mention_evidence": "Table 1 is named in S062",
+      "placement_hint": "near_first_substantive_mention",
+      "alt_text": "化学反应的不同类型光热催化的典型例子。"
+    }
+  ],
+  "equations": [
+    {
+      "id": "E001",
+      "page": 14,
+      "type": "equation",
+      "bbox": [
+        43,
+        630,
+        302,
+        662
+      ],
+      "confidence": "low",
+      "equation_number": "1",
+      "latex": null,
+      "image_path": "assets/equations/E001.png"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "photothermal catalysis",
+      "translation": "光热催化",
+      "note": "以光致热与光化学载流子过程共同驱动催化反应。"
+    },
+    {
+      "term": "energetic hot carrier (EHC)",
+      "translation": "高能热载流子（EHC）",
+      "note": "由光激发产生、尚未完全热化的高能电子或空穴。"
+    },
+    {
+      "term": "low-temperature excitation (LTE)",
+      "translation": "低温激发（LTE）",
+      "note": "文中用于描述光热耦合中的低温热激发贡献。"
+    },
+    {
+      "term": "carrier-thermal coupling (CTC)",
+      "translation": "载流子-热耦合催化（CTC）",
+      "note": "EHC 与热效应都对反应有实质贡献的分类。"
+    },
+    {
+      "term": "photothermal conversion",
+      "translation": "光热转换",
+      "note": "光吸收后经非辐射弛豫将能量转化为热。"
+    },
+    {
+      "term": "localized surface plasmon resonance (LSPR)",
+      "translation": "局域表面等离子体共振（LSPR）",
+      "note": "金属纳米结构中集体电子振荡导致的强光吸收。"
+    },
+    {
+      "term": "interfacial electric field (IEF)",
+      "translation": "界面电场（IEF）",
+      "note": "异质界面电荷分离、转移与积累相关的局部电场。"
+    }
+  ],
+  "coverage_audit": {
+    "excluded_blocks": [
+      {
+        "page": 1,
+        "bbox": [
+          36.85,
+          27.52,
+          569.85,
+          38.72
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 1,
+        "bbox": [
+          12.24,
+          171.67,
+          20.21,
+          239.59
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 2,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "0a2d643bfd24a028cd236e76575d828424ccffbfa47392bd09d8ca9dc85e2f8d",
+        "category": "header_footer",
+        "original_text": "235",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          39.69,
+          248.19,
+          59.68,
+          255.76
+        ],
+        "text_sha256": "f8955ad03ce72ae86dcb47d82b2acd27ad3746b22c65846b7cc505f41f59bc8f",
+        "category": "caption",
+        "original_text": "FIG. 1",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 3,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "9a049b03f6fc40bfcf2f136320359257ed4af8513f71aa6fef47f17059bbae23",
+        "category": "header_footer",
+        "original_text": "236",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 4,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 4,
+        "bbox": [
+          45.35,
+          472.58,
+          65.35,
+          480.15
+        ],
+        "text_sha256": "567b66c181ef47ebe520715e944b77b35c3c31b622e991c40df9203b72f155b0",
+        "category": "caption",
+        "original_text": "FIG. 2",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 4,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 4,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "f0bc318fb8965cad8d73d578cd03c63b7987dc6a79b906aada091e1b6a13443f",
+        "category": "header_footer",
+        "original_text": "237",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 5,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 5,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 5,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "8ae4c23b80d1e7c8ff79e515fe791ebd68190bae842dda7af193db125f700452",
+        "category": "header_footer",
+        "original_text": "238",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 6,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 6,
+        "bbox": [
+          45.35,
+          405.91,
+          65.35,
+          413.48
+        ],
+        "text_sha256": "85e550cf49e58ceb736b0c3019793fb7d994745353b9e22de177d0693d9a060f",
+        "category": "caption",
+        "original_text": "FIG. 3",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 6,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 6,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "79bf08685d3138f9b109c3546780f056bc954fd69377b84a2cf23622e464897b",
+        "category": "header_footer",
+        "original_text": "239",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 7,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 7,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 7,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "6af1f692e9496c6d0b668316eccb93276ae6b6774fa728aac31ff40a38318760",
+        "category": "header_footer",
+        "original_text": "240",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 7,
+        "bbox": [
+          323.77,
+          614.78,
+          401.83,
+          623.36
+        ],
+        "text_sha256": "5aacfce2da2b5d76ff285a826f816b660e85995940ac4ee05de55ee39727cba2",
+        "category": "paragraph",
+        "original_text": "(1) Band regulation",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 8,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 8,
+        "bbox": [
+          45.35,
+          533.18,
+          65.35,
+          540.76
+        ],
+        "text_sha256": "068a51a19aba17c9b3099ef3e914043fc940d6692d18532be8f557c61703d940",
+        "category": "caption",
+        "original_text": "FIG. 4",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 8,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 8,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "749fc650cacb0f06547520d53c31505c8156e0a3be07073eddb2ef3ad9e383ba",
+        "category": "header_footer",
+        "original_text": "241",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 9,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 9,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 9,
+        "bbox": [
+          39.69,
+          362.82,
+          59.68,
+          370.39
+        ],
+        "text_sha256": "22aee768386f54ed73d3fed5ee6eb36207941a138394b6b68cdca9f57422f4f8",
+        "category": "caption",
+        "original_text": "FIG. 5",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 9,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "14063697603e22d600d336bee6cff12c8be93509ce84a0642918d89b2aef1753",
+        "category": "header_footer",
+        "original_text": "242",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 10,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 10,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 10,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "72440a20f54075ac43f51a2cf0dbb2a14366b38a5c01b110ae174abc1cb44238",
+        "category": "header_footer",
+        "original_text": "243",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 11,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 11,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 11,
+        "bbox": [
+          39.69,
+          464.19,
+          59.68,
+          471.76
+        ],
+        "text_sha256": "72798e8c91674fef61c2730f733381c3c441c8696def4f88f6a32f373c0b35fd",
+        "category": "caption",
+        "original_text": "FIG. 6",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 11,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "82c01ce15b431d420eb6a1febfba7d7a2b69e5bcdcb929cb42cd3e9179d43fc4",
+        "category": "header_footer",
+        "original_text": "244",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 12,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 12,
+        "bbox": [
+          45.35,
+          605.64,
+          65.35,
+          613.21
+        ],
+        "text_sha256": "e04ae1c540da96dbd931b6e9770f835d5923402e78ea08a2fa1136c2e3f42f4a",
+        "category": "caption",
+        "original_text": "FIG. 7",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 12,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 12,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "011af72a910ac4acf367eef9e6b761e0980842c30d4e9809840f4141d5163ede",
+        "category": "header_footer",
+        "original_text": "245",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 13,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 13,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 13,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "37c20f19f3272b5ccc3a5d80587eb9deb3f4afcf568c4280fb195568da8eb1a2",
+        "category": "header_footer",
+        "original_text": "246",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 14,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 14,
+        "bbox": [
+          45.35,
+          498.77,
+          65.35,
+          506.34
+        ],
+        "text_sha256": "a3401cdef713dd5758ea9051e1f64718de289531970dda8aa39ab6e16fee3066",
+        "category": "caption",
+        "original_text": "FIG. 8",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 14,
+        "bbox": [
+          42.52,
+          635.25,
+          71.63,
+          652.26
+        ],
+        "text_sha256": "f22a69112efcd99d9fa7ebe1bba31ad57ea7d61704b2e9deace92ac1903d2d00",
+        "category": "paragraph",
+        "original_text": "q 1⁄4 X",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 14,
+        "bbox": [
+          71.6,
+          643.19,
+          300.45,
+          655.39
+        ],
+        "text_sha256": "dc1d644174626ab1044c851f97bee1bcc7289fb6ee8e19e1c4c000dc9f32c583",
+        "category": "paragraph",
+        "original_text": "ikiAirT ð1Þ",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 14,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 14,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "396f804443825586c1283a27fdcadf74abb82008bcd9b260a30912a26563f27d",
+        "category": "header_footer",
+        "original_text": "247",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 15,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 15,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 15,
+        "bbox": [
+          39.69,
+          296.72,
+          59.68,
+          304.29
+        ],
+        "text_sha256": "38baa34988d05d749c86010ca7c60a8cdc9d364c1bea83c14916e7b7e83c3544",
+        "category": "caption",
+        "original_text": "FIG. 9",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 15,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "766cb53c753baedac5dc782593e04694b3bae3aed057ac2ff98cc1aef6413137",
+        "category": "header_footer",
+        "original_text": "248",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 16,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 16,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 16,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "9f484139a27415ae2e8612bf6c65a8101a18eb5e9b7809e74ca63a45a65f17f4",
+        "category": "header_footer",
+        "original_text": "249",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 17,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 17,
+        "bbox": [
+          36.91,
+          63.05,
+          64.67,
+          70.52
+        ],
+        "text_sha256": "81312f5d1fbe6ee475d1c1d6fc495dba7a56f68b7ff6bef08be868a7e2b9ea22",
+        "category": "caption",
+        "original_text": "TABLE 1",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 17,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 17,
+        "bbox": [
+          39.69,
+          570.32,
+          63.92,
+          577.89
+        ],
+        "text_sha256": "d305d9992d0b4a7dc29b0065446086816c4bcc8bfffa1dce8d8c2e15020dde24",
+        "category": "caption",
+        "original_text": "FIG. 10",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 17,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "1e472b39b105d349bcd069c4a711b44a2fffb8e274714bb07ecfff69a9a7f67b",
+        "category": "header_footer",
+        "original_text": "250",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 18,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 18,
+        "bbox": [
+          45.35,
+          387.31,
+          69.59,
+          394.89
+        ],
+        "text_sha256": "349adc2e11c7c42f6ca395fd22d11f3637d64e3e5aa2108f837221890882a528",
+        "category": "caption",
+        "original_text": "FIG. 11",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 18,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 18,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "c75d3f1f5bcd6914d0331ce5ec17c0db8f2070a2d4285f8e3ff11c6ca19168ff",
+        "category": "header_footer",
+        "original_text": "251",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 19,
+        "bbox": [
+          36.85,
+          28.38,
+          569.79,
+          39.71
+        ],
+        "text_sha256": "047763c2dd3f95af1f52896a6c7e0688a9ea4356df284f4d6457812451c1b1ed",
+        "category": "header_footer",
+        "original_text": "RESEARCH Materials Today d Volume 68 d September 2023",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 19,
+        "bbox": [
+          315.1,
+          62.91,
+          569.65,
+          751.2
+        ],
+        "text_sha256": "ef814984c4cbf0d75877becac4153bdff17e38bda9ed1c7b5a28f1afe9481771",
+        "category": "reference",
+        "original_text": "[5] P. Tao et al., Nat. Energy 3 (2018) 1031–1041. [6] E.C. Mod et al., Science 330 (2010) 1787–1797. [7] M. Gao et al., Energy Environ. Sci. 12 (2019) 841–864. [8] S. Fang, Y.H. Hu, Chem. Soc. Rev. 51 (2022) 3609–3647. [9] D. Mateo et al., Chem. Soc. Rev. 50 (2021) 2173–2210. [10] X. Bian et al., Angew. Chem. Int. Ed. 62 (2023) 2304452. [11] X. Meng et al., Adv. Mater. 28 (2016) 6781–6803. [12] J. Zhang et al., ACS Nano 14 (2020) 17505–17514. [13] B. An et al., Angew. Chem. Int. Ed. 61 (2022) 2204661. [14] A. Fujishima, K. Honda, Nature 238 (1972) 37–38. [15] J. Zhang et al., Energy Environ. Mater. (2022), https://doi.org/10.1002/ eem2.12416. [16] L. Zhou et al., Science 362 (2018) 69–72. [17] M. Ng et al., Emergent Mater. (2022), https://doi.org/10.1007/s42247-02200425-4. [18] E. Cortés et al., Nat. Rev. Chem. 6 (2022) 259–274. [19] S. Linic et al., Nat. Mater. 10 (2011) 911–921. [20] A.O. Govorov et al., Nano Today 9 (2014) 85–101. [21] T. Takata et al., Nature 581 (2020) 411–414. [22] H. Nishiyama et al., Nature 598 (2021) 304–307. [23] S. Zoller et al., Joule 6 (2022) 1606–1616. [24] J. Zhao et al., Angew. Chem. Int. Ed. 62 (2023) 2219299. [25] J. Zhao et al., Nat. Commun. 14 (2023) 1909. [26] H. Wang et al., Nat. Mater. 22 (2023) 619–626. [27] S. Zhao et al., Nature 584 (2020) 387–392. [28] M. Rebber et al., Adv. Funct. Mater. 32 (2022) 2112914–2112925. [29] D. Marxer et al., Energy Environ. Sci. 10 (2017) 1142–1149. [30] M. Ghoussoub et al., Energy Environ. Sci. 12 (2019) 1122–1142. [31] Z. Wang et al., Coord. Chem. Rev. 473 (2022) 214794–214830. [32] E. de Smit, B.M. Weckhuysen, Chem. Soc. Rev. 37 (2008) 2758–2781. [33] R. Li et al., ACS Catal. 12 (2022) 5316–5326. [34] Q. Zhu et al., Nat. Catal. 5 (2022) 1030–1037. [35] S. Shoji et al., Nat. Catal. 3 (2020) 148–153. [36] H. Liu et al., Angew. Chem. Int. Ed. 54 (2015) 11545–11549. [37] P.G. O'Brien et al., Adv. Sci. 1 (2014) 1400001. [38] J. Ren et al., Adv. Energy Mater. 7 (2017) 1601657–1601663. [39] F. Sastre et al., J. Am. Chem. Soc. 136 (2014) 6798–6801. [40] Z. Li et al., Adv. Mater. 30 (2018) 1800527. [41] Y. Wang et al., Adv. Energy Mater. 10 (2019) 1902860–1902868. [42] L. Zhou et al., Nat. Energy 5 (2020) 61–70. [43] K. Maeda, Adv. Mater. 31 (2019) 1808205. [44] M.L. Brongersma et al., Nat. Nanotechnol. 10 (2015) 25–34. [45] J. Zhang et al., Nano Energy 89 (2021) 106357–106367. [46] Y. Zhang et al., Nat. Commun. 13 (2022) 58. [47] C. Boerigter et al., Nat. Commun. 7 (2016) 10545. [48] J.M. Luther et al., Nat. Mater. 10 (2011) 361–366. [49] L. Chen et al., Appl. Catal. B: Environ. 303 (2022) 120932. [50] W. Wu et al., ACS Catal. 6 (2016) 3365–3371. [51] X. Liu et al., Chem. Eng. J. 453 (2023) 139833. [52] A. Stamatiou et al., Chem. Mater. 22 (2009) 851–859. [53] F. Gao et al., Chem. Eng. J. 416 (2021) 129159. [54] L. Cheng et al., Energy Environ. Sci. 11 (2018) 1362–1391. [55] Y. Liu et al., Appl. Catal. B: Environ. 239 (2018) 334–344. [56] Y. Liu et al., Appl. Catal. B: Environ. 228 (2018) 64–74. [57] B. Tian et al., Nat. Commun. 9 (2018) 1397. [58] S. Wang et al., Appl. Catal. B: Environ. 278 (2020) 119312. [59] S. Wang et al., Appl. Catal. B: Environ. 257 (2019) 117931. [60] X. Ma et al., J. Am. Chem. Soc. 143 (2021) 12220–12229. [61] J.D. Xiao, H.L. Jiang, Acc. Chem. Res. 52 (2019) 356–366. [62] Y. Guo et al., Nat. Commun. 13 (2022) 2067. [63] S. Chen et al., Nat. Rev. Mater. 2 (2017) 17050. [64] D. Zhao et al., Nat. Energy 6 (2021) 388–397. [65] C. Gao et al., Adv. Mater. 30 (2018) 1704624. [66] X. Liu et al., Chem. Eng. J. 446 (2022) 137426. [67] A. Deng et al., Nano Energy 108 (2023) 108228. [68] M. Hu et al., Chem. Soc. Rev. 35 (2006) 1084–1094. [69] H. Chen et al., Chem. Soc. Rev. 42 (2013) 2679–2724. [70] P. Christopher et al., Nat. Chem. 3 (2011) 467–472. [71] S. Linic et al., Nat. Mater. 14 (2015) 567–576. [72] X. Zhang et al., Nat. Commun. 8 (2017) 14542. [73] A. Naldoni et al., Nano Lett. 20 (2020) 3663–3672. [74] S. Rej et al., ACS Catal. 10 (2020) 5261–5271. [75] L. Mascaretti et al., Nanophotonics 11 (2022) 3035–3056.",
+        "reason": "Reference bibliography is recorded but not translated paragraph by paragraph."
+      },
+      {
+        "page": 19,
+        "bbox": [
+          12.59,
+          172.46,
+          20.56,
+          239.56
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 19,
+        "bbox": [
+          36.96,
+          704.86,
+          76.4,
+          712.93
+        ],
+        "text_sha256": "69824d3b0e70ca6aaa0da1613b65fd914c442bf1f7ad1bb22bcdfbdfe1a05e39",
+        "category": "reference_heading",
+        "original_text": "References",
+        "reason": "Reference bibliography is recorded but not translated paragraph by paragraph."
+      },
+      {
+        "page": 19,
+        "bbox": [
+          43.37,
+          717.6,
+          242.19,
+          752.85
+        ],
+        "text_sha256": "0b3aa68cf2f1cb1b842117c378934a9b13c35a30b0a345f686cc5e860f27969f",
+        "category": "reference",
+        "original_text": "[1] J. Barber, Chem. Soc. Rev. 38 (2008) 185–196. [2] D. Pakhare, J. Spivey, Chem. Soc. Rev. 43 (2014) 7813–7837. [3] J. Lu et al., Science 335 (2012) 1205–1208. [4] C. Yan et al., Nat. Energy 3 (2018) 764–772.",
+        "reason": "Reference bibliography is recorded but not translated paragraph by paragraph."
+      },
+      {
+        "page": 19,
+        "bbox": [
+          36.85,
+          768.55,
+          50.05,
+          776.52
+        ],
+        "text_sha256": "d6e5a20b30f87216b2c758f5e7a23c437dbc3dfa1ccb177c474de152bb0ef731",
+        "category": "header_footer",
+        "original_text": "252",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 20,
+        "bbox": [
+          42.52,
+          28.38,
+          575.5,
+          39.65
+        ],
+        "text_sha256": "111f93e9a109e6d49b12138e12a89e542bf8deb12c4b0424b611c0d69718a7b4",
+        "category": "header_footer",
+        "original_text": "Materials Today d Volume 68 d September 2023 RESEARCH",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 20,
+        "bbox": [
+          42.57,
+          63.19,
+          296.67,
+          363.2
+        ],
+        "text_sha256": "31f202fbcb2c86935570361b35654bd4dbec1128c77433769117af9e86bea454",
+        "category": "reference",
+        "original_text": "[76] H. Ren et al., Adv. Mater. 29 (2017) 1702590. [77] L.B. Hoch et al., ACS Nano 10 (2016) 9017–9025. [78] F. Zhang et al., Chem Catal. 1 (2021) 272–297. [79] W. Zhang et al., Angew. Chem. Int. Ed. 60 (2021) 4872–4878. [80] J. Zou et al., J. Phys. Chem. C 120 (2016) 29116–29125. [81] B. Han et al., ACS Catal. 6 (2015) 494–497. [82] J. Zhang et al., Appl. Catal. B: Environ. 309 (2022) 121263. [83] M. Cai et al., Nat. Energy 6 (2021) 807–814. [84] R. Schappi et al., Nature 601 (2022) 63–68. [85] L. Kang et al., Angew. Chem. Int. Ed. 59 (2020) 12909–12916. [86] X. Meng et al., Angew. Chem. Int. Ed. 53 (2014) 11478–11482. [87] S. Fang et al., ACS Catal. 9 (2019) 5047–5056. [88] X. Li et al., ACS Sustain. Chem. Eng. 9 (2021) 7277–7285. [89] Y.H. Jang et al., Chem. Rev. 116 (2016) 14982–15034. [90] W. Zhang et al., Small 13 (2017) 1602583. [91] L. Mascaretti et al., Joule 6 (2022) 1727–1732. [92] Y. Sivan et al., Science 364 (2019), https://doi.org/10.1126/science.aaw9367. [93] Y.F. Xu et al., Nat. Commun. 11 (2020) 5149. [94] H. Zhang et al., Adv. Mater. 28 (2016) 3703–3710. [95] Z. Wu et al., ACS Nano 17 (2022) 1550–1559. [96] G. Liu et al., Angew. Chem. Int. Ed. 56 (2017) 5570–5574. [97] J. Jia et al., Adv. Sci. 3 (2016) 1600189. [98] M. Yang et al., Angew. Chem. Int. Ed. 58 (2019) 3077–3081. [99] M. Xu et al., J. Catal. 377 (2019) 652–661. [100] Y. Huang et al., Appl. Catal. B: Environ. 277 (2020) 119232. [101] L. Wang et al., Nat. Commun. 11 (2020) 2432. [102] B. Yan et al., Proc. Natl. Acad. Sci. 115 (2018) 8278–8283. [103] Q. Li et al., Small 17 (2021) e2006622. [104] Y. Lu et al., Nano Energy 77 (2020) 105158. [105] M.N. Ha et al., J. Mater. Chem. A 4 (2016) 13155–13165. [106] J. Grand et al., Anal. Chem. 91 (2019) 14639–14648. [107] P. Zhou et al., Nature 613 (2023) 66–70.",
+        "reason": "Reference bibliography is recorded but not translated paragraph by paragraph."
+      },
+      {
+        "page": 20,
+        "bbox": [
+          317.54,
+          63.19,
+          540.17,
+          363.2
+        ],
+        "text_sha256": "fad9a756bd64ccf9297f23711d5158071c0d23a4602e9600bbcf70084b18a651",
+        "category": "reference",
+        "original_text": "[108] J. Zhang et al., Energy Environ. Mater. 6 (2023) e12365. [109] J. Zhang et al., Appl. Catal. B: Environ. 333 (2023) 122781. [110] H. Tang et al., J. Chem. Phys. 152 (2020) 220901. [111] R.C. Elias, S. Linic, J. Am. Chem. Soc. 144 (2022) 19990–19998. [112] M.J. Kale et al., ACS Catal. 4 (2013) 116–128. [113] U. Ulmer et al., Nat. Commun. 10 (2019) 3169. [114] Q. Li et al., Angew. Chem. Int. Ed. (2023) e202300129. [115] S. Zhou et al., Adv. Mater. 31 (2019) e1900509. [116] N. Denisov et al., Adv. Mater. 35 (2023) e2206569. [117] X. Li et al., Appl. Catal. B: Environ. 283 (2021) 119660. [118] J.Y.Y. Loh et al., Nat. Sustain. 4 (2021) 466–473. [119] G. Ozin, Matter 5 (2022) 2594–2614. [120] S. Wang et al., Nat. Commun. 13 (2022) 5305. [121] X. Han et al., Adv. Funct. Mater. 31 (2021) 2008904. [122] Y. Li et al., Nat. Commun. 13 (2022) 776. [123] Z. Wu et al., Chem. 5 (2023) 492–510. [124] X. Fan et al., J. Mater. Chem. A 7 (2019) 14319–14327. [125] H.C. Zhang et al., Angew. Chem. Int. Ed. 61 (2022) 2200093. [126] B. He et al., Adv. Mater. 33 (2021) 2004406. [127] M.T. Carlson et al., Nano Lett. 12 (2012) 1534–1537. [128] H. Liu et al., Appl. Catal. B: Environ. 209 (2017) 183–189. [129] H. Liu et al., J. Mater. Chem. A 5 (2017) 10567–10573. [130] H. Song et al., ACS Appl. Mater. Interfaces 10 (2018) 408–416. [131] H. Luo et al., Fuel Process. Technol. 230 (2022) 107205. [132] X.N. Guo et al., ACS Catal. 5 (2015) 3836–3840. [133] B. Xie et al., Nat. Commun. 11 (2020) 1615. [134] S. Abanades, M. Chambon, Energy & Fuels 24 (2010) 6667–6674. [135] H. Xin et al., Angew. Chem. Int. Ed. 61 (2022) 2206236. [136] X. Zeng et al., ACS Appl. Mater. Interfaces 8 (2016) 20274–20282. [137] S. Liu et al., Angew. Chem. Int. Ed. 59 (2020) 5890–5900. [138] S. Vallejos et al., Adv. Funct. Mater. 23 (2013) 1313–1322. [139] H. Zhang et al., Chem. Soc. Rev. 47 (2018) 3015–3017.",
+        "reason": "Reference bibliography is recorded but not translated paragraph by paragraph."
+      },
+      {
+        "page": 20,
+        "bbox": [
+          591.72,
+          172.42,
+          599.69,
+          239.53
+        ],
+        "text_sha256": "60570bb267ee0fd31869d8509a509946f9c1b340215385f12f76bda360ff4ff4",
+        "category": "header_footer",
+        "original_text": "RESEARCH: Review",
+        "reason": "journal header/footer or decorative page numbering"
+      },
+      {
+        "page": 20,
+        "bbox": [
+          562.28,
+          768.55,
+          575.48,
+          776.52
+        ],
+        "text_sha256": "e7866fdc6672f827c76f6124ca3eeaff44aff8b7caf4ee1469b2ab887e7e7875",
+        "category": "header_footer",
+        "original_text": "253",
+        "reason": "journal header/footer or decorative page numbering"
+      }
+    ],
+    "unresolved_raw_block_hashes": []
+  },
+  "formula_audit": {
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "candidate_equations": [
+      {
+        "id": "E001",
+        "page": 14,
+        "equation_number": "1",
+        "bbox": [
+          43,
+          630,
+          302,
+          662
+        ],
+        "confidence": "medium",
+        "latex": "",
+        "image_path": "assets/equations/E001.png"
+      }
+    ]
+  },
+  "translation_quality_audit": {
+    "method": "Independent source-first audit of negation, conditions, qualifiers, comparisons, parameters, numbers, units, formulas, model names and citations; automated numerical-marker comparison followed by block review.",
+    "reviewed_block_ids": [
+      "S001",
+      "S002",
+      "S003",
+      "S004",
+      "S005",
+      "S006",
+      "S007",
+      "S008",
+      "S009",
+      "S010",
+      "S011",
+      "S012",
+      "S013",
+      "S014",
+      "C001",
+      "S015",
+      "S016",
+      "S017",
+      "S018",
+      "C002",
+      "S019",
+      "S020",
+      "S021",
+      "S022",
+      "S023",
+      "S024",
+      "S025",
+      "C003",
+      "S026",
+      "S027",
+      "S028",
+      "S029",
+      "S030",
+      "S031",
+      "S032",
+      "S033",
+      "S034",
+      "C004",
+      "S035",
+      "S036",
+      "S037",
+      "S038",
+      "S039",
+      "S040",
+      "C005",
+      "S041",
+      "S042",
+      "S043",
+      "S044",
+      "C006",
+      "S045",
+      "S046",
+      "S047",
+      "S048",
+      "C007",
+      "S049",
+      "S050",
+      "S051",
+      "S052",
+      "S053",
+      "S054",
+      "S055",
+      "S056",
+      "C008",
+      "S057",
+      "S058",
+      "S059",
+      "C009",
+      "S060",
+      "S061",
+      "S062",
+      "S063",
+      "S064",
+      "S065",
+      "C010",
+      "S066",
+      "S067",
+      "S068",
+      "S069",
+      "S070",
+      "S071",
+      "S072",
+      "S073",
+      "S074",
+      "S075",
+      "S076",
+      "C011",
+      "S077",
+      "S078",
+      "S079",
+      "S080",
+      "S081",
+      "S082",
+      "C012",
+      "S083",
+      "S084",
+      "S085",
+      "S086",
+      "E001"
+    ],
+    "repaired_block_ids": [],
+    "unresolved_block_ids": []
+  }
+}

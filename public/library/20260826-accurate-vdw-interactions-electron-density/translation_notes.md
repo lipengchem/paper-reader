@@ -1,6 +1,6 @@
 # Translation and extraction notes / 翻译与抽取说明
 
-- **Status / 状态：** draft pending strict validators and final rendered-page/asset review.
+- **Status / 状态：** local quality gate passed; public publication remains partial until the deployed SHA-256 chain is verified and legacy unused assets are removed under explicit approval.
 - **Source / 来源：** Zotero attachment FYMS44HI，4 页可选文本 PRL PDF；`paper.pdf` 为原附件字节保留副本（SHA-256 `73e5c26265f99dc552b6e6aabd9361c05343ae59badd231c2ce7cdbf4893b82e`）。
 - **Text layout / 文本版式：** 四页均由视觉检查确认为双栏；按页眉/全宽内容、左栏自上而下、右栏自上而下建立 source map。未跨栏自动拼接，未记录 `merged_from`。
 - **Coverage / 覆盖：** 正文、作者/单位/收稿信息、摘要、DOI/PACS、方法推导、图注、表注、致谢均有 source block。参考文献逐条保留在 `coverage_audit.excluded_blocks`，不逐条翻译；它们之后的致谢已经作为正文块保留。
